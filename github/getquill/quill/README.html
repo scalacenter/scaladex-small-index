@@ -4,7 +4,7 @@
   <p><a href="https://raw.githubusercontent.com/getquill/quill/master/quill.png" target="_blank"><img src="https://raw.githubusercontent.com/getquill/quill/master/quill.png" alt="quill" style="max-width:100%;"></a></p> 
   <p><strong>Compile-time Language Integrated Query for Scala</strong></p> 
   <p><a href="https://travis-ci.org/getquill/quill" target="_blank"><img src="https://camo.githubusercontent.com/06fc7712ef3619bbb5c065212dc55387e3ab4b42/68747470733a2f2f7472617669732d63692e6f72672f6765747175696c6c2f7175696c6c2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/getquill/quill.svg?branch=master" style="max-width:100%;"></a> <a href="https://www.codacy.com/app/fwbrasil/quill" target="_blank"><img src="https://camo.githubusercontent.com/fcaa339d2d41f298cad10ffdd581c283bf6c3e3f/68747470733a2f2f6170692e636f646163792e636f6d2f70726f6a6563742f62616467652f67726164652f3336616238346337666634333438303438396466396237333132613462646331" alt="Codacy Badge" data-canonical-src="https://api.codacy.com/project/badge/grade/36ab84c7ff43480489df9b7312a4bdc1" style="max-width:100%;"></a> <a href="https://codecov.io/github/getquill/quill?branch=master" target="_blank"><img src="https://camo.githubusercontent.com/e662e54aaaf38d8cb0de3d231c274bb9e0e25d57/68747470733a2f2f636f6465636f762e696f2f6769746875622f6765747175696c6c2f7175696c6c2f636f7665726167652e7376673f6272616e63683d6d6173746572" alt="codecov.io" data-canonical-src="https://codecov.io/github/getquill/quill/coverage.svg?branch=master" style="max-width:100%;"></a> <a href="https://gitter.im/getquill/quill?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge" target="_blank"><img src="https://camo.githubusercontent.com/9b52186233ef85483f5c65b95243444e9392be66/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6769747465722d6a6f696e253230636861742d677265656e2e737667" alt="Join the chat at https://gitter.im/getquill/quill" data-canonical-src="https://img.shields.io/badge/gitter-join%20chat-green.svg" style="max-width:100%;"></a> <a href="https://www.versioneye.com/user/projects/56ea4da64e714c0035e76353" target="_blank"><img src="https://camo.githubusercontent.com/70aae34413fc798644e9fcb955f10f1c80b780cc/68747470733a2f2f7777772e76657273696f6e6579652e636f6d2f757365722f70726f6a656374732f3536656134646136346537313463303033356537363335332f62616467652e7376673f7374796c653d666c6174" alt="Dependency Status" data-canonical-src="https://www.versioneye.com/user/projects/56ea4da64e714c0035e76353/badge.svg?style=flat" style="max-width:100%;"></a> <a href="https://maven-badges.herokuapp.com/maven-central/io.getquill/quill_2.11" target="_blank"><img src="https://camo.githubusercontent.com/60effa3a96aa8d444dba4203bf63dd718d20deb1/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f696f2e6765747175696c6c2f7175696c6c5f322e31312f62616467652e737667" alt="Maven Central" data-canonical-src="https://maven-badges.herokuapp.com/maven-central/io.getquill/quill_2.11/badge.svg" style="max-width:100%;"></a> <a href="https://www.javadoc.io/doc/io.getquill/quill-core_2.11" target="_blank"><img src="https://camo.githubusercontent.com/e222ddbc22955e6e8224b41bf7ba9a6c520bfd7a/68747470733a2f2f7777772e6a617661646f632e696f2f62616467652f696f2e6765747175696c6c2f7175696c6c5f322e31312e737667" alt="Javadocs" data-canonical-src="https://www.javadoc.io/badge/io.getquill/quill_2.11.svg" style="max-width:100%;"></a></p> 
-  <p>Quill provides a Quoted Domain Specific Language (<a href="http://homepages.inf.ed.ac.uk/wadler/papers/qdsl/qdsl.pdf" target="_blank">QDSL</a>) to express queries in Scala and execute them in a target language. The library's core is designed to support multiple target languages, currently featuring specializations for Structured Query Language (<a href="https://en.wikipedia.org/wiki/SQL" target="_blank">SQL</a>) and Cassandra Query Language (<a href="https://cassandra.apache.org/doc/cql3/CQL.html#selectStmt" target="_blank">CQL</a>).</p> 
+  <p>Quill provides a Quoted Domain Specific Language (<a href="http://homepages.inf.ed.ac.uk/wadler/papers/qdsl/qdsl.pdf" target="_blank">QDSL</a>) to express queries in Scala and execute them in a target language. The library's core is designed to support multiple target languages, currently featuring specializations for Structured Query Language (<a href="https://en.wikipedia.org/wiki/SQL" target="_blank">SQL</a>) and Cassandra Query Language (<a href="https://cassandra.apache.org/doc/latest/cql/" target="_blank">CQL</a>).</p> 
   <p><a href="https://raw.githubusercontent.com/getquill/quill/master/example.gif" target="_blank"><img src="https://raw.githubusercontent.com/getquill/quill/master/example.gif" alt="example" style="max-width:100%;"></a></p> 
   <ol> 
    <li><strong>Boilerplate-free mapping</strong>: The database schema is mapped using simple case classes.</li> 
@@ -12,6 +12,7 @@
    <li><strong>Compile-time query generation</strong>: The <code>ctx.run</code> call reads the quotation's AST and translates it to the target language at compile time, emitting the query string as a compilation message. As the query string is known at compile time, the runtime overhead is very low and similar to using the database driver directly.</li> 
    <li><strong>Compile-time query validation</strong>: If configured, the query is verified against the database at compile time and the compilation fails if it is not valid. The query validation <strong>does not</strong> alter the database state.</li> 
   </ol> 
+  <p>Note: The GIF example uses Eclipse, which shows compilation messages to the user.</p> 
   <h1><a id="user-content-quotation" class="anchor" href="https://github.com/getquill/quill#quotation" aria-hidden="true" target="_blank">
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
@@ -25,7 +26,7 @@
   <div class="highlight highlight-source-scala">
    <pre><span class="pl-k">import</span> <span class="pl-v">io.getquill.</span><span class="pl-v">_</span>
 
-<span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">SqlMirrorContext</span>[<span class="pl-en">MirrorSqlDialect</span>, <span class="pl-en">Literal</span>]</pre>
+<span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">SqlMirrorContext</span>(<span class="pl-en">MirrorSqlDialect</span>, <span class="pl-en">Literal</span>)</pre>
   </div> 
   <blockquote> 
    <h3><a id="user-content-note-scalafiddle-is-a-great-tool-to-try-out-quill-without-having-to-prepare-a-local-environment-it-works-with-mirror-contexts-see-this-fiddle-as-an-example" class="anchor" href="https://github.com/getquill/quill#note-scalafiddle-is-a-great-tool-to-try-out-quill-without-having-to-prepare-a-local-environment-it-works-with-mirror-contexts-see-this-fiddle-as-an-example" aria-hidden="true" target="_blank">
@@ -69,13 +70,11 @@
   query[<span class="pl-en">Circle</span>].map(c <span class="pl-k">=&gt;</span> <span class="pl-c1">3.14159</span> <span class="pl-k">*</span> c.radius <span class="pl-k">*</span> c.radius)
 }</pre>
   </div> 
-  <p>Scala doesn't have support for high-order functions with type parameters. Quill supports anonymous classes with an apply method for this purpose:</p> 
+  <p>Scala doesn't have support for high-order functions with type parameters. It's possible to use method type parameter for this purpose:</p> 
   <div class="highlight highlight-source-scala">
-   <pre><span class="pl-k">val</span> <span class="pl-en">existsAny</span> <span class="pl-k">=</span> quote {
-  new {
-    <span class="pl-k">def</span> <span class="pl-en">apply</span>[<span class="pl-en">T</span>](<span class="pl-v">xs</span>: <span class="pl-en">Query</span>[<span class="pl-en">T</span>])(<span class="pl-v">p</span>: <span class="pl-en">T</span> <span class="pl-k">=&gt;</span> <span class="pl-k">Boolean</span>) <span class="pl-k">=</span>
+   <pre><span class="pl-k">def</span> <span class="pl-en">existsAny</span>[<span class="pl-en">T</span>] <span class="pl-k">=</span> quote {
+  (<span class="pl-v">xs</span>: <span class="pl-en">Query</span>[<span class="pl-en">T</span>]) <span class="pl-k">=&gt;</span> (<span class="pl-v">p</span>: <span class="pl-en">T</span> <span class="pl-k">=&gt;</span> <span class="pl-k">Boolean</span>) <span class="pl-k">=&gt;</span>
     	xs.filter(p(_)).nonEmpty
-  }
 }
 
 <span class="pl-k">val</span> <span class="pl-en">q</span> <span class="pl-k">=</span> quote {
@@ -495,7 +494,7 @@ ctx.run(q)
 }
 
 ctx.run(q)
-<span class="pl-c"><span class="pl-c">//</span> SELECT p.id, p.name, p.age, c.personId, c.phone•</span>
+<span class="pl-c"><span class="pl-c">//</span> SELECT p.id, p.name, p.age, c.personId, c.phone</span>
 <span class="pl-c"><span class="pl-c">//</span> FROM Person p INNER JOIN Contact c ON c.personId = p.id</span>
 
 <span class="pl-k">val</span> <span class="pl-en">q</span> <span class="pl-k">=</span> quote {
@@ -503,7 +502,7 @@ ctx.run(q)
 }
 
 ctx.run(q)
-<span class="pl-c"><span class="pl-c">//</span> SELECT p.id, p.name, p.age, c.personId, c.phone•</span>
+<span class="pl-c"><span class="pl-c">//</span> SELECT p.id, p.name, p.age, c.personId, c.phone</span>
 <span class="pl-c"><span class="pl-c">//</span> FROM Person p LEFT JOIN Contact c ON c.personId = p.id</span>
 </pre>
   </div> 
@@ -531,7 +530,7 @@ ctx.run(q)
 
 ctx.run(qFlat)
 ctx.run(qNested)
-<span class="pl-c"><span class="pl-c">//</span> SELECT p.id, p.name, p.age, e.id, e.personId, e.name, c.id, c.phone•</span>
+<span class="pl-c"><span class="pl-c">//</span> SELECT p.id, p.name, p.age, e.id, e.personId, e.name, c.id, c.phone</span>
 <span class="pl-c"><span class="pl-c">//</span> FROM Person p INNER JOIN Employer e ON p.id = e.personId LEFT JOIN Contact c ON c.personId = p.id</span></pre>
   </div> 
   <h2><a id="user-content-query-probing" class="anchor" href="https://github.com/getquill/quill#query-probing" aria-hidden="true" target="_blank">
@@ -540,7 +539,7 @@ ctx.run(qNested)
     </svg></a>Query probing</h2> 
   <p>Query probing validates queries against the database at compile time, failing the compilation if it is not valid. The query validation does not alter the database state.</p> 
   <p>This feature is disabled by default. To enable it, mix the <code>QueryProbing</code> trait to the database configuration:</p> 
-  <pre><code>lazy val ctx = new MyContext("configKey") with QueryProbing
+  <pre><code>object myContext extends YourContextType with QueryProbing
 </code></pre> 
   <p>The context must be created in a separate compilation unit in order to be loaded at compile time. Please use <a href="http://www.scala-sbt.org/0.13/docs/Macro-Projects.html" target="_blank">this guide</a> that explains how to create a separate compilation unit for macros, that also serves to the purpose of defining a query-probing-capable context. <code>context</code> could be used instead of <code>macros</code> as the name of the separate compilation unit.</p> 
   <p>The configurations correspondent to the config key must be available at compile time. You can achieve it by adding this line to your project settings:</p> 
@@ -648,13 +647,85 @@ ctx.run(a)
 ctx.run(a)
 <span class="pl-c"><span class="pl-c">//</span> DELETE FROM Person WHERE name = ''</span></pre>
   </div> 
+  <h2><a id="user-content-io-monad" class="anchor" href="https://github.com/getquill/quill#io-monad" aria-hidden="true" target="_blank">
+    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+     <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+    </svg></a>IO Monad</h2> 
+  <p>Quill provides an IO monad that allows the user to express multiple computations and execute them separately. This mechanism is also known as a free monad, which provides a way of expressing computations as referentially-transparent values and isolates the unsafe IO operations into a single operation. For instance:</p> 
+  <pre><code>// this code using Future
+
+val p = Person(0, "John", 22)
+ctx.run(query[Person].insert(lift(p))).flatMap { _ =&gt;
+  ctx.run(query[Person])
+}
+
+// isn't referentially transparent because if you refactor the second database 
+// interaction into a value, the result will be different:
+
+val allPeople = ctx.run(query[Person])
+ctx.run(query[Person].insert(lift(p))).flatMap { _ =&gt;
+  allPeople
+}
+
+// this happens because `ctx.run` executes the side-effect (database IO) immediately
+</code></pre> 
+  <div class="highlight highlight-source-scala">
+   <pre><span class="pl-c"><span class="pl-c">//</span> The IO monad doesn't perform IO immediately, so both computations:</span>
+
+<span class="pl-k">val</span> <span class="pl-en">p</span> <span class="pl-k">=</span> <span class="pl-en">Person</span>(<span class="pl-c1">0</span>, <span class="pl-s"><span class="pl-pds">"</span>John<span class="pl-pds">"</span></span>, <span class="pl-c1">22</span>)
+
+<span class="pl-k">val</span> <span class="pl-en">a</span> <span class="pl-k">=</span>
+  ctx.runIO(query[<span class="pl-en">Person</span>].insert(lift(p))).flatMap { _ <span class="pl-k">=&gt;</span>
+    ctx.runIO(query[<span class="pl-en">Person</span>])
+  }
+
+
+<span class="pl-k">val</span> <span class="pl-en">allPeople</span> <span class="pl-k">=</span> ctx.runIO(query[<span class="pl-en">Person</span>])
+
+<span class="pl-k">val</span> <span class="pl-en">b</span> <span class="pl-k">=</span>
+  ctx.runIO(query[<span class="pl-en">Person</span>].insert(lift(p))).flatMap { _ <span class="pl-k">=&gt;</span>
+    allPeople
+  }
+
+<span class="pl-c"><span class="pl-c">//</span> produce the same result when executed</span>
+
+performIO(a) <span class="pl-k">==</span> performIO(b)</pre>
+  </div> 
+  <p>The IO monad has an interface similar to <code>Future</code>; please refer to <a href="https://github.com/getquill/quill/master/quill-core/src/main/scala/io/getquill/monad/IOMonad.scala#L38" target="_blank">the class</a> for more information regarding the available operations.</p> 
+  <p>The return type of <code>performIO</code> varies according to the context. For instance, async contexts return <code>Future</code>s while JDBC returns values synchronously.</p> 
+  <p><em><strong>NOTE</strong></em>: Avoid using the variable name <code>io</code> since it conflicts with Quill's package <code>io.getquill</code>.</p> 
+  <h3><a id="user-content-io-monad-and-transactions" class="anchor" href="https://github.com/getquill/quill#io-monad-and-transactions" aria-hidden="true" target="_blank">
+    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+     <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+    </svg></a>IO Monad and transactions</h3> 
+  <p><code>IO</code> also provides the <code>transactional</code> method that delimits a transaction:</p> 
+  <div class="highlight highlight-source-scala">
+   <pre><span class="pl-k">val</span> <span class="pl-en">a</span> <span class="pl-k">=</span>
+  ctx.runIO(query[<span class="pl-en">Person</span>].insert(lift(p))).flatMap { _ <span class="pl-k">=&gt;</span>
+    ctx.runIO(query[<span class="pl-en">Person</span>])
+  }
+
+performIO(a.transactional) <span class="pl-c"><span class="pl-c">//</span> note: transactional can be used outside of `performIO`</span></pre>
+  </div> 
+  <h3><a id="user-content-effect-tracking" class="anchor" href="https://github.com/getquill/quill#effect-tracking" aria-hidden="true" target="_blank">
+    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+     <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+    </svg></a>Effect tracking</h3> 
+  <p>The IO monad tracks the effects that a computation performs in its second type parameter:</p> 
+  <div class="highlight highlight-source-scala">
+   <pre><span class="pl-k">val</span> <span class="pl-en">a</span><span class="pl-k">:</span> <span class="pl-en">IO</span>[ctx.<span class="pl-en">RunQueryResult</span>[<span class="pl-en">Person</span>], <span class="pl-en">Effect</span>.<span class="pl-en">Write</span> <span class="pl-k">with</span> <span class="pl-e">Effect.Read</span>] <span class="pl-k">=</span>
+  ctx.runIO(query[<span class="pl-en">Person</span>].insert(lift(p))).flatMap { _ <span class="pl-k">=&gt;</span>
+    ctx.runIO(query[<span class="pl-en">Person</span>])
+  }</pre>
+  </div> 
+  <p>This mechanism is useful to limit the kind of operations that can be performed. See this <a href="http://danielwestheide.com/blog/2015/06/28/put-your-writes-where-your-master-is-compile-time-restriction-of-slick-effect-types.html" target="_blank">blog post</a> as an example.</p> 
   <h2><a id="user-content-implicit-query" class="anchor" href="https://github.com/getquill/quill#implicit-query" aria-hidden="true" target="_blank">
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>Implicit query</h2> 
   <p>Quill provides implicit conversions from case class companion objects to <code>query[T]</code> through an additional trait:</p> 
   <div class="highlight highlight-source-scala">
-   <pre><span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">SqlMirrorContext</span>[<span class="pl-en">MirrorSqlDialect</span>, <span class="pl-en">Literal</span>] <span class="pl-k">with</span> <span class="pl-e">ImplicitQuery</span>
+   <pre><span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">SqlMirrorContext</span>(<span class="pl-en">MirrorSqlDialect</span>, <span class="pl-en">Literal</span>) <span class="pl-k">with</span> <span class="pl-e">ImplicitQuery</span>
 
 <span class="pl-k">import</span> <span class="pl-v">ctx.</span><span class="pl-v">_</span>
 
@@ -677,7 +748,7 @@ ctx.run(q)
     </svg></a>SQL-specific operations</h2> 
   <p>Some operations are sql-specific and not provided with the generic quotation mechanism. The sql contexts provide implicit classes for this kind of operation:</p> 
   <div class="highlight highlight-source-scala">
-   <pre><span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">SqlMirrorContext</span>[<span class="pl-en">MirrorSqlDialect</span>, <span class="pl-en">Literal</span>]
+   <pre><span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">SqlMirrorContext</span>(<span class="pl-en">MirrorSqlDialect</span>, <span class="pl-en">Literal</span>)
 <span class="pl-k">import</span> <span class="pl-v">ctx.</span><span class="pl-v">_</span></pre>
   </div> 
   <h3><a id="user-content-like" class="anchor" href="https://github.com/getquill/quill#like" aria-hidden="true" target="_blank">
@@ -709,15 +780,30 @@ ctx.run(query[<span class="pl-en">Book</span>])
 <span class="pl-c"><span class="pl-c">//</span> SELECT x.id, x.notes, x.pages, x.history FROM Book x</span></pre>
   </div> 
   <p>Note that not all drivers/databases provides such feature hence only <code>PostgresJdbcContext</code> and <code>PostgresAsyncContext</code> support SQL Arrays.</p> 
+  <h2><a id="user-content-cassandra-specific-encoding" class="anchor" href="https://github.com/getquill/quill#cassandra-specific-encoding" aria-hidden="true" target="_blank">
+    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+     <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+    </svg></a>Cassandra-specific encoding</h2> 
+  <div class="highlight highlight-source-scala">
+   <pre><span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">CassandraMirrorContext</span>(<span class="pl-en">Literal</span>)
+<span class="pl-k">import</span> <span class="pl-v">ctx.</span><span class="pl-v">_</span></pre>
+  </div> 
+  <h3><a id="user-content-collections" class="anchor" href="https://github.com/getquill/quill#collections" aria-hidden="true" target="_blank">
+    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+     <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+    </svg></a>Collections</h3> 
+  <p>The cassandra context provides List, Set and Map encoding:</p> 
+  <div class="highlight highlight-source-scala">
+   <pre><span class="pl-k">case</span> <span class="pl-k">class</span> <span class="pl-en">Book</span>(<span class="pl-v">id</span>: <span class="pl-k">Int</span>, <span class="pl-v">notes</span>: <span class="pl-en">Set</span>[<span class="pl-k">String</span>], <span class="pl-v">pages</span>: <span class="pl-en">List</span>[<span class="pl-k">Int</span>], <span class="pl-v">history</span>: <span class="pl-en">Map</span>[<span class="pl-k">Int</span>, <span class="pl-k">Boolean</span>])
+
+ctx.run(query[<span class="pl-en">Book</span>])
+<span class="pl-c"><span class="pl-c">//</span> SELECT id, notes, pages, history FROM Book</span></pre>
+  </div> 
   <h2><a id="user-content-cassandra-specific-operations" class="anchor" href="https://github.com/getquill/quill#cassandra-specific-operations" aria-hidden="true" target="_blank">
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>Cassandra-specific operations</h2> 
   <p>The cassandra context also provides a few additional operations:</p> 
-  <div class="highlight highlight-source-scala">
-   <pre><span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">CassandraMirrorContext</span>
-<span class="pl-k">import</span> <span class="pl-v">ctx.</span><span class="pl-v">_</span></pre>
-  </div> 
   <h3><a id="user-content-allowfiltering" class="anchor" href="https://github.com/getquill/quill#allowfiltering" aria-hidden="true" target="_blank">
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
@@ -842,22 +928,41 @@ ctx.run(q2)
 ctx.run(q)
 <span class="pl-c"><span class="pl-c">//</span> DELETE p.age FROM Person</span></pre>
   </div> 
-  <h2><a id="user-content-cassandra-specific-encoding" class="anchor" href="https://github.com/getquill/quill#cassandra-specific-encoding" aria-hidden="true" target="_blank">
+  <h3><a id="user-content-listcontains--setcontains" class="anchor" href="https://github.com/getquill/quill#listcontains--setcontains" aria-hidden="true" target="_blank">
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-    </svg></a>Cassandra-specific encoding</h2> 
-  <h3><a id="user-content-collections" class="anchor" href="https://github.com/getquill/quill#collections" aria-hidden="true" target="_blank">
-    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-     <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-    </svg></a>Collections</h3> 
-  <p>Quill provides List, Set and Map encoding:</p> 
+    </svg></a>list.contains / set.contains</h3> 
+  <p>requires <code>allowFiltering</code></p> 
   <div class="highlight highlight-source-scala">
-   <pre><span class="pl-k">import</span> <span class="pl-v">java.util.</span><span class="pl-v">Date</span>
-
-<span class="pl-k">case</span> <span class="pl-k">class</span> <span class="pl-en">Book</span>(<span class="pl-v">id</span>: <span class="pl-k">Int</span>, <span class="pl-v">notes</span>: <span class="pl-en">Set</span>[<span class="pl-k">String</span>], <span class="pl-v">pages</span>: <span class="pl-en">List</span>[<span class="pl-k">Int</span>], <span class="pl-v">history</span>: <span class="pl-en">Map</span>[<span class="pl-en">Date</span>, <span class="pl-k">Boolean</span>])
-
-ctx.run(query[<span class="pl-en">Book</span>])
-<span class="pl-c"><span class="pl-c">//</span> SELECT id, notes, pages, history FROM Book</span></pre>
+   <pre><span class="pl-k">val</span> <span class="pl-en">q</span> <span class="pl-k">=</span> quote {
+  query[<span class="pl-en">Book</span>].filter(p <span class="pl-k">=&gt;</span> p.pages.contains(<span class="pl-c1">25</span>)).allowFiltering
+}
+ctx.run(q)
+<span class="pl-c"><span class="pl-c">//</span> SELECT id, notes, pages, history FROM Book WHERE pages CONTAINS 25 ALLOW FILTERING</span></pre>
+  </div> 
+  <h3><a id="user-content-mapcontains" class="anchor" href="https://github.com/getquill/quill#mapcontains" aria-hidden="true" target="_blank">
+    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+     <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+    </svg></a>map.contains</h3> 
+  <p>requires <code>allowFiltering</code></p> 
+  <div class="highlight highlight-source-scala">
+   <pre><span class="pl-k">val</span> <span class="pl-en">q</span> <span class="pl-k">=</span> quote {
+  query[<span class="pl-en">Book</span>].filter(p <span class="pl-k">=&gt;</span> p.history.contains(<span class="pl-c1">12</span>)).allowFiltering
+}
+ctx.run(q)
+<span class="pl-c"><span class="pl-c">//</span> SELECT id, notes, pages, history FROM book WHERE history CONTAINS 12 ALLOW FILTERING</span></pre>
+  </div> 
+  <h3><a id="user-content-mapcontainsvalue" class="anchor" href="https://github.com/getquill/quill#mapcontainsvalue" aria-hidden="true" target="_blank">
+    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+     <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+    </svg></a>map.containsValue</h3> 
+  <p>requires <code>allowFiltering</code></p> 
+  <div class="highlight highlight-source-scala">
+   <pre><span class="pl-k">val</span> <span class="pl-en">q</span> <span class="pl-k">=</span> quote {
+  query[<span class="pl-en">Book</span>].filter(p <span class="pl-k">=&gt;</span> p.history.containsValue(<span class="pl-c1">true</span>)).allowFiltering
+}
+ctx.run(q)
+<span class="pl-c"><span class="pl-c">//</span> SELECT id, notes, pages, history FROM book WHERE history CONTAINS true ALLOW FILTERING</span></pre>
   </div> 
   <h2><a id="user-content-dynamic-queries" class="anchor" href="https://github.com/getquill/quill#dynamic-queries" aria-hidden="true" target="_blank">
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
@@ -865,7 +970,7 @@ ctx.run(query[<span class="pl-en">Book</span>])
     </svg></a>Dynamic queries</h2> 
   <p>Quill's default operation mode is compile-time, but there are queries that have their structure defined only at runtime. Quill automatically falls back to runtime normalization and query generation if the query's structure is not static. Example:</p> 
   <div class="highlight highlight-source-scala">
-   <pre><span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">SqlMirrorContext</span>[<span class="pl-en">MirrorSqlDialect</span>, <span class="pl-en">Literal</span>]
+   <pre><span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">SqlMirrorContext</span>(<span class="pl-en">MirrorSqlDialect</span>, <span class="pl-en">Literal</span>)
 
 <span class="pl-k">import</span> <span class="pl-v">ctx.</span><span class="pl-v">_</span>
 
@@ -1117,7 +1222,7 @@ ctx.run(query[<span class="pl-en">Person</span>].filter(_.id <span class="pl-k">
     </svg></a>Dependent contexts</h2> 
   <p>The context instance provides all methods and types to interact with quotations and the database. Depending on how the context import happens, Scala won't be able to infer that the types are compatible.</p> 
   <p>For instance, this example <strong>will not</strong> compile:</p> 
-  <pre><code>class MyContext extends SqlMirrorContext[MirrorSqlDialect, Literal]
+  <pre><code>class MyContext extends SqlMirrorContext(MirrorSqlDialect, Literal)
 
 case class MySchema(c: MyContext) {
 
@@ -1137,7 +1242,7 @@ case class MyDao(c: MyContext, schema: MySchema) {
 </code></pre> 
   <p>One alternative to work with this kind of context import is use traits with abstract context values:</p> 
   <div class="highlight highlight-source-scala">
-   <pre><span class="pl-k">class</span> <span class="pl-en">MyContext</span> <span class="pl-k">extends</span> <span class="pl-e">SqlMirrorContext</span>[<span class="pl-en">MirrorSqlDialect</span>, <span class="pl-en">Literal</span>]
+   <pre><span class="pl-k">class</span> <span class="pl-en">MyContext</span> <span class="pl-k">extends</span> <span class="pl-e">SqlMirrorContext</span>(<span class="pl-en">MirrorSqlDialect</span>, <span class="pl-en">Literal</span>)
 
 <span class="pl-k">trait</span> <span class="pl-en">MySchema</span> {
 
@@ -1162,13 +1267,13 @@ case class MyDao(c: MyContext, schema: MySchema) {
     </svg></a>SQL Contexts</h2> 
   <p>Example:</p> 
   <div class="highlight highlight-source-scala">
-   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">MysqlJdbcContext</span>[<span class="pl-en">SnakeCase</span>](<span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
+   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">MysqlJdbcContext</span>(<span class="pl-en">SnakeCase</span>, <span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
   </div> 
   <h3><a id="user-content-dialect" class="anchor" href="https://github.com/getquill/quill#dialect" aria-hidden="true" target="_blank">
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>Dialect</h3> 
-  <p>The SQL dialect to be used by the context is defined by the first type parameter. Some context types are specific to a database and thus not require it.</p> 
+  <p>The SQL dialect parameter defines the specific database dialect to be used. Some context types are specific to a database and thus not require it.</p> 
   <p>Quill has five built-in dialects:</p> 
   <ul> 
    <li><code>io.getquill.H2Dialect</code></li> 
@@ -1181,7 +1286,7 @@ case class MyDao(c: MyContext, schema: MySchema) {
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>Naming strategy</h3> 
-  <p>The second type parameter defines the naming strategy to be used when translating identifiers (table and column names) to SQL.</p> 
+  <p>The naming strategy parameter defines the behavior when translating identifiers (table and column names) to SQL.</p> 
   <table> 
    <thead> 
     <tr> 
@@ -1224,8 +1329,8 @@ case class MyDao(c: MyContext, schema: MySchema) {
     </tr>
    </tbody>
   </table> 
-  <p>Multiple transformations can be defined using mixin. For instance, the naming strategy</p> 
-  <p><code>SnakeCase with UpperCase</code></p> 
+  <p>Multiple transformations can be defined using <code>NamingStrategy()</code>. For instance, the naming strategy</p> 
+  <p><code>NamingStrategy(SnakeCase, UpperCase)</code></p> 
   <p>produces the following transformation:</p> 
   <p><code>someIdent -&gt; SOME_IDENT</code></p> 
   <p>The transformations are applied from left to right.</p> 
@@ -1238,7 +1343,7 @@ case class MyDao(c: MyContext, schema: MySchema) {
   <div class="highlight highlight-source-scala">
    <pre><span class="pl-k">def</span> <span class="pl-en">createDataSource</span><span class="pl-k">:</span> javax.sql.<span class="pl-en">DataSource</span> <span class="pl-k">with</span> <span class="pl-e">java.io.Closeable</span> <span class="pl-k">=</span> <span class="pl-k">???</span>
 
-<span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">MysqlJdbcContext</span>[<span class="pl-en">SnakeCase</span>](createDataSource)</pre>
+<span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">MysqlJdbcContext</span>(<span class="pl-en">SnakeCase</span>, createDataSource)</pre>
   </div> 
   <h3><a id="user-content-quill-jdbc" class="anchor" href="https://github.com/getquill/quill#quill-jdbc" aria-hidden="true" target="_blank">
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
@@ -1267,7 +1372,7 @@ case class MyDao(c: MyContext, schema: MySchema) {
     </svg></a>sbt dependencies</h4> 
   <pre><code>libraryDependencies ++= Seq(
   "mysql" % "mysql-connector-java" % "5.1.38",
-  "io.getquill" %% "quill-jdbc" % "1.3.1-SNAPSHOT"
+  "io.getquill" %% "quill-jdbc" % "1.4.1-SNAPSHOT"
 )
 </code></pre> 
   <h4><a id="user-content-context-definition" class="anchor" href="https://github.com/getquill/quill#context-definition" aria-hidden="true" target="_blank">
@@ -1275,7 +1380,7 @@ case class MyDao(c: MyContext, schema: MySchema) {
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>context definition</h4> 
   <div class="highlight highlight-source-scala">
-   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">MysqlJdbcContext</span>[<span class="pl-en">SnakeCase</span>](<span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
+   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">MysqlJdbcContext</span>(<span class="pl-en">SnakeCase</span>, <span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
   </div> 
   <h4><a id="user-content-applicationproperties" class="anchor" href="https://github.com/getquill/quill#applicationproperties" aria-hidden="true" target="_blank">
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
@@ -1300,7 +1405,7 @@ ctx.connectionTimeout=30000
     </svg></a>sbt dependencies</h4> 
   <pre><code>libraryDependencies ++= Seq(
   "org.postgresql" % "postgresql" % "9.4.1208",
-  "io.getquill" %% "quill-jdbc" % "1.3.1-SNAPSHOT"
+  "io.getquill" %% "quill-jdbc" % "1.4.1-SNAPSHOT"
 )
 </code></pre> 
   <h4><a id="user-content-context-definition-1" class="anchor" href="https://github.com/getquill/quill#context-definition-1" aria-hidden="true" target="_blank">
@@ -1308,7 +1413,7 @@ ctx.connectionTimeout=30000
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>context definition</h4> 
   <div class="highlight highlight-source-scala">
-   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">PostgresJdbcContext</span>[<span class="pl-en">SnakeCase</span>](<span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
+   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">PostgresJdbcContext</span>(<span class="pl-en">SnakeCase</span>, <span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
   </div> 
   <h4><a id="user-content-applicationproperties-1" class="anchor" href="https://github.com/getquill/quill#applicationproperties-1" aria-hidden="true" target="_blank">
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
@@ -1332,7 +1437,7 @@ ctx.connectionTimeout=30000
     </svg></a>sbt dependencies</h4> 
   <pre><code>libraryDependencies ++= Seq(
   "org.xerial" % "sqlite-jdbc" % "3.18.0",
-  "io.getquill" %% "quill-jdbc" % "1.3.1-SNAPSHOT"
+  "io.getquill" %% "quill-jdbc" % "1.4.1-SNAPSHOT"
 )
 </code></pre> 
   <h4><a id="user-content-context-definition-2" class="anchor" href="https://github.com/getquill/quill#context-definition-2" aria-hidden="true" target="_blank">
@@ -1340,7 +1445,7 @@ ctx.connectionTimeout=30000
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>context definition</h4> 
   <div class="highlight highlight-source-scala">
-   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">SqliteJdbcContext</span>[<span class="pl-en">SnakeCase</span>](<span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
+   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">SqliteJdbcContext</span>(<span class="pl-en">SnakeCase</span>, <span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
   </div> 
   <h4><a id="user-content-applicationproperties-2" class="anchor" href="https://github.com/getquill/quill#applicationproperties-2" aria-hidden="true" target="_blank">
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
@@ -1359,7 +1464,7 @@ ctx.jdbcUrl=jdbc:sqlite:/path/to/db/file.db
     </svg></a>sbt dependencies</h4> 
   <pre><code>libraryDependencies ++= Seq(
   "com.h2database" % "h2" % "1.4.192",
-  "io.getquill" %% "quill-jdbc" % "1.3.1-SNAPSHOT"
+  "io.getquill" %% "quill-jdbc" % "1.4.1-SNAPSHOT"
 )
 </code></pre> 
   <h4><a id="user-content-context-definition-3" class="anchor" href="https://github.com/getquill/quill#context-definition-3" aria-hidden="true" target="_blank">
@@ -1367,7 +1472,7 @@ ctx.jdbcUrl=jdbc:sqlite:/path/to/db/file.db
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>context definition</h4> 
   <div class="highlight highlight-source-scala">
-   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">H2JdbcContext</span>[<span class="pl-en">SnakeCase</span>](<span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
+   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">H2JdbcContext</span>(<span class="pl-en">SnakeCase</span>, <span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
   </div> 
   <h4><a id="user-content-applicationproperties-3" class="anchor" href="https://github.com/getquill/quill#applicationproperties-3" aria-hidden="true" target="_blank">
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
@@ -1387,7 +1492,7 @@ ctx.dataSource.user=sa
     </svg></a>sbt dependencies</h4> 
   <pre><code>libraryDependencies ++= Seq(
   "com.microsoft.sqlserver" % "mssql-jdbc" % "6.1.7.jre8-preview",
-  "io.getquill" %% "quill-jdbc" % "1.3.1-SNAPSHOT"
+  "io.getquill" %% "quill-jdbc" % "1.4.1-SNAPSHOT"
 )
 </code></pre> 
   <h4><a id="user-content-context-definition-4" class="anchor" href="https://github.com/getquill/quill#context-definition-4" aria-hidden="true" target="_blank">
@@ -1395,7 +1500,7 @@ ctx.dataSource.user=sa
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>context definition</h4> 
   <div class="highlight highlight-source-scala">
-   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">SqlServerJdbcContext</span>[<span class="pl-en">SnakeCase</span>](<span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
+   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">SqlServerJdbcContext</span>(<span class="pl-en">SnakeCase</span>, <span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
   </div> 
   <h4><a id="user-content-applicationproperties-4" class="anchor" href="https://github.com/getquill/quill#applicationproperties-4" aria-hidden="true" target="_blank">
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
@@ -1494,7 +1599,7 @@ ctx.queryTimeout=10m
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>sbt dependencies</h4> 
   <pre><code>libraryDependencies ++= Seq(
-  "io.getquill" %% "quill-async-mysql" % "1.3.1-SNAPSHOT"
+  "io.getquill" %% "quill-async-mysql" % "1.4.1-SNAPSHOT"
 )
 </code></pre> 
   <h4><a id="user-content-context-definition-5" class="anchor" href="https://github.com/getquill/quill#context-definition-5" aria-hidden="true" target="_blank">
@@ -1502,7 +1607,7 @@ ctx.queryTimeout=10m
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>context definition</h4> 
   <div class="highlight highlight-source-scala">
-   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">MysqlAsyncContext</span>[<span class="pl-en">SnakeCase</span>](<span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
+   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">MysqlAsyncContext</span>(<span class="pl-en">SnakeCase</span>, <span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
   </div> 
   <h4><a id="user-content-applicationproperties-6" class="anchor" href="https://github.com/getquill/quill#applicationproperties-6" aria-hidden="true" target="_blank">
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
@@ -1521,7 +1626,7 @@ ctx.queryTimeout=10m
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>sbt dependencies</h4> 
   <pre><code>libraryDependencies ++= Seq(
-  "io.getquill" %% "quill-async-postgres" % "1.3.1-SNAPSHOT"
+  "io.getquill" %% "quill-async-postgres" % "1.4.1-SNAPSHOT"
 )
 </code></pre> 
   <h4><a id="user-content-context-definition-6" class="anchor" href="https://github.com/getquill/quill#context-definition-6" aria-hidden="true" target="_blank">
@@ -1529,7 +1634,7 @@ ctx.queryTimeout=10m
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>context definition</h4> 
   <div class="highlight highlight-source-scala">
-   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">PostgresAsyncContext</span>[<span class="pl-en">SnakeCase</span>](<span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
+   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">PostgresAsyncContext</span>(<span class="pl-en">SnakeCase</span>, <span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
   </div> 
   <h4><a id="user-content-applicationproperties-7" class="anchor" href="https://github.com/getquill/quill#applicationproperties-7" aria-hidden="true" target="_blank">
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
@@ -1559,7 +1664,7 @@ ctx.queryTimeout=10m
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>sbt dependencies</h4> 
   <pre><code>libraryDependencies ++= Seq(
-  "io.getquill" %% "quill-finagle-mysql" % "1.3.1-SNAPSHOT"
+  "io.getquill" %% "quill-finagle-mysql" % "1.4.1-SNAPSHOT"
 )
 </code></pre> 
   <h4><a id="user-content-context-definition-7" class="anchor" href="https://github.com/getquill/quill#context-definition-7" aria-hidden="true" target="_blank">
@@ -1567,7 +1672,7 @@ ctx.queryTimeout=10m
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>context definition</h4> 
   <div class="highlight highlight-source-scala">
-   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">FinagleMysqlContext</span>[<span class="pl-en">SnakeCase</span>](<span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
+   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">FinagleMysqlContext</span>(<span class="pl-en">SnakeCase</span>, <span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
   </div> 
   <h4><a id="user-content-applicationproperties-8" class="anchor" href="https://github.com/getquill/quill#applicationproperties-8" aria-hidden="true" target="_blank">
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
@@ -1603,7 +1708,7 @@ ctx.pool.maxWaiters=2147483647
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>sbt dependencies</h4> 
   <pre><code>libraryDependencies ++= Seq(
-  "io.getquill" %% "quill-finagle-postgres" % "1.3.1-SNAPSHOT"
+  "io.getquill" %% "quill-finagle-postgres" % "1.4.1-SNAPSHOT"
 )
 </code></pre> 
   <h4><a id="user-content-context-definition-8" class="anchor" href="https://github.com/getquill/quill#context-definition-8" aria-hidden="true" target="_blank">
@@ -1611,7 +1716,7 @@ ctx.pool.maxWaiters=2147483647
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>context definition</h4> 
   <div class="highlight highlight-source-scala">
-   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">FinaglePostgresContext</span>[<span class="pl-en">SnakeCase</span>](<span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
+   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">FinaglePostgresContext</span>(<span class="pl-en">SnakeCase</span>, <span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
   </div> 
   <h4><a id="user-content-applicationproperties-9" class="anchor" href="https://github.com/getquill/quill#applicationproperties-9" aria-hidden="true" target="_blank">
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
@@ -1636,7 +1741,7 @@ ctx.binaryParams=false
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>sbt dependencies</h4> 
   <pre><code>libraryDependencies ++= Seq(
-  "io.getquill" %% "quill-cassandra" % "1.3.1-SNAPSHOT"
+  "io.getquill" %% "quill-cassandra" % "1.4.1-SNAPSHOT"
 )
 </code></pre> 
   <h4><a id="user-content-synchronous-context" class="anchor" href="https://github.com/getquill/quill#synchronous-context" aria-hidden="true" target="_blank">
@@ -1644,21 +1749,21 @@ ctx.binaryParams=false
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>synchronous context</h4> 
   <div class="highlight highlight-source-scala">
-   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">CassandraSyncContext</span>[<span class="pl-en">SnakeCase</span>](<span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
+   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">CassandraSyncContext</span>(<span class="pl-en">SnakeCase</span>, <span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
   </div> 
   <h4><a id="user-content-asynchronous-context" class="anchor" href="https://github.com/getquill/quill#asynchronous-context" aria-hidden="true" target="_blank">
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>asynchronous context</h4> 
   <div class="highlight highlight-source-scala">
-   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">CassandraAsyncContext</span>[<span class="pl-en">SnakeCase</span>](<span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
+   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">CassandraAsyncContext</span>(<span class="pl-en">SnakeCase</span>, <span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
   </div> 
   <h4><a id="user-content-stream-context" class="anchor" href="https://github.com/getquill/quill#stream-context" aria-hidden="true" target="_blank">
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>stream context</h4> 
   <div class="highlight highlight-source-scala">
-   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">CassandraStreamContext</span>[<span class="pl-en">SnakeCase</span>](<span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
+   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">CassandraStreamContext</span>(<span class="pl-en">SnakeCase</span>, <span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
   </div> 
   <p>The configurations are set using runtime reflection on the <a href="https://docs.datastax.com/en/drivers/java/2.1/com/datastax/driver/core/Cluster.Builder.html" target="_blank"><code>Cluster.builder</code></a> instance. It is possible to set nested structures like <code>queryOptions.consistencyLevel</code>, use enum values like <code>LOCAL_QUORUM</code>, and set multiple parameters like in <code>credentials</code>.</p> 
   <h4><a id="user-content-applicationproperties-10" class="anchor" href="https://github.com/getquill/quill#applicationproperties-10" aria-hidden="true" target="_blank">
@@ -1686,7 +1791,7 @@ ctx.session.addressTranslator=com.datastax.driver.core.policies.IdentityTranslat
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>sbt dependencies</h4> 
   <pre><code>libraryDependencies ++= Seq(
-  "io.getquill" %% "quill-orientdb" % "1.3.1-SNAPSHOT"
+  "io.getquill" %% "quill-orientdb" % "1.4.1-SNAPSHOT"
 )
 </code></pre> 
   <h4><a id="user-content-synchronous-context-1" class="anchor" href="https://github.com/getquill/quill#synchronous-context-1" aria-hidden="true" target="_blank">
@@ -1694,14 +1799,7 @@ ctx.session.addressTranslator=com.datastax.driver.core.policies.IdentityTranslat
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>synchronous context</h4> 
   <div class="highlight highlight-source-scala">
-   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">OrientDBSyncContext</span>[<span class="pl-en">SnakeCase</span>](<span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
-  </div> 
-  <h4><a id="user-content-asynchronous-context-1" class="anchor" href="https://github.com/getquill/quill#asynchronous-context-1" aria-hidden="true" target="_blank">
-    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-     <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-    </svg></a>asynchronous context</h4> 
-  <div class="highlight highlight-source-scala">
-   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">OrientDBAsyncContext</span>[<span class="pl-en">SnakeCase</span>](<span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
+   <pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">ctx</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">OrientDBSyncContext</span>(<span class="pl-en">SnakeCase</span>, <span class="pl-s"><span class="pl-pds">"</span>ctx<span class="pl-pds">"</span></span>)</pre>
   </div> 
   <p>The configurations are set using <a href="http://orientdb.com/javadoc/latest/com/orientechnologies/orient/core/db/OPartitionedDatabasePool.html" target="_blank"><code>OPartitionedDatabasePool</code></a> which creates a pool of DB connections from which an instance of connection can be acquired. It is possible to set DB credentials using the parameter called <code>username</code> and <code>password</code>.</p> 
   <h4><a id="user-content-applicationproperties-11" class="anchor" href="https://github.com/getquill/quill#applicationproperties-11" aria-hidden="true" target="_blank">

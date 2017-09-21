@@ -19,21 +19,36 @@
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>Getting Started</h2> 
   <p><strong>Compatibility note:</strong> As of Lift 3.0, you'll need to be running Java 8 to use Lift. For those using Java 6 or Java 7, you'll need to use Lift 2.6 until you can upgrade your Java installation.</p> 
-  <p>You can create a new Lift project using your favorite build system by adding Lift as a dependency:</p> 
-  <h3><a id="user-content-with-sbt" class="anchor" href="https://github.com/lift/framework#with-sbt" aria-hidden="true" target="_blank">
+  <p>You can create a new Lift project using your favorite build system by adding Lift as a dependency. Below we walk through setting up Lift in sbt and Maven.</p> 
+  <h3><a id="user-content-with-sbt-new-project" class="anchor" href="https://github.com/lift/framework#with-sbt-new-project" aria-hidden="true" target="_blank">
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-    </svg></a>With sbt</h3> 
-  <p>We recommend using the latest sbt version, which is currently 0.13.15, but anything 0.13.6+ will work with the instructions below.</p> 
-  <p>Create or update your <code>project/plugins.sbt</code> file with the <code>xsbt-web-plugin</code>:</p> 
+    </svg></a>With sbt (new project)</h3> 
+  <p>If you're using a recent version of sbt (e.g. 0.13.16), you can create a new Lift application using our Giter8. To create a new, basic Lift application that has some example code, simply execute:</p> 
+  <pre><code>sbt new lift/basic-app.g8
+</code></pre> 
+  <p>Or, if you're more on the advanced side of the room, you can also create a new, entirely blank application:</p> 
+  <pre><code>sbt new lift/blank-app.g8
+</code></pre> 
+  <p>Follow the prompts to create your Lift application.</p> 
+  <h3><a id="user-content-with-sbt-existing-project" class="anchor" href="https://github.com/lift/framework#with-sbt-existing-project" aria-hidden="true" target="_blank">
+    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+     <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+    </svg></a>With sbt (Existing project)</h3> 
+  <p>If you're using Lift in an existing sbt project you'll need to:</p> 
+  <ol> 
+   <li>Add the xsbt-web-plugin if you don't already have it or some other way to start a servlet app.</li> 
+   <li>Add the lift dependencies.</li> 
+  </ol> 
+  <p>To add the xsbt-web-plugin download the most recent version of our <a href="https://github.com/lift/basic-app.g8/blob/master/src/main/g8/project/web-plugin.sbt" target="_blank">web-plugin.sbt</a> file to your <code>project/</code> folder.</p> 
+  <p>Then, enable the plugin for the container you want to use and in your <code>build.sbt</code> file. Below, we activate the JettyPlugin:</p> 
   <div class="highlight highlight-source-scala">
-   <pre>addSbtPlugin(<span class="pl-s"><span class="pl-pds">"</span>com.github.siasia<span class="pl-pds">"</span></span> <span class="pl-k">%%</span> <span class="pl-s"><span class="pl-pds">"</span>xsbt-web-plugin<span class="pl-pds">"</span></span> <span class="pl-k">%</span> <span class="pl-s"><span class="pl-pds">"</span>3.0.2<span class="pl-pds">"</span></span>)</pre>
+   <pre>enablePlugins(<span class="pl-en">JettyPlugin</span>)</pre>
   </div> 
-  <p>Then, add the plugin and Lift to your <code>build.sbt</code> file:</p> 
+  <p>More information on using the plugin can be found on the <a href="https://github.com/earldouglas/xsbt-web-plugin/" target="_blank">xsbt-web-plugin project</a>.</p> 
+  <p>After you've done this, you'll want to add Lift to your <code>libraryDependencies</code> in addition to Logback if you don't already have another SLF4J logging library in place. For example:</p> 
   <div class="highlight highlight-source-scala">
-   <pre>enablePlugins(<span class="pl-en">JettyPlugin</span>)
-
-libraryDependencies <span class="pl-k">++</span><span class="pl-k">=</span> {
+   <pre>libraryDependencies <span class="pl-k">++</span><span class="pl-k">=</span> {
   <span class="pl-k">val</span> <span class="pl-en">liftVersion</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>3.1.0<span class="pl-pds">"</span></span>
   <span class="pl-en">Seq</span>(
     <span class="pl-s"><span class="pl-pds">"</span>net.liftweb<span class="pl-pds">"</span></span>       <span class="pl-k">%%</span> <span class="pl-s"><span class="pl-pds">"</span>lift-webkit<span class="pl-pds">"</span></span> <span class="pl-k">%</span> liftVersion <span class="pl-k">%</span> <span class="pl-s"><span class="pl-pds">"</span>compile<span class="pl-pds">"</span></span>,
@@ -45,8 +60,7 @@ libraryDependencies <span class="pl-k">++</span><span class="pl-k">=</span> {
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
      <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
     </svg></a>With Maven</h3> 
-  <p>You can use one of the several archetypes -- <code>lift-archetype-blank</code>, <code>lift-archetype-basic</code>, <code>lift-archetype-jpa-basic</code> -- to generate a new Lift project. You must set <code>archetypeRepository</code> and <code>remoteRepositories</code> to <code>http://scala-tools.org/repo-releases</code> or <code>http://scala-tools.org/repo-snapshots</code>, depending on whether you are using a release or the latest SNAPSHOT.</p> 
-  <p>Or, you can add Lift to your <code>pom.xml</code> like so:</p> 
+  <p>Add Lift to your <code>pom.xml</code> like so:</p> 
   <pre><code>&lt;dependency&gt;
   &lt;groupId&gt;net.liftweb&lt;/groupId&gt;
   &lt;artifactId&gt;lift-webkit_${scala.version}&lt;/artifactId&gt;

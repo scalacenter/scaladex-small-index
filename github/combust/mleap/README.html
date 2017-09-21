@@ -30,7 +30,7 @@
    <li>Core execution engine implemented in Scala</li> 
    <li><a href="http://spark.apache.org/" target="_blank">Spark</a>, PySpark and Scikit-Learn support</li> 
    <li>Export a model with Scikit-learn or Spark and execute it using the MLeap Runtime (without dependencies on the Spark Context, or sklearn/numpy/pandas/etc)</li> 
-   <li>Choose from 3 portable serialization formats (JSON, Protobuf, and Mixed)</li> 
+   <li>Choose from 2 portable serialization formats (JSON, Protobuf)</li> 
    <li>Implement your own custom data types and transformers for use with MLeap data frames and transformer pipelines</li> 
    <li>Extensive test coverage with full parity tests for Spark and MLeap pipelines</li> 
    <li>Optional Spark transformer extension to extend Spark's default transformer offerings</li> 
@@ -118,38 +118,44 @@
     </svg></a>Create and Export a Spark Pipeline</h3> 
   <p>The first step is to create our pipeline in Spark. For our example we will manually build a simple Spark ML pipeline.</p> 
   <div class="highlight highlight-source-scala">
-   <pre><span class="pl-k">import</span> <span class="pl-v">org.apache.spark.ml.feature.</span>{<span class="pl-v">StringIndexerModel</span>, <span class="pl-v">Binarizer</span>}
-
-<span class="pl-c"><span class="pl-c">//</span> User out-of-the-box Spark transformers like you normally would</span>
-<span class="pl-k">val</span> <span class="pl-en">stringIndexer</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">StringIndexerModel</span>(uid <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>si<span class="pl-pds">"</span></span>, labels <span class="pl-k">=</span> <span class="pl-en">Array</span>(<span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>MLeap<span class="pl-pds">"</span></span>)).
-  setInputCol(<span class="pl-s"><span class="pl-pds">"</span>test_string<span class="pl-pds">"</span></span>).
-  setOutputCol(<span class="pl-s"><span class="pl-pds">"</span>test_index<span class="pl-pds">"</span></span>)
-
-<span class="pl-k">val</span> <span class="pl-en">binarizer</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Binarizer</span>(uid <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>bin<span class="pl-pds">"</span></span>).
-  setThreshold(<span class="pl-c1">0.5</span>).
-  setInputCol(<span class="pl-s"><span class="pl-pds">"</span>test_double<span class="pl-pds">"</span></span>).
-  setOutputCol(<span class="pl-s"><span class="pl-pds">"</span>test_bin<span class="pl-pds">"</span></span>)
-
-<span class="pl-c"><span class="pl-c">//</span> Use the MLeap utility method to directly create an org.apache.spark.ml.PipelineModel</span>
-
-<span class="pl-k">import</span> <span class="pl-v">org.apache.spark.ml.mleap.</span><span class="pl-v">SparkUtil</span>
-
-<span class="pl-c"><span class="pl-c">//</span> Without needing to fit an org.apache.spark.ml.Pipeline</span>
-<span class="pl-k">val</span> <span class="pl-en">pipeline</span> <span class="pl-k">=</span> <span class="pl-en">SparkUtil</span>.createPipelineModel(uid <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>pipeline<span class="pl-pds">"</span></span>, <span class="pl-en">Array</span>(stringIndexer, binarizer))
-
-<span class="pl-k">import</span> <span class="pl-v">ml.combust.bundle.</span><span class="pl-v">BundleFile</span>
+   <pre><span class="pl-k">import</span> <span class="pl-v">ml.combust.bundle.</span><span class="pl-v">BundleFile</span>
 <span class="pl-k">import</span> <span class="pl-v">ml.combust.mleap.spark.SparkSupport.</span><span class="pl-v">_</span>
+<span class="pl-k">import</span> <span class="pl-v">org.apache.spark.ml.</span><span class="pl-v">Pipeline</span>
+<span class="pl-k">import</span> <span class="pl-v">org.apache.spark.ml.bundle.</span><span class="pl-v">SparkBundleContext</span>
+<span class="pl-k">import</span> <span class="pl-v">org.apache.spark.ml.feature.</span>{<span class="pl-v">Binarizer</span>, <span class="pl-v">StringIndexer</span>}
+<span class="pl-k">import</span> <span class="pl-v">org.apache.spark.sql.</span><span class="pl-v">_</span>
+<span class="pl-k">import</span> <span class="pl-v">org.apache.spark.sql.functions.</span><span class="pl-v">_</span>
 <span class="pl-k">import</span> <span class="pl-v">resource.</span><span class="pl-v">_</span>
 
-<span class="pl-c"><span class="pl-c">//</span> Optionally yield from here to get the try back from serializing</span>
-<span class="pl-c"><span class="pl-c">//</span> The try will indicate if serialization was successful</span>
-<span class="pl-k">for</span>(modelFile <span class="pl-k">&lt;</span><span class="pl-k">-</span> managed(<span class="pl-en">BundleFile</span>(<span class="pl-s"><span class="pl-pds">"</span>jar:file:/tmp/simple-spark-pipeline.zip<span class="pl-pds">"</span></span>))) {
-  pipeline.writeBundle.
-    <span class="pl-c"><span class="pl-c">//</span> save our pipeline to a zip file</span>
-    <span class="pl-c"><span class="pl-c">//</span> we can save a file to any supported java.nio.FileSystem</span>
-    save(modelFile)
-}</pre>
+  <span class="pl-k">val</span> <span class="pl-en">datasetName</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>./examples/spark-demo.csv<span class="pl-pds">"</span></span>
+
+  <span class="pl-k">val</span> <span class="pl-en">dataframe</span><span class="pl-k">:</span> <span class="pl-en">DataFrame</span> <span class="pl-k">=</span> spark.sqlContext.read.format(<span class="pl-s"><span class="pl-pds">"</span>csv<span class="pl-pds">"</span></span>)
+    .option(<span class="pl-s"><span class="pl-pds">"</span>header<span class="pl-pds">"</span></span>, <span class="pl-c1">true</span>)
+    .load(datasetName)
+    .withColumn(<span class="pl-s"><span class="pl-pds">"</span>test_double<span class="pl-pds">"</span></span>, col(<span class="pl-s"><span class="pl-pds">"</span>test_double<span class="pl-pds">"</span></span>).cast(<span class="pl-s"><span class="pl-pds">"</span>double<span class="pl-pds">"</span></span>))
+
+  <span class="pl-c"><span class="pl-c">//</span> User out-of-the-box Spark transformers like you normally would</span>
+  <span class="pl-k">val</span> <span class="pl-en">stringIndexer</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">StringIndexer</span>().
+    setInputCol(<span class="pl-s"><span class="pl-pds">"</span>test_string<span class="pl-pds">"</span></span>).
+    setOutputCol(<span class="pl-s"><span class="pl-pds">"</span>test_index<span class="pl-pds">"</span></span>)
+
+  <span class="pl-k">val</span> <span class="pl-en">binarizer</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Binarizer</span>().
+    setThreshold(<span class="pl-c1">0.5</span>).
+    setInputCol(<span class="pl-s"><span class="pl-pds">"</span>test_double<span class="pl-pds">"</span></span>).
+    setOutputCol(<span class="pl-s"><span class="pl-pds">"</span>test_bin<span class="pl-pds">"</span></span>)
+
+  <span class="pl-k">val</span> <span class="pl-en">pipelineEstimator</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Pipeline</span>()
+    .setStages(<span class="pl-en">Array</span>(stringIndexer, binarizer))
+
+  <span class="pl-k">val</span> <span class="pl-en">pipeline</span> <span class="pl-k">=</span> pipelineEstimator.fit(dataframe)
+
+  <span class="pl-c"><span class="pl-c">//</span> then serialize pipeline</span>
+  <span class="pl-k">val</span> <span class="pl-en">sbc</span> <span class="pl-k">=</span> <span class="pl-en">SparkBundleContext</span>().withDataset(pipeline.transform(dataframe))
+  <span class="pl-k">for</span>(bf <span class="pl-k">&lt;</span><span class="pl-k">-</span> managed(<span class="pl-en">BundleFile</span>(<span class="pl-s"><span class="pl-pds">"</span>jar:file:/tmp/simple-spark-pipeline.zip<span class="pl-pds">"</span></span>))) {
+    pipeline.writeBundle.save(bf)(sbc).get
+  }</pre>
   </div> 
+  <p>The dataset used for training can be found <a href="https://github.com/combust/mleap/tree/master/examples/spark-demo.csv" target="_blank">here</a></p> 
   <p>Spark pipelines are not meant to be run outside of Spark. They require a DataFrame and therefore a SparkContext to run. These are expensive data structures and libraries to include in a project. With MLeap, there is no dependency on Spark to execute a pipeline. MLeap dependencies are lightweight and we use fast data structures to execute your ML pipelines.</p> 
   <h3><a id="user-content-pyspark-integration-1" class="anchor" href="https://github.com/combust/mleap#pyspark-integration-1" aria-hidden="true" target="_blank">
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
@@ -183,7 +189,7 @@ data <span class="pl-k">=</span> pd.DataFrame([<span class="pl-s"><span class="p
 
 continuous_features <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>col_a<span class="pl-pds">'</span></span>]
 
-feature_extractor_tf <span class="pl-k">=</span> FeatureExtractor(<span class="pl-v">input_features</span><span class="pl-k">=</span>continuous_features, 
+feature_extractor_tf <span class="pl-k">=</span> FeatureExtractor(<span class="pl-v">input_scalars</span><span class="pl-k">=</span>continuous_features, 
                                          <span class="pl-v">output_vector</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>imputed_features<span class="pl-pds">'</span></span>, 
                                          <span class="pl-v">output_vector_items</span><span class="pl-k">=</span>continuous_features)
 
@@ -196,7 +202,7 @@ reshape_le_tf <span class="pl-k">=</span> ReshapeArrayToN1()
 
 <span class="pl-c"><span class="pl-c">#</span> Vector Assembler for x1 One Hot Encoder</span>
 one_hot_encoder_tf <span class="pl-k">=</span> OneHotEncoder(<span class="pl-v">sparse</span><span class="pl-k">=</span><span class="pl-c1">False</span>)
-one_hot_encoder_tf.mlinit(<span class="pl-v">input_features</span> <span class="pl-k">=</span> label_encoder_tf.output_features, 
+one_hot_encoder_tf.mlinit(<span class="pl-v">prior_tf</span> <span class="pl-k">=</span> label_encoder_tf, 
                           <span class="pl-v">output_features</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-c1">{}</span>_label_one_hot_encoded<span class="pl-pds">'</span></span>.format(continuous_features[<span class="pl-c1">0</span>]))
 
 one_hot_encoder_pipeline_x0 <span class="pl-k">=</span> Pipeline([
@@ -223,7 +229,6 @@ one_hot_encoder_pipeline_x0.serialize_to_bundle(<span class="pl-s"><span class="
    <pre><span class="pl-k">import</span> <span class="pl-v">ml.combust.bundle.</span><span class="pl-v">BundleFile</span>
 <span class="pl-k">import</span> <span class="pl-v">ml.combust.mleap.runtime.MleapSupport.</span><span class="pl-v">_</span>
 <span class="pl-k">import</span> <span class="pl-v">resource.</span><span class="pl-v">_</span>
-
 <span class="pl-c"><span class="pl-c">//</span> load the Spark pipeline we saved in the previous section</span>
 <span class="pl-k">val</span> <span class="pl-en">bundle</span> <span class="pl-k">=</span> (<span class="pl-k">for</span>(bundleFile <span class="pl-k">&lt;</span><span class="pl-k">-</span> managed(<span class="pl-en">BundleFile</span>(<span class="pl-s"><span class="pl-pds">"</span>jar:file:/tmp/simple-spark-pipeline.zip<span class="pl-pds">"</span></span>))) <span class="pl-k">yield</span> {
   bundleFile.loadMleapBundle().get
@@ -231,15 +236,13 @@ one_hot_encoder_pipeline_x0.serialize_to_bundle(<span class="pl-s"><span class="
 
 <span class="pl-c"><span class="pl-c">//</span> create a simple LeapFrame to transform</span>
 <span class="pl-k">import</span> <span class="pl-v">ml.combust.mleap.runtime.</span>{<span class="pl-v">Row</span>, <span class="pl-v">LeapFrame</span>, <span class="pl-v">LocalDataset</span>}
-<span class="pl-k">import</span> <span class="pl-v">ml.combust.mleap.runtime.types.</span><span class="pl-v">_</span>
-<span class="pl-k">import</span> <span class="pl-v">ml.combust.mleap.tensor.</span><span class="pl-v">Tensor</span>
-
+<span class="pl-k">import</span> <span class="pl-v">ml.combust.mleap.core.types.</span><span class="pl-v">_</span>
 
 <span class="pl-c"><span class="pl-c">//</span> MLeap makes extensive use of monadic types like Try</span>
-<span class="pl-k">val</span> <span class="pl-en">schema</span> <span class="pl-k">=</span> <span class="pl-en">StructType</span>(<span class="pl-en">StructField</span>(<span class="pl-s"><span class="pl-pds">"</span>test_string<span class="pl-pds">"</span></span>, <span class="pl-en">StringType</span>()),
-  <span class="pl-en">StructField</span>(<span class="pl-s"><span class="pl-pds">"</span>test_double<span class="pl-pds">"</span></span>, <span class="pl-en">TensorType</span>(<span class="pl-en">DoubleType</span>()))).get
-<span class="pl-k">val</span> <span class="pl-en">data</span> <span class="pl-k">=</span> <span class="pl-en">LocalDataset</span>(<span class="pl-en">Row</span>(<span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>, <span class="pl-en">Tensor</span>.denseVector(<span class="pl-en">Array</span>(<span class="pl-c1">0.6</span>))),
-  <span class="pl-en">Row</span>(<span class="pl-s"><span class="pl-pds">"</span>MLeap<span class="pl-pds">"</span></span>, <span class="pl-en">Tensor</span>.denseVector(<span class="pl-en">Array</span>(<span class="pl-c1">0.2</span>))))
+<span class="pl-k">val</span> <span class="pl-en">schema</span> <span class="pl-k">=</span> <span class="pl-en">StructType</span>(<span class="pl-en">StructField</span>(<span class="pl-s"><span class="pl-pds">"</span>test_string<span class="pl-pds">"</span></span>, <span class="pl-en">ScalarType</span>.<span class="pl-k">String</span>),
+  <span class="pl-en">StructField</span>(<span class="pl-s"><span class="pl-pds">"</span>test_double<span class="pl-pds">"</span></span>, <span class="pl-en">ScalarType</span>.<span class="pl-k">Double</span>)).get
+<span class="pl-k">val</span> <span class="pl-en">data</span> <span class="pl-k">=</span> <span class="pl-en">LocalDataset</span>(<span class="pl-en">Row</span>(<span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>, <span class="pl-c1">0.6</span>),
+  <span class="pl-en">Row</span>(<span class="pl-s"><span class="pl-pds">"</span>MLeap<span class="pl-pds">"</span></span>, <span class="pl-c1">0.2</span>))
 <span class="pl-k">val</span> <span class="pl-en">frame</span> <span class="pl-k">=</span> <span class="pl-en">LeapFrame</span>(schema, data)
 
 <span class="pl-c"><span class="pl-c">//</span> transform the dataframe using our pipeline</span>
@@ -249,11 +252,11 @@ one_hot_encoder_pipeline_x0.serialize_to_bundle(<span class="pl-s"><span class="
 
 <span class="pl-c"><span class="pl-c">//</span> get data from the transformed rows and make some assertions</span>
 assert(data2(<span class="pl-c1">0</span>).getDouble(<span class="pl-c1">2</span>) <span class="pl-k">==</span> <span class="pl-c1">0.0</span>) <span class="pl-c"><span class="pl-c">//</span> string indexer output</span>
-assert(data2(<span class="pl-c1">0</span>).getTensor[<span class="pl-k">Double</span>](<span class="pl-c1">3</span>).get(<span class="pl-c1">0</span>) <span class="pl-k">==</span> <span class="pl-c1">1.0</span>) <span class="pl-c"><span class="pl-c">//</span> binarizer output</span>
+assert(data2(<span class="pl-c1">0</span>).getDouble(<span class="pl-c1">3</span>) <span class="pl-k">==</span> <span class="pl-c1">1.0</span>) <span class="pl-c"><span class="pl-c">//</span> binarizer output</span>
 
 <span class="pl-c"><span class="pl-c">//</span> the second row</span>
 assert(data2(<span class="pl-c1">1</span>).getDouble(<span class="pl-c1">2</span>) <span class="pl-k">==</span> <span class="pl-c1">1.0</span>)
-assert(data2(<span class="pl-c1">1</span>).getTensor[<span class="pl-k">Double</span>](<span class="pl-c1">3</span>).get(<span class="pl-c1">0</span>) <span class="pl-k">==</span> <span class="pl-c1">0.0</span>)</pre>
+assert(data2(<span class="pl-c1">1</span>).getDouble(<span class="pl-c1">3</span>) <span class="pl-k">==</span> <span class="pl-c1">0.0</span>)</pre>
   </div> 
   <h2><a id="user-content-documentation-1" class="anchor" href="https://github.com/combust/mleap#documentation-1" aria-hidden="true" target="_blank">
     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">

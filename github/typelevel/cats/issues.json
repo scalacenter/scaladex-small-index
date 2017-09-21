@@ -28,16 +28,34 @@
             "url":"https://github.com/typelevel/cats/issues/1587"
           },
           {
-            "number":1668,
-            "title":"Piecemeal import guide",
-            "bodyText":"Currently the imports guide only really describes the \"uber\" import (cats.implicits._). It may be handy to have a detailed guide of piecemeal imports, such as cats.instances.string._ and cats.syntax.functor._ as an additional section for people who prefer this approach.",
-            "url":"https://github.com/typelevel/cats/issues/1668"
-          },
-          {
             "number":1678,
             "title":"Beginner-friendliness of Validated doc",
             "bodyText":"There has been some feedback on Gitter that the Validated doc isn't as beginner-friendly as it could be. Pretty early in the doc it delves into writing a parallelValidate method, discussing Apply, etc. This offers some nice insight into deriving Validated methods, but it's not necessarily obvious that a user doesn't need to write these things in their code. It would likely be better for users if the docs first showed simple examples of using Validated to accumulate errors and then in an advanced section at the end covered more advanced concepts and derivation.",
             "url":"https://github.com/typelevel/cats/issues/1678"
+          },
+          {
+            "number":1749,
+            "title":"Site: arrows on background typo",
+            "bodyText":"On Cats page it seems that there's a typo in the background image: the above f should probably be f' so that it would match the annotation above the arrow that's drawn diagonally, which is g' . f'.",
+            "url":"https://github.com/typelevel/cats/issues/1749"
+          },
+          {
+            "number":1801,
+            "title":"Documentation megathread",
+            "bodyText":"I'm trying to compile a thorough collection of everything currently documented and everything we still want to document. I'd also like to talk about a few other things other people brought up. This is sort of meant as a follow up to #1443. Another question that arrises, is if we really need documentation for every single one of these, or if some don't really make sense to have their own page. It might make sense to combine some of these as well (e.g. NonEmpty{List, Vector}).\nType classes:\n\n\nKernel\n\n Eq #1788\n PartialOrder\n Order\n Semigroup\n Monoid\n Group\n CommutativeSemigroup\n Band\n CommutativeMonoid\n Semilattice\n CommutativeGroup\n BoundedSemilattice\n\n\n\nFunctor\n\n Invariant\n Contravariant\n BiFunctor\n ProFunctor\n Strong\n\n\n\nCore\n\n Functor\n Apply\n Applicative\n FlatMap\n Monad\n Foldable\n Traverse\n Reducible #1777\n NonEmptyTraverse #1787\n CoFlatMap\n CoMonad\n BiMonad\n BiFoldable\n BiTraverse\n ApplicativeError\n MonadError\n CommutativeFlatMap\n CommutativeMonad\n InvariantMonoidal\n SemigroupK\n MonoidK\n Alternative\n Show #1789\n Inject\n InjectK\n NotNull\n\n\n\nArrow\n\n Arrow #1924\n Category\n Choice\n CommutativeArrow\n Compose\n\n\n\nData types\n\n Const\n Kleisli\n Cokleisli\n Id\n Eval #1816\n EitherK\n Tuple2K\n EitherT #1854\n OptionT\n State\n StateT\n OneAnd\n NonEmptyList\n NonEmptyVector\n Validated\n FunctionK\n Either\n Ior #1822\n WriterT\n ReaderWriterStateT\n Nested\n\nOther:\n\nLaws. Briefly touched on in #510, currently there's no really good place to look for the laws of any given typeclass, I think we should definitely document and emphasize the laws on all the type classes.\nType class instances. Suggested in #1287, it would be really nice if we had some way to see all the defined instances for every type class we include in cats.\n\n\nIf I missed anything just tell me and I'll try to edit :)",
+            "url":"https://github.com/typelevel/cats/issues/1801"
+          },
+          {
+            "number":1818,
+            "title":"Add a ValidatedT to give ApplicativeError to any Applicative.",
+            "bodyText":"currently it only has MonadError when F[_]: Monad but I think you can have ApplicativeError when F[_]: Applicative.",
+            "url":"https://github.com/typelevel/cats/issues/1818"
+          },
+          {
+            "number":1841,
+            "title":"Document implicit naming convention",
+            "bodyText":"We should update the contributing guidelines to specify implicit naming convention. I believe the convention is to prefix the name of the implicit with a camel-cased version of the package namespace. See quote from @peterneyens on a ticket I was working on (adding Traverse instances in the cats.free package):\n\nIt is not really documented outside issue #1061 itself (it should probably be added to these guidelines): the implicit values in Cats are prefixed with the package.\nSo these implicits would be catsFreeFoldableForFree and catsFreeTraverseForFree.",
+            "url":"https://github.com/typelevel/cats/issues/1841"
           }
         ]
       }
