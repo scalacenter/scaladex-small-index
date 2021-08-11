@@ -16,46 +16,28 @@
             "url":"https://github.com/typelevel/cats/issues/403"
           },
           {
-            "number":1534,
-            "title":"FreeT.inject helper function",
-            "bodyText":"For a project I am using FreeT with multiple algebras, I noticed that there is no helper functions to inject an algebra into a coproduct of algebras for free transformers, so I wrote one similar to the Free.inject like this:\n  /**\n    * This method is used to defer the application of an Inject[F, G]\n    * instance. The actual work happens in\n    * `FreeTInjectPartiallyApplied#apply`.\n    *\n    * This method exists to allow the `F`, `M` and `G` parameters to be\n    * bound independently of the `A` parameter below.\n    */\n  def inject[F[_], M[_], G[_]]: FreeTInjectPartiallyApplied[F, M, G] =\n    new FreeTInjectPartiallyApplied\n\n  /**\n    * Pre-application of an injection to a `F[A]` value for a FreeT\n    * with applicative `M[_]`.\n    */\n  final class FreeTInjectPartiallyApplied[F[_], M[_], G[_]] {\n    def apply[A](fa: F[A])(implicit I: Inject[F, G], m: Applicative[M]): FreeT[G, M, A] =\n      FreeT.liftF[G, M, A](I.inj(fa))\n  }\nIt is working and I was wondering if this is a good contribution to the library.\nCheers! :)",
-            "url":"https://github.com/typelevel/cats/issues/1534"
-          },
-          {
             "number":1587,
             "title":"Transitions in docs",
             "bodyText":"I was just looking at http://typelevel.org/cats/typeclasses/applicativetraverse.html (which is really neat!), and it wasn't obvious to me that the series continues with Functor, Applicative, Traverse when I got to the end of the first page. I thought that it was just a work in progress. For these \"series\"-type docs, it may be good to have a link at the bottom of each page to the next item in the series.\nI think it's a bit more obvious for the other sections, but the Applicative and Traversable Functors title is long enough that the text gets wrapped on the table of contents on the left side and threw me off a bit.",
             "url":"https://github.com/typelevel/cats/issues/1587"
           },
           {
-            "number":1678,
-            "title":"Beginner-friendliness of Validated doc",
-            "bodyText":"There has been some feedback on Gitter that the Validated doc isn't as beginner-friendly as it could be. Pretty early in the doc it delves into writing a parallelValidate method, discussing Apply, etc. This offers some nice insight into deriving Validated methods, but it's not necessarily obvious that a user doesn't need to write these things in their code. It would likely be better for users if the docs first showed simple examples of using Validated to accumulate errors and then in an advanced section at the end covered more advanced concepts and derivation.",
-            "url":"https://github.com/typelevel/cats/issues/1678"
-          },
-          {
-            "number":1749,
-            "title":"Site: arrows on background typo",
-            "bodyText":"On Cats page it seems that there's a typo in the background image: the above f should probably be f' so that it would match the annotation above the arrow that's drawn diagonally, which is g' . f'.",
-            "url":"https://github.com/typelevel/cats/issues/1749"
-          },
-          {
             "number":1801,
             "title":"Documentation megathread",
-            "bodyText":"I'm trying to compile a thorough collection of everything currently documented and everything we still want to document. I'd also like to talk about a few other things other people brought up. This is sort of meant as a follow up to #1443. Another question that arrises, is if we really need documentation for every single one of these, or if some don't really make sense to have their own page. It might make sense to combine some of these as well (e.g. NonEmpty{List, Vector}).\nType classes:\n\n\nKernel\n\n Eq #1788\n PartialOrder\n Order\n Semigroup\n Monoid\n Group\n CommutativeSemigroup\n Band\n CommutativeMonoid\n Semilattice\n CommutativeGroup\n BoundedSemilattice\n\n\n\nFunctor\n\n Invariant\n Contravariant\n BiFunctor\n ProFunctor\n Strong\n\n\n\nCore\n\n Functor\n Apply\n Applicative\n FlatMap\n Monad\n Foldable\n Traverse\n Reducible #1777\n NonEmptyTraverse #1787\n CoFlatMap\n CoMonad\n BiMonad\n BiFoldable\n BiTraverse\n ApplicativeError\n MonadError\n CommutativeFlatMap\n CommutativeMonad\n InvariantMonoidal\n SemigroupK\n MonoidK\n Alternative\n Show #1789\n Inject\n InjectK\n NotNull\n\n\n\nArrow\n\n Arrow #1924\n Category\n Choice\n CommutativeArrow\n Compose\n\n\n\nData types\n\n Const\n Kleisli\n Cokleisli\n Id\n Eval #1816\n EitherK\n Tuple2K\n EitherT #1854\n OptionT\n State\n StateT\n OneAnd\n NonEmptyList\n NonEmptyVector\n Validated\n FunctionK\n Either\n Ior #1822\n WriterT\n ReaderWriterStateT\n Nested\n\nOther:\n\nLaws. Briefly touched on in #510, currently there's no really good place to look for the laws of any given typeclass, I think we should definitely document and emphasize the laws on all the type classes.\nType class instances. Suggested in #1287, it would be really nice if we had some way to see all the defined instances for every type class we include in cats.\n\n\nIf I missed anything just tell me and I'll try to edit :)",
+            "bodyText":"I'm trying to compile a thorough collection of everything currently documented and everything we still want to document. I'd also like to talk about a few other things other people brought up. This is sort of meant as a follow up to #1443. Another question that arrises, is if we really need documentation for every single one of these, or if some don't really make sense to have their own page. It might make sense to combine some of these as well (e.g. NonEmpty{List, Vector}).\nType classes:\n\n\nKernel\n\n Eq #1788\n PartialOrder\n Order\n Semigroup\n Monoid\n Group\n CommutativeSemigroup\n Band\n CommutativeMonoid\n Semilattice\n CommutativeGroup\n BoundedSemilattice\n\n\n\nFunctor\n\n Invariant\n Contravariant\n BiFunctor\n ProFunctor\n Strong\n\n\n\nCore\n\n Functor\n Apply\n Applicative\n FlatMap\n Monad\n Foldable\n Traverse\n Reducible #1777\n NonEmptyTraverse #1787\n CoFlatMap\n CoMonad\n BiMonad\n BiFoldable\n BiTraverse\n ApplicativeError\n MonadError\n CommutativeFlatMap\n CommutativeMonad\n InvariantMonoidal\n SemigroupK\n MonoidK\n Alternative\n Show #1789\n Inject\n InjectK\n NotNull\n Parallel\n\n\n\nArrow\n\n Arrow #1924\n Category\n Choice\n CommutativeArrow\n Compose\n\n\n\nData types\n\n Const\n Kleisli\n Cokleisli\n Id\n Eval #1816\n EitherK\n Tuple2K\n EitherT #1854\n OptionT\n State\n StateT\n OneAnd\n NonEmptyList #1971\n NonEmptyVector\n Validated\n FunctionK\n Either\n Ior #1822\n WriterT\n ReaderWriterStateT\n Nested\n\nOther:\n\nLaws. Briefly touched on in #510, currently there's no really good place to look for the laws of any given typeclass, I think we should definitely document and emphasize the laws on all the type classes.\nType class instances. Suggested in #1287, it would be really nice if we had some way to see all the defined instances for every type class we include in cats.\n\n\nIf I missed anything just tell me and I'll try to edit :)",
             "url":"https://github.com/typelevel/cats/issues/1801"
           },
           {
-            "number":1818,
-            "title":"Add a ValidatedT to give ApplicativeError to any Applicative.",
-            "bodyText":"currently it only has MonadError when F[_]: Monad but I think you can have ApplicativeError when F[_]: Applicative.",
-            "url":"https://github.com/typelevel/cats/issues/1818"
+            "number":2650,
+            "title":"Improve doc for Func",
+            "bodyText":"Nobody knows what the hell Func does ... linking to a 25-page Haskell paper (even a good one) isn't ideal. Can we improve the doc, at least to the point of explaining why we need both Func and Kleisli and how you might use it?\nThere is some discussion here.",
+            "url":"https://github.com/typelevel/cats/issues/2650"
           },
           {
-            "number":1841,
-            "title":"Document implicit naming convention",
-            "bodyText":"We should update the contributing guidelines to specify implicit naming convention. I believe the convention is to prefix the name of the implicit with a camel-cased version of the package namespace. See quote from @peterneyens on a ticket I was working on (adding Traverse instances in the cats.free package):\n\nIt is not really documented outside issue #1061 itself (it should probably be added to these guidelines): the implicit values in Cats are prefixed with the package.\nSo these implicits would be catsFreeFoldableForFree and catsFreeTraverseForFree.",
-            "url":"https://github.com/typelevel/cats/issues/1841"
+            "number":2936,
+            "title":"Add `attemptOption` to Alternative",
+            "bodyText":"def attemptOption[A](fa: F[A]): F[Option[A]] =\n  fa.map(_.some) <+> Option.empty[A].pure[F]",
+            "url":"https://github.com/typelevel/cats/issues/2936"
           }
         ]
       }
