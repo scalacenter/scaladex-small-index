@@ -1,0 +1,3556 @@
+{
+  "organization" : "http4s",
+  "repository" : "http4s",
+  "creationDate" : 1406379190967,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643165496467
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "https://http4s.org/",
+    "description" : "A minimal, idiomatic Scala interface for HTTP",
+    "logo" : "https://avatars.githubusercontent.com/u/1527492?v=4",
+    "stars" : 2197,
+    "forks" : 693,
+    "watchers" : 80,
+    "issues" : 375,
+    "creationDate" : 1331527280000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-http4s----\" class=\"anchor\" aria-hidden=\"true\" href=\"#http4s----\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Http4s <a href=\"https://github.com/http4s/http4s/actions?query=branch%3Amain+workflow%3A%22Continuous+Integration%22\"><img src=\"https://github.com/http4s/http4s/workflows/Continuous%20Integration/badge.svg?branch=main\" alt=\"Build Status\" style=\"max-width: 100%;\"></a> <a href=\"https://maven-badges.herokuapp.com/maven-central/org.http4s/http4s-core_2.12\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/6794a6fdebe0f457ad894d8772636f6f81a79cafdd8cab129c8ab8d809da6821/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f6f72672e6874747034732f6874747034732d636f72655f322e31322f62616467652e737667\" alt=\"Maven Central\" data-canonical-src=\"https://maven-badges.herokuapp.com/maven-central/org.http4s/http4s-core_2.12/badge.svg\" style=\"max-width: 100%;\"></a> <a href=\"https://typelevel.org/projects/#http4s\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/05f7000947f8ba996e4a71e00400fb15f9a914dc753ebaf39c81bb65b08d1bfa/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f747970656c6576656c2d6c6962726172792d677265656e2e737667\" alt=\"Typelevel library\" data-canonical-src=\"https://img.shields.io/badge/typelevel-library-green.svg\" style=\"max-width: 100%;\"></a> <a href=\"https://typelevel.org/cats/\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/feb675f42286d17ffa39b99adf6b5e1692e55f39cac02b3f16e70918bc98e22a/68747470733a2f2f747970656c6576656c2e6f72672f636174732f696d672f636174732d62616467652e737667\" height=\"40px\" align=\"right\" alt=\"Cats friendly\" data-canonical-src=\"https://typelevel.org/cats/img/cats-badge.svg\" style=\"max-width: 100%;\"></a></h1>\n<p dir=\"auto\">Http4s is a minimal, idiomatic Scala interface for HTTP services.  Http4s is\nScala's answer to Ruby's Rack, Python's WSGI, Haskell's WAI, and Java's\nServlets.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val http = HttpRoutes.of {\n  case GET -&gt; Root / &quot;hello&quot; =&gt;\n    Ok(&quot;Hello, better world.&quot;)\n}\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">http</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">HttpRoutes</span>.of {\n  <span class=\"pl-k\">case</span> <span class=\"pl-en\">GET</span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-en\">Root</span> <span class=\"pl-k\">/</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>hello<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">=&gt;</span>\n    <span class=\"pl-en\">Ok</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Hello, better world.<span class=\"pl-pds\">\"</span></span>)\n}</pre></div>\n<p dir=\"auto\">Learn more at <a href=\"https://http4s.org/\" rel=\"nofollow\">http4s.org</a>.</p>\n<p dir=\"auto\">If you run into any difficulties on Scala 2.12 please enable partial unification in your <code>build.sbt</code> (not needed for Scala 2.13 and beyond, because they enable partial unification by default)</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"scalacOptions ++= Seq(&quot;-Ypartial-unification&quot;)\"><pre>scalacOptions <span class=\"pl-k\">++</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Seq</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>-Ypartial-unification<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-requirements\" class=\"anchor\" aria-hidden=\"true\" href=\"#requirements\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Requirements</h2>\n<p dir=\"auto\">Running the <strong>blaze</strong> backend requires a modern, supported version of the JVM to build and run, as it relies on server\nAPIs unavailable before JDK8u252. Any JDK newer than JDK8u252, including 9+ is supported.</p>\n<h2 dir=\"auto\"><a id=\"user-content-code-of-conduct\" class=\"anchor\" aria-hidden=\"true\" href=\"#code-of-conduct\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Code of Conduct</h2>\n<p dir=\"auto\">http4s is proud to be a <a href=\"https://typelevel.org/\" rel=\"nofollow\">Typelevel</a>\nproject.  We are committed to providing a friendly, safe and welcoming\nenvironment for all, and ask that the community adhere to the <a href=\"https://http4s.org/code-of-conduct/\" rel=\"nofollow\">Scala\nCode of Conduct</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>License</h2>\n<p dir=\"auto\">This software is licensed under the Apache 2 license, quoted below.</p>\n<blockquote>\n<p dir=\"auto\">Copyright 2013-2022 http4s [<a href=\"https://http4s.org/\" rel=\"nofollow\">https://http4s.org</a>]</p>\n<p dir=\"auto\">Licensed under the Apache License, Version 2.0 (the \"License\"); you may not use this file except in compliance with the License. You may obtain a copy of the License at</p>\n<p dir=\"auto\">[<a href=\"http://www.apache.org/licenses/LICENSE-2.0\" rel=\"nofollow\">http://www.apache.org/licenses/LICENSE-2.0</a>]</p>\n<p dir=\"auto\">Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</p>\n</blockquote>\n<h2 dir=\"auto\"><a id=\"user-content-acknowledgments\" class=\"anchor\" aria-hidden=\"true\" href=\"#acknowledgments\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Acknowledgments</h2>\n<p dir=\"auto\"><a href=\"https://www.yourkit.com/\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/81cebad9a613009454b2b36f2d410e5ccc2c8e27b6736f9c7074df8cdf6ebd2a/68747470733a2f2f7777772e796f75726b69742e636f6d2f696d616765732f796b6c6f676f2e706e67\" alt=\"YourKit\" data-canonical-src=\"https://www.yourkit.com/images/yklogo.png\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Special thanks to <a href=\"https://www.yourkit.com/\" rel=\"nofollow\">YourKit</a> for supporting this project's ongoing performance tuning efforts with licenses to their excellent product.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "rossabaker",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/142698?v=4",
+        "url" : "https://api.github.com/users/rossabaker",
+        "contributions" : 6943
+      },
+      {
+        "login" : "bryce-anderson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2948506?v=4",
+        "url" : "https://api.github.com/users/bryce-anderson",
+        "contributions" : 922
+      },
+      {
+        "login" : "ChristopherDavenport",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10272700?v=4",
+        "url" : "https://api.github.com/users/ChristopherDavenport",
+        "contributions" : 898
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 693
+      },
+      {
+        "login" : "aeons",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1432894?v=4",
+        "url" : "https://api.github.com/users/aeons",
+        "contributions" : 663
+      },
+      {
+        "login" : "armanbilge",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3119428?v=4",
+        "url" : "https://api.github.com/users/armanbilge",
+        "contributions" : 390
+      },
+      {
+        "login" : "RaasAhsan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2617549?v=4",
+        "url" : "https://api.github.com/users/RaasAhsan",
+        "contributions" : 319
+      },
+      {
+        "login" : "danicheg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19841757?v=4",
+        "url" : "https://api.github.com/users/danicheg",
+        "contributions" : 298
+      },
+      {
+        "login" : "bplommer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8990749?v=4",
+        "url" : "https://api.github.com/users/bplommer",
+        "contributions" : 270
+      },
+      {
+        "login" : "kevinmeredith",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1967302?v=4",
+        "url" : "https://api.github.com/users/kevinmeredith",
+        "contributions" : 193
+      },
+      {
+        "login" : "cquiroz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3615303?v=4",
+        "url" : "https://api.github.com/users/cquiroz",
+        "contributions" : 191
+      },
+      {
+        "login" : "mergify[bot]",
+        "avatarUrl" : "https://avatars.githubusercontent.com/in/10562?v=4",
+        "url" : "https://api.github.com/users/mergify%5Bbot%5D",
+        "contributions" : 191
+      },
+      {
+        "login" : "m-sp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3969000?v=4",
+        "url" : "https://api.github.com/users/m-sp",
+        "contributions" : 164
+      },
+      {
+        "login" : "hamnis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/75431?v=4",
+        "url" : "https://api.github.com/users/hamnis",
+        "contributions" : 154
+      },
+      {
+        "login" : "jmcardon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15273652?v=4",
+        "url" : "https://api.github.com/users/jmcardon",
+        "contributions" : 133
+      },
+      {
+        "login" : "RafalSumislawski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9465998?v=4",
+        "url" : "https://api.github.com/users/RafalSumislawski",
+        "contributions" : 110
+      },
+      {
+        "login" : "bfritz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/70307?v=4",
+        "url" : "https://api.github.com/users/bfritz",
+        "contributions" : 92
+      },
+      {
+        "login" : "yanns",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/51669?v=4",
+        "url" : "https://api.github.com/users/yanns",
+        "contributions" : 72
+      },
+      {
+        "login" : "SystemFw",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7769582?v=4",
+        "url" : "https://api.github.com/users/SystemFw",
+        "contributions" : 63
+      },
+      {
+        "login" : "amarrella",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1425877?v=4",
+        "url" : "https://api.github.com/users/amarrella",
+        "contributions" : 63
+      },
+      {
+        "login" : "reactormonk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/49185?v=4",
+        "url" : "https://api.github.com/users/reactormonk",
+        "contributions" : 60
+      },
+      {
+        "login" : "casualjim",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/456109?v=4",
+        "url" : "https://api.github.com/users/casualjim",
+        "contributions" : 59
+      },
+      {
+        "login" : "isomarcte",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6734045?v=4",
+        "url" : "https://api.github.com/users/isomarcte",
+        "contributions" : 58
+      },
+      {
+        "login" : "eklavya",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1136647?v=4",
+        "url" : "https://api.github.com/users/eklavya",
+        "contributions" : 49
+      },
+      {
+        "login" : "ashwinbhaskar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6818365?v=4",
+        "url" : "https://api.github.com/users/ashwinbhaskar",
+        "contributions" : 48
+      },
+      {
+        "login" : "zarthross",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1111592?v=4",
+        "url" : "https://api.github.com/users/zarthross",
+        "contributions" : 44
+      },
+      {
+        "login" : "domaspoliakas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3426754?v=4",
+        "url" : "https://api.github.com/users/domaspoliakas",
+        "contributions" : 39
+      },
+      {
+        "login" : "vasilmkd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7115459?v=4",
+        "url" : "https://api.github.com/users/vasilmkd",
+        "contributions" : 36
+      },
+      {
+        "login" : "diesalbla",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1764610?v=4",
+        "url" : "https://api.github.com/users/diesalbla",
+        "contributions" : 36
+      },
+      {
+        "login" : "VlachJosef",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5246747?v=4",
+        "url" : "https://api.github.com/users/VlachJosef",
+        "contributions" : 33
+      },
+      {
+        "login" : "arouel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1136765?v=4",
+        "url" : "https://api.github.com/users/arouel",
+        "contributions" : 33
+      },
+      {
+        "login" : "zmccoy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/280974?v=4",
+        "url" : "https://api.github.com/users/zmccoy",
+        "contributions" : 32
+      },
+      {
+        "login" : "luisdeltoro",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4491204?v=4",
+        "url" : "https://api.github.com/users/luisdeltoro",
+        "contributions" : 31
+      },
+      {
+        "login" : "lewisjkl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13733772?v=4",
+        "url" : "https://api.github.com/users/lewisjkl",
+        "contributions" : 28
+      },
+      {
+        "login" : "jenshalm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3116929?v=4",
+        "url" : "https://api.github.com/users/jenshalm",
+        "contributions" : 28
+      },
+      {
+        "login" : "jedesah",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1780116?v=4",
+        "url" : "https://api.github.com/users/jedesah",
+        "contributions" : 27
+      },
+      {
+        "login" : "san-coding",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/65719940?v=4",
+        "url" : "https://api.github.com/users/san-coding",
+        "contributions" : 25
+      },
+      {
+        "login" : "nigredo-tori",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5962285?v=4",
+        "url" : "https://api.github.com/users/nigredo-tori",
+        "contributions" : 25
+      },
+      {
+        "login" : "yurique",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/919230?v=4",
+        "url" : "https://api.github.com/users/yurique",
+        "contributions" : 25
+      },
+      {
+        "login" : "julien-truffaut",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1859417?v=4",
+        "url" : "https://api.github.com/users/julien-truffaut",
+        "contributions" : 23
+      },
+      {
+        "login" : "tomwadeson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3607811?v=4",
+        "url" : "https://api.github.com/users/tomwadeson",
+        "contributions" : 22
+      },
+      {
+        "login" : "rcardin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1671697?v=4",
+        "url" : "https://api.github.com/users/rcardin",
+        "contributions" : 22
+      },
+      {
+        "login" : "agustafson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/628811?v=4",
+        "url" : "https://api.github.com/users/agustafson",
+        "contributions" : 21
+      },
+      {
+        "login" : "satorg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3954178?v=4",
+        "url" : "https://api.github.com/users/satorg",
+        "contributions" : 19
+      },
+      {
+        "login" : "vder",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7292510?v=4",
+        "url" : "https://api.github.com/users/vder",
+        "contributions" : 19
+      },
+      {
+        "login" : "rpiaggio",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1895643?v=4",
+        "url" : "https://api.github.com/users/rpiaggio",
+        "contributions" : 18
+      },
+      {
+        "login" : "kryptt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/107965?v=4",
+        "url" : "https://api.github.com/users/kryptt",
+        "contributions" : 17
+      },
+      {
+        "login" : "travisbrown",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/316049?v=4",
+        "url" : "https://api.github.com/users/travisbrown",
+        "contributions" : 17
+      },
+      {
+        "login" : "novakov-alexey",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11204284?v=4",
+        "url" : "https://api.github.com/users/novakov-alexey",
+        "contributions" : 16
+      },
+      {
+        "login" : "andimiller",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4661434?v=4",
+        "url" : "https://api.github.com/users/andimiller",
+        "contributions" : 16
+      },
+      {
+        "login" : "valencik",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5440389?v=4",
+        "url" : "https://api.github.com/users/valencik",
+        "contributions" : 16
+      },
+      {
+        "login" : "tpolecat",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1200131?v=4",
+        "url" : "https://api.github.com/users/tpolecat",
+        "contributions" : 16
+      },
+      {
+        "login" : "tomasherman",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/99870?v=4",
+        "url" : "https://api.github.com/users/tomasherman",
+        "contributions" : 16
+      },
+      {
+        "login" : "voidcontext",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1415312?v=4",
+        "url" : "https://api.github.com/users/voidcontext",
+        "contributions" : 14
+      },
+      {
+        "login" : "hvesalai",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/861035?v=4",
+        "url" : "https://api.github.com/users/hvesalai",
+        "contributions" : 14
+      },
+      {
+        "login" : "jcranky",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/772886?v=4",
+        "url" : "https://api.github.com/users/jcranky",
+        "contributions" : 14
+      },
+      {
+        "login" : "bpholt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1455476?v=4",
+        "url" : "https://api.github.com/users/bpholt",
+        "contributions" : 14
+      },
+      {
+        "login" : "IndiscriminateCoding",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/28496046?v=4",
+        "url" : "https://api.github.com/users/IndiscriminateCoding",
+        "contributions" : 13
+      },
+      {
+        "login" : "kubukoz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/894884?v=4",
+        "url" : "https://api.github.com/users/kubukoz",
+        "contributions" : 13
+      },
+      {
+        "login" : "erewl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15832428?v=4",
+        "url" : "https://api.github.com/users/erewl",
+        "contributions" : 13
+      },
+      {
+        "login" : "bfdes",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8037438?v=4",
+        "url" : "https://api.github.com/users/bfdes",
+        "contributions" : 12
+      },
+      {
+        "login" : "coltfred",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/587319?v=4",
+        "url" : "https://api.github.com/users/coltfred",
+        "contributions" : 12
+      },
+      {
+        "login" : "gvolpe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/443978?v=4",
+        "url" : "https://api.github.com/users/gvolpe",
+        "contributions" : 11
+      },
+      {
+        "login" : "ghostroad",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8324643?v=4",
+        "url" : "https://api.github.com/users/ghostroad",
+        "contributions" : 11
+      },
+      {
+        "login" : "colin-williams",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/28717206?v=4",
+        "url" : "https://api.github.com/users/colin-williams",
+        "contributions" : 10
+      },
+      {
+        "login" : "jodagm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1626913?v=4",
+        "url" : "https://api.github.com/users/jodagm",
+        "contributions" : 10
+      },
+      {
+        "login" : "calvinbrown085",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7631143?v=4",
+        "url" : "https://api.github.com/users/calvinbrown085",
+        "contributions" : 10
+      },
+      {
+        "login" : "shengc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/940628?v=4",
+        "url" : "https://api.github.com/users/shengc",
+        "contributions" : 10
+      },
+      {
+        "login" : "fredshonorio",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2962247?v=4",
+        "url" : "https://api.github.com/users/fredshonorio",
+        "contributions" : 9
+      },
+      {
+        "login" : "kailuowang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/83257?v=4",
+        "url" : "https://api.github.com/users/kailuowang",
+        "contributions" : 9
+      },
+      {
+        "login" : "krayoola",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1113425?v=4",
+        "url" : "https://api.github.com/users/krayoola",
+        "contributions" : 9
+      },
+      {
+        "login" : "augi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/273052?v=4",
+        "url" : "https://api.github.com/users/augi",
+        "contributions" : 9
+      },
+      {
+        "login" : "lloydmeta",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/914805?v=4",
+        "url" : "https://api.github.com/users/lloydmeta",
+        "contributions" : 9
+      },
+      {
+        "login" : "rhyskeepence",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/75715?v=4",
+        "url" : "https://api.github.com/users/rhyskeepence",
+        "contributions" : 9
+      },
+      {
+        "login" : "amohrland",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30743808?v=4",
+        "url" : "https://api.github.com/users/amohrland",
+        "contributions" : 9
+      },
+      {
+        "login" : "fthomas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/141252?v=4",
+        "url" : "https://api.github.com/users/fthomas",
+        "contributions" : 9
+      },
+      {
+        "login" : "aryairani",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/538571?v=4",
+        "url" : "https://api.github.com/users/aryairani",
+        "contributions" : 8
+      },
+      {
+        "login" : "m4dc4p",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/18689?v=4",
+        "url" : "https://api.github.com/users/m4dc4p",
+        "contributions" : 8
+      },
+      {
+        "login" : "zcox",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/145250?v=4",
+        "url" : "https://api.github.com/users/zcox",
+        "contributions" : 8
+      },
+      {
+        "login" : "rohan-sircar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/47449547?v=4",
+        "url" : "https://api.github.com/users/rohan-sircar",
+        "contributions" : 8
+      },
+      {
+        "login" : "alejandrohdezma",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9027541?v=4",
+        "url" : "https://api.github.com/users/alejandrohdezma",
+        "contributions" : 8
+      },
+      {
+        "login" : "dakatsuka",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/59034?v=4",
+        "url" : "https://api.github.com/users/dakatsuka",
+        "contributions" : 7
+      },
+      {
+        "login" : "benderpremier",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/290994?v=4",
+        "url" : "https://api.github.com/users/benderpremier",
+        "contributions" : 7
+      },
+      {
+        "login" : "luisspringernature",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/26115153?v=4",
+        "url" : "https://api.github.com/users/luisspringernature",
+        "contributions" : 7
+      },
+      {
+        "login" : "MartinSnyder",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1706711?v=4",
+        "url" : "https://api.github.com/users/MartinSnyder",
+        "contributions" : 7
+      },
+      {
+        "login" : "mrdziuban",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4718399?v=4",
+        "url" : "https://api.github.com/users/mrdziuban",
+        "contributions" : 7
+      },
+      {
+        "login" : "nebtrx",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1876959?v=4",
+        "url" : "https://api.github.com/users/nebtrx",
+        "contributions" : 7
+      },
+      {
+        "login" : "rsoeldner",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/26225067?v=4",
+        "url" : "https://api.github.com/users/rsoeldner",
+        "contributions" : 7
+      },
+      {
+        "login" : "philotimos",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1550536?v=4",
+        "url" : "https://api.github.com/users/philotimos",
+        "contributions" : 7
+      },
+      {
+        "login" : "amitrai48",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7351397?v=4",
+        "url" : "https://api.github.com/users/amitrai48",
+        "contributions" : 7
+      },
+      {
+        "login" : "insdami",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1742610?v=4",
+        "url" : "https://api.github.com/users/insdami",
+        "contributions" : 6
+      },
+      {
+        "login" : "wemrysi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/32185?v=4",
+        "url" : "https://api.github.com/users/wemrysi",
+        "contributions" : 6
+      },
+      {
+        "login" : "jyoo980",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24359440?v=4",
+        "url" : "https://api.github.com/users/jyoo980",
+        "contributions" : 6
+      },
+      {
+        "login" : "jcouyang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1235045?v=4",
+        "url" : "https://api.github.com/users/jcouyang",
+        "contributions" : 6
+      },
+      {
+        "login" : "mbilski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/909896?v=4",
+        "url" : "https://api.github.com/users/mbilski",
+        "contributions" : 6
+      },
+      {
+        "login" : "nelusnegur",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5675102?v=4",
+        "url" : "https://api.github.com/users/nelusnegur",
+        "contributions" : 6
+      },
+      {
+        "login" : "taig",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/567857?v=4",
+        "url" : "https://api.github.com/users/taig",
+        "contributions" : 6
+      },
+      {
+        "login" : "peterbecich",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6315338?v=4",
+        "url" : "https://api.github.com/users/peterbecich",
+        "contributions" : 6
+      },
+      {
+        "login" : "rzeigler",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3193447?v=4",
+        "url" : "https://api.github.com/users/rzeigler",
+        "contributions" : 6
+      },
+      {
+        "login" : "timo-schmid",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1415715?v=4",
+        "url" : "https://api.github.com/users/timo-schmid",
+        "contributions" : 6
+      },
+      {
+        "login" : "ang-mic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6086320?v=4",
+        "url" : "https://api.github.com/users/ang-mic",
+        "contributions" : 6
+      },
+      {
+        "login" : "toddburnside",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6035943?v=4",
+        "url" : "https://api.github.com/users/toddburnside",
+        "contributions" : 6
+      },
+      {
+        "login" : "arixmkii",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/36887373?v=4",
+        "url" : "https://api.github.com/users/arixmkii",
+        "contributions" : 5
+      },
+      {
+        "login" : "barryoneill",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/885049?v=4",
+        "url" : "https://api.github.com/users/barryoneill",
+        "contributions" : 5
+      },
+      {
+        "login" : "CharlesD91",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/50867450?v=4",
+        "url" : "https://api.github.com/users/CharlesD91",
+        "contributions" : 5
+      },
+      {
+        "login" : "dchenbecker",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24858?v=4",
+        "url" : "https://api.github.com/users/dchenbecker",
+        "contributions" : 5
+      },
+      {
+        "login" : "harpresing",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14927274?v=4",
+        "url" : "https://api.github.com/users/harpresing",
+        "contributions" : 5
+      },
+      {
+        "login" : "NicolasRouquette",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2359166?v=4",
+        "url" : "https://api.github.com/users/NicolasRouquette",
+        "contributions" : 5
+      },
+      {
+        "login" : "Leammas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9443290?v=4",
+        "url" : "https://api.github.com/users/Leammas",
+        "contributions" : 5
+      },
+      {
+        "login" : "ammarc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22080293?v=4",
+        "url" : "https://api.github.com/users/ammarc",
+        "contributions" : 5
+      },
+      {
+        "login" : "ayushhooda",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15953236?v=4",
+        "url" : "https://api.github.com/users/ayushhooda",
+        "contributions" : 5
+      },
+      {
+        "login" : "cmcmteixeira",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6703421?v=4",
+        "url" : "https://api.github.com/users/cmcmteixeira",
+        "contributions" : 5
+      },
+      {
+        "login" : "frehn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10739700?v=4",
+        "url" : "https://api.github.com/users/frehn",
+        "contributions" : 5
+      },
+      {
+        "login" : "etorreborre",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10988?v=4",
+        "url" : "https://api.github.com/users/etorreborre",
+        "contributions" : 5
+      },
+      {
+        "login" : "hejfelix",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1153154?v=4",
+        "url" : "https://api.github.com/users/hejfelix",
+        "contributions" : 5
+      },
+      {
+        "login" : "ajsworton",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12762063?v=4",
+        "url" : "https://api.github.com/users/ajsworton",
+        "contributions" : 4
+      },
+      {
+        "login" : "BenFradet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1737211?v=4",
+        "url" : "https://api.github.com/users/BenFradet",
+        "contributions" : 4
+      },
+      {
+        "login" : "somethingconcon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/526381?v=4",
+        "url" : "https://api.github.com/users/somethingconcon",
+        "contributions" : 4
+      },
+      {
+        "login" : "daddykotex",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5230460?v=4",
+        "url" : "https://api.github.com/users/daddykotex",
+        "contributions" : 4
+      },
+      {
+        "login" : "Hiroki6",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11785972?v=4",
+        "url" : "https://api.github.com/users/Hiroki6",
+        "contributions" : 4
+      },
+      {
+        "login" : "JakDar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23096821?v=4",
+        "url" : "https://api.github.com/users/JakDar",
+        "contributions" : 4
+      },
+      {
+        "login" : "keirlawson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/49213?v=4",
+        "url" : "https://api.github.com/users/keirlawson",
+        "contributions" : 4
+      },
+      {
+        "login" : "BalmungSan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11336950?v=4",
+        "url" : "https://api.github.com/users/BalmungSan",
+        "contributions" : 4
+      },
+      {
+        "login" : "ZizhengTai",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5204568?v=4",
+        "url" : "https://api.github.com/users/ZizhengTai",
+        "contributions" : 4
+      },
+      {
+        "login" : "apple-corps",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5471197?v=4",
+        "url" : "https://api.github.com/users/apple-corps",
+        "contributions" : 4
+      },
+      {
+        "login" : "slice",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4206232?v=4",
+        "url" : "https://api.github.com/users/slice",
+        "contributions" : 4
+      },
+      {
+        "login" : "zakolenko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11807715?v=4",
+        "url" : "https://api.github.com/users/zakolenko",
+        "contributions" : 4
+      },
+      {
+        "login" : "albertoadami",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5649206?v=4",
+        "url" : "https://api.github.com/users/albertoadami",
+        "contributions" : 4
+      },
+      {
+        "login" : "amesgen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15369874?v=4",
+        "url" : "https://api.github.com/users/amesgen",
+        "contributions" : 4
+      },
+      {
+        "login" : "gribbet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1776091?v=4",
+        "url" : "https://api.github.com/users/gribbet",
+        "contributions" : 4
+      },
+      {
+        "login" : "IssueMonoid",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/41128182?v=4",
+        "url" : "https://api.github.com/users/IssueMonoid",
+        "contributions" : 4
+      },
+      {
+        "login" : "megri",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1839427?v=4",
+        "url" : "https://api.github.com/users/megri",
+        "contributions" : 4
+      },
+      {
+        "login" : "LolHens",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1524059?v=4",
+        "url" : "https://api.github.com/users/LolHens",
+        "contributions" : 4
+      },
+      {
+        "login" : "amiguez",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/52469757?v=4",
+        "url" : "https://api.github.com/users/amiguez",
+        "contributions" : 3
+      },
+      {
+        "login" : "asarturas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/915284?v=4",
+        "url" : "https://api.github.com/users/asarturas",
+        "contributions" : 3
+      },
+      {
+        "login" : "refried",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/37216257?v=4",
+        "url" : "https://api.github.com/users/refried",
+        "contributions" : 3
+      },
+      {
+        "login" : "niij",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16074300?v=4",
+        "url" : "https://api.github.com/users/niij",
+        "contributions" : 3
+      },
+      {
+        "login" : "ceedubs",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/977929?v=4",
+        "url" : "https://api.github.com/users/ceedubs",
+        "contributions" : 3
+      },
+      {
+        "login" : "dabd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/167463?v=4",
+        "url" : "https://api.github.com/users/dabd",
+        "contributions" : 3
+      },
+      {
+        "login" : "phiSgr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13439232?v=4",
+        "url" : "https://api.github.com/users/phiSgr",
+        "contributions" : 3
+      },
+      {
+        "login" : "yoohaemin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22650536?v=4",
+        "url" : "https://api.github.com/users/yoohaemin",
+        "contributions" : 3
+      },
+      {
+        "login" : "howyp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4593903?v=4",
+        "url" : "https://api.github.com/users/howyp",
+        "contributions" : 3
+      },
+      {
+        "login" : "jan0sch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/373810?v=4",
+        "url" : "https://api.github.com/users/jan0sch",
+        "contributions" : 3
+      },
+      {
+        "login" : "monkey-mas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5261677?v=4",
+        "url" : "https://api.github.com/users/monkey-mas",
+        "contributions" : 3
+      },
+      {
+        "login" : "mdedetrich",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2337269?v=4",
+        "url" : "https://api.github.com/users/mdedetrich",
+        "contributions" : 3
+      },
+      {
+        "login" : "mpilquist",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/118078?v=4",
+        "url" : "https://api.github.com/users/mpilquist",
+        "contributions" : 3
+      },
+      {
+        "login" : "sideeffffect",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9019485?v=4",
+        "url" : "https://api.github.com/users/sideeffffect",
+        "contributions" : 3
+      },
+      {
+        "login" : "guymers",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1100841?v=4",
+        "url" : "https://api.github.com/users/guymers",
+        "contributions" : 3
+      },
+      {
+        "login" : "sullis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30938?v=4",
+        "url" : "https://api.github.com/users/sullis",
+        "contributions" : 3
+      },
+      {
+        "login" : "shannonbarnes",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/18518240?v=4",
+        "url" : "https://api.github.com/users/shannonbarnes",
+        "contributions" : 3
+      },
+      {
+        "login" : "dozed",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/239058?v=4",
+        "url" : "https://api.github.com/users/dozed",
+        "contributions" : 3
+      },
+      {
+        "login" : "stephennancekivell",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/727013?v=4",
+        "url" : "https://api.github.com/users/stephennancekivell",
+        "contributions" : 3
+      },
+      {
+        "login" : "ybasket",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2632023?v=4",
+        "url" : "https://api.github.com/users/ybasket",
+        "contributions" : 3
+      },
+      {
+        "login" : "zakpatterson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1987109?v=4",
+        "url" : "https://api.github.com/users/zakpatterson",
+        "contributions" : 3
+      },
+      {
+        "login" : "dantb",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24442179?v=4",
+        "url" : "https://api.github.com/users/dantb",
+        "contributions" : 3
+      },
+      {
+        "login" : "emanb29",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/789922?v=4",
+        "url" : "https://api.github.com/users/emanb29",
+        "contributions" : 3
+      },
+      {
+        "login" : "gaspb",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/26738779?v=4",
+        "url" : "https://api.github.com/users/gaspb",
+        "contributions" : 3
+      },
+      {
+        "login" : "mgibowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/617315?v=4",
+        "url" : "https://api.github.com/users/mgibowski",
+        "contributions" : 3
+      },
+      {
+        "login" : "vglushak",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/25504537?v=4",
+        "url" : "https://api.github.com/users/vglushak",
+        "contributions" : 3
+      },
+      {
+        "login" : "lukoyanov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/842901?v=4",
+        "url" : "https://api.github.com/users/lukoyanov",
+        "contributions" : 3
+      },
+      {
+        "login" : "anilkumarmyla",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1934205?v=4",
+        "url" : "https://api.github.com/users/anilkumarmyla",
+        "contributions" : 3
+      },
+      {
+        "login" : "mcarolan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/490550?v=4",
+        "url" : "https://api.github.com/users/mcarolan",
+        "contributions" : 3
+      },
+      {
+        "login" : "Lasering",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5956311?v=4",
+        "url" : "https://api.github.com/users/Lasering",
+        "contributions" : 3
+      },
+      {
+        "login" : "peterneyens",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6407606?v=4",
+        "url" : "https://api.github.com/users/peterneyens",
+        "contributions" : 3
+      },
+      {
+        "login" : "asachdeva",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1237031?v=4",
+        "url" : "https://api.github.com/users/asachdeva",
+        "contributions" : 2
+      },
+      {
+        "login" : "alexarchambault",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7063723?v=4",
+        "url" : "https://api.github.com/users/alexarchambault",
+        "contributions" : 2
+      },
+      {
+        "login" : "amrhassan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/130985?v=4",
+        "url" : "https://api.github.com/users/amrhassan",
+        "contributions" : 2
+      },
+      {
+        "login" : "utaal",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/791335?v=4",
+        "url" : "https://api.github.com/users/utaal",
+        "contributions" : 2
+      },
+      {
+        "login" : "akovbovich",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/336491?v=4",
+        "url" : "https://api.github.com/users/akovbovich",
+        "contributions" : 2
+      },
+      {
+        "login" : "faustas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/378352?v=4",
+        "url" : "https://api.github.com/users/faustas",
+        "contributions" : 2
+      },
+      {
+        "login" : "Angel-O",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16281580?v=4",
+        "url" : "https://api.github.com/users/Angel-O",
+        "contributions" : 2
+      },
+      {
+        "login" : "ngbinh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/211327?v=4",
+        "url" : "https://api.github.com/users/ngbinh",
+        "contributions" : 2
+      },
+      {
+        "login" : "gannicottb",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/894755?v=4",
+        "url" : "https://api.github.com/users/gannicottb",
+        "contributions" : 2
+      },
+      {
+        "login" : "dcsobral",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/141079?v=4",
+        "url" : "https://api.github.com/users/dcsobral",
+        "contributions" : 2
+      },
+      {
+        "login" : "djspiewak",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/752?v=4",
+        "url" : "https://api.github.com/users/djspiewak",
+        "contributions" : 2
+      },
+      {
+        "login" : "drostron",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/318090?v=4",
+        "url" : "https://api.github.com/users/drostron",
+        "contributions" : 2
+      },
+      {
+        "login" : "DeviLab",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/35400182?v=4",
+        "url" : "https://api.github.com/users/DeviLab",
+        "contributions" : 2
+      },
+      {
+        "login" : "edmundnoble",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1369693?v=4",
+        "url" : "https://api.github.com/users/edmundnoble",
+        "contributions" : 2
+      },
+      {
+        "login" : "qwbarch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/42880469?v=4",
+        "url" : "https://api.github.com/users/qwbarch",
+        "contributions" : 2
+      },
+      {
+        "login" : "fsarradin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/395048?v=4",
+        "url" : "https://api.github.com/users/fsarradin",
+        "contributions" : 2
+      },
+      {
+        "login" : "gstro",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/730235?v=4",
+        "url" : "https://api.github.com/users/gstro",
+        "contributions" : 2
+      },
+      {
+        "login" : "Igosuki",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/406150?v=4",
+        "url" : "https://api.github.com/users/Igosuki",
+        "contributions" : 2
+      },
+      {
+        "login" : "haripriyamurthy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1261705?v=4",
+        "url" : "https://api.github.com/users/haripriyamurthy",
+        "contributions" : 2
+      },
+      {
+        "login" : "ikr0m",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6130308?v=4",
+        "url" : "https://api.github.com/users/ikr0m",
+        "contributions" : 2
+      },
+      {
+        "login" : "wjlow",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/368630?v=4",
+        "url" : "https://api.github.com/users/wjlow",
+        "contributions" : 2
+      },
+      {
+        "login" : "JanGe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1636981?v=4",
+        "url" : "https://api.github.com/users/JanGe",
+        "contributions" : 2
+      },
+      {
+        "login" : "jaspervz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2083625?v=4",
+        "url" : "https://api.github.com/users/jaspervz",
+        "contributions" : 2
+      },
+      {
+        "login" : "joan38",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1200478?v=4",
+        "url" : "https://api.github.com/users/joan38",
+        "contributions" : 2
+      },
+      {
+        "login" : "ktfleming",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3702988?v=4",
+        "url" : "https://api.github.com/users/ktfleming",
+        "contributions" : 2
+      },
+      {
+        "login" : "lucidd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/688888?v=4",
+        "url" : "https://api.github.com/users/lucidd",
+        "contributions" : 2
+      },
+      {
+        "login" : "aspic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/788059?v=4",
+        "url" : "https://api.github.com/users/aspic",
+        "contributions" : 2
+      },
+      {
+        "login" : "iRevive",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6395483?v=4",
+        "url" : "https://api.github.com/users/iRevive",
+        "contributions" : 2
+      },
+      {
+        "login" : "mtomko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/610104?v=4",
+        "url" : "https://api.github.com/users/mtomko",
+        "contributions" : 2
+      },
+      {
+        "login" : "martijnhoekstra",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/882449?v=4",
+        "url" : "https://api.github.com/users/martijnhoekstra",
+        "contributions" : 2
+      },
+      {
+        "login" : "mossprescott",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6147371?v=4",
+        "url" : "https://api.github.com/users/mossprescott",
+        "contributions" : 2
+      },
+      {
+        "login" : "takezoe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1094760?v=4",
+        "url" : "https://api.github.com/users/takezoe",
+        "contributions" : 2
+      },
+      {
+        "login" : "liff",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/124475?v=4",
+        "url" : "https://api.github.com/users/liff",
+        "contributions" : 2
+      },
+      {
+        "login" : "perok",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1502013?v=4",
+        "url" : "https://api.github.com/users/perok",
+        "contributions" : 2
+      },
+      {
+        "login" : "phongngtuan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8462635?v=4",
+        "url" : "https://api.github.com/users/phongngtuan",
+        "contributions" : 2
+      },
+      {
+        "login" : "SethTisue",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
+        "url" : "https://api.github.com/users/SethTisue",
+        "contributions" : 2
+      },
+      {
+        "login" : "travisblakeney",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/507449?v=4",
+        "url" : "https://api.github.com/users/travisblakeney",
+        "contributions" : 2
+      },
+      {
+        "login" : "yannick-cw",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2485755?v=4",
+        "url" : "https://api.github.com/users/yannick-cw",
+        "contributions" : 2
+      },
+      {
+        "login" : "klpx",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2909427?v=4",
+        "url" : "https://api.github.com/users/klpx",
+        "contributions" : 2
+      },
+      {
+        "login" : "maxkorolev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4962492?v=4",
+        "url" : "https://api.github.com/users/maxkorolev",
+        "contributions" : 2
+      },
+      {
+        "login" : "mcintdan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/44374481?v=4",
+        "url" : "https://api.github.com/users/mcintdan",
+        "contributions" : 2
+      },
+      {
+        "login" : "pocketberserker",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/911952?v=4",
+        "url" : "https://api.github.com/users/pocketberserker",
+        "contributions" : 2
+      },
+      {
+        "login" : "pshirshov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/295225?v=4",
+        "url" : "https://api.github.com/users/pshirshov",
+        "contributions" : 2
+      },
+      {
+        "login" : "rintcius",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/888781?v=4",
+        "url" : "https://api.github.com/users/rintcius",
+        "contributions" : 2
+      },
+      {
+        "login" : "valydia",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2129101?v=4",
+        "url" : "https://api.github.com/users/valydia",
+        "contributions" : 2
+      },
+      {
+        "login" : "vilu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1489367?v=4",
+        "url" : "https://api.github.com/users/vilu",
+        "contributions" : 2
+      },
+      {
+        "login" : "yasuba",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8350138?v=4",
+        "url" : "https://api.github.com/users/yasuba",
+        "contributions" : 2
+      },
+      {
+        "login" : "FunFunFine",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/31823086?v=4",
+        "url" : "https://api.github.com/users/FunFunFine",
+        "contributions" : 2
+      },
+      {
+        "login" : "gokyo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6510179?v=4",
+        "url" : "https://api.github.com/users/gokyo",
+        "contributions" : 2
+      },
+      {
+        "login" : "marko-asplund",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1002541?v=4",
+        "url" : "https://api.github.com/users/marko-asplund",
+        "contributions" : 2
+      },
+      {
+        "login" : "MouslihAbdelhakim",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11218387?v=4",
+        "url" : "https://api.github.com/users/MouslihAbdelhakim",
+        "contributions" : 1
+      },
+      {
+        "login" : "Adriani-Furtado",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/58944585?v=4",
+        "url" : "https://api.github.com/users/Adriani-Furtado",
+        "contributions" : 1
+      },
+      {
+        "login" : "da-terry",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1744416?v=4",
+        "url" : "https://api.github.com/users/da-terry",
+        "contributions" : 1
+      },
+      {
+        "login" : "ahjohannessen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/153607?v=4",
+        "url" : "https://api.github.com/users/ahjohannessen",
+        "contributions" : 1
+      },
+      {
+        "login" : "alissapajer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1088100?v=4",
+        "url" : "https://api.github.com/users/alissapajer",
+        "contributions" : 1
+      },
+      {
+        "login" : "manocha-aman",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13315471?v=4",
+        "url" : "https://api.github.com/users/manocha-aman",
+        "contributions" : 1
+      },
+      {
+        "login" : "andreamarcolin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17480403?v=4",
+        "url" : "https://api.github.com/users/andreamarcolin",
+        "contributions" : 1
+      },
+      {
+        "login" : "CloudNiner",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1818302?v=4",
+        "url" : "https://api.github.com/users/CloudNiner",
+        "contributions" : 1
+      },
+      {
+        "login" : "aaabramov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11317222?v=4",
+        "url" : "https://api.github.com/users/aaabramov",
+        "contributions" : 1
+      },
+      {
+        "login" : "plokhotnyuk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/890289?v=4",
+        "url" : "https://api.github.com/users/plokhotnyuk",
+        "contributions" : 1
+      },
+      {
+        "login" : "andyscott",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/310363?v=4",
+        "url" : "https://api.github.com/users/andyscott",
+        "contributions" : 1
+      },
+      {
+        "login" : "anthony-cros",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1139265?v=4",
+        "url" : "https://api.github.com/users/anthony-cros",
+        "contributions" : 1
+      },
+      {
+        "login" : "chuwy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/681171?v=4",
+        "url" : "https://api.github.com/users/chuwy",
+        "contributions" : 1
+      },
+      {
+        "login" : "barshirtcliff",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/81589750?v=4",
+        "url" : "https://api.github.com/users/barshirtcliff",
+        "contributions" : 1
+      },
+      {
+        "login" : "ALPHA-60",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/470210?v=4",
+        "url" : "https://api.github.com/users/ALPHA-60",
+        "contributions" : 1
+      },
+      {
+        "login" : "yuchaoran2011",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1168769?v=4",
+        "url" : "https://api.github.com/users/yuchaoran2011",
+        "contributions" : 1
+      },
+      {
+        "login" : "cb372",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/106760?v=4",
+        "url" : "https://api.github.com/users/cb372",
+        "contributions" : 1
+      },
+      {
+        "login" : "nolledge",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/18087177?v=4",
+        "url" : "https://api.github.com/users/nolledge",
+        "contributions" : 1
+      },
+      {
+        "login" : "danbim",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/300638?v=4",
+        "url" : "https://api.github.com/users/danbim",
+        "contributions" : 1
+      },
+      {
+        "login" : "danielkarch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6737030?v=4",
+        "url" : "https://api.github.com/users/danielkarch",
+        "contributions" : 1
+      },
+      {
+        "login" : "virusdave",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6148271?v=4",
+        "url" : "https://api.github.com/users/virusdave",
+        "contributions" : 1
+      },
+      {
+        "login" : "dbousamra",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/648137?v=4",
+        "url" : "https://api.github.com/users/dbousamra",
+        "contributions" : 1
+      },
+      {
+        "login" : "eikek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/701128?v=4",
+        "url" : "https://api.github.com/users/eikek",
+        "contributions" : 1
+      },
+      {
+        "login" : "endertunc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15850565?v=4",
+        "url" : "https://api.github.com/users/endertunc",
+        "contributions" : 1
+      },
+      {
+        "login" : "epost",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/834942?v=4",
+        "url" : "https://api.github.com/users/epost",
+        "contributions" : 1
+      },
+      {
+        "login" : "fabiocognigni",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/846913?v=4",
+        "url" : "https://api.github.com/users/fabiocognigni",
+        "contributions" : 1
+      },
+      {
+        "login" : "fedor-shi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6079280?v=4",
+        "url" : "https://api.github.com/users/fedor-shi",
+        "contributions" : 1
+      },
+      {
+        "login" : "fghibellini",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4848178?v=4",
+        "url" : "https://api.github.com/users/fghibellini",
+        "contributions" : 1
+      },
+      {
+        "login" : "Daenyth",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14644?v=4",
+        "url" : "https://api.github.com/users/Daenyth",
+        "contributions" : 1
+      },
+      {
+        "login" : "GrafBlutwurst",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2368458?v=4",
+        "url" : "https://api.github.com/users/GrafBlutwurst",
+        "contributions" : 1
+      },
+      {
+        "login" : "Grogs",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1212907?v=4",
+        "url" : "https://api.github.com/users/Grogs",
+        "contributions" : 1
+      },
+      {
+        "login" : "MasseGuillaume",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/921490?v=4",
+        "url" : "https://api.github.com/users/MasseGuillaume",
+        "contributions" : 1
+      },
+      {
+        "login" : "hartmut27",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/752620?v=4",
+        "url" : "https://api.github.com/users/hartmut27",
+        "contributions" : 1
+      },
+      {
+        "login" : "henridwyer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3540985?v=4",
+        "url" : "https://api.github.com/users/henridwyer",
+        "contributions" : 1
+      },
+      {
+        "login" : "hgiddens",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/198783?v=4",
+        "url" : "https://api.github.com/users/hgiddens",
+        "contributions" : 1
+      },
+      {
+        "login" : "ingarabr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2236693?v=4",
+        "url" : "https://api.github.com/users/ingarabr",
+        "contributions" : 1
+      },
+      {
+        "login" : "ijuma",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24747?v=4",
+        "url" : "https://api.github.com/users/ijuma",
+        "contributions" : 1
+      },
+      {
+        "login" : "Slakah",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16853?v=4",
+        "url" : "https://api.github.com/users/Slakah",
+        "contributions" : 1
+      },
+      {
+        "login" : "jisantuc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5702984?v=4",
+        "url" : "https://api.github.com/users/jisantuc",
+        "contributions" : 1
+      },
+      {
+        "login" : "jvliwanag",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/211068?v=4",
+        "url" : "https://api.github.com/users/jvliwanag",
+        "contributions" : 1
+      },
+      {
+        "login" : "Jentsch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/818446?v=4",
+        "url" : "https://api.github.com/users/Jentsch",
+        "contributions" : 1
+      },
+      {
+        "login" : "guersam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/969120?v=4",
+        "url" : "https://api.github.com/users/guersam",
+        "contributions" : 1
+      },
+      {
+        "login" : "joescii",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/882948?v=4",
+        "url" : "https://api.github.com/users/joescii",
+        "contributions" : 1
+      },
+      {
+        "login" : "wjoel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/252950?v=4",
+        "url" : "https://api.github.com/users/wjoel",
+        "contributions" : 1
+      },
+      {
+        "login" : "knuton",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/47458?v=4",
+        "url" : "https://api.github.com/users/knuton",
+        "contributions" : 1
+      },
+      {
+        "login" : "jadlr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/696999?v=4",
+        "url" : "https://api.github.com/users/jadlr",
+        "contributions" : 1
+      },
+      {
+        "login" : "jordiolivares",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1163790?v=4",
+        "url" : "https://api.github.com/users/jordiolivares",
+        "contributions" : 1
+      },
+      {
+        "login" : "jgogstad",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/523922?v=4",
+        "url" : "https://api.github.com/users/jgogstad",
+        "contributions" : 1
+      },
+      {
+        "login" : "neko-kai",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/450507?v=4",
+        "url" : "https://api.github.com/users/neko-kai",
+        "contributions" : 1
+      },
+      {
+        "login" : "lunedis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9085102?v=4",
+        "url" : "https://api.github.com/users/lunedis",
+        "contributions" : 1
+      },
+      {
+        "login" : "Kevin-Lee",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2307335?v=4",
+        "url" : "https://api.github.com/users/Kevin-Lee",
+        "contributions" : 1
+      },
+      {
+        "login" : "Tomahna",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8577941?v=4",
+        "url" : "https://api.github.com/users/Tomahna",
+        "contributions" : 1
+      },
+      {
+        "login" : "ksaldana1",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12038627?v=4",
+        "url" : "https://api.github.com/users/ksaldana1",
+        "contributions" : 1
+      },
+      {
+        "login" : "leeshangqian",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6016312?v=4",
+        "url" : "https://api.github.com/users/leeshangqian",
+        "contributions" : 1
+      },
+      {
+        "login" : "LeifW",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/28711?v=4",
+        "url" : "https://api.github.com/users/LeifW",
+        "contributions" : 1
+      },
+      {
+        "login" : "mcanlas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/881934?v=4",
+        "url" : "https://api.github.com/users/mcanlas",
+        "contributions" : 1
+      },
+      {
+        "login" : "markus1189",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/591567?v=4",
+        "url" : "https://api.github.com/users/markus1189",
+        "contributions" : 1
+      },
+      {
+        "login" : "justjoheinz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/392164?v=4",
+        "url" : "https://api.github.com/users/justjoheinz",
+        "contributions" : 1
+      },
+      {
+        "login" : "aldiyen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/974835?v=4",
+        "url" : "https://api.github.com/users/aldiyen",
+        "contributions" : 1
+      },
+      {
+        "login" : "mattkohl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4329213?v=4",
+        "url" : "https://api.github.com/users/mattkohl",
+        "contributions" : 1
+      },
+      {
+        "login" : "MatthewEdge",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2057147?v=4",
+        "url" : "https://api.github.com/users/MatthewEdge",
+        "contributions" : 1
+      },
+      {
+        "login" : "tovbinm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/629845?v=4",
+        "url" : "https://api.github.com/users/tovbinm",
+        "contributions" : 1
+      },
+      {
+        "login" : "mkows",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1754664?v=4",
+        "url" : "https://api.github.com/users/mkows",
+        "contributions" : 1
+      },
+      {
+        "login" : "mszczygiel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1153719?v=4",
+        "url" : "https://api.github.com/users/mszczygiel",
+        "contributions" : 1
+      },
+      {
+        "login" : "MichalPawlicki",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5757750?v=4",
+        "url" : "https://api.github.com/users/MichalPawlicki",
+        "contributions" : 1
+      },
+      {
+        "login" : "tian000",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14320466?v=4",
+        "url" : "https://api.github.com/users/tian000",
+        "contributions" : 1
+      },
+      {
+        "login" : "flash-gordon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/802486?v=4",
+        "url" : "https://api.github.com/users/flash-gordon",
+        "contributions" : 1
+      },
+      {
+        "login" : "noelwelsh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/32476?v=4",
+        "url" : "https://api.github.com/users/noelwelsh",
+        "contributions" : 1
+      },
+      {
+        "login" : "kusaeva",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5486933?v=4",
+        "url" : "https://api.github.com/users/kusaeva",
+        "contributions" : 1
+      },
+      {
+        "login" : "olliahonen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1252732?v=4",
+        "url" : "https://api.github.com/users/olliahonen",
+        "contributions" : 1
+      },
+      {
+        "login" : "Zett98",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/45178695?v=4",
+        "url" : "https://api.github.com/users/Zett98",
+        "contributions" : 1
+      },
+      {
+        "login" : "CremboC",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/880130?v=4",
+        "url" : "https://api.github.com/users/CremboC",
+        "contributions" : 1
+      },
+      {
+        "login" : "PeterPerhac",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1763911?v=4",
+        "url" : "https://api.github.com/users/PeterPerhac",
+        "contributions" : 1
+      },
+      {
+        "login" : "Philippus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1923596?v=4",
+        "url" : "https://api.github.com/users/Philippus",
+        "contributions" : 1
+      },
+      {
+        "login" : "pravin-raha",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/18550421?v=4",
+        "url" : "https://api.github.com/users/pravin-raha",
+        "contributions" : 1
+      },
+      {
+        "login" : "Qi77Qi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/32771737?v=4",
+        "url" : "https://api.github.com/users/Qi77Qi",
+        "contributions" : 1
+      },
+      {
+        "login" : "rafaparadela",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/315070?v=4",
+        "url" : "https://api.github.com/users/rafaparadela",
+        "contributions" : 1
+      },
+      {
+        "login" : "richashworth",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/546972?v=4",
+        "url" : "https://api.github.com/users/richashworth",
+        "contributions" : 1
+      },
+      {
+        "login" : "rolandomanrique",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10503115?v=4",
+        "url" : "https://api.github.com/users/rolandomanrique",
+        "contributions" : 1
+      },
+      {
+        "login" : "ragb",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/52587?v=4",
+        "url" : "https://api.github.com/users/ragb",
+        "contributions" : 1
+      },
+      {
+        "login" : "rtar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/49794769?v=4",
+        "url" : "https://api.github.com/users/rtar",
+        "contributions" : 1
+      },
+      {
+        "login" : "sluukkonen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/39655?v=4",
+        "url" : "https://api.github.com/users/sluukkonen",
+        "contributions" : 1
+      },
+      {
+        "login" : "desbo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1064734?v=4",
+        "url" : "https://api.github.com/users/desbo",
+        "contributions" : 1
+      },
+      {
+        "login" : "ScalaWilliam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2464813?v=4",
+        "url" : "https://api.github.com/users/ScalaWilliam",
+        "contributions" : 1
+      },
+      {
+        "login" : "stephanh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/376868?v=4",
+        "url" : "https://api.github.com/users/stephanh",
+        "contributions" : 1
+      },
+      {
+        "login" : "sbly",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1427979?v=4",
+        "url" : "https://api.github.com/users/sbly",
+        "contributions" : 1
+      },
+      {
+        "login" : "devholic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6194958?v=4",
+        "url" : "https://api.github.com/users/devholic",
+        "contributions" : 1
+      },
+      {
+        "login" : "mbbx6spp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/564?v=4",
+        "url" : "https://api.github.com/users/mbbx6spp",
+        "contributions" : 1
+      },
+      {
+        "login" : "tbrown1979",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3231194?v=4",
+        "url" : "https://api.github.com/users/tbrown1979",
+        "contributions" : 1
+      },
+      {
+        "login" : "toby5box",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10501574?v=4",
+        "url" : "https://api.github.com/users/toby5box",
+        "contributions" : 1
+      },
+      {
+        "login" : "TomTriple",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/202410?v=4",
+        "url" : "https://api.github.com/users/TomTriple",
+        "contributions" : 1
+      },
+      {
+        "login" : "VladKopanev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7037262?v=4",
+        "url" : "https://api.github.com/users/VladKopanev",
+        "contributions" : 1
+      },
+      {
+        "login" : "frosforever",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1630422?v=4",
+        "url" : "https://api.github.com/users/frosforever",
+        "contributions" : 1
+      },
+      {
+        "login" : "Unisay",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1009751?v=4",
+        "url" : "https://api.github.com/users/Unisay",
+        "contributions" : 1
+      },
+      {
+        "login" : "dwlizlo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/27986129?v=4",
+        "url" : "https://api.github.com/users/dwlizlo",
+        "contributions" : 1
+      },
+      {
+        "login" : "erdeszt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1301484?v=4",
+        "url" : "https://api.github.com/users/erdeszt",
+        "contributions" : 1
+      },
+      {
+        "login" : "Guisanpea",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30202718?v=4",
+        "url" : "https://api.github.com/users/Guisanpea",
+        "contributions" : 1
+      },
+      {
+        "login" : "j-keck",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3081095?v=4",
+        "url" : "https://api.github.com/users/j-keck",
+        "contributions" : 1
+      },
+      {
+        "login" : "jbwheatley",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19939655?v=4",
+        "url" : "https://api.github.com/users/jbwheatley",
+        "contributions" : 1
+      },
+      {
+        "login" : "jinilover",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4045088?v=4",
+        "url" : "https://api.github.com/users/jinilover",
+        "contributions" : 1
+      },
+      {
+        "login" : "guizmaii",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1193670?v=4",
+        "url" : "https://api.github.com/users/guizmaii",
+        "contributions" : 1
+      },
+      {
+        "login" : "kajyuuen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15792784?v=4",
+        "url" : "https://api.github.com/users/kajyuuen",
+        "contributions" : 1
+      },
+      {
+        "login" : "key-eugene",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/25910599?v=4",
+        "url" : "https://api.github.com/users/key-eugene",
+        "contributions" : 1
+      },
+      {
+        "login" : "lewisc2303",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/40141040?v=4",
+        "url" : "https://api.github.com/users/lewisc2303",
+        "contributions" : 1
+      },
+      {
+        "login" : "matthughes",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/173132?v=4",
+        "url" : "https://api.github.com/users/matthughes",
+        "contributions" : 1
+      },
+      {
+        "login" : "rexim",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/165283?v=4",
+        "url" : "https://api.github.com/users/rexim",
+        "contributions" : 1
+      },
+      {
+        "login" : "rnd4222",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/29251547?v=4",
+        "url" : "https://api.github.com/users/rnd4222",
+        "contributions" : 1
+      },
+      {
+        "login" : "ronanM",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/837382?v=4",
+        "url" : "https://api.github.com/users/ronanM",
+        "contributions" : 1
+      },
+      {
+        "login" : "sksamuel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/743706?v=4",
+        "url" : "https://api.github.com/users/sksamuel",
+        "contributions" : 1
+      },
+      {
+        "login" : "sportanova",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4175672?v=4",
+        "url" : "https://api.github.com/users/sportanova",
+        "contributions" : 1
+      },
+      {
+        "login" : "trepidacious",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/172154?v=4",
+        "url" : "https://api.github.com/users/trepidacious",
+        "contributions" : 1
+      },
+      {
+        "login" : "wedens",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/697162?v=4",
+        "url" : "https://api.github.com/users/wedens",
+        "contributions" : 1
+      },
+      {
+        "login" : "wlingxiao",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5276935?v=4",
+        "url" : "https://api.github.com/users/wlingxiao",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 14667,
+    "topics" : [
+      "fs2",
+      "http-client",
+      "http-server",
+      "scala",
+      "cats",
+      "http",
+      "typelevel"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : "https://gitter.im/http4s/http4s",
+    "openIssues" : [
+      {
+        "number" : 5919,
+        "title" : "http4s.org main page down",
+        "url" : "https://github.com/http4s/http4s/issues/5919"
+      },
+      {
+        "number" : 5913,
+        "title" : "CORS headers aren't added to failed requests",
+        "url" : "https://github.com/http4s/http4s/issues/5913"
+      },
+      {
+        "number" : 5912,
+        "title" : "Ember: Decoding failure is a server error",
+        "url" : "https://github.com/http4s/http4s/issues/5912"
+      },
+      {
+        "number" : 5898,
+        "title" : "Fabric Support (JSON Entity conversion)",
+        "url" : "https://github.com/http4s/http4s/issues/5898"
+      },
+      {
+        "number" : 5892,
+        "title" : "EndOfStreamError: Reached End Of Stream with Ember Websockets",
+        "url" : "https://github.com/http4s/http4s/issues/5892"
+      },
+      {
+        "number" : 5883,
+        "title" : "Entity Limiter Awareness",
+        "url" : "https://github.com/http4s/http4s/issues/5883"
+      },
+      {
+        "number" : 5879,
+        "title" : "Header Keys are inaccessible outside of http4s now",
+        "url" : "https://github.com/http4s/http4s/issues/5879"
+      },
+      {
+        "number" : 5877,
+        "title" : "Cookie parsing discards valid cookies",
+        "url" : "https://github.com/http4s/http4s/issues/5877"
+      },
+      {
+        "number" : 5865,
+        "title" : "ember client gets empty body for http/1.0 assume close after body with no content-length",
+        "url" : "https://github.com/http4s/http4s/issues/5865"
+      },
+      {
+        "number" : 5831,
+        "title" : "Better SSL Documentation",
+        "url" : "https://github.com/http4s/http4s/issues/5831"
+      },
+      {
+        "number" : 5823,
+        "title" : "Deprecation in v1.0 Static Files Tutorial",
+        "url" : "https://github.com/http4s/http4s/issues/5823"
+      },
+      {
+        "number" : 5812,
+        "title" : "Bikeshed `Entity.Strict`",
+        "url" : "https://github.com/http4s/http4s/issues/5812"
+      },
+      {
+        "number" : 5809,
+        "title" : "Multipart part's Content-Disposition with non-ascii filename fails to parse",
+        "url" : "https://github.com/http4s/http4s/issues/5809"
+      },
+      {
+        "number" : 5798,
+        "title" : "Reconsider requirement for absolute paths in the DSL?",
+        "url" : "https://github.com/http4s/http4s/issues/5798"
+      },
+      {
+        "number" : 5743,
+        "title" : "ClosedChannelException after 30 seconds",
+        "url" : "https://github.com/http4s/http4s/issues/5743"
+      },
+      {
+        "number" : 5740,
+        "title" : "Redesign tests based on `QueueTestHead` and `onFinalizeWeak`",
+        "url" : "https://github.com/http4s/http4s/issues/5740"
+      },
+      {
+        "number" : 5736,
+        "title" : "Flaky test org.http4s.StatusSpec.rendering sanitizes statuses",
+        "url" : "https://github.com/http4s/http4s/issues/5736"
+      },
+      {
+        "number" : 5720,
+        "title" : "Ember appears to support websockets but the Integrations page shows a question mark",
+        "url" : "https://github.com/http4s/http4s/issues/5720"
+      },
+      {
+        "number" : 5715,
+        "title" : "Google searches still lead to 0.18 docs",
+        "url" : "https://github.com/http4s/http4s/issues/5715"
+      },
+      {
+        "number" : 5707,
+        "title" : "Strong and weak ETags",
+        "url" : "https://github.com/http4s/http4s/issues/5707"
+      },
+      {
+        "number" : 5702,
+        "title" : "Ember unix socket tests are flaky",
+        "url" : "https://github.com/http4s/http4s/issues/5702"
+      },
+      {
+        "number" : 5684,
+        "title" : "Node.js ember-core TraversalSpec failure",
+        "url" : "https://github.com/http4s/http4s/issues/5684"
+      },
+      {
+        "number" : 5683,
+        "title" : "Improve release notes process",
+        "url" : "https://github.com/http4s/http4s/issues/5683"
+      },
+      {
+        "number" : 5674,
+        "title" : "Publish docs site for the 1.0",
+        "url" : "https://github.com/http4s/http4s/issues/5674"
+      },
+      {
+        "number" : 5672,
+        "title" : "Add http4s to Scala 3 Community Build",
+        "url" : "https://github.com/http4s/http4s/issues/5672"
+      },
+      {
+        "number" : 5661,
+        "title" : "branch 23 doesn't complete ab workbench on macos",
+        "url" : "https://github.com/http4s/http4s/issues/5661"
+      },
+      {
+        "number" : 5636,
+        "title" : "#5071 was binary-incompatible for Scala",
+        "url" : "https://github.com/http4s/http4s/issues/5636"
+      },
+      {
+        "number" : 5627,
+        "title" : "Flaky `JettyServerSuite`",
+        "url" : "https://github.com/http4s/http4s/issues/5627"
+      },
+      {
+        "number" : 5593,
+        "title" : "Stale dropdown in 0.21 docs",
+        "url" : "https://github.com/http4s/http4s/issues/5593"
+      },
+      {
+        "number" : 5558,
+        "title" : "Publish user-relevant scalafix rules",
+        "url" : "https://github.com/http4s/http4s/issues/5558"
+      },
+      {
+        "number" : 5545,
+        "title" : "Rethink `UnexpectedStatus` model",
+        "url" : "https://github.com/http4s/http4s/issues/5545"
+      },
+      {
+        "number" : 5543,
+        "title" : "Deprecate `BackendBuilder#allocate`",
+        "url" : "https://github.com/http4s/http4s/issues/5543"
+      },
+      {
+        "number" : 5542,
+        "title" : "Does deprecated WebSocket builder still work?",
+        "url" : "https://github.com/http4s/http4s/issues/5542"
+      },
+      {
+        "number" : 5539,
+        "title" : "http4s Tutorial",
+        "url" : "https://github.com/http4s/http4s/issues/5539"
+      },
+      {
+        "number" : 5538,
+        "title" : "Header typeclass requires Either parser but loses error information on `get`",
+        "url" : "https://github.com/http4s/http4s/issues/5538"
+      },
+      {
+        "number" : 5508,
+        "title" : "dead link in doc ",
+        "url" : "https://github.com/http4s/http4s/issues/5508"
+      },
+      {
+        "number" : 5497,
+        "title" : "ScalaFix linters",
+        "url" : "https://github.com/http4s/http4s/issues/5497"
+      },
+      {
+        "number" : 5490,
+        "title" : "`Retry` behaviour",
+        "url" : "https://github.com/http4s/http4s/issues/5490"
+      },
+      {
+        "number" : 5489,
+        "title" : "`Retry` doesn't respect `maxRetry` configuration ",
+        "url" : "https://github.com/http4s/http4s/issues/5489"
+      },
+      {
+        "number" : 5488,
+        "title" : "\"Edit this page\" returns 404",
+        "url" : "https://github.com/http4s/http4s/issues/5488"
+      },
+      {
+        "number" : 5484,
+        "title" : "Standardizing parser/constructor names",
+        "url" : "https://github.com/http4s/http4s/issues/5484"
+      },
+      {
+        "number" : 5461,
+        "title" : "Content-Length and Transfer-Encoding issues with Ember client (HTTP/1.1 spec)",
+        "url" : "https://github.com/http4s/http4s/issues/5461"
+      },
+      {
+        "number" : 5460,
+        "title" : "Improve Host header model",
+        "url" : "https://github.com/http4s/http4s/issues/5460"
+      },
+      {
+        "number" : 5457,
+        "title" : "The search function for the doc site",
+        "url" : "https://github.com/http4s/http4s/issues/5457"
+      },
+      {
+        "number" : 5450,
+        "title" : "Site dark mode",
+        "url" : "https://github.com/http4s/http4s/issues/5450"
+      },
+      {
+        "number" : 5439,
+        "title" : "Use and citation of extracts from standards and docs",
+        "url" : "https://github.com/http4s/http4s/issues/5439"
+      },
+      {
+        "number" : 5432,
+        "title" : "Implement RFC 8941 (Structured Field Values for HTTP)",
+        "url" : "https://github.com/http4s/http4s/issues/5432"
+      },
+      {
+        "number" : 5380,
+        "title" : "Make 'maxBufferSize' configurable for websocket connections",
+        "url" : "https://github.com/http4s/http4s/issues/5380"
+      },
+      {
+        "number" : 5362,
+        "title" : "Router handling prefix incorrectly when using Jetty server",
+        "url" : "https://github.com/http4s/http4s/issues/5362"
+      },
+      {
+        "number" : 5359,
+        "title" : "Improve spec-compliance of `MediaType`/`MediaRange`",
+        "url" : "https://github.com/http4s/http4s/issues/5359"
+      },
+      {
+        "number" : 5350,
+        "title" : "Improve ember performance on JS",
+        "url" : "https://github.com/http4s/http4s/issues/5350"
+      },
+      {
+        "number" : 5333,
+        "title" : "Flaky EmberUnixSocketSuite",
+        "url" : "https://github.com/http4s/http4s/issues/5333"
+      },
+      {
+        "number" : 5322,
+        "title" : "CORS middleware behaviour change - dropping Access-Control-Allow-Headers header",
+        "url" : "https://github.com/http4s/http4s/issues/5322"
+      },
+      {
+        "number" : 5320,
+        "title" : "Create a published `testkit` module",
+        "url" : "https://github.com/http4s/http4s/issues/5320"
+      },
+      {
+        "number" : 5289,
+        "title" : "Drop Scala 2.12 for 1.0?",
+        "url" : "https://github.com/http4s/http4s/issues/5289"
+      },
+      {
+        "number" : 5281,
+        "title" : "Http4sVersion instances",
+        "url" : "https://github.com/http4s/http4s/issues/5281"
+      },
+      {
+        "number" : 5280,
+        "title" : "Parse errors are difficult to read",
+        "url" : "https://github.com/http4s/http4s/issues/5280"
+      },
+      {
+        "number" : 5277,
+        "title" : "Rename `blazecore` package to `blaze.core`",
+        "url" : "https://github.com/http4s/http4s/issues/5277"
+      },
+      {
+        "number" : 5273,
+        "title" : "Optimized `MimeDB`",
+        "url" : "https://github.com/http4s/http4s/issues/5273"
+      },
+      {
+        "number" : 5264,
+        "title" : "Ease migration to 0.22/0.23 by implementing 0.21 APIs as deprecated aliases.",
+        "url" : "https://github.com/http4s/http4s/issues/5264"
+      },
+      {
+        "number" : 5263,
+        "title" : "Missing a `Logger.httpRoutes` for `AuthedRoutes[F]`",
+        "url" : "https://github.com/http4s/http4s/issues/5263"
+      },
+      {
+        "number" : 5259,
+        "title" : "HttpVersion exposes non-validating copy constructor",
+        "url" : "https://github.com/http4s/http4s/issues/5259"
+      },
+      {
+        "number" : 5256,
+        "title" : "Ember client fails `/no-content` route in `ClientRouteTestBattery`",
+        "url" : "https://github.com/http4s/http4s/issues/5256"
+      },
+      {
+        "number" : 5243,
+        "title" : "Ember client `ClosedChannelException` becomes `IOException: Connection reset` on JDK 17",
+        "url" : "https://github.com/http4s/http4s/issues/5243"
+      },
+      {
+        "number" : 5242,
+        "title" : "Ember client `ClosedChannelException` renders poorly",
+        "url" : "https://github.com/http4s/http4s/issues/5242"
+      },
+      {
+        "number" : 5240,
+        "title" : "ResourceServiceBuilder using OS-dependent file paths instead of resource paths",
+        "url" : "https://github.com/http4s/http4s/issues/5240"
+      },
+      {
+        "number" : 5232,
+        "title" : "EmberWebSocketSuite: NullPointerException",
+        "url" : "https://github.com/http4s/http4s/issues/5232"
+      },
+      {
+        "number" : 5231,
+        "title" : "ZoneRulesException locally",
+        "url" : "https://github.com/http4s/http4s/issues/5231"
+      },
+      {
+        "number" : 5227,
+        "title" : "Ember Client WebSocket support",
+        "url" : "https://github.com/http4s/http4s/issues/5227"
+      },
+      {
+        "number" : 5217,
+        "title" : "Flaky JettyClientSuite",
+        "url" : "https://github.com/http4s/http4s/issues/5217"
+      },
+      {
+        "number" : 5207,
+        "title" : "Expect 100-continue support",
+        "url" : "https://github.com/http4s/http4s/issues/5207"
+      },
+      {
+        "number" : 5197,
+        "title" : "Implement set-cookie parser according to laxer section of spec",
+        "url" : "https://github.com/http4s/http4s/issues/5197"
+      },
+      {
+        "number" : 5177,
+        "title" : "Uri bug in 0.22, 0.23 series",
+        "url" : "https://github.com/http4s/http4s/issues/5177"
+      },
+      {
+        "number" : 5169,
+        "title" : "Russian characters problem",
+        "url" : "https://github.com/http4s/http4s/issues/5169"
+      },
+      {
+        "number" : 5153,
+        "title" : "deduceKeyLength returns 0 for TLSv1.3 Cipher Suites",
+        "url" : "https://github.com/http4s/http4s/issues/5153"
+      },
+      {
+        "number" : 5149,
+        "title" : "Customize TLSParameters in EmberClientBuilder",
+        "url" : "https://github.com/http4s/http4s/issues/5149"
+      },
+      {
+        "number" : 5132,
+        "title" : "Migrate blaze client PoolManager to a standalone module",
+        "url" : "https://github.com/http4s/http4s/issues/5132"
+      },
+      {
+        "number" : 5128,
+        "title" : "EmberWebSocketSuite: Unknown opcode 3",
+        "url" : "https://github.com/http4s/http4s/issues/5128"
+      },
+      {
+        "number" : 5110,
+        "title" : "EmberServer SecureSession Request Attribute Does Not Contain Expected Values",
+        "url" : "https://github.com/http4s/http4s/issues/5110"
+      },
+      {
+        "number" : 5108,
+        "title" : "[ws] Any effect you like, as long as it's IO",
+        "url" : "https://github.com/http4s/http4s/issues/5108"
+      },
+      {
+        "number" : 5104,
+        "title" : "Feature request: more flexible (and powerful) logging",
+        "url" : "https://github.com/http4s/http4s/issues/5104"
+      },
+      {
+        "number" : 5099,
+        "title" : "`Uri.resolve` behaviour very surprising, seems to discard last segment of `base`",
+        "url" : "https://github.com/http4s/http4s/issues/5099"
+      },
+      {
+        "number" : 5092,
+        "title" : "Default ExecutionContext in blaze-client",
+        "url" : "https://github.com/http4s/http4s/issues/5092"
+      },
+      {
+        "number" : 5091,
+        "title" : "Path is not normalized when creating a request",
+        "url" : "https://github.com/http4s/http4s/issues/5091"
+      },
+      {
+        "number" : 5087,
+        "title" : "testing.md still refers to HttpService",
+        "url" : "https://github.com/http4s/http4s/issues/5087"
+      },
+      {
+        "number" : 5086,
+        "title" : "middleware.md still refers to HttpService",
+        "url" : "https://github.com/http4s/http4s/issues/5086"
+      },
+      {
+        "number" : 5053,
+        "title" : "multiipart file upload doesn't support unicode file names",
+        "url" : "https://github.com/http4s/http4s/issues/5053"
+      },
+      {
+        "number" : 5052,
+        "title" : "Blaze Test Is Unreliable",
+        "url" : "https://github.com/http4s/http4s/issues/5052"
+      },
+      {
+        "number" : 5030,
+        "title" : "Performance regression in ember message parsing",
+        "url" : "https://github.com/http4s/http4s/issues/5030"
+      },
+      {
+        "number" : 5021,
+        "title" : "[Bug] nowarn.class conflict with scala-collection-compat in 0.21.19",
+        "url" : "https://github.com/http4s/http4s/issues/5021"
+      },
+      {
+        "number" : 5018,
+        "title" : "Clean up Headers docs",
+        "url" : "https://github.com/http4s/http4s/issues/5018"
+      },
+      {
+        "number" : 5017,
+        "title" : "Be Consistent About Providing An Ordering Instance",
+        "url" : "https://github.com/http4s/http4s/issues/5017"
+      },
+      {
+        "number" : 5016,
+        "title" : "Optional matrix path parameter segments",
+        "url" : "https://github.com/http4s/http4s/issues/5016"
+      },
+      {
+        "number" : 5010,
+        "title" : "Add models for unmodelled headers",
+        "url" : "https://github.com/http4s/http4s/issues/5010"
+      },
+      {
+        "number" : 5007,
+        "title" : "JSoup encoder",
+        "url" : "https://github.com/http4s/http4s/issues/5007"
+      },
+      {
+        "number" : 4982,
+        "title" : "Incorrect HTTP/1.1 501 Not Implemented log messge for websocket connection",
+        "url" : "https://github.com/http4s/http4s/issues/4982"
+      },
+      {
+        "number" : 4981,
+        "title" : "Gunzip Middleware",
+        "url" : "https://github.com/http4s/http4s/issues/4981"
+      },
+      {
+        "number" : 4976,
+        "title" : "Missing easier way to decode base64 Body",
+        "url" : "https://github.com/http4s/http4s/issues/4976"
+      },
+      {
+        "number" : 4973,
+        "title" : "EntityDecoder MediaRange translation",
+        "url" : "https://github.com/http4s/http4s/issues/4973"
+      },
+      {
+        "number" : 4960,
+        "title" : "Doc: Cannot load 1.0 documentation pages",
+        "url" : "https://github.com/http4s/http4s/issues/4960"
+      },
+      {
+        "number" : 4955,
+        "title" : "0.23 -- URI equality bug: `uri\"/\".addSegment(\"Test\").addSegment(\"\") != uri\"/Test/\"`; values are not equal even if they have the same `toString()`",
+        "url" : "https://github.com/http4s/http4s/issues/4955"
+      },
+      {
+        "number" : 4935,
+        "title" : "Ember Client sometimes failing with `org.http4s.ember.core.EmptyStreamError: Cannot Parse Empty Stream`",
+        "url" : "https://github.com/http4s/http4s/issues/4935"
+      },
+      {
+        "number" : 4929,
+        "title" : "org.http4s.InvalidBodyException: Received premature EOF",
+        "url" : "https://github.com/http4s/http4s/issues/4929"
+      },
+      {
+        "number" : 4922,
+        "title" : "Documentation on blaze client builder configs",
+        "url" : "https://github.com/http4s/http4s/issues/4922"
+      },
+      {
+        "number" : 4920,
+        "title" : "org.http4s.MessageFailure does not return detailed error message",
+        "url" : "https://github.com/http4s/http4s/issues/4920"
+      },
+      {
+        "number" : 4919,
+        "title" : "[0.23] It seems to be impossible to construct non-encoded query parameters",
+        "url" : "https://github.com/http4s/http4s/issues/4919"
+      },
+      {
+        "number" : 4913,
+        "title" : "Blaze Server 0.21.24 - Possible Regression in SSL Verification",
+        "url" : "https://github.com/http4s/http4s/issues/4913"
+      },
+      {
+        "number" : 4910,
+        "title" : "Cannot undeploy app on Tomcat/Servlet: related to TickWheelExecutor",
+        "url" : "https://github.com/http4s/http4s/issues/4910"
+      },
+      {
+        "number" : 4899,
+        "title" : "Flaky Tomcat test",
+        "url" : "https://github.com/http4s/http4s/issues/4899"
+      },
+      {
+        "number" : 4872,
+        "title" : "Inconsistent connection recycling when raising an error",
+        "url" : "https://github.com/http4s/http4s/issues/4872"
+      },
+      {
+        "number" : 4865,
+        "title" : "ServerSentEvent support for data being a multi-line string and possible other ServerSentEvent enhancements",
+        "url" : "https://github.com/http4s/http4s/issues/4865"
+      },
+      {
+        "number" : 4858,
+        "title" : "Migration guide for 0.22",
+        "url" : "https://github.com/http4s/http4s/issues/4858"
+      },
+      {
+        "number" : 4853,
+        "title" : "Replace systemErr hack",
+        "url" : "https://github.com/http4s/http4s/issues/4853"
+      },
+      {
+        "number" : 4834,
+        "title" : "ForwardedRenderersSuite flake",
+        "url" : "https://github.com/http4s/http4s/issues/4834"
+      },
+      {
+        "number" : 4804,
+        "title" : "integrations.md looks bad",
+        "url" : "https://github.com/http4s/http4s/issues/4804"
+      },
+      {
+        "number" : 4799,
+        "title" : "BlazeClient's idleTimeout works differently than BlazeServer's idleTimeout",
+        "url" : "https://github.com/http4s/http4s/issues/4799"
+      },
+      {
+        "number" : 4737,
+        "title" : "Improve handling of chunks in ember-core",
+        "url" : "https://github.com/http4s/http4s/issues/4737"
+      },
+      {
+        "number" : 4733,
+        "title" : "Extract parsers into module below core",
+        "url" : "https://github.com/http4s/http4s/issues/4733"
+      },
+      {
+        "number" : 4719,
+        "title" : "Websocket as a resource.",
+        "url" : "https://github.com/http4s/http4s/issues/4719"
+      },
+      {
+        "number" : 4716,
+        "title" : "support RFC8941: Structured Field Values for HTTP",
+        "url" : "https://github.com/http4s/http4s/issues/4716"
+      },
+      {
+        "number" : 4710,
+        "title" : "ember-client support for HTTP tunneling",
+        "url" : "https://github.com/http4s/http4s/issues/4710"
+      },
+      {
+        "number" : 4651,
+        "title" : "Bug: Multipart client request hangs on error in fileData part stream",
+        "url" : "https://github.com/http4s/http4s/issues/4651"
+      },
+      {
+        "number" : 4647,
+        "title" : "Client `Logger.colored` can't be called with the default responseColor",
+        "url" : "https://github.com/http4s/http4s/issues/4647"
+      },
+      {
+        "number" : 4643,
+        "title" : "Evaluate update to Servlet 4 and Jetty 10",
+        "url" : "https://github.com/http4s/http4s/issues/4643"
+      },
+      {
+        "number" : 4641,
+        "title" : "Scalafix for Status#headers DSL ",
+        "url" : "https://github.com/http4s/http4s/issues/4641"
+      },
+      {
+        "number" : 4631,
+        "title" : "Expose Uri Authority Parsing",
+        "url" : "https://github.com/http4s/http4s/issues/4631"
+      },
+      {
+        "number" : 4628,
+        "title" : "Running background tasks in http4s",
+        "url" : "https://github.com/http4s/http4s/issues/4628"
+      },
+      {
+        "number" : 4624,
+        "title" : "Http/2 Push Promise support - Jetty backend",
+        "url" : "https://github.com/http4s/http4s/issues/4624"
+      },
+      {
+        "number" : 4612,
+        "title" : "CSRF checkCSRFinHeaderAndForm fails for multipart",
+        "url" : "https://github.com/http4s/http4s/issues/4612"
+      },
+      {
+        "number" : 4528,
+        "title" : "Conditional logging",
+        "url" : "https://github.com/http4s/http4s/issues/4528"
+      },
+      {
+        "number" : 4525,
+        "title" : "\"IllegalStateException: Cannot have multiple pending reads\" when using blaze",
+        "url" : "https://github.com/http4s/http4s/issues/4525"
+      },
+      {
+        "number" : 4486,
+        "title" : "Smarter connection draining in Ember",
+        "url" : "https://github.com/http4s/http4s/issues/4486"
+      },
+      {
+        "number" : 4416,
+        "title" : "future ideas: quic and p2p",
+        "url" : "https://github.com/http4s/http4s/issues/4416"
+      },
+      {
+        "number" : 4404,
+        "title" : "Non-deterministic premature EOF",
+        "url" : "https://github.com/http4s/http4s/issues/4404"
+      },
+      {
+        "number" : 4386,
+        "title" : "Flaky test: LocalTokenBucket",
+        "url" : "https://github.com/http4s/http4s/issues/4386"
+      },
+      {
+        "number" : 4385,
+        "title" : "Flaky test: submit request line with query",
+        "url" : "https://github.com/http4s/http4s/issues/4385"
+      },
+      {
+        "number" : 4303,
+        "title" : "http4s-blaze-client: File upload (Multipart) fails if server doesn't support \"Transfer-Encoding: chunked\"",
+        "url" : "https://github.com/http4s/http4s/issues/4303"
+      },
+      {
+        "number" : 4284,
+        "title" : "OkHttp-client should respect cancellation ",
+        "url" : "https://github.com/http4s/http4s/issues/4284"
+      },
+      {
+        "number" : 4264,
+        "title" : "Docs publishing with bad base ref",
+        "url" : "https://github.com/http4s/http4s/issues/4264"
+      },
+      {
+        "number" : 4262,
+        "title" : "DecodeSpec property issue",
+        "url" : "https://github.com/http4s/http4s/issues/4262"
+      },
+      {
+        "number" : 4185,
+        "title" : "mixedMultipart Entity Decoder use too much memory",
+        "url" : "https://github.com/http4s/http4s/issues/4185"
+      },
+      {
+        "number" : 4155,
+        "title" : "Graceful shutdowns for blaze-server",
+        "url" : "https://github.com/http4s/http4s/issues/4155"
+      },
+      {
+        "number" : 4151,
+        "title" : "Flaky blaze-client test: Use User-Agent header provided in Request ",
+        "url" : "https://github.com/http4s/http4s/issues/4151"
+      },
+      {
+        "number" : 4150,
+        "title" : "Revisit thread pool names on CE3",
+        "url" : "https://github.com/http4s/http4s/issues/4150"
+      },
+      {
+        "number" : 4131,
+        "title" : "Revisit Logger constraints in Cats-Effect 3",
+        "url" : "https://github.com/http4s/http4s/issues/4131"
+      },
+      {
+        "number" : 4129,
+        "title" : "Failing DecodeSpec property based test",
+        "url" : "https://github.com/http4s/http4s/issues/4129"
+      },
+      {
+        "number" : 4111,
+        "title" : "Add mentioning of `EntityLimiter` to website",
+        "url" : "https://github.com/http4s/http4s/issues/4111"
+      },
+      {
+        "number" : 4103,
+        "title" : "Handle encoding characters like `%^{}\\|; for query parameters in HttpRoutes",
+        "url" : "https://github.com/http4s/http4s/issues/4103"
+      },
+      {
+        "number" : 4066,
+        "title" : "Review blocking operations in CE3 JavaNetClientBuilder",
+        "url" : "https://github.com/http4s/http4s/issues/4066"
+      },
+      {
+        "number" : 4063,
+        "title" : "Revise CE3 GZip middleware parameters",
+        "url" : "https://github.com/http4s/http4s/issues/4063"
+      },
+      {
+        "number" : 4015,
+        "title" : "Revisit the order of type parameters in ContextRoutes",
+        "url" : "https://github.com/http4s/http4s/issues/4015"
+      },
+      {
+        "number" : 3986,
+        "title" : "Fix \"FollowRediectSpec follow the proper strategy\"",
+        "url" : "https://github.com/http4s/http4s/issues/3986"
+      },
+      {
+        "number" : 3985,
+        "title" : "Cookie model allows invalid cookies",
+        "url" : "https://github.com/http4s/http4s/issues/3985"
+      },
+      {
+        "number" : 3935,
+        "title" : "ember-core test flake",
+        "url" : "https://github.com/http4s/http4s/issues/3935"
+      },
+      {
+        "number" : 3931,
+        "title" : "Using explicit dependencies checks on CI",
+        "url" : "https://github.com/http4s/http4s/issues/3931"
+      },
+      {
+        "number" : 3811,
+        "title" : "Support HTTP/2 on ember",
+        "url" : "https://github.com/http4s/http4s/issues/3811"
+      },
+      {
+        "number" : 3801,
+        "title" : "Unexpected routing using AuthMiddleware",
+        "url" : "https://github.com/http4s/http4s/issues/3801"
+      },
+      {
+        "number" : 3793,
+        "title" : "Scalafix for migration is not able to find the rules",
+        "url" : "https://github.com/http4s/http4s/issues/3793"
+      },
+      {
+        "number" : 3763,
+        "title" : "Twirl and Dotty",
+        "url" : "https://github.com/http4s/http4s/issues/3763"
+      },
+      {
+        "number" : 3745,
+        "title" : "Consider merging Request and ContextRequest",
+        "url" : "https://github.com/http4s/http4s/issues/3745"
+      },
+      {
+        "number" : 3727,
+        "title" : "Streaming bodies sometimes never produce a response without Transfer-Encoding set",
+        "url" : "https://github.com/http4s/http4s/issues/3727"
+      },
+      {
+        "number" : 3707,
+        "title" : "Improve Logging On Failed Expect",
+        "url" : "https://github.com/http4s/http4s/issues/3707"
+      },
+      {
+        "number" : 3700,
+        "title" : "Add Max Connection Lifetime Configuration for Client Backends",
+        "url" : "https://github.com/http4s/http4s/issues/3700"
+      },
+      {
+        "number" : 3697,
+        "title" : "Websocket fails with a Kleisli Routes monad",
+        "url" : "https://github.com/http4s/http4s/issues/3697"
+      },
+      {
+        "number" : 3685,
+        "title" : "Docs are missing a page on Attributes",
+        "url" : "https://github.com/http4s/http4s/issues/3685"
+      },
+      {
+        "number" : 3660,
+        "title" : "Reference SSE client implementation",
+        "url" : "https://github.com/http4s/http4s/issues/3660"
+      },
+      {
+        "number" : 3653,
+        "title" : "Simplify and document server construction",
+        "url" : "https://github.com/http4s/http4s/issues/3653"
+      },
+      {
+        "number" : 3652,
+        "title" : "Middleware Documentation",
+        "url" : "https://github.com/http4s/http4s/issues/3652"
+      },
+      {
+        "number" : 3628,
+        "title" : "http4s blaze client with connection pool is closing connection after processing a large response",
+        "url" : "https://github.com/http4s/http4s/issues/3628"
+      },
+      {
+        "number" : 3588,
+        "title" : "Digest Auth client middleware",
+        "url" : "https://github.com/http4s/http4s/issues/3588"
+      },
+      {
+        "number" : 3540,
+        "title" : "Document request-only DSL",
+        "url" : "https://github.com/http4s/http4s/issues/3540"
+      },
+      {
+        "number" : 3527,
+        "title" : "async-http-client: java.lang.IllegalStateException: This publisher only supports one subscriber",
+        "url" : "https://github.com/http4s/http4s/issues/3527"
+      },
+      {
+        "number" : 3507,
+        "title" : "Trace Context Spec Support",
+        "url" : "https://github.com/http4s/http4s/issues/3507"
+      },
+      {
+        "number" : 3505,
+        "title" : "cats.kernel.Order[Uri] Instance?",
+        "url" : "https://github.com/http4s/http4s/issues/3505"
+      },
+      {
+        "number" : 3433,
+        "title" : "the `uri` string interpolator does not accept variables ",
+        "url" : "https://github.com/http4s/http4s/issues/3433"
+      },
+      {
+        "number" : 3431,
+        "title" : "Refreshing SSL contexts on the fly",
+        "url" : "https://github.com/http4s/http4s/issues/3431"
+      },
+      {
+        "number" : 3429,
+        "title" : "org.http4s.client.middleware.Retry consumes memory proportional to number of retries performed",
+        "url" : "https://github.com/http4s/http4s/issues/3429"
+      },
+      {
+        "number" : 3412,
+        "title" : "Get mdoc working on 2.13",
+        "url" : "https://github.com/http4s/http4s/issues/3412"
+      },
+      {
+        "number" : 3383,
+        "title" : "Client logger doesn't log request URI if the call fails and logBody=true",
+        "url" : "https://github.com/http4s/http4s/issues/3383"
+      },
+      {
+        "number" : 3355,
+        "title" : "EncoderException: IllegalStateException: Unexpected message type: DefaultHttpRequest, state: 1",
+        "url" : "https://github.com/http4s/http4s/issues/3355"
+      },
+      {
+        "number" : 3345,
+        "title" : "Deprecate Client#fetch",
+        "url" : "https://github.com/http4s/http4s/issues/3345"
+      },
+      {
+        "number" : 3307,
+        "title" : "Bind two ports or interfaces at the same time",
+        "url" : "https://github.com/http4s/http4s/issues/3307"
+      },
+      {
+        "number" : 3306,
+        "title" : "ServerSentEvents should support sending comments",
+        "url" : "https://github.com/http4s/http4s/issues/3306"
+      },
+      {
+        "number" : 3299,
+        "title" : "Document GraalVM",
+        "url" : "https://github.com/http4s/http4s/issues/3299"
+      },
+      {
+        "number" : 3249,
+        "title" : "Testing websocket responses",
+        "url" : "https://github.com/http4s/http4s/issues/3249"
+      },
+      {
+        "number" : 3229,
+        "title" : "Correct comments/docs about: HTTP connection is disposed after many client functions",
+        "url" : "https://github.com/http4s/http4s/issues/3229"
+      },
+      {
+        "number" : 3214,
+        "title" : "BlockingServletIo assumes the request's InputStream is unmolested...",
+        "url" : "https://github.com/http4s/http4s/issues/3214"
+      },
+      {
+        "number" : 3208,
+        "title" : "Doc: Improve documentation on timeouts",
+        "url" : "https://github.com/http4s/http4s/issues/3208"
+      },
+      {
+        "number" : 3187,
+        "title" : "Pure Json Client Interactions",
+        "url" : "https://github.com/http4s/http4s/issues/3187"
+      },
+      {
+        "number" : 3178,
+        "title" : "Set-Cookie with leading dot in Domain attribute gets parsed as extension attribute",
+        "url" : "https://github.com/http4s/http4s/issues/3178"
+      },
+      {
+        "number" : 3122,
+        "title" : "Deal with corner cases of BOM handling in decode",
+        "url" : "https://github.com/http4s/http4s/issues/3122"
+      },
+      {
+        "number" : 3114,
+        "title" : "Should `Media` be covariant in F[_]?",
+        "url" : "https://github.com/http4s/http4s/issues/3114"
+      },
+      {
+        "number" : 3064,
+        "title" : "Flaky test: request timeout",
+        "url" : "https://github.com/http4s/http4s/issues/3064"
+      },
+      {
+        "number" : 3059,
+        "title" : "Facilitate composition on ContextMiddleware",
+        "url" : "https://github.com/http4s/http4s/issues/3059"
+      },
+      {
+        "number" : 3048,
+        "title" : "Document and streamline the release process for new maintainers",
+        "url" : "https://github.com/http4s/http4s/issues/3048"
+      },
+      {
+        "number" : 3027,
+        "title" : "Jetty client sometimes uses chunked transfer encoding for GET requests",
+        "url" : "https://github.com/http4s/http4s/issues/3027"
+      },
+      {
+        "number" : 3018,
+        "title" : "Add .orNotFound syntax for OptionT and Option",
+        "url" : "https://github.com/http4s/http4s/issues/3018"
+      },
+      {
+        "number" : 3011,
+        "title" : "The \"version\" page should list all the packages we ship",
+        "url" : "https://github.com/http4s/http4s/issues/3011"
+      },
+      {
+        "number" : 3009,
+        "title" : "Body Error Not Propagating",
+        "url" : "https://github.com/http4s/http4s/issues/3009"
+      },
+      {
+        "number" : 2979,
+        "title" : "Add a new http4s-scalaxb package",
+        "url" : "https://github.com/http4s/http4s/issues/2979"
+      },
+      {
+        "number" : 2975,
+        "title" : "Website: Header does not get updated",
+        "url" : "https://github.com/http4s/http4s/issues/2975"
+      },
+      {
+        "number" : 2951,
+        "title" : "Client side Request Logger doesn't log GET requests when logBody is set ",
+        "url" : "https://github.com/http4s/http4s/issues/2951"
+      },
+      {
+        "number" : 2947,
+        "title" : "Handling client connection loss when streaming",
+        "url" : "https://github.com/http4s/http4s/issues/2947"
+      },
+      {
+        "number" : 2913,
+        "title" : "\"Bad HTTP version\" in blaze-client",
+        "url" : "https://github.com/http4s/http4s/issues/2913"
+      },
+      {
+        "number" : 2904,
+        "title" : "Nullpointer exception from Blaze pipeline",
+        "url" : "https://github.com/http4s/http4s/issues/2904"
+      },
+      {
+        "number" : 2902,
+        "title" : "Http4s blaze should provide better feedback when rejecting a bad request (400)",
+        "url" : "https://github.com/http4s/http4s/issues/2902"
+      },
+      {
+        "number" : 2855,
+        "title" : "Exceptions when benchmarking: ERROR NIO1SocketServerGroup",
+        "url" : "https://github.com/http4s/http4s/issues/2855"
+      },
+      {
+        "number" : 2835,
+        "title" : "Spurious websocket close errors",
+        "url" : "https://github.com/http4s/http4s/issues/2835"
+      },
+      {
+        "number" : 2826,
+        "title" : "Add etag support for StaticFile.fromUrl where supported",
+        "url" : "https://github.com/http4s/http4s/issues/2826"
+      },
+      {
+        "number" : 2794,
+        "title" : "Flaky test: TraversalSpec",
+        "url" : "https://github.com/http4s/http4s/issues/2794"
+      },
+      {
+        "number" : 2779,
+        "title" : "async-http-client: duplicate handler",
+        "url" : "https://github.com/http4s/http4s/issues/2779"
+      },
+      {
+        "number" : 2756,
+        "title" : "[Client-Retry-Middleware] Allow RetryPolicy to run an effect between attempts",
+        "url" : "https://github.com/http4s/http4s/issues/2756"
+      },
+      {
+        "number" : 2744,
+        "title" : "Error during inactivity of SSL connections",
+        "url" : "https://github.com/http4s/http4s/issues/2744"
+      },
+      {
+        "number" : 2731,
+        "title" : "Weird EntityResponseGenerator behaviour since 0.20.0-M7",
+        "url" : "https://github.com/http4s/http4s/issues/2731"
+      },
+      {
+        "number" : 2710,
+        "title" : "Calling `translate` on a websocket response does not modify `onClose`",
+        "url" : "https://github.com/http4s/http4s/issues/2710"
+      },
+      {
+        "number" : 2703,
+        "title" : "Exposing extended information for a backend",
+        "url" : "https://github.com/http4s/http4s/issues/2703"
+      },
+      {
+        "number" : 2684,
+        "title" : "Content-Encoding header only specifies one coding",
+        "url" : "https://github.com/http4s/http4s/issues/2684"
+      },
+      {
+        "number" : 2667,
+        "title" : "Scalafix the string contexts to org.http4s.implicits",
+        "url" : "https://github.com/http4s/http4s/issues/2667"
+      },
+      {
+        "number" : 2627,
+        "title" : "Add a better implementation of a file-backed multipart decoder",
+        "url" : "https://github.com/http4s/http4s/issues/2627"
+      },
+      {
+        "number" : 2606,
+        "title" : "WebSocket server doesn't properly handle protocol mistakes.",
+        "url" : "https://github.com/http4s/http4s/issues/2606"
+      },
+      {
+        "number" : 2600,
+        "title" : "`BlazeServerBuilder` doesn't respect metered logger",
+        "url" : "https://github.com/http4s/http4s/issues/2600"
+      },
+      {
+        "number" : 2550,
+        "title" : "responseHeaderTimeout should be < idleTimeout",
+        "url" : "https://github.com/http4s/http4s/issues/2550"
+      },
+      {
+        "number" : 2545,
+        "title" : "`active_request_count` gauge doesn't decrease on WebSocket disconnect",
+        "url" : "https://github.com/http4s/http4s/issues/2545"
+      },
+      {
+        "number" : 2537,
+        "title" : "Request (any Message actually) is not `equals`ed structurally",
+        "url" : "https://github.com/http4s/http4s/issues/2537"
+      },
+      {
+        "number" : 2487,
+        "title" : "Inconsistent \"Host header required for HTTP/1.1 request\" error",
+        "url" : "https://github.com/http4s/http4s/issues/2487"
+      },
+      {
+        "number" : 2483,
+        "title" : "Client API feels inconsistent",
+        "url" : "https://github.com/http4s/http4s/issues/2483"
+      },
+      {
+        "number" : 2475,
+        "title" : "Add anchors to changelog page",
+        "url" : "https://github.com/http4s/http4s/issues/2475"
+      },
+      {
+        "number" : 2402,
+        "title" : "Create HttpApp and HttpRoutes Defaults for Server Middleware",
+        "url" : "https://github.com/http4s/http4s/issues/2402"
+      },
+      {
+        "number" : 2385,
+        "title" : "SSE streams are not GZip-able",
+        "url" : "https://github.com/http4s/http4s/issues/2385"
+      },
+      {
+        "number" : 2383,
+        "title" : "blaze-server error logs on shutdown",
+        "url" : "https://github.com/http4s/http4s/issues/2383"
+      },
+      {
+        "number" : 2371,
+        "title" : "Add StreamedJsonArray wrapper",
+        "url" : "https://github.com/http4s/http4s/issues/2371"
+      },
+      {
+        "number" : 2362,
+        "title" : "`OkHttpBuilder.run` blocks global execution context.",
+        "url" : "https://github.com/http4s/http4s/issues/2362"
+      },
+      {
+        "number" : 2352,
+        "title" : "Flaky test: cancels on stage shutdown",
+        "url" : "https://github.com/http4s/http4s/issues/2352"
+      },
+      {
+        "number" : 2348,
+        "title" : "Body of request can \"go missing\" when constructed using the apply method of Request",
+        "url" : "https://github.com/http4s/http4s/issues/2348"
+      },
+      {
+        "number" : 2339,
+        "title" : "Http4sServlet hangs on multipart requests",
+        "url" : "https://github.com/http4s/http4s/issues/2339"
+      },
+      {
+        "number" : 2334,
+        "title" : "Tutorial references old code",
+        "url" : "https://github.com/http4s/http4s/issues/2334"
+      },
+      {
+        "number" : 2321,
+        "title" : "jsonOf Implementation hangs on large requests",
+        "url" : "https://github.com/http4s/http4s/issues/2321"
+      },
+      {
+        "number" : 2314,
+        "title" : "More options for WebjarService",
+        "url" : "https://github.com/http4s/http4s/issues/2314"
+      },
+      {
+        "number" : 2278,
+        "title" : "WritePendingException: null from client",
+        "url" : "https://github.com/http4s/http4s/issues/2278"
+      },
+      {
+        "number" : 2277,
+        "title" : "[blaze-client] \"Exception: This stage 'IdleTimeoutStage' isn't connected!\"",
+        "url" : "https://github.com/http4s/http4s/issues/2277"
+      },
+      {
+        "number" : 2252,
+        "title" : "Websocket compression support (`permessage-deflate` / RFC RFC 7692)",
+        "url" : "https://github.com/http4s/http4s/issues/2252"
+      },
+      {
+        "number" : 2245,
+        "title" : "Clearer semantics for idleTimeout on server",
+        "url" : "https://github.com/http4s/http4s/issues/2245"
+      },
+      {
+        "number" : 2216,
+        "title" : "Graceful Shutdown",
+        "url" : "https://github.com/http4s/http4s/issues/2216"
+      },
+      {
+        "number" : 2186,
+        "title" : "Include request information for server timeouts",
+        "url" : "https://github.com/http4s/http4s/issues/2186"
+      },
+      {
+        "number" : 2072,
+        "title" : "StaticFile.fromFile has too many overloads",
+        "url" : "https://github.com/http4s/http4s/issues/2072"
+      },
+      {
+        "number" : 2019,
+        "title" : "Custom timeout for websockets",
+        "url" : "https://github.com/http4s/http4s/issues/2019"
+      },
+      {
+        "number" : 2016,
+        "title" : "Interest in a vert.x backend?",
+        "url" : "https://github.com/http4s/http4s/issues/2016"
+      },
+      {
+        "number" : 2012,
+        "title" : "Replace our URI",
+        "url" : "https://github.com/http4s/http4s/issues/2012"
+      },
+      {
+        "number" : 2006,
+        "title" : "Example of Decoding A Request Body in DSL Documentation",
+        "url" : "https://github.com/http4s/http4s/issues/2006"
+      },
+      {
+        "number" : 1967,
+        "title" : "Middleware composition",
+        "url" : "https://github.com/http4s/http4s/issues/1967"
+      },
+      {
+        "number" : 1965,
+        "title" : "Documentation is unclear about HTTP Client creation",
+        "url" : "https://github.com/http4s/http4s/issues/1965"
+      },
+      {
+        "number" : 1960,
+        "title" : "New Functions: HttpRoutes -> HttpApp",
+        "url" : "https://github.com/http4s/http4s/issues/1960"
+      },
+      {
+        "number" : 1919,
+        "title" : "Allow for metric reporting of PoolManager connections",
+        "url" : "https://github.com/http4s/http4s/issues/1919"
+      },
+      {
+        "number" : 1905,
+        "title" : "ServerBuilder should accept a Server header configuration setting",
+        "url" : "https://github.com/http4s/http4s/issues/1905"
+      },
+      {
+        "number" : 1877,
+        "title" : "DSL Documentation Clarification",
+        "url" : "https://github.com/http4s/http4s/issues/1877"
+      },
+      {
+        "number" : 1853,
+        "title" : "Trailer headers coming from `Ref`, not `AttributeMap`",
+        "url" : "https://github.com/http4s/http4s/issues/1853"
+      },
+      {
+        "number" : 1840,
+        "title" : "Consider Log4Cats for Logging",
+        "url" : "https://github.com/http4s/http4s/issues/1840"
+      },
+      {
+        "number" : 1812,
+        "title" : "Unable to change the timeout when using mountService in ServletContextSyntax.scala",
+        "url" : "https://github.com/http4s/http4s/issues/1812"
+      },
+      {
+        "number" : 1799,
+        "title" : "Doc revamp proposal",
+        "url" : "https://github.com/http4s/http4s/issues/1799"
+      },
+      {
+        "number" : 1793,
+        "title" : "Connection pool should be based on a Timer",
+        "url" : "https://github.com/http4s/http4s/issues/1793"
+      },
+      {
+        "number" : 1747,
+        "title" : "Method and Status constant names",
+        "url" : "https://github.com/http4s/http4s/issues/1747"
+      },
+      {
+        "number" : 1743,
+        "title" : "Consistency of Http4sClientDsl with Http4sDsl",
+        "url" : "https://github.com/http4s/http4s/issues/1743"
+      },
+      {
+        "number" : 1705,
+        "title" : "Prefix-tree based routing",
+        "url" : "https://github.com/http4s/http4s/issues/1705"
+      },
+      {
+        "number" : 1702,
+        "title" : "Clarify SSL Documentation",
+        "url" : "https://github.com/http4s/http4s/issues/1702"
+      },
+      {
+        "number" : 1695,
+        "title" : "Smite Seq wherever possible",
+        "url" : "https://github.com/http4s/http4s/issues/1695"
+      },
+      {
+        "number" : 1667,
+        "title" : "Abolish backtics",
+        "url" : "https://github.com/http4s/http4s/issues/1667"
+      },
+      {
+        "number" : 1655,
+        "title" : "Outdated docs links",
+        "url" : "https://github.com/http4s/http4s/issues/1655"
+      },
+      {
+        "number" : 1651,
+        "title" : "Uri JSON roundtrip failure",
+        "url" : "https://github.com/http4s/http4s/issues/1651"
+      },
+      {
+        "number" : 1553,
+        "title" : "Warn about making a request in fetch",
+        "url" : "https://github.com/http4s/http4s/issues/1553"
+      },
+      {
+        "number" : 1527,
+        "title" : "Docs need a little cleanup",
+        "url" : "https://github.com/http4s/http4s/issues/1527"
+      },
+      {
+        "number" : 1503,
+        "title" : "Log Middleware Improvements",
+        "url" : "https://github.com/http4s/http4s/issues/1503"
+      },
+      {
+        "number" : 1302,
+        "title" : "EntityEncoder can add Transfer-Encoding to message that already has Content-Length",
+        "url" : "https://github.com/http4s/http4s/issues/1302"
+      },
+      {
+        "number" : 1270,
+        "title" : "Make connection pool metric gathering easier",
+        "url" : "https://github.com/http4s/http4s/issues/1270"
+      },
+      {
+        "number" : 1269,
+        "title" : "Obey DNS TTL",
+        "url" : "https://github.com/http4s/http4s/issues/1269"
+      },
+      {
+        "number" : 1256,
+        "title" : "Disturbing error logs from blaze-client 0.17 under heavy load",
+        "url" : "https://github.com/http4s/http4s/issues/1256"
+      },
+      {
+        "number" : 1081,
+        "title" : "Add documentation for response code handling.",
+        "url" : "https://github.com/http4s/http4s/issues/1081"
+      },
+      {
+        "number" : 1051,
+        "title" : "http4s-reactive-streams module",
+        "url" : "https://github.com/http4s/http4s/issues/1051"
+      },
+      {
+        "number" : 1025,
+        "title" : "Disharmony in server and client construction",
+        "url" : "https://github.com/http4s/http4s/issues/1025"
+      },
+      {
+        "number" : 968,
+        "title" : "Document Middleware",
+        "url" : "https://github.com/http4s/http4s/issues/968"
+      },
+      {
+        "number" : 966,
+        "title" : "Unify url prefixing of HttpServices of any kind",
+        "url" : "https://github.com/http4s/http4s/issues/966"
+      },
+      {
+        "number" : 920,
+        "title" : "Fix Pending test in blaze-client for fs2-cats",
+        "url" : "https://github.com/http4s/http4s/issues/920"
+      },
+      {
+        "number" : 903,
+        "title" : "Move API scaladoc to a more visible spot on the website",
+        "url" : "https://github.com/http4s/http4s/issues/903"
+      },
+      {
+        "number" : 858,
+        "title" : "The client end-to-end tests are a mess",
+        "url" : "https://github.com/http4s/http4s/issues/858"
+      },
+      {
+        "number" : 847,
+        "title" : "Websockets",
+        "url" : "https://github.com/http4s/http4s/issues/847"
+      },
+      {
+        "number" : 845,
+        "title" : "how to configure a client",
+        "url" : "https://github.com/http4s/http4s/issues/845"
+      },
+      {
+        "number" : 836,
+        "title" : "Consider a max wait in pool manager",
+        "url" : "https://github.com/http4s/http4s/issues/836"
+      },
+      {
+        "number" : 834,
+        "title" : "[Bug] CORS header missing on 500 (Internal Server Error) responses",
+        "url" : "https://github.com/http4s/http4s/issues/834"
+      },
+      {
+        "number" : 818,
+        "title" : "Separate staging directories for separate API versions",
+        "url" : "https://github.com/http4s/http4s/issues/818"
+      },
+      {
+        "number" : 797,
+        "title" : "Obtaining redirected location",
+        "url" : "https://github.com/http4s/http4s/issues/797"
+      },
+      {
+        "number" : 752,
+        "title" : "h2 client",
+        "url" : "https://github.com/http4s/http4s/issues/752"
+      },
+      {
+        "number" : 734,
+        "title" : "Idle timeouts should render a 5xx response",
+        "url" : "https://github.com/http4s/http4s/issues/734"
+      },
+      {
+        "number" : 712,
+        "title" : "Retry should only resubmit idempotent methods with pure bodies",
+        "url" : "https://github.com/http4s/http4s/issues/712"
+      },
+      {
+        "number" : 619,
+        "title" : "Server Sent Events",
+        "url" : "https://github.com/http4s/http4s/issues/619"
+      },
+      {
+        "number" : 593,
+        "title" : "Content negotation",
+        "url" : "https://github.com/http4s/http4s/issues/593"
+      },
+      {
+        "number" : 570,
+        "title" : "Support for oauth2 server-side functionality",
+        "url" : "https://github.com/http4s/http4s/issues/570"
+      },
+      {
+        "number" : 563,
+        "title" : "FAQ: why does the client throw \"org.http4s.InvalidBodyException: Received premature EOF\"",
+        "url" : "https://github.com/http4s/http4s/issues/563"
+      },
+      {
+        "number" : 525,
+        "title" : "Best way for EntityDecoder to handle MediaType extensions",
+        "url" : "https://github.com/http4s/http4s/issues/525"
+      },
+      {
+        "number" : 492,
+        "title" : "refactor of url- and form-url-encode/decoding things (was: UrlFormCodec.encode mismatches UrlCodingUtils.urlEncode?)",
+        "url" : "https://github.com/http4s/http4s/issues/492"
+      },
+      {
+        "number" : 428,
+        "title" : "Alignment with RFC 3986",
+        "url" : "https://github.com/http4s/http4s/issues/428"
+      },
+      {
+        "number" : 342,
+        "title" : "Server backend testing",
+        "url" : "https://github.com/http4s/http4s/issues/342"
+      },
+      {
+        "number" : 336,
+        "title" : "idleTimeout does not work with Jetty backend",
+        "url" : "https://github.com/http4s/http4s/issues/336"
+      },
+      {
+        "number" : 330,
+        "title" : "Add client support for websockets",
+        "url" : "https://github.com/http4s/http4s/issues/330"
+      },
+      {
+        "number" : 303,
+        "title" : "Document the relationship between the modules",
+        "url" : "https://github.com/http4s/http4s/issues/303"
+      },
+      {
+        "number" : 251,
+        "title" : "blaze-client doesn't support proxy settings",
+        "url" : "https://github.com/http4s/http4s/issues/251"
+      },
+      {
+        "number" : 194,
+        "title" : "UrlCodingUtils.urlDecode should be more strict.",
+        "url" : "https://github.com/http4s/http4s/issues/194"
+      },
+      {
+        "number" : 153,
+        "title" : "XML improvements",
+        "url" : "https://github.com/http4s/http4s/issues/153"
+      },
+      {
+        "number" : 146,
+        "title" : "Make EntityEncoder headers depend on value?",
+        "url" : "https://github.com/http4s/http4s/issues/146"
+      },
+      {
+        "number" : 64,
+        "title" : "Websocket support for the servlet backend",
+        "url" : "https://github.com/http4s/http4s/issues/64"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : false,
+    "defaultArtifact" : "http4s-core",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "http-servers-and-clients",
+    "beginnerIssuesLabel" : null
+  }
+}

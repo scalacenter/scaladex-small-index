@@ -1,0 +1,69 @@
+{
+  "organization" : "sbt",
+  "repository" : "sbt-sh",
+  "creationDate" : 1422080264000,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643195795133
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "",
+    "description" : "sbt plugin to run shell commands from within the sbt shell",
+    "logo" : "https://avatars.githubusercontent.com/u/1158012?v=4",
+    "stars" : 14,
+    "forks" : 0,
+    "watchers" : 6,
+    "issues" : 2,
+    "creationDate" : 1421970817000,
+    "readme" : "<div id=\"readme\" class=\"markdown\" data-path=\"readme.markdown\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-sbt-sh\" class=\"anchor\" aria-hidden=\"true\" href=\"#sbt-sh\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>sbt-sh</h1>\n<p dir=\"auto\">Using the sbt-sh plugin you can invoke shell commands:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"root&gt; sh git status\n[info] On branch wip/sequential\n[info] Your branch is up-to-date with 'upstream/wip/sequential'.\n[info] nothing to commit, working directory clean\"><pre><code>root&gt; sh git status\n[info] On branch wip/sequential\n[info] Your branch is up-to-date with 'upstream/wip/sequential'.\n[info] nothing to commit, working directory clean\n</code></pre></div>\n<p dir=\"auto\">Happiness and productivity ensues without the hassle of exiting sbt or opening multiple terminals.</p>\n<h2 dir=\"auto\"><a id=\"user-content-setup\" class=\"anchor\" aria-hidden=\"true\" href=\"#setup\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Setup</h2>\n<p dir=\"auto\">Requirements:</p>\n<ul dir=\"auto\">\n<li>sbt 0.13.7+</li>\n</ul>\n<p dir=\"auto\">To install sbt-sh, add it to your global sbt plugin list by creating <code>~/.sbt/0.13/plugins/sh.sbt</code>:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"addSbtPlugin(&quot;com.eed3si9n&quot; % &quot;sbt-sh&quot; % &quot;0.1.0&quot;)\"><pre>addSbtPlugin(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.eed3si9n<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sbt-sh<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.1.0<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-usage\" class=\"anchor\" aria-hidden=\"true\" href=\"#usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Usage</h2>\n<p dir=\"auto\">The sbt-sh plugin introduces the <code>sh</code> task to sbt. This will execute the rest of the line as a shell command:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"sbt-sh&gt; sh ls\n[info] LICENSE\n[info] README.markdown\n[info] build.sbt\n[info] project\n[info] src\n[info] target\n[success] Total time: 0 s, completed Jan 23, 2015 11:00:00 PM\"><pre><code>sbt-sh&gt; sh ls\n[info] LICENSE\n[info] README.markdown\n[info] build.sbt\n[info] project\n[info] src\n[info] target\n[success] Total time: 0 s, completed Jan 23, 2015 11:00:00 PM\n</code></pre></div>\n<p dir=\"auto\"><code>sh</code> is an input task that returns <code>Seq[String]</code> containing each line from the output.</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"sbt-sh&gt; show sh ls\n[info] LICENSE\n[info] README.markdown\n[info] build.sbt\n[info] project\n[info] src\n[info] target\n[info] List(LICENSE, README.markdown, build.sbt, project, src, target)\n[success] Total time: 0 s, completed Jan 23, 2015 11:00:00 PM\"><pre><code>sbt-sh&gt; show sh ls\n[info] LICENSE\n[info] README.markdown\n[info] build.sbt\n[info] project\n[info] src\n[info] target\n[info] List(LICENSE, README.markdown, build.sbt, project, src, target)\n[success] Total time: 0 s, completed Jan 23, 2015 11:00:00 PM\n</code></pre></div>\n<p dir=\"auto\">Pipeline supported is limited to one level:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"sbt-sh&gt; sh ag case src | wc -l\n[info]       34\n[success] Total time: 0 s, completed Jan 23, 2015 11:00:00 PM\nsbt-sh&gt; sh find . -iname *.scala | xargs cat | wc -l\n[error] ({.}/*:sh) java.lang.IllegalArgumentException: requirement failed: Piping to multiple processes is not supported.\n[error] Total time: 0 s, completed Jan 23, 2015 11:00:00 PM\"><pre><code>sbt-sh&gt; sh ag case src | wc -l\n[info]       34\n[success] Total time: 0 s, completed Jan 23, 2015 11:00:00 PM\nsbt-sh&gt; sh find . -iname *.scala | xargs cat | wc -l\n[error] ({.}/*:sh) java.lang.IllegalArgumentException: requirement failed: Piping to multiple processes is not supported.\n[error] Total time: 0 s, completed Jan 23, 2015 11:00:00 PM\n</code></pre></div>\n<p dir=\"auto\">Redirect assumes rhs is a file:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"sbt-sh&gt; sh ls &gt; ls.txt\n[success] Total time: 0 s, completed Jan 23, 2015 11:00:00 PM\nsbt-sh&gt; sh cat &lt; ls.txt\n[info] LICENSE\n[info] README.markdown\n[info] build.sbt\n[info] ls.txt\n[info] project\n[info] src\n[info] target\n[success] Total time: 0 s, completed Jan 23, 2015 11:00:00 PM\"><pre><code>sbt-sh&gt; sh ls &gt; ls.txt\n[success] Total time: 0 s, completed Jan 23, 2015 11:00:00 PM\nsbt-sh&gt; sh cat &lt; ls.txt\n[info] LICENSE\n[info] README.markdown\n[info] build.sbt\n[info] ls.txt\n[info] project\n[info] src\n[info] target\n[success] Total time: 0 s, completed Jan 23, 2015 11:00:00 PM\n</code></pre></div>\n<p dir=\"auto\">Logical operators work:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"sbt-sh&gt; sh cat nonexistent.txt || cat ls.txt | wc -l\n[error] cat: nonexistent.txt: No such file or directory\n[info]        7\n[success] Total time: 0 s, completed Jan 23, 2015 11:00:00 PM\nsbt-sh&gt; sh cat nonexistent.txt &amp;&amp; cat ls.txt | wc -l\n[error] cat: nonexistent.txt: No such file or directory\n[error] Nonzero exit code: 1\n[error] ({.}/*:sh) Nonzero exit code: 1\n[error] Total time: 0 s, completed Jan 23, 2015 11:00:00 PM\"><pre><code>sbt-sh&gt; sh cat nonexistent.txt || cat ls.txt | wc -l\n[error] cat: nonexistent.txt: No such file or directory\n[info]        7\n[success] Total time: 0 s, completed Jan 23, 2015 11:00:00 PM\nsbt-sh&gt; sh cat nonexistent.txt &amp;&amp; cat ls.txt | wc -l\n[error] cat: nonexistent.txt: No such file or directory\n[error] Nonzero exit code: 1\n[error] ({.}/*:sh) Nonzero exit code: 1\n[error] Total time: 0 s, completed Jan 23, 2015 11:00:00 PM\n</code></pre></div>\n<p dir=\"auto\">Background process works only at the top level:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"sbt-sh&gt; sh (subl . &amp; ls | wc -l &amp;)\n[error] Expected '&amp;&amp;'\n[error] sh (subl . &amp; ls | wc -l &amp;)\n[error]             ^\nsbt-sh&gt; sh (subl .; ls | wc -l;) &amp;\n[success] Total time: 0 s, completed Jan 23, 2015 11:00:00 PM\n       7\"><pre><code>sbt-sh&gt; sh (subl . &amp; ls | wc -l &amp;)\n[error] Expected '&amp;&amp;'\n[error] sh (subl . &amp; ls | wc -l &amp;)\n[error]             ^\nsbt-sh&gt; sh (subl .; ls | wc -l;) &amp;\n[success] Total time: 0 s, completed Jan 23, 2015 11:00:00 PM\n       7\n</code></pre></div>\n<p dir=\"auto\">In Sublime Text pops up in the background, and it prints out 7 on shell.</p>\n<h2 dir=\"auto\"><a id=\"user-content-credits\" class=\"anchor\" aria-hidden=\"true\" href=\"#credits\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Credits</h2>\n<ul dir=\"auto\">\n<li>On 2009-09-12, @harrah released <a href=\"http://www.scala-sbt.org/0.7.7/docs/ChangeSummary_0_5_4.html\" rel=\"nofollow\">sbt 0.5.4</a>, which mentions \"<code>sh</code> task for users with a unix-style shell.\" It uses <code>/bin/sh -c</code>. Current releases of sbt no longer supports <code>sh</code> or <code>exec</code>.</li>\n<li>On 2011-07-09, @steppenwells wrote the original <a href=\"https://github.com/steppenwells/sbt-sh\">steppenwells/sbt-sbt</a>, which adds <code>sh</code> task that simply forks commands as <code>args.mkString(\" \") !</code> like <code>exec</code>.</li>\n<li>On 2015-01-24, @eed3si9n rewrote sbt-sbt, emulating POSIX shell-like features using sbt's parser combinator and <code>sbt.Process</code> API.</li>\n</ul>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "eed3si9n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/184683?v=4",
+        "url" : "https://api.github.com/users/eed3si9n",
+        "contributions" : 5
+      },
+      {
+        "login" : "steppenwells",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/145254?v=4",
+        "url" : "https://api.github.com/users/steppenwells",
+        "contributions" : 3
+      }
+    ],
+    "commits" : 8,
+    "topics" : [
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 3,
+        "title" : "Support for sbt 1.x",
+        "url" : "https://github.com/sbt/sbt-sh/issues/3"
+      },
+      {
+        "number" : 2,
+        "title" : "Cannot run program \"ow\"",
+        "url" : "https://github.com/sbt/sbt-sh/issues/2"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : null,
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : null,
+    "beginnerIssuesLabel" : null
+  }
+}

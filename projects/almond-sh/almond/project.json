@@ -1,0 +1,731 @@
+{
+  "organization" : "almond-sh",
+  "repository" : "almond",
+  "creationDate" : 1614187416000,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643166731601
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "https://almond.sh",
+    "description" : "A Scala kernel for Jupyter",
+    "logo" : "https://avatars.githubusercontent.com/u/41157539?v=4",
+    "stars" : 1413,
+    "forks" : 222,
+    "watchers" : 62,
+    "issues" : 143,
+    "creationDate" : 1426027730000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><div align=\"center\" dir=\"auto\">\n<a target=\"_blank\" rel=\"noopener noreferrer\" href=\"docs/website/static/logos/impure-logos-almond-0.svg\"><img src=\"docs/website/static/logos/impure-logos-almond-0.svg\" alt=\"logo\" width=\"40%\" style=\"max-width: 100%;\"></a>\n</div>\n<h1 dir=\"auto\"><a id=\"user-content-almond\" class=\"anchor\" aria-hidden=\"true\" href=\"#almond\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>almond</h1>\n<p dir=\"auto\"><em>almond</em> is a <a href=\"https://scala-lang.org\" rel=\"nofollow\">Scala</a> kernel for <a href=\"https://jupyter.org\" rel=\"nofollow\">Jupyter</a>.</p>\n<p dir=\"auto\"><a href=\"https://travis-ci.org/almond-sh/almond\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/e0e67bcb4822b133edf9c9ed96fc5a569f889d2a1cfbbc51e9019ffd355f1b29/68747470733a2f2f7472617669732d63692e6f72672f616c6d6f6e642d73682f616c6d6f6e642e7376673f6272616e63683d6d6173746572\" alt=\"Build Status\" data-canonical-src=\"https://travis-ci.org/almond-sh/almond.svg?branch=master\" style=\"max-width: 100%;\"></a>\n<a href=\"https://ci.appveyor.com/project/alexarchambault/almond/branch/master\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/57217716b97cafdbef15922b3a0cbf6dfbd79c0eb1dad6ae8780791580579028/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f347867326d72766e74746378723465382f6272616e63682f6d61737465723f7376673d74727565\" alt=\"Windows Build status\" data-canonical-src=\"https://ci.appveyor.com/api/projects/status/4xg2mrvnttcxr4e8/branch/master?svg=true\" style=\"max-width: 100%;\"></a>\n<a href=\"https://gitter.im/alexarchambault/jupyter-scala?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/5dbac0213da25c445bd11f168587c11a200ba153ef3014e8408e462e410169b3/68747470733a2f2f6261646765732e6769747465722e696d2f4a6f696e253230436861742e737667\" alt=\"Join the chat at https://gitter.im/alexarchambault/jupyter-scala\" data-canonical-src=\"https://badges.gitter.im/Join%20Chat.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://maven-badges.herokuapp.com/maven-central/sh.almond/kernel_2.12\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/b76e7f0e585673a994275f6c58821681ed55f6bc820ef1b310801f7c9df04aa9/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f73682e616c6d6f6e642f6b65726e656c5f322e31322e737667\" alt=\"Maven Central\" data-canonical-src=\"https://img.shields.io/maven-central/v/sh.almond/kernel_2.12.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://gitpod.io/#https://github.com/almond-sh/almond\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/daadb4894128d1e19b72d80236f5959f1f2b47f9fe081373f3246131f0189f6c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f476974706f642d72656164792d2d746f2d2d636f64652d626c75653f6c6f676f3d676974706f64\" alt=\"Gitpod Ready-to-Code\" data-canonical-src=\"https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod\" style=\"max-width: 100%;\"></a></p>\n<h2 dir=\"auto\"><a id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Documentation</h2>\n<p dir=\"auto\">See the project <a href=\"https://almond.sh\" rel=\"nofollow\">website</a> for more details.</p>\n<h2 dir=\"auto\"><a id=\"user-content-code-of-conduct\" class=\"anchor\" aria-hidden=\"true\" href=\"#code-of-conduct\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Code of Conduct</h2>\n<p dir=\"auto\">The almond project welcomes contributions from anybody wishing to participate.\nAll code or documentation that is provided must be licensed with the same\nlicense that almond is licensed with (3-Clause BSD, see LICENSE).</p>\n<p dir=\"auto\">People are expected to follow the <a href=\"https://www.scala-lang.org/conduct\" rel=\"nofollow\">Scala Code of Conduct</a>\nwhen discussing almond on GitHub, Gitter channel, or other venues.</p>\n<p dir=\"auto\">Feel free to open an issue if you notice a bug, have an idea for a feature, or have a question about the code. Pull requests are also gladly accepted.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "alexarchambault",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7063723?v=4",
+        "url" : "https://api.github.com/users/alexarchambault",
+        "contributions" : 729
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 177
+      },
+      {
+        "login" : "sbrunk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3939659?v=4",
+        "url" : "https://api.github.com/users/sbrunk",
+        "contributions" : 30
+      },
+      {
+        "login" : "dependabot[bot]",
+        "avatarUrl" : "https://avatars.githubusercontent.com/in/29110?v=4",
+        "url" : "https://api.github.com/users/dependabot%5Bbot%5D",
+        "contributions" : 6
+      },
+      {
+        "login" : "andrelfpinto",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/774790?v=4",
+        "url" : "https://api.github.com/users/andrelfpinto",
+        "contributions" : 5
+      },
+      {
+        "login" : "kiendang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6521018?v=4",
+        "url" : "https://api.github.com/users/kiendang",
+        "contributions" : 4
+      },
+      {
+        "login" : "d10xa",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10722234?v=4",
+        "url" : "https://api.github.com/users/d10xa",
+        "contributions" : 3
+      },
+      {
+        "login" : "jameskoch2",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23220251?v=4",
+        "url" : "https://api.github.com/users/jameskoch2",
+        "contributions" : 3
+      },
+      {
+        "login" : "willingc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2680980?v=4",
+        "url" : "https://api.github.com/users/willingc",
+        "contributions" : 2
+      },
+      {
+        "login" : "lourkeur",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15657735?v=4",
+        "url" : "https://api.github.com/users/lourkeur",
+        "contributions" : 2
+      },
+      {
+        "login" : "oshikiri",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10720090?v=4",
+        "url" : "https://api.github.com/users/oshikiri",
+        "contributions" : 2
+      },
+      {
+        "login" : "3Dcube",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17197542?v=4",
+        "url" : "https://api.github.com/users/3Dcube",
+        "contributions" : 2
+      },
+      {
+        "login" : "trepidacious",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/172154?v=4",
+        "url" : "https://api.github.com/users/trepidacious",
+        "contributions" : 2
+      },
+      {
+        "login" : "ahmetcetin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5046786?v=4",
+        "url" : "https://api.github.com/users/ahmetcetin",
+        "contributions" : 1
+      },
+      {
+        "login" : "aalexandrov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1071946?v=4",
+        "url" : "https://api.github.com/users/aalexandrov",
+        "contributions" : 1
+      },
+      {
+        "login" : "anatoliykmetyuk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2614813?v=4",
+        "url" : "https://api.github.com/users/anatoliykmetyuk",
+        "contributions" : 1
+      },
+      {
+        "login" : "lindholc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/239704?v=4",
+        "url" : "https://api.github.com/users/lindholc",
+        "contributions" : 1
+      },
+      {
+        "login" : "bonitao",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1772637?v=4",
+        "url" : "https://api.github.com/users/bonitao",
+        "contributions" : 1
+      },
+      {
+        "login" : "dportabella",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/976546?v=4",
+        "url" : "https://api.github.com/users/dportabella",
+        "contributions" : 1
+      },
+      {
+        "login" : "m-doru",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13137224?v=4",
+        "url" : "https://api.github.com/users/m-doru",
+        "contributions" : 1
+      },
+      {
+        "login" : "darkjh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/802343?v=4",
+        "url" : "https://api.github.com/users/darkjh",
+        "contributions" : 1
+      },
+      {
+        "login" : "jakubzitny",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3315662?v=4",
+        "url" : "https://api.github.com/users/jakubzitny",
+        "contributions" : 1
+      },
+      {
+        "login" : "jeremyrsmith",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/864869?v=4",
+        "url" : "https://api.github.com/users/jeremyrsmith",
+        "contributions" : 1
+      },
+      {
+        "login" : "guersam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/969120?v=4",
+        "url" : "https://api.github.com/users/guersam",
+        "contributions" : 1
+      },
+      {
+        "login" : "ludovicc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/104937?v=4",
+        "url" : "https://api.github.com/users/ludovicc",
+        "contributions" : 1
+      },
+      {
+        "login" : "Quafadas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24899792?v=4",
+        "url" : "https://api.github.com/users/Quafadas",
+        "contributions" : 1
+      },
+      {
+        "login" : "frgomes",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1257822?v=4",
+        "url" : "https://api.github.com/users/frgomes",
+        "contributions" : 1
+      },
+      {
+        "login" : "rogermenezes",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2406124?v=4",
+        "url" : "https://api.github.com/users/rogermenezes",
+        "contributions" : 1
+      },
+      {
+        "login" : "slel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2786973?v=4",
+        "url" : "https://api.github.com/users/slel",
+        "contributions" : 1
+      },
+      {
+        "login" : "sbromberger",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/941359?v=4",
+        "url" : "https://api.github.com/users/sbromberger",
+        "contributions" : 1
+      },
+      {
+        "login" : "shadaj",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/543055?v=4",
+        "url" : "https://api.github.com/users/shadaj",
+        "contributions" : 1
+      },
+      {
+        "login" : "zoltanctoth",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/445752?v=4",
+        "url" : "https://api.github.com/users/zoltanctoth",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 986,
+    "topics" : [
+      "jupyter-kernels",
+      "repl",
+      "jupyter-notebook",
+      "spark-sql",
+      "scala",
+      "spark",
+      "jupyter"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : "https://gitter.im/almond-sh/almond",
+    "openIssues" : [
+      {
+        "number" : 904,
+        "title" : "almond-scalafmt doesn't work: \"WARN Kernel Ignoring unhandled message\"",
+        "url" : "https://github.com/almond-sh/almond/issues/904"
+      },
+      {
+        "number" : 898,
+        "title" : "Upgrade to CE3/FS2 3 ",
+        "url" : "https://github.com/almond-sh/almond/issues/898"
+      },
+      {
+        "number" : 897,
+        "title" : "Are there any ways to do auto code completion?",
+        "url" : "https://github.com/almond-sh/almond/issues/897"
+      },
+      {
+        "number" : 895,
+        "title" : "Support for scala 3.1",
+        "url" : "https://github.com/almond-sh/almond/issues/895"
+      },
+      {
+        "number" : 879,
+        "title" : "Unrecognized cpu architecture (x86)",
+        "url" : "https://github.com/almond-sh/almond/issues/879"
+      },
+      {
+        "number" : 855,
+        "title" : "Run almond with custom -Xmx memory argument",
+        "url" : "https://github.com/almond-sh/almond/issues/855"
+      },
+      {
+        "number" : 850,
+        "title" : "Set metabrowser/REPL class server port",
+        "url" : "https://github.com/almond-sh/almond/issues/850"
+      },
+      {
+        "number" : 838,
+        "title" : "kernel doesn't show after installation",
+        "url" : "https://github.com/almond-sh/almond/issues/838"
+      },
+      {
+        "number" : 790,
+        "title" : "sbt jupyterStart shell failed",
+        "url" : "https://github.com/almond-sh/almond/issues/790"
+      },
+      {
+        "number" : 768,
+        "title" : "The cell is always running but the spark job has been successful",
+        "url" : "https://github.com/almond-sh/almond/issues/768"
+      },
+      {
+        "number" : 764,
+        "title" : "Error starting metabrowse server",
+        "url" : "https://github.com/almond-sh/almond/issues/764"
+      },
+      {
+        "number" : 718,
+        "title" : "Scala 3 compatibility ?",
+        "url" : "https://github.com/almond-sh/almond/issues/718"
+      },
+      {
+        "number" : 717,
+        "title" : "java.nio.file.NoSuchFileException: /home/jovyan/work/source/load-ivy.sc",
+        "url" : "https://github.com/almond-sh/almond/issues/717"
+      },
+      {
+        "number" : 710,
+        "title" : "How to import ammonite script file ?",
+        "url" : "https://github.com/almond-sh/almond/issues/710"
+      },
+      {
+        "number" : 705,
+        "title" : "Cluster Spark with EMR 6.1 / Hadoop 3",
+        "url" : "https://github.com/almond-sh/almond/issues/705"
+      },
+      {
+        "number" : 695,
+        "title" : "Spark Standalone Cluster issue: [No FileSystem for scheme: http]",
+        "url" : "https://github.com/almond-sh/almond/issues/695"
+      },
+      {
+        "number" : 679,
+        "title" : "Kernel Crash missing object - Almond 0.10.8 & Scala 2.12",
+        "url" : "https://github.com/almond-sh/almond/issues/679"
+      },
+      {
+        "number" : 666,
+        "title" : "\"Restart Kernel and Run All Cells\" doesn't run any cells",
+        "url" : "https://github.com/almond-sh/almond/issues/666"
+      },
+      {
+        "number" : 647,
+        "title" : "Use Spark with Kubenetes",
+        "url" : "https://github.com/almond-sh/almond/issues/647"
+      },
+      {
+        "number" : 645,
+        "title" : "Notebook failed to load - The error was: TypeError: ext.toLowerCase is not a function",
+        "url" : "https://github.com/almond-sh/almond/issues/645"
+      },
+      {
+        "number" : 637,
+        "title" : "No FileSystem for scheme: http",
+        "url" : "https://github.com/almond-sh/almond/issues/637"
+      },
+      {
+        "number" : 630,
+        "title" : "Question: does almond support Spark 3.0?",
+        "url" : "https://github.com/almond-sh/almond/issues/630"
+      },
+      {
+        "number" : 628,
+        "title" : "Wrong completion indices with backticks",
+        "url" : "https://github.com/almond-sh/almond/issues/628"
+      },
+      {
+        "number" : 627,
+        "title" : "Spark with temp AWS credentials",
+        "url" : "https://github.com/almond-sh/almond/issues/627"
+      },
+      {
+        "number" : 615,
+        "title" : "Can't use `coursier bootstrap --standalone --deterministic`",
+        "url" : "https://github.com/almond-sh/almond/issues/615"
+      },
+      {
+        "number" : 614,
+        "title" : "Minimize classpath for notebook cells",
+        "url" : "https://github.com/almond-sh/almond/issues/614"
+      },
+      {
+        "number" : 595,
+        "title" : "The latest almond kernel doesn't work",
+        "url" : "https://github.com/almond-sh/almond/issues/595"
+      },
+      {
+        "number" : 588,
+        "title" : "jupyter-api not working; sbt.librarymanagement.ResolveException: Error downloading com.github.jupyter:jvm-repr:0.4.0",
+        "url" : "https://github.com/almond-sh/almond/issues/588"
+      },
+      {
+        "number" : 579,
+        "title" : "scala.reflect.internal.FatalError: Error accessing \"myjar.jar\" appear in every following run",
+        "url" : "https://github.com/almond-sh/almond/issues/579"
+      },
+      {
+        "number" : 568,
+        "title" : "Scala 2.12.8 and almond 0.9.1 doesn't work (at least on macOS Catalina)",
+        "url" : "https://github.com/almond-sh/almond/issues/568"
+      },
+      {
+        "number" : 566,
+        "title" : "build.sbt module not found: org.jupyter-scala#scala-kernel_2.12;0.4.2",
+        "url" : "https://github.com/almond-sh/almond/issues/566"
+      },
+      {
+        "number" : 561,
+        "title" : "Doesn't work in Kubernetes",
+        "url" : "https://github.com/almond-sh/almond/issues/561"
+      },
+      {
+        "number" : 550,
+        "title" : "Kernel installed with default Scala and Almond version throws exception",
+        "url" : "https://github.com/almond-sh/almond/issues/550"
+      },
+      {
+        "number" : 549,
+        "title" : "Kernel stuck when updating the output in parallel",
+        "url" : "https://github.com/almond-sh/almond/issues/549"
+      },
+      {
+        "number" : 518,
+        "title" : "Almond 0.9.1 fails when trying to use com.lihaoy::os-lib:0.6.2",
+        "url" : "https://github.com/almond-sh/almond/issues/518"
+      },
+      {
+        "number" : 509,
+        "title" : "Almond 0.9.1 with Scala 2.12.10 and 2.13.1 on Windows 10 works, but not cleanly",
+        "url" : "https://github.com/almond-sh/almond/issues/509"
+      },
+      {
+        "number" : 508,
+        "title" : "Almond 0.9.1 with Scala 2.12.8 fails on Windows 10",
+        "url" : "https://github.com/almond-sh/almond/issues/508"
+      },
+      {
+        "number" : 507,
+        "title" : "Docs:  jupyter console --kernel=scala yields a cross-platform Ammonite",
+        "url" : "https://github.com/almond-sh/almond/issues/507"
+      },
+      {
+        "number" : 506,
+        "title" : "Docs: No mention of interp.load.cp in the section Ammonite API",
+        "url" : "https://github.com/almond-sh/almond/issues/506"
+      },
+      {
+        "number" : 485,
+        "title" : "Can't install to in path with space character",
+        "url" : "https://github.com/almond-sh/almond/issues/485"
+      },
+      {
+        "number" : 474,
+        "title" : "kernel input example from docs/api-jupyter not working",
+        "url" : "https://github.com/almond-sh/almond/issues/474"
+      },
+      {
+        "number" : 470,
+        "title" : "How do I modify the default maven repository path？",
+        "url" : "https://github.com/almond-sh/almond/issues/470"
+      },
+      {
+        "number" : 451,
+        "title" : "Windows installation instructions have an extra \"--install\"",
+        "url" : "https://github.com/almond-sh/almond/issues/451"
+      },
+      {
+        "number" : 441,
+        "title" : "How to activate metabrowse in notebook?",
+        "url" : "https://github.com/almond-sh/almond/issues/441"
+      },
+      {
+        "number" : 429,
+        "title" : "Progress bars make some spark jobs twice slower",
+        "url" : "https://github.com/almond-sh/almond/issues/429"
+      },
+      {
+        "number" : 428,
+        "title" : "JupyterLab LSP Metals Integration",
+        "url" : "https://github.com/almond-sh/almond/issues/428"
+      },
+      {
+        "number" : 412,
+        "title" : "docker based usage: confusing images",
+        "url" : "https://github.com/almond-sh/almond/issues/412"
+      },
+      {
+        "number" : 410,
+        "title" : "use larger stack by default",
+        "url" : "https://github.com/almond-sh/almond/issues/410"
+      },
+      {
+        "number" : 401,
+        "title" : "SparkException: Task not serializable",
+        "url" : "https://github.com/almond-sh/almond/issues/401"
+      },
+      {
+        "number" : 399,
+        "title" : "Why almond 0.6.0 is not using ammonite-spark 0.6.0 ?",
+        "url" : "https://github.com/almond-sh/almond/issues/399"
+      },
+      {
+        "number" : 397,
+        "title" : "How to use almond with Hadoop 2.8",
+        "url" : "https://github.com/almond-sh/almond/issues/397"
+      },
+      {
+        "number" : 396,
+        "title" : "What is the equivalent of import $profile.`hadoop-2.7`",
+        "url" : "https://github.com/almond-sh/almond/issues/396"
+      },
+      {
+        "number" : 395,
+        "title" : "Adding dependencies with a classifier. ",
+        "url" : "https://github.com/almond-sh/almond/issues/395"
+      },
+      {
+        "number" : 394,
+        "title" : "Kafka 0.10.0 not working with Almond",
+        "url" : "https://github.com/almond-sh/almond/issues/394"
+      },
+      {
+        "number" : 392,
+        "title" : "Drop 2.11 support",
+        "url" : "https://github.com/almond-sh/almond/issues/392"
+      },
+      {
+        "number" : 371,
+        "title" : "Issues with nteract",
+        "url" : "https://github.com/almond-sh/almond/issues/371"
+      },
+      {
+        "number" : 369,
+        "title" : "How to Load/Import existing notebooks",
+        "url" : "https://github.com/almond-sh/almond/issues/369"
+      },
+      {
+        "number" : 363,
+        "title" : "Proper configuration of spark session when running on EMR",
+        "url" : "https://github.com/almond-sh/almond/issues/363"
+      },
+      {
+        "number" : 360,
+        "title" : "Add support for inspecting variables",
+        "url" : "https://github.com/almond-sh/almond/issues/360"
+      },
+      {
+        "number" : 359,
+        "title" : "Jackson version is incompatible with Spark",
+        "url" : "https://github.com/almond-sh/almond/issues/359"
+      },
+      {
+        "number" : 345,
+        "title" : "Spark on kubernetes",
+        "url" : "https://github.com/almond-sh/almond/issues/345"
+      },
+      {
+        "number" : 342,
+        "title" : "Allow customized Jupyter kernel installation location",
+        "url" : "https://github.com/almond-sh/almond/issues/342"
+      },
+      {
+        "number" : 339,
+        "title" : "Build error while using sbt - unknown option 'merged'",
+        "url" : "https://github.com/almond-sh/almond/issues/339"
+      },
+      {
+        "number" : 332,
+        "title" : "Problem working with hadoop-azure-datalake dependencies",
+        "url" : "https://github.com/almond-sh/almond/issues/332"
+      },
+      {
+        "number" : 301,
+        "title" : "Examples Integration for Validation and Binder",
+        "url" : "https://github.com/almond-sh/almond/issues/301"
+      },
+      {
+        "number" : 300,
+        "title" : "How can I determine almond version?",
+        "url" : "https://github.com/almond-sh/almond/issues/300"
+      },
+      {
+        "number" : 299,
+        "title" : "What is the procedure for updating almond?",
+        "url" : "https://github.com/almond-sh/almond/issues/299"
+      },
+      {
+        "number" : 296,
+        "title" : "Relationship between launcher.jar, installer, and initial boostrap?",
+        "url" : "https://github.com/almond-sh/almond/issues/296"
+      },
+      {
+        "number" : 295,
+        "title" : "What does --jupyter-path option for the launcher do?",
+        "url" : "https://github.com/almond-sh/almond/issues/295"
+      },
+      {
+        "number" : 282,
+        "title" : "Semantic versions are not supported in scala kernel",
+        "url" : "https://github.com/almond-sh/almond/issues/282"
+      },
+      {
+        "number" : 265,
+        "title" : "Question: relationship of almond to the (native?)  spark-scala kernel in jupyter",
+        "url" : "https://github.com/almond-sh/almond/issues/265"
+      },
+      {
+        "number" : 257,
+        "title" : "Set Scala kernel JVM max heap size based on the environment variables",
+        "url" : "https://github.com/almond-sh/almond/issues/257"
+      },
+      {
+        "number" : 256,
+        "title" : "Every line is output as a separate result",
+        "url" : "https://github.com/almond-sh/almond/issues/256"
+      },
+      {
+        "number" : 247,
+        "title" : "Richer tab-completion ",
+        "url" : "https://github.com/almond-sh/almond/issues/247"
+      },
+      {
+        "number" : 239,
+        "title" : "Support Python sub-kernel. ",
+        "url" : "https://github.com/almond-sh/almond/issues/239"
+      },
+      {
+        "number" : 198,
+        "title" : "import not using local ivy cache?",
+        "url" : "https://github.com/almond-sh/almond/issues/198"
+      },
+      {
+        "number" : 197,
+        "title" : "Is it possible to use provided spark?",
+        "url" : "https://github.com/almond-sh/almond/issues/197"
+      },
+      {
+        "number" : 192,
+        "title" : "Cannot get main JAR path. Is jupyter-scala launched via its launcher?",
+        "url" : "https://github.com/almond-sh/almond/issues/192"
+      },
+      {
+        "number" : 191,
+        "title" : "org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 0.0 failed 1 times",
+        "url" : "https://github.com/almond-sh/almond/issues/191"
+      },
+      {
+        "number" : 186,
+        "title" : "jupyter-scala.ps1 fails as TLS isn't correct",
+        "url" : "https://github.com/almond-sh/almond/issues/186"
+      },
+      {
+        "number" : 185,
+        "title" : "Support for typelevel scala > 2.11.",
+        "url" : "https://github.com/almond-sh/almond/issues/185"
+      },
+      {
+        "number" : 183,
+        "title" : "Shift-tab tooltip for scaladoc/javadoc/parameters hint",
+        "url" : "https://github.com/almond-sh/almond/issues/183"
+      },
+      {
+        "number" : 180,
+        "title" : "Is there a way to print Spark Dataframes as HTML tables ?",
+        "url" : "https://github.com/almond-sh/almond/issues/180"
+      },
+      {
+        "number" : 176,
+        "title" : "IO error while decoding with UTF-8",
+        "url" : "https://github.com/almond-sh/almond/issues/176"
+      },
+      {
+        "number" : 174,
+        "title" : "update scio?",
+        "url" : "https://github.com/almond-sh/almond/issues/174"
+      },
+      {
+        "number" : 171,
+        "title" : "Cannot access Hive metastore from notebook",
+        "url" : "https://github.com/almond-sh/almond/issues/171"
+      },
+      {
+        "number" : 159,
+        "title" : "org.apache.spark.SparkException: Yarn application has already ended!",
+        "url" : "https://github.com/almond-sh/almond/issues/159"
+      },
+      {
+        "number" : 157,
+        "title" : "install doesn't work behind a proxy",
+        "url" : "https://github.com/almond-sh/almond/issues/157"
+      },
+      {
+        "number" : 146,
+        "title" : "Scala 2.11.8 kernel unstartable from Hydrogen/Atom under Win10",
+        "url" : "https://github.com/almond-sh/almond/issues/146"
+      },
+      {
+        "number" : 144,
+        "title" : "windows 7",
+        "url" : "https://github.com/almond-sh/almond/issues/144"
+      },
+      {
+        "number" : 108,
+        "title" : "How to install on Windows 10",
+        "url" : "https://github.com/almond-sh/almond/issues/108"
+      },
+      {
+        "number" : 105,
+        "title" : "Collection, reduction and similar actions fail in serialization",
+        "url" : "https://github.com/almond-sh/almond/issues/105"
+      },
+      {
+        "number" : 102,
+        "title" : "windows installer?",
+        "url" : "https://github.com/almond-sh/almond/issues/102"
+      },
+      {
+        "number" : 99,
+        "title" : "R integration?",
+        "url" : "https://github.com/almond-sh/almond/issues/99"
+      },
+      {
+        "number" : 94,
+        "title" : "Offline install",
+        "url" : "https://github.com/almond-sh/almond/issues/94"
+      },
+      {
+        "number" : 80,
+        "title" : "Kernel error : WindowsError: [Error 2] The system cannot find the file specified",
+        "url" : "https://github.com/almond-sh/almond/issues/80"
+      },
+      {
+        "number" : 78,
+        "title" : "yarn-client support in jupyter-scala",
+        "url" : "https://github.com/almond-sh/almond/issues/78"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : null,
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "code-editors-and-notebooks",
+    "beginnerIssuesLabel" : null
+  }
+}

@@ -1,0 +1,606 @@
+{
+  "organization" : "zio",
+  "repository" : "zio-prelude",
+  "creationDate" : 1615618281000,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643187015444
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "",
+    "description" : "A lightweight, distinctly Scala take on functional abstractions, with tight ZIO integration",
+    "logo" : "https://avatars.githubusercontent.com/u/49655448?v=4",
+    "stars" : 340,
+    "forks" : 77,
+    "watchers" : 39,
+    "issues" : 65,
+    "creationDate" : 1583180456000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-zio-prelude\" class=\"anchor\" aria-hidden=\"true\" href=\"#zio-prelude\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>ZIO Prelude</h1>\n<table>\n<thead>\n<tr>\n<th>Project Stage</th>\n<th>CI</th>\n<th>Release</th>\n<th>Snapshot</th>\n<th>Discord</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><a href=\"https://github.com/zio/zio/wiki/Project-Stages\"><img src=\"https://camo.githubusercontent.com/7615e29c58f6ea869dc23e46d8ad9990d898e8c596127e10d3cab4fc0dc5da05/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50726f6a65637425323053746167652d50726f64756374696f6e25323052656164792d627269676874677265656e2e737667\" alt=\"Project stage\" data-canonical-src=\"https://img.shields.io/badge/Project%20Stage-Production%20Ready-brightgreen.svg\" style=\"max-width: 100%;\"></a></td>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/zio/zio-prelude/workflows/CI/badge.svg\"><img src=\"https://github.com/zio/zio-prelude/workflows/CI/badge.svg\" alt=\"CI\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://oss.sonatype.org/content/repositories/releases/dev/zio/zio-prelude_2.12/\" title=\"Sonatype Releases\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/62e5d3c17907179fed0db624dadfca0b76c725988ff3be624b3c8f019ab7243b/68747470733a2f2f696d672e736869656c64732e696f2f6e657875732f722f68747470732f6f73732e736f6e61747970652e6f72672f6465762e7a696f2f7a696f2d7072656c7564655f322e31322e737667\" alt=\"Release Artifacts\" title=\"Sonatype Releases\" data-canonical-src=\"https://img.shields.io/nexus/r/https/oss.sonatype.org/dev.zio/zio-prelude_2.12.svg\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://oss.sonatype.org/content/repositories/snapshots/dev/zio/zio-prelude_2.12/\" title=\"Sonatype Snapshots\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/485e3519d08f08ed01571c50f2deb5677f553d3ef3a041f48f6ca0c67ac39495/68747470733a2f2f696d672e736869656c64732e696f2f6e657875732f732f68747470732f6f73732e736f6e61747970652e6f72672f6465762e7a696f2f7a696f2d7072656c7564655f322e31322e737667\" alt=\"Snapshot Artifacts\" title=\"Sonatype Snapshots\" data-canonical-src=\"https://img.shields.io/nexus/s/https/oss.sonatype.org/dev.zio/zio-prelude_2.12.svg\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://discord.gg/2ccFBr4\" title=\"Discord\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/72ea59418d6df28c791489769e1487ae97a331beceda682d06fcf349604dd885/68747470733a2f2f696d672e736869656c64732e696f2f646973636f72642f3632393439313539373037303832373533303f6c6f676f3d646973636f7264\" alt=\"Badge-Discord\" title=\"chat on discord\" data-canonical-src=\"https://img.shields.io/discord/629491597070827530?logo=discord\" style=\"max-width: 100%;\"></a></td>\n</tr>\n</tbody>\n</table>\n<h1 dir=\"auto\"><a id=\"user-content-summary\" class=\"anchor\" aria-hidden=\"true\" href=\"#summary\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Summary</h1>\n<p dir=\"auto\">ZIO Prelude is an alternative approach to functional abstractions in Scala, which throws out the\nclassic functor hierarchy in favor of a modular algebraic approach that is smaller, easier\nto understand and teach, and more expressive.</p>\n<p dir=\"auto\">ZIO Prelude has three key areas of focus:</p>\n<ul dir=\"auto\">\n<li>Data structures, and type classes for traversing them. ZIO Prelude embraces the collections\nin the Scala standard library, and extends them with new instances and new useful additions.</li>\n<li>Patterns of composition for types. ZIO Prelude provides a small catalog of patterns for binary\noperators, which combine two values into another value of the same type. These patterns are named\nafter the algebraic laws they satisfy: associativity, commutativity, and identity.</li>\n<li>Patterns of composition for type constructors. ZIO Prelude provides a catalog of patterns for\nbinary operators on type constructors (things like <code>Future</code>, <code>Option</code>, ZIO <code>Task</code>). These patterns\nare named after the algebraic laws they satisfy (associativity, commutativity, and identity) and the\nstructure they produce, whether a tuple or an either.</li>\n</ul>\n<p dir=\"auto\">The library has a small research-stage package (<code>zio.prelude.fx</code>) that provides abstraction over\nexpressive effect types like ZIO and <code>ZPure</code>.</p>\n<h1 dir=\"auto\"><a id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Documentation</h1>\n<p dir=\"auto\">Learn more on the <a href=\"https://zio.github.io/zio-prelude/\" rel=\"nofollow\">ZIO Prelude Microsite</a>!</p>\n<h1 dir=\"auto\"><a id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Contributing</h1>\n<p dir=\"auto\"><a href=\"https://zio.github.io/zio-prelude/docs/about/about_contributing\" rel=\"nofollow\">Documentation for contributors</a></p>\n<h2 dir=\"auto\"><a id=\"user-content-code-of-conduct\" class=\"anchor\" aria-hidden=\"true\" href=\"#code-of-conduct\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Code of Conduct</h2>\n<p dir=\"auto\">See the <a href=\"https://zio.github.io/zio-prelude/docs/about/about_coc\" rel=\"nofollow\">Code of Conduct</a></p>\n<h2 dir=\"auto\"><a id=\"user-content-support\" class=\"anchor\" aria-hidden=\"true\" href=\"#support\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Support</h2>\n<p dir=\"auto\">Come chat with us on <a href=\"https://discord.gg/2ccFBr4\" title=\"Discord\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/72ea59418d6df28c791489769e1487ae97a331beceda682d06fcf349604dd885/68747470733a2f2f696d672e736869656c64732e696f2f646973636f72642f3632393439313539373037303832373533303f6c6f676f3d646973636f7264\" alt=\"Badge-Discord\" title=\"chat on discord\" data-canonical-src=\"https://img.shields.io/discord/629491597070827530?logo=discord\" style=\"max-width: 100%;\"></a>.</p>\n<h1 dir=\"auto\"><a id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>License</h1>\n<p dir=\"auto\"><a href=\"LICENSE\">License</a></p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 165
+      },
+      {
+        "login" : "sideeffffect",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9019485?v=4",
+        "url" : "https://api.github.com/users/sideeffffect",
+        "contributions" : 144
+      },
+      {
+        "login" : "adamgfraser",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/20825463?v=4",
+        "url" : "https://api.github.com/users/adamgfraser",
+        "contributions" : 136
+      },
+      {
+        "login" : "jdegoes",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/156745?v=4",
+        "url" : "https://api.github.com/users/jdegoes",
+        "contributions" : 87
+      },
+      {
+        "login" : "mijicd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4712120?v=4",
+        "url" : "https://api.github.com/users/mijicd",
+        "contributions" : 50
+      },
+      {
+        "login" : "sken77",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22631338?v=4",
+        "url" : "https://api.github.com/users/sken77",
+        "contributions" : 35
+      },
+      {
+        "login" : "renovate[bot]",
+        "avatarUrl" : "https://avatars.githubusercontent.com/in/2740?v=4",
+        "url" : "https://api.github.com/users/renovate%5Bbot%5D",
+        "contributions" : 20
+      },
+      {
+        "login" : "kitlangton",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7587245?v=4",
+        "url" : "https://api.github.com/users/kitlangton",
+        "contributions" : 8
+      },
+      {
+        "login" : "lemastero",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10901543?v=4",
+        "url" : "https://api.github.com/users/lemastero",
+        "contributions" : 8
+      },
+      {
+        "login" : "landlockedsurfer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3172001?v=4",
+        "url" : "https://api.github.com/users/landlockedsurfer",
+        "contributions" : 7
+      },
+      {
+        "login" : "jaliss",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/997114?v=4",
+        "url" : "https://api.github.com/users/jaliss",
+        "contributions" : 6
+      },
+      {
+        "login" : "arnoldlacko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9975114?v=4",
+        "url" : "https://api.github.com/users/arnoldlacko",
+        "contributions" : 5
+      },
+      {
+        "login" : "jorge-vasquez-2301",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11579382?v=4",
+        "url" : "https://api.github.com/users/jorge-vasquez-2301",
+        "contributions" : 5
+      },
+      {
+        "login" : "shankarshastri",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10391044?v=4",
+        "url" : "https://api.github.com/users/shankarshastri",
+        "contributions" : 5
+      },
+      {
+        "login" : "phderome",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11035032?v=4",
+        "url" : "https://api.github.com/users/phderome",
+        "contributions" : 5
+      },
+      {
+        "login" : "bmarinovic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/26936669?v=4",
+        "url" : "https://api.github.com/users/bmarinovic",
+        "contributions" : 4
+      },
+      {
+        "login" : "KamalKang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24402317?v=4",
+        "url" : "https://api.github.com/users/KamalKang",
+        "contributions" : 4
+      },
+      {
+        "login" : "ghostdogpr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7413894?v=4",
+        "url" : "https://api.github.com/users/ghostdogpr",
+        "contributions" : 4
+      },
+      {
+        "login" : "felher",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/622354?v=4",
+        "url" : "https://api.github.com/users/felher",
+        "contributions" : 4
+      },
+      {
+        "login" : "joroKr21",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2218841?v=4",
+        "url" : "https://api.github.com/users/joroKr21",
+        "contributions" : 3
+      },
+      {
+        "login" : "Michaelt293",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14012083?v=4",
+        "url" : "https://api.github.com/users/Michaelt293",
+        "contributions" : 3
+      },
+      {
+        "login" : "yisraelU",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4328266?v=4",
+        "url" : "https://api.github.com/users/yisraelU",
+        "contributions" : 3
+      },
+      {
+        "login" : "softinio",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3371635?v=4",
+        "url" : "https://api.github.com/users/softinio",
+        "contributions" : 3
+      },
+      {
+        "login" : "gurghet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/420735?v=4",
+        "url" : "https://api.github.com/users/gurghet",
+        "contributions" : 2
+      },
+      {
+        "login" : "virusdave",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6148271?v=4",
+        "url" : "https://api.github.com/users/virusdave",
+        "contributions" : 2
+      },
+      {
+        "login" : "mschuwalow",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16665913?v=4",
+        "url" : "https://api.github.com/users/mschuwalow",
+        "contributions" : 2
+      },
+      {
+        "login" : "poslegm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4687050?v=4",
+        "url" : "https://api.github.com/users/poslegm",
+        "contributions" : 2
+      },
+      {
+        "login" : "atrianac",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4065427?v=4",
+        "url" : "https://api.github.com/users/atrianac",
+        "contributions" : 1
+      },
+      {
+        "login" : "AleGlowa",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22919693?v=4",
+        "url" : "https://api.github.com/users/AleGlowa",
+        "contributions" : 1
+      },
+      {
+        "login" : "SimY4",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1394639?v=4",
+        "url" : "https://api.github.com/users/SimY4",
+        "contributions" : 1
+      },
+      {
+        "login" : "ciuncan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/827524?v=4",
+        "url" : "https://api.github.com/users/ciuncan",
+        "contributions" : 1
+      },
+      {
+        "login" : "vigoo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2292489?v=4",
+        "url" : "https://api.github.com/users/vigoo",
+        "contributions" : 1
+      },
+      {
+        "login" : "domdorn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/100349?v=4",
+        "url" : "https://api.github.com/users/domdorn",
+        "contributions" : 1
+      },
+      {
+        "login" : "ernestochero",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10689197?v=4",
+        "url" : "https://api.github.com/users/ernestochero",
+        "contributions" : 1
+      },
+      {
+        "login" : "GrigoriyDmitriev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/35565982?v=4",
+        "url" : "https://api.github.com/users/GrigoriyDmitriev",
+        "contributions" : 1
+      },
+      {
+        "login" : "justinhj",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/753059?v=4",
+        "url" : "https://api.github.com/users/justinhj",
+        "contributions" : 1
+      },
+      {
+        "login" : "baldram",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16861531?v=4",
+        "url" : "https://api.github.com/users/baldram",
+        "contributions" : 1
+      },
+      {
+        "login" : "mtsokol",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8431159?v=4",
+        "url" : "https://api.github.com/users/mtsokol",
+        "contributions" : 1
+      },
+      {
+        "login" : "nbenns",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1417442?v=4",
+        "url" : "https://api.github.com/users/nbenns",
+        "contributions" : 1
+      },
+      {
+        "login" : "olambo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19216490?v=4",
+        "url" : "https://api.github.com/users/olambo",
+        "contributions" : 1
+      },
+      {
+        "login" : "Porcupine96",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17063095?v=4",
+        "url" : "https://api.github.com/users/Porcupine96",
+        "contributions" : 1
+      },
+      {
+        "login" : "regiskuckaertz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/629976?v=4",
+        "url" : "https://api.github.com/users/regiskuckaertz",
+        "contributions" : 1
+      },
+      {
+        "login" : "spoltier",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19765083?v=4",
+        "url" : "https://api.github.com/users/spoltier",
+        "contributions" : 1
+      },
+      {
+        "login" : "zalbia",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1430742?v=4",
+        "url" : "https://api.github.com/users/zalbia",
+        "contributions" : 1
+      },
+      {
+        "login" : "kazchimo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/31263328?v=4",
+        "url" : "https://api.github.com/users/kazchimo",
+        "contributions" : 1
+      },
+      {
+        "login" : "0xpugsley",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/34815797?v=4",
+        "url" : "https://api.github.com/users/0xpugsley",
+        "contributions" : 1
+      },
+      {
+        "login" : "roald-di",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4057806?v=4",
+        "url" : "https://api.github.com/users/roald-di",
+        "contributions" : 1
+      },
+      {
+        "login" : "timgesekus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/528300?v=4",
+        "url" : "https://api.github.com/users/timgesekus",
+        "contributions" : 1
+      },
+      {
+        "login" : "vinhhv",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8294300?v=4",
+        "url" : "https://api.github.com/users/vinhhv",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 744,
+    "topics" : [
+      "functional-programming",
+      "abstract-algebra",
+      "zio",
+      "scala",
+      "category-theory"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 836,
+        "title" : "NonEmptyVector and NonEmptyMap",
+        "url" : "https://github.com/zio/zio-prelude/issues/836"
+      },
+      {
+        "number" : 833,
+        "title" : "Smartypes in Subtypes don't work + error message wrong",
+        "url" : "https://github.com/zio/zio-prelude/issues/833"
+      },
+      {
+        "number" : 829,
+        "title" : "No snapshot builds since Nov 19",
+        "url" : "https://github.com/zio/zio-prelude/issues/829"
+      },
+      {
+        "number" : 824,
+        "title" : "Newtype: validating tuples",
+        "url" : "https://github.com/zio/zio-prelude/issues/824"
+      },
+      {
+        "number" : 821,
+        "title" : "Newtype incompatibility with ZIO 2.0.0-M6",
+        "url" : "https://github.com/zio/zio-prelude/issues/821"
+      },
+      {
+        "number" : 817,
+        "title" : "Subtype of Newtype cause cyclic subtyping error",
+        "url" : "https://github.com/zio/zio-prelude/issues/817"
+      },
+      {
+        "number" : 795,
+        "title" : "Documentation Needs To Show Correct Version",
+        "url" : "https://github.com/zio/zio-prelude/issues/795"
+      },
+      {
+        "number" : 794,
+        "title" : "General derivation support for Newtype and Subtype",
+        "url" : "https://github.com/zio/zio-prelude/issues/794"
+      },
+      {
+        "number" : 783,
+        "title" : "Custom predicates in zio.prelude.Assertion",
+        "url" : "https://github.com/zio/zio-prelude/issues/783"
+      },
+      {
+        "number" : 780,
+        "title" : "Add Mermaid support to Docusaurus v2",
+        "url" : "https://github.com/zio/zio-prelude/issues/780"
+      },
+      {
+        "number" : 779,
+        "title" : "Update Docusaurus to v2",
+        "url" : "https://github.com/zio/zio-prelude/issues/779"
+      },
+      {
+        "number" : 752,
+        "title" : "New Smart Type make function returns unexpected type",
+        "url" : "https://github.com/zio/zio-prelude/issues/752"
+      },
+      {
+        "number" : 750,
+        "title" : "Rename ZIO Prelude to ZIO Predef?",
+        "url" : "https://github.com/zio/zio-prelude/issues/750"
+      },
+      {
+        "number" : 629,
+        "title" : "Some additions to ForEach",
+        "url" : "https://github.com/zio/zio-prelude/issues/629"
+      },
+      {
+        "number" : 628,
+        "title" : "Composition of data structures",
+        "url" : "https://github.com/zio/zio-prelude/issues/628"
+      },
+      {
+        "number" : 615,
+        "title" : "convenient sbt command aliases to test locally against a matrix of versions",
+        "url" : "https://github.com/zio/zio-prelude/issues/615"
+      },
+      {
+        "number" : 601,
+        "title" : "A different encoding for Id and Const",
+        "url" : "https://github.com/zio/zio-prelude/issues/601"
+      },
+      {
+        "number" : 548,
+        "title" : "Incorrect definition of Invariant functor",
+        "url" : "https://github.com/zio/zio-prelude/issues/548"
+      },
+      {
+        "number" : 490,
+        "title" : "Add missing law tests for instances",
+        "url" : "https://github.com/zio/zio-prelude/issues/490"
+      },
+      {
+        "number" : 484,
+        "title" : "Consider incorporating Selective functor",
+        "url" : "https://github.com/zio/zio-prelude/issues/484"
+      },
+      {
+        "number" : 480,
+        "title" : "Design Co-Cartesian Closed Category in the AssociativeCompose hierarchy",
+        "url" : "https://github.com/zio/zio-prelude/issues/480"
+      },
+      {
+        "number" : 479,
+        "title" : "Consider changing the naming scheme in AssociativeCompose hierarchy",
+        "url" : "https://github.com/zio/zio-prelude/issues/479"
+      },
+      {
+        "number" : 472,
+        "title" : "Extract Foldable trait from Traversable",
+        "url" : "https://github.com/zio/zio-prelude/issues/472"
+      },
+      {
+        "number" : 462,
+        "title" : "ZPure: Turn `State = Unit` into a zero for composition purposes",
+        "url" : "https://github.com/zio/zio-prelude/issues/462"
+      },
+      {
+        "number" : 427,
+        "title" : " Add forany1 and foranyPar1 to NonEmptyTraversable",
+        "url" : "https://github.com/zio/zio-prelude/issues/427"
+      },
+      {
+        "number" : 392,
+        "title" : "Add collectFirst and collectFirstPar to Traversable",
+        "url" : "https://github.com/zio/zio-prelude/issues/392"
+      },
+      {
+        "number" : 380,
+        "title" : "Improve documentation in the Invariant hierarchy ",
+        "url" : "https://github.com/zio/zio-prelude/issues/380"
+      },
+      {
+        "number" : 375,
+        "title" : "Add methods to ZPure inspired by ZIO",
+        "url" : "https://github.com/zio/zio-prelude/issues/375"
+      },
+      {
+        "number" : 373,
+        "title" : "Define laws for Traversable",
+        "url" : "https://github.com/zio/zio-prelude/issues/373"
+      },
+      {
+        "number" : 361,
+        "title" : "Add laws for Zivariant",
+        "url" : "https://github.com/zio/zio-prelude/issues/361"
+      },
+      {
+        "number" : 340,
+        "title" : "Consider deriving `IdentityBoth` from `Covariant` and `IdentityFlatten`",
+        "url" : "https://github.com/zio/zio-prelude/issues/340"
+      },
+      {
+        "number" : 332,
+        "title" : "Laws for Bicovariant",
+        "url" : "https://github.com/zio/zio-prelude/issues/332"
+      },
+      {
+        "number" : 327,
+        "title" : " Document the Type Class hierarchies with chart: Invariant",
+        "url" : "https://github.com/zio/zio-prelude/issues/327"
+      },
+      {
+        "number" : 321,
+        "title" : "Document the Type Class hierarchies with chart",
+        "url" : "https://github.com/zio/zio-prelude/issues/321"
+      },
+      {
+        "number" : 290,
+        "title" : "Laws and tests for Divariant",
+        "url" : "https://github.com/zio/zio-prelude/issues/290"
+      },
+      {
+        "number" : 281,
+        "title" : "Improve laws IdentityCompose, AssociativeCompose",
+        "url" : "https://github.com/zio/zio-prelude/issues/281"
+      },
+      {
+        "number" : 278,
+        "title" : "Consider moving BooleanAlgebra from zio-test",
+        "url" : "https://github.com/zio/zio-prelude/issues/278"
+      },
+      {
+        "number" : 273,
+        "title" : "Rethink Equality for contravariant types (not only) because of Dotty",
+        "url" : "https://github.com/zio/zio-prelude/issues/273"
+      },
+      {
+        "number" : 261,
+        "title" : "Traversable.foldRight considered harmful",
+        "url" : "https://github.com/zio/zio-prelude/issues/261"
+      },
+      {
+        "number" : 237,
+        "title" : "Commutative TypeClass and its relation to Associative TypeClass",
+        "url" : "https://github.com/zio/zio-prelude/issues/237"
+      },
+      {
+        "number" : 216,
+        "title" : "Kind projector",
+        "url" : "https://github.com/zio/zio-prelude/issues/216"
+      },
+      {
+        "number" : 213,
+        "title" : "Remove dependency on ZIO",
+        "url" : "https://github.com/zio/zio-prelude/issues/213"
+      },
+      {
+        "number" : 200,
+        "title" : "Consider Undo",
+        "url" : "https://github.com/zio/zio-prelude/issues/200"
+      },
+      {
+        "number" : 193,
+        "title" : "Turn Validation into ZValidation with extra type parameter",
+        "url" : "https://github.com/zio/zio-prelude/issues/193"
+      },
+      {
+        "number" : 192,
+        "title" : "Shoud Commutative extend Associative?",
+        "url" : "https://github.com/zio/zio-prelude/issues/192"
+      },
+      {
+        "number" : 191,
+        "title" : "Inverse signature does not match its documentation",
+        "url" : "https://github.com/zio/zio-prelude/issues/191"
+      },
+      {
+        "number" : 190,
+        "title" : "Make Hash produce longs",
+        "url" : "https://github.com/zio/zio-prelude/issues/190"
+      },
+      {
+        "number" : 113,
+        "title" : "Issues with `Nothing` Instances",
+        "url" : "https://github.com/zio/zio-prelude/issues/113"
+      },
+      {
+        "number" : 92,
+        "title" : "How Should We Support \"Test\" Equal Instances?",
+        "url" : "https://github.com/zio/zio-prelude/issues/92"
+      },
+      {
+        "number" : 86,
+        "title" : "Resolve Inconsistency in Rendering of Algebraic Data Types",
+        "url" : "https://github.com/zio/zio-prelude/issues/86"
+      },
+      {
+        "number" : 33,
+        "title" : "Sketch out microsite",
+        "url" : "https://github.com/zio/zio-prelude/issues/33"
+      },
+      {
+        "number" : 14,
+        "title" : "Add Magnolia Support",
+        "url" : "https://github.com/zio/zio-prelude/issues/14"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : null,
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : null,
+    "beginnerIssuesLabel" : null
+  }
+}

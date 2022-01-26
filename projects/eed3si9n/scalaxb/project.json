@@ -1,0 +1,1109 @@
+{
+  "organization" : "eed3si9n",
+  "repository" : "scalaxb",
+  "creationDate" : 1469452147008,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643173488807
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "http://scalaxb.org/",
+    "description" : "scalaxb is an XML data binding tool for Scala.",
+    "logo" : "https://avatars.githubusercontent.com/u/184683?v=4",
+    "stars" : 317,
+    "forks" : 142,
+    "watchers" : 22,
+    "issues" : 155,
+    "creationDate" : 1265349050000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-scalaxb\" class=\"anchor\" aria-hidden=\"true\" href=\"#scalaxb\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>scalaxb</h1>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/f6bf63e034e9168b237a07a4c3019c5514c27b31a1d879182b6cc85a1afa36e9/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f6f72672e7363616c6178622f7363616c6178625f322e31322f62616467652e737667\"><img src=\"https://camo.githubusercontent.com/f6bf63e034e9168b237a07a4c3019c5514c27b31a1d879182b6cc85a1afa36e9/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f6f72672e7363616c6178622f7363616c6178625f322e31322f62616467652e737667\" alt=\"Maven Central\" data-canonical-src=\"https://maven-badges.herokuapp.com/maven-central/org.scalaxb/scalaxb_2.12/badge.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\"><a href=\"https://gitter.im/eed3si9n/scalaxb?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/5dbac0213da25c445bd11f168587c11a200ba153ef3014e8408e462e410169b3/68747470733a2f2f6261646765732e6769747465722e696d2f4a6f696e253230436861742e737667\" alt=\"Join the chat at https://gitter.im/eed3si9n/scalaxb\" data-canonical-src=\"https://badges.gitter.im/Join%20Chat.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">scalaxb is an XML data-binding tool for Scala that supports W3C XML Schema (xsd) and\nWeb Services Description Language (wsdl) as the input file.</p>\n<p dir=\"auto\">From schema documents scalaxb will generate Scala source files containing\ncase classes to represent the data and typeclass instances to turn XML documents into an object,\nand the object back to XML.</p>\n<h2 dir=\"auto\"><a id=\"user-content-modules\" class=\"anchor\" aria-hidden=\"true\" href=\"#modules\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Modules</h2>\n<p dir=\"auto\">There are currently four ways of running scalaxb:</p>\n<ul dir=\"auto\">\n<li>command line app <code>scalaxb</code></li>\n<li>sbt plugin sbt-scalaxb</li>\n<li>maven plugin mvn-scalaxb</li>\n<li>web API scalaxb-heroku hosted on heroku</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-sbt-scalaxb\" class=\"anchor\" aria-hidden=\"true\" href=\"#sbt-scalaxb\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>sbt-scalaxb</h3>\n<p dir=\"auto\">To call scalaxb from sbt 1.x and sbt 0.13.x, put this in your <code>project/scalaxb.sbt</code>:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"resolvers += Resolver.sonatypeRepo(&quot;public&quot;)\naddSbtPlugin(&quot;org.scalaxb&quot; % &quot;sbt-scalaxb&quot; % &quot;X.X.X&quot;)\"><pre><code>resolvers += Resolver.sonatypeRepo(\"public\")\naddSbtPlugin(\"org.scalaxb\" % \"sbt-scalaxb\" % \"X.X.X\")\n</code></pre></div>\n<p dir=\"auto\">and this in <code>build.sbt</code>:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"lazy val dispatchVersion = &quot;1.1.3&quot;\nlazy val dispatch = &quot;org.dispatchhttp&quot; %% &quot;dispatch-core&quot; % dispatchVersion\nlazy val jaxbApi = &quot;javax.xml.bind&quot; % &quot;jaxb-api&quot; % &quot;2.3.0&quot;\nlazy val scalaXml = &quot;org.scala-lang.modules&quot; %% &quot;scala-xml&quot; % &quot;1.3.0&quot;\nlazy val scalaParser = &quot;org.scala-lang.modules&quot; %% &quot;scala-parser-combinators&quot; % &quot;1.1.2&quot;\n\nlazy val root = (project in file(&quot;.&quot;)).\n  enablePlugins(ScalaxbPlugin).\n  settings(\n    name := &quot;foo-project&quot;,\n    scalaxbPackageName in (Compile, scalaxb) := &quot;generated&quot;,\n    // scalaxbAutoPackages in (Compile, scalaxb) := true,\n    scalaxbDispatchVersion in (Compile, scalaxb) := dispatchVersion,\n    libraryDependencies ++= Seq(dispatch, jaxbApi, scalaParser, scalaXml)\n  )\"><pre><span class=\"pl-k\">lazy</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">dispatchVersion</span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.1.3<span class=\"pl-pds\">\"</span></span>\n<span class=\"pl-k\">lazy</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">dispatch</span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.dispatchhttp<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>dispatch-core<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> dispatchVersion\n<span class=\"pl-k\">lazy</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">jaxbApi</span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>javax.xml.bind<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>jaxb-api<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>2.3.0<span class=\"pl-pds\">\"</span></span>\n<span class=\"pl-k\">lazy</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">scalaXml</span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.scala-lang.modules<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>scala-xml<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.3.0<span class=\"pl-pds\">\"</span></span>\n<span class=\"pl-k\">lazy</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">scalaParser</span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.scala-lang.modules<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>scala-parser-combinators<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.1.2<span class=\"pl-pds\">\"</span></span>\n\n<span class=\"pl-k\">lazy</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">root</span> <span class=\"pl-k\">=</span> (project in file(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>.<span class=\"pl-pds\">\"</span></span>)).\n  enablePlugins(<span class=\"pl-en\">ScalaxbPlugin</span>).\n  settings(\n    name <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>foo-project<span class=\"pl-pds\">\"</span></span>,\n    scalaxbPackageName in (<span class=\"pl-en\">Compile</span>, scalaxb) <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>generated<span class=\"pl-pds\">\"</span></span>,\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> scalaxbAutoPackages in (Compile, scalaxb) := true,</span>\n    scalaxbDispatchVersion in (<span class=\"pl-en\">Compile</span>, scalaxb) <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> dispatchVersion,\n    libraryDependencies <span class=\"pl-k\">++</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Seq</span>(dispatch, jaxbApi, scalaParser, scalaXml)\n  )</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-command-line-app-scalaxb\" class=\"anchor\" aria-hidden=\"true\" href=\"#command-line-app-scalaxb\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>command line app scalaxb</h3>\n<p dir=\"auto\">See <a href=\"https://github.com/eed3si9n/scalaxb/blob/master/INSTALL.md\">INSTALL.md</a>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-mvn-scalaxb\" class=\"anchor\" aria-hidden=\"true\" href=\"#mvn-scalaxb\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>mvn-scalaxb</h3>\n<p dir=\"auto\">See <a href=\"http://scalaxb.org/mvn-scalaxb\" rel=\"nofollow\">mvn-scalaxb</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-documents\" class=\"anchor\" aria-hidden=\"true\" href=\"#documents\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Documents</h2>\n<p dir=\"auto\">Further info is available at <a href=\"http://scalaxb.org/\" rel=\"nofollow\">scalaxb.org</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-bug-reporting\" class=\"anchor\" aria-hidden=\"true\" href=\"#bug-reporting\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Bug Reporting</h2>\n<p dir=\"auto\">If you're having problem with scalaxb, please take a moment and read <a href=\"http://scalaxb.org/issue-reporting-guideline\" rel=\"nofollow\">issue reporting guideline</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-licensing\" class=\"anchor\" aria-hidden=\"true\" href=\"#licensing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Licensing</h2>\n<p dir=\"auto\">It's the MIT License. See the file called LICENSE.</p>\n<h2 dir=\"auto\"><a id=\"user-content-contacts\" class=\"anchor\" aria-hidden=\"true\" href=\"#contacts\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Contacts</h2>\n<ul dir=\"auto\">\n<li><a href=\"http://groups.google.com/group/scalaxb\" rel=\"nofollow\">mailing list</a></li>\n<li><a href=\"http://twitter.com/scalaxb\" rel=\"nofollow\">@scalaxb</a></li>\n</ul>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "eed3si9n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/184683?v=4",
+        "url" : "https://api.github.com/users/eed3si9n",
+        "contributions" : 960
+      },
+      {
+        "login" : "martiell",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/752360?v=4",
+        "url" : "https://api.github.com/users/martiell",
+        "contributions" : 85
+      },
+      {
+        "login" : "anatoliykmetyuk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2614813?v=4",
+        "url" : "https://api.github.com/users/anatoliykmetyuk",
+        "contributions" : 32
+      },
+      {
+        "login" : "hosamaly",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/330633?v=4",
+        "url" : "https://api.github.com/users/hosamaly",
+        "contributions" : 21
+      },
+      {
+        "login" : "jtjeferreira",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/943051?v=4",
+        "url" : "https://api.github.com/users/jtjeferreira",
+        "contributions" : 16
+      },
+      {
+        "login" : "AndreVanDelft",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3143379?v=4",
+        "url" : "https://api.github.com/users/AndreVanDelft",
+        "contributions" : 8
+      },
+      {
+        "login" : "lbruand",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/680234?v=4",
+        "url" : "https://api.github.com/users/lbruand",
+        "contributions" : 8
+      },
+      {
+        "login" : "alexdupre",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3694371?v=4",
+        "url" : "https://api.github.com/users/alexdupre",
+        "contributions" : 7
+      },
+      {
+        "login" : "sullis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30938?v=4",
+        "url" : "https://api.github.com/users/sullis",
+        "contributions" : 6
+      },
+      {
+        "login" : "lamdor",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1580?v=4",
+        "url" : "https://api.github.com/users/lamdor",
+        "contributions" : 5
+      },
+      {
+        "login" : "margussipria",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/415246?v=4",
+        "url" : "https://api.github.com/users/margussipria",
+        "contributions" : 5
+      },
+      {
+        "login" : "etitov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4288900?v=4",
+        "url" : "https://api.github.com/users/etitov",
+        "contributions" : 3
+      },
+      {
+        "login" : "romainreuillon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1270995?v=4",
+        "url" : "https://api.github.com/users/romainreuillon",
+        "contributions" : 3
+      },
+      {
+        "login" : "tOverney",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5649878?v=4",
+        "url" : "https://api.github.com/users/tOverney",
+        "contributions" : 3
+      },
+      {
+        "login" : "arkadius",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/534341?v=4",
+        "url" : "https://api.github.com/users/arkadius",
+        "contributions" : 2
+      },
+      {
+        "login" : "danslapman",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1708325?v=4",
+        "url" : "https://api.github.com/users/danslapman",
+        "contributions" : 2
+      },
+      {
+        "login" : "DustinChaloupka",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1587451?v=4",
+        "url" : "https://api.github.com/users/DustinChaloupka",
+        "contributions" : 2
+      },
+      {
+        "login" : "fltt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5359542?v=4",
+        "url" : "https://api.github.com/users/fltt",
+        "contributions" : 2
+      },
+      {
+        "login" : "justjoheinz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/392164?v=4",
+        "url" : "https://api.github.com/users/justjoheinz",
+        "contributions" : 2
+      },
+      {
+        "login" : "mrdziuban",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4718399?v=4",
+        "url" : "https://api.github.com/users/mrdziuban",
+        "contributions" : 2
+      },
+      {
+        "login" : "maxaf",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/99585?v=4",
+        "url" : "https://api.github.com/users/maxaf",
+        "contributions" : 2
+      },
+      {
+        "login" : "mprihoda",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/279221?v=4",
+        "url" : "https://api.github.com/users/mprihoda",
+        "contributions" : 2
+      },
+      {
+        "login" : "carl297r",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3174285?v=4",
+        "url" : "https://api.github.com/users/carl297r",
+        "contributions" : 2
+      },
+      {
+        "login" : "bbarker",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/916366?v=4",
+        "url" : "https://api.github.com/users/bbarker",
+        "contributions" : 2
+      },
+      {
+        "login" : "lespea",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/99605?v=4",
+        "url" : "https://api.github.com/users/lespea",
+        "contributions" : 1
+      },
+      {
+        "login" : "bigmoby",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11453002?v=4",
+        "url" : "https://api.github.com/users/bigmoby",
+        "contributions" : 1
+      },
+      {
+        "login" : "chadselph",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/315988?v=4",
+        "url" : "https://api.github.com/users/chadselph",
+        "contributions" : 1
+      },
+      {
+        "login" : "colinrgodsey",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/535083?v=4",
+        "url" : "https://api.github.com/users/colinrgodsey",
+        "contributions" : 1
+      },
+      {
+        "login" : "dwijnand",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/344610?v=4",
+        "url" : "https://api.github.com/users/dwijnand",
+        "contributions" : 1
+      },
+      {
+        "login" : "dportabella",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/976546?v=4",
+        "url" : "https://api.github.com/users/dportabella",
+        "contributions" : 1
+      },
+      {
+        "login" : "deenar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4802029?v=4",
+        "url" : "https://api.github.com/users/deenar",
+        "contributions" : 1
+      },
+      {
+        "login" : "imants-ltq",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/89906931?v=4",
+        "url" : "https://api.github.com/users/imants-ltq",
+        "contributions" : 1
+      },
+      {
+        "login" : "jankeesvanandel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/272120?v=4",
+        "url" : "https://api.github.com/users/jankeesvanandel",
+        "contributions" : 1
+      },
+      {
+        "login" : "joescii",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/882948?v=4",
+        "url" : "https://api.github.com/users/joescii",
+        "contributions" : 1
+      },
+      {
+        "login" : "joshlreese",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/39748?v=4",
+        "url" : "https://api.github.com/users/joshlreese",
+        "contributions" : 1
+      },
+      {
+        "login" : "coutoPL",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/231553?v=4",
+        "url" : "https://api.github.com/users/coutoPL",
+        "contributions" : 1
+      },
+      {
+        "login" : "omatzcoveo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/37912019?v=4",
+        "url" : "https://api.github.com/users/omatzcoveo",
+        "contributions" : 1
+      },
+      {
+        "login" : "kovstas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5870198?v=4",
+        "url" : "https://api.github.com/users/kovstas",
+        "contributions" : 1
+      },
+      {
+        "login" : "pdalpra",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1514127?v=4",
+        "url" : "https://api.github.com/users/pdalpra",
+        "contributions" : 1
+      },
+      {
+        "login" : "LolHens",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1524059?v=4",
+        "url" : "https://api.github.com/users/LolHens",
+        "contributions" : 1
+      },
+      {
+        "login" : "rssh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/191250?v=4",
+        "url" : "https://api.github.com/users/rssh",
+        "contributions" : 1
+      },
+      {
+        "login" : "gitter-badger",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8518239?v=4",
+        "url" : "https://api.github.com/users/gitter-badger",
+        "contributions" : 1
+      },
+      {
+        "login" : "tsnee",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/351700?v=4",
+        "url" : "https://api.github.com/users/tsnee",
+        "contributions" : 1
+      },
+      {
+        "login" : "VEINHORN",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3595400?v=4",
+        "url" : "https://api.github.com/users/VEINHORN",
+        "contributions" : 1
+      },
+      {
+        "login" : "Erwan56",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9364432?v=4",
+        "url" : "https://api.github.com/users/Erwan56",
+        "contributions" : 1
+      },
+      {
+        "login" : "dependabot[bot]",
+        "avatarUrl" : "https://avatars.githubusercontent.com/in/29110?v=4",
+        "url" : "https://api.github.com/users/dependabot%5Bbot%5D",
+        "contributions" : 1
+      },
+      {
+        "login" : "donderom",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/274926?v=4",
+        "url" : "https://api.github.com/users/donderom",
+        "contributions" : 1
+      },
+      {
+        "login" : "ecin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/646?v=4",
+        "url" : "https://api.github.com/users/ecin",
+        "contributions" : 1
+      },
+      {
+        "login" : "jypma",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/483519?v=4",
+        "url" : "https://api.github.com/users/jypma",
+        "contributions" : 1
+      },
+      {
+        "login" : "malaporte",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1826047?v=4",
+        "url" : "https://api.github.com/users/malaporte",
+        "contributions" : 1
+      },
+      {
+        "login" : "pgrandjean",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2611255?v=4",
+        "url" : "https://api.github.com/users/pgrandjean",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 1209,
+    "topics" : [
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : "https://gitter.im/eed3si9n/scalaxb",
+    "openIssues" : [
+      {
+        "number" : 580,
+        "title" : "Warning at target/scala-2.13/src_managed/main/sbt-scalaxb/soap/xmlprotocol.scala:61:65 match may not be exhaustive.",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/580"
+      },
+      {
+        "number" : 578,
+        "title" : "Warnings parameter value params & parameter value location in method soapResponse is never used",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/578"
+      },
+      {
+        "number" : 577,
+        "title" : "Warning parameter value webMethod in method soapRequest is never used",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/577"
+      },
+      {
+        "number" : 576,
+        "title" : "Warning at target/scala-2.13/src_managed/main/sbt-scalaxb/scalaxb/scalaxb.scala:692:81 match may not be exhaustive",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/576"
+      },
+      {
+        "number" : 575,
+        "title" : "Warning parameter value obj in method writesAttribute is never used when compiling with scala 2.13.7",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/575"
+      },
+      {
+        "number" : 574,
+        "title" : "Warning parameter value parent in method apply is never used when compiling with scala 2.13.7",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/574"
+      },
+      {
+        "number" : 569,
+        "title" : "Fails to compile generated code. ",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/569"
+      },
+      {
+        "number" : 568,
+        "title" : "random NoClassDefFoundError: org/apache/log4j/Layout",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/568"
+      },
+      {
+        "number" : 566,
+        "title" : "scalaxbGenerateRuntime setting not taken into account",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/566"
+      },
+      {
+        "number" : 564,
+        "title" : "case classes generated by scalaxb cannot be serialized to Parquet",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/564"
+      },
+      {
+        "number" : 562,
+        "title" : "xmlprotocol.scala generated from Dublin Core won't compile",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/562"
+      },
+      {
+        "number" : 561,
+        "title" : "Critical parsing bug, minOccurs=\"0\" type=\"xs:anyType\" , name: Option[scalaxb.DataRecord[Any]] = None,  scalaxb.ParserFailure ",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/561"
+      },
+      {
+        "number" : 557,
+        "title" : "Scala 3 / Dotty support",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/557"
+      },
+      {
+        "number" : 553,
+        "title" : "scalaxb runtime",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/553"
+      },
+      {
+        "number" : 552,
+        "title" : "\"match may not be exhaustive.\" error when compailing with 2.13.4",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/552"
+      },
+      {
+        "number" : 551,
+        "title" : "Installing using coursier",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/551"
+      },
+      {
+        "number" : 549,
+        "title" : "xs:choice generates DataRecord[Any]",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/549"
+      },
+      {
+        "number" : 547,
+        "title" : "Compile in Scala 2.13",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/547"
+      },
+      {
+        "number" : 543,
+        "title" : "XMLGregorianCalendar type blocks this lib in spark projects",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/543"
+      },
+      {
+        "number" : 540,
+        "title" : "Improve Lenses generation for Option elements",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/540"
+      },
+      {
+        "number" : 538,
+        "title" : "Fails to generate valid binding for XMLSchema.xsd",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/538"
+      },
+      {
+        "number" : 534,
+        "title" : "Invalid code generation for rpc style SoapBindings",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/534"
+      },
+      {
+        "number" : 532,
+        "title" : "Name collisions in code generation",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/532"
+      },
+      {
+        "number" : 529,
+        "title" : "Error while emitting: Method too large",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/529"
+      },
+      {
+        "number" : 528,
+        "title" : "xmlprotocol.scala throwing compilation errors after generating the code using wsdl and xsd's",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/528"
+      },
+      {
+        "number" : 527,
+        "title" : "[Proposal] Write XML Binding to EXI",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/527"
+      },
+      {
+        "number" : 524,
+        "title" : "Compilation error \"not found: value p1\" (p2, p3..)",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/524"
+      },
+      {
+        "number" : 523,
+        "title" : "giter8 project swallows keyboard input",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/523"
+      },
+      {
+        "number" : 522,
+        "title" : "Optional integer with minOccurs=\"0\" fails parsing",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/522"
+      },
+      {
+        "number" : 520,
+        "title" : "How to cross-compile with scalaxb?",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/520"
+      },
+      {
+        "number" : 516,
+        "title" : "Scalaxb 1.4.0 string parametrs ignore \"maxLength\"",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/516"
+      },
+      {
+        "number" : 510,
+        "title" : "Better runtime modularity",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/510"
+      },
+      {
+        "number" : 507,
+        "title" : "Could not generate case classes from XSD with namespaces ",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/507"
+      },
+      {
+        "number" : 503,
+        "title" : "elma.wsdl generates an empty package",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/503"
+      },
+      {
+        "number" : 501,
+        "title" : "Use Sealed Trait As Base Class?",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/501"
+      },
+      {
+        "number" : 499,
+        "title" : "`main: scala.sys.package$.error(package.scala:27)` parsing a WSDL",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/499"
+      },
+      {
+        "number" : 498,
+        "title" : "Generate case classes with refined data types",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/498"
+      },
+      {
+        "number" : 496,
+        "title" : "StackOverflowError when invoking \"scalaxb.fromXML\"",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/496"
+      },
+      {
+        "number" : 495,
+        "title" : "Case-sensitivity error of package objects",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/495"
+      },
+      {
+        "number" : 488,
+        "title" : "Can't Disable SOAP Client Generation",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/488"
+      },
+      {
+        "number" : 487,
+        "title" : "Compile errors with WSDLs using the document-binding wrapper style",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/487"
+      },
+      {
+        "number" : 486,
+        "title" : "build.sbt contains wrong version?",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/486"
+      },
+      {
+        "number" : 481,
+        "title" : "The generated code is not compatible on JDK 11",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/481"
+      },
+      {
+        "number" : 473,
+        "title" : "soap doesnt added to Body in soap11",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/473"
+      },
+      {
+        "number" : 472,
+        "title" : "Allow configurable names for scalaxb and soapenvelope11/12 packages",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/472"
+      },
+      {
+        "number" : 463,
+        "title" : "Restrictions on an anyType restriction don't get merged",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/463"
+      },
+      {
+        "number" : 462,
+        "title" : "Restrictions on AnyType do not result in a valid constructor",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/462"
+      },
+      {
+        "number" : 460,
+        "title" : "Cross compilation and migration to scalaxb 1.5.2 + sbt 1.0.4",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/460"
+      },
+      {
+        "number" : 459,
+        "title" : "Colons within element and attribute names are not supported",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/459"
+      },
+      {
+        "number" : 458,
+        "title" : "Error compiling CDA schemas",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/458"
+      },
+      {
+        "number" : 455,
+        "title" : "Feature request: recursive clone method, or deepCopy",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/455"
+      },
+      {
+        "number" : 454,
+        "title" : "Type mismatch: required: Seq[Seq[Option[String]]]",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/454"
+      },
+      {
+        "number" : 452,
+        "title" : "why does scalaxb.toXML return a NodeSeq instead of Elem?",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/452"
+      },
+      {
+        "number" : 451,
+        "title" : "feature request: possibility to add http headers",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/451"
+      },
+      {
+        "number" : 445,
+        "title" : "Pattern match is too strict for Dispatch version",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/445"
+      },
+      {
+        "number" : 443,
+        "title" : "Please make the SOAP Envelope machinery part of the public runtime",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/443"
+      },
+      {
+        "number" : 442,
+        "title" : "Please provide full XMLFormat typeclass and toXML/fromXML API",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/442"
+      },
+      {
+        "number" : 441,
+        "title" : "Parser fails on XML generated by Grobid",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/441"
+      },
+      {
+        "number" : 436,
+        "title" : "Compilation error",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/436"
+      },
+      {
+        "number" : 435,
+        "title" : "Non-deterministic behaviour",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/435"
+      },
+      {
+        "number" : 434,
+        "title" : "Code Generated by ScalaXB Against WSDL does not compile",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/434"
+      },
+      {
+        "number" : 433,
+        "title" : "compilation errors in generated code when using nillable and anySimpleType",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/433"
+      },
+      {
+        "number" : 431,
+        "title" : "Vararg question",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/431"
+      },
+      {
+        "number" : 427,
+        "title" : "java.lang.NumberFormatException: Zero length BigInteger",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/427"
+      },
+      {
+        "number" : 426,
+        "title" : "Unexpected status: 500",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/426"
+      },
+      {
+        "number" : 424,
+        "title" : "Option to override names for generated classes",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/424"
+      },
+      {
+        "number" : 423,
+        "title" : "Strange way to calculate hashcode",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/423"
+      },
+      {
+        "number" : 422,
+        "title" : "strings with quotes",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/422"
+      },
+      {
+        "number" : 418,
+        "title" : "Error when generating code for enumeration",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/418"
+      },
+      {
+        "number" : 416,
+        "title" : "Nested chameleon schema does not work",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/416"
+      },
+      {
+        "number" : 412,
+        "title" : "Parse error when : No `type` and `minOccurs=\"0\"`",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/412"
+      },
+      {
+        "number" : 409,
+        "title" : "Generated setters for optional attributes should match against Some+None",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/409"
+      },
+      {
+        "number" : 406,
+        "title" : "[1.5.0] ReferenceNotFound Exception at code generation",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/406"
+      },
+      {
+        "number" : 404,
+        "title" : "WSDL One-way Operation",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/404"
+      },
+      {
+        "number" : 403,
+        "title" : "Scalaxb generates case to case inheritance",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/403"
+      },
+      {
+        "number" : 402,
+        "title" : "Critical parsing bug with scalaxb.fromXML",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/402"
+      },
+      {
+        "number" : 399,
+        "title" : "Implement simpler enum class structure",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/399"
+      },
+      {
+        "number" : 398,
+        "title" : "More explanation about settings",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/398"
+      },
+      {
+        "number" : 397,
+        "title" : "Sometimes scalaxb generates methods with an unneeded scope parameter (i.e. enums)",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/397"
+      },
+      {
+        "number" : 387,
+        "title" : "scalaxb installed via cs creates an exception when run, scopt dependency appears incorrect",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/387"
+      },
+      {
+        "number" : 382,
+        "title" : "Package generation for protocol goes wrong in some cases. Possibly erroneous test doesn't detect the error.",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/382"
+      },
+      {
+        "number" : 379,
+        "title" : "Pathological case: \"attributes\" element",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/379"
+      },
+      {
+        "number" : 377,
+        "title" : "For element of minOccurs=1, maxOccurs=1, an optional field is generated",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/377"
+      },
+      {
+        "number" : 376,
+        "title" : "Allow alternatives to XMLGregorianCalendar for xsd:dateTime",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/376"
+      },
+      {
+        "number" : 373,
+        "title" : "'sbt compile' not working the first time.",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/373"
+      },
+      {
+        "number" : 371,
+        "title" : "xs:all element appears to enforce ordering when it shouldn't",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/371"
+      },
+      {
+        "number" : 368,
+        "title" : "\"Option\" suffix ruins compilation for the specific domain, consider something less widely used?",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/368"
+      },
+      {
+        "number" : 367,
+        "title" : "Compile error with ref + substitution group + choice",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/367"
+      },
+      {
+        "number" : 363,
+        "title" : "Substitution group head element with abstract type makes valid xml files unparseable",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/363"
+      },
+      {
+        "number" : 357,
+        "title" : "object BaseRequestable is not a member of package",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/357"
+      },
+      {
+        "number" : 356,
+        "title" : "Compiling Code generation with Scalaxb 1.4.0 results in compiler failure",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/356"
+      },
+      {
+        "number" : 355,
+        "title" : "Wrong Seq[Double] serialization for some schemas",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/355"
+      },
+      {
+        "number" : 354,
+        "title" : "Can't compile a given WSDL - not found: value authenticationHeader",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/354"
+      },
+      {
+        "number" : 353,
+        "title" : "Default values for elements missing from generated classes",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/353"
+      },
+      {
+        "number" : 351,
+        "title" : "Incremental generation",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/351"
+      },
+      {
+        "number" : 339,
+        "title" : "Lens generation issues",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/339"
+      },
+      {
+        "number" : 330,
+        "title" : "Unable to generate",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/330"
+      },
+      {
+        "number" : 329,
+        "title" : "Syntax error in generated code",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/329"
+      },
+      {
+        "number" : 328,
+        "title" : "Add support for WS-Security",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/328"
+      },
+      {
+        "number" : 327,
+        "title" : "Compilation issues where multiple schemas share a filename",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/327"
+      },
+      {
+        "number" : 326,
+        "title" : "Compilation error for WSDL message parts whose first letter is upper-case",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/326"
+      },
+      {
+        "number" : 325,
+        "title" : "Erroneous code generated from xsd with xs:extension",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/325"
+      },
+      {
+        "number" : 317,
+        "title" : "SAXParseException for multipart SOAP responses",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/317"
+      },
+      {
+        "number" : 316,
+        "title" : "Unable to switch off namespace in mixed tags",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/316"
+      },
+      {
+        "number" : 315,
+        "title" : "Add MTOM support",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/315"
+      },
+      {
+        "number" : 314,
+        "title" : "Add logging of SOAP request / responses",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/314"
+      },
+      {
+        "number" : 313,
+        "title" : "Unable to track down the problematic element in case of xml parsing failure",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/313"
+      },
+      {
+        "number" : 312,
+        "title" : "How do you stub the service for generated soap client?",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/312"
+      },
+      {
+        "number" : 311,
+        "title" : "no-varargs is needed",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/311"
+      },
+      {
+        "number" : 306,
+        "title" : "Suppress warnings",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/306"
+      },
+      {
+        "number" : 305,
+        "title" : "Attribute names differing only in capitalisation result in broken code",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/305"
+      },
+      {
+        "number" : 302,
+        "title" : "Allow to change the \"soap11\" envelope namespace in the clients to a custom namespace",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/302"
+      },
+      {
+        "number" : 301,
+        "title" : "compiling code generated by SalesForce enterprise WSDL with scalaxb 1.3.0 results in many errors",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/301"
+      },
+      {
+        "number" : 298,
+        "title" : "Soap11Client.soapRequest mixes namespaces",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/298"
+      },
+      {
+        "number" : 297,
+        "title" : "Default optional args for soap method calls",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/297"
+      },
+      {
+        "number" : 295,
+        "title" : "Can't use urn in soap actions",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/295"
+      },
+      {
+        "number" : 293,
+        "title" : "Compilation error",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/293"
+      },
+      {
+        "number" : 291,
+        "title" : "[1.3.0] Uses same namespace name twice (for different namespace URLs)",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/291"
+      },
+      {
+        "number" : 283,
+        "title" : "allow configuring BigDecimal precision",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/283"
+      },
+      {
+        "number" : 281,
+        "title" : "contents-limit maven plugin parameter can't be set",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/281"
+      },
+      {
+        "number" : 276,
+        "title" : "Unnamed element in group",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/276"
+      },
+      {
+        "number" : 275,
+        "title" : "unqualified element not handled properly, when default is 'qualified'",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/275"
+      },
+      {
+        "number" : 271,
+        "title" : "Generated code doesn't compile",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/271"
+      },
+      {
+        "number" : 250,
+        "title" : "Default attribute doesn't create a default value in the case class constructor",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/250"
+      },
+      {
+        "number" : 248,
+        "title" : "breaks on documentation-tag in wsdl operation",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/248"
+      },
+      {
+        "number" : 234,
+        "title" : "Insane Compile Time + Wrap Contents (Yodlee SOAP API)",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/234"
+      },
+      {
+        "number" : 233,
+        "title" : "Option[A] instead of [A] is generated for xs:all",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/233"
+      },
+      {
+        "number" : 232,
+        "title" : "problems generating operations with same name but different parameters",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/232"
+      },
+      {
+        "number" : 226,
+        "title" : "Name of generated case class of properties/fields when name contains '-'",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/226"
+      },
+      {
+        "number" : 224,
+        "title" : "Lots of warnings in generated output",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/224"
+      },
+      {
+        "number" : 223,
+        "title" : "named group and xs:all",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/223"
+      },
+      {
+        "number" : 222,
+        "title" : "mixed and xs:all",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/222"
+      },
+      {
+        "number" : 208,
+        "title" : "simple types with enumeration restriction should preserve their types",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/208"
+      },
+      {
+        "number" : 187,
+        "title" : "generate SOAP service out of WSDL",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/187"
+      },
+      {
+        "number" : 186,
+        "title" : "Generated code AttributeGroups with more than MaxParticleSize elements is invalid",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/186"
+      },
+      {
+        "number" : 182,
+        "title" : "default attribute of <xs:element> is not evaluated with scalaxb.fromXML()",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/182"
+      },
+      {
+        "number" : 177,
+        "title" : "XML name to Scala type mapping for binding fromXML",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/177"
+      },
+      {
+        "number" : 169,
+        "title" : "package is already defined as package myPackage",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/169"
+      },
+      {
+        "number" : 146,
+        "title" : "Split up xmlprotocol.scala",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/146"
+      },
+      {
+        "number" : 145,
+        "title" : "Report source location in error messages",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/145"
+      },
+      {
+        "number" : 141,
+        "title" : "capture element name as type",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/141"
+      },
+      {
+        "number" : 118,
+        "title" : "base trait is not generated in case when one of input files does not contain subtypes, but others do",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/118"
+      },
+      {
+        "number" : 112,
+        "title" : "Flatten nested Options in generated code",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/112"
+      },
+      {
+        "number" : 107,
+        "title" : "wrap enumeration classes in companion.",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/107"
+      },
+      {
+        "number" : 75,
+        "title" : "file naming options",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/75"
+      },
+      {
+        "number" : 68,
+        "title" : "download dependent schemas automatically",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/68"
+      },
+      {
+        "number" : 67,
+        "title" : "json data binding",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/67"
+      },
+      {
+        "number" : 61,
+        "title" : "relax ng compact syntax support",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/61"
+      },
+      {
+        "number" : 60,
+        "title" : "use scalaxb to parse XML Schema",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/60"
+      },
+      {
+        "number" : 53,
+        "title" : "module support",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/53"
+      },
+      {
+        "number" : 22,
+        "title" : "generate XML Schema out of case class instances",
+        "url" : "https://github.com/eed3si9n/scalaxb/issues/22"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : "scalaxb",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+      "scalaxb"
+    ],
+    "category" : "xml-html-and-dom",
+    "beginnerIssuesLabel" : null
+  }
+}

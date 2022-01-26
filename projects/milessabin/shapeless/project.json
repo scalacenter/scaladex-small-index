@@ -1,0 +1,1077 @@
+{
+  "organization" : "milessabin",
+  "repository" : "shapeless",
+  "creationDate" : 1428280991394,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643180938639
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "",
+    "description" : "Generic programming for Scala",
+    "logo" : "https://avatars.githubusercontent.com/u/131183?v=4",
+    "stars" : 3215,
+    "forks" : 517,
+    "watchers" : 115,
+    "issues" : 62,
+    "creationDate" : 1324215398000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-shapeless-generic-programming-for-scala\" class=\"anchor\" aria-hidden=\"true\" href=\"#shapeless-generic-programming-for-scala\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>shapeless: generic programming for Scala</h1>\n<p dir=\"auto\"><strong>shapeless</strong> is a type class and dependent type based generic programming library for Scala. It had its origins in\nseveral talks by Miles Sabin (<a href=\"https://twitter.com/milessabin\" rel=\"nofollow\">@milessabin</a>), given over the course of 2011, on implementing <a href=\"https://www.microsoft.com/en-us/research/publication/scrap-your-boilerplate-with-class/\" rel=\"nofollow\">scrap your\nboilerplate</a> and <a href=\"http://homes.sice.indiana.edu/ccshan/cs252/usage.pdf\" rel=\"nofollow\">higher rank polymorphism</a> in Scala. Since then it has evolved from being a resolutely\nexperimental project into a library which, while still testing the limits of what's possible in Scala, is being used\nwidely in production systems wherever there are arities to be abstracted over and boilerplate to be scrapped.</p>\n<p dir=\"auto\"><a href=\"https://discord.gg/bSQBZA3Ced\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/ab28a7bb180b98ce9130264a9312d7e82068a74ae51eecec98a3179dc570ee22/68747470733a2f2f696d672e736869656c64732e696f2f646973636f72642f3633323237373839363733393934363531372e7376673f6c6162656c3d266c6f676f3d646973636f7264266c6f676f436f6c6f723d66666666666626636f6c6f723d343034323434266c6162656c436f6c6f723d364137454332\" alt=\"Discord\" data-canonical-src=\"https://img.shields.io/discord/632277896739946517.svg?label=&amp;logo=discord&amp;logoColor=ffffff&amp;color=404244&amp;labelColor=6A7EC2\" style=\"max-width: 100%;\"></a>\n<a href=\"https://gitter.im/milessabin/shapeless\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/5dbac0213da25c445bd11f168587c11a200ba153ef3014e8408e462e410169b3/68747470733a2f2f6261646765732e6769747465722e696d2f4a6f696e253230436861742e737667\" alt=\"Gitter\" data-canonical-src=\"https://badges.gitter.im/Join%20Chat.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://maven-badges.herokuapp.com/maven-central/com.chuusai/shapeless_2.13\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/5cbe0aeebbb6a40a0f82aa383ef5b359afc893a5ce654b8cd0d0f4f62e8aacda/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e636875757361692f73686170656c6573735f322e31332e737667\" alt=\"Maven Central\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.chuusai/shapeless_2.13.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://www.scala-js.org\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/d4cec3059124a0fb70ed54c48dd1df53a079b445bd299d0efb52c39e93654de4/68747470733a2f2f7777772e7363616c612d6a732e6f72672f6173736574732f6261646765732f7363616c616a732d302e362e382e737667\" alt=\"Scala.js\" data-canonical-src=\"https://www.scala-js.org/assets/badges/scalajs-0.6.8.svg\" style=\"max-width: 100%;\"></a></p>\n<h2 dir=\"auto\"><a id=\"user-content-projects-which-use-shapeless\" class=\"anchor\" aria-hidden=\"true\" href=\"#projects-which-use-shapeless\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Projects which use shapeless</h2>\n<p dir=\"auto\">There is a wide variety of projects which use shapeless in one way or another ... see the\n<a href=\"https://github.com/milessabin/shapeless/wiki/Built-with-shapeless\">incomplete list of projects</a> for ideas and inspiration. If you are using shapeless and your\nproject isn't listed yet, please add it.</p>\n<h2 dir=\"auto\"><a id=\"user-content-finding-out-more-about-the-project\" class=\"anchor\" aria-hidden=\"true\" href=\"#finding-out-more-about-the-project\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Finding out more about the project</h2>\n<p dir=\"auto\">The <a href=\"https://github.com/milessabin/shapeless/wiki/Feature-overview:-shapeless-2.0.0\">feature overview for shapeless-2.0.0</a> provides a very incomplete introduction to shapeless.\nAdditional information can be found in subsequent <a href=\"https://github.com/milessabin/shapeless/wiki/Release-notes:-shapeless-2.2.0\">release notes</a>. If you are upgrading from\nshapeless-2.0.0 you will find the <a href=\"https://github.com/milessabin/shapeless/wiki/Migration-guide:-shapeless-2.0.0-to-2.1.0\">migration guide</a> useful. We're not satisfied with the current state\nof the documentation and would love help in improving it. You can find an excellent guide to Shapeless here:\n<a href=\"https://github.com/underscoreio/shapeless-guide\">The Type Astronaut's Guide to Shapeless</a>.</p>\n<p dir=\"auto\">shapeless is part of the <a href=\"http://typelevel.org/\" rel=\"nofollow\">Typelevel</a> family of projects. It is an Open Source project under the Apache\nLicense v2, hosted on <a href=\"https://github.com/milessabin/shapeless\">github</a>. Binary artefacts are published to the\n<a href=\"https://oss.sonatype.org/index.html#nexus-search;quick~shapeless\" rel=\"nofollow\">Sonatype OSS Repository Hosting service</a> and synced to Maven Central.</p>\n<p dir=\"auto\">Most discussion of shapeless and generic programming in Scala happens on the #shapless channel of the <a href=\"https://discord.gg/bSQBZA3Ced\" rel=\"nofollow\">Typelevel\nDiscord</a>. There is also a <a href=\"https://groups.google.com/group/typelevel\" rel=\"nofollow\">mailing list</a> and <a href=\"https://gitter.im/milessabin/shapeless\" rel=\"nofollow\">Gitter</a>, but these are largely dormant now that\nmost activity has moved to Discord. Questions about shapeless are often asked and answered under the <a href=\"http://stackoverflow.com/questions/tagged/shapeless\" rel=\"nofollow\">shapeless tag on\nStackOverflow</a>. Some articles on the implementation techniques can be found on <a href=\"http://milessabin.com/blog\" rel=\"nofollow\">Miles's blog</a>, and Olivera,\nMoors and Odersky, <a href=\"http://ropas.snu.ac.kr/~bruno/papers/TypeClasses.pdf\" rel=\"nofollow\">Type Classes as Object and Implicits</a> is useful background material.</p>\n<h2 dir=\"auto\"><a id=\"user-content-participation\" class=\"anchor\" aria-hidden=\"true\" href=\"#participation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Participation</h2>\n<p dir=\"auto\">The shapeless project supports the <a href=\"https://www.scala-lang.org/conduct/\" rel=\"nofollow\">Scala Code of Conduct</a> and wants all of its\nchannels (mailing list, Gitter, IRC, github, etc.) to be welcoming environments for everyone.</p>\n<p dir=\"auto\">Whilst shapeless is a somewhat \"advanced\" Scala library, it is a lot more approachable than many people think.\nContributors are usually available to field questions, give advice and discuss ideas on the #shapeless <a href=\"https://discord.gg/bSQBZA3Ced\" rel=\"nofollow\">Discord channel</a>,\nand for people wanting to take their first steps at contributing we have a selection of open issues flagged up as\nbeing <a href=\"https://github.com/milessabin/shapeless/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22\">good candidates to take on</a>. No contribution is too small, and guidance is always available.</p>\n<h2 dir=\"auto\"><a id=\"user-content-using-shapeless\" class=\"anchor\" aria-hidden=\"true\" href=\"#using-shapeless\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Using shapeless</h2>\n<p dir=\"auto\">Binary release artefacts are published to the <a href=\"https://oss.sonatype.org/index.html#nexus-search;quick~shapeless\" rel=\"nofollow\">Sonatype OSS Repository Hosting service</a> and synced to Maven\nCentral. Snapshots of the main branch are built using GitHub actions and automatically published to the Sonatype\nOSS Snapshot repository.</p>\n<h3 dir=\"auto\"><a id=\"user-content-try-shapeless-with-an-ammonite-instant-repl\" class=\"anchor\" aria-hidden=\"true\" href=\"#try-shapeless-with-an-ammonite-instant-repl\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Try shapeless with an Ammonite instant REPL</h3>\n<p dir=\"auto\">The quickest way to get to a REPL prompt with the latest version of shapeless on the class path is to run the\nprovided <a href=\"https://github.com/milessabin/shapeless/blob/main/scripts/try-shapeless.sh\">\"try shapeless\"</a> script, which has no dependencies other than an installed JDK. This script\ndownloads and installs <a href=\"https://github.com/coursier/coursier\">coursier</a> and uses it to fetch the <a href=\"https://github.com/com-lihaoyi/Ammonite\">Ammonite</a> REPL and the latest version\nof shapeless. It then drops you immediately into a REPL session,</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"% curl -s https://raw.githubusercontent.com/milessabin/shapeless/main/scripts/try-shapeless.sh | bash\nLoading...\nCompiling (synthetic)/ammonite/predef/interpBridge.sc\nCompiling (synthetic)/ammonite/predef/replBridge.sc\nCompiling (synthetic)/ammonite/predef/DefaultPredef.sc\nCompiling /home/miles/projects/shapeless/(console)\nWelcome to the Ammonite Repl 1.6.8\n(Scala 2.13.1 Java 1.8.0_212)\nIf you like Ammonite, please support our development at www.patreon.com/lihaoyi\n@ 23 :: &quot;foo&quot; :: true :: HNil \nres0: Int :: String :: Boolean :: HNil = 23 :: &quot;foo&quot; :: true :: HNil\n\n@ Bye!\n%\"><pre lang=\"text\"><code>% curl -s https://raw.githubusercontent.com/milessabin/shapeless/main/scripts/try-shapeless.sh | bash\nLoading...\nCompiling (synthetic)/ammonite/predef/interpBridge.sc\nCompiling (synthetic)/ammonite/predef/replBridge.sc\nCompiling (synthetic)/ammonite/predef/DefaultPredef.sc\nCompiling /home/miles/projects/shapeless/(console)\nWelcome to the Ammonite Repl 1.6.8\n(Scala 2.13.1 Java 1.8.0_212)\nIf you like Ammonite, please support our development at www.patreon.com/lihaoyi\n@ 23 :: \"foo\" :: true :: HNil \nres0: Int :: String :: Boolean :: HNil = 23 :: \"foo\" :: true :: HNil\n\n@ Bye!\n%\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-shapeless-233-with-sbt\" class=\"anchor\" aria-hidden=\"true\" href=\"#shapeless-233-with-sbt\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>shapeless-2.3.3 with SBT</h3>\n<p dir=\"auto\">To include the Sonatype repositories in your SBT build you should add,</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"resolvers ++= Seq(\n  Resolver.sonatypeRepo(&quot;releases&quot;),\n  Resolver.sonatypeRepo(&quot;snapshots&quot;)\n)\"><pre>resolvers <span class=\"pl-k\">++</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Seq</span>(\n  <span class=\"pl-en\">Resolver</span>.sonatypeRepo(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>releases<span class=\"pl-pds\">\"</span></span>),\n  <span class=\"pl-en\">Resolver</span>.sonatypeRepo(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>snapshots<span class=\"pl-pds\">\"</span></span>)\n)</pre></div>\n<p dir=\"auto\">Builds are available for Scala 2.11.x, 2.12.x and 2.13.x. The main line of development for\nshapeless 2.3.3 is Scala 2.13.2.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"scalaVersion := &quot;2.13.5&quot;\n\nlibraryDependencies ++= Seq(\n  &quot;com.chuusai&quot; %% &quot;shapeless&quot; % &quot;2.3.3&quot;\n)\"><pre>scalaVersion <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>2.13.5<span class=\"pl-pds\">\"</span></span>\n\nlibraryDependencies <span class=\"pl-k\">++</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Seq</span>(\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.chuusai<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>shapeless<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>2.3.3<span class=\"pl-pds\">\"</span></span>\n)</pre></div>\n<p dir=\"auto\">For using snapshots of Shapeless you should add,</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"scalaVersion := &quot;2.13.5&quot;\n\nlibraryDependencies ++= Seq(\n  &quot;com.chuusai&quot; %% &quot;shapeless&quot; % &quot;2.4.0-SNAPSHOT&quot;\n)\"><pre>scalaVersion <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>2.13.5<span class=\"pl-pds\">\"</span></span>\n\nlibraryDependencies <span class=\"pl-k\">++</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Seq</span>(\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.chuusai<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>shapeless<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>2.4.0-SNAPSHOT<span class=\"pl-pds\">\"</span></span>\n)</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-shapeless-233-with-maven\" class=\"anchor\" aria-hidden=\"true\" href=\"#shapeless-233-with-maven\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>shapeless-2.3.3 with Maven</h3>\n<p dir=\"auto\">shapeless is also available for projects using the Maven build tool via the following dependency,</p>\n<div class=\"highlight highlight-text-xml position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&lt;dependency&gt;\n  &lt;groupId&gt;com.chuusai&lt;/groupId&gt;\n  &lt;artifactId&gt;shapeless_2.13&lt;/artifactId&gt;\n  &lt;version&gt;2.3.3&lt;/version&gt;\n&lt;/dependency&gt;\"><pre>&lt;<span class=\"pl-ent\">dependency</span>&gt;\n  &lt;<span class=\"pl-ent\">groupId</span>&gt;com.chuusai&lt;/<span class=\"pl-ent\">groupId</span>&gt;\n  &lt;<span class=\"pl-ent\">artifactId</span>&gt;shapeless_2.13&lt;/<span class=\"pl-ent\">artifactId</span>&gt;\n  &lt;<span class=\"pl-ent\">version</span>&gt;2.3.3&lt;/<span class=\"pl-ent\">version</span>&gt;\n&lt;/<span class=\"pl-ent\">dependency</span>&gt;</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-older-releases\" class=\"anchor\" aria-hidden=\"true\" href=\"#older-releases\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Older releases</h3>\n<p dir=\"auto\">Please use a current release if possible. If unavoidable, you can find <a href=\"https://github.com/milessabin/shapeless/wiki/Using-shapeless:-older-releases\">usage information for older\nreleases</a> on the shapeless wiki.</p>\n<h2 dir=\"auto\"><a id=\"user-content-building-shapeless\" class=\"anchor\" aria-hidden=\"true\" href=\"#building-shapeless\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Building shapeless</h2>\n<p dir=\"auto\">shapeless is built with SBT 1.3.10 or later, and its main branch is built with Scala 2.13.2 by default but also\ncross-builds for 2.11.12 and 2.12.12.</p>\n<h2 dir=\"auto\"><a id=\"user-content-contributors\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributors\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Contributors</h2>\n<ul dir=\"auto\">\n<li>Alex Zorab <a href=\"mailto:alec.zorab@gmail.com\">alec.zorab@gmail.com</a> <a href=\"https://twitter.com/aleczorab\" rel=\"nofollow\">@aleczorab</a></li>\n<li>Alessandro Lacava <a href=\"mailto:alessandrolacava@gmail.com\">alessandrolacava@gmail.com</a> <a href=\"https://twitter.com/lambdista\" rel=\"nofollow\">@lambdista</a></li>\n<li>Alexander Konovalov <a href=\"mailto:alex.knvl@gmail.com\">alex.knvl@gmail.com</a> <a href=\"https://twitter.com/alexknvl\" rel=\"nofollow\">@alexknvl</a></li>\n<li>Alexandre Archambault <a href=\"mailto:alexandre.archambault@gmail.com\">alexandre.archambault@gmail.com</a> <a href=\"https://twitter.com/alxarchambault\" rel=\"nofollow\">@alxarchambault</a></li>\n<li>Alistair Johnson <a href=\"mailto:alistair.johnson@johnsonusm.com\">alistair.johnson@johnsonusm.com</a> <a href=\"https://twitter.com/AlistairUSM\" rel=\"nofollow\">@AlistairUSM</a></li>\n<li>Allison H. <a href=\"mailto:allisonhb@gmx.com\">allisonhb@gmx.com</a></li>\n<li>Alois Cochard <a href=\"mailto:alois.cochard@gmail.com\">alois.cochard@gmail.com</a> <a href=\"https://twitter.com/aloiscochard\" rel=\"nofollow\">@aloiscochard</a></li>\n<li>Andreas Koestler <a href=\"mailto:andreas.koestler@gmail.com\">andreas.koestler@gmail.com</a> <a href=\"https://twitter.com/AndreasKostler\" rel=\"nofollow\">@AndreasKostler</a></li>\n<li>Andrew Brett <a href=\"mailto:github@bretts.org\">github@bretts.org</a> <a href=\"https://twitter.com/Ephemerix\" rel=\"nofollow\">@Ephemerix</a></li>\n<li>Aristotelis Dossas <a href=\"mailto:teldosas@gmail.com\">teldosas@gmail.com</a> <a href=\"https://twitter.com/teldosas\" rel=\"nofollow\">@teldosas</a></li>\n<li>Arya Irani <a href=\"mailto:arya.irani@gmail.com\">arya.irani@gmail.com</a> <a href=\"https://twitter.com/aryairani\" rel=\"nofollow\">@aryairani</a></li>\n<li>Ben Hutchison <a href=\"mailto:brhutchison@gmail.com\">brhutchison@gmail.com</a> <a href=\"https://twitter.com/ben_hutchison\" rel=\"nofollow\">@ben_hutchison</a></li>\n<li>Ben James <a href=\"mailto:ben.james@guardian.co.uk\">ben.james@guardian.co.uk</a> <a href=\"https://twitter.com/bmjames\" rel=\"nofollow\">@bmjames</a></li>\n<li>Brian McKenna <a href=\"mailto:brian@brianmckenna.org\">brian@brianmckenna.org</a> <a href=\"https://twitter.com/puffnfresh\" rel=\"nofollow\">@puffnfresh</a></li>\n<li>Brian Zeligson <a href=\"mailto:brian.zeligson@gmail.com\">brian.zeligson@gmail.com</a> <a href=\"https://twitter.com/bzeg\" rel=\"nofollow\">@beezee</a></li>\n<li>Bryn Keller <a href=\"mailto:xoltar@xoltar.org\">xoltar@xoltar.org</a> <a href=\"https://twitter.com/brynkeller\" rel=\"nofollow\">@brynkeller</a></li>\n<li>Carlos Quiroz <a href=\"https://twitter.com/carlosmquiroz\" rel=\"nofollow\">@carlosmquiroz</a></li>\n<li>Chris Hodapp <a href=\"mailto:clhodapp1@gmail.com\">clhodapp1@gmail.com</a> <a href=\"https://twitter.com/clhodapp\" rel=\"nofollow\">@clhodapp</a></li>\n<li>Cody Allen <a href=\"mailto:ceedubs@gmail.com\">ceedubs@gmail.com</a> <a href=\"https://twitter.com/fourierstrick\" rel=\"nofollow\">@fourierstrick</a></li>\n<li>Dale Wijnand <a href=\"mailto:dale.wijnand@gmail.com\">dale.wijnand@gmail.com</a> <a href=\"https://twitter.com/dwijnand\" rel=\"nofollow\">@dwijnand</a></li>\n<li>Daniel Urban <a href=\"mailto:urban.dani@gmail.com\">urban.dani@gmail.com</a></li>\n<li>Dario Rexin <a href=\"mailto:dario.rexin@r3-tech.de\">dario.rexin@r3-tech.de</a> <a href=\"https://twitter.com/evonox\" rel=\"nofollow\">@evonox</a></li>\n<li>Dave Gurnell <a href=\"mailto:d.j.gurnell@gmail.com\">d.j.gurnell@gmail.com</a> <a href=\"https://twitter.com/davegurnell\" rel=\"nofollow\">@davegurnell</a></li>\n<li>David Barri <a href=\"mailto:japgolly@gmail.com\">japgolly@gmail.com</a> <a href=\"https://twitter.com/japgolly\" rel=\"nofollow\">@japgolly</a></li>\n<li>Denis Mikhaylov <a href=\"mailto:notxcain@gmail.com\">notxcain@gmail.com</a> <a href=\"https://twitter.com/@notxcain\" rel=\"nofollow\">@notxcain</a></li>\n<li>Dmitry Kovalev <a href=\"mailto:kdn.kovalev@gmail.com\">kdn.kovalev@gmail.com</a></li>\n<li>Eugene Burmako <a href=\"mailto:xeno.by@gmail.com\">xeno.by@gmail.com</a> <a href=\"https://twitter.com/xeno_by\" rel=\"nofollow\">@xeno_by</a></li>\n<li>Fabio Labella <a href=\"mailto:fabio.labella2@gmail.com\">fabio.labella2@gmail.com</a> <a href=\"https://twitter.com/SystemFw\" rel=\"nofollow\">@SystemFw</a></li>\n<li>Filipe Nepomuceno <a href=\"mailto:filinep@gmail.com\">filinep@gmail.com</a></li>\n<li>Frank S. Thomas <a href=\"mailto:frank@timepit.eu\">frank@timepit.eu</a> <a href=\"https://twitter.com/fst9000\" rel=\"nofollow\">@fst9000</a></li>\n<li>George Leontiev <a href=\"mailto:folone@gmail.com\">folone@gmail.com</a> <a href=\"https://twitter.com/folone\" rel=\"nofollow\">@folone</a></li>\n<li>Georgi Krastev <a href=\"mailto:joro.kr.21@gmail.com\">joro.kr.21@gmail.com</a> <a href=\"https://twitter.com/joro_kr\" rel=\"nofollow\">@Joro_Kr</a></li>\n<li>Hamish Dickenson <a href=\"mailto:hamish.dickson@gmail.com\">hamish.dickson@gmail.com</a> <a href=\"https://twitter.com/hamishdickson\" rel=\"nofollow\">@hamishdickson</a></li>\n<li>Harrison Houghton <a href=\"mailto:hhoughton@learningobjects.com\">hhoughton@learningobjects.com</a></li>\n<li>Howard Branch <a href=\"mailto:purestgreen@gmail.com\">purestgreen@gmail.com</a> <a href=\"https://twitter.com/purestgreen\" rel=\"nofollow\">@purestgreen</a></li>\n<li>Huw Giddens <a href=\"mailto:hgiddens@gmail.com\">hgiddens@gmail.com</a></li>\n<li>Hywel Andrews <a href=\"mailto:hywel.andrews@agoda.com\">hywel.andrews@agoda.com</a></li>\n<li>Ievgen Garkusha <a href=\"mailto:ievgen@riskident.com\">ievgen@riskident.com</a></li>\n<li>Jacob Barber <a href=\"mailto:jacoby6000@gmail.com\">jacoby6000@gmail.com</a> <a href=\"https://twitter.com/jacoby6000\" rel=\"nofollow\">@jacoby6000</a></li>\n<li>Jason Zaugg <a href=\"mailto:jzaugg@gmail.com\">jzaugg@gmail.com</a> <a href=\"https://twitter.com/retronym\" rel=\"nofollow\">@retronym</a></li>\n<li>Jean-Baptiste Giraudeau <a href=\"mailto:jb@giraudeau.info\">jb@giraudeau.info</a> <a href=\"https://twitter.com/jb9i\" rel=\"nofollow\">@jb9i</a></li>\n<li>Jean-Remi Desjardins <a href=\"mailto:jeanremi.desjardins@gmail.com\">jeanremi.desjardins@gmail.com</a> <a href=\"https://twitter.com/jrdesjardins\" rel=\"nofollow\">@jrdesjardins</a></li>\n<li>Jeff Martin <a href=\"mailto:jmartin@homeaway.com\">jmartin@homeaway.com</a></li>\n<li>Jeff Wilde <a href=\"mailto:jeff@robo.ai\">jeff@robo.ai</a></li>\n<li>Jeremy R. Smith <a href=\"mailto:jeremyrsmith@gmail.com\">jeremyrsmith@gmail.com</a> <a href=\"https://twitter.com/jeremyrsmith\" rel=\"nofollow\">@jeremyrsmith</a></li>\n<li>Jisoo Park <a href=\"mailto:xxxyel@gmail.com\">xxxyel@gmail.com</a> <a href=\"https://twitter.com/guersam\" rel=\"nofollow\">@guersam</a></li>\n<li>Johannes Rudolph <a href=\"mailto:johannes.rudolph@gmail.com\">johannes.rudolph@gmail.com</a> <a href=\"https://twitter.com/virtualvoid\" rel=\"nofollow\">@virtualvoid</a></li>\n<li>Johnny Everson <a href=\"mailto:khronnuz@gmail.com\">khronnuz@gmail.com</a> <a href=\"https://twitter.com/johnny_everson\" rel=\"nofollow\">@johnny_everson</a></li>\n<li>Jolse Maginnis <a href=\"mailto:jolse.maginnis@pearson.com\">jolse.maginnis@pearson.com</a> <a href=\"https://twitter.com/doolse2\" rel=\"nofollow\">@doolse2</a></li>\n<li>Joni Freeman <a href=\"mailto:joni.freeman@ri.fi\">joni.freeman@ri.fi</a> <a href=\"https://twitter.com/jonifreeman\" rel=\"nofollow\">@jonifreeman</a></li>\n<li>Joseph Price <a href=\"mailto:josephprice@iheartmedia.com\">josephprice@iheartmedia.com</a></li>\n<li>Juan José Vázquez Delgado <a href=\"mailto:juanjo.vazquez.delgado@tecsisa.com\">juanjo.vazquez.delgado@tecsisa.com</a> <a href=\"https://twitter.com/juanjovazquez\" rel=\"nofollow\">@juanjovazquez</a></li>\n<li>Julien Tournay <a href=\"mailto:boudhevil@gmail.com\">boudhevil@gmail.com</a> <a href=\"https://twitter.com/skaalf\" rel=\"nofollow\">@skaalf</a></li>\n<li>Jules Gosnell <a href=\"mailto:jules_gosnell@yahoo.com\">jules_gosnell@yahoo.com</a></li>\n<li>Kailuo Wang <a href=\"mailto:kailuo.wang@gmail.com\">kailuo.wang@gmail.com</a> <a href=\"https://twitter.com/kailuowang\" rel=\"nofollow\">@kailuowang</a></li>\n<li>Kazuki Moriyama <a href=\"mailto:pharcydetip@gmail.com\">pharcydetip@gmail.com</a> <a href=\"https://twitter.com/Kazuki_Moriyama\" rel=\"nofollow\">@kazchimo</a></li>\n<li>Kenji Yoshida <a href=\"mailto:6b656e6a69@gmail.com\">6b656e6a69@gmail.com</a> <a href=\"https://twitter.com/xuwei_k\" rel=\"nofollow\">@xuwei_k</a></li>\n<li>Kevin Wright <a href=\"mailto:kev.lee.wright@gmail.com\">kev.lee.wright@gmail.com</a> <a href=\"https://twitter.com/thecoda\" rel=\"nofollow\">@thecoda</a></li>\n<li>Lars Hupel <a href=\"mailto:lars.hupel@mytum.de\">lars.hupel@mytum.de</a> <a href=\"https://twitter.com/larsr_h\" rel=\"nofollow\">@larsr_h</a></li>\n<li>Lukasz Golebiewski <a href=\"mailto:lukasz.golebiewski@gmail.com\">lukasz.golebiewski@gmail.com</a> <a href=\"https://twitter.com/LukaszGobiewsk1\" rel=\"nofollow\">@LukaszGobiewsk1</a></li>\n<li>Mario Pastorelli <a href=\"mailto:mario.pastorelli@teralytics.ch\">mario.pastorelli@teralytics.ch</a> <a href=\"https://twitter.com/mapastr\" rel=\"nofollow\">@mapastr</a></li>\n<li>Matthew Taylor <a href=\"mailto:matthew.t@tbfe.net\">matthew.t@tbfe.net</a></li>\n<li>Mathias Doenitz <a href=\"mailto:mathias@spray.io\">mathias@spray.io</a> <a href=\"https://twitter.com/sirthias\" rel=\"nofollow\">@sirthias</a></li>\n<li>Michael Donaghy <a href=\"mailto:md401@srcf.ucam.org\">md401@srcf.ucam.org</a></li>\n<li>Michael Pilquist <a href=\"mailto:mpilquist@gmail.com\">mpilquist@gmail.com</a> <a href=\"https://twitter.com/mpilquist\" rel=\"nofollow\">@mpilquist</a></li>\n<li>Michael Zuber <a href=\"mailto:michaelg.zuber@gmail.com\">michaelg.zuber@gmail.com</a> <a href=\"https://twitter.com/mgzuber91\" rel=\"nofollow\">@mgzuber91</a></li>\n<li>Mike Limansky <a href=\"mailto:mike.limansky@gmail.com\">mike.limansky@gmail.com</a> <a href=\"https://twitter.com/mike_limansky\" rel=\"nofollow\">@mike_limansky</a></li>\n<li>Miles Sabin <a href=\"mailto:miles@milessabin.com\">miles@milessabin.com</a> <a href=\"https://twitter.com/milessabin\" rel=\"nofollow\">@milessabin</a></li>\n<li>n4to4 <a href=\"mailto:n4to4k@gmail.com\">n4to4k@gmail.com</a> <a href=\"https://twitter.com/n4to4\" rel=\"nofollow\">@n4to4</a></li>\n<li>Neville Li <a href=\"mailto:neville@spotify.com\">neville@spotify.com</a> <a href=\"https://twitter.com/sinisa_lyh\" rel=\"nofollow\">@sinisa_lyh</a></li>\n<li>Nikolas Evangelopoulos <a href=\"mailto:nikolas@jkl.gr\">nikolas@jkl.gr</a></li>\n<li>Oleg Aleshko <a href=\"mailto:olegych@tut.by\">olegych@tut.by</a> <a href=\"https://twitter.com/OlegYch\" rel=\"nofollow\">@OlegYch</a></li>\n<li>Olivier Blanvillain <a href=\"mailto:olivier.blanvillain@gmail.com\">olivier.blanvillain@gmail.com</a></li>\n<li>Olli Helenius <a href=\"mailto:liff@iki.fi\">liff@iki.fi</a> <a href=\"https://twitter.com/ollijh\" rel=\"nofollow\">@ollijh</a></li>\n<li>Owein Reese <a href=\"mailto:owreese@gmail.com\">owreese@gmail.com</a> <a href=\"https://twitter.com/OweinReese\" rel=\"nofollow\">@OweinReese</a></li>\n<li>Paolo G. Giarrusso <a href=\"mailto:p.giarrusso@gmail.com\">p.giarrusso@gmail.com</a> <a href=\"https://twitter.com/blaisorblade\" rel=\"nofollow\">@blaisorblade</a></li>\n<li>Pascal Voitot <a href=\"mailto:pascal.voitot.dev@gmail.com\">pascal.voitot.dev@gmail.com</a> <a href=\"https://twitter.com/mandubian\" rel=\"nofollow\">@mandubian</a></li>\n<li>Pavel Chlupacek <a href=\"mailto:pavel.chlupacek@spinoco.com\">pavel.chlupacek@spinoco.com</a> <a href=\"https://twitter.com/pacmanius\" rel=\"nofollow\">@pacmanius</a></li>\n<li>Peter Neyens <a href=\"mailto:peter.neyens@gmail.com\">peter.neyens@gmail.com</a> <a href=\"https://twitter.com/pneyens\" rel=\"nofollow\">@pneyens</a></li>\n<li>Peter Schmitz <a href=\"mailto:petrischmitz@gmail.com\">petrischmitz@gmail.com</a> <a href=\"https://twitter.com/peterschmitz_\" rel=\"nofollow\">@peterschmitz_</a></li>\n<li>Renato Cavalcanti <a href=\"mailto:renato@strongtyped.io\">renato@strongtyped.io</a> <a href=\"https://twitter.com/renatocaval\" rel=\"nofollow\">@renatocaval</a></li>\n<li>Rob Norris <a href=\"mailto:rob_norris@mac.com\">rob_norris@mac.com</a> <a href=\"https://twitter.com/tpolecat\" rel=\"nofollow\">@tpolecat</a></li>\n<li>Robert Hensing <a href=\"mailto:spam@roberthensing.nl\">spam@roberthensing.nl</a></li>\n<li>Ronan Michaux <a href=\"mailto:ronan_michaux@yahoo.com\">ronan_michaux@yahoo.com</a> <a href=\"https://twitter.com/ronan_michaux\" rel=\"nofollow\">@ronan_michaux</a></li>\n<li>Ryadh Khsib <a href=\"mailto:ryadh.khsib@gmail.com\">ryadh.khsib@gmail.com</a></li>\n<li>Ryo Hongo <a href=\"mailto:ryoppy0516@gmail.com\">ryoppy0516@gmail.com</a> <a href=\"https://twitter.com/ryoppy516\" rel=\"nofollow\">@ryoppy516</a></li>\n<li>Sam Halliday <a href=\"mailto:sam.halliday@gmail.com\">sam.halliday@gmail.com</a> <a href=\"https://twitter.com/fommil\" rel=\"nofollow\">@fommil</a></li>\n<li>Sarah Gerweck <a href=\"mailto:sarah.a180@gmail.com\">sarah.a180@gmail.com</a> <a href=\"https://twitter.com/SGerweck\" rel=\"nofollow\">@SGerweck</a></li>\n<li>Sébastien Doeraene <a href=\"mailto:sjrdoeraene@gmail.com\">sjrdoeraene@gmail.com</a> <a href=\"https://twitter.com/sjrdoeraene\" rel=\"nofollow\">@sjrdoeraene</a></li>\n<li>Simon Hafner <a href=\"mailto:hafnersimon@gmail.com\">hafnersimon@gmail.com</a> <a href=\"https://twitter.com/reactormonk\" rel=\"nofollow\">@reactormonk</a></li>\n<li>Stacy Curl <a href=\"mailto:stacy.curl@gmail.com\">stacy.curl@gmail.com</a> <a href=\"https://twitter.com/stacycurl\" rel=\"nofollow\">@stacycurl</a></li>\n<li>Stanislav Savulchik <a href=\"mailto:s.savulchik@gmail.com\">s.savulchik@gmail.com</a> <a href=\"https://twitter.com/savulchik\" rel=\"nofollow\">@savulchik</a></li>\n<li>Stephen Compall <a href=\"mailto:scompall@nocandysw.com\">scompall@nocandysw.com</a> <a href=\"https://twitter.com/S11001001\" rel=\"nofollow\">@S11001001</a></li>\n<li>Tin Pavlinic <a href=\"mailto:tin.pavlinic@gmail.com\">tin.pavlinic@gmail.com</a> <a href=\"https://twitter.com/triggerNZ\" rel=\"nofollow\">@triggerNZ</a></li>\n<li>Tom Switzer <a href=\"mailto:thomas.switzer@gmail.com\">thomas.switzer@gmail.com</a> <a href=\"https://twitter.com/tixxit\" rel=\"nofollow\">@tixxit</a></li>\n<li>Tomas Mikula <a href=\"mailto:tomas.mikula@gmail.com\">tomas.mikula@gmail.com</a> <a href=\"https://twitter.com/tomas_mikula\" rel=\"nofollow\">@tomas_mikula</a></li>\n<li>Travis Brown <a href=\"mailto:travisrobertbrown@gmail.com\">travisrobertbrown@gmail.com</a> <a href=\"https://twitter.com/travisbrown\" rel=\"nofollow\">@travisbrown</a></li>\n<li>Valentin Kasas <a href=\"mailto:valentin.kasas@gmail.com\">valentin.kasas@gmail.com</a> <a href=\"https://twitter.com/ValentinKasas\" rel=\"nofollow\">@ValentinKasas</a></li>\n<li>Valerian Barbot <a href=\"mailto:valerian.barbot@onzo.com\">valerian.barbot@onzo.com</a> <a href=\"https://twitter.com/etaty\" rel=\"nofollow\">@etaty</a></li>\n<li>Valy Diarrassouba <a href=\"mailto:v.diarrassouba@gmail.com\">v.diarrassouba@gmail.com</a></li>\n<li>Vladimir Matveev <a href=\"mailto:vladimir.matweev@gmail.com\">vladimir.matweev@gmail.com</a> <a href=\"https://twitter.com/netvlm\" rel=\"nofollow\">@netvlm</a></li>\n<li>Vladimir Pavkin <a href=\"mailto:vpavkin@gmail.com\">vpavkin@gmail.com</a> <a href=\"https://twitter.com/vlpavkin\" rel=\"nofollow\">@vlpavkin</a></li>\n<li>William Harvey <a href=\"mailto:harveywi@cse.ohio-state.edu\">harveywi@cse.ohio-state.edu</a></li>\n<li>Yang Bo (杨博) <a href=\"mailto:pop.atry@gmail.com\">pop.atry@gmail.com</a> <a href=\"https://twitter.com/Atry\" rel=\"nofollow\">@Atry</a></li>\n<li>Zainab Ali <a href=\"mailto:zainab.ali.london@gmail.com\">zainab.ali.london@gmail.com</a> <a href=\"https://twitter.com/_zainabali_\" rel=\"nofollow\">@<em>zainabali</em></a></li>\n</ul>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "milessabin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/131183?v=4",
+        "url" : "https://api.github.com/users/milessabin",
+        "contributions" : 1495
+      },
+      {
+        "login" : "joroKr21",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2218841?v=4",
+        "url" : "https://api.github.com/users/joroKr21",
+        "contributions" : 272
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 124
+      },
+      {
+        "login" : "alexarchambault",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7063723?v=4",
+        "url" : "https://api.github.com/users/alexarchambault",
+        "contributions" : 115
+      },
+      {
+        "login" : "stacycurl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/80608?v=4",
+        "url" : "https://api.github.com/users/stacycurl",
+        "contributions" : 37
+      },
+      {
+        "login" : "dwijnand",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/344610?v=4",
+        "url" : "https://api.github.com/users/dwijnand",
+        "contributions" : 27
+      },
+      {
+        "login" : "Atry",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/601530?v=4",
+        "url" : "https://api.github.com/users/Atry",
+        "contributions" : 26
+      },
+      {
+        "login" : "travisbrown",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/316049?v=4",
+        "url" : "https://api.github.com/users/travisbrown",
+        "contributions" : 21
+      },
+      {
+        "login" : "ceedubs",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/977929?v=4",
+        "url" : "https://api.github.com/users/ceedubs",
+        "contributions" : 20
+      },
+      {
+        "login" : "larsrh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/923079?v=4",
+        "url" : "https://api.github.com/users/larsrh",
+        "contributions" : 16
+      },
+      {
+        "login" : "xuwei-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/389787?v=4",
+        "url" : "https://api.github.com/users/xuwei-k",
+        "contributions" : 10
+      },
+      {
+        "login" : "guersam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/969120?v=4",
+        "url" : "https://api.github.com/users/guersam",
+        "contributions" : 9
+      },
+      {
+        "login" : "fommil",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1914041?v=4",
+        "url" : "https://api.github.com/users/fommil",
+        "contributions" : 9
+      },
+      {
+        "login" : "clhodapp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/108633?v=4",
+        "url" : "https://api.github.com/users/clhodapp",
+        "contributions" : 9
+      },
+      {
+        "login" : "fthomas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/141252?v=4",
+        "url" : "https://api.github.com/users/fthomas",
+        "contributions" : 8
+      },
+      {
+        "login" : "kevinwright",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/86698?v=4",
+        "url" : "https://api.github.com/users/kevinwright",
+        "contributions" : 8
+      },
+      {
+        "login" : "teldosas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10049633?v=4",
+        "url" : "https://api.github.com/users/teldosas",
+        "contributions" : 8
+      },
+      {
+        "login" : "DmytroMitin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12773417?v=4",
+        "url" : "https://api.github.com/users/DmytroMitin",
+        "contributions" : 8
+      },
+      {
+        "login" : "aloiscochard",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/215476?v=4",
+        "url" : "https://api.github.com/users/aloiscochard",
+        "contributions" : 8
+      },
+      {
+        "login" : "SystemFw",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7769582?v=4",
+        "url" : "https://api.github.com/users/SystemFw",
+        "contributions" : 7
+      },
+      {
+        "login" : "aryairani",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/538571?v=4",
+        "url" : "https://api.github.com/users/aryairani",
+        "contributions" : 6
+      },
+      {
+        "login" : "reactormonk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/49185?v=4",
+        "url" : "https://api.github.com/users/reactormonk",
+        "contributions" : 6
+      },
+      {
+        "login" : "pgrandjean",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2611255?v=4",
+        "url" : "https://api.github.com/users/pgrandjean",
+        "contributions" : 6
+      },
+      {
+        "login" : "triggerNZ",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/489039?v=4",
+        "url" : "https://api.github.com/users/triggerNZ",
+        "contributions" : 6
+      },
+      {
+        "login" : "jeremyrsmith",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/864869?v=4",
+        "url" : "https://api.github.com/users/jeremyrsmith",
+        "contributions" : 6
+      },
+      {
+        "login" : "retronym",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/65551?v=4",
+        "url" : "https://api.github.com/users/retronym",
+        "contributions" : 5
+      },
+      {
+        "login" : "mpilquist",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/118078?v=4",
+        "url" : "https://api.github.com/users/mpilquist",
+        "contributions" : 5
+      },
+      {
+        "login" : "mandubian",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/77193?v=4",
+        "url" : "https://api.github.com/users/mandubian",
+        "contributions" : 5
+      },
+      {
+        "login" : "som-snytt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/369425?v=4",
+        "url" : "https://api.github.com/users/som-snytt",
+        "contributions" : 5
+      },
+      {
+        "login" : "kazchimo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/31263328?v=4",
+        "url" : "https://api.github.com/users/kazchimo",
+        "contributions" : 5
+      },
+      {
+        "login" : "jedesah",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1780116?v=4",
+        "url" : "https://api.github.com/users/jedesah",
+        "contributions" : 5
+      },
+      {
+        "login" : "beezee",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/682587?v=4",
+        "url" : "https://api.github.com/users/beezee",
+        "contributions" : 5
+      },
+      {
+        "login" : "wheaties",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/515577?v=4",
+        "url" : "https://api.github.com/users/wheaties",
+        "contributions" : 5
+      },
+      {
+        "login" : "bmjames",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/21567?v=4",
+        "url" : "https://api.github.com/users/bmjames",
+        "contributions" : 4
+      },
+      {
+        "login" : "xoltar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1226204?v=4",
+        "url" : "https://api.github.com/users/xoltar",
+        "contributions" : 4
+      },
+      {
+        "login" : "durban",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1568978?v=4",
+        "url" : "https://api.github.com/users/durban",
+        "contributions" : 4
+      },
+      {
+        "login" : "fehu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/540707?v=4",
+        "url" : "https://api.github.com/users/fehu",
+        "contributions" : 4
+      },
+      {
+        "login" : "Jacoby6000",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2672832?v=4",
+        "url" : "https://api.github.com/users/Jacoby6000",
+        "contributions" : 4
+      },
+      {
+        "login" : "m50d",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1283489?v=4",
+        "url" : "https://api.github.com/users/m50d",
+        "contributions" : 4
+      },
+      {
+        "login" : "mgzuber",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5883671?v=4",
+        "url" : "https://api.github.com/users/mgzuber",
+        "contributions" : 4
+      },
+      {
+        "login" : "OlivierBlanvillain",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1085297?v=4",
+        "url" : "https://api.github.com/users/OlivierBlanvillain",
+        "contributions" : 4
+      },
+      {
+        "login" : "S11001001",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/219186?v=4",
+        "url" : "https://api.github.com/users/S11001001",
+        "contributions" : 4
+      },
+      {
+        "login" : "TomasMikula",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/433439?v=4",
+        "url" : "https://api.github.com/users/TomasMikula",
+        "contributions" : 4
+      },
+      {
+        "login" : "vil1",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/389356?v=4",
+        "url" : "https://api.github.com/users/vil1",
+        "contributions" : 4
+      },
+      {
+        "login" : "netvl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/280456?v=4",
+        "url" : "https://api.github.com/users/netvl",
+        "contributions" : 4
+      },
+      {
+        "login" : "vpavkin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/410508?v=4",
+        "url" : "https://api.github.com/users/vpavkin",
+        "contributions" : 4
+      },
+      {
+        "login" : "everson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/315656?v=4",
+        "url" : "https://api.github.com/users/everson",
+        "contributions" : 4
+      },
+      {
+        "login" : "lambdista",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4966276?v=4",
+        "url" : "https://api.github.com/users/lambdista",
+        "contributions" : 3
+      },
+      {
+        "login" : "alexknvl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/559086?v=4",
+        "url" : "https://api.github.com/users/alexknvl",
+        "contributions" : 3
+      },
+      {
+        "login" : "brianloveswords",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/166258?v=4",
+        "url" : "https://api.github.com/users/brianloveswords",
+        "contributions" : 3
+      },
+      {
+        "login" : "notxcain",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/669177?v=4",
+        "url" : "https://api.github.com/users/notxcain",
+        "contributions" : 3
+      },
+      {
+        "login" : "melrief",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1481478?v=4",
+        "url" : "https://api.github.com/users/melrief",
+        "contributions" : 3
+      },
+      {
+        "login" : "tpolecat",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1200131?v=4",
+        "url" : "https://api.github.com/users/tpolecat",
+        "contributions" : 3
+      },
+      {
+        "login" : "SethTisue",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
+        "url" : "https://api.github.com/users/SethTisue",
+        "contributions" : 3
+      },
+      {
+        "login" : "limansky",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/111185?v=4",
+        "url" : "https://api.github.com/users/limansky",
+        "contributions" : 3
+      },
+      {
+        "login" : "hamishdickson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5042218?v=4",
+        "url" : "https://api.github.com/users/hamishdickson",
+        "contributions" : 3
+      },
+      {
+        "login" : "Alistair-Johnson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/44881886?v=4",
+        "url" : "https://api.github.com/users/Alistair-Johnson",
+        "contributions" : 2
+      },
+      {
+        "login" : "AndreasKostler",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/553960?v=4",
+        "url" : "https://api.github.com/users/AndreasKostler",
+        "contributions" : 2
+      },
+      {
+        "login" : "antbell",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6804266?v=4",
+        "url" : "https://api.github.com/users/antbell",
+        "contributions" : 2
+      },
+      {
+        "login" : "hywelandrews",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3605177?v=4",
+        "url" : "https://api.github.com/users/hywelandrews",
+        "contributions" : 2
+      },
+      {
+        "login" : "pchlupacek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/678560?v=4",
+        "url" : "https://api.github.com/users/pchlupacek",
+        "contributions" : 2
+      },
+      {
+        "login" : "kwark",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/629786?v=4",
+        "url" : "https://api.github.com/users/kwark",
+        "contributions" : 2
+      },
+      {
+        "login" : "khsibr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1479225?v=4",
+        "url" : "https://api.github.com/users/khsibr",
+        "contributions" : 2
+      },
+      {
+        "login" : "sarahgerweck",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3421345?v=4",
+        "url" : "https://api.github.com/users/sarahgerweck",
+        "contributions" : 2
+      },
+      {
+        "login" : "sjrd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/535934?v=4",
+        "url" : "https://api.github.com/users/sjrd",
+        "contributions" : 2
+      },
+      {
+        "login" : "tixxit",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/120314?v=4",
+        "url" : "https://api.github.com/users/tixxit",
+        "contributions" : 2
+      },
+      {
+        "login" : "benhutchison",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/95460?v=4",
+        "url" : "https://api.github.com/users/benhutchison",
+        "contributions" : 2
+      },
+      {
+        "login" : "folone",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/366132?v=4",
+        "url" : "https://api.github.com/users/folone",
+        "contributions" : 2
+      },
+      {
+        "login" : "n4to4",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/21071230?v=4",
+        "url" : "https://api.github.com/users/n4to4",
+        "contributions" : 2
+      },
+      {
+        "login" : "peterneyens",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6407606?v=4",
+        "url" : "https://api.github.com/users/peterneyens",
+        "contributions" : 2
+      },
+      {
+        "login" : "valydia",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2129101?v=4",
+        "url" : "https://api.github.com/users/valydia",
+        "contributions" : 2
+      },
+      {
+        "login" : "akiomik",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1457682?v=4",
+        "url" : "https://api.github.com/users/akiomik",
+        "contributions" : 1
+      },
+      {
+        "login" : "AlecZorab",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/470247?v=4",
+        "url" : "https://api.github.com/users/AlecZorab",
+        "contributions" : 1
+      },
+      {
+        "login" : "ephemerist",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2707638?v=4",
+        "url" : "https://api.github.com/users/ephemerist",
+        "contributions" : 1
+      },
+      {
+        "login" : "refried",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/37216257?v=4",
+        "url" : "https://api.github.com/users/refried",
+        "contributions" : 1
+      },
+      {
+        "login" : "puffnfresh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/37715?v=4",
+        "url" : "https://api.github.com/users/puffnfresh",
+        "contributions" : 1
+      },
+      {
+        "login" : "camilosampedro",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8657866?v=4",
+        "url" : "https://api.github.com/users/camilosampedro",
+        "contributions" : 1
+      },
+      {
+        "login" : "flyrev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/21454?v=4",
+        "url" : "https://api.github.com/users/flyrev",
+        "contributions" : 1
+      },
+      {
+        "login" : "drexin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/433020?v=4",
+        "url" : "https://api.github.com/users/drexin",
+        "contributions" : 1
+      },
+      {
+        "login" : "virusdave",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6148271?v=4",
+        "url" : "https://api.github.com/users/virusdave",
+        "contributions" : 1
+      },
+      {
+        "login" : "densh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/320966?v=4",
+        "url" : "https://api.github.com/users/densh",
+        "contributions" : 1
+      },
+      {
+        "login" : "nigredo-tori",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5962285?v=4",
+        "url" : "https://api.github.com/users/nigredo-tori",
+        "contributions" : 1
+      },
+      {
+        "login" : "xeno-by",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/609152?v=4",
+        "url" : "https://api.github.com/users/xeno-by",
+        "contributions" : 1
+      },
+      {
+        "login" : "filinep",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/893421?v=4",
+        "url" : "https://api.github.com/users/filinep",
+        "contributions" : 1
+      },
+      {
+        "login" : "hrhino",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/28076058?v=4",
+        "url" : "https://api.github.com/users/hrhino",
+        "contributions" : 1
+      },
+      {
+        "login" : "howyp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4593903?v=4",
+        "url" : "https://api.github.com/users/howyp",
+        "contributions" : 1
+      },
+      {
+        "login" : "hgiddens",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/198783?v=4",
+        "url" : "https://api.github.com/users/hgiddens",
+        "contributions" : 1
+      },
+      {
+        "login" : "ijuma",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24747?v=4",
+        "url" : "https://api.github.com/users/ijuma",
+        "contributions" : 1
+      },
+      {
+        "login" : "jatcwang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4957161?v=4",
+        "url" : "https://api.github.com/users/jatcwang",
+        "contributions" : 1
+      },
+      {
+        "login" : "jbgi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/221929?v=4",
+        "url" : "https://api.github.com/users/jbgi",
+        "contributions" : 1
+      },
+      {
+        "login" : "jeffwilde",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6980603?v=4",
+        "url" : "https://api.github.com/users/jeffwilde",
+        "contributions" : 1
+      },
+      {
+        "login" : "jcouyang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1235045?v=4",
+        "url" : "https://api.github.com/users/jcouyang",
+        "contributions" : 1
+      },
+      {
+        "login" : "jrudolph",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9868?v=4",
+        "url" : "https://api.github.com/users/jrudolph",
+        "contributions" : 1
+      },
+      {
+        "login" : "joprice",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2175555?v=4",
+        "url" : "https://api.github.com/users/joprice",
+        "contributions" : 1
+      },
+      {
+        "login" : "juanjovazquez",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/240119?v=4",
+        "url" : "https://api.github.com/users/juanjovazquez",
+        "contributions" : 1
+      },
+      {
+        "login" : "JulesGosnell",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/161820?v=4",
+        "url" : "https://api.github.com/users/JulesGosnell",
+        "contributions" : 1
+      },
+      {
+        "login" : "kailuowang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/83257?v=4",
+        "url" : "https://api.github.com/users/kailuowang",
+        "contributions" : 1
+      },
+      {
+        "login" : "LiamGoodacre",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1189645?v=4",
+        "url" : "https://api.github.com/users/LiamGoodacre",
+        "contributions" : 1
+      },
+      {
+        "login" : "lukasz-golebiewski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6169602?v=4",
+        "url" : "https://api.github.com/users/lukasz-golebiewski",
+        "contributions" : 1
+      },
+      {
+        "login" : "MateuszKubuszok",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1900121?v=4",
+        "url" : "https://api.github.com/users/MateuszKubuszok",
+        "contributions" : 1
+      },
+      {
+        "login" : "sirthias",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/135347?v=4",
+        "url" : "https://api.github.com/users/sirthias",
+        "contributions" : 1
+      },
+      {
+        "login" : "tbfenet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/961749?v=4",
+        "url" : "https://api.github.com/users/tbfenet",
+        "contributions" : 1
+      },
+      {
+        "login" : "nevillelyh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/468514?v=4",
+        "url" : "https://api.github.com/users/nevillelyh",
+        "contributions" : 1
+      },
+      {
+        "login" : "OlegYch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/268312?v=4",
+        "url" : "https://api.github.com/users/OlegYch",
+        "contributions" : 1
+      },
+      {
+        "login" : "newca12",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/543542?v=4",
+        "url" : "https://api.github.com/users/newca12",
+        "contributions" : 1
+      },
+      {
+        "login" : "liff",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/124475?v=4",
+        "url" : "https://api.github.com/users/liff",
+        "contributions" : 1
+      },
+      {
+        "login" : "Blaisorblade",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/289960?v=4",
+        "url" : "https://api.github.com/users/Blaisorblade",
+        "contributions" : 1
+      },
+      {
+        "login" : "paualarco",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/33580722?v=4",
+        "url" : "https://api.github.com/users/paualarco",
+        "contributions" : 1
+      },
+      {
+        "login" : "petomat",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7974182?v=4",
+        "url" : "https://api.github.com/users/petomat",
+        "contributions" : 1
+      },
+      {
+        "login" : "mrkm4ntr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6421289?v=4",
+        "url" : "https://api.github.com/users/mrkm4ntr",
+        "contributions" : 1
+      },
+      {
+        "login" : "lsrcz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/21142743?v=4",
+        "url" : "https://api.github.com/users/lsrcz",
+        "contributions" : 1
+      },
+      {
+        "login" : "savulchik",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/187893?v=4",
+        "url" : "https://api.github.com/users/savulchik",
+        "contributions" : 1
+      },
+      {
+        "login" : "combinatorist",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10149067?v=4",
+        "url" : "https://api.github.com/users/combinatorist",
+        "contributions" : 1
+      },
+      {
+        "login" : "Eternity-Yarr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3705333?v=4",
+        "url" : "https://api.github.com/users/Eternity-Yarr",
+        "contributions" : 1
+      },
+      {
+        "login" : "etaty",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/461170?v=4",
+        "url" : "https://api.github.com/users/etaty",
+        "contributions" : 1
+      },
+      {
+        "login" : "3tty0n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8289812?v=4",
+        "url" : "https://api.github.com/users/3tty0n",
+        "contributions" : 1
+      },
+      {
+        "login" : "choedl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/649105?v=4",
+        "url" : "https://api.github.com/users/choedl",
+        "contributions" : 1
+      },
+      {
+        "login" : "jto",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/197582?v=4",
+        "url" : "https://api.github.com/users/jto",
+        "contributions" : 1
+      },
+      {
+        "login" : "ronanM",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/837382?v=4",
+        "url" : "https://api.github.com/users/ronanM",
+        "contributions" : 1
+      },
+      {
+        "login" : "teodimoff",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8102231?v=4",
+        "url" : "https://api.github.com/users/teodimoff",
+        "contributions" : 1
+      },
+      {
+        "login" : "zainab-ali",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12057118?v=4",
+        "url" : "https://api.github.com/users/zainab-ali",
+        "contributions" : 1
+      },
+      {
+        "login" : "jxnu-liguobin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/29496873?v=4",
+        "url" : "https://api.github.com/users/jxnu-liguobin",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 2471,
+    "topics" : [
+      "functional-programming",
+      "generic-programming",
+      "fp",
+      "scala",
+      "typelevel"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : "https://gitter.im/milessabin/shapeless",
+    "openIssues" : [
+      {
+        "number" : 1227,
+        "title" : "Shapeless 2.3.5+ can't provide implicit for Generic.Aux",
+        "url" : "https://github.com/milessabin/shapeless/issues/1227"
+      },
+      {
+        "number" : 1181,
+        "title" : "performance issue with combined `Length` and `ToSizedHList` implicit derivation",
+        "url" : "https://github.com/milessabin/shapeless/issues/1181"
+      },
+      {
+        "number" : 1099,
+        "title" : "`Default.AsRecord` causes `StackOverflow` in a path-dependent type's companion object",
+        "url" : "https://github.com/milessabin/shapeless/issues/1099"
+      },
+      {
+        "number" : 1083,
+        "title" : "Tagged types based on anything other than AnyVals produces exception in Spark",
+        "url" : "https://github.com/milessabin/shapeless/issues/1083"
+      },
+      {
+        "number" : 1079,
+        "title" : "Implicit is not returned from the cache but rather from current scope",
+        "url" : "https://github.com/milessabin/shapeless/issues/1079"
+      },
+      {
+        "number" : 1072,
+        "title" : "Witness singleton type automatically erased by compile-time type inference",
+        "url" : "https://github.com/milessabin/shapeless/issues/1072"
+      },
+      {
+        "number" : 1067,
+        "title" : "Witness path-dependent type `T` lose refinement",
+        "url" : "https://github.com/milessabin/shapeless/issues/1067"
+      },
+      {
+        "number" : 1066,
+        "title" : "implicit summoning of records.Keys for singleton subtype of HList fail sporadically",
+        "url" : "https://github.com/milessabin/shapeless/issues/1066"
+      },
+      {
+        "number" : 1059,
+        "title" : "Could not find Generic instance if object has explicit \"unapply\" method since Scala 2.13.4",
+        "url" : "https://github.com/milessabin/shapeless/issues/1059"
+      },
+      {
+        "number" : 1043,
+        "title" : "Shapeless 2 on Dotty",
+        "url" : "https://github.com/milessabin/shapeless/issues/1043"
+      },
+      {
+        "number" : 1021,
+        "title" : "Possible Binary Incompatibility in Scala 2.13",
+        "url" : "https://github.com/milessabin/shapeless/issues/1021"
+      },
+      {
+        "number" : 911,
+        "title" : "[Suggestion] Use org.shapeless3 package",
+        "url" : "https://github.com/milessabin/shapeless/issues/911"
+      },
+      {
+        "number" : 897,
+        "title" : "Case class like handling in Generic macro",
+        "url" : "https://github.com/milessabin/shapeless/issues/897"
+      },
+      {
+        "number" : 895,
+        "title" : "Witness instance not available for HLists",
+        "url" : "https://github.com/milessabin/shapeless/issues/895"
+      },
+      {
+        "number" : 892,
+        "title" : "Ensure macro outputs are deterministic",
+        "url" : "https://github.com/milessabin/shapeless/issues/892"
+      },
+      {
+        "number" : 875,
+        "title" : "add microsite?",
+        "url" : "https://github.com/milessabin/shapeless/issues/875"
+      },
+      {
+        "number" : 853,
+        "title" : "Feature Request: toLabelledProduct ",
+        "url" : "https://github.com/milessabin/shapeless/issues/853"
+      },
+      {
+        "number" : 837,
+        "title" : "Can't summon Generic instance for T within T's companion object: error super constructor cannot be passed a self reference",
+        "url" : "https://github.com/milessabin/shapeless/issues/837"
+      },
+      {
+        "number" : 828,
+        "title" : "Lazy does not instantiate type parameters",
+        "url" : "https://github.com/milessabin/shapeless/issues/828"
+      },
+      {
+        "number" : 826,
+        "title" : "Feature Request: TypedDynamic",
+        "url" : "https://github.com/milessabin/shapeless/issues/826"
+      },
+      {
+        "number" : 819,
+        "title" : "scalac GC error with LocalDateTime, Generic and Selector",
+        "url" : "https://github.com/milessabin/shapeless/issues/819"
+      },
+      {
+        "number" : 810,
+        "title" : "HMap.get does not support subtypes of keys",
+        "url" : "https://github.com/milessabin/shapeless/issues/810"
+      },
+      {
+        "number" : 790,
+        "title" : "Figure out what to do with multiple parameter lists (esp. implicits) in Generic",
+        "url" : "https://github.com/milessabin/shapeless/issues/790"
+      },
+      {
+        "number" : 766,
+        "title" : "Drop support for Generic anonymous classes",
+        "url" : "https://github.com/milessabin/shapeless/issues/766"
+      },
+      {
+        "number" : 753,
+        "title" : "Witness should provide the evidence of `value.type =:= T`",
+        "url" : "https://github.com/milessabin/shapeless/issues/753"
+      },
+      {
+        "number" : 720,
+        "title" : "LowPriority and cachedImplicit incompatibility",
+        "url" : "https://github.com/milessabin/shapeless/issues/720"
+      },
+      {
+        "number" : 719,
+        "title" : "`RecordArgs` and `ProductArgs` does not support apply method",
+        "url" : "https://github.com/milessabin/shapeless/issues/719"
+      },
+      {
+        "number" : 674,
+        "title" : "\"java.lang.AssertionError: ... mkAttributedQualifier(Unit, <none>)\" on `1.narrow`",
+        "url" : "https://github.com/milessabin/shapeless/issues/674"
+      },
+      {
+        "number" : 666,
+        "title" : "HMap.apply can not be used out of the box",
+        "url" : "https://github.com/milessabin/shapeless/issues/666"
+      },
+      {
+        "number" : 665,
+        "title" : "Unexpected optic generation where ambiguity is expected",
+        "url" : "https://github.com/milessabin/shapeless/issues/665"
+      },
+      {
+        "number" : 662,
+        "title" : "Make shapeless modular?",
+        "url" : "https://github.com/milessabin/shapeless/issues/662"
+      },
+      {
+        "number" : 585,
+        "title" : "Cannot derive generic for sealed trait family if base trait has a type member, even if bounded by another sealed trait",
+        "url" : "https://github.com/milessabin/shapeless/issues/585"
+      },
+      {
+        "number" : 557,
+        "title" : "tag[Tag](value) doesnt work with explicitly declared target type",
+        "url" : "https://github.com/milessabin/shapeless/issues/557"
+      },
+      {
+        "number" : 506,
+        "title" : "Use more internal API instead of recreating trees where possible",
+        "url" : "https://github.com/milessabin/shapeless/issues/506"
+      },
+      {
+        "number" : 438,
+        "title" : "Add variants of Fn{To,From}Product which are parametric in the result type",
+        "url" : "https://github.com/milessabin/shapeless/issues/438"
+      },
+      {
+        "number" : 423,
+        "title" : "enum value should be serializable and should also keep referential integrity ",
+        "url" : "https://github.com/milessabin/shapeless/issues/423"
+      },
+      {
+        "number" : 412,
+        "title" : "Add support for timestamped snapshot builds",
+        "url" : "https://github.com/milessabin/shapeless/issues/412"
+      },
+      {
+        "number" : 309,
+        "title" : "Interaction between shapeless FieldType, and Scalaz tagged types",
+        "url" : "https://github.com/milessabin/shapeless/issues/309"
+      },
+      {
+        "number" : 275,
+        "title" : "Boolean literal types based filtering",
+        "url" : "https://github.com/milessabin/shapeless/issues/275"
+      },
+      {
+        "number" : 219,
+        "title" : "Add documentation around TypeClass derivation",
+        "url" : "https://github.com/milessabin/shapeless/issues/219"
+      },
+      {
+        "number" : 186,
+        "title" : "Add scanLeft & scanRight to Coproduct",
+        "url" : "https://github.com/milessabin/shapeless/issues/186"
+      },
+      {
+        "number" : 145,
+        "title" : "Lazy pack factors out (co-)product recursion.",
+        "url" : "https://github.com/milessabin/shapeless/issues/145"
+      },
+      {
+        "number" : 144,
+        "title" : "Add higher-order HLists (ie. HLists of type constructors).",
+        "url" : "https://github.com/milessabin/shapeless/issues/144"
+      },
+      {
+        "number" : 143,
+        "title" : "Improve composability of Zipper operations.",
+        "url" : "https://github.com/milessabin/shapeless/issues/143"
+      },
+      {
+        "number" : 142,
+        "title" : "Convert a record of functions to a structurally typed value.",
+        "url" : "https://github.com/milessabin/shapeless/issues/142"
+      },
+      {
+        "number" : 141,
+        "title" : "Conversion from records to structurally typed values.",
+        "url" : "https://github.com/milessabin/shapeless/issues/141"
+      },
+      {
+        "number" : 135,
+        "title" : "Add Scaladoc for Zipper.",
+        "url" : "https://github.com/milessabin/shapeless/issues/135"
+      },
+      {
+        "number" : 134,
+        "title" : "Add partial extractors for HLists, Coproducts, tuples, records and unions.",
+        "url" : "https://github.com/milessabin/shapeless/issues/134"
+      },
+      {
+        "number" : 132,
+        "title" : "Extract out induction principles for HList, Coproduct, Nat etc. and rework ops in terms of them.",
+        "url" : "https://github.com/milessabin/shapeless/issues/132"
+      },
+      {
+        "number" : 128,
+        "title" : "Reorganize/generalize SybClass stuff.",
+        "url" : "https://github.com/milessabin/shapeless/issues/128"
+      },
+      {
+        "number" : 127,
+        "title" : "Eliminate intermediate HLists in Poly cases.",
+        "url" : "https://github.com/milessabin/shapeless/issues/127"
+      },
+      {
+        "number" : 125,
+        "title" : "Split out HKernel.",
+        "url" : "https://github.com/milessabin/shapeless/issues/125"
+      },
+      {
+        "number" : 124,
+        "title" : "Generalize Mapped/Comapped/NatTRel to arbitrary products.",
+        "url" : "https://github.com/milessabin/shapeless/issues/124"
+      },
+      {
+        "number" : 123,
+        "title" : "Add missing implicit annotations.",
+        "url" : "https://github.com/milessabin/shapeless/issues/123"
+      },
+      {
+        "number" : 122,
+        "title" : "HMap should support singleton keys smoothly.",
+        "url" : "https://github.com/milessabin/shapeless/issues/122"
+      },
+      {
+        "number" : 116,
+        "title" : "Reinstate something like FieldEntry to extract value type from FieldOf keys.",
+        "url" : "https://github.com/milessabin/shapeless/issues/116"
+      },
+      {
+        "number" : 111,
+        "title" : "Add (Labelled)Coproduct support to Zipper.",
+        "url" : "https://github.com/milessabin/shapeless/issues/111"
+      },
+      {
+        "number" : 44,
+        "title" : "Runtime exception if the value of record field is Any or AnyRef",
+        "url" : "https://github.com/milessabin/shapeless/issues/44"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : false,
+    "defaultArtifact" : "shapeless",
+    "strictVersions" : true,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+      {
+        "User Guide" : "https://github.com/underscoreio/shapeless-guide"
+      }
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "scala-language-extensions",
+    "beginnerIssuesLabel" : "Low hanging fruit"
+  }
+}

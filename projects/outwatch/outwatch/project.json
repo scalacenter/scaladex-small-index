@@ -1,0 +1,332 @@
+{
+  "organization" : "outwatch",
+  "repository" : "outwatch",
+  "creationDate" : null,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643169018316
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "http://outwatch.github.io",
+    "description" : "The Functional and Reactive Web-Frontend Library for ScalaJS",
+    "logo" : "https://avatars.githubusercontent.com/u/20708480?v=4",
+    "stars" : 389,
+    "forks" : 44,
+    "watchers" : 24,
+    "issues" : 44,
+    "creationDate" : 1478280376000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-outwatch\" class=\"anchor\" aria-hidden=\"true\" href=\"#outwatch\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Outwatch</h1>\n<p dir=\"auto\">The Functional and Reactive Web-Frontend Library for ScalaJS</p>\n<p dir=\"auto\"><a href=\"http://typelevel.org\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/bb818456435bc14954fd9e78e0c8a8520bec00aad6a5d8c993fabf401e3a61fc/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f747970656c6576656c2d696e63756261746f722d4635314332422e737667\" alt=\"Typelevel incubator\" data-canonical-src=\"https://img.shields.io/badge/typelevel-incubator-F51C2B.svg\" style=\"max-width: 100%;\"></a> <a href=\"http://scala-js.org\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/8270765e1f82275914f11b12694bf96d466737638f67bcb5b51d7284a94effc6/687474703a2f2f7777772e7363616c612d6a732e6f72672f6173736574732f6261646765732f7363616c616a732d312e302e302e737667\" alt=\"Scala.js\" data-canonical-src=\"http://www.scala-js.org/assets/badges/scalajs-1.0.0.svg\" style=\"max-width: 100%;\"></a> <a href=\"https://gitter.im/OutWatch/Lobby\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/3cbc4707a347f1e7e3fd554fdeeebde4b6cf9b228e7b6634bee70f9e24ced933/68747470733a2f2f6261646765732e6769747465722e696d2f67697474657248512f6769747465722e706e67\" alt=\"Gitter chat\" data-canonical-src=\"https://badges.gitter.im/gitterHQ/gitter.png\" style=\"max-width: 100%;\"></a></p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import outwatch._\nimport outwatch.dsl._\nimport colibri._\nimport cats.effect.IO\n\nobject Main {\n  def main(args: Array[String]): Unit = {\n    \n    val counter = Subject.behavior(0)\n    val myComponent = div(\n      button(&quot;+&quot;, onClick(counter.map(_ + 1)) --&gt; counter),\n      counter,\n    )\n\n    OutWatch.renderReplace[IO](&quot;#app&quot;, myComponent).unsafeRunSync()\n  }\n}\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">outwatch</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">outwatch</span>.<span class=\"pl-en\">dsl</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">colibri</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">cats</span>.<span class=\"pl-en\">effect</span>.<span class=\"pl-en\">IO</span>\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span> {\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">main</span>(<span class=\"pl-v\">args</span>: <span class=\"pl-en\">Array</span>[<span class=\"pl-en\">String</span>])<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> {\n    \n    <span class=\"pl-k\">val</span> <span class=\"pl-smi\">counter</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Subject</span>.behavior(<span class=\"pl-c1\">0</span>)\n    <span class=\"pl-k\">val</span> <span class=\"pl-smi\">myComponent</span> <span class=\"pl-k\">=</span> div(\n      button(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>+<span class=\"pl-pds\">\"</span></span>, onClick(counter.map(_ <span class=\"pl-k\">+</span> <span class=\"pl-c1\">1</span>)) <span class=\"pl-k\">--</span><span class=\"pl-k\">&gt;</span> counter),\n      counter,\n    )\n\n    <span class=\"pl-en\">OutWatch</span>.renderReplace[<span class=\"pl-en\">IO</span>](<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>#app<span class=\"pl-pds\">\"</span></span>, myComponent).unsafeRunSync()\n  }\n}</pre></div>\n<p dir=\"auto\">In Outwatch, you can describe your whole web application without doing any side effect - you only run your application when rendering it.</p>\n<ul dir=\"auto\">\n<li>Write UI-components using pure functions</li>\n<li>Manage state in a referentially transparent way using <a href=\"https://github.com/typelevel/cats-effect\">cats-effect</a></li>\n<li>Built-in lightweight <code>Observable</code> and <code>Subject</code> types from <a href=\"http://github.com/cornerman/colibri\">colibri</a></li>\n<li>Seamlessly works with existing reactive programming libraries: <a href=\"https://monix.io/\" rel=\"nofollow\">Monix</a>, <a href=\"https://github.com/lihaoyi/scala.rx\">scala.rx</a></li>\n<li>Low-boilerplate, many convenient helper functions</li>\n<li>Built on top of <a href=\"https://github.com/snabbdom/snabbdom\">snabbdom</a>, a virtual dom library</li>\n</ul>\n<p dir=\"auto\">You will find interactive examples and explanations in our <a href=\"https://outwatch.github.io/docs/readme.html\" rel=\"nofollow\">documentation</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a href=\"https://outwatch.github.io/docs/readme.html\" rel=\"nofollow\">Documentation</a></h2>\n<h2 dir=\"auto\"><a id=\"user-content-quickstart\" class=\"anchor\" aria-hidden=\"true\" href=\"#quickstart\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Quickstart</h2>\n<h3 dir=\"auto\"><a id=\"user-content-template\" class=\"anchor\" aria-hidden=\"true\" href=\"#template\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Template</h3>\n<p dir=\"auto\">The quickest way to play with outwatch is to use our template.</p>\n<p dir=\"auto\">Make sure that <code>java</code>, <code>sbt</code>, <code>nodejs</code> and <code>yarn</code> are installed.</p>\n<div class=\"highlight highlight-source-shell position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"sbt new outwatch/seed.g8\"><pre>sbt new outwatch/seed.g8</pre></div>\n<p dir=\"auto\">In your newly created project directory, run:</p>\n<div class=\"highlight highlight-source-shell position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"sbt dev\"><pre>sbt dev</pre></div>\n<p dir=\"auto\">and point your browser to <a href=\"http://localhost:8080\" rel=\"nofollow\">http://localhost:8080</a>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-manual-setup\" class=\"anchor\" aria-hidden=\"true\" href=\"#manual-setup\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Manual setup</h3>\n<p dir=\"auto\">Add the <code>scalajs</code> and <code>scalajs-bundler</code> plugins to your <code>project/plugins.sbt</code>:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"addSbtPlugin(&quot;org.scala-js&quot; % &quot;sbt-scalajs&quot; % &quot;1.x.x&quot;)\naddSbtPlugin(&quot;ch.epfl.scala&quot; % &quot;sbt-scalajs-bundler&quot; % &quot;x.x.x&quot;)\"><pre>addSbtPlugin(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.scala-js<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sbt-scalajs<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.x.x<span class=\"pl-pds\">\"</span></span>)\naddSbtPlugin(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>ch.epfl.scala<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sbt-scalajs-bundler<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>x.x.x<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<p dir=\"auto\">Add the outwatch dependencies to your <code>build.sbt</code>:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"enablePlugins(ScalaJSPlugin)\nenablePlugins(ScalaJSBundlerPlugin)\n\nresolvers += &quot;jitpack&quot; at &quot;https://jitpack.io&quot;\nval outwatchVersion = &quot;&lt;latest outwatch version&gt;&quot;\nlibraryDependencies ++= Seq(\n  &quot;io.github.outwatch&quot;           %%% &quot;outwatch&quot;       % outwatchVersion,\n  // optional dependencies:\n  &quot;io.github.outwatch&quot;           %%% &quot;outwatch-util&quot;  % outwatchVersion, // Store, Websocket, Http\n  &quot;com.github.cornerman&quot;         %%% &quot;colibri-monix&quot;  % &quot;0.1.2&quot;, // Monix\n  &quot;com.github.cornerman&quot;         %%% &quot;colibri-rx&quot;     % &quot;0.1.2&quot;, // Scala.rx\n  &quot;com.github.cornerman&quot;         %%% &quot;colibri-router&quot; % &quot;0.1.2&quot;, // Url Router\n)\n\"><pre>enablePlugins(<span class=\"pl-en\">ScalaJSPlugin</span>)\nenablePlugins(<span class=\"pl-en\">ScalaJSBundlerPlugin</span>)\n\nresolvers <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>jitpack<span class=\"pl-pds\">\"</span></span> at <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>https://jitpack.io<span class=\"pl-pds\">\"</span></span>\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">outwatchVersion</span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>&lt;latest outwatch version&gt;<span class=\"pl-pds\">\"</span></span>\nlibraryDependencies <span class=\"pl-k\">++</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Seq</span>(\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>io.github.outwatch<span class=\"pl-pds\">\"</span></span>           <span class=\"pl-k\">%%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>outwatch<span class=\"pl-pds\">\"</span></span>       <span class=\"pl-k\">%</span> outwatchVersion,\n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> optional dependencies:</span>\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>io.github.outwatch<span class=\"pl-pds\">\"</span></span>           <span class=\"pl-k\">%%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>outwatch-util<span class=\"pl-pds\">\"</span></span>  <span class=\"pl-k\">%</span> outwatchVersion, <span class=\"pl-c\"><span class=\"pl-c\">//</span> Store, Websocket, Http</span>\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.github.cornerman<span class=\"pl-pds\">\"</span></span>         <span class=\"pl-k\">%%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>colibri-monix<span class=\"pl-pds\">\"</span></span>  <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.1.2<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-c\"><span class=\"pl-c\">//</span> Monix</span>\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.github.cornerman<span class=\"pl-pds\">\"</span></span>         <span class=\"pl-k\">%%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>colibri-rx<span class=\"pl-pds\">\"</span></span>     <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.1.2<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-c\"><span class=\"pl-c\">//</span> Scala.rx</span>\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.github.cornerman<span class=\"pl-pds\">\"</span></span>         <span class=\"pl-k\">%%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>colibri-router<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.1.2<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-c\"><span class=\"pl-c\">//</span> Url Router</span>\n)\n</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-bugs-and-feedback\" class=\"anchor\" aria-hidden=\"true\" href=\"#bugs-and-feedback\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Bugs and Feedback</h2>\n<p dir=\"auto\">For bugs, questions and discussions please use <a href=\"https://github.com/OutWatch/outwatch/issues\">GitHub Issues</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-community\" class=\"anchor\" aria-hidden=\"true\" href=\"#community\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Community</h2>\n<p dir=\"auto\">We adopted the <a href=\"https://www.scala-lang.org/conduct/\" rel=\"nofollow\">Scala Code of Conduct</a>. People are expected to follow it when discussing Outwatch on the Github page, Gitter channel, or other venues.</p>\n<h2 dir=\"auto\"><a id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>LICENSE</h2>\n<p dir=\"auto\">Licensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at</p>\n<p dir=\"auto\"><a href=\"https://www.apache.org/licenses/LICENSE-2.0\" rel=\"nofollow\">https://www.apache.org/licenses/LICENSE-2.0</a></p>\n<p dir=\"auto\">Unless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "cornerman",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1043127?v=4",
+        "url" : "https://api.github.com/users/cornerman",
+        "contributions" : 224
+      },
+      {
+        "login" : "fdietze",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1186516?v=4",
+        "url" : "https://api.github.com/users/fdietze",
+        "contributions" : 101
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 98
+      },
+      {
+        "login" : "mariusmuja",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/695669?v=4",
+        "url" : "https://api.github.com/users/mariusmuja",
+        "contributions" : 34
+      },
+      {
+        "login" : "LukaJCB",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9531747?v=4",
+        "url" : "https://api.github.com/users/LukaJCB",
+        "contributions" : 27
+      },
+      {
+        "login" : "zakpatterson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1987109?v=4",
+        "url" : "https://api.github.com/users/zakpatterson",
+        "contributions" : 14
+      },
+      {
+        "login" : "PerWiklander",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/391989?v=4",
+        "url" : "https://api.github.com/users/PerWiklander",
+        "contributions" : 12
+      },
+      {
+        "login" : "busti",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3575167?v=4",
+        "url" : "https://api.github.com/users/busti",
+        "contributions" : 11
+      },
+      {
+        "login" : "armanbilge",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3119428?v=4",
+        "url" : "https://api.github.com/users/armanbilge",
+        "contributions" : 3
+      },
+      {
+        "login" : "KadekM",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4306279?v=4",
+        "url" : "https://api.github.com/users/KadekM",
+        "contributions" : 3
+      },
+      {
+        "login" : "thSoft",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/118109?v=4",
+        "url" : "https://api.github.com/users/thSoft",
+        "contributions" : 2
+      },
+      {
+        "login" : "rfuerst87",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/820622?v=4",
+        "url" : "https://api.github.com/users/rfuerst87",
+        "contributions" : 2
+      },
+      {
+        "login" : "adrijardi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/902711?v=4",
+        "url" : "https://api.github.com/users/adrijardi",
+        "contributions" : 1
+      },
+      {
+        "login" : "asakaev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3930435?v=4",
+        "url" : "https://api.github.com/users/asakaev",
+        "contributions" : 1
+      },
+      {
+        "login" : "ahjohannessen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/153607?v=4",
+        "url" : "https://api.github.com/users/ahjohannessen",
+        "contributions" : 1
+      },
+      {
+        "login" : "FloWi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/39078?v=4",
+        "url" : "https://api.github.com/users/FloWi",
+        "contributions" : 1
+      },
+      {
+        "login" : "guizmaii",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1193670?v=4",
+        "url" : "https://api.github.com/users/guizmaii",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 536,
+    "topics" : [
+      "functional-programming",
+      "scalajs",
+      "virtualdom",
+      "reactive",
+      "rx",
+      "sbt",
+      "scala",
+      "frp"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 562,
+        "title" : "Run benchmarks in headless browser",
+        "url" : "https://github.com/outwatch/outwatch/issues/562"
+      },
+      {
+        "number" : 526,
+        "title" : "Drop the optional attr builder methods in favor of overloading",
+        "url" : "https://github.com/outwatch/outwatch/issues/526"
+      },
+      {
+        "number" : 456,
+        "title" : "Move case classes inheriting Modifier into companion",
+        "url" : "https://github.com/outwatch/outwatch/issues/456"
+      },
+      {
+        "number" : 455,
+        "title" : "Use cats.effect.SyncEffect",
+        "url" : "https://github.com/outwatch/outwatch/issues/455"
+      },
+      {
+        "number" : 454,
+        "title" : "Move managed functions into Modifier companion",
+        "url" : "https://github.com/outwatch/outwatch/issues/454"
+      },
+      {
+        "number" : 453,
+        "title" : "Measure inlining of methods",
+        "url" : "https://github.com/outwatch/outwatch/issues/453"
+      },
+      {
+        "number" : 452,
+        "title" : "Style guide/rules",
+        "url" : "https://github.com/outwatch/outwatch/issues/452"
+      },
+      {
+        "number" : 451,
+        "title" : "Move AttributeBuilder to outwatch",
+        "url" : "https://github.com/outwatch/outwatch/issues/451"
+      },
+      {
+        "number" : 447,
+        "title" : "Update snabbdom fork and depend on our released npm version",
+        "url" : "https://github.com/outwatch/outwatch/issues/447"
+      },
+      {
+        "number" : 443,
+        "title" : "Add append and prepend methods to Modifier",
+        "url" : "https://github.com/outwatch/outwatch/issues/443"
+      },
+      {
+        "number" : 439,
+        "title" : "Add an environment to Modifier",
+        "url" : "https://github.com/outwatch/outwatch/issues/439"
+      },
+      {
+        "number" : 367,
+        "title" : "EmitterBuilder is not referentially transparent",
+        "url" : "https://github.com/outwatch/outwatch/issues/367"
+      },
+      {
+        "number" : 366,
+        "title" : "Caching of VNodeProxy parts",
+        "url" : "https://github.com/outwatch/outwatch/issues/366"
+      },
+      {
+        "number" : 354,
+        "title" : "Remove implicit to VDomModifier",
+        "url" : "https://github.com/outwatch/outwatch/issues/354"
+      },
+      {
+        "number" : 332,
+        "title" : "Allow mixing of different reducer patterns",
+        "url" : "https://github.com/outwatch/outwatch/issues/332"
+      },
+      {
+        "number" : 306,
+        "title" : "Generate Tests with ScalaCheck",
+        "url" : "https://github.com/outwatch/outwatch/issues/306"
+      },
+      {
+        "number" : 305,
+        "title" : "Improve debugging interface",
+        "url" : "https://github.com/outwatch/outwatch/issues/305"
+      },
+      {
+        "number" : 291,
+        "title" : "Observable VDomModifier fails inspection in IntelliJ",
+        "url" : "https://github.com/outwatch/outwatch/issues/291"
+      },
+      {
+        "number" : 289,
+        "title" : "Immediate action effects in store are applied and emitted before the action that caused them",
+        "url" : "https://github.com/outwatch/outwatch/issues/289"
+      },
+      {
+        "number" : 283,
+        "title" : "Create TodoMVC Example",
+        "url" : "https://github.com/outwatch/outwatch/issues/283"
+      },
+      {
+        "number" : 274,
+        "title" : "List outwatch on the sidebar of https://www.reddit.com/r/scala",
+        "url" : "https://github.com/outwatch/outwatch/issues/274"
+      },
+      {
+        "number" : 271,
+        "title" : "Unmanaged VNodes (external dom-manipulation)",
+        "url" : "https://github.com/outwatch/outwatch/issues/271"
+      },
+      {
+        "number" : 268,
+        "title" : "Renaming: Outwatch vs. OutWatch",
+        "url" : "https://github.com/outwatch/outwatch/issues/268"
+      },
+      {
+        "number" : 266,
+        "title" : "Cleanup OutWatchDomSpec",
+        "url" : "https://github.com/outwatch/outwatch/issues/266"
+      },
+      {
+        "number" : 261,
+        "title" : "macro for moving VNode construction overhead to compile-time",
+        "url" : "https://github.com/outwatch/outwatch/issues/261"
+      },
+      {
+        "number" : 260,
+        "title" : "Type VNode and VDomModifier",
+        "url" : "https://github.com/outwatch/outwatch/issues/260"
+      },
+      {
+        "number" : 255,
+        "title" : "Add latest version of Outwatch to ScalaFiddle",
+        "url" : "https://github.com/outwatch/outwatch/issues/255"
+      },
+      {
+        "number" : 253,
+        "title" : "Rename developer-facing Types",
+        "url" : "https://github.com/outwatch/outwatch/issues/253"
+      },
+      {
+        "number" : 228,
+        "title" : "support different backend than snabbdom",
+        "url" : "https://github.com/outwatch/outwatch/issues/228"
+      },
+      {
+        "number" : 221,
+        "title" : "Apply method for F[VNode] just like on VNode",
+        "url" : "https://github.com/outwatch/outwatch/issues/221"
+      },
+      {
+        "number" : 212,
+        "title" : "Style should be Accumulating by default",
+        "url" : "https://github.com/outwatch/outwatch/issues/212"
+      },
+      {
+        "number" : 183,
+        "title" : "Add examples or high-level documentation for Monix/cats-based implementation.",
+        "url" : "https://github.com/outwatch/outwatch/issues/183"
+      },
+      {
+        "number" : 93,
+        "title" : "TargetOps assume incorrect type for target and currentTarget",
+        "url" : "https://github.com/outwatch/outwatch/issues/93"
+      },
+      {
+        "number" : 80,
+        "title" : "Simplify usage of select with dynamically selected items",
+        "url" : "https://github.com/outwatch/outwatch/issues/80"
+      },
+      {
+        "number" : 78,
+        "title" : "Provide validation stream",
+        "url" : "https://github.com/outwatch/outwatch/issues/78"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : "outwatch",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "web-frontend",
+    "beginnerIssuesLabel" : null
+  }
+}

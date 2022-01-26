@@ -1,0 +1,554 @@
+{
+  "organization" : "pathikrit",
+  "repository" : "better-files",
+  "creationDate" : 1442548513307,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643170146050
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "http://git.io/better-files-scaladoc",
+    "description" : "Simple, safe and intuitive Scala I/O",
+    "logo" : "https://avatars.githubusercontent.com/u/899219?v=4",
+    "stars" : 1425,
+    "forks" : 146,
+    "watchers" : 39,
+    "issues" : 52,
+    "creationDate" : 1442029711000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-better-files-----\" class=\"anchor\" aria-hidden=\"true\" href=\"#better-files-----\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>better-files <a href=\"LICENSE\"><img src=\"https://camo.githubusercontent.com/474a3d5be2b1651f69668dbc91d380b6fe6c235d7df07a373e6c28186d434b90/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f70617468696b7269742f6265747465722d66696c65732e737667\" alt=\"License\" data-canonical-src=\"https://img.shields.io/github/license/pathikrit/better-files.svg\" style=\"max-width: 100%;\"></a> <a href=\"http://search.maven.org/#search%7Cga%7C1%7Cbetter-files\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/9b6ba030b792c6e19a008c7b5482810da8fed43ce57d0a7bb4b74aefc9fc67b1/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e6769746875622e70617468696b7269742f6265747465722d66696c65735f322e31322e737667\" alt=\"Maven\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.github.pathikrit/better-files_2.12.svg\" style=\"max-width: 100%;\"></a>  <a href=\"http://pathikrit.github.io/better-files/latest/api/better/files/File.html\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/5b0be5fcc632a53c13224013417be5f3c1b5e5c8cead477ee28320afbf76c575/68747470733a2f2f7777772e6a617661646f632e696f2f62616467652f636f6d2e6769746875622e70617468696b7269742f6265747465722d66696c65735f322e31322e7376673f636f6c6f723d626c7565266c6162656c3d7363616c61646f6373\" alt=\"Scaladoc\" data-canonical-src=\"https://www.javadoc.io/badge/com.github.pathikrit/better-files_2.12.svg?color=blue&amp;label=scaladocs\" style=\"max-width: 100%;\"></a> <a href=\"https://gitter.im/pathikrit/better-files\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/57d9674113a18b86342da2ff007f196151762298acf087ea3fb597ff9458a045/68747470733a2f2f696d672e736869656c64732e696f2f6769747465722f726f6f6d2f70617468696b7269742f6265747465722d66696c65732e737667\" alt=\"Gitter\" data-canonical-src=\"https://img.shields.io/gitter/room/pathikrit/better-files.svg\" style=\"max-width: 100%;\"></a></h1>\n<p dir=\"auto\"><code>better-files</code> is a <a href=\"project/Dependencies.scala\">dependency-free</a> <em>pragmatic</em> <a href=\"core/src/main/scala/better/files/File.scala\">thin Scala wrapper</a> around <a href=\"https://docs.oracle.com/javase/tutorial/essential/io/fileio.html\" rel=\"nofollow\">Java NIO</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-motivation\" class=\"anchor\" aria-hidden=\"true\" href=\"#motivation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Motivation</h2>\n<p dir=\"auto\">Imagine you have to write the following method:</p>\n<ol dir=\"auto\">\n<li>List all <code>.csv</code> files in a directory by increasing order of file size</li>\n<li>Drop the first line of each file and concat the rest into a single output file</li>\n<li>Split the above output file into <code>n</code> smaller files without breaking up the lines in the input files</li>\n<li><code>gzip</code> each of the smaller output files</li>\n</ol>\n<p dir=\"auto\">Note: Your program should work when files are much bigger than memory in your JVM and must close all open resources correctly</p>\n<p dir=\"auto\">The above task is not that easy to write in Java or shell or Python without a certain amount of Googling.\nUsing better-files, the above problem can be solved in a fairly straightforward way:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import better.files._\n\ndef run(inputDir: File, outputDir: File, n: Int) = {\n  val count = new AtomicInteger()\n  val outputs = Vector.tabulate(n)(i =&gt; outputDir / s&quot;part-$i.csv.gz&quot;)\n  for {\n    writers &lt;- outputs.map(_.newGzipOutputStream().printWriter()).autoClosed\n    inputFile &lt;- inputDir.list(_.extension == Some(&quot;.csv&quot;)).toSeq.sorted(File.Order.bySize)\n    line &lt;- inputFile.lineIterator.drop(1)\n  } writers(count.incrementAndGet() % n).println(line)\n}\"><pre lang=\"scala\"><code>import better.files._\n\ndef run(inputDir: File, outputDir: File, n: Int) = {\n  val count = new AtomicInteger()\n  val outputs = Vector.tabulate(n)(i =&gt; outputDir / s\"part-$i.csv.gz\")\n  for {\n    writers &lt;- outputs.map(_.newGzipOutputStream().printWriter()).autoClosed\n    inputFile &lt;- inputDir.list(_.extension == Some(\".csv\")).toSeq.sorted(File.Order.bySize)\n    line &lt;- inputFile.lineIterator.drop(1)\n  } writers(count.incrementAndGet() % n).println(line)\n}\n</code></pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-talks\" class=\"anchor\" aria-hidden=\"true\" href=\"#talks\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Talks</h2>\n<ul dir=\"auto\">\n<li><a href=\"http://event.scaladays.org/scaladays-nyc-2016/#!#schedulePopupExtras-7664\" rel=\"nofollow\">ScalaDays NYC 2016</a> (<a href=\"https://slides.com/pathikrit/better-files/\" rel=\"nofollow\">slides</a>)</li>\n</ul>\n  <a href=\"http://www.youtube.com/watch?feature=player_embedded&amp;v=uaYKkpqs6CE\" rel=\"nofollow\">\n    <img src=\"site/tech_talk_preview.png\" alt=\"ScalaDays NYC 2016: Introduction to better-files\" width=\"480\" height=\"360\" border=\"10\" style=\"max-width: 100%;\">\n  </a>\n<ul dir=\"auto\">\n<li><a href=\"http://event.scaladays.org/scaladays-berlin-2016#!#schedulePopupExtras-7668\" rel=\"nofollow\">ScalaDays Berlin 2016</a> (<a href=\"https://www.youtube.com/watch?v=m2YsD5cgnzI\" rel=\"nofollow\">video</a>, <a href=\"https://slides.com/pathikrit/better-files/\" rel=\"nofollow\">slides</a>)</li>\n<li><a href=\"http://sched.co/7iUn\" rel=\"nofollow\">Scalæ by the Bay 2016</a> (<a href=\"https://www.youtube.com/watch?v=bLiCE6NGjrk&amp;t=251s\" rel=\"nofollow\">video</a>, <a href=\"https://slides.com/pathikrit/better-files/\" rel=\"nofollow\">slides</a>)</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-tutorial\" class=\"anchor\" aria-hidden=\"true\" href=\"#tutorial\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Tutorial</h2>\n<ol start=\"0\" dir=\"auto\">\n<li><a href=\"#instantiation\">Instantiation</a></li>\n<li><a href=\"#file-readwrite\">Simple I/O</a></li>\n<li><a href=\"#resource-apis\">Resource APIs</a></li>\n<li><a href=\"#streams\">Streams</a></li>\n<li><a href=\"#encodings\">Encodings</a></li>\n<li><a href=\"#java-serialization-utils\">Java serialization utils</a></li>\n<li><a href=\"#java-interoperability\">Java compatibility</a></li>\n<li><a href=\"#globbing\">Globbing</a></li>\n<li><a href=\"#file-system-operations\">File system operations</a></li>\n<li><a href=\"#checksums\">Checksums</a></li>\n<li><a href=\"#temporary-files\">Temporary files</a></li>\n<li><a href=\"#unix-dsl\">UNIX DSL</a></li>\n<li><a href=\"#file-attributes\">File attributes</a></li>\n<li><a href=\"#file-comparison\">File comparison</a></li>\n<li><a href=\"#zip-apis\">Zip/GZip</a></li>\n<li><a href=\"#lightweight-arm\">Automatic Resource Management</a></li>\n<li><a href=\"#scanner\">Scanner</a></li>\n<li><a href=\"#file-monitoring\">File Monitoring</a></li>\n<li><a href=\"#akka-file-watcher\">Reactive File Watcher</a></li>\n</ol>\n<h2 dir=\"auto\"><a id=\"user-content-sbt-\" class=\"anchor\" aria-hidden=\"true\" href=\"#sbt-\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>sbt <a href=\"https://scala-steward.org\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/b502a523d82ca822a14f7f8fa7f685f17e455638dd00834c793e768847058b29/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5363616c615f537465776172642d68656c70696e672d627269676874677265656e2e7376673f7374796c653d666c6174266c6f676f3d646174613a696d6167652f706e673b6261736536342c6956424f5277304b47676f414141414e5355684555674141414134414141415143414d414141415253723449414141415646424d56455541414143486a6f6a6c4f79354e576c724b7a6359524b6a47466a496270323933597963754c6133705959324c5371716c346633704355465467536a4e6f6459526d6358557350442f4e5454626a52532b326a6f6d68676e7a4e633232336347765a53304861534430584c6a6261536a456c6849722b4141414141585253546c4d41514f62595a67414141486c4a52454655434e644e796f734f77794149685748415153315674376137372f3366637878646d763078776d636b75744152316e6b6d34676762794563672f77576d6c474c444141336f4c3530786936666b3566665a334532453351665a444363434e3259746245575a742b447263367536726c717637556b304c644b71717235726b32554352584f6b30766d514b47666339346e4f4a79516a6f754639482f774363396745434559664f4e6f41414141415355564f524b35435949493d\" alt=\"Scala Steward badge\" data-canonical-src=\"https://img.shields.io/badge/Scala_Steward-helping-brightgreen.svg?style=flat&amp;logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAQCAMAAAARSr4IAAAAVFBMVEUAAACHjojlOy5NWlrKzcYRKjGFjIbp293YycuLa3pYY2LSqql4f3pCUFTgSjNodYRmcXUsPD/NTTbjRS+2jomhgnzNc223cGvZS0HaSD0XLjbaSjElhIr+AAAAAXRSTlMAQObYZgAAAHlJREFUCNdNyosOwyAIhWHAQS1Vt7a77/3fcxxdmv0xwmckutAR1nkm4ggbyEcg/wWmlGLDAA3oL50xi6fk5ffZ3E2E3QfZDCcCN2YtbEWZt+Drc6u6rlqv7Uk0LdKqqr5rk2UCRXOk0vmQKGfc94nOJyQjouF9H/wCc9gECEYfONoAAAAASUVORK5CYII=\" style=\"max-width: 100%;\"></a></h2>\n<p dir=\"auto\">In your <code>build.sbt</code>, add this:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;com.github.pathikrit&quot; %% &quot;better-files&quot; % version\"><pre lang=\"scala\"><code>libraryDependencies += \"com.github.pathikrit\" %% \"better-files\" % version\n</code></pre></div>\n<p dir=\"auto\">To use the <a href=\"akka\">Akka based file monitor</a>, also add this:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies ++= Seq(\n  &quot;com.github.pathikrit&quot;  %% &quot;better-files-akka&quot;  % version,\n  &quot;com.typesafe.akka&quot;     %% &quot;akka-actor&quot;         % &quot;2.6.13&quot;\n)\"><pre lang=\"scala\"><code>libraryDependencies ++= Seq(\n  \"com.github.pathikrit\"  %% \"better-files-akka\"  % version,\n  \"com.typesafe.akka\"     %% \"akka-actor\"         % \"2.6.13\"\n)\n</code></pre></div>\n<p dir=\"auto\">Latest <code>version</code>: <a href=\"https://index.scala-lang.org/pathikrit/better-files\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/26762719e6baa3c13fd00b2cceb72870aa238755137028025005b7b7e6ad58b4/68747470733a2f2f696e6465782e7363616c612d6c616e672e6f72672f70617468696b7269742f6265747465722d66696c65732f6265747465722d66696c65732f6c61746573742e737667\" alt=\"Scaladex\" data-canonical-src=\"https://index.scala-lang.org/pathikrit/better-files/better-files/latest.svg\" style=\"max-width: 100%;\"></a></p>\n<ul dir=\"auto\">\n<li><a href=\"https://repo1.maven.org/maven2/com/github/pathikrit/\" rel=\"nofollow\">Maven</a></li>\n<li><a href=\"https://oss.sonatype.org/#nexus-search;quick~better-files\" rel=\"nofollow\">Sonatype</a></li>\n<li><a href=\"https://oss.sonatype.org/content/repositories/snapshots/com/github/pathikrit/\" rel=\"nofollow\">Snapshots</a></li>\n</ul>\n<p dir=\"auto\">Although this library is currently only actively developed for Scala 2.11, 2.12 and 2.13,\nyou can find reasonably recent versions of this library for Scala 2.10 above.</p>\n<h2 dir=\"auto\"><a id=\"user-content-tests-----\" class=\"anchor\" aria-hidden=\"true\" href=\"#tests-----\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Tests <a href=\"https://travis-ci.com/pathikrit/better-files\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/760c2aa13abfa937591682804aef4abe6e6cd66f77200f48502f33cd0b0be060/68747470733a2f2f696d672e736869656c64732e696f2f7472617669732f636f6d2f70617468696b7269742f6265747465722d66696c65732f6d61737465722e737667\" alt=\"TravisCI\" data-canonical-src=\"https://img.shields.io/travis/com/pathikrit/better-files/master.svg\" style=\"max-width: 100%;\"></a>  <a href=\"http://codecov.io/github/pathikrit/better-files?branch=master\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/f10b710e8a3ae3cac7bcb6c15ded66a5be766a8100a9a07dd9b7582c0f195d47/68747470733a2f2f696d672e736869656c64732e696f2f636f6465636f762f632f6769746875622f70617468696b7269742f6265747465722d66696c65732f6d61737465722e737667\" alt=\"codecov\" data-canonical-src=\"https://img.shields.io/codecov/c/github/pathikrit/better-files/master.svg\" style=\"max-width: 100%;\"></a> <a href=\"https://www.codacy.com/app/pathikrit/better-files/dashboard\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/2f506a1cf012823c79b4174843a92a7beaca832378652c8258d80402423cf2ef/68747470733a2f2f6170692e636f646163792e636f6d2f70726f6a6563742f62616467652f67726164652f3065326165623739343962633439653638303261666363343361376131616131\" alt=\"Codacy\" data-canonical-src=\"https://api.codacy.com/project/badge/grade/0e2aeb7949bc49e6802afcc43a7a1aa1\" style=\"max-width: 100%;\"></a> <a href=\"https://snyk.io/test/github/pathikrit/better-files?targetFile=build.sbt\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/f0b53b8d1d914bb056105a86b2bc10921c003af9221444d1be7f6c2e726a302d/68747470733a2f2f736e796b2e696f2f746573742f6769746875622f70617468696b7269742f6265747465722d66696c65732f62616467652e7376673f74617267657446696c653d6275696c642e736274\" alt=\"Known Vulnerabilities\" data-canonical-src=\"https://snyk.io/test/github/pathikrit/better-files/badge.svg?targetFile=build.sbt\" style=\"max-width: 100%;\"></a></h2>\n<ul dir=\"auto\">\n<li><a href=\"core/src/test/scala/better/files/FileSpec.scala\">FileSpec</a></li>\n<li><a href=\"akka/src/test/scala/better/files/FileWatcherSpec.scala\">FileWatcherSpec</a></li>\n<li><a href=\"#benchmarks\">Benchmarks</a></li>\n</ul>\n\n\n<hr>\n<h3 dir=\"auto\"><a id=\"user-content-instantiation\" class=\"anchor\" aria-hidden=\"true\" href=\"#instantiation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Instantiation</h3>\n<p dir=\"auto\">The following are all equivalent:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import better.files._\nimport File._\nimport java.io.{File =&gt; JFile}\n\nval f = File(&quot;/User/johndoe/Documents&quot;)                      // using constructor\nval f1: File = file&quot;/User/johndoe/Documents&quot;                 // using string interpolator\nval f2: File = &quot;/User/johndoe/Documents&quot;.toFile              // convert a string path to a file\nval f3: File = new JFile(&quot;/User/johndoe/Documents&quot;).toScala  // convert a Java file to Scala\nval f4: File = root/&quot;User&quot;/&quot;johndoe&quot;/&quot;Documents&quot;             // using root helper to start from root\nval f5: File = `~` / &quot;Documents&quot;                             // also equivalent to `home / &quot;Documents&quot;`\nval f6: File = &quot;/User&quot;/&quot;johndoe&quot;/&quot;Documents&quot;                 // using file separator DSL\nval f7: File = &quot;/User&quot;/'johndoe/'Documents                   // same as above but using Symbols instead of Strings\nval f8: File = home/&quot;Documents&quot;/&quot;presentations&quot;/`..`         // use `..` to navigate up to parent\"><pre lang=\"scala\"><code>import better.files._\nimport File._\nimport java.io.{File =&gt; JFile}\n\nval f = File(\"/User/johndoe/Documents\")                      // using constructor\nval f1: File = file\"/User/johndoe/Documents\"                 // using string interpolator\nval f2: File = \"/User/johndoe/Documents\".toFile              // convert a string path to a file\nval f3: File = new JFile(\"/User/johndoe/Documents\").toScala  // convert a Java file to Scala\nval f4: File = root/\"User\"/\"johndoe\"/\"Documents\"             // using root helper to start from root\nval f5: File = `~` / \"Documents\"                             // also equivalent to `home / \"Documents\"`\nval f6: File = \"/User\"/\"johndoe\"/\"Documents\"                 // using file separator DSL\nval f7: File = \"/User\"/'johndoe/'Documents                   // same as above but using Symbols instead of Strings\nval f8: File = home/\"Documents\"/\"presentations\"/`..`         // use `..` to navigate up to parent\n</code></pre></div>\n<p dir=\"auto\"><strong>Note</strong>: Rename the import if you think the usage of the class <code>File</code> may confuse your teammates:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import better.files.{File =&gt; ScalaFile, _}\nimport java.io.File\"><pre lang=\"scala\"><code>import better.files.{File =&gt; ScalaFile, _}\nimport java.io.File\n</code></pre></div>\n<p dir=\"auto\">I personally prefer renaming the Java crap instead:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import better.files._\nimport java.io.{File =&gt; JFile}\"><pre lang=\"scala\"><code>import better.files._\nimport java.io.{File =&gt; JFile}\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-file-readwrite\" class=\"anchor\" aria-hidden=\"true\" href=\"#file-readwrite\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>File Read/Write</h3>\n<p dir=\"auto\">Dead simple I/O:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val file = root/&quot;tmp&quot;/&quot;test.txt&quot;\nfile.overwrite(&quot;hello&quot;)\nfile.appendLine().append(&quot;world&quot;)\nassert(file.contentAsString == &quot;hello\\nworld&quot;)\"><pre lang=\"scala\"><code>val file = root/\"tmp\"/\"test.txt\"\nfile.overwrite(\"hello\")\nfile.appendLine().append(\"world\")\nassert(file.contentAsString == \"hello\\nworld\")\n</code></pre></div>\n<p dir=\"auto\">If you are someone who likes symbols, then the above code can also be written as:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import better.files.Dsl.SymbolicOperations\n\nfile &lt; &quot;hello&quot;     // same as file.overwrite(&quot;hello&quot;)\nfile &lt;&lt; &quot;world&quot;    // same as file.appendLines(&quot;world&quot;)\nassert(file! == &quot;hello\\nworld&quot;)\"><pre lang=\"scala\"><code>import better.files.Dsl.SymbolicOperations\n\nfile &lt; \"hello\"     // same as file.overwrite(\"hello\")\nfile &lt;&lt; \"world\"    // same as file.appendLines(\"world\")\nassert(file! == \"hello\\nworld\")\n</code></pre></div>\n<p dir=\"auto\">Or even, right-associatively:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import better.files.Dsl.SymbolicOperations\n\n&quot;hello&quot; `&gt;:` file\n&quot;world&quot; &gt;&gt;: file\nval bytes: Array[Byte] = file.loadBytes\"><pre lang=\"scala\"><code>import better.files.Dsl.SymbolicOperations\n\n\"hello\" `&gt;:` file\n\"world\" &gt;&gt;: file\nval bytes: Array[Byte] = file.loadBytes\n</code></pre></div>\n<p dir=\"auto\"><a href=\"https://en.wikipedia.org/wiki/Fluent_interface\" rel=\"nofollow\">Fluent Interface</a>:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\" (root/&quot;tmp&quot;/&quot;diary.txt&quot;)\n  .createIfNotExists()\n  .appendLine()\n  .appendLines(&quot;My name is&quot;, &quot;Inigo Montoya&quot;)\n  .moveToDirectory(home/&quot;Documents&quot;)\n  .renameTo(&quot;princess_diary.txt&quot;)\n  .changeExtensionTo(&quot;.md&quot;)\n  .lines\"><pre lang=\"scala\"><code> (root/\"tmp\"/\"diary.txt\")\n  .createIfNotExists()\n  .appendLine()\n  .appendLines(\"My name is\", \"Inigo Montoya\")\n  .moveToDirectory(home/\"Documents\")\n  .renameTo(\"princess_diary.txt\")\n  .changeExtensionTo(\".md\")\n  .lines\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-resource-apis\" class=\"anchor\" aria-hidden=\"true\" href=\"#resource-apis\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Resource APIs</h3>\n<p dir=\"auto\">Confused by the <a href=\"https://stackoverflow.com/questions/3861989/preferred-way-of-loading-resources-in-java\" rel=\"nofollow\">various ways to load resources in Java</a>?\nWorry no more:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val resource        : InputStream   = Resource.getAsStream(&quot;foo.txt&quot;) //Same as this.getClass().getResource(&quot;foo.txt&quot;)\nval resourceURL     : java.net.URL  = Resource.getUrl(&quot;foo.txt&quot;)\nval rootResourceURL : java.net.URL  = Resource.getUrl()\nval resourceAsStr   : String        = Resource.getAsString(&quot;foo.txt&quot;)\"><pre lang=\"scala\"><code>val resource        : InputStream   = Resource.getAsStream(\"foo.txt\") //Same as this.getClass().getResource(\"foo.txt\")\nval resourceURL     : java.net.URL  = Resource.getUrl(\"foo.txt\")\nval rootResourceURL : java.net.URL  = Resource.getUrl()\nval resourceAsStr   : String        = Resource.getAsString(\"foo.txt\")\n</code></pre></div>\n<p dir=\"auto\">The above APIs can load from custom <code>ClassLoader</code>s too:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val resource        : InputStream   = Resource.at[MyClass].getAsStream(&quot;foo.txt&quot;)\"><pre lang=\"scala\"><code>val resource        : InputStream   = Resource.at[MyClass].getAsStream(\"foo.txt\")\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-streams\" class=\"anchor\" aria-hidden=\"true\" href=\"#streams\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Streams</h3>\n<p dir=\"auto\">Various ways to slurp a file without loading its contents into memory:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val bytes  : Iterator[Byte]            = file.bytes\nval chars  : Iterator[Char]            = file.chars\nval lines  : Iterator[String]          = file.lineIterator      //file.lines loads all lines in memory\"><pre lang=\"scala\"><code>val bytes  : Iterator[Byte]            = file.bytes\nval chars  : Iterator[Char]            = file.chars\nval lines  : Iterator[String]          = file.lineIterator      //file.lines loads all lines in memory\n</code></pre></div>\n<p dir=\"auto\">Note: The above APIs can be traversed at most once e.g. <code>file.bytes</code> is a <code>Iterator[Byte]</code> which only allows <code>TraversableOnce</code>.\nTo traverse it multiple times without creating a new iterator instance, convert it into some other collection e.g. <code>file.bytes.toStream</code></p>\n<p dir=\"auto\">You can write an <code>Iterator[Byte]</code> or an <code>Iterator[String]</code> back to a file:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"file.writeBytes(bytes)\nfile.printLines(lines)\"><pre lang=\"scala\"><code>file.writeBytes(bytes)\nfile.printLines(lines)\n</code></pre></div>\n<p dir=\"auto\"><a href=\"http://stackoverflow.com/questions/7987395/\" rel=\"nofollow\"><code>tee</code></a> multiple outputstreams:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val s3 = s1 tee s2\ns3.printWriter.println(s&quot;Hello world&quot;) // gets written to both s1 and s2\"><pre lang=\"scala\"><code>val s3 = s1 tee s2\ns3.printWriter.println(s\"Hello world\") // gets written to both s1 and s2\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-encodings\" class=\"anchor\" aria-hidden=\"true\" href=\"#encodings\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Encodings</h3>\n<p dir=\"auto\">You can supply your own charset too for anything that does a read/write (it assumes <code>java.nio.charset.Charset.defaultCharset()</code> if you don't provide one):</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val content: String = file.contentAsString  // default charset\n\n// custom charset:\nimport java.nio.charset.Charset\nfile.contentAsString(charset = Charset.forName(&quot;US-ASCII&quot;))\n\n//or simply using implicit conversion from Strings\nfile.write(&quot;hello world&quot;)(charset = &quot;US-ASCII&quot;)\"><pre lang=\"scala\"><code>val content: String = file.contentAsString  // default charset\n\n// custom charset:\nimport java.nio.charset.Charset\nfile.contentAsString(charset = Charset.forName(\"US-ASCII\"))\n\n//or simply using implicit conversion from Strings\nfile.write(\"hello world\")(charset = \"US-ASCII\")\n</code></pre></div>\n<p dir=\"auto\">Note: By default, <code>better-files</code> <a href=\"core/src/main/scala/better/files/UnicodeCharset.scala\">correctly handles BOMs while decoding</a>.\nIf you wish to have the <a href=\"http://bugs.java.com/bugdatabase/view_bug.do?bug_id=4508058\" rel=\"nofollow\">incorrect JDK behaviour</a>,\nyou would need to supply Java's UTF-8 charset e.g.:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"file.contentAsString(charset = Charset.forName(&quot;UTF-8&quot;))    // Default incorrect JDK behaviour for UTF-8 (see: JDK-4508058)\"><pre lang=\"scala\"><code>file.contentAsString(charset = Charset.forName(\"UTF-8\"))    // Default incorrect JDK behaviour for UTF-8 (see: JDK-4508058)\n</code></pre></div>\n<p dir=\"auto\">If you also wish to write BOMs while encoding, you would need to supply it as:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"file.write(&quot;hello world&quot;)(charset = UnicodeCharset(&quot;UTF-8&quot;, writeByteOrderMarkers = true))\"><pre lang=\"scala\"><code>file.write(\"hello world\")(charset = UnicodeCharset(\"UTF-8\", writeByteOrderMarkers = true))\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-java-serialization-utils\" class=\"anchor\" aria-hidden=\"true\" href=\"#java-serialization-utils\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Java serialization utils</h3>\n<p dir=\"auto\">Some common utils to serialize/deserialize using Java's serialization util</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"case class Person(name: String, age: Int)\nval person = new Person(&quot;Chris&quot;, 24)\n\n// Write\nfile.newOutputStream.asObjectOutputStream.serialize(obj).flush()\n\n// Read\nval person2 = file.newInputStream.asObjectInputStream.deserialize[Person]\nassert(person == person2)\n\n// Read using custom class loader:\nfile.newInputStream.asObjectInputStreamUsingClassLoader(classLoader = myClassLoader).deserialize[Person]\"><pre lang=\"scala\"><code>case class Person(name: String, age: Int)\nval person = new Person(\"Chris\", 24)\n\n// Write\nfile.newOutputStream.asObjectOutputStream.serialize(obj).flush()\n\n// Read\nval person2 = file.newInputStream.asObjectInputStream.deserialize[Person]\nassert(person == person2)\n\n// Read using custom class loader:\nfile.newInputStream.asObjectInputStreamUsingClassLoader(classLoader = myClassLoader).deserialize[Person]\n</code></pre></div>\n<p dir=\"auto\">The above can be simply written as:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val person2: Person = file.writeSerialized(person).readDeserialized[Person]()\nassert(person == person2)\"><pre lang=\"scala\"><code>val person2: Person = file.writeSerialized(person).readDeserialized[Person]()\nassert(person == person2)\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-java-interoperability\" class=\"anchor\" aria-hidden=\"true\" href=\"#java-interoperability\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Java interoperability</h3>\n<p dir=\"auto\">You can always access the Java I/O classes:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val file: File = tmp / &quot;hello.txt&quot;\nval javaFile     : java.io.File                 = file.toJava\nval uri          : java.net.URI                 = file.uri\nval url          : java.net.URL                 = file.url\nval reader       : java.io.BufferedReader       = file.newBufferedReader\nval outputstream : java.io.OutputStream         = file.newOutputStream\nval writer       : java.io.BufferedWriter       = file.newBufferedWriter\nval inputstream  : java.io.InputStream          = file.newInputStream\nval path         : java.nio.file.Path           = file.path\nval fs           : java.nio.file.FileSystem     = file.fileSystem\nval channel      : java.nio.channel.FileChannel = file.newFileChannel\nval ram          : java.io.RandomAccessFile     = file.newRandomAccess\nval fr           : java.io.FileReader           = file.newFileReader\nval fw           : java.io.FileWriter           = file.newFileWriter(append = true)\nval printer      : java.io.PrintWriter          = file.newPrintWriter\"><pre lang=\"scala\"><code>val file: File = tmp / \"hello.txt\"\nval javaFile     : java.io.File                 = file.toJava\nval uri          : java.net.URI                 = file.uri\nval url          : java.net.URL                 = file.url\nval reader       : java.io.BufferedReader       = file.newBufferedReader\nval outputstream : java.io.OutputStream         = file.newOutputStream\nval writer       : java.io.BufferedWriter       = file.newBufferedWriter\nval inputstream  : java.io.InputStream          = file.newInputStream\nval path         : java.nio.file.Path           = file.path\nval fs           : java.nio.file.FileSystem     = file.fileSystem\nval channel      : java.nio.channel.FileChannel = file.newFileChannel\nval ram          : java.io.RandomAccessFile     = file.newRandomAccess\nval fr           : java.io.FileReader           = file.newFileReader\nval fw           : java.io.FileWriter           = file.newFileWriter(append = true)\nval printer      : java.io.PrintWriter          = file.newPrintWriter\n</code></pre></div>\n<p dir=\"auto\">The library also adds some useful <a href=\"http://pathikrit.github.io/better-files/latest/api/better/files/Implicits.html\" rel=\"nofollow\">implicits</a> to above classes e.g.:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"file1.reader &gt; file2.writer       // pipes a reader to a writer\nSystem.in &gt; file2.out             // pipes an inputstream to an outputstream\nsrc.pipeTo(sink)                  // if you don't like symbols\n\nval bytes   : Iterator[Byte]        = inputstream.bytes\nval bis     : BufferedInputStream   = inputstream.buffered\nval bos     : BufferedOutputStream  = outputstream.buffered\nval reader  : InputStreamReader     = inputstream.reader\nval writer  : OutputStreamWriter    = outputstream.writer\nval printer : PrintWriter           = outputstream.printWriter\nval br      : BufferedReader        = reader.buffered\nval bw      : BufferedWriter        = writer.buffered\nval mm      : MappedByteBuffer      = fileChannel.toMappedByteBuffer\nval str     : String                = inputstream.asString  //Read a string from an InputStream\nval in      : InputStream           = str.inputStream\nval reader  : Reader                = str.reader\nval lines   : Seq[String]           = str.lines\"><pre lang=\"scala\"><code>file1.reader &gt; file2.writer       // pipes a reader to a writer\nSystem.in &gt; file2.out             // pipes an inputstream to an outputstream\nsrc.pipeTo(sink)                  // if you don't like symbols\n\nval bytes   : Iterator[Byte]        = inputstream.bytes\nval bis     : BufferedInputStream   = inputstream.buffered\nval bos     : BufferedOutputStream  = outputstream.buffered\nval reader  : InputStreamReader     = inputstream.reader\nval writer  : OutputStreamWriter    = outputstream.writer\nval printer : PrintWriter           = outputstream.printWriter\nval br      : BufferedReader        = reader.buffered\nval bw      : BufferedWriter        = writer.buffered\nval mm      : MappedByteBuffer      = fileChannel.toMappedByteBuffer\nval str     : String                = inputstream.asString  //Read a string from an InputStream\nval in      : InputStream           = str.inputStream\nval reader  : Reader                = str.reader\nval lines   : Seq[String]           = str.lines\n</code></pre></div>\n<p dir=\"auto\"><code>better-files</code> also supports <a href=\"https://stackoverflow.com/questions/62241/how-to-convert-a-reader-to-inputstream-and-a-writer-to-outputstream\" rel=\"nofollow\">certain conversions that are not supported out of the box by the JDK</a></p>\n<h3 dir=\"auto\"><a id=\"user-content-globbing\" class=\"anchor\" aria-hidden=\"true\" href=\"#globbing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Globbing</h3>\n<p dir=\"auto\">No need to port <a href=\"http://docs.oracle.com/javase/tutorial/essential/io/find.html\" rel=\"nofollow\">this</a> to Scala:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val dir = &quot;src&quot;/&quot;test&quot;\nval matches: Iterator[File] = dir.glob(&quot;**/*.{java,scala}&quot;)\n// above code is equivalent to:\ndir.listRecursively.filter(f =&gt; f.extension == Some(&quot;.java&quot;) || f.extension == Some(&quot;.scala&quot;))\"><pre lang=\"scala\"><code>val dir = \"src\"/\"test\"\nval matches: Iterator[File] = dir.glob(\"**/*.{java,scala}\")\n// above code is equivalent to:\ndir.listRecursively.filter(f =&gt; f.extension == Some(\".java\") || f.extension == Some(\".scala\"))\n</code></pre></div>\n<p dir=\"auto\">You can even use more advanced regex syntax instead of <a href=\"http://docs.oracle.com/javase/tutorial/essential/io/fileOps.html#glob\" rel=\"nofollow\">glob syntax</a>:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val matches = dir.globRegex(&quot;^\\\\w*$&quot;.r) //equivalent to dir.glob(&quot;^\\\\w*$&quot;)(syntax = File.PathMatcherSyntax.regex)\"><pre lang=\"scala\"><code>val matches = dir.globRegex(\"^\\\\w*$\".r) //equivalent to dir.glob(\"^\\\\w*$\")(syntax = File.PathMatcherSyntax.regex)\n</code></pre></div>\n<p dir=\"auto\">By default, glob syntax in <code>better-files</code> is <a href=\"https://github.com/pathikrit/better-files/issues/114\">different from</a>\nthe default JDK glob behaviour since it always includes path. To use the default behaviour:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"dir.glob(&quot;**/*.txt&quot;, includePath = false) // JDK default\n//OR\ndir.glob(&quot;*.txt&quot;, includePath = true) // better-files default\"><pre lang=\"scala\"><code>dir.glob(\"**/*.txt\", includePath = false) // JDK default\n//OR\ndir.glob(\"*.txt\", includePath = true) // better-files default\n</code></pre></div>\n<p dir=\"auto\">You can also extend the <code>File.PathMatcherSyntax</code> to create your own matchers.</p>\n<p dir=\"auto\">For custom cases:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"dir.collectChildren(_.isSymbolicLink) // collect all symlinks in a directory\"><pre lang=\"scala\"><code>dir.collectChildren(_.isSymbolicLink) // collect all symlinks in a directory\n</code></pre></div>\n<p dir=\"auto\">For simpler cases, you can always use <code>dir.list</code> or <code>dir.walk(maxDepth: Int)</code></p>\n<h3 dir=\"auto\"><a id=\"user-content-file-system-operations\" class=\"anchor\" aria-hidden=\"true\" href=\"#file-system-operations\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>File system operations</h3>\n<p dir=\"auto\">Utilities to <code>ls</code>, <code>cp</code>, <code>rm</code>, <code>mv</code>, <code>ln</code>, <code>md5</code>, <code>touch</code>, <code>cat</code> etc:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"file.touch()\nfile.delete()     // unlike the Java API, also works on directories as expected (deletes children recursively)\nfile.clear()      // If directory, deletes all children; if file clears contents\nfile.renameTo(newName: String)\nfile.moveTo(destination)\nfile.moveToDirectory(destination)\nfile.copyTo(destination)       // unlike the default API, also works on directories (copies recursively)\nfile.copyToDirectory(destination)\nfile.linkTo(destination)                     // ln destination file\nfile.symbolicLinkTo(destination)             // ln -s destination file\nfile.setOwner(user: String)      // chown user file\nfile.setGroup(group: String)     // chgrp group file\nSeq(file1, file2) `&gt;:` file3     // same as cat file1 file2 &gt; file3 (must import import better.files.Dsl.SymbolicOperations)\nSeq(file1, file2) &gt;&gt;: file3      // same as cat file1 file2 &gt;&gt; file3 (must import import better.files.Dsl.SymbolicOperations)\nfile.isReadLocked; file.isWriteLocked; file.isLocked\nFile.numberOfOpenFileDescriptors        // number of open file descriptors\"><pre lang=\"scala\"><code>file.touch()\nfile.delete()     // unlike the Java API, also works on directories as expected (deletes children recursively)\nfile.clear()      // If directory, deletes all children; if file clears contents\nfile.renameTo(newName: String)\nfile.moveTo(destination)\nfile.moveToDirectory(destination)\nfile.copyTo(destination)       // unlike the default API, also works on directories (copies recursively)\nfile.copyToDirectory(destination)\nfile.linkTo(destination)                     // ln destination file\nfile.symbolicLinkTo(destination)             // ln -s destination file\nfile.setOwner(user: String)      // chown user file\nfile.setGroup(group: String)     // chgrp group file\nSeq(file1, file2) `&gt;:` file3     // same as cat file1 file2 &gt; file3 (must import import better.files.Dsl.SymbolicOperations)\nSeq(file1, file2) &gt;&gt;: file3      // same as cat file1 file2 &gt;&gt; file3 (must import import better.files.Dsl.SymbolicOperations)\nfile.isReadLocked; file.isWriteLocked; file.isLocked\nFile.numberOfOpenFileDescriptors        // number of open file descriptors\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-checksums\" class=\"anchor\" aria-hidden=\"true\" href=\"#checksums\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Checksums</h3>\n<p dir=\"auto\">One liner checksum for files:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"file.md5 // equivalent to file.checksum(&quot;md5&quot;)\nfile.sha1\nfile.sha256\nfile.sha512\"><pre lang=\"scala\"><code>file.md5 // equivalent to file.checksum(\"md5\")\nfile.sha1\nfile.sha256\nfile.sha512\n</code></pre></div>\n<p dir=\"auto\">Note: The above also works for directories (it recursively computes for each file in the directory).</p>\n<p dir=\"auto\">For input/output streams:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val md5: String = inputstream.md5.hexDigest()\nval md5: String = outputstream.md5.hexDigest()\"><pre lang=\"scala\"><code>val md5: String = inputstream.md5.hexDigest()\nval md5: String = outputstream.md5.hexDigest()\n</code></pre></div>\n<p dir=\"auto\">The above consumes and closes the <code>inputstream</code>. If you want to write it to a file AND also compute the <code>sha512</code>, you can do:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val md5: String = inputstream.sha512.hexDigest(drainTo = someFile)\"><pre lang=\"scala\"><code>val md5: String = inputstream.sha512.hexDigest(drainTo = someFile)\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-temporary-files\" class=\"anchor\" aria-hidden=\"true\" href=\"#temporary-files\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Temporary files</h3>\n<p dir=\"auto\">Utils to create temporary files:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"File.newTemporaryDirectory()\nFile.newTemporaryFile()\"><pre lang=\"scala\"><code>File.newTemporaryDirectory()\nFile.newTemporaryFile()\n</code></pre></div>\n<p dir=\"auto\">The above APIs allow optional specifications of <code>prefix</code>, <code>suffix</code> and <code>parentDir</code>.\nThese files are <a href=\"http://stackoverflow.com/questions/16691437/when-are-java-temporary-files-deleted\" rel=\"nofollow\">not deleted automatically on exit by the JVM</a> (you have to set <code>deleteOnExit</code> which adds to <code>shutdownHook</code>).</p>\n<p dir=\"auto\">A cleaner alternative is to use self-deleting file contexts which deletes the file immediately when done:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"for {\n tempFile &lt;- File.temporaryFile()\n} doSomething(tempFile) // tempFile is auto deleted at the end of this block - even if an exception happens\"><pre lang=\"scala\"><code>for {\n tempFile &lt;- File.temporaryFile()\n} doSomething(tempFile) // tempFile is auto deleted at the end of this block - even if an exception happens\n</code></pre></div>\n<p dir=\"auto\">OR equivalently:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"File.usingTemporaryFile() {tempFile =&gt;\n  //do something\n}  // tempFile is auto deleted at the end of this block - even if an exception happens\"><pre lang=\"scala\"><code>File.usingTemporaryFile() {tempFile =&gt;\n  //do something\n}  // tempFile is auto deleted at the end of this block - even if an exception happens\n</code></pre></div>\n<p dir=\"auto\">You can make any files temporary (i.e. delete after use) by doing this:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val foo = File.home / &quot;Downloads&quot; / &quot;foo.txt&quot;\n\nfor {\n temp &lt;- foo.toTemporary\n} doSomething(temp) // foo is deleted at the end of this block - even if an exception happens\"><pre lang=\"scala\"><code>val foo = File.home / \"Downloads\" / \"foo.txt\"\n\nfor {\n temp &lt;- foo.toTemporary\n} doSomething(temp) // foo is deleted at the end of this block - even if an exception happens\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-unix-dsl\" class=\"anchor\" aria-hidden=\"true\" href=\"#unix-dsl\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>UNIX DSL</h3>\n<p dir=\"auto\">All the above can also be expressed using <a href=\"http://pathikrit.github.io/better-files/latest/api/better/files/Dsl$.html\" rel=\"nofollow\">methods</a> reminiscent of the command line:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import better.files._\nimport better.files.Dsl._   // must import Dsl._ to bring in these utils\n\npwd / cwd     // current dir\ncp(file1, file2)\nmv(file1, file2)\nrm(file) /*or*/ del(file)\nls(file) /*or*/ dir(file)\nln(file1, file2)     // hard link\nln_s(file1, file2)   // soft link\ncat(file1)\ncat(file1) &gt;&gt;: file\ntouch(file)\nmkdir(file)\nmkdirs(file)         // mkdir -p\nchown(owner, file)\nchgrp(owner, file)\nchmod_+(permission, files)  // add permission\nchmod_-(permission, files)  // remove permission\nmd5(file); sha1(file); sha256(file); sha512(file)\nunzip(zipFile)(targetDir)\nzip(file*)(targetZipFile)\nungzip(gzipFile)(targetFile)\ngzip(file)(targetGZipFile)\"><pre lang=\"scala\"><code>import better.files._\nimport better.files.Dsl._   // must import Dsl._ to bring in these utils\n\npwd / cwd     // current dir\ncp(file1, file2)\nmv(file1, file2)\nrm(file) /*or*/ del(file)\nls(file) /*or*/ dir(file)\nln(file1, file2)     // hard link\nln_s(file1, file2)   // soft link\ncat(file1)\ncat(file1) &gt;&gt;: file\ntouch(file)\nmkdir(file)\nmkdirs(file)         // mkdir -p\nchown(owner, file)\nchgrp(owner, file)\nchmod_+(permission, files)  // add permission\nchmod_-(permission, files)  // remove permission\nmd5(file); sha1(file); sha256(file); sha512(file)\nunzip(zipFile)(targetDir)\nzip(file*)(targetZipFile)\nungzip(gzipFile)(targetFile)\ngzip(file)(targetGZipFile)\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-file-attributes\" class=\"anchor\" aria-hidden=\"true\" href=\"#file-attributes\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>File attributes</h3>\n<p dir=\"auto\">Query various file attributes e.g.:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"file.name       // simpler than java.io.File#getName\nfile.extension\nfile.contentType\nfile.lastModifiedTime     // returns JSR-310 time\nfile.owner\nfile.group\nfile.isDirectory; file.isSymbolicLink; file.isRegularFile\nfile.isHidden\nfile.hide(); file.unhide()\nfile.isOwnerExecutable; file.isGroupReadable // etc. see file.permissions\nfile.size                 // for a directory, computes the directory size\nfile.posixAttributes; file.dosAttributes  // see file.attributes\nfile.isEmpty      // true if file has no content (or no children if directory) or does not exist\nfile.isParentOf; file.isChildOf; file.isSiblingOf; file.siblings\nfile(&quot;dos:system&quot;) = true  // set custom meta-data for file (similar to Files.setAttribute)\"><pre lang=\"scala\"><code>file.name       // simpler than java.io.File#getName\nfile.extension\nfile.contentType\nfile.lastModifiedTime     // returns JSR-310 time\nfile.owner\nfile.group\nfile.isDirectory; file.isSymbolicLink; file.isRegularFile\nfile.isHidden\nfile.hide(); file.unhide()\nfile.isOwnerExecutable; file.isGroupReadable // etc. see file.permissions\nfile.size                 // for a directory, computes the directory size\nfile.posixAttributes; file.dosAttributes  // see file.attributes\nfile.isEmpty      // true if file has no content (or no children if directory) or does not exist\nfile.isParentOf; file.isChildOf; file.isSiblingOf; file.siblings\nfile(\"dos:system\") = true  // set custom meta-data for file (similar to Files.setAttribute)\n</code></pre></div>\n<p dir=\"auto\">All the above APIs let you specify the <a href=\"http://docs.oracle.com/javase/8/docs/api/java/nio/file/LinkOption.html\" rel=\"nofollow\"><code>LinkOption</code></a> either directly:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"file.isDirectory(LinkOption.NOFOLLOW_LINKS)\"><pre lang=\"scala\"><code>file.isDirectory(LinkOption.NOFOLLOW_LINKS)\n</code></pre></div>\n<p dir=\"auto\">Or using the <a href=\"http://pathikrit.github.io/better-files/latest/api/better/files/File$$LinkOptions$.html\" rel=\"nofollow\"><code>File.LinkOptions</code></a> helper:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"file.isDirectory(File.LinkOptions.noFollow)\"><pre lang=\"scala\"><code>file.isDirectory(File.LinkOptions.noFollow)\n</code></pre></div>\n<p dir=\"auto\"><code>chmod</code>:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import java.nio.file.attribute.PosixFilePermission\nfile.addPermission(PosixFilePermission.OWNER_EXECUTE)      // chmod +X file\nfile.removePermission(PosixFilePermission.OWNER_WRITE)     // chmod -w file\nassert(file.permissionsAsString == &quot;rw-r--r--&quot;)\n\n// The following are all equivalent:\nassert(file.permissions contains PosixFilePermission.OWNER_EXECUTE)\nassert(file.testPermission(PosixFilePermission.OWNER_EXECUTE))\nassert(file.isOwnerExecutable)\"><pre lang=\"scala\"><code>import java.nio.file.attribute.PosixFilePermission\nfile.addPermission(PosixFilePermission.OWNER_EXECUTE)      // chmod +X file\nfile.removePermission(PosixFilePermission.OWNER_WRITE)     // chmod -w file\nassert(file.permissionsAsString == \"rw-r--r--\")\n\n// The following are all equivalent:\nassert(file.permissions contains PosixFilePermission.OWNER_EXECUTE)\nassert(file.testPermission(PosixFilePermission.OWNER_EXECUTE))\nassert(file.isOwnerExecutable)\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-file-comparison\" class=\"anchor\" aria-hidden=\"true\" href=\"#file-comparison\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>File comparison</h3>\n<p dir=\"auto\">Use <code>==</code> to check for path-based equality and <code>===</code> for content-based equality:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"file1 == file2    // equivalent to `file1.isSamePathAs(file2)`\nfile1 === file2   // equivalent to `file1.isSameContentAs(file2)` (works for regular-files and directories)\nfile1 != file2    // equivalent to `!file1.isSamePathAs(file2)`\nfile1 !== file2   // equivalent to `!file1.isSameContentAs(file2)`\"><pre lang=\"scala\"><code>file1 == file2    // equivalent to `file1.isSamePathAs(file2)`\nfile1 === file2   // equivalent to `file1.isSameContentAs(file2)` (works for regular-files and directories)\nfile1 != file2    // equivalent to `!file1.isSamePathAs(file2)`\nfile1 !== file2   // equivalent to `!file1.isSameContentAs(file2)`\n</code></pre></div>\n<p dir=\"auto\">There are also various <a href=\"http://pathikrit.github.io/better-files/latest/api/better/files/File$$Order$.html\" rel=\"nofollow\"><code>Ordering[File]</code> instances</a> included, e.g.:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val files = myDir.list.toSeq\nfiles.sorted(File.Order.byName)\nfiles.max(File.Order.bySize)\nfiles.min(File.Order.byDepth)\nfiles.max(File.Order.byModificationTime)\nfiles.sorted(File.Order.byDirectoriesFirst)\"><pre lang=\"scala\"><code>val files = myDir.list.toSeq\nfiles.sorted(File.Order.byName)\nfiles.max(File.Order.bySize)\nfiles.min(File.Order.byDepth)\nfiles.max(File.Order.byModificationTime)\nfiles.sorted(File.Order.byDirectoriesFirst)\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-zip-apis\" class=\"anchor\" aria-hidden=\"true\" href=\"#zip-apis\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Zip APIs</h3>\n<p dir=\"auto\">You don't have to lookup on StackOverflow \"<a href=\"http://stackoverflow.com/questions/9324933/\" rel=\"nofollow\">How to zip/unzip/gzip in Java/Scala?</a>\":</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"// Unzipping:\nval zipFile: File = file&quot;path/to/research.zip&quot;\nval research: File = zipFile.unzipTo(destination = home/&quot;Documents&quot;/&quot;research&quot;)\n\n// Zipping:\nval zipFile: File = directory.zipTo(destination = home/&quot;Desktop&quot;/&quot;toEmail.zip&quot;)\n\n// Zipping in:\nval zipFile = File(&quot;countries.zip&quot;).zipIn(Iterator(file&quot;usa.txt&quot;, file&quot;russia.txt&quot;))()\n\n// Zipping/Unzipping to temporary files/directories:\nval someTempZipFile: File = directory.zip()\nval someTempDir: File = someTempZipFile.unzip()\nassert(directory === someTempDir)\"><pre lang=\"scala\"><code>// Unzipping:\nval zipFile: File = file\"path/to/research.zip\"\nval research: File = zipFile.unzipTo(destination = home/\"Documents\"/\"research\")\n\n// Zipping:\nval zipFile: File = directory.zipTo(destination = home/\"Desktop\"/\"toEmail.zip\")\n\n// Zipping in:\nval zipFile = File(\"countries.zip\").zipIn(Iterator(file\"usa.txt\", file\"russia.txt\"))()\n\n// Zipping/Unzipping to temporary files/directories:\nval someTempZipFile: File = directory.zip()\nval someTempDir: File = someTempZipFile.unzip()\nassert(directory === someTempDir)\n</code></pre></div>\n<p dir=\"auto\">Mapping over each <code>ZipEntry</code>:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val fileNames = zipFile.newZipInputStream.mapEntries(_.getName) // gets the file names inside the zip file\"><pre lang=\"scala\"><code>val fileNames = zipFile.newZipInputStream.mapEntries(_.getName) // gets the file names inside the zip file\n</code></pre></div>\n<p dir=\"auto\">GZIP handling:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"File(&quot;big-data.csv&quot;).gzipTo(File(&quot;big-data.csv.gz&quot;))\nFile(&quot;big-data.csv.gz&quot;).unGzipTo(File(&quot;big-data.csv&quot;))\n\n// GZIP stream handling:\nFile(&quot;countries.gz&quot;).newInputStream.asGzipInputStream().lines.take(10).foreach(println)\n\ndef write(out: OutputStream, countries: Seq[String]) =\n  out.asGzipOutputStream().printWriter().printLines(countries).close()\"><pre lang=\"scala\"><code>File(\"big-data.csv\").gzipTo(File(\"big-data.csv.gz\"))\nFile(\"big-data.csv.gz\").unGzipTo(File(\"big-data.csv\"))\n\n// GZIP stream handling:\nFile(\"countries.gz\").newInputStream.asGzipInputStream().lines.take(10).foreach(println)\n\ndef write(out: OutputStream, countries: Seq[String]) =\n  out.asGzipOutputStream().printWriter().printLines(countries).close()\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-lightweight-arm\" class=\"anchor\" aria-hidden=\"true\" href=\"#lightweight-arm\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Lightweight ARM</h3>\n<p dir=\"auto\">Auto-close Java closeables:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"for {\n  in &lt;- file1.newInputStream.autoClosed\n  out &lt;- file2.newOutputStream.autoClosed\n} in.pipeTo(out)\n// The input and output streams are auto-closed once out of scope\"><pre lang=\"scala\"><code>for {\n  in &lt;- file1.newInputStream.autoClosed\n  out &lt;- file2.newOutputStream.autoClosed\n} in.pipeTo(out)\n// The input and output streams are auto-closed once out of scope\n</code></pre></div>\n<p dir=\"auto\"><code>better-files</code> provides convenient managed versions of all the Java closeables e.g. instead of writing:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"for {\n reader &lt;- file.newBufferedReader.autoClosed\n} foo(reader)\"><pre lang=\"scala\"><code>for {\n reader &lt;- file.newBufferedReader.autoClosed\n} foo(reader)\n</code></pre></div>\n<p dir=\"auto\">You can write:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"for {\n reader &lt;- file.bufferedReader    // returns Dispose[BufferedReader]\n} foo(reader)\n\n// or simply:\nfile.bufferedReader.foreach(foo)\"><pre lang=\"scala\"><code>for {\n reader &lt;- file.bufferedReader    // returns Dispose[BufferedReader]\n} foo(reader)\n\n// or simply:\nfile.bufferedReader.foreach(foo)\n</code></pre></div>\n<p dir=\"auto\">Similarly:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"for {\n reader &lt;- file.bufferedReader\n} yield foo(reader)\n\n// Simpler\nfile.bufferedReader.map(foo).get()\n\n// Even simpler\nfile.bufferedReader.apply(foo)\"><pre lang=\"scala\"><code>for {\n reader &lt;- file.bufferedReader\n} yield foo(reader)\n\n// Simpler\nfile.bufferedReader.map(foo).get()\n\n// Even simpler\nfile.bufferedReader.apply(foo)\n</code></pre></div>\n<p dir=\"auto\">If <code>foo</code> itself is lazy and depends on <code>reader</code> being open, you should <code>flatMap</code> instead of <code>apply</code>:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"def lines(reader: BufferedReader): Iterator[String] = ???\n\nfor {\n  reader &lt;- file.bufferedReader\n  line &lt;- lines(reader)\n} yield line\n\n// or simply\nfile.bufferedReader.flatMap(lines)\"><pre lang=\"scala\"><code>def lines(reader: BufferedReader): Iterator[String] = ???\n\nfor {\n  reader &lt;- file.bufferedReader\n  line &lt;- lines(reader)\n} yield line\n\n// or simply\nfile.bufferedReader.flatMap(lines)\n</code></pre></div>\n<p dir=\"auto\">You can also define your own custom disposable resources e.g.:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"trait Shutdownable {\n  def shutdown(): Unit = ()\n}\n\nobject Shutdownable {\n  implicit val disposable: Disposable[Shutdownable] = Disposable(_.shutdown())\n}\n\nval s: Shutdownable = ....\n\nfor {\n  instance &lt;- new Dispose(s)\n} doSomething(s)  // s is disposed after this\"><pre lang=\"scala\"><code>trait Shutdownable {\n  def shutdown(): Unit = ()\n}\n\nobject Shutdownable {\n  implicit val disposable: Disposable[Shutdownable] = Disposable(_.shutdown())\n}\n\nval s: Shutdownable = ....\n\nfor {\n  instance &lt;- new Dispose(s)\n} doSomething(s)  // s is disposed after this\n</code></pre></div>\n<p dir=\"auto\"><code>using</code> syntax:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val lines: List[String] = using(file.newInputStream) { stream =&gt;\n  stream.lines.toList   // Must be eager so .toList\n}\"><pre lang=\"scala\"><code>val lines: List[String] = using(file.newInputStream) { stream =&gt;\n  stream.lines.toList   // Must be eager so .toList\n}\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-scanner\" class=\"anchor\" aria-hidden=\"true\" href=\"#scanner\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Scanner</h3>\n<p dir=\"auto\">Although <a href=\"http://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html\" rel=\"nofollow\"><code>java.util.Scanner</code></a> has a feature-rich API, it only allows parsing primitives.\nIt is also <a href=\"https://www.cpe.ku.ac.th/~jim/java-io.html\" rel=\"nofollow\">notoriously slow</a> since it uses regexes and does un-Scala things like returns nulls and throws exceptions.</p>\n<p dir=\"auto\"><code>better-files</code> provides a <a href=\"#benchmarks\">faster</a>, richer, safer, more idiomatic and compossible <a href=\"http://pathikrit.github.io/better-files/latest/api/better/files/Scanner.html\" rel=\"nofollow\">Scala replacement</a>\nthat <a href=\"core/src/main/scala/better/files/Scanner.scala\">does not use regexes</a>, allows peeking, accessing line numbers, returns <code>Option</code>s whenever possible and lets the user mixin custom parsers:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val f1 = File(&quot;/tmp/temp.txt&quot;)\nval data = f1.overwrite(s&quot;&quot;&quot;Hello World\n  | 1 true\n  | 2 3\n&quot;&quot;&quot;.stripMargin)\nval scanner: Scanner = data.newScanner()\nassert(scanner.next[String] == &quot;Hello&quot;)\nassert(scanner.lineNumber == 1)\nassert(scanner.next[String] == &quot;World&quot;)\nassert(scanner.next[(Int, Boolean)] == (1, true))\nassert(scanner.nextLine() == &quot; 2 3&quot;)\nassert(!scanner.hasNext)\"><pre lang=\"scala\"><code>val f1 = File(\"/tmp/temp.txt\")\nval data = f1.overwrite(s\"\"\"Hello World\n  | 1 true\n  | 2 3\n\"\"\".stripMargin)\nval scanner: Scanner = data.newScanner()\nassert(scanner.next[String] == \"Hello\")\nassert(scanner.lineNumber == 1)\nassert(scanner.next[String] == \"World\")\nassert(scanner.next[(Int, Boolean)] == (1, true))\nassert(scanner.nextLine() == \" 2 3\")\nassert(!scanner.hasNext)\n</code></pre></div>\n<p dir=\"auto\">If you are simply interested in tokens, you can use <code>file.tokens()</code></p>\n<p dir=\"auto\">Writing your own custom scanners:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"sealed trait Animal\ncase class Dog(name: String) extends Animal\ncase class Cat(name: String) extends Animal\n\nimplicit val animalParser: Scannable[Animal] = Scannable {scanner =&gt;\n  val name = scanner.next[String]\n  if (name == &quot;Garfield&quot;) Cat(name) else Dog(name)\n}\n\nval scanner = file.newScanner()\nprintln(scanner.next[Animal])\"><pre lang=\"scala\"><code>sealed trait Animal\ncase class Dog(name: String) extends Animal\ncase class Cat(name: String) extends Animal\n\nimplicit val animalParser: Scannable[Animal] = Scannable {scanner =&gt;\n  val name = scanner.next[String]\n  if (name == \"Garfield\") Cat(name) else Dog(name)\n}\n\nval scanner = file.newScanner()\nprintln(scanner.next[Animal])\n</code></pre></div>\n<p dir=\"auto\">The <a href=\"core/src/test/scala/better/files/ShapelessScannerSpec.scala\">shapeless-scanner</a> lets you scan <a href=\"https://github.com/milessabin/shapeless/blob/master/core/src/main/scala/shapeless/hlists.scala\"><code>HList</code>s</a>:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val in = Scanner(&quot;&quot;&quot;\n  12 Bob True\n  13 Mary False\n  26 Rick True\n&quot;&quot;&quot;)\n\nimport shapeless._\n\ntype Row = Int :: String :: Boolean :: HNil\n\nval out = Seq.fill(3)(in.next[Row])\nassert(out == Seq(\n  12 :: &quot;Bob&quot; :: true :: HNil,\n  13 :: &quot;Mary&quot; :: false :: HNil,\n  26 :: &quot;Rick&quot; :: true :: HNil\n))\"><pre lang=\"scala\"><code>val in = Scanner(\"\"\"\n  12 Bob True\n  13 Mary False\n  26 Rick True\n\"\"\")\n\nimport shapeless._\n\ntype Row = Int :: String :: Boolean :: HNil\n\nval out = Seq.fill(3)(in.next[Row])\nassert(out == Seq(\n  12 :: \"Bob\" :: true :: HNil,\n  13 :: \"Mary\" :: false :: HNil,\n  26 :: \"Rick\" :: true :: HNil\n))\n</code></pre></div>\n<p dir=\"auto\"><a href=\"https://meta.plasm.us/posts/2015/11/08/type-classes-and-generic-derivation/\" rel=\"nofollow\">and case-classes</a>:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"case class Person(id: Int, name: String, isMale: Boolean)\nval out2 = Seq.fill(3)(in.next[Person])\"><pre lang=\"scala\"><code>case class Person(id: Int, name: String, isMale: Boolean)\nval out2 = Seq.fill(3)(in.next[Person])\n</code></pre></div>\n<p dir=\"auto\">Simple CSV reader:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val file = &quot;&quot;&quot;\n  23,foo\n  42,bar\n&quot;&quot;&quot;\nval csvScanner = file.newScanner(StringSplitter.on(','))\ncsvScanner.next[Int]    //23\ncsvScanner.next[String] //foo\"><pre lang=\"scala\"><code>val file = \"\"\"\n  23,foo\n  42,bar\n\"\"\"\nval csvScanner = file.newScanner(StringSplitter.on(','))\ncsvScanner.next[Int]    //23\ncsvScanner.next[String] //foo\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-file-monitoring\" class=\"anchor\" aria-hidden=\"true\" href=\"#file-monitoring\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>File Monitoring</h3>\n<p dir=\"auto\">Vanilla Java watchers:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import java.nio.file.{StandardWatchEventKinds =&gt; EventType}\nval service: java.nio.file.WatchService = myDir.newWatchService\nmyDir.register(service, events = Seq(EventType.ENTRY_CREATE, EventType.ENTRY_DELETE))\"><pre lang=\"scala\"><code>import java.nio.file.{StandardWatchEventKinds =&gt; EventType}\nval service: java.nio.file.WatchService = myDir.newWatchService\nmyDir.register(service, events = Seq(EventType.ENTRY_CREATE, EventType.ENTRY_DELETE))\n</code></pre></div>\n<p dir=\"auto\">The above APIs are <a href=\"https://docs.oracle.com/javase/tutorial/essential/io/notification.html#process\" rel=\"nofollow\">cumbersome to use</a> (involves a lot of type-casting and null-checking),\nare based on a blocking <a href=\"http://docs.oracle.com/javase/8/docs/api/java/nio/file/WatchKey.html\" rel=\"nofollow\">polling-based model</a>,\ndoes not easily allow <a href=\"https://docs.oracle.com/javase/tutorial/displayCode.html?code=https://docs.oracle.com/javase/tutorial/essential/io/examples/WatchDir.java\" rel=\"nofollow\">recursive watching of directories</a>\nand nor does it easily allow <a href=\"http://stackoverflow.com/questions/16251273/\" rel=\"nofollow\">watching regular files</a> without writing a lot of Java boilerplate.</p>\n<p dir=\"auto\"><code>better-files</code> abstracts all the above ugliness behind a <a href=\"core/src/main/scala/better/files/File.scala#1100\">simple interface</a>:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val watcher = new FileMonitor(myDir, recursive = true) {\n  override def onCreate(file: File, count: Int) = println(s&quot;$file got created&quot;)\n  override def onModify(file: File, count: Int) = println(s&quot;$file got modified $count times&quot;)\n  override def onDelete(file: File, count: Int) = println(s&quot;$file got deleted&quot;)\n}\nwatcher.start() \nThread.sleep(60 * 1000) // The above line starts the monitoring asynchronously \"><pre lang=\"scala\"><code>val watcher = new FileMonitor(myDir, recursive = true) {\n  override def onCreate(file: File, count: Int) = println(s\"$file got created\")\n  override def onModify(file: File, count: Int) = println(s\"$file got modified $count times\")\n  override def onDelete(file: File, count: Int) = println(s\"$file got deleted\")\n}\nwatcher.start() \nThread.sleep(60 * 1000) // The above line starts the monitoring asynchronously \n</code></pre></div>\n<p dir=\"auto\">Sometimes, instead of overwriting each of the 3 methods above, it is more convenient to override the dispatcher itself:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import java.nio.file.{Path, StandardWatchEventKinds =&gt; EventType, WatchEvent}\n\nval watcher = new FileMonitor(myDir, recursive = true) {\n  override def onEvent(eventType: WatchEvent.Kind[Path], file: File, count: Int) = eventType match {\n    case EventType.ENTRY_CREATE =&gt; println(s&quot;$file got created&quot;)\n    case EventType.ENTRY_MODIFY =&gt; println(s&quot;$file got modified $count&quot;)\n    case EventType.ENTRY_DELETE =&gt; println(s&quot;$file got deleted&quot;)\n  }\n}\"><pre lang=\"scala\"><code>import java.nio.file.{Path, StandardWatchEventKinds =&gt; EventType, WatchEvent}\n\nval watcher = new FileMonitor(myDir, recursive = true) {\n  override def onEvent(eventType: WatchEvent.Kind[Path], file: File, count: Int) = eventType match {\n    case EventType.ENTRY_CREATE =&gt; println(s\"$file got created\")\n    case EventType.ENTRY_MODIFY =&gt; println(s\"$file got modified $count\")\n    case EventType.ENTRY_DELETE =&gt; println(s\"$file got deleted\")\n  }\n}\n</code></pre></div>\n<p dir=\"auto\">There is also an external module which gives high performance file monitoring and interpolates with better-files.\nSee: <a href=\"https://github.com/gmethvin/directory-watcher#better-files-integration-scala\">https://github.com/gmethvin/directory-watcher#better-files-integration-scala</a></p>\n<h3 dir=\"auto\"><a id=\"user-content-akka-file-watcher\" class=\"anchor\" aria-hidden=\"true\" href=\"#akka-file-watcher\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Akka File Watcher</h3>\n<p dir=\"auto\"><code>better-files</code> also provides a powerful yet concise <a href=\"akka/src/main/scala/better/files/FileWatcher.scala\">reactive file watcher</a>\nbased on <a href=\"http://doc.akka.io/docs/akka/snapshot/scala/actors.html\" rel=\"nofollow\">Akka actors</a> that supports dynamic dispatches:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import akka.actor.{ActorRef, ActorSystem}\nimport better.files.File.home\nimport better.files.FileWatcher._\nimport java.nio.file.{StandardWatchEventKinds =&gt; EventType}\n\nimplicit val system = ActorSystem(&quot;mySystem&quot;)\n\nval watcher: ActorRef = (home/&quot;Downloads&quot;).newWatcher(recursive = true)\n\n// register partial function for an event\nwatcher ! on(EventType.ENTRY_DELETE) {\n case file if file.isDirectory =&gt; println(s&quot;directory $file got deleted&quot;)\n case file                     =&gt; println(s&quot;$file got deleted&quot;)\n}\n\n// watch for multiple events\nwatcher ! when(events = EventType.ENTRY_CREATE, EventType.ENTRY_MODIFY) {\n case (EventType.ENTRY_CREATE, file) =&gt; println(s&quot;$file got created&quot;)\n case (EventType.ENTRY_MODIFY, file) =&gt; println(s&quot;$file got modified&quot;)\n}\"><pre lang=\"scala\"><code>import akka.actor.{ActorRef, ActorSystem}\nimport better.files.File.home\nimport better.files.FileWatcher._\nimport java.nio.file.{StandardWatchEventKinds =&gt; EventType}\n\nimplicit val system = ActorSystem(\"mySystem\")\n\nval watcher: ActorRef = (home/\"Downloads\").newWatcher(recursive = true)\n\n// register partial function for an event\nwatcher ! on(EventType.ENTRY_DELETE) {\n case file if file.isDirectory =&gt; println(s\"directory $file got deleted\")\n case file                     =&gt; println(s\"$file got deleted\")\n}\n\n// watch for multiple events\nwatcher ! when(events = EventType.ENTRY_CREATE, EventType.ENTRY_MODIFY) {\n case (EventType.ENTRY_CREATE, file) =&gt; println(s\"$file got created\")\n case (EventType.ENTRY_MODIFY, file) =&gt; println(s\"$file got modified\")\n}\n</code></pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-benchmarks\" class=\"anchor\" aria-hidden=\"true\" href=\"#benchmarks\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Benchmarks</h2>\n<ul dir=\"auto\">\n<li><a href=\"core/src/test/scala/better/files/benchmarks/Scanners.scala\">Scanner benchmarks</a>:</li>\n</ul>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&gt; sbt &quot;core/testOnly better.files.benchmarks.*&quot;\nJavaScanner              : 2191 ms\nStringBuilderScanner     : 1325 ms\nCharBufferScanner        : 1117 ms\nStreamingScanner         :  212 ms\nIterableScanner          :  365 ms\nIteratorScanner          :  297 ms\nBetterFilesScanner       :  272 ms\nArrayBufferScanner       :  220 ms\nFastJavaIOScanner2       :  181 ms\nFastJavaIOScanner        :  179 ms\"><pre lang=\"shell\"><code>&gt; sbt \"core/testOnly better.files.benchmarks.*\"\nJavaScanner              : 2191 ms\nStringBuilderScanner     : 1325 ms\nCharBufferScanner        : 1117 ms\nStreamingScanner         :  212 ms\nIterableScanner          :  365 ms\nIteratorScanner          :  297 ms\nBetterFilesScanner       :  272 ms\nArrayBufferScanner       :  220 ms\nFastJavaIOScanner2       :  181 ms\nFastJavaIOScanner        :  179 ms\n</code></pre></div>\n<hr>\n<p dir=\"auto\"><a href=\"https://www.yourkit.com/\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/81cebad9a613009454b2b36f2d410e5ccc2c8e27b6736f9c7074df8cdf6ebd2a/68747470733a2f2f7777772e796f75726b69742e636f6d2f696d616765732f796b6c6f676f2e706e67\" alt=\"YourKit\" data-canonical-src=\"https://www.yourkit.com/images/yklogo.png\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">YourKit supports better-files with its full-featured Java Profiler.\nYourKit, LLC is the creator of <a href=\"https://www.yourkit.com/java/profiler/\" rel=\"nofollow\">YourKit Java Profiler</a> and <a href=\"https://www.yourkit.com/.net/profiler/\" rel=\"nofollow\">YourKit .NET Profiler</a>,\ninnovative and intelligent tools for profiling Java and .NET applications.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "pathikrit",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/899219?v=4",
+        "url" : "https://api.github.com/users/pathikrit",
+        "contributions" : 849
+      },
+      {
+        "login" : "jiminhsieh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5125598?v=4",
+        "url" : "https://api.github.com/users/jiminhsieh",
+        "contributions" : 23
+      },
+      {
+        "login" : "argv-minus-one",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1386885?v=4",
+        "url" : "https://api.github.com/users/argv-minus-one",
+        "contributions" : 12
+      },
+      {
+        "login" : "jaa127",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7105597?v=4",
+        "url" : "https://api.github.com/users/jaa127",
+        "contributions" : 8
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 6
+      },
+      {
+        "login" : "er1c",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/64685?v=4",
+        "url" : "https://api.github.com/users/er1c",
+        "contributions" : 4
+      },
+      {
+        "login" : "poslegm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4687050?v=4",
+        "url" : "https://api.github.com/users/poslegm",
+        "contributions" : 4
+      },
+      {
+        "login" : "oschrenk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/52898?v=4",
+        "url" : "https://api.github.com/users/oschrenk",
+        "contributions" : 4
+      },
+      {
+        "login" : "rtfpessoa",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/902384?v=4",
+        "url" : "https://api.github.com/users/rtfpessoa",
+        "contributions" : 4
+      },
+      {
+        "login" : "frosforever",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1630422?v=4",
+        "url" : "https://api.github.com/users/frosforever",
+        "contributions" : 3
+      },
+      {
+        "login" : "andrew-domino",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/34143319?v=4",
+        "url" : "https://api.github.com/users/andrew-domino",
+        "contributions" : 2
+      },
+      {
+        "login" : "aa8y",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5642392?v=4",
+        "url" : "https://api.github.com/users/aa8y",
+        "contributions" : 2
+      },
+      {
+        "login" : "holgerbrandl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/200952?v=4",
+        "url" : "https://api.github.com/users/holgerbrandl",
+        "contributions" : 2
+      },
+      {
+        "login" : "KORPSE",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2820207?v=4",
+        "url" : "https://api.github.com/users/KORPSE",
+        "contributions" : 2
+      },
+      {
+        "login" : "jendakol",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1770097?v=4",
+        "url" : "https://api.github.com/users/jendakol",
+        "contributions" : 2
+      },
+      {
+        "login" : "matanster",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4996067?v=4",
+        "url" : "https://api.github.com/users/matanster",
+        "contributions" : 2
+      },
+      {
+        "login" : "pishen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/156619?v=4",
+        "url" : "https://api.github.com/users/pishen",
+        "contributions" : 2
+      },
+      {
+        "login" : "solicode",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7761921?v=4",
+        "url" : "https://api.github.com/users/solicode",
+        "contributions" : 2
+      },
+      {
+        "login" : "giabao",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1702709?v=4",
+        "url" : "https://api.github.com/users/giabao",
+        "contributions" : 2
+      },
+      {
+        "login" : "satouso0401",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12881125?v=4",
+        "url" : "https://api.github.com/users/satouso0401",
+        "contributions" : 1
+      },
+      {
+        "login" : "brentax",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2107342?v=4",
+        "url" : "https://api.github.com/users/brentax",
+        "contributions" : 1
+      },
+      {
+        "login" : "CharlesD91",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/50867450?v=4",
+        "url" : "https://api.github.com/users/CharlesD91",
+        "contributions" : 1
+      },
+      {
+        "login" : "akkie",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/307006?v=4",
+        "url" : "https://api.github.com/users/akkie",
+        "contributions" : 1
+      },
+      {
+        "login" : "cos",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/37514?v=4",
+        "url" : "https://api.github.com/users/cos",
+        "contributions" : 1
+      },
+      {
+        "login" : "orendain",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1426304?v=4",
+        "url" : "https://api.github.com/users/orendain",
+        "contributions" : 1
+      },
+      {
+        "login" : "eikek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/701128?v=4",
+        "url" : "https://api.github.com/users/eikek",
+        "contributions" : 1
+      },
+      {
+        "login" : "EdgeCaseBerg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1691564?v=4",
+        "url" : "https://api.github.com/users/EdgeCaseBerg",
+        "contributions" : 1
+      },
+      {
+        "login" : "fanf",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/44649?v=4",
+        "url" : "https://api.github.com/users/fanf",
+        "contributions" : 1
+      },
+      {
+        "login" : "fredfp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3804696?v=4",
+        "url" : "https://api.github.com/users/fredfp",
+        "contributions" : 1
+      },
+      {
+        "login" : "gmethvin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/171663?v=4",
+        "url" : "https://api.github.com/users/gmethvin",
+        "contributions" : 1
+      },
+      {
+        "login" : "jotomo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1732305?v=4",
+        "url" : "https://api.github.com/users/jotomo",
+        "contributions" : 1
+      },
+      {
+        "login" : "longcao",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/865236?v=4",
+        "url" : "https://api.github.com/users/longcao",
+        "contributions" : 1
+      },
+      {
+        "login" : "marcospereira",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4576?v=4",
+        "url" : "https://api.github.com/users/marcospereira",
+        "contributions" : 1
+      },
+      {
+        "login" : "mpollmeier",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/506752?v=4",
+        "url" : "https://api.github.com/users/mpollmeier",
+        "contributions" : 1
+      },
+      {
+        "login" : "takezoe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1094760?v=4",
+        "url" : "https://api.github.com/users/takezoe",
+        "contributions" : 1
+      },
+      {
+        "login" : "przemek-pokrywka",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/483594?v=4",
+        "url" : "https://api.github.com/users/przemek-pokrywka",
+        "contributions" : 1
+      },
+      {
+        "login" : "rfkm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/857162?v=4",
+        "url" : "https://api.github.com/users/rfkm",
+        "contributions" : 1
+      },
+      {
+        "login" : "samuelorji",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24932953?v=4",
+        "url" : "https://api.github.com/users/samuelorji",
+        "contributions" : 1
+      },
+      {
+        "login" : "sullis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30938?v=4",
+        "url" : "https://api.github.com/users/sullis",
+        "contributions" : 1
+      },
+      {
+        "login" : "SethTisue",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
+        "url" : "https://api.github.com/users/SethTisue",
+        "contributions" : 1
+      },
+      {
+        "login" : "zy4",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9461638?v=4",
+        "url" : "https://api.github.com/users/zy4",
+        "contributions" : 1
+      },
+      {
+        "login" : "ShaneDelmore",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4604933?v=4",
+        "url" : "https://api.github.com/users/ShaneDelmore",
+        "contributions" : 1
+      },
+      {
+        "login" : "slandelle",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/849197?v=4",
+        "url" : "https://api.github.com/users/slandelle",
+        "contributions" : 1
+      },
+      {
+        "login" : "Horneth",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2978948?v=4",
+        "url" : "https://api.github.com/users/Horneth",
+        "contributions" : 1
+      },
+      {
+        "login" : "tmgreen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1413581?v=4",
+        "url" : "https://api.github.com/users/tmgreen",
+        "contributions" : 1
+      },
+      {
+        "login" : "VinceMacBuche",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1238978?v=4",
+        "url" : "https://api.github.com/users/VinceMacBuche",
+        "contributions" : 1
+      },
+      {
+        "login" : "wsargent",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/71236?v=4",
+        "url" : "https://api.github.com/users/wsargent",
+        "contributions" : 1
+      },
+      {
+        "login" : "k0ala",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1598473?v=4",
+        "url" : "https://api.github.com/users/k0ala",
+        "contributions" : 1
+      },
+      {
+        "login" : "pedrorijo91",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1999050?v=4",
+        "url" : "https://api.github.com/users/pedrorijo91",
+        "contributions" : 1
+      },
+      {
+        "login" : "ritschwumm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/547138?v=4",
+        "url" : "https://api.github.com/users/ritschwumm",
+        "contributions" : 1
+      },
+      {
+        "login" : "ronanM",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/837382?v=4",
+        "url" : "https://api.github.com/users/ronanM",
+        "contributions" : 1
+      },
+      {
+        "login" : "woky",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/620147?v=4",
+        "url" : "https://api.github.com/users/woky",
+        "contributions" : 1
+      },
+      {
+        "login" : "olafurpg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1408093?v=4",
+        "url" : "https://api.github.com/users/olafurpg",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 969,
+    "topics" : [
+      "akka",
+      "java-interoperability",
+      "scala",
+      "scanner"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : "https://gitter.im/pathikrit/better-files",
+    "openIssues" : [
+      {
+        "number" : 536,
+        "title" : "Support scala-native?",
+        "url" : "https://github.com/pathikrit/better-files/issues/536"
+      },
+      {
+        "number" : 506,
+        "title" : "Scala3 version",
+        "url" : "https://github.com/pathikrit/better-files/issues/506"
+      },
+      {
+        "number" : 501,
+        "title" : "Switch to new codecov reporter",
+        "url" : "https://github.com/pathikrit/better-files/issues/501"
+      },
+      {
+        "number" : 461,
+        "title" : "make File serializible",
+        "url" : "https://github.com/pathikrit/better-files/issues/461"
+      },
+      {
+        "number" : 458,
+        "title" : "Question: Should we switch to CodacyCoverageReporter since codacyCoverage is deprecated?",
+        "url" : "https://github.com/pathikrit/better-files/issues/458"
+      },
+      {
+        "number" : 451,
+        "title" : "Switch to Github actions from Travis CI",
+        "url" : "https://github.com/pathikrit/better-files/issues/451"
+      },
+      {
+        "number" : 407,
+        "title" : "Switch to munit testing library",
+        "url" : "https://github.com/pathikrit/better-files/issues/407"
+      },
+      {
+        "number" : 403,
+        "title" : "file descriptor leaks when `file.children` is used without consuming it",
+        "url" : "https://github.com/pathikrit/better-files/issues/403"
+      },
+      {
+        "number" : 329,
+        "title" : "Use Scala 2.13 features",
+        "url" : "https://github.com/pathikrit/better-files/issues/329"
+      },
+      {
+        "number" : 313,
+        "title" : "More than one events generated for a file modification",
+        "url" : "https://github.com/pathikrit/better-files/issues/313"
+      },
+      {
+        "number" : 270,
+        "title" : "IllegalStateException occurs when using `partition` on `File.glob` result",
+        "url" : "https://github.com/pathikrit/better-files/issues/270"
+      },
+      {
+        "number" : 269,
+        "title" : "Ability to read/write .tar/.tgz files",
+        "url" : "https://github.com/pathikrit/better-files/issues/269"
+      },
+      {
+        "number" : 256,
+        "title" : "Zip Path Traversal vulnerability",
+        "url" : "https://github.com/pathikrit/better-files/issues/256"
+      },
+      {
+        "number" : 255,
+        "title" : "Ability to skip invalid characters",
+        "url" : "https://github.com/pathikrit/better-files/issues/255"
+      },
+      {
+        "number" : 221,
+        "title" : "linkTo seams to be broken",
+        "url" : "https://github.com/pathikrit/better-files/issues/221"
+      },
+      {
+        "number" : 204,
+        "title" : "Universal converters using `.as[T]`",
+        "url" : "https://github.com/pathikrit/better-files/issues/204"
+      },
+      {
+        "number" : 193,
+        "title" : "File monitor stops with FileSystemException when copying a large directory structure into the watched folder",
+        "url" : "https://github.com/pathikrit/better-files/issues/193"
+      },
+      {
+        "number" : 166,
+        "title" : "Util to auto detect a Charset of a file",
+        "url" : "https://github.com/pathikrit/better-files/issues/166"
+      },
+      {
+        "number" : 139,
+        "title" : "Work around JDK-7133447",
+        "url" : "https://github.com/pathikrit/better-files/issues/139"
+      },
+      {
+        "number" : 131,
+        "title" : "Handle CLOSE_WRITE in file watcher",
+        "url" : "https://github.com/pathikrit/better-files/issues/131"
+      },
+      {
+        "number" : 129,
+        "title" : "Compliance with JSR-203 and JimFs",
+        "url" : "https://github.com/pathikrit/better-files/issues/129"
+      },
+      {
+        "number" : 121,
+        "title" : " what about support for files in archives? ",
+        "url" : "https://github.com/pathikrit/better-files/issues/121"
+      },
+      {
+        "number" : 91,
+        "title" : "Implement file diff",
+        "url" : "https://github.com/pathikrit/better-files/issues/91"
+      },
+      {
+        "number" : 88,
+        "title" : "Absolute child is error prone",
+        "url" : "https://github.com/pathikrit/better-files/issues/88"
+      },
+      {
+        "number" : 75,
+        "title" : "Implement head/tail for files",
+        "url" : "https://github.com/pathikrit/better-files/issues/75"
+      },
+      {
+        "number" : 65,
+        "title" : "Recursive chmod/chown etc.",
+        "url" : "https://github.com/pathikrit/better-files/issues/65"
+      },
+      {
+        "number" : 62,
+        "title" : "Use sbt-jmh for benchmarking",
+        "url" : "https://github.com/pathikrit/better-files/issues/62"
+      },
+      {
+        "number" : 46,
+        "title" : "Implement redirection operators for file- and byte-iterators",
+        "url" : "https://github.com/pathikrit/better-files/issues/46"
+      },
+      {
+        "number" : 37,
+        "title" : "isParentOf / isChildOf should have option to specify maxDepth",
+        "url" : "https://github.com/pathikrit/better-files/issues/37"
+      },
+      {
+        "number" : 32,
+        "title" : "create unique directory/unique file",
+        "url" : "https://github.com/pathikrit/better-files/issues/32"
+      },
+      {
+        "number" : 26,
+        "title" : "set/unset permission APIs",
+        "url" : "https://github.com/pathikrit/better-files/issues/26"
+      },
+      {
+        "number" : 23,
+        "title" : "Add desktop file APIs",
+        "url" : "https://github.com/pathikrit/better-files/issues/23"
+      },
+      {
+        "number" : 22,
+        "title" : "Do not depend on hashing for directory equality",
+        "url" : "https://github.com/pathikrit/better-files/issues/22"
+      },
+      {
+        "number" : 16,
+        "title" : "Zip options",
+        "url" : "https://github.com/pathikrit/better-files/issues/16"
+      },
+      {
+        "number" : 12,
+        "title" : "Document README using mdoc",
+        "url" : "https://github.com/pathikrit/better-files/issues/12"
+      },
+      {
+        "number" : 10,
+        "title" : "Non-blocking APIs",
+        "url" : "https://github.com/pathikrit/better-files/issues/10"
+      },
+      {
+        "number" : 3,
+        "title" : "Suggestion: Change listRecursively to recurse : Stream[File]",
+        "url" : "https://github.com/pathikrit/better-files/issues/3"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : "better-files-akka",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "file-systems-and-processes",
+    "beginnerIssuesLabel" : null
+  }
+}

@@ -1,0 +1,408 @@
+{
+  "organization" : "com-lihaoyi",
+  "repository" : "fastparse",
+  "creationDate" : 1426471408496,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643166422000
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "https://com-lihaoyi.github.io/fastparse",
+    "description" : "Writing Fast Parsers Fast in Scala",
+    "logo" : "https://avatars.githubusercontent.com/u/79346799?v=4",
+    "stars" : 980,
+    "forks" : 153,
+    "watchers" : 34,
+    "issues" : 22,
+    "creationDate" : 1417250128000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-fastparse--\" class=\"anchor\" aria-hidden=\"true\" href=\"#fastparse--\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>FastParse <a href=\"https://travis-ci.org/lihaoyi/fastparse\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/8f5b618c70ed32a9bffbd0e23b0edd2eb3bef4cdce2b1323bb0a857b26aa59a6/68747470733a2f2f7472617669732d63692e6f72672f6c6968616f79692f6661737470617273652e7376673f6272616e63683d6d6173746572\" alt=\"Build Status\" data-canonical-src=\"https://travis-ci.org/lihaoyi/fastparse.svg?branch=master\" style=\"max-width: 100%;\"></a> <a href=\"https://gitter.im/lihaoyi/fastparse?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/5dbac0213da25c445bd11f168587c11a200ba153ef3014e8408e462e410169b3/68747470733a2f2f6261646765732e6769747465722e696d2f4a6f696e253230436861742e737667\" alt=\"Join the chat at https://gitter.im/lihaoyi/Ammonite\" data-canonical-src=\"https://badges.gitter.im/Join%20Chat.svg\" style=\"max-width: 100%;\"></a></h1>\n<p dir=\"auto\">This is where the code for the FastParse parsing library lives! If you want\nto use Fastparse, you probably will want to check out the documentation:</p>\n<ul dir=\"auto\">\n<li><a href=\"https://com-lihaoyi.github.io/fastparse\" rel=\"nofollow\">Documentation</a></li>\n</ul>\n<p dir=\"auto\">If you use FastParse and like it, you will probably enjoy the following book by the Author:</p>\n<ul dir=\"auto\">\n<li><a href=\"https://www.handsonscala.com/\" rel=\"nofollow\"><em>Hands-on Scala Programming</em></a></li>\n</ul>\n<p dir=\"auto\"><em>Hands-on Scala</em> has uses FastParse extensively throughout the book, with\nthe entirety of <em>Chapter 19: Parsing Structured Text</em> dedicated to\nthe library and <em>Chapter 20: Implementing a Programming Language</em> making heavy\nuse of it. <em>Hands-on Scala</em> is a great way to level up your skills in Scala\nin general and FastParse in particular.</p>\n<p dir=\"auto\">For a good hands-on tutorial working through the basics of how to use this\nlibrary, check out the following blog post:</p>\n<ul dir=\"auto\">\n<li><a href=\"http://www.lihaoyi.com/post/EasyParsingwithParserCombinators.html\" rel=\"nofollow\">Easy Parsing with Parser Combinators</a></li>\n</ul>\n<p dir=\"auto\">This readme contains some developer docs, if you intend on working on the\nfastparse repo, not just using it as a library.</p>\n<h1 dir=\"auto\"><a id=\"user-content-developer-docs\" class=\"anchor\" aria-hidden=\"true\" href=\"#developer-docs\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Developer Docs</h1>\n<p dir=\"auto\">The core of FastParse lives in the <code>fastparse/</code> folder. It is cross-built\nScalaJVM/Scala.js codebase, with almost everything shared between the two\nplatforms in the <code>fastparse/src/</code> and minor differences in <code>fastparse/src-js/</code>\nand <code>fastparse/src-jvm/</code>.</p>\n<p dir=\"auto\">The three subprojects <code>scalaparse/</code>, <code>pythonparse/</code> and <code>cssparse/</code> are\nFastParse parsers for those respective languages. These are both usable as\nstandalone libraries, and also serve as extensive test-suites and use-cases for\nFastParse itself. Each of those projects clones &amp; parses large quantities of\ncode from Github as part of <em>their</em> own test suites.</p>\n<p dir=\"auto\"><code>perftests/</code> constains performance tests for main projects in the library\nincluding <code>ScalaParse</code>, <code>PythonParse</code>, <code>CssParse</code>, <code>readme/</code> contains the\ndocumentation site, which contains several live demos of FastParse parsers\ncompiled to Scala.js. These all live in <code>demo/</code>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-common-commands\" class=\"anchor\" aria-hidden=\"true\" href=\"#common-commands\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Common Commands</h2>\n<ul dir=\"auto\">\n<li>\n<p dir=\"auto\"><code>mill -w fastparse.jvm[2.12.7].test</code> runs the main testsuite. If you're\nhacking on FastParse, this is often where you want to go</p>\n</li>\n<li>\n<p dir=\"auto\">You can run the other suites via <code>fastparse.js</code>, <code>scalaparse.jvm</code>, etc. if you\nwish, but I typically don't and leave that to CI unless I'm actively working\non the sub-project</p>\n</li>\n<li>\n<p dir=\"auto\">You can use <code>mill -w fastparse.jvm[_].test</code> to run it under different Scala\nversions, but again I usually don't bother</p>\n</li>\n<li>\n<p dir=\"auto\"><code>mill __.test.test</code> is the aggregate test-all command, but is pretty slow. You\ncan use <code>mill __.jvm[2.12.7].test</code> to run all tests only under JVM/Scala-2.12,\nwhich is much faster and catches most issues</p>\n</li>\n<li>\n<p dir=\"auto\"><code>mill demo.fullOpt &amp;&amp; sbt readme/run</code> builds the documentation site, which can\nthen be found at <code>readme/target/scalatex/index.html</code></p>\n</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-contribution-guidelines\" class=\"anchor\" aria-hidden=\"true\" href=\"#contribution-guidelines\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Contribution Guidelines</h2>\n<ul dir=\"auto\">\n<li><strong>If you're not sure if something is a bug or not, ask on Gitter first =)</strong></li>\n<li><strong>All code PRs should come with</strong>: a meaningful description, inline comments for important things, unit tests, and a green build</li>\n<li><strong>Non-trivial changes, including bug fixes, should appear in the changelog</strong>. Feel free to add your name and link to your github profile!</li>\n<li><strong>New features should be added to the relevant parts of the documentation</strong></li>\n<li><strong>To a large extent, FastParse is designed so that you can extend it in your own code</strong> without needing to modify the core. If you want to add features, be prepared to argue why it should be built-in and not just part of your own code.</li>\n<li><strong>It's entirely possible your changes won't be merged</strong>, or will get ripped out later. This is also the case for my changes, as the Author!</li>\n<li><strong>Even a rejected/reverted PR is valuable</strong>! It helps explore the solution space, and know what works and what doesn't. For every line in the repo, at least three lines were tried, committed, and reverted/refactored, and more than 10 were tried without committing.</li>\n<li><strong>Feel free to send Proof-Of-Concept PRs</strong> that you don't intend to get merged.</li>\n<li><strong>No binary or source compatibility is guaranteed between any releases</strong>. FastParse is still in the 0.x.y phase of development, which means it's still under rapid development and things do change. On the other hand, upgrading is usually trivial, and I don't expect existing functionality to go away</li>\n</ul>\n<h1 dir=\"auto\"><a id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>License</h1>\n<p dir=\"auto\">The MIT License (MIT)</p>\n<p dir=\"auto\">Copyright (c) 2014 Li Haoyi (<a href=\"mailto:haoyi.sg@gmail.com\">haoyi.sg@gmail.com</a>)</p>\n<p dir=\"auto\">Permission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:</p>\n<p dir=\"auto\">The above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.</p>\n<p dir=\"auto\">THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "lihaoyi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/934140?v=4",
+        "url" : "https://api.github.com/users/lihaoyi",
+        "contributions" : 398
+      },
+      {
+        "login" : "vovapolu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4629312?v=4",
+        "url" : "https://api.github.com/users/vovapolu",
+        "contributions" : 51
+      },
+      {
+        "login" : "Alain-Bearez",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/479120?v=4",
+        "url" : "https://api.github.com/users/Alain-Bearez",
+        "contributions" : 31
+      },
+      {
+        "login" : "olafurpg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1408093?v=4",
+        "url" : "https://api.github.com/users/olafurpg",
+        "contributions" : 26
+      },
+      {
+        "login" : "MartinSenne",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1352336?v=4",
+        "url" : "https://api.github.com/users/MartinSenne",
+        "contributions" : 15
+      },
+      {
+        "login" : "dwijnand",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/344610?v=4",
+        "url" : "https://api.github.com/users/dwijnand",
+        "contributions" : 14
+      },
+      {
+        "login" : "lolgab",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5793054?v=4",
+        "url" : "https://api.github.com/users/lolgab",
+        "contributions" : 13
+      },
+      {
+        "login" : "alexarchambault",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7063723?v=4",
+        "url" : "https://api.github.com/users/alexarchambault",
+        "contributions" : 7
+      },
+      {
+        "login" : "russwyte",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/356303?v=4",
+        "url" : "https://api.github.com/users/russwyte",
+        "contributions" : 7
+      },
+      {
+        "login" : "MartinWeindel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3703277?v=4",
+        "url" : "https://api.github.com/users/MartinWeindel",
+        "contributions" : 6
+      },
+      {
+        "login" : "thesamet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/307373?v=4",
+        "url" : "https://api.github.com/users/thesamet",
+        "contributions" : 3
+      },
+      {
+        "login" : "SethTisue",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
+        "url" : "https://api.github.com/users/SethTisue",
+        "contributions" : 3
+      },
+      {
+        "login" : "aborg0",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/153506?v=4",
+        "url" : "https://api.github.com/users/aborg0",
+        "contributions" : 2
+      },
+      {
+        "login" : "jeremydhoon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/120956?v=4",
+        "url" : "https://api.github.com/users/jeremydhoon",
+        "contributions" : 2
+      },
+      {
+        "login" : "mgzuber",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5883671?v=4",
+        "url" : "https://api.github.com/users/mgzuber",
+        "contributions" : 2
+      },
+      {
+        "login" : "rklaehn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/248257?v=4",
+        "url" : "https://api.github.com/users/rklaehn",
+        "contributions" : 2
+      },
+      {
+        "login" : "ttsymlov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10883610?v=4",
+        "url" : "https://api.github.com/users/ttsymlov",
+        "contributions" : 2
+      },
+      {
+        "login" : "xieyuheng",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4354888?v=4",
+        "url" : "https://api.github.com/users/xieyuheng",
+        "contributions" : 2
+      },
+      {
+        "login" : "laughedelic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/766656?v=4",
+        "url" : "https://api.github.com/users/laughedelic",
+        "contributions" : 1
+      },
+      {
+        "login" : "allanrenucci",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4996324?v=4",
+        "url" : "https://api.github.com/users/allanrenucci",
+        "contributions" : 1
+      },
+      {
+        "login" : "s5bug",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7751296?v=4",
+        "url" : "https://api.github.com/users/s5bug",
+        "contributions" : 1
+      },
+      {
+        "login" : "krux02",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/929961?v=4",
+        "url" : "https://api.github.com/users/krux02",
+        "contributions" : 1
+      },
+      {
+        "login" : "carueda",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/556505?v=4",
+        "url" : "https://api.github.com/users/carueda",
+        "contributions" : 1
+      },
+      {
+        "login" : "cwfitzgerald",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7861353?v=4",
+        "url" : "https://api.github.com/users/cwfitzgerald",
+        "contributions" : 1
+      },
+      {
+        "login" : "franktominc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4442770?v=4",
+        "url" : "https://api.github.com/users/franktominc",
+        "contributions" : 1
+      },
+      {
+        "login" : "MasseGuillaume",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/921490?v=4",
+        "url" : "https://api.github.com/users/MasseGuillaume",
+        "contributions" : 1
+      },
+      {
+        "login" : "jsyeo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1090020?v=4",
+        "url" : "https://api.github.com/users/jsyeo",
+        "contributions" : 1
+      },
+      {
+        "login" : "retronym",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/65551?v=4",
+        "url" : "https://api.github.com/users/retronym",
+        "contributions" : 1
+      },
+      {
+        "login" : "jcazevedo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/143188?v=4",
+        "url" : "https://api.github.com/users/jcazevedo",
+        "contributions" : 1
+      },
+      {
+        "login" : "joprice",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2175555?v=4",
+        "url" : "https://api.github.com/users/joprice",
+        "contributions" : 1
+      },
+      {
+        "login" : "larsrh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/923079?v=4",
+        "url" : "https://api.github.com/users/larsrh",
+        "contributions" : 1
+      },
+      {
+        "login" : "LPTK",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2545083?v=4",
+        "url" : "https://api.github.com/users/LPTK",
+        "contributions" : 1
+      },
+      {
+        "login" : "milessabin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/131183?v=4",
+        "url" : "https://api.github.com/users/milessabin",
+        "contributions" : 1
+      },
+      {
+        "login" : "stanch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2670454?v=4",
+        "url" : "https://api.github.com/users/stanch",
+        "contributions" : 1
+      },
+      {
+        "login" : "Ichoran",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2298644?v=4",
+        "url" : "https://api.github.com/users/Ichoran",
+        "contributions" : 1
+      },
+      {
+        "login" : "rspier",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43223?v=4",
+        "url" : "https://api.github.com/users/rspier",
+        "contributions" : 1
+      },
+      {
+        "login" : "runtologist",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2004209?v=4",
+        "url" : "https://api.github.com/users/runtologist",
+        "contributions" : 1
+      },
+      {
+        "login" : "taisukeoe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1506707?v=4",
+        "url" : "https://api.github.com/users/taisukeoe",
+        "contributions" : 1
+      },
+      {
+        "login" : "gitter-badger",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8518239?v=4",
+        "url" : "https://api.github.com/users/gitter-badger",
+        "contributions" : 1
+      },
+      {
+        "login" : "triggerNZ",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/489039?v=4",
+        "url" : "https://api.github.com/users/triggerNZ",
+        "contributions" : 1
+      },
+      {
+        "login" : "lefou",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1321393?v=4",
+        "url" : "https://api.github.com/users/lefou",
+        "contributions" : 1
+      },
+      {
+        "login" : "robmwalsh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30517573?v=4",
+        "url" : "https://api.github.com/users/robmwalsh",
+        "contributions" : 1
+      },
+      {
+        "login" : "chengpohi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5118048?v=4",
+        "url" : "https://api.github.com/users/chengpohi",
+        "contributions" : 1
+      },
+      {
+        "login" : "DanHodges",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13152865?v=4",
+        "url" : "https://api.github.com/users/DanHodges",
+        "contributions" : 1
+      },
+      {
+        "login" : "ritschwumm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/547138?v=4",
+        "url" : "https://api.github.com/users/ritschwumm",
+        "contributions" : 1
+      },
+      {
+        "login" : "solar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/411560?v=4",
+        "url" : "https://api.github.com/users/solar",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 614,
+    "topics" : [
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 258,
+        "title" : "Mention fix for scala 2.13.7",
+        "url" : "https://github.com/com-lihaoyi/fastparse/issues/258"
+      },
+      {
+        "number" : 250,
+        "title" : "scala3parse",
+        "url" : "https://github.com/com-lihaoyi/fastparse/issues/250"
+      },
+      {
+        "number" : 247,
+        "title" : ".log to print success value",
+        "url" : "https://github.com/com-lihaoyi/fastparse/issues/247"
+      },
+      {
+        "number" : 246,
+        "title" : "Scala 3 port",
+        "url" : "https://github.com/com-lihaoyi/fastparse/issues/246"
+      },
+      {
+        "number" : 243,
+        "title" : "Custom error message in Fail",
+        "url" : "https://github.com/com-lihaoyi/fastparse/issues/243"
+      },
+      {
+        "number" : 233,
+        "title" : "String Seq String can't accept",
+        "url" : "https://github.com/com-lihaoyi/fastparse/issues/233"
+      },
+      {
+        "number" : 232,
+        "title" : "Strange webpack warnings during SJS builds",
+        "url" : "https://github.com/com-lihaoyi/fastparse/issues/232"
+      },
+      {
+        "number" : 228,
+        "title" : ".opaque(...) produces misleading error messages",
+        "url" : "https://github.com/com-lihaoyi/fastparse/issues/228"
+      },
+      {
+        "number" : 223,
+        "title" : "Backtrack over capture?",
+        "url" : "https://github.com/com-lihaoyi/fastparse/issues/223"
+      },
+      {
+        "number" : 217,
+        "title" : "Could not find proxy for case val x1: fastparse.ParsingRun in List(value x1, method $anonfun$expression$2, method rec$macro$22$1, method expression, class FastParseMacroBug, package <empty>, package <root>) (currentOwner= value preLhsIndex$macro$2 )",
+        "url" : "https://github.com/com-lihaoyi/fastparse/issues/217"
+      },
+      {
+        "number" : 207,
+        "title" : "CharsWhileIn - documentation inconsistency",
+        "url" : "https://github.com/com-lihaoyi/fastparse/issues/207"
+      },
+      {
+        "number" : 197,
+        "title" : "documentation repeat",
+        "url" : "https://github.com/com-lihaoyi/fastparse/issues/197"
+      },
+      {
+        "number" : 184,
+        "title" : "Add a 'Automatic-Module-Name' for Java 9 compatibility",
+        "url" : "https://github.com/com-lihaoyi/fastparse/issues/184"
+      },
+      {
+        "number" : 183,
+        "title" : "scalaparse: `!` and `~` cannot be parsed as object names",
+        "url" : "https://github.com/com-lihaoyi/fastparse/issues/183"
+      },
+      {
+        "number" : 177,
+        "title" : "Crossbuild for scala.js 0.6.x/1.0.x",
+        "url" : "https://github.com/com-lihaoyi/fastparse/issues/177"
+      },
+      {
+        "number" : 162,
+        "title" : "False negative parse error for type ascription on partial function inside for comprehension assignment",
+        "url" : "https://github.com/com-lihaoyi/fastparse/issues/162"
+      },
+      {
+        "number" : 143,
+        "title" : "Scalaparse fails on weird underscore-full snippet",
+        "url" : "https://github.com/com-lihaoyi/fastparse/issues/143"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : null,
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "parsing",
+    "beginnerIssuesLabel" : null
+  }
+}

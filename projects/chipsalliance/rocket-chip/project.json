@@ -1,0 +1,1932 @@
+{
+  "organization" : "chipsalliance",
+  "repository" : "rocket-chip",
+  "creationDate" : null,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643192435605
+    }
+  },
+  "githubInfo" : {
+    "homepage" : null,
+    "description" : "Rocket Chip Generator",
+    "logo" : "https://avatars.githubusercontent.com/u/46612642?v=4",
+    "stars" : 2120,
+    "forks" : 817,
+    "watchers" : 202,
+    "issues" : 320,
+    "creationDate" : 1410505470000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-rocket-chip-generator-rocket-\" class=\"anchor\" aria-hidden=\"true\" href=\"#rocket-chip-generator-rocket-\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Rocket Chip Generator <g-emoji class=\"g-emoji\" alias=\"rocket\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f680.png\">🚀</g-emoji> <a href=\"https://travis-ci.org/chipsalliance/rocket-chip\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/3a9733deca5904efb554f0d07574b14d0f558d75efc84640ea3899fb71d320a8/68747470733a2f2f7472617669732d63692e6f72672f6368697073616c6c69616e63652f726f636b65742d636869702e7376673f6272616e63683d6d6173746572\" alt=\"Build Status\" data-canonical-src=\"https://travis-ci.org/chipsalliance/rocket-chip.svg?branch=master\" style=\"max-width: 100%;\"></a></h1>\n<p dir=\"auto\">This repository contains the Rocket chip generator necessary to instantiate\nthe RISC-V Rocket Core. For more information on Rocket Chip, please consult our <a href=\"http://www.eecs.berkeley.edu/Pubs/TechRpts/2016/EECS-2016-17.html\" rel=\"nofollow\">technical report</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-table-of-contents\" class=\"anchor\" aria-hidden=\"true\" href=\"#table-of-contents\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Table of Contents</h2>\n<ul dir=\"auto\">\n<li><a href=\"#quick\">Quick instructions</a> for those who want to dive directly into the details without knowing exactly what's in the repository.</li>\n<li><a href=\"#what\">What's in the Rocket chip generator repository?</a></li>\n<li><a href=\"#how\">How should I use the Rocket chip generator?</a>\n<ul dir=\"auto\">\n<li><a href=\"#emulator\">Using the cycle-accurate Verilator simulation</a></li>\n<li><a href=\"#fpga\">Mapping a Rocket core down to an FPGA</a></li>\n<li><a href=\"#vlsi\">Pushing a Rocket core through the VLSI tools</a></li>\n</ul>\n</li>\n<li><a href=\"#param\">How can I parameterize my Rocket chip?</a></li>\n<li><a href=\"#debug\">Debugging with GDB</a></li>\n<li><a href=\"#ide\">Building Rocket Chip with an IDE</a></li>\n<li><a href=\"#contributors\">Contributors</a></li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content--quick-instructions\" class=\"anchor\" aria-hidden=\"true\" href=\"#-quick-instructions\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a name=\"user-content-quick\"></a> Quick Instructions</h2>\n<h3 dir=\"auto\"><a id=\"user-content-checkout-the-code\" class=\"anchor\" aria-hidden=\"true\" href=\"#checkout-the-code\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Checkout The Code</h3>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ git clone https://github.com/ucb-bar/rocket-chip.git\n$ cd rocket-chip\n$ git submodule update --init\"><pre><code>$ git clone https://github.com/ucb-bar/rocket-chip.git\n$ cd rocket-chip\n$ git submodule update --init\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-setting-up-the-riscv-environment-variable\" class=\"anchor\" aria-hidden=\"true\" href=\"#setting-up-the-riscv-environment-variable\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Setting up the RISCV environment variable</h3>\n<p dir=\"auto\">To build the rocket-chip repository, you must point the RISCV\nenvironment variable to your rocket-tools installation directory.</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ export RISCV=/path/to/riscv/toolchain/installation\"><pre><code>$ export RISCV=/path/to/riscv/toolchain/installation\n</code></pre></div>\n<p dir=\"auto\">The rocket-tools repository known to work with rocket-chip is noted\nin the file riscv-tools.hash. However, any recent rocket-tools should work.\nYou can build rocket-tools as follows:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ git clone https://github.com/freechipsproject/rocket-tools\n$ cd rocket-tools\n$ git submodule update --init --recursive\n$ export RISCV=/path/to/install/riscv/toolchain\n$ export MAKEFLAGS=&quot;$MAKEFLAGS -jN&quot; # Assuming you have N cores on your host system\n$ ./build.sh\n$ ./build-rv32ima.sh (if you are using RV32).\"><pre><code>$ git clone https://github.com/freechipsproject/rocket-tools\n$ cd rocket-tools\n$ git submodule update --init --recursive\n$ export RISCV=/path/to/install/riscv/toolchain\n$ export MAKEFLAGS=\"$MAKEFLAGS -jN\" # Assuming you have N cores on your host system\n$ ./build.sh\n$ ./build-rv32ima.sh (if you are using RV32).\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-install-necessary-dependencies\" class=\"anchor\" aria-hidden=\"true\" href=\"#install-necessary-dependencies\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Install Necessary Dependencies</h3>\n<p dir=\"auto\">You may need to install some additional packages to use this repository.\nRather than list all dependencies here, please see the appropriate section of the READMEs for each of the subprojects:</p>\n<ul dir=\"auto\">\n<li><a href=\"https://github.com/freechipsproject/rocket-tools/blob/master/README.md\">rocket-tools \"Ubuntu Packages Needed\"</a></li>\n<li><a href=\"https://github.com/ucb-bar/chisel3#installation\">chisel3 \"Installation\"</a></li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-building-the-project\" class=\"anchor\" aria-hidden=\"true\" href=\"#building-the-project\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Building The Project</h3>\n<p dir=\"auto\">First, to build the C simulator:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ cd emulator\n$ make\"><pre><code>$ cd emulator\n$ make\n</code></pre></div>\n<p dir=\"auto\">Or to build the VCS simulator:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ cd vsim\n$ make\"><pre><code>$ cd vsim\n$ make\n</code></pre></div>\n<p dir=\"auto\">In either case, you can run a set of assembly tests or simple benchmarks\n(Assuming you have N cores on your host system):</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ make -jN run-asm-tests\n$ make -jN run-bmark-tests\"><pre><code>$ make -jN run-asm-tests\n$ make -jN run-bmark-tests\n</code></pre></div>\n<p dir=\"auto\">To build a C simulator that is capable of VCD waveform generation:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ cd emulator\n$ make debug\"><pre><code>$ cd emulator\n$ make debug\n</code></pre></div>\n<p dir=\"auto\">And to run the assembly tests on the C simulator and generate waveforms:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ make -jN run-asm-tests-debug\n$ make -jN run-bmark-tests-debug\"><pre><code>$ make -jN run-asm-tests-debug\n$ make -jN run-bmark-tests-debug\n</code></pre></div>\n<p dir=\"auto\">To generate FPGA- or VLSI-synthesizable Verilog (output will be in <code>vsim/generated-src</code>):</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ cd vsim\n$ make verilog\"><pre><code>$ cd vsim\n$ make verilog\n</code></pre></div>\n<p dir=\"auto\">To run the Scala tests (<code>sbt test</code>) or linter (<code>sbt scalafix</code>):</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ cd regression\n\n# Scala tests\n$ make scalatest SUITE=foo\n\n# Scala linter, automatically modifying files to correct issues\n$ make scalafix SUITE=foo\n\n# Scala linter, only printing out issues\n$ make scalafix-check SUITE=foo\"><pre><code>$ cd regression\n\n# Scala tests\n$ make scalatest SUITE=foo\n\n# Scala linter, automatically modifying files to correct issues\n$ make scalafix SUITE=foo\n\n# Scala linter, only printing out issues\n$ make scalafix-check SUITE=foo\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-keeping-your-repo-up-to-date\" class=\"anchor\" aria-hidden=\"true\" href=\"#keeping-your-repo-up-to-date\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Keeping Your Repo Up-to-Date</h3>\n<p dir=\"auto\">If you are trying to keep your repo up to date with this GitHub repo,\nyou also need to keep the submodules and tools up to date.</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ # Get the newest versions of the files in this repo\n$ git pull origin master\n$ # Make sure the submodules have the correct versions\n$ git submodule update --init --recursive\"><pre><code>$ # Get the newest versions of the files in this repo\n$ git pull origin master\n$ # Make sure the submodules have the correct versions\n$ git submodule update --init --recursive\n</code></pre></div>\n<p dir=\"auto\">If rocket-tools version changes, you should recompile and install rocket-tools according to the directions in the <a href=\"https://github.com/freechipsproject/rocket-tools/blob/master/README.md\">rocket-tools/README</a>.</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ cd rocket-tools\n$ ./build.sh\n$ ./build-rv32ima.sh (if you are using RV32)\"><pre><code>$ cd rocket-tools\n$ ./build.sh\n$ ./build-rv32ima.sh (if you are using RV32)\n</code></pre></div>\n<h2 dir=\"auto\"><a id=\"user-content--whats-in-the-rocket-chip-generator-repository\" class=\"anchor\" aria-hidden=\"true\" href=\"#-whats-in-the-rocket-chip-generator-repository\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a name=\"user-content-what\"></a> What's in the Rocket chip generator repository?</h2>\n<p dir=\"auto\">The rocket-chip repository is a meta-repository that points to several\nsub-repositories using <a href=\"http://git-scm.com/book/en/Git-Tools-Submodules\" rel=\"nofollow\">Git submodules</a>.\nThose repositories contain tools needed to generate and test SoC designs.\nThis respository also contains code that is used to generate RTL.\nHardware generation is done using <a href=\"http://chisel.eecs.berkeley.edu\" rel=\"nofollow\">Chisel</a>,\na hardware construction language embedded in Scala.\nThe rocket-chip generator is a Scala program that invokes the Chisel compiler\nin order to emit RTL describing a complete SoC.\nThe following sections describe the components of this repository.</p>\n<h3 dir=\"auto\"><a id=\"user-content-git-submodules\" class=\"anchor\" aria-hidden=\"true\" href=\"#git-submodules\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a name=\"user-content-what_submodules\"></a>Git Submodules</h3>\n<p dir=\"auto\"><a href=\"https://git-scm.com/book/en/v2/Git-Tools-Submodules\" rel=\"nofollow\">Git submodules</a> allow you to keep a Git repository as a subdirectory of another Git repository.\nFor projects being co-developed with the Rocket Chip Generator, we have often found it expedient to track them as submodules,\nallowing for rapid exploitation of new features while keeping commit histories separate.\nAs submoduled projects adopt stable public APIs, we transition them to external dependencies.\nHere are the submodules that are currently being tracked in the rocket-chip repository:</p>\n<ul dir=\"auto\">\n<li><strong>chisel3</strong>\n(<a href=\"https://github.com/ucb-bar/chisel3\">https://github.com/ucb-bar/chisel3</a>):\nThe Rocket Chip Generator uses <a href=\"http://chisel.eecs.berkeley.edu\" rel=\"nofollow\">Chisel</a> to generate RTL.</li>\n<li><strong>firrtl</strong>\n(<a href=\"https://github.com/ucb-bar/firrtl\">https://github.com/ucb-bar/firrtl</a>):\n<a href=\"http://bar.eecs.berkeley.edu/projects/2015-firrtl.html\" rel=\"nofollow\">Firrtl (Flexible Internal Representation for RTL)</a>\nis the intermediate representation of RTL constructions used by Chisel3.\nThe Chisel3 compiler generates a Firrtl representation,\nfrom which the final product (Verilog code, C code, etc) is generated.</li>\n<li><strong>hardfloat</strong>\n(<a href=\"https://github.com/ucb-bar/berkeley-hardfloat\">https://github.com/ucb-bar/berkeley-hardfloat</a>):\nHardfloat holds Chisel code that generates parameterized IEEE 754-2008 compliant\nfloating-point units used for fused multiply-add operations, conversions\nbetween integer and floating-point numbers, and conversions between\nfloating-point conversions with different precision.</li>\n<li><strong>rocket-tools</strong>\n(<a href=\"https://github.com/freechipsproject/rocket-tools\">https://github.com/freechipsproject/rocket-tools</a>):\nWe tag a version of RISC-V software tools that work with the RTL committed in this repository.</li>\n<li><strong>torture</strong>\n(<a href=\"https://github.com/ucb-bar/riscv-torture\">https://github.com/ucb-bar/riscv-torture</a>):\nThis module is used to generate and execute constrained random instruction streams that can\nbe used to stress-test both the core and uncore portions of the design.</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-scala-packages\" class=\"anchor\" aria-hidden=\"true\" href=\"#scala-packages\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a name=\"user-content-what_packages\"></a>Scala Packages</h3>\n<p dir=\"auto\">In addition to submodules that track independent Git repositories,\nthe rocket-chip code base is itself factored into a number of Scala packages.\nThese packages are all found within the src/main/scala directory.\nSome of these packages provide Scala utilities for generator configuration,\nwhile other contain the actual Chisel RTL generators themselves.\nHere is a brief description of what can be found in each package:</p>\n<ul dir=\"auto\">\n<li><strong>amba</strong>\nThis RTL package uses diplomacy to generate bus implementations of AMBA protocols, including AXI4, AHB-lite, and APB.</li>\n<li><strong>config</strong>\nThis utility package provides Scala interfaces for configuring a generator via a dynamically-scoped\nparameterization library.</li>\n<li><strong>coreplex</strong>\nThis RTL package generates a complete coreplex by gluing together a variety of components from other packages,\nincluding: tiled Rocket cores, a system bus network, coherence agents, debug devices, interrupt handlers, externally-facing peripherals,\nclock-crossers and converters from TileLink to external bus protocols (e.g. AXI or AHB).</li>\n<li><strong>devices</strong>\nThis RTL package contains implementations for peripheral devices, including the Debug module and various TL slaves.</li>\n<li><strong>diplomacy</strong>\nThis utility package extends Chisel by allowing for two-phase hardware elaboration, in which certain parameters\nare dynamically negotiated between modules. For more information about diplomacy, see <a href=\"https://carrv.github.io/2017/papers/cook-diplomacy-carrv2017.pdf\" rel=\"nofollow\">this paper</a>.</li>\n<li><strong>groundtest</strong>\nThis RTL package generates synthesizable hardware testers that emit randomized\nmemory access streams in order to stress-tests the uncore memory hierarchy.</li>\n<li><strong>jtag</strong>\nThis RTL package provides definitions for generating JTAG bus interfaces.</li>\n<li><strong>regmapper</strong>\nThis utility package generates slave devices with a standardized interface for accessing their memory-mapped registers.</li>\n<li><strong>rocket</strong>\nThis RTL package generates the Rocket in-order pipelined core,\nas well as the L1 instruction and data caches.\nThis library is intended to be used by a chip generator that instantiates the\ncore within a memory system and connects it to the outside world.</li>\n<li><strong>tile</strong>\nThis RTL package contains components that can be combined with cores to construct tiles, such as FPUs and accelerators.</li>\n<li><strong>tilelink</strong>\nThis RTL package uses diplomacy to generate bus implementations of the TileLink protocol. It also contains a variety\nof adapters and protocol converters.</li>\n<li><strong>system</strong>\nThis top-level utility package invokes Chisel to elaborate a particular configuration of a coreplex,\nalong with the appropriate testing collateral.</li>\n<li><strong>unittest</strong>\nThis utility package contains a framework for generateing synthesizable hardware testers of individual modules.</li>\n<li><strong>util</strong>\nThis utility package provides a variety of common Scala and Chisel constructs that are re-used across\nmultiple other packages,</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-other-resources\" class=\"anchor\" aria-hidden=\"true\" href=\"#other-resources\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a name=\"user-content-what_else\"></a>Other Resources</h3>\n<p dir=\"auto\">Outside of Scala, we also provide a variety of resources to create a complete SoC implementation and\ntest the generated designs.</p>\n<ul dir=\"auto\">\n<li><strong>bootrom</strong>\nSources for the first-stage bootloader included in the BootROM.</li>\n<li><strong>csrc</strong>\nC sources for use with Verilator simulation.</li>\n<li><strong>docs</strong>\nDocumentation, tutorials, etc for specific parts of the codebase.</li>\n<li><strong>emulator</strong>\nDirectory in which Verilator simulations are compiled and run.</li>\n<li><strong>project</strong>\nDirectory used by SBT for Scala compilation and build.</li>\n<li><strong>regression</strong>\nDefines continuous integration and nightly regression suites.</li>\n<li><strong>scripts</strong>\nUtilities for parsing the output of simulations or manipulating the contents of source files.</li>\n<li><strong>vsim</strong>\nDirectory in which Synopsys VCS simulations are compiled and run.</li>\n<li><strong>vsrc</strong>\nVerilog sources containing interfaces, harnesses and VPI.</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-extending-the-top-level-design\" class=\"anchor\" aria-hidden=\"true\" href=\"#extending-the-top-level-design\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a name=\"user-content-what_toplevel\"></a>Extending the Top-Level Design</h3>\n<p dir=\"auto\">See <a href=\"https://github.com/ucb-bar/project-template\">this description</a> of how to create\nyou own top-level design with custom devices.</p>\n<h2 dir=\"auto\"><a id=\"user-content--how-should-i-use-the-rocket-chip-generator\" class=\"anchor\" aria-hidden=\"true\" href=\"#-how-should-i-use-the-rocket-chip-generator\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a name=\"user-content-how\"></a> How should I use the Rocket chip generator?</h2>\n<p dir=\"auto\">Chisel can generate code for three targets: a high-performance\ncycle-accurate Verilator, Verilog optimized for FPGAs, and Verilog\nfor VLSI. The rocket-chip generator can target all three backends.  You\nwill need a Java runtime installed on your machine, since Chisel is\noverlaid on top of <a href=\"http://www.scala-lang.org/\" rel=\"nofollow\">Scala</a>. Chisel RTL (i.e.\nrocket-chip source code) is a Scala program executing on top of your\nJava runtime. To begin, ensure that the ROCKETCHIP environment variable\npoints to the rocket-chip repository.</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ git clone https://github.com/ucb-bar/rocket-chip.git\n$ cd rocket-chip\n$ export ROCKETCHIP=`pwd`\n$ git submodule update --init\"><pre><code>$ git clone https://github.com/ucb-bar/rocket-chip.git\n$ cd rocket-chip\n$ export ROCKETCHIP=`pwd`\n$ git submodule update --init\n</code></pre></div>\n<p dir=\"auto\">Before going any further, you must point the RISCV environment variable\nto your rocket-tools installation directory. If you do not yet have\nrocket-tools installed, follow the directions in the\n<a href=\"https://github.com/freechipsproject/rocket-tools/blob/master/README.md\">rocket-tools/README</a>.</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"export RISCV=/path/to/install/riscv/toolchain\"><pre><code>export RISCV=/path/to/install/riscv/toolchain\n</code></pre></div>\n<p dir=\"auto\">Otherwise, you will see the following error message while executing any\ncommand in the rocket-chip generator:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"*** Please set environment variable RISCV. Please take a look at README.\"><pre><code>*** Please set environment variable RISCV. Please take a look at README.\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content--1-using-the-high-performance-cycle-accurate-verilator\" class=\"anchor\" aria-hidden=\"true\" href=\"#-1-using-the-high-performance-cycle-accurate-verilator\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a name=\"user-content-emulator\"></a> 1) Using the high-performance cycle-accurate Verilator</h3>\n<p dir=\"auto\">Your next step is to get the Verilator working. Assuming you have N\ncores on your host system, do the following:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ cd $ROCKETCHIP/emulator\n$ make -jN run\"><pre><code>$ cd $ROCKETCHIP/emulator\n$ make -jN run\n</code></pre></div>\n<p dir=\"auto\">By doing so, the build system will generate C++ code for the\ncycle-accurate emulator, compile the emulator, compile all RISC-V\nassembly tests and benchmarks, and run both tests and benchmarks on the\nemulator. If Make finished without any errors, it means that the\ngenerated Rocket chip has passed all assembly tests and benchmarks!</p>\n<p dir=\"auto\">You can also run assembly tests and benchmarks separately:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ make -jN run-asm-tests\n$ make -jN run-bmark-tests\"><pre><code>$ make -jN run-asm-tests\n$ make -jN run-bmark-tests\n</code></pre></div>\n<p dir=\"auto\">To generate vcd waveforms, you can run one of the following commands:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ make -jN run-debug\n$ make -jN run-asm-tests-debug\n$ make -jN run-bmark-tests-debug\"><pre><code>$ make -jN run-debug\n$ make -jN run-asm-tests-debug\n$ make -jN run-bmark-tests-debug\n</code></pre></div>\n<p dir=\"auto\">Or call out individual assembly tests or benchmarks:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ make output/rv64ui-p-add.out\n$ make output/rv64ui-p-add.vcd\"><pre><code>$ make output/rv64ui-p-add.out\n$ make output/rv64ui-p-add.vcd\n</code></pre></div>\n<p dir=\"auto\">Now take a look in the emulator/generated-src directory. You will find\nChisel generated Verilog code and its associated C++ code generated by\nVerilator.</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ls $ROCKETCHIP/emulator/generated-src\nfreechips.rocketchip.system.DefaultConfig\nfreechips.rocketchip.system.DefaultConfig.0x0.0.regmap.json\nfreechips.rocketchip.system.DefaultConfig.0x0.1.regmap.json\nfreechips.rocketchip.system.DefaultConfig.0x2000000.0.regmap.json\nfreechips.rocketchip.system.DefaultConfig.0x40.0.regmap.json\nfreechips.rocketchip.system.DefaultConfig.0xc000000.0.regmap.json\nfreechips.rocketchip.system.DefaultConfig.anno.json\nfreechips.rocketchip.system.DefaultConfig.behav_srams.v\nfreechips.rocketchip.system.DefaultConfig.conf\nfreechips.rocketchip.system.DefaultConfig.d\nfreechips.rocketchip.system.DefaultConfig.dts\nfreechips.rocketchip.system.DefaultConfig.fir\nfreechips.rocketchip.system.DefaultConfig.graphml\nfreechips.rocketchip.system.DefaultConfig.json\nfreechips.rocketchip.system.DefaultConfig.memmap.json\nfreechips.rocketchip.system.DefaultConfig.plusArgs\nfreechips.rocketchip.system.DefaultConfig.rom.conf\nfreechips.rocketchip.system.DefaultConfig.v\nTestHarness.anno.json\n$ ls $ROCKETCHIP/emulator/generated-src/freechips.rocketchip.system.DefaultConfig\nVTestHarness__1.cpp\nVTestHarness__2.cpp\nVTestHarness__3.cpp\n...\"><pre><code>$ ls $ROCKETCHIP/emulator/generated-src\nfreechips.rocketchip.system.DefaultConfig\nfreechips.rocketchip.system.DefaultConfig.0x0.0.regmap.json\nfreechips.rocketchip.system.DefaultConfig.0x0.1.regmap.json\nfreechips.rocketchip.system.DefaultConfig.0x2000000.0.regmap.json\nfreechips.rocketchip.system.DefaultConfig.0x40.0.regmap.json\nfreechips.rocketchip.system.DefaultConfig.0xc000000.0.regmap.json\nfreechips.rocketchip.system.DefaultConfig.anno.json\nfreechips.rocketchip.system.DefaultConfig.behav_srams.v\nfreechips.rocketchip.system.DefaultConfig.conf\nfreechips.rocketchip.system.DefaultConfig.d\nfreechips.rocketchip.system.DefaultConfig.dts\nfreechips.rocketchip.system.DefaultConfig.fir\nfreechips.rocketchip.system.DefaultConfig.graphml\nfreechips.rocketchip.system.DefaultConfig.json\nfreechips.rocketchip.system.DefaultConfig.memmap.json\nfreechips.rocketchip.system.DefaultConfig.plusArgs\nfreechips.rocketchip.system.DefaultConfig.rom.conf\nfreechips.rocketchip.system.DefaultConfig.v\nTestHarness.anno.json\n$ ls $ROCKETCHIP/emulator/generated-src/freechips.rocketchip.system.DefaultConfig\nVTestHarness__1.cpp\nVTestHarness__2.cpp\nVTestHarness__3.cpp\n...\n</code></pre></div>\n<p dir=\"auto\">Also, output of the executed assembly tests and benchmarks can be found\nat emulator/output/*.out. Each file has a cycle-by-cycle dump of\nwrite-back stage of the pipeline. Here's an excerpt of\nemulator/output/rv64ui-p-add.out:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"C0: 483 [1] pc=[00000002138] W[r 3=000000007fff7fff][1] R[r 1=000000007fffffff] R[r 2=ffffffffffff8000] inst=[002081b3] add s1, ra, s0\nC0: 484 [1] pc=[0000000213c] W[r29=000000007fff8000][1] R[r31=ffffffff80007ffe] R[r31=0000000000000005] inst=[7fff8eb7] lui t3, 0x7fff8\nC0: 485 [0] pc=[00000002140] W[r 0=0000000000000000][0] R[r 0=0000000000000000] R[r 0=0000000000000000] inst=[00000000] unknown\"><pre><code>C0: 483 [1] pc=[00000002138] W[r 3=000000007fff7fff][1] R[r 1=000000007fffffff] R[r 2=ffffffffffff8000] inst=[002081b3] add s1, ra, s0\nC0: 484 [1] pc=[0000000213c] W[r29=000000007fff8000][1] R[r31=ffffffff80007ffe] R[r31=0000000000000005] inst=[7fff8eb7] lui t3, 0x7fff8\nC0: 485 [0] pc=[00000002140] W[r 0=0000000000000000][0] R[r 0=0000000000000000] R[r 0=0000000000000000] inst=[00000000] unknown\n</code></pre></div>\n<p dir=\"auto\">The first [1] at cycle 483, core 0, shows that there's a\nvalid instruction at PC 0x2138 in the writeback stage, which is\n0x002081b3 (add s1, ra, s0). The second [1] tells us that the register\nfile is writing r3 with the corresponding value 0x7fff7fff. When the add\ninstruction was in the decode stage, the pipeline had read r1 and r2\nwith the corresponding values next to it. Similarly at cycle 484,\nthere's a valid instruction (lui instruction) at PC 0x213c in the\nwriteback stage. At cycle 485, there isn't a valid instruction in the\nwriteback stage, perhaps, because of a instruction cache miss at PC\n0x2140.</p>\n<h3 dir=\"auto\"><a id=\"user-content--2-mapping-a-rocket-core-to-an-fpga\" class=\"anchor\" aria-hidden=\"true\" href=\"#-2-mapping-a-rocket-core-to-an-fpga\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a name=\"user-content-fpga\"></a> 2) Mapping a Rocket core to an FPGA</h3>\n<p dir=\"auto\">You can generate synthesizable Verilog with the following commands:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ cd $ROCKETCHIP/vsim\n$ make verilog CONFIG=freechips.rocketchip.system.DefaultFPGAConfig\"><pre><code>$ cd $ROCKETCHIP/vsim\n$ make verilog CONFIG=freechips.rocketchip.system.DefaultFPGAConfig\n</code></pre></div>\n<p dir=\"auto\">The Verilog used for the FPGA tools will be generated in\nvsim/generated-src. Please proceed further with the directions shown in\nthe <a href=\"https://github.com/sifive/freedom/blob/master/README.md\">README</a>\nof the freedom repository. You can also run Rocket Chip on Amazon EC2 F1\nwith <a href=\"https://github.com/firesim/firesim\">FireSim</a>.</p>\n<p dir=\"auto\">If you have access to VCS, you will be able to run assembly\ntests and benchmarks in simulation with the following commands\n(again assuming you have N cores on your host machine):</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ cd $ROCKETCHIP/vsim\n$ make -jN run CONFIG=freechips.rocketchip.system.DefaultFPGAConfig\"><pre><code>$ cd $ROCKETCHIP/vsim\n$ make -jN run CONFIG=freechips.rocketchip.system.DefaultFPGAConfig\n</code></pre></div>\n<p dir=\"auto\">The generated output looks similar to those generated from the emulator.\nLook into vsim/output/*.out for the output of the executed assembly\ntests and benchmarks.</p>\n<h3 dir=\"auto\"><a id=\"user-content--3-pushing-a-rocket-core-through-the-vlsi-tools\" class=\"anchor\" aria-hidden=\"true\" href=\"#-3-pushing-a-rocket-core-through-the-vlsi-tools\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a name=\"user-content-vlsi\"></a> 3) Pushing a Rocket core through the VLSI tools</h3>\n<p dir=\"auto\">You can generate Verilog for your VLSI flow with the following commands:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ cd $ROCKETCHIP/vsim\n$ make verilog\"><pre><code>$ cd $ROCKETCHIP/vsim\n$ make verilog\n</code></pre></div>\n<p dir=\"auto\">Now take a look at vsim/generated-src, and the contents of the\nTop.DefaultConfig.conf file:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ cd $ROCKETCHIP/vsim/generated-src\nfreechips.rocketchip.system.DefaultConfig\nfreechips.rocketchip.system.DefaultConfig.0x0.0.regmap.json\nfreechips.rocketchip.system.DefaultConfig.0x0.1.regmap.json\nfreechips.rocketchip.system.DefaultConfig.0x2000000.0.regmap.json\nfreechips.rocketchip.system.DefaultConfig.0x40.0.regmap.json\nfreechips.rocketchip.system.DefaultConfig.0xc000000.0.regmap.json\nfreechips.rocketchip.system.DefaultConfig.anno.json\nfreechips.rocketchip.system.DefaultConfig.behav_srams.v\nfreechips.rocketchip.system.DefaultConfig.conf\nfreechips.rocketchip.system.DefaultConfig.d\nfreechips.rocketchip.system.DefaultConfig.dts\nfreechips.rocketchip.system.DefaultConfig.fir\nfreechips.rocketchip.system.DefaultConfig.graphml\nfreechips.rocketchip.system.DefaultConfig.json\nfreechips.rocketchip.system.DefaultConfig.memmap.json\nfreechips.rocketchip.system.DefaultConfig.plusArgs\nfreechips.rocketchip.system.DefaultConfig.rom.conf\nfreechips.rocketchip.system.DefaultConfig.v\nTestHarness.anno.json\n$ cat $ROCKETCHIP/vsim/generated-src/*.conf\nname data_arrays_0_ext depth 512 width 256 ports mrw mask_gran 8\nname tag_array_ext depth 64 width 88 ports mrw mask_gran 22\nname tag_array_0_ext depth 64 width 84 ports mrw mask_gran 21\nname data_arrays_0_1_ext depth 512 width 128 ports mrw mask_gran 32\nname mem_ext depth 33554432 width 64 ports mwrite,read mask_gran 8\nname mem_2_ext depth 512 width 64 ports mwrite,read mask_gran 8\"><pre><code>$ cd $ROCKETCHIP/vsim/generated-src\nfreechips.rocketchip.system.DefaultConfig\nfreechips.rocketchip.system.DefaultConfig.0x0.0.regmap.json\nfreechips.rocketchip.system.DefaultConfig.0x0.1.regmap.json\nfreechips.rocketchip.system.DefaultConfig.0x2000000.0.regmap.json\nfreechips.rocketchip.system.DefaultConfig.0x40.0.regmap.json\nfreechips.rocketchip.system.DefaultConfig.0xc000000.0.regmap.json\nfreechips.rocketchip.system.DefaultConfig.anno.json\nfreechips.rocketchip.system.DefaultConfig.behav_srams.v\nfreechips.rocketchip.system.DefaultConfig.conf\nfreechips.rocketchip.system.DefaultConfig.d\nfreechips.rocketchip.system.DefaultConfig.dts\nfreechips.rocketchip.system.DefaultConfig.fir\nfreechips.rocketchip.system.DefaultConfig.graphml\nfreechips.rocketchip.system.DefaultConfig.json\nfreechips.rocketchip.system.DefaultConfig.memmap.json\nfreechips.rocketchip.system.DefaultConfig.plusArgs\nfreechips.rocketchip.system.DefaultConfig.rom.conf\nfreechips.rocketchip.system.DefaultConfig.v\nTestHarness.anno.json\n$ cat $ROCKETCHIP/vsim/generated-src/*.conf\nname data_arrays_0_ext depth 512 width 256 ports mrw mask_gran 8\nname tag_array_ext depth 64 width 88 ports mrw mask_gran 22\nname tag_array_0_ext depth 64 width 84 ports mrw mask_gran 21\nname data_arrays_0_1_ext depth 512 width 128 ports mrw mask_gran 32\nname mem_ext depth 33554432 width 64 ports mwrite,read mask_gran 8\nname mem_2_ext depth 512 width 64 ports mwrite,read mask_gran 8\n</code></pre></div>\n<p dir=\"auto\">The conf file contains information for all SRAMs instantiated in the\nflow. If you take a close look at the $ROCKETCHIP/Makefrag, you will see\nthat during Verilog generation, the build system calls a $(mem_gen)\nscript with the generated configuration file as an argument, which will\nfill in the Verilog for the SRAMs. Currently, the $(mem_gen) script\npoints to vsim/vlsi_mem_gen, which simply instantiates behavioral\nSRAMs.  You will see those SRAMs being appended at the end of\nvsim/generated-src/Top.DefaultConfig.v. To target vendor-specific\nSRAMs, you will need to make necessary changes to vsim/vlsi_mem_gen.</p>\n<p dir=\"auto\">Similarly, if you have access to VCS, you can run assembly tests and\nbenchmarks with the following commands (again assuming you have N cores\non your host machine):</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ cd $ROCKETCHIP/vsim\n$ make -jN run\"><pre><code>$ cd $ROCKETCHIP/vsim\n$ make -jN run\n</code></pre></div>\n<p dir=\"auto\">The generated output looks similar to those generated from the emulator.\nLook into vsim/output/*.out for the output of the executed assembly\ntests and benchmarks.</p>\n<h2 dir=\"auto\"><a id=\"user-content--how-can-i-parameterize-my-rocket-chip\" class=\"anchor\" aria-hidden=\"true\" href=\"#-how-can-i-parameterize-my-rocket-chip\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a name=\"user-content-param\"></a> How can I parameterize my Rocket chip?</h2>\n<p dir=\"auto\">By now, you probably figured out that all generated files have a configuration\nname attached, e.g. <code>freechips.rocketchip.system.DefaultConfig</code>. Take a look at\n<code>src/main/scala/system/Configs.scala</code>. Search for <code>NSets</code> and <code>NWays</code> defined in\n<code>BaseConfig</code>. You can change those numbers to get a Rocket core with different\ncache parameters. For example, by changing L1I, NWays to 4, you will get\na 32KB 4-way set-associative L1 instruction cache rather than a 16KB 2-way\nset-associative L1 instruction cache.\nTowards the end, you can also find that <code>DefaultSmallConfig</code> inherits all\nparameters from <code>BaseConfig</code> but overrides the same parameters of\n<code>WithNSmallCores</code>.</p>\n<p dir=\"auto\">Now take a look at <code>vsim/Makefile</code>. Search for the <code>CONFIG</code> variable.\nBy default, it is set to <code>freechips.rocketchip.system.DefaultConfig</code>.  You can also change the\nCONFIG variable on the make command line:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ cd $ROCKETCHIP/vsim\n$ make -jN CONFIG=freechips.rocketchip.system.DefaultSmallConfig run-asm-tests\"><pre><code>$ cd $ROCKETCHIP/vsim\n$ make -jN CONFIG=freechips.rocketchip.system.DefaultSmallConfig run-asm-tests\n</code></pre></div>\n<p dir=\"auto\">Or, even by defining CONFIG as an environment variable:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ export CONFIG=freechips.rocketchip.system.DefaultSmallConfig\n$ make -jN run-asm-tests\"><pre><code>$ export CONFIG=freechips.rocketchip.system.DefaultSmallConfig\n$ make -jN run-asm-tests\n</code></pre></div>\n<p dir=\"auto\">This parameterization is one of the many strengths of processor\ngenerators written in Chisel, and will be more detailed in a future blog\npost, so please stay tuned.</p>\n<p dir=\"auto\">To override specific configuration items, such as the number of external interrupts,\nyou can create your own Configuration(s) and compose them with Config's ++ operator</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"class WithNExtInterrupts(nExt: Int) extends Config {\n    (site, here, up) =&gt; {\n        case NExtInterrupts =&gt; nExt\n    }\n}\nclass MyConfig extends Config (new WithNExtInterrupts(16) ++ new DefaultSmallConfig)\"><pre><code>class WithNExtInterrupts(nExt: Int) extends Config {\n    (site, here, up) =&gt; {\n        case NExtInterrupts =&gt; nExt\n    }\n}\nclass MyConfig extends Config (new WithNExtInterrupts(16) ++ new DefaultSmallConfig)\n</code></pre></div>\n<p dir=\"auto\">Then you can build as usual with <code>CONFIG=&lt;MyConfigPackage&gt;.MyConfig</code>.</p>\n<h2 dir=\"auto\"><a id=\"user-content--debugging-with-gdb\" class=\"anchor\" aria-hidden=\"true\" href=\"#-debugging-with-gdb\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a name=\"user-content-debug\"></a> Debugging with GDB</h2>\n<h3 dir=\"auto\"><a id=\"user-content-1-generating-the-remote-bit-bang-rbb-emulator\" class=\"anchor\" aria-hidden=\"true\" href=\"#1-generating-the-remote-bit-bang-rbb-emulator\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>1) Generating the Remote Bit-Bang (RBB) Emulator</h3>\n<p dir=\"auto\">The objective of this section is to use GNU debugger to debug RISC-V programs running on the emulator in the same fashion as in <a href=\"https://github.com/riscv/riscv-isa-sim#debugging-with-gdb\">Spike</a>.</p>\n<p dir=\"auto\">For that we need to add a Remote Bit-Bang client to the emulator. We can do so by extending our Config with JtagDTMSystem, which will add a DebugTransportModuleJTAG to the DUT and connect a SimJTAG module in the Test Harness. This will allow OpenOCD to interface with the emulator, and GDB can interface with OpenOCD. In the following example we add this Config alteration to <code>src/main/scala/system/Configs.scala</code>:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"class DefaultConfigRBB extends Config(\nnew WithJtagDTMSystem ++ new WithNBigCores(1) ++ new WithCoherentBusTopology ++ new BaseConfig)\n\nclass QuadCoreConfigRBB extends Config(\nnew WithJtagDTMSystem ++ new WithNBigCores(4) ++ new WithCoherentBusTopology ++ new BaseConfig)\"><pre><code>class DefaultConfigRBB extends Config(\nnew WithJtagDTMSystem ++ new WithNBigCores(1) ++ new WithCoherentBusTopology ++ new BaseConfig)\n\nclass QuadCoreConfigRBB extends Config(\nnew WithJtagDTMSystem ++ new WithNBigCores(4) ++ new WithCoherentBusTopology ++ new BaseConfig)\n</code></pre></div>\n<p dir=\"auto\">To build the emulator with <code>DefaultConfigRBB</code> configuration we use the command:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"rocket-chip$ cd emulator\nemulator$ CONFIG=freechips.rocketchip.system.DefaultConfigRBB make\"><pre><code>rocket-chip$ cd emulator\nemulator$ CONFIG=freechips.rocketchip.system.DefaultConfigRBB make\n</code></pre></div>\n<p dir=\"auto\">We can also build a debug version capable of generating VCD waveforms using the command:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"emulator$ CONFIG=freechips.rocketchip.system.DefaultConfigRBB make debug\"><pre><code>emulator$ CONFIG=freechips.rocketchip.system.DefaultConfigRBB make debug\n</code></pre></div>\n<p dir=\"auto\">By default the emulator is generated under the name <code>emulator-freechips.rocketchip.system-DefaultConfigRBB</code> in the first case and <code>emulator-freechips.rocketchip.system-DefaultConfigRBB-debug</code> in the second.</p>\n<h3 dir=\"auto\"><a id=\"user-content-2-compiling-and-executing-a-custom-program-using-the-emulator\" class=\"anchor\" aria-hidden=\"true\" href=\"#2-compiling-and-executing-a-custom-program-using-the-emulator\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>2) Compiling and executing a custom program using the emulator</h3>\n<p dir=\"auto\">We suppose that <code>helloworld</code> is our program, you can use <code>crt.S</code>, <code>syscalls.c</code> and the linker script <code>test.ld</code> to construct your own program, check examples stated in <a href=\"https://github.com/riscv/riscv-tests\">riscv-tests</a>. Note that <code>test.ld</code> loads the program at 0x80000000 so you will need to use <code>-mcmodel=medany</code> otherwise you will get relocation errors. See <a href=\"https://www.sifive.com/blog/2017/09/11/all-aboard-part-4-risc-v-code-models/\" rel=\"nofollow\">All Aboard, Part 4: The RISC-V Code Models</a> for more details.</p>\n<p dir=\"auto\">In our case we will use the following example:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"char text[] = &quot;Vafgehpgvba frgf jnag gb or serr!&quot;;\n\n// Don't use the stack, because sp isn't set up.\nvolatile int wait = 1;\n\nint main()\n{\n    while (wait)\n        ;\n\n    // Doesn't actually go on the stack, because there are lots of GPRs.\n    int i = 0;\n    while (text[i]) {\n        char lower = text[i] | 32;\n        if (lower &gt;= 'a' &amp;&amp; lower &lt;= 'm')\n            text[i] += 13;\n        else if (lower &gt; 'm' &amp;&amp; lower &lt;= 'z')\n            text[i] -= 13;\n        i++;\n    }\n\n    while (!wait)\n        ;\n}\"><pre><code>char text[] = \"Vafgehpgvba frgf jnag gb or serr!\";\n\n// Don't use the stack, because sp isn't set up.\nvolatile int wait = 1;\n\nint main()\n{\n    while (wait)\n        ;\n\n    // Doesn't actually go on the stack, because there are lots of GPRs.\n    int i = 0;\n    while (text[i]) {\n        char lower = text[i] | 32;\n        if (lower &gt;= 'a' &amp;&amp; lower &lt;= 'm')\n            text[i] += 13;\n        else if (lower &gt; 'm' &amp;&amp; lower &lt;= 'z')\n            text[i] -= 13;\n        i++;\n    }\n\n    while (!wait)\n        ;\n}\n</code></pre></div>\n<p dir=\"auto\">First we can test if your program executes well in the simple version of emulator before moving to debugging in step 3 :</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ./emulator-freechips.rocketchip.system-DefaultConfig helloworld \"><pre><code>$ ./emulator-freechips.rocketchip.system-DefaultConfig helloworld \n</code></pre></div>\n<p dir=\"auto\">Additional verbose information (clock cycle, pc, instruction being executed) can be printed using the following command:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ./emulator-freechips.rocketchip.system-DefaultConfig +verbose helloworld 2&gt;&amp;1 | spike-dasm \"><pre><code>$ ./emulator-freechips.rocketchip.system-DefaultConfig +verbose helloworld 2&gt;&amp;1 | spike-dasm \n</code></pre></div>\n<p dir=\"auto\">VCD output files can be obtained using the <code>-debug</code> version of the emulator and are specified using <code>-v</code> or <code>--vcd=FILE</code> arguments. A detailed log file of all executed instructions can also be obtained from the emulator, this is an example:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ./emulator-freechips.rocketchip.system-DefaultConfig-debug +verbose -v output.vcd  helloworld 2&gt;&amp;1 | spike-dasm &gt; output.log\"><pre><code>$ ./emulator-freechips.rocketchip.system-DefaultConfig-debug +verbose -v output.vcd  helloworld 2&gt;&amp;1 | spike-dasm &gt; output.log\n</code></pre></div>\n<p dir=\"auto\">Please note that generated VCD waveforms and execution log files can be very voluminous depending on the size of the .elf file (i.e. code size + debugging symbols).</p>\n<p dir=\"auto\">Please note also that the time it takes the emulator to load your program depends on executable size. Stripping the .elf executable will unsurprisingly make it run faster. For this you can use <code>$RISCV/bin/riscv64-unknown-elf-strip</code> tool to reduce the size. This is good for accelerating your simulation but not for debugging. Keep in mind that the HTIF communication interface between our system and the emulator relies on <code>tohost</code> and <code>fromhost</code> symbols to communicate. This is why you may get the following error when you try to run a totally stripped executable on the emulator:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ./emulator-freechips.rocketchip.system-DefaultConfig totally-stripped-helloworld \nThis emulator compiled with JTAG Remote Bitbang client. To enable, use +jtag_rbb_enable=1.\nListening on port 46529\nwarning: tohost and fromhost symbols not in ELF; can't communicate with target\"><pre><code>$ ./emulator-freechips.rocketchip.system-DefaultConfig totally-stripped-helloworld \nThis emulator compiled with JTAG Remote Bitbang client. To enable, use +jtag_rbb_enable=1.\nListening on port 46529\nwarning: tohost and fromhost symbols not in ELF; can't communicate with target\n</code></pre></div>\n<p dir=\"auto\">To resolve this, we need to strip all the .elf executable but keep <code>tohost</code> and <code>fromhost</code> symbols using the following command:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$riscv64-unknown-elf-strip -s -Kfromhost -Ktohost helloworld\"><pre><code>$riscv64-unknown-elf-strip -s -Kfromhost -Ktohost helloworld\n</code></pre></div>\n<p dir=\"auto\">More details on the GNU strip tool can be found <a href=\"https://www.thegeekstuff.com/2012/09/strip-command-examples/\" rel=\"nofollow\">here</a>.</p>\n<p dir=\"auto\">The interest of this step is to make sure your program executes well. To perform debugging you need the original unstripped version, as explained in step 3.</p>\n<h3 dir=\"auto\"><a id=\"user-content-3-launch-the-emulator\" class=\"anchor\" aria-hidden=\"true\" href=\"#3-launch-the-emulator\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>3) Launch the emulator</h3>\n<p dir=\"auto\">First, do not forget to compile your program with <code>-g -Og</code> flags to provide debugging support as explained <a href=\"https://github.com/riscv/riscv-isa-sim#debugging-with-gdb\">here</a>.</p>\n<p dir=\"auto\">We can then launch the Remote Bit-Bang enabled emulator with:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"./emulator-freechips.rocketchip.system-DefaultConfigRBB +jtag_rbb_enable=1 --rbb-port=9823 helloworld\nThis emulator compiled with JTAG Remote Bitbang client. To enable, use +jtag_rbb_enable=1.\nListening on port 9823\nAttempting to accept client socket\"><pre><code>./emulator-freechips.rocketchip.system-DefaultConfigRBB +jtag_rbb_enable=1 --rbb-port=9823 helloworld\nThis emulator compiled with JTAG Remote Bitbang client. To enable, use +jtag_rbb_enable=1.\nListening on port 9823\nAttempting to accept client socket\n</code></pre></div>\n<p dir=\"auto\">You can also use the <code>emulator-freechips.rocketchip.system-DefaultConfigRBB-debug</code> version instead if you would like to generate VCD waveforms.</p>\n<p dir=\"auto\">Please note that if the argument <code>--rbb-port</code> is not passed, a default free TCP port on your computer will be chosen randomly.</p>\n<p dir=\"auto\">Please note also that when debugging with GDB, the .elf file is not actually loaded by the FESVR. In contrast with Spike, it must  be loaded from GDB as explained in step 5. So the <code>helloworld</code> argument may be replaced by any dummy name.</p>\n<h3 dir=\"auto\"><a id=\"user-content-4-launch-openocd\" class=\"anchor\" aria-hidden=\"true\" href=\"#4-launch-openocd\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>4) Launch OpenOCD</h3>\n<p dir=\"auto\">You will need a RISC-V Enabled OpenOCD binary. This is installed with rocket-tools in <code>$(RISCV)/bin/openocd</code>, or can be compiled manually from riscv-openocd. OpenOCD requires a configuration file, in which we define the RBB port we will use, which is in our case <code>9823</code>.</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ cat cemulator.cfg \ninterface remote_bitbang\nremote_bitbang_host localhost\nremote_bitbang_port 9823\n\nset _CHIPNAME riscv\njtag newtap $_CHIPNAME cpu -irlen 5\n\nset _TARGETNAME $_CHIPNAME.cpu\ntarget create $_TARGETNAME riscv -chain-position $_TARGETNAME\n\ngdb_report_data_abort enable\n\ninit\nhalt\"><pre><code>$ cat cemulator.cfg \ninterface remote_bitbang\nremote_bitbang_host localhost\nremote_bitbang_port 9823\n\nset _CHIPNAME riscv\njtag newtap $_CHIPNAME cpu -irlen 5\n\nset _TARGETNAME $_CHIPNAME.cpu\ntarget create $_TARGETNAME riscv -chain-position $_TARGETNAME\n\ngdb_report_data_abort enable\n\ninit\nhalt\n</code></pre></div>\n<p dir=\"auto\">Then we launch OpenOCD in another terminal using the command</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$(RISCV)/bin/openocd -f ./cemulator.cfg\nOpen On-Chip Debugger 0.10.0+dev-00112-g3c1c6e0 (2018-04-12-10:40)\nLicensed under GNU GPL v2\nFor bug reports, read\nhttp://openocd.org/doc/doxygen/bugs.html\nWarn : Adapter driver 'remote_bitbang' did not declare which transports it allows; assuming legacy JTAG-only\nInfo : only one transport option; autoselect 'jtag'\nInfo : Initializing remote_bitbang driver\nInfo : Connecting to localhost:9823\nInfo : remote_bitbang driver initialized\nInfo : This adapter doesn't support configurable speed\nInfo : JTAG tap: riscv.cpu tap/device found: 0x00000001 (mfg: 0x000 (&lt;invalid&gt;), part: 0x0000, ver: 0x0)\nInfo : datacount=2 progbufsize=16\nInfo : Disabling abstract command reads from CSRs.\nInfo : Disabling abstract command writes to CSRs.\nInfo : [0] Found 1 triggers\nInfo : Examined RISC-V core; found 1 harts\nInfo :  hart 0: XLEN=64, 1 triggers\nInfo : Listening on port 3333 for gdb connections\nInfo : Listening on port 6666 for tcl connections\nInfo : Listening on port 4444 for telnet connections\"><pre><code>$(RISCV)/bin/openocd -f ./cemulator.cfg\nOpen On-Chip Debugger 0.10.0+dev-00112-g3c1c6e0 (2018-04-12-10:40)\nLicensed under GNU GPL v2\nFor bug reports, read\nhttp://openocd.org/doc/doxygen/bugs.html\nWarn : Adapter driver 'remote_bitbang' did not declare which transports it allows; assuming legacy JTAG-only\nInfo : only one transport option; autoselect 'jtag'\nInfo : Initializing remote_bitbang driver\nInfo : Connecting to localhost:9823\nInfo : remote_bitbang driver initialized\nInfo : This adapter doesn't support configurable speed\nInfo : JTAG tap: riscv.cpu tap/device found: 0x00000001 (mfg: 0x000 (&lt;invalid&gt;), part: 0x0000, ver: 0x0)\nInfo : datacount=2 progbufsize=16\nInfo : Disabling abstract command reads from CSRs.\nInfo : Disabling abstract command writes to CSRs.\nInfo : [0] Found 1 triggers\nInfo : Examined RISC-V core; found 1 harts\nInfo :  hart 0: XLEN=64, 1 triggers\nInfo : Listening on port 3333 for gdb connections\nInfo : Listening on port 6666 for tcl connections\nInfo : Listening on port 4444 for telnet connections\n</code></pre></div>\n<p dir=\"auto\">A <code>-d</code> flag can be added to the command to show further debug information.</p>\n<h3 dir=\"auto\"><a id=\"user-content-5-launch-gdb\" class=\"anchor\" aria-hidden=\"true\" href=\"#5-launch-gdb\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>5) Launch GDB</h3>\n<p dir=\"auto\">In another terminal launch GDB and point to the elf file you would like to load then run it with the debugger (in this example, <code>helloworld</code>):</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ riscv64-unknown-elf-gdb helloworld\nGNU gdb (GDB) 8.0.50.20170724-git\nCopyright (C) 2017 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.  Type &quot;show copying&quot;\nand &quot;show warranty&quot; for details.\nThis GDB was configured as &quot;--host=x86_64-pc-linux-gnu --target=riscv64-unknown-elf&quot;.\nType &quot;show configuration&quot; for configuration details.\nFor bug reporting instructions, please see:\n&lt;http://www.gnu.org/software/gdb/bugs/&gt;.\nFind the GDB manual and other documentation resources online at:\n&lt;http://www.gnu.org/software/gdb/documentation/&gt;.\nFor help, type &quot;help&quot;.\nType &quot;apropos word&quot; to search for commands related to &quot;word&quot;...\nReading symbols from ./proj1.out...done.\n(gdb)\"><pre><code>$ riscv64-unknown-elf-gdb helloworld\nGNU gdb (GDB) 8.0.50.20170724-git\nCopyright (C) 2017 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.  Type \"show copying\"\nand \"show warranty\" for details.\nThis GDB was configured as \"--host=x86_64-pc-linux-gnu --target=riscv64-unknown-elf\".\nType \"show configuration\" for configuration details.\nFor bug reporting instructions, please see:\n&lt;http://www.gnu.org/software/gdb/bugs/&gt;.\nFind the GDB manual and other documentation resources online at:\n&lt;http://www.gnu.org/software/gdb/documentation/&gt;.\nFor help, type \"help\".\nType \"apropos word\" to search for commands related to \"word\"...\nReading symbols from ./proj1.out...done.\n(gdb)\n</code></pre></div>\n<p dir=\"auto\">Compared to Spike, the C Emulator is very slow, so several problems may be encountered due to timeouts between issuing commands and response from the emulator. To solve this problem, we increase the timeout with the GDB <code>set remotetimeout</code> command.</p>\n<p dir=\"auto\">After that we load our program by performing a <code>load</code> command. This automatically sets the <code>$PC</code> to the <code>_start</code> symbol in our .elf file.</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"(gdb) set remotetimeout 2000\n(gdb) target remote localhost:3333\nRemote debugging using localhost:3333\n0x0000000000010050 in ?? ()\n(gdb) load\nLoading section .text.init, size 0x2cc lma 0x80000000\nLoading section .tohost, size 0x48 lma 0x80001000\nLoading section .text, size 0x98c lma 0x80001048\nLoading section .rodata, size 0x158 lma 0x800019d4\nLoading section .rodata.str1.8, size 0x20 lma 0x80001b30\nLoading section .data, size 0x22 lma 0x80001b50\nLoading section .sdata, size 0x4 lma 0x80001b74\nStart address 0x80000000, load size 3646\nTransfer rate: 40 bytes/sec, 520 bytes/write.\n(gdb) \"><pre><code>(gdb) set remotetimeout 2000\n(gdb) target remote localhost:3333\nRemote debugging using localhost:3333\n0x0000000000010050 in ?? ()\n(gdb) load\nLoading section .text.init, size 0x2cc lma 0x80000000\nLoading section .tohost, size 0x48 lma 0x80001000\nLoading section .text, size 0x98c lma 0x80001048\nLoading section .rodata, size 0x158 lma 0x800019d4\nLoading section .rodata.str1.8, size 0x20 lma 0x80001b30\nLoading section .data, size 0x22 lma 0x80001b50\nLoading section .sdata, size 0x4 lma 0x80001b74\nStart address 0x80000000, load size 3646\nTransfer rate: 40 bytes/sec, 520 bytes/write.\n(gdb) \n</code></pre></div>\n<p dir=\"auto\">Now we can proceed as with Spike, debugging works in a similar way:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"(gdb) print wait\n$1 = 1\n(gdb) print wait=0\n$2 = 0\n(gdb) print text\n$3 = &quot;Vafgehpgvba frgf jnag gb or serr!&quot;\n(gdb) c\nContinuing.\n\n^C\nProgram received signal SIGINT, Interrupt.\nmain (argc=0, argv=&lt;optimized out&gt;) at src/main.c:33\n33\t    while (!wait)\n(gdb) print wait\n$4 = 0\n(gdb) print text\n$5 = &quot;Instruction sets want to be free!&quot;\n(gdb)\"><pre><code>(gdb) print wait\n$1 = 1\n(gdb) print wait=0\n$2 = 0\n(gdb) print text\n$3 = \"Vafgehpgvba frgf jnag gb or serr!\"\n(gdb) c\nContinuing.\n\n^C\nProgram received signal SIGINT, Interrupt.\nmain (argc=0, argv=&lt;optimized out&gt;) at src/main.c:33\n33\t    while (!wait)\n(gdb) print wait\n$4 = 0\n(gdb) print text\n$5 = \"Instruction sets want to be free!\"\n(gdb)\n</code></pre></div>\n<p dir=\"auto\">Further information about GDB debugging is available <a href=\"https://sourceware.org/gdb/onlinedocs/gdb/\" rel=\"nofollow\">here</a> and <a href=\"https://sourceware.org/gdb/onlinedocs/gdb/Remote-Debugging.html#Remote-Debugging\" rel=\"nofollow\">here</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content--building-rocket-chip-with-an-ide\" class=\"anchor\" aria-hidden=\"true\" href=\"#-building-rocket-chip-with-an-ide\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a name=\"user-content-ide\"></a> Building Rocket Chip with an IDE</h2>\n<p dir=\"auto\">The Rocket Chip Scala build uses the standard Scala build tool SBT.\nIDEs like <a href=\"https://www.jetbrains.com/idea/\" rel=\"nofollow\">IntelliJ</a> and <a href=\"https://code.visualstudio.com/\" rel=\"nofollow\">VSCode</a>\nare popular in the Scala community and work with Rocket Chip.\nTo use one of these IDEs, there is one minor peculiarity of the Rocket Chip build that must be addressed.</p>\n<p dir=\"auto\">If the file <code>.sbtopts</code> exists in the root of the repository, you need to expand the <code>$PWD</code> variable inside of the file to an absolute path pointing to the location of your Rocket Chip clone.\nYou can do this in <code>bash</code> with:</p>\n<div class=\"highlight highlight-source-shell position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"sed -i &quot;s|\\$PWD|$PWD|&quot; .sbtopts\"><pre>sed -i <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>s|<span class=\"pl-cce\">\\$</span>PWD|<span class=\"pl-smi\">$PWD</span>|<span class=\"pl-pds\">\"</span></span> .sbtopts</pre></div>\n<p dir=\"auto\"><em>If the file <code>.sbtopts</code> does not exist, you do not need to do anything special.</em></p>\n<p dir=\"auto\">If <code>.sbtopts</code> does not exist or if you have expanded the <code>$PWD</code> variable inside of it, you can import Rocket Chip into your IDE of choice.</p>\n<p dir=\"auto\">For more information on what <code>.sbtopts</code> is for (when it exists), see <a href=\"CONTRIBUTING.md#bumping-chisel\">CONTRIBUTING.md</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content--contributors\" class=\"anchor\" aria-hidden=\"true\" href=\"#-contributors\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a name=\"user-content-contributors\"></a> Contributors</h2>\n<p dir=\"auto\">Contributing guidelines can be found in <a href=\"CONTRIBUTING.md\">CONTRIBUTING.md</a>.</p>\n<p dir=\"auto\">A list of contributors can be found <a href=\"https://github.com/chipsalliance/rocket-chip/graphs/contributors\">here</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content--attribution\" class=\"anchor\" aria-hidden=\"true\" href=\"#-attribution\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a name=\"user-content-attribution\"></a> Attribution</h2>\n<p dir=\"auto\">If used for research, please cite Rocket Chip by the technical report:</p>\n<p dir=\"auto\">Krste Asanović, Rimas Avižienis, Jonathan Bachrach, Scott Beamer, David Biancolin, Christopher Celio, Henry Cook, Palmer Dabbelt, John Hauser, Adam Izraelevitz, Sagar Karandikar, Benjamin Keller, Donggyu Kim, John Koenig, Yunsup Lee, Eric Love, Martin Maas, Albert Magyar, Howard Mao, Miquel Moreto, Albert Ou, David Patterson, Brian Richards, Colin Schmidt, Stephen Twigg, Huy Vo, and Andrew Waterman, <em><a href=\"http://www.eecs.berkeley.edu/Pubs/TechRpts/2016/EECS-2016-17.html\" rel=\"nofollow\">The Rocket Chip Generator</a></em>, Technical Report UCB/EECS-2016-17, EECS Department, University of California, Berkeley, April 2016</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "terpstra",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1101706?v=4",
+        "url" : "https://api.github.com/users/terpstra",
+        "contributions" : 1459
+      },
+      {
+        "login" : "aswaterman",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1031106?v=4",
+        "url" : "https://api.github.com/users/aswaterman",
+        "contributions" : 1301
+      },
+      {
+        "login" : "hcook",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/461938?v=4",
+        "url" : "https://api.github.com/users/hcook",
+        "contributions" : 1196
+      },
+      {
+        "login" : "zhemao",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/433799?v=4",
+        "url" : "https://api.github.com/users/zhemao",
+        "contributions" : 678
+      },
+      {
+        "login" : "mwachs5",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17858596?v=4",
+        "url" : "https://api.github.com/users/mwachs5",
+        "contributions" : 567
+      },
+      {
+        "login" : "yunsup",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/703957?v=4",
+        "url" : "https://api.github.com/users/yunsup",
+        "contributions" : 387
+      },
+      {
+        "login" : "albertchen-sifive",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/40366337?v=4",
+        "url" : "https://api.github.com/users/albertchen-sifive",
+        "contributions" : 125
+      },
+      {
+        "login" : "brrmorre",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17229165?v=4",
+        "url" : "https://api.github.com/users/brrmorre",
+        "contributions" : 110
+      },
+      {
+        "login" : "ingallsj",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43973001?v=4",
+        "url" : "https://api.github.com/users/ingallsj",
+        "contributions" : 102
+      },
+      {
+        "login" : "richardxia",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1002748?v=4",
+        "url" : "https://api.github.com/users/richardxia",
+        "contributions" : 95
+      },
+      {
+        "login" : "colinschmidt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5083958?v=4",
+        "url" : "https://api.github.com/users/colinschmidt",
+        "contributions" : 88
+      },
+      {
+        "login" : "ernie-sifive",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43148441?v=4",
+        "url" : "https://api.github.com/users/ernie-sifive",
+        "contributions" : 86
+      },
+      {
+        "login" : "jackkoenig",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8584418?v=4",
+        "url" : "https://api.github.com/users/jackkoenig",
+        "contributions" : 83
+      },
+      {
+        "login" : "palmer-dabbelt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1383006?v=4",
+        "url" : "https://api.github.com/users/palmer-dabbelt",
+        "contributions" : 81
+      },
+      {
+        "login" : "rmac-sifive",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/36863176?v=4",
+        "url" : "https://api.github.com/users/rmac-sifive",
+        "contributions" : 75
+      },
+      {
+        "login" : "rimasaviz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/899069?v=4",
+        "url" : "https://api.github.com/users/rimasaviz",
+        "contributions" : 66
+      },
+      {
+        "login" : "derekpappas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/35471038?v=4",
+        "url" : "https://api.github.com/users/derekpappas",
+        "contributions" : 66
+      },
+      {
+        "login" : "ccelio",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/788854?v=4",
+        "url" : "https://api.github.com/users/ccelio",
+        "contributions" : 56
+      },
+      {
+        "login" : "huytbvo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/704929?v=4",
+        "url" : "https://api.github.com/users/huytbvo",
+        "contributions" : 54
+      },
+      {
+        "login" : "sdtwigg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1015800?v=4",
+        "url" : "https://api.github.com/users/sdtwigg",
+        "contributions" : 53
+      },
+      {
+        "login" : "sequencer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5791019?v=4",
+        "url" : "https://api.github.com/users/sequencer",
+        "contributions" : 51
+      },
+      {
+        "login" : "sbeamer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/112733?v=4",
+        "url" : "https://api.github.com/users/sbeamer",
+        "contributions" : 38
+      },
+      {
+        "login" : "seldridge",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1018530?v=4",
+        "url" : "https://api.github.com/users/seldridge",
+        "contributions" : 35
+      },
+      {
+        "login" : "srivatsa611y",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/36861801?v=4",
+        "url" : "https://api.github.com/users/srivatsa611y",
+        "contributions" : 29
+      },
+      {
+        "login" : "ucbjrl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6845888?v=4",
+        "url" : "https://api.github.com/users/ucbjrl",
+        "contributions" : 28
+      },
+      {
+        "login" : "davidbiancolin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6775168?v=4",
+        "url" : "https://api.github.com/users/davidbiancolin",
+        "contributions" : 26
+      },
+      {
+        "login" : "jchang0",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/20799820?v=4",
+        "url" : "https://api.github.com/users/jchang0",
+        "contributions" : 23
+      },
+      {
+        "login" : "scottj97",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/86350?v=4",
+        "url" : "https://api.github.com/users/scottj97",
+        "contributions" : 21
+      },
+      {
+        "login" : "mhtwn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/38992045?v=4",
+        "url" : "https://api.github.com/users/mhtwn",
+        "contributions" : 21
+      },
+      {
+        "login" : "solomatnikov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16438432?v=4",
+        "url" : "https://api.github.com/users/solomatnikov",
+        "contributions" : 17
+      },
+      {
+        "login" : "debs-sifive",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/39495778?v=4",
+        "url" : "https://api.github.com/users/debs-sifive",
+        "contributions" : 13
+      },
+      {
+        "login" : "mn416",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8067462?v=4",
+        "url" : "https://api.github.com/users/mn416",
+        "contributions" : 13
+      },
+      {
+        "login" : "jwright6323",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/463543?v=4",
+        "url" : "https://api.github.com/users/jwright6323",
+        "contributions" : 13
+      },
+      {
+        "login" : "ben-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2288633?v=4",
+        "url" : "https://api.github.com/users/ben-k",
+        "contributions" : 11
+      },
+      {
+        "login" : "p12nGH",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/82848656?v=4",
+        "url" : "https://api.github.com/users/p12nGH",
+        "contributions" : 11
+      },
+      {
+        "login" : "mikeyangsiv",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/29076296?v=4",
+        "url" : "https://api.github.com/users/mikeyangsiv",
+        "contributions" : 11
+      },
+      {
+        "login" : "jerryz123",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14086183?v=4",
+        "url" : "https://api.github.com/users/jerryz123",
+        "contributions" : 11
+      },
+      {
+        "login" : "a0u",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1848449?v=4",
+        "url" : "https://api.github.com/users/a0u",
+        "contributions" : 11
+      },
+      {
+        "login" : "p12nGH-zz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1516471?v=4",
+        "url" : "https://api.github.com/users/p12nGH-zz",
+        "contributions" : 10
+      },
+      {
+        "login" : "azidar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5377148?v=4",
+        "url" : "https://api.github.com/users/azidar",
+        "contributions" : 10
+      },
+      {
+        "login" : "SandeepRajendran",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/41020830?v=4",
+        "url" : "https://api.github.com/users/SandeepRajendran",
+        "contributions" : 10
+      },
+      {
+        "login" : "edcote",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/26354667?v=4",
+        "url" : "https://api.github.com/users/edcote",
+        "contributions" : 8
+      },
+      {
+        "login" : "grebe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1581988?v=4",
+        "url" : "https://api.github.com/users/grebe",
+        "contributions" : 8
+      },
+      {
+        "login" : "khannaudit",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/40774742?v=4",
+        "url" : "https://api.github.com/users/khannaudit",
+        "contributions" : 8
+      },
+      {
+        "login" : "erikdanie",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43764516?v=4",
+        "url" : "https://api.github.com/users/erikdanie",
+        "contributions" : 7
+      },
+      {
+        "login" : "jsmithsf",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/38439792?v=4",
+        "url" : "https://api.github.com/users/jsmithsf",
+        "contributions" : 7
+      },
+      {
+        "login" : "asmitde",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23269916?v=4",
+        "url" : "https://api.github.com/users/asmitde",
+        "contributions" : 6
+      },
+      {
+        "login" : "donggyukim",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5387248?v=4",
+        "url" : "https://api.github.com/users/donggyukim",
+        "contributions" : 6
+      },
+      {
+        "login" : "ss2783",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6285608?v=4",
+        "url" : "https://api.github.com/users/ss2783",
+        "contributions" : 6
+      },
+      {
+        "login" : "wsong83",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/821840?v=4",
+        "url" : "https://api.github.com/users/wsong83",
+        "contributions" : 6
+      },
+      {
+        "login" : "sagark",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/925250?v=4",
+        "url" : "https://api.github.com/users/sagark",
+        "contributions" : 5
+      },
+      {
+        "login" : "albert-magyar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1076244?v=4",
+        "url" : "https://api.github.com/users/albert-magyar",
+        "contributions" : 5
+      },
+      {
+        "login" : "sashimi-yzh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19884013?v=4",
+        "url" : "https://api.github.com/users/sashimi-yzh",
+        "contributions" : 5
+      },
+      {
+        "login" : "abhinay-kayastha",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/59576105?v=4",
+        "url" : "https://api.github.com/users/abhinay-kayastha",
+        "contributions" : 5
+      },
+      {
+        "login" : "john-sifive",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/41025044?v=4",
+        "url" : "https://api.github.com/users/john-sifive",
+        "contributions" : 4
+      },
+      {
+        "login" : "mmjconolly",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/654701?v=4",
+        "url" : "https://api.github.com/users/mmjconolly",
+        "contributions" : 4
+      },
+      {
+        "login" : "qmn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1048881?v=4",
+        "url" : "https://api.github.com/users/qmn",
+        "contributions" : 4
+      },
+      {
+        "login" : "edwardcwang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10752510?v=4",
+        "url" : "https://api.github.com/users/edwardcwang",
+        "contributions" : 4
+      },
+      {
+        "login" : "leikou01",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/56602048?v=4",
+        "url" : "https://api.github.com/users/leikou01",
+        "contributions" : 4
+      },
+      {
+        "login" : "henrystyles",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19537227?v=4",
+        "url" : "https://api.github.com/users/henrystyles",
+        "contributions" : 3
+      },
+      {
+        "login" : "colin4124",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1255176?v=4",
+        "url" : "https://api.github.com/users/colin4124",
+        "contributions" : 3
+      },
+      {
+        "login" : "mmoreto",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/931351?v=4",
+        "url" : "https://api.github.com/users/mmoreto",
+        "contributions" : 3
+      },
+      {
+        "login" : "timsnyder-siv",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/59622590?v=4",
+        "url" : "https://api.github.com/users/timsnyder-siv",
+        "contributions" : 3
+      },
+      {
+        "login" : "gsomlo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/636644?v=4",
+        "url" : "https://api.github.com/users/gsomlo",
+        "contributions" : 3
+      },
+      {
+        "login" : "pentin-as",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30556064?v=4",
+        "url" : "https://api.github.com/users/pentin-as",
+        "contributions" : 3
+      },
+      {
+        "login" : "ahuntington",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/27364179?v=4",
+        "url" : "https://api.github.com/users/ahuntington",
+        "contributions" : 2
+      },
+      {
+        "login" : "mbs0221",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12655889?v=4",
+        "url" : "https://api.github.com/users/mbs0221",
+        "contributions" : 2
+      },
+      {
+        "login" : "mehnadnerd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7015047?v=4",
+        "url" : "https://api.github.com/users/mehnadnerd",
+        "contributions" : 2
+      },
+      {
+        "login" : "BrianGraysonSiV",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/59584749?v=4",
+        "url" : "https://api.github.com/users/BrianGraysonSiV",
+        "contributions" : 2
+      },
+      {
+        "login" : "felixonmars",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1006477?v=4",
+        "url" : "https://api.github.com/users/felixonmars",
+        "contributions" : 2
+      },
+      {
+        "login" : "jimmysitu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6672196?v=4",
+        "url" : "https://api.github.com/users/jimmysitu",
+        "contributions" : 2
+      },
+      {
+        "login" : "kenmcmil",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8010069?v=4",
+        "url" : "https://api.github.com/users/kenmcmil",
+        "contributions" : 2
+      },
+      {
+        "login" : "kOstby",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/46538531?v=4",
+        "url" : "https://api.github.com/users/kOstby",
+        "contributions" : 2
+      },
+      {
+        "login" : "vmurali",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/236101?v=4",
+        "url" : "https://api.github.com/users/vmurali",
+        "contributions" : 2
+      },
+      {
+        "login" : "noureddine-as",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23646052?v=4",
+        "url" : "https://api.github.com/users/noureddine-as",
+        "contributions" : 2
+      },
+      {
+        "login" : "pbing",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2551038?v=4",
+        "url" : "https://api.github.com/users/pbing",
+        "contributions" : 2
+      },
+      {
+        "login" : "lihsinyi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8596290?v=4",
+        "url" : "https://api.github.com/users/lihsinyi",
+        "contributions" : 2
+      },
+      {
+        "login" : "jamesdunn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2192179?v=4",
+        "url" : "https://api.github.com/users/jamesdunn",
+        "contributions" : 2
+      },
+      {
+        "login" : "ncppd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/21311820?v=4",
+        "url" : "https://api.github.com/users/ncppd",
+        "contributions" : 2
+      },
+      {
+        "login" : "drom",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/511872?v=4",
+        "url" : "https://api.github.com/users/drom",
+        "contributions" : 1
+      },
+      {
+        "login" : "amsharifian",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4267599?v=4",
+        "url" : "https://api.github.com/users/amsharifian",
+        "contributions" : 1
+      },
+      {
+        "login" : "dgupta-oski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/40867357?v=4",
+        "url" : "https://api.github.com/users/dgupta-oski",
+        "contributions" : 1
+      },
+      {
+        "login" : "ericlove",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1012997?v=4",
+        "url" : "https://api.github.com/users/ericlove",
+        "contributions" : 1
+      },
+      {
+        "login" : "HaFred",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13991298?v=4",
+        "url" : "https://api.github.com/users/HaFred",
+        "contributions" : 1
+      },
+      {
+        "login" : "GuzTech",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7679849?v=4",
+        "url" : "https://api.github.com/users/GuzTech",
+        "contributions" : 1
+      },
+      {
+        "login" : "iori-yja",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/514632?v=4",
+        "url" : "https://api.github.com/users/iori-yja",
+        "contributions" : 1
+      },
+      {
+        "login" : "jerryrzhao",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/50339052?v=4",
+        "url" : "https://api.github.com/users/jerryrzhao",
+        "contributions" : 1
+      },
+      {
+        "login" : "jieltan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10575494?v=4",
+        "url" : "https://api.github.com/users/jieltan",
+        "contributions" : 1
+      },
+      {
+        "login" : "jdanford",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5767112?v=4",
+        "url" : "https://api.github.com/users/jdanford",
+        "contributions" : 1
+      },
+      {
+        "login" : "kammoh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1421056?v=4",
+        "url" : "https://api.github.com/users/kammoh",
+        "contributions" : 1
+      },
+      {
+        "login" : "kiratsao",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/59819053?v=4",
+        "url" : "https://api.github.com/users/kiratsao",
+        "contributions" : 1
+      },
+      {
+        "login" : "lunlisifive",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/57367690?v=4",
+        "url" : "https://api.github.com/users/lunlisifive",
+        "contributions" : 1
+      },
+      {
+        "login" : "MathewTG",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/31823896?v=4",
+        "url" : "https://api.github.com/users/MathewTG",
+        "contributions" : 1
+      },
+      {
+        "login" : "minux",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/135652?v=4",
+        "url" : "https://api.github.com/users/minux",
+        "contributions" : 1
+      },
+      {
+        "login" : "wasserfuhr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1935518?v=4",
+        "url" : "https://api.github.com/users/wasserfuhr",
+        "contributions" : 1
+      },
+      {
+        "login" : "samh-sifive",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/40582525?v=4",
+        "url" : "https://api.github.com/users/samh-sifive",
+        "contributions" : 1
+      },
+      {
+        "login" : "ShuyunJia",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/25626486?v=4",
+        "url" : "https://api.github.com/users/ShuyunJia",
+        "contributions" : 1
+      },
+      {
+        "login" : "Steinegger",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/51908919?v=4",
+        "url" : "https://api.github.com/users/Steinegger",
+        "contributions" : 1
+      },
+      {
+        "login" : "surajvellengar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/59583245?v=4",
+        "url" : "https://api.github.com/users/surajvellengar",
+        "contributions" : 1
+      },
+      {
+        "login" : "tswanson-cs",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9701912?v=4",
+        "url" : "https://api.github.com/users/tswanson-cs",
+        "contributions" : 1
+      },
+      {
+        "login" : "timsifive",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16123885?v=4",
+        "url" : "https://api.github.com/users/timsifive",
+        "contributions" : 1
+      },
+      {
+        "login" : "bipult",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/31016881?v=4",
+        "url" : "https://api.github.com/users/bipult",
+        "contributions" : 1
+      },
+      {
+        "login" : "dkohlbre",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1857678?v=4",
+        "url" : "https://api.github.com/users/dkohlbre",
+        "contributions" : 1
+      },
+      {
+        "login" : "ducky64",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1069863?v=4",
+        "url" : "https://api.github.com/users/ducky64",
+        "contributions" : 1
+      },
+      {
+        "login" : "heinzbeinz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7147334?v=4",
+        "url" : "https://api.github.com/users/heinzbeinz",
+        "contributions" : 1
+      },
+      {
+        "login" : "jhjung81",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/48940114?v=4",
+        "url" : "https://api.github.com/users/jhjung81",
+        "contributions" : 1
+      },
+      {
+        "login" : "codelec",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8074972?v=4",
+        "url" : "https://api.github.com/users/codelec",
+        "contributions" : 1
+      },
+      {
+        "login" : "roman3017",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1292891?v=4",
+        "url" : "https://api.github.com/users/roman3017",
+        "contributions" : 1
+      },
+      {
+        "login" : "KireinaHoro",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7804730?v=4",
+        "url" : "https://api.github.com/users/KireinaHoro",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 7319,
+    "topics" : [
+      "chip-generator",
+      "rocket-chip",
+      "rtl",
+      "scala",
+      "chisel",
+      "riscv"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 2929,
+        "title" : "How to add an interface for RoCC that can read a vector of data from L1DCache?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2929"
+      },
+      {
+        "number" : 2922,
+        "title" : "VSIM MAKE ERRO",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2922"
+      },
+      {
+        "number" : 2918,
+        "title" : "PLIC IO another module connection",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2918"
+      },
+      {
+        "number" : 2917,
+        "title" : "when  'git submodule update --init --recursive', Cloning into '/xxx/xxx/rocket-tools/fsf-binutils-gdb'... is   failed",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2917"
+      },
+      {
+        "number" : 2915,
+        "title" : "how to Instantiate the Dcache ? I don’t know which implicit parameter should be passed to the Dcache module",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2915"
+      },
+      {
+        "number" : 2912,
+        "title" : "scanInsns confusion in FrontEnd module",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2912"
+      },
+      {
+        "number" : 2911,
+        "title" : "Exception cause differs between Rocket and Spike",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2911"
+      },
+      {
+        "number" : 2909,
+        "title" : "[Bug Report] Incorrect behavior of TileLinktoAHB module",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2909"
+      },
+      {
+        "number" : 2908,
+        "title" : "rocker-tool can",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2908"
+      },
+      {
+        "number" : 2903,
+        "title" : "AXI4Buffer R channel output looks wrong. `auto_in` has `r.last` go high twice when `auto_out` only has `r.last` high continuously",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2903"
+      },
+      {
+        "number" : 2902,
+        "title" : "Why does CLINT's timecmp have no reset?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2902"
+      },
+      {
+        "number" : 2899,
+        "title" : "How to use different coherence protocols for L1 data caches?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2899"
+      },
+      {
+        "number" : 2897,
+        "title" : "PC stucks at 1004c WFI",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2897"
+      },
+      {
+        "number" : 2896,
+        "title" : "Looking for RTL files",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2896"
+      },
+      {
+        "number" : 2892,
+        "title" : "why ALU result have 2 paths to write back to rf(RegFile)",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2892"
+      },
+      {
+        "number" : 2885,
+        "title" : "RoCC accelerator TileLink manager node interface",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2885"
+      },
+      {
+        "number" : 2884,
+        "title" : "[chisel-3.5] new chisel3.cover clashes with freechips.rocketchip.util.property.cover",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2884"
+      },
+      {
+        "number" : 2880,
+        "title" : "How can I change the MMIO port from AXI4 to AHB?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2880"
+      },
+      {
+        "number" : 2878,
+        "title" : "The l2miss not connect any pin how to implement PTW",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2878"
+      },
+      {
+        "number" : 2877,
+        "title" : "BundleMap: Connect clients with different user field to one crossbar",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2877"
+      },
+      {
+        "number" : 2874,
+        "title" : "where is the Constraint file?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2874"
+      },
+      {
+        "number" : 2867,
+        "title" : "What files should I use in FPGA implemantation?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2867"
+      },
+      {
+        "number" : 2865,
+        "title" : "How about maintain a build.wake?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2865"
+      },
+      {
+        "number" : 2862,
+        "title" : "TLMonitor bug report",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2862"
+      },
+      {
+        "number" : 2861,
+        "title" : "physical width of tilelink bus",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2861"
+      },
+      {
+        "number" : 2860,
+        "title" : "rocket chip TinyConfig 32 bit emulator execution failure",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2860"
+      },
+      {
+        "number" : 2859,
+        "title" : "rocket-chip 32 bit",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2859"
+      },
+      {
+        "number" : 2858,
+        "title" : "rocket-chip coremark",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2858"
+      },
+      {
+        "number" : 2854,
+        "title" : "TLArbiter lowestIndexFirst bug report",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2854"
+      },
+      {
+        "number" : 2853,
+        "title" : "how to run dhrystone benchmark using spike?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2853"
+      },
+      {
+        "number" : 2850,
+        "title" : "AXItoTL and TLtoAXI module don’t map the bce channels of TL",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2850"
+      },
+      {
+        "number" : 2849,
+        "title" : "Convert the tilelink-to-AXI to verilog ",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2849"
+      },
+      {
+        "number" : 2848,
+        "title" : "$ ./build-rv32ima.sh  error",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2848"
+      },
+      {
+        "number" : 2843,
+        "title" : "Add Protobuf output from Chisel as a CLI option",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2843"
+      },
+      {
+        "number" : 2838,
+        "title" : "Is there any documents about dcache code?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2838"
+      },
+      {
+        "number" : 2835,
+        "title" : "Is the Wire wrapper necessary?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2835"
+      },
+      {
+        "number" : 2831,
+        "title" : "Setting mulDiv = None still instantiates a multiplier-divider",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2831"
+      },
+      {
+        "number" : 2830,
+        "title" : "Difference b/w D$ and DTIM",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2830"
+      },
+      {
+        "number" : 2829,
+        "title" : "nTLBBasePageSector variable mean with respect to TLB",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2829"
+      },
+      {
+        "number" : 2828,
+        "title" : "why findFast is fast?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2828"
+      },
+      {
+        "number" : 2814,
+        "title" : "question about the INPUT and OUTPUT direction of bundle in inwardnode and outwardnode",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2814"
+      },
+      {
+        "number" : 2813,
+        "title" : "redundunt require",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2813"
+      },
+      {
+        "number" : 2812,
+        "title" : "TLBs present even if useVM=false",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2812"
+      },
+      {
+        "number" : 2807,
+        "title" : "How are parent and child lazymodule's clock and reset are connected?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2807"
+      },
+      {
+        "number" : 2806,
+        "title" : "Question about annotation and about flip Data in different functions",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2806"
+      },
+      {
+        "number" : 2803,
+        "title" : "Does this line of code make any sense?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2803"
+      },
+      {
+        "number" : 2796,
+        "title" : "Possible comment error of MaskGen",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2796"
+      },
+      {
+        "number" : 2794,
+        "title" : "How to add ECC to I/D",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2794"
+      },
+      {
+        "number" : 2793,
+        "title" : "Problem in generating make files",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2793"
+      },
+      {
+        "number" : 2792,
+        "title" : "Problem when writing software for Blackbox Rocc example",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2792"
+      },
+      {
+        "number" : 2791,
+        "title" : "FPGA",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2791"
+      },
+      {
+        "number" : 2790,
+        "title" : "vsim",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2790"
+      },
+      {
+        "number" : 2789,
+        "title" : "Unable to build emulator",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2789"
+      },
+      {
+        "number" : 2786,
+        "title" : "Not able to install riscv toolchain properly || facing problem in installing openocd ",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2786"
+      },
+      {
+        "number" : 2785,
+        "title" : "What is the purpose of mixO and mixI",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2785"
+      },
+      {
+        "number" : 2783,
+        "title" : "Possible comment errors（confusion at least)",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2783"
+      },
+      {
+        "number" : 2781,
+        "title" : "fp load may lost, while clockGate  enabled",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2781"
+      },
+      {
+        "number" : 2778,
+        "title" : "Disabling Instruction and Data Cache",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2778"
+      },
+      {
+        "number" : 2777,
+        "title" : "ubuntu build error~~",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2777"
+      },
+      {
+        "number" : 2776,
+        "title" : "How to make PC never wait for ICache",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2776"
+      },
+      {
+        "number" : 2775,
+        "title" : "Does Rocket supports superscalar?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2775"
+      },
+      {
+        "number" : 2774,
+        "title" : "what does the maxXferBytes field mean?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2774"
+      },
+      {
+        "number" : 2769,
+        "title" : "gpio connection with Rocket Chip",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2769"
+      },
+      {
+        "number" : 2768,
+        "title" : " How can I shared a FPU between two Rocket cores？",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2768"
+      },
+      {
+        "number" : 2765,
+        "title" : "AXI4ToTL doesn't handle AXI4 ordering model",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2765"
+      },
+      {
+        "number" : 2760,
+        "title" : "APB Initiator with AHB Target through TLXbar. Edges seem to only support PutPartial(APB) PutFull(AHB)",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2760"
+      },
+      {
+        "number" : 2759,
+        "title" : "nMatchBits and nPages in BTB",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2759"
+      },
+      {
+        "number" : 2756,
+        "title" : "DebugAPB Generation Error",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2756"
+      },
+      {
+        "number" : 2751,
+        "title" : "A possible comment error(typo)",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2751"
+      },
+      {
+        "number" : 2750,
+        "title" : "examples of bad comments",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2750"
+      },
+      {
+        "number" : 2749,
+        "title" : "Potential comment error ",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2749"
+      },
+      {
+        "number" : 2746,
+        "title" : "what does the edgeAritySelect method return?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2746"
+      },
+      {
+        "number" : 2745,
+        "title" : "Internet Access with Rocket Chip",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2745"
+      },
+      {
+        "number" : 2744,
+        "title" : "Possible comment error in MixedNode class (Node.scala)",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2744"
+      },
+      {
+        "number" : 2742,
+        "title" : "the flexes field of BaseNode",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2742"
+      },
+      {
+        "number" : 2740,
+        "title" : "why sinkCard is caculated this way?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2740"
+      },
+      {
+        "number" : 2738,
+        "title" : "can anyone clarify the parameter of this method, didnt find any in comment",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2738"
+      },
+      {
+        "number" : 2737,
+        "title" : "Why the bind method has a new type parameter EY, not just EI?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2737"
+      },
+      {
+        "number" : 2736,
+        "title" : "InwardNode(Line102) and OutwardNode(Line114) should be exchanged in the ascii art???",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2736"
+      },
+      {
+        "number" : 2733,
+        "title" : "Mem-AXI malfunctions",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2733"
+      },
+      {
+        "number" : 2728,
+        "title" : "System hangs after AXI4-Lite register read",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2728"
+      },
+      {
+        "number" : 2717,
+        "title" : "class hierachy confusion of the rocket chip generator",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2717"
+      },
+      {
+        "number" : 2672,
+        "title" : "ebreak instruction retires",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2672"
+      },
+      {
+        "number" : 2660,
+        "title" : "a problem about vsim/ command  make",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2660"
+      },
+      {
+        "number" : 2616,
+        "title" : "Better leftOr",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2616"
+      },
+      {
+        "number" : 2607,
+        "title" : "how to fix problem of connection error between pc and debugger",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2607"
+      },
+      {
+        "number" : 2599,
+        "title" : "DefaultFPGAConfig part not found",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2599"
+      },
+      {
+        "number" : 2583,
+        "title" : "Build the VCS simulator error",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2583"
+      },
+      {
+        "number" : 2556,
+        "title" : "rv32imafdc and NonBlockingCache",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2556"
+      },
+      {
+        "number" : 2549,
+        "title" : "SLOI, SROI also need *_RV32 version; how REV, REV8, ORC_B instructions are related to b-ext.",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2549"
+      },
+      {
+        "number" : 2542,
+        "title" : "DMI hawindow address in dual core configuration",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2542"
+      },
+      {
+        "number" : 2522,
+        "title" : "Fatal when run a case in VSIM",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2522"
+      },
+      {
+        "number" : 2513,
+        "title" : "What are registers in System Control Register (SCR) file? Cannot find this information",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2513"
+      },
+      {
+        "number" : 2501,
+        "title" : "Parameterize RISC-V Tests Collateral Generation",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2501"
+      },
+      {
+        "number" : 2469,
+        "title" : "Improvements to GitHub Actions CI setup",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2469"
+      },
+      {
+        "number" : 2438,
+        "title" : "Expanded error messages / examples for Diplomacy Nodes?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2438"
+      },
+      {
+        "number" : 2415,
+        "title" : "Document command line interface to Scala code",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2415"
+      },
+      {
+        "number" : 2408,
+        "title" : "Documentation: Main Readme refers to parameters that don't exist",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2408"
+      },
+      {
+        "number" : 2405,
+        "title" : "Is this dcache_miss triggered replay_ex valid?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2405"
+      },
+      {
+        "number" : 2398,
+        "title" : "128-bit memory interface ( L2 cache interface)- Rocket RoCC accelerator",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2398"
+      },
+      {
+        "number" : 2393,
+        "title" : "Compilation error for C emulator",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2393"
+      },
+      {
+        "number" : 2389,
+        "title" : "AXI4.B channel could be abnormally blocked by TLToAXI4",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2389"
+      },
+      {
+        "number" : 2385,
+        "title" : "Error while building C simulator",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2385"
+      },
+      {
+        "number" : 2371,
+        "title" : "We should forbid synthesizing simulation library, like a clock-gate simulation model ",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2371"
+      },
+      {
+        "number" : 2366,
+        "title" : "Should clockGate be a member of CoreParams",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2366"
+      },
+      {
+        "number" : 2361,
+        "title" : "hardfloat does not natively work with chisel3 AsyncReset",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2361"
+      },
+      {
+        "number" : 2348,
+        "title" : "mtval not written after ebreak",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2348"
+      },
+      {
+        "number" : 2336,
+        "title" : "makeSinglePortedByteWriteSeqMem a misnomer",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2336"
+      },
+      {
+        "number" : 2328,
+        "title" : "Glitch on Asynchronous Reset of AsyncQueue.scala",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2328"
+      },
+      {
+        "number" : 2307,
+        "title" : "Missing ROCKETCHIP_ADDONS support for wake builds",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2307"
+      },
+      {
+        "number" : 2304,
+        "title" : "HasAPBControlRegMap hangs processor",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2304"
+      },
+      {
+        "number" : 2302,
+        "title" : "Can't add a module to the system",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2302"
+      },
+      {
+        "number" : 2293,
+        "title" : "Simulation TestHarness module without verilator",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2293"
+      },
+      {
+        "number" : 2289,
+        "title" : "rocket-tools errors using build.sh",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2289"
+      },
+      {
+        "number" : 2283,
+        "title" : "RFC: Deprecate RegField without a RegFieldDesc?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2283"
+      },
+      {
+        "number" : 2278,
+        "title" : "how to add an AXI4-Stream device",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2278"
+      },
+      {
+        "number" : 2259,
+        "title" : "prefetch support in tilelink",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2259"
+      },
+      {
+        "number" : 2255,
+        "title" : "running make in the background hangs",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2255"
+      },
+      {
+        "number" : 2253,
+        "title" : "make: *** [output/multiply.riscv.out] Error 1",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2253"
+      },
+      {
+        "number" : 2231,
+        "title" : "Rocket Stage",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2231"
+      },
+      {
+        "number" : 2227,
+        "title" : "How to make specific address region(s) of memory non-cachable?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2227"
+      },
+      {
+        "number" : 2198,
+        "title" : "MEMBIST interface for rocket chip RAMs",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2198"
+      },
+      {
+        "number" : 2193,
+        "title" : "Is the output of the emulator a synthesizable verilog file?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2193"
+      },
+      {
+        "number" : 2190,
+        "title" : "Synthesizing to FPGA",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2190"
+      },
+      {
+        "number" : 2169,
+        "title" : "Two memory accesses for one instruction: SimpleHellaCacheIF exception",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2169"
+      },
+      {
+        "number" : 2166,
+        "title" : "Not able to create a configuration whit JTAG",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2166"
+      },
+      {
+        "number" : 2161,
+        "title" : "Use built-in async reset support",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2161"
+      },
+      {
+        "number" : 2119,
+        "title" : "DCache ProbeAckData (Exclusive Caching?)",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2119"
+      },
+      {
+        "number" : 2114,
+        "title" : "Does rocket chip support cache flushing & data burst loading now？",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2114"
+      },
+      {
+        "number" : 2084,
+        "title" : "Error-[FAE] File access error   File    \"/home/hello/Install/rocket/rocket-tools-32bit/riscv-gnu-toolchain/lib/libfesvr.so\"   cannot be opened for reading due to 'No such file or directory'.   Please fix this issue and compile again.  Makefrag:69: recipe for target 'simv-freechips.rocketchip.system-DefaultConfig' failed",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2084"
+      },
+      {
+        "number" : 2078,
+        "title" : "What is the meaning and function of fbus(front bus)?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2078"
+      },
+      {
+        "number" : 2058,
+        "title" : "HiFive Unleased board?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2058"
+      },
+      {
+        "number" : 2052,
+        "title" : "./build.sh failed at riscv-openocd",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2052"
+      },
+      {
+        "number" : 2050,
+        "title" : "'GZIP' error in 'make CONFIG=BOOMConfig'",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2050"
+      },
+      {
+        "number" : 2043,
+        "title" : "DRET in debug mode outside of M mode illegal",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2043"
+      },
+      {
+        "number" : 2041,
+        "title" : "LIBTOOL issue while building rocket-tool",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2041"
+      },
+      {
+        "number" : 2033,
+        "title" : "Plz provide \"libfesvr.so\" file to simulate ",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2033"
+      },
+      {
+        "number" : 2032,
+        "title" : "Not able to complete rocket tool installation due to ar utility",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2032"
+      },
+      {
+        "number" : 2025,
+        "title" : "Difference between crossToBus and crossFromBus",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/2025"
+      },
+      {
+        "number" : 1991,
+        "title" : "vlsi_rom_gen broken with python3.5",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1991"
+      },
+      {
+        "number" : 1960,
+        "title" : "struggled to resolve dependencies, finally done",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1960"
+      },
+      {
+        "number" : 1930,
+        "title" : "question -- spliting the MMIO form the output of the hellacache ",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1930"
+      },
+      {
+        "number" : 1926,
+        "title" : "The debug result of gdb I get in the example is a bit wrong.",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1926"
+      },
+      {
+        "number" : 1925,
+        "title" : "questions about bootrom and booting programs in memory",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1925"
+      },
+      {
+        "number" : 1924,
+        "title" : "Adding new register in CSR.Scala",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1924"
+      },
+      {
+        "number" : 1904,
+        "title" : "Simulation with vsim hangs when executing WFI",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1904"
+      },
+      {
+        "number" : 1896,
+        "title" : "how to obtain cache miss rate when run a simple c code, e.g. median in riscv-tests, on any architecture configuration?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1896"
+      },
+      {
+        "number" : 1891,
+        "title" : "Perfromance Evaluation of RoCC application",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1891"
+      },
+      {
+        "number" : 1889,
+        "title" : "option to disable verilator downloading",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1889"
+      },
+      {
+        "number" : 1888,
+        "title" : "Why speed of reading from MMIO is faster than writing to MMIO?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1888"
+      },
+      {
+        "number" : 1886,
+        "title" : "Simulating Rocket Chip in DVE with Program",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1886"
+      },
+      {
+        "number" : 1863,
+        "title" : "Can I instantiate a TLToAXI module by modifing Scala ?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1863"
+      },
+      {
+        "number" : 1861,
+        "title" : "illegal opcodes sometimes replayed",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1861"
+      },
+      {
+        "number" : 1832,
+        "title" : " I wonder why it is so designed.",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1832"
+      },
+      {
+        "number" : 1828,
+        "title" : "Make Linux run on top of the rocket-chip",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1828"
+      },
+      {
+        "number" : 1810,
+        "title" : "Chisel implementation Issue",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1810"
+      },
+      {
+        "number" : 1798,
+        "title" : "How can I managed the physical memory cacheability setting for a memory region in machine mode software ",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1798"
+      },
+      {
+        "number" : 1774,
+        "title" : " NonBlockingDcache module in Verilog ",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1774"
+      },
+      {
+        "number" : 1769,
+        "title" : "Rocket chip only has 245MB memory on FPGA",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1769"
+      },
+      {
+        "number" : 1751,
+        "title" : "TLWidthWidget - possible unAcked source ids due to translation of source field from Input to Output port",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1751"
+      },
+      {
+        "number" : 1749,
+        "title" : "How to enable interrput?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1749"
+      },
+      {
+        "number" : 1737,
+        "title" : "Dcache Signals",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1737"
+      },
+      {
+        "number" : 1721,
+        "title" : "emulator make problem ",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1721"
+      },
+      {
+        "number" : 1716,
+        "title" : "Coprocessor processing flow questions",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1716"
+      },
+      {
+        "number" : 1714,
+        "title" : "How to use Verilator to test custom benchmark",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1714"
+      },
+      {
+        "number" : 1709,
+        "title" : "Cross build with Scala 2.11 is broken",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1709"
+      },
+      {
+        "number" : 1705,
+        "title" : "Verilog vs SystemVerilog, comment in plusarg_reader.v",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1705"
+      },
+      {
+        "number" : 1678,
+        "title" : "vsim make error",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1678"
+      },
+      {
+        "number" : 1655,
+        "title" : "error in emulator: ./emulator-freechips.rocketchip.system-DefaultConfig helloworld",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1655"
+      },
+      {
+        "number" : 1644,
+        "title" : "ubuntu 16.04 emulator make error",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1644"
+      },
+      {
+        "number" : 1631,
+        "title" : "run-bmark-tests fails with TinyConfig?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1631"
+      },
+      {
+        "number" : 1621,
+        "title" : "Breaking the rocket-chip and chisel dependency",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1621"
+      },
+      {
+        "number" : 1608,
+        "title" : "Rocket chip not reading instructions",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1608"
+      },
+      {
+        "number" : 1587,
+        "title" : "Read Clear register  ",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1587"
+      },
+      {
+        "number" : 1556,
+        "title" : "How to generate 2 tiles with different configurations?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1556"
+      },
+      {
+        "number" : 1555,
+        "title" : "Emulator make error",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1555"
+      },
+      {
+        "number" : 1554,
+        "title" : "How do I generate multicore configurations with scratchpad?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1554"
+      },
+      {
+        "number" : 1547,
+        "title" : "What's the function of \"TLMonitors\"?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1547"
+      },
+      {
+        "number" : 1543,
+        "title" : "bad logic synth results",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1543"
+      },
+      {
+        "number" : 1539,
+        "title" : "How to configure rocket chip?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1539"
+      },
+      {
+        "number" : 1534,
+        "title" : "How do I generate just a part of ROM or Something?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1534"
+      },
+      {
+        "number" : 1530,
+        "title" : "Where are the JTAG ports (TDI，TDO，TMS，TCK) of Rocket on Zedboard?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1530"
+      },
+      {
+        "number" : 1523,
+        "title" : "Timing get worse ??? ",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1523"
+      },
+      {
+        "number" : 1507,
+        "title" : "How to read or write cache lines of Rocket by assembler or C programs?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1507"
+      },
+      {
+        "number" : 1506,
+        "title" : "errors while run CONFIG=DefaultConfigRBB make debug in ../emulator",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1506"
+      },
+      {
+        "number" : 1505,
+        "title" : "Frequence about dumping VCD waveform and run dhrystone",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1505"
+      },
+      {
+        "number" : 1447,
+        "title" : "multiplication and division parameter usage (MulDivParams)",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1447"
+      },
+      {
+        "number" : 1427,
+        "title" : "How to use and print the double value in emulator",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1427"
+      },
+      {
+        "number" : 1416,
+        "title" : "Map several devices on the MMIO Master Ports",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1416"
+      },
+      {
+        "number" : 1411,
+        "title" : "Can an assembly program print one string on the terminal/console?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1411"
+      },
+      {
+        "number" : 1401,
+        "title" : "How to make 1 line icache(how to bypass icache)",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1401"
+      },
+      {
+        "number" : 1400,
+        "title" : "Is it possible to return RoCC result in one clock cycle?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1400"
+      },
+      {
+        "number" : 1397,
+        "title" : "Upstreaming utilities to chisel3",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1397"
+      },
+      {
+        "number" : 1391,
+        "title" : "Error while run \"make\" in /vsim",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1391"
+      },
+      {
+        "number" : 1372,
+        "title" : "question about data cache(able)",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1372"
+      },
+      {
+        "number" : 1353,
+        "title" : "How to access Program Counter(PC) register by C or assembly?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1353"
+      },
+      {
+        "number" : 1350,
+        "title" : "How to work with the Rocket Chip",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1350"
+      },
+      {
+        "number" : 1343,
+        "title" : "How can I use performance counters in RocketCore.scala code?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1343"
+      },
+      {
+        "number" : 1331,
+        "title" : "Where to put in the assemble code of main function?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1331"
+      },
+      {
+        "number" : 1318,
+        "title" : "Missing make target for rv64um-p* tests.",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1318"
+      },
+      {
+        "number" : 1289,
+        "title" : "Keep track for bug fixes?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1289"
+      },
+      {
+        "number" : 1277,
+        "title" : "Can rocket-chip be run on FPGA-only FPGA? ",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1277"
+      },
+      {
+        "number" : 1264,
+        "title" : "Icache",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1264"
+      },
+      {
+        "number" : 1259,
+        "title" : "Lingering LazyModule class name resolution issues",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1259"
+      },
+      {
+        "number" : 1255,
+        "title" : "[Question] How to configure different clock frequency between systembus and periphery bus?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1255"
+      },
+      {
+        "number" : 1252,
+        "title" : "Lingering autoCloneType clean-ups",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1252"
+      },
+      {
+        "number" : 1233,
+        "title" : "Bring RoCC pins to system",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1233"
+      },
+      {
+        "number" : 1225,
+        "title" : "Add \"shadow\" peripherals",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1225"
+      },
+      {
+        "number" : 1217,
+        "title" : "using blackbox in the rocket-chip repo",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1217"
+      },
+      {
+        "number" : 1207,
+        "title" : "Data cache miss",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1207"
+      },
+      {
+        "number" : 1203,
+        "title" : "Using a proxy server in SBT",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1203"
+      },
+      {
+        "number" : 1194,
+        "title" : "vcs arguments not properly ignored by fesvr",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1194"
+      },
+      {
+        "number" : 1188,
+        "title" : "Output files are not generated",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1188"
+      },
+      {
+        "number" : 1187,
+        "title" : "Which parts in src directory is the interface to connect to the FPGA?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1187"
+      },
+      {
+        "number" : 1173,
+        "title" : "Request for smarter riscv-tools builds",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1173"
+      },
+      {
+        "number" : 1172,
+        "title" : "Question about Rocket chip utilization?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1172"
+      },
+      {
+        "number" : 1168,
+        "title" : "Failure when building emulator",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1168"
+      },
+      {
+        "number" : 1124,
+        "title" : "Accessing Verilog of the Core",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1124"
+      },
+      {
+        "number" : 1056,
+        "title" : "What's the algorithm of scoreboard unit?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1056"
+      },
+      {
+        "number" : 1046,
+        "title" : "simulating verilog using cadence incisive instead of VCS",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/1046"
+      },
+      {
+        "number" : 999,
+        "title" : "Compile using simulator other than VCS?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/999"
+      },
+      {
+        "number" : 960,
+        "title" : "No tags can describe",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/960"
+      },
+      {
+        "number" : 945,
+        "title" : "Rocket AHB port?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/945"
+      },
+      {
+        "number" : 907,
+        "title" : "Rocket HW FPU support 32bits divSqrt ?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/907"
+      },
+      {
+        "number" : 879,
+        "title" : "how to improve branch prediction or to improve compiler？",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/879"
+      },
+      {
+        "number" : 867,
+        "title" : "rocket-chip release tag",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/867"
+      },
+      {
+        "number" : 841,
+        "title" : "Too sparse RAM for Vivado to synthesize data array in DCache",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/841"
+      },
+      {
+        "number" : 743,
+        "title" : "Error while building the toolchain",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/743"
+      },
+      {
+        "number" : 737,
+        "title" : "How to mixin two trait with the same implicit val p: Parameters",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/737"
+      },
+      {
+        "number" : 733,
+        "title" : "Request to decouple PerfCounterIO's increment width from RetireWidth",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/733"
+      },
+      {
+        "number" : 717,
+        "title" : "Tilelink and AXI",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/717"
+      },
+      {
+        "number" : 713,
+        "title" : "Address Map error",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/713"
+      },
+      {
+        "number" : 686,
+        "title" : "Error trying to Make the emulator on Mac",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/686"
+      },
+      {
+        "number" : 681,
+        "title" : "build of emulator under windows 10 linux subsystem fails.",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/681"
+      },
+      {
+        "number" : 660,
+        "title" : "Can the c++ emulator run SEPCCPU2000 or SPECCPU2006 benchmark?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/660"
+      },
+      {
+        "number" : 585,
+        "title" : "How to enable interrupt? How to execute from external cacheable space?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/585"
+      },
+      {
+        "number" : 548,
+        "title" : "1R1W memories have fantasy behavior and are \"doomed to succeed\"",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/548"
+      },
+      {
+        "number" : 511,
+        "title" : "Document unittest",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/511"
+      },
+      {
+        "number" : 503,
+        "title" : " question about nbdcache",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/503"
+      },
+      {
+        "number" : 495,
+        "title" : "wrong corrected data used in L1 NBCache's correction replay?",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/495"
+      },
+      {
+        "number" : 483,
+        "title" : "General Emulation Performance Slowdown vs. Chisel2",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/483"
+      },
+      {
+        "number" : 475,
+        "title" : "Document Configs/Parameters",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/475"
+      },
+      {
+        "number" : 450,
+        "title" : "Guidance on Building a Standalone RoCC for Unit Testing",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/450"
+      },
+      {
+        "number" : 430,
+        "title" : "TinyConfig Fails Some AMO Tests",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/430"
+      },
+      {
+        "number" : 255,
+        "title" : "Add ScalaStyle style checker",
+        "url" : "https://github.com/chipsalliance/rocket-chip/issues/255"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : null,
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : null,
+    "beginnerIssuesLabel" : null
+  }
+}

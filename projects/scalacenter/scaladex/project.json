@@ -1,0 +1,686 @@
+{
+  "organization" : "scalacenter",
+  "repository" : "scaladex",
+  "creationDate" : 1468272855000,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643171412335
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "https://index.scala-lang.org",
+    "description" : "The Scala Package Index",
+    "logo" : "https://avatars.githubusercontent.com/u/16118980?v=4",
+    "stars" : 163,
+    "forks" : 62,
+    "watchers" : 21,
+    "issues" : 90,
+    "creationDate" : 1461709007000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-scaladex\" class=\"anchor\" aria-hidden=\"true\" href=\"#scaladex\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Scaladex</h1>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/scalacenter/scaladex/actions/workflows/ci.yml/badge.svg\"><img src=\"https://github.com/scalacenter/scaladex/actions/workflows/ci.yml/badge.svg\" alt=\"CI\" style=\"max-width: 100%;\"></a>\n<a href=\"https://gitter.im/scalacenter/scaladex\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/6d149f5dc036960b6962e48553da11e31cf8abd5ec427c9bded87cf0e7fc1e55/68747470733a2f2f696d672e736869656c64732e696f2f6769747465722f726f6f6d2f7363616c6163656e7465722f7363616c616465782e7376673f7374796c653d666c61742d737175617265\" alt=\"Gitter\" data-canonical-src=\"https://img.shields.io/gitter/room/scalacenter/scaladex.svg?style=flat-square\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Scaladex is the website where the open source Scala libraries are indexed.\nIts main purpose is to help Scala developers find useful libraries and to help library authors promote their libraries and find new contributors.</p>\n<h2 dir=\"auto\"><a id=\"user-content-acknowledgments\" class=\"anchor\" aria-hidden=\"true\" href=\"#acknowledgments\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Acknowledgments</h2>\n<p dir=\"auto\"><a title=\"Scala Center\" href=\"https://scala.epfl.ch/\" rel=\"nofollow\"><img alt=\"Scala Center\" src=\"https://camo.githubusercontent.com/27001001f1edfa2825f232dc8b2ebe7a75a29022220a32dfc707673d1df5e44e/68747470733a2f2f7363616c612e6570666c2e63682f7265736f75726365732f696d672f7363616c612d63656e7465722d6c6f676f2d626c61636b2e706e67\" height=\"60\" data-canonical-src=\"https://scala.epfl.ch/resources/img/scala-center-logo-black.png\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">This project is funded by the <a title=\"Scala Center\" href=\"https://scala.epfl.ch/\" rel=\"nofollow\">Scala Center</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-how-it-works\" class=\"anchor\" aria-hidden=\"true\" href=\"#how-it-works\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>How it works</h2>\n<p dir=\"auto\">Scaladex receives poms automatically from Maven Central (Sonatype) based on the binary version of the artifact ID.\nSome valid Scala binary versions are <code>_2.13</code>, <code>_3</code>, <code>_sjs1_3</code>, <code>_native0.6_2.13</code>, <code>_2.12_1.0</code>.</p>\n<p dir=\"auto\">Scaladex associates a new artifact to a project by looking at the <code>scm</code> (Source Code Management) attribute in the pom file.\nAt the moment Scaladex only supports Github repositories.</p>\n<p dir=\"auto\">The description of a project (its readme, its avatar, its website link...) are automatically downloaded from Github.</p>\n<h2 dir=\"auto\"><a id=\"user-content-troubleshooting\" class=\"anchor\" aria-hidden=\"true\" href=\"#troubleshooting\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Troubleshooting</h2>\n<h3 dir=\"auto\"><a id=\"user-content-my-project-is-missing-or-some-artifacts-are-missing\" class=\"anchor\" aria-hidden=\"true\" href=\"#my-project-is-missing-or-some-artifacts-are-missing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>My project is missing or some artifacts are missing</h3>\n<h4 dir=\"auto\"><a id=\"user-content-did-you-publish-the-artifacts-to-maven-central\" class=\"anchor\" aria-hidden=\"true\" href=\"#did-you-publish-the-artifacts-to-maven-central\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Did you publish the artifacts to Maven Central?</h4>\n<p dir=\"auto\">Check out how to publish to Maven Central with sbt or Mill:</p>\n<ul dir=\"auto\">\n<li><a href=\"https://www.scala-sbt.org/1.x/docs/Publishing.html\" rel=\"nofollow\">Publish with sbt</a></li>\n<li><a href=\"https://github.com/sbt/sbt-ci-release\">Automated publish with sbt</a></li>\n<li><a href=\"https://com-lihaoyi.github.io/mill/mill/Intro_to_Mill.html#_deploying_your_code\" rel=\"nofollow\">Publish with Mill</a></li>\n</ul>\n<p dir=\"auto\">You can also watch <a href=\"https://www.youtube.com/watch?v=RmEMUwfQoSc\" rel=\"nofollow\">The Last 10 Percent by Stefan Zeiger</a>.</p>\n<h4 dir=\"auto\"><a id=\"user-content-what-is-the-binary-version-of-your-artifacts\" class=\"anchor\" aria-hidden=\"true\" href=\"#what-is-the-binary-version-of-your-artifacts\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>What is the binary version of your artifacts?</h4>\n<p dir=\"auto\">If your artifact does not have any binary version it is considered a Java artifact and it will not be automatically indexed.\nYet some Java artifact are closely related to Scala.\nIn that case you can force its indexing by updating the <a href=\"https://github.com/scalacenter/scaladex-contrib/blob/master/non-standard.json\">non-standard.json</a> file in the <a href=\"https://github.com/scalacenter/scaladex-contrib\">scaladex-contrib</a> repository.</p>\n<p dir=\"auto\">At the moment we don't support full Scala binary versions, that are often used in Scala compiler plugins.</p>\n<h4 dir=\"auto\"><a id=\"user-content-does-the-pom-file-contain-the-scm-attribute-and-does-it-points-to-a-public-github-repository\" class=\"anchor\" aria-hidden=\"true\" href=\"#does-the-pom-file-contain-the-scm-attribute-and-does-it-points-to-a-public-github-repository\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Does the pom file contain the <code>scm</code> attribute and does it points to a public Github repository?</h4>\n<p dir=\"auto\">If not you can claim that the artifact belongs to your Github repository by updating the <a href=\"https://github.com/scalacenter/scaladex-contrib/blob/master/claims.json\">claims.json</a> file in the <a href=\"https://github.com/scalacenter/scaladex-contrib\">scaladex-contrib</a> repository.</p>\n<p dir=\"auto\">If your project is not hosted by Github you should consider creating a mirror of it in Github.</p>\n<p dir=\"auto\">Do not forget to update the <code>scmInfo</code> setting in your build file before the next release.</p>\n<h3 dir=\"auto\"><a id=\"user-content-my-project-is-hard-to-find-in-the-search-page\" class=\"anchor\" aria-hidden=\"true\" href=\"#my-project-is-hard-to-find-in-the-search-page\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>My project is hard to find in the search page</h3>\n<p dir=\"auto\">Read <a href=\"doc/user/improve-visibility.md\">How to improve the visibility of your project</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-how-to-contribute\" class=\"anchor\" aria-hidden=\"true\" href=\"#how-to-contribute\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>How to contribute</h2>\n<p dir=\"auto\">Join the <a href=\"https://gitter.im/scalacenter/scaladex\" rel=\"nofollow\">gitter.im channel</a> and read the <a href=\"/CONTRIBUTING.md\">Contributing Guide</a></p>\n<h2 dir=\"auto\"><a id=\"user-content-badges\" class=\"anchor\" aria-hidden=\"true\" href=\"#badges\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Badges</h2>\n<h3 dir=\"auto\"><a id=\"user-content-show-the-versions-of-scala-supported-by-your-project\" class=\"anchor\" aria-hidden=\"true\" href=\"#show-the-versions-of-scala-supported-by-your-project\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Show the versions of Scala supported by your project!</h3>\n<p dir=\"auto\">You can add this badge to the README.MD of your own GitHub projects to show\nthe versions of Scala they support:</p>\n<p dir=\"auto\"><a href=\"https://index.scala-lang.org/typelevel/cats/cats-core\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/d69c9b8b0fe3a98088fea04b95a586642fc5510ea892a5fc3ab2596eb8259fb7/68747470733a2f2f696e6465782e7363616c612d6c616e672e6f72672f747970656c6576656c2f636174732f636174732d636f72652f6c61746573742d62792d7363616c612d76657273696f6e2e737667\" alt=\"cats-core Scala version support\" data-canonical-src=\"https://index.scala-lang.org/typelevel/cats/cats-core/latest-by-scala-version.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">The badge above only summarises latest JVM artifacts, if you'd like a badge\nfor  Scala JS or Scala Native, add a <code>targetType=...</code> query-string parameter:</p>\n<p dir=\"auto\"><a href=\"https://index.scala-lang.org/typelevel/cats/cats-core\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/24d2cf2d135e269ac4ffdab6645eb9cd6667e20b86a895b7207ed7fb8d7e6bb6/68747470733a2f2f696e6465782e7363616c612d6c616e672e6f72672f747970656c6576656c2f636174732f636174732d636f72652f6c61746573742d62792d7363616c612d76657273696f6e2e7376673f746172676574547970653d6a73\" alt=\"cats-core Scala version support\" data-canonical-src=\"https://index.scala-lang.org/typelevel/cats/cats-core/latest-by-scala-version.svg?targetType=js\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\"><a href=\"https://index.scala-lang.org/typelevel/cats/cats-core\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/e2d70ce707b62e31d91bb026d1088bd72e665d1dc6e1506ee11ffb8095335bc9/68747470733a2f2f696e6465782e7363616c612d6c616e672e6f72672f747970656c6576656c2f636174732f636174732d636f72652f6c61746573742d62792d7363616c612d76657273696f6e2e7376673f746172676574547970653d6e6174697665\" alt=\"cats-core Scala version support\" data-canonical-src=\"https://index.scala-lang.org/typelevel/cats/cats-core/latest-by-scala-version.svg?targetType=native\" style=\"max-width: 100%;\"></a></p>\n<h3 dir=\"auto\"><a id=\"user-content-smaller-shorter-badges\" class=\"anchor\" aria-hidden=\"true\" href=\"#smaller-shorter-badges\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Smaller, shorter badges</h3>\n<p dir=\"auto\"><a href=\"https://index.scala-lang.org/typelevel/cats/cats-core\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/de9b697b0848ba20b658c4bf7e50869829e34edaf3a813bb03c65b6968f37ac7/68747470733a2f2f696e6465782e7363616c612d6c616e672e6f72672f747970656c6576656c2f636174732f636174732d636f72652f6c61746573742e7376673f636f6c6f723d6f72616e6765\" alt=\"Latest version\" data-canonical-src=\"https://index.scala-lang.org/typelevel/cats/cats-core/latest.svg?color=orange\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\"><a href=\"https://index.scala-lang.org/akka/akka/akka-http-core\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/77ec47e44c49d3d69dabe127c24dce23d9d6c4e9fa0bc9ddf91194936b278119/68747470733a2f2f696e6465782e7363616c612d6c616e672e6f72672f616b6b612f616b6b612f616b6b612d687474702d636f72652f6c61746573742e7376673f636f6c6f723d626c7565\" alt=\"Latest version\" data-canonical-src=\"https://index.scala-lang.org/akka/akka/akka-http-core/latest.svg?color=blue\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">For more information read the <a href=\"http://shields.io/\" rel=\"nofollow\">shields.io API</a></p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "MasseGuillaume",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/921490?v=4",
+        "url" : "https://api.github.com/users/MasseGuillaume",
+        "contributions" : 572
+      },
+      {
+        "login" : "adpi2",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13123162?v=4",
+        "url" : "https://api.github.com/users/adpi2",
+        "contributions" : 317
+      },
+      {
+        "login" : "mlachkar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7843237?v=4",
+        "url" : "https://api.github.com/users/mlachkar",
+        "contributions" : 153
+      },
+      {
+        "login" : "Scyks",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/875242?v=4",
+        "url" : "https://api.github.com/users/Scyks",
+        "contributions" : 93
+      },
+      {
+        "login" : "julienrf",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/332812?v=4",
+        "url" : "https://api.github.com/users/julienrf",
+        "contributions" : 49
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 37
+      },
+      {
+        "login" : "sjrd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/535934?v=4",
+        "url" : "https://api.github.com/users/sjrd",
+        "contributions" : 28
+      },
+      {
+        "login" : "MichaelViveros",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8866443?v=4",
+        "url" : "https://api.github.com/users/MichaelViveros",
+        "contributions" : 19
+      },
+      {
+        "login" : "heathermiller",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/687163?v=4",
+        "url" : "https://api.github.com/users/heathermiller",
+        "contributions" : 18
+      },
+      {
+        "login" : "adamvoss",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/965439?v=4",
+        "url" : "https://api.github.com/users/adamvoss",
+        "contributions" : 17
+      },
+      {
+        "login" : "rtyley",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/52038?v=4",
+        "url" : "https://api.github.com/users/rtyley",
+        "contributions" : 15
+      },
+      {
+        "login" : "adam-wyluda",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3045108?v=4",
+        "url" : "https://api.github.com/users/adam-wyluda",
+        "contributions" : 8
+      },
+      {
+        "login" : "rafaparadela",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/315070?v=4",
+        "url" : "https://api.github.com/users/rafaparadela",
+        "contributions" : 7
+      },
+      {
+        "login" : "jvican",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2462974?v=4",
+        "url" : "https://api.github.com/users/jvican",
+        "contributions" : 7
+      },
+      {
+        "login" : "vincenzobaz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6325220?v=4",
+        "url" : "https://api.github.com/users/vincenzobaz",
+        "contributions" : 6
+      },
+      {
+        "login" : "rusucosmin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5725047?v=4",
+        "url" : "https://api.github.com/users/rusucosmin",
+        "contributions" : 4
+      },
+      {
+        "login" : "OlegYch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/268312?v=4",
+        "url" : "https://api.github.com/users/OlegYch",
+        "contributions" : 4
+      },
+      {
+        "login" : "piotrkwiecinski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2151333?v=4",
+        "url" : "https://api.github.com/users/piotrkwiecinski",
+        "contributions" : 4
+      },
+      {
+        "login" : "lunaryorn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/224922?v=4",
+        "url" : "https://api.github.com/users/lunaryorn",
+        "contributions" : 4
+      },
+      {
+        "login" : "wkomendera",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/25635548?v=4",
+        "url" : "https://api.github.com/users/wkomendera",
+        "contributions" : 4
+      },
+      {
+        "login" : "alexdeleon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/648720?v=4",
+        "url" : "https://api.github.com/users/alexdeleon",
+        "contributions" : 3
+      },
+      {
+        "login" : "tgodzik",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3807253?v=4",
+        "url" : "https://api.github.com/users/tgodzik",
+        "contributions" : 3
+      },
+      {
+        "login" : "WojciechMazur",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19353690?v=4",
+        "url" : "https://api.github.com/users/WojciechMazur",
+        "contributions" : 3
+      },
+      {
+        "login" : "rodrigogdea",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8377513?v=4",
+        "url" : "https://api.github.com/users/rodrigogdea",
+        "contributions" : 3
+      },
+      {
+        "login" : "2m",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/422086?v=4",
+        "url" : "https://api.github.com/users/2m",
+        "contributions" : 3
+      },
+      {
+        "login" : "AndySardina",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6067584?v=4",
+        "url" : "https://api.github.com/users/AndySardina",
+        "contributions" : 2
+      },
+      {
+        "login" : "raboof",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/131856?v=4",
+        "url" : "https://api.github.com/users/raboof",
+        "contributions" : 2
+      },
+      {
+        "login" : "gmarti",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4600672?v=4",
+        "url" : "https://api.github.com/users/gmarti",
+        "contributions" : 2
+      },
+      {
+        "login" : "israelperezglez",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/646886?v=4",
+        "url" : "https://api.github.com/users/israelperezglez",
+        "contributions" : 2
+      },
+      {
+        "login" : "jb-lunatech",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/32841186?v=4",
+        "url" : "https://api.github.com/users/jb-lunatech",
+        "contributions" : 2
+      },
+      {
+        "login" : "sbrunk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3939659?v=4",
+        "url" : "https://api.github.com/users/sbrunk",
+        "contributions" : 2
+      },
+      {
+        "login" : "novakov-alexey",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11204284?v=4",
+        "url" : "https://api.github.com/users/novakov-alexey",
+        "contributions" : 2
+      },
+      {
+        "login" : "alpeb",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/554287?v=4",
+        "url" : "https://api.github.com/users/alpeb",
+        "contributions" : 1
+      },
+      {
+        "login" : "laughedelic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/766656?v=4",
+        "url" : "https://api.github.com/users/laughedelic",
+        "contributions" : 1
+      },
+      {
+        "login" : "eed3si9n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/184683?v=4",
+        "url" : "https://api.github.com/users/eed3si9n",
+        "contributions" : 1
+      },
+      {
+        "login" : "nekonyuu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3509764?v=4",
+        "url" : "https://api.github.com/users/nekonyuu",
+        "contributions" : 1
+      },
+      {
+        "login" : "jducoeur",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2184929?v=4",
+        "url" : "https://api.github.com/users/jducoeur",
+        "contributions" : 1
+      },
+      {
+        "login" : "ktoso",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/120979?v=4",
+        "url" : "https://api.github.com/users/ktoso",
+        "contributions" : 1
+      },
+      {
+        "login" : "mpollmeier",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/506752?v=4",
+        "url" : "https://api.github.com/users/mpollmeier",
+        "contributions" : 1
+      },
+      {
+        "login" : "Philippus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1923596?v=4",
+        "url" : "https://api.github.com/users/Philippus",
+        "contributions" : 1
+      },
+      {
+        "login" : "rators",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10375881?v=4",
+        "url" : "https://api.github.com/users/rators",
+        "contributions" : 1
+      },
+      {
+        "login" : "netzwerg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/439387?v=4",
+        "url" : "https://api.github.com/users/netzwerg",
+        "contributions" : 1
+      },
+      {
+        "login" : "rjsvaljean",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/81145?v=4",
+        "url" : "https://api.github.com/users/rjsvaljean",
+        "contributions" : 1
+      },
+      {
+        "login" : "gitter-badger",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8518239?v=4",
+        "url" : "https://api.github.com/users/gitter-badger",
+        "contributions" : 1
+      },
+      {
+        "login" : "travissarles",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11528695?v=4",
+        "url" : "https://api.github.com/users/travissarles",
+        "contributions" : 1
+      },
+      {
+        "login" : "bishabosha",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13436592?v=4",
+        "url" : "https://api.github.com/users/bishabosha",
+        "contributions" : 1
+      },
+      {
+        "login" : "olafurpg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1408093?v=4",
+        "url" : "https://api.github.com/users/olafurpg",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 1410,
+    "topics" : [
+      "bintray",
+      "scaladex",
+      "scm-tag",
+      "scala",
+      "sonatype",
+      "packages",
+      "index"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : "https://gitter.im/scalacenter/scaladex",
+    "openIssues" : [
+      {
+        "number" : 869,
+        "title" : "Schedule job to update claimed artifacts",
+        "url" : "https://github.com/scalacenter/scaladex/issues/869"
+      },
+      {
+        "number" : 868,
+        "title" : "Schedule job to sync Scaladex with sbt-plugin-releases",
+        "url" : "https://github.com/scalacenter/scaladex/issues/868"
+      },
+      {
+        "number" : 867,
+        "title" : "Schedule job to find missing creation date of artifacts",
+        "url" : "https://github.com/scalacenter/scaladex/issues/867"
+      },
+      {
+        "number" : 866,
+        "title" : "Schedule job to find missing artifacts from Maven Central",
+        "url" : "https://github.com/scalacenter/scaladex/issues/866"
+      },
+      {
+        "number" : 865,
+        "title" : "Index compiler plugins",
+        "url" : "https://github.com/scalacenter/scaladex/issues/865"
+      },
+      {
+        "number" : 864,
+        "title" : "Invalid scala version passed to scastie",
+        "url" : "https://github.com/scalacenter/scaladex/issues/864"
+      },
+      {
+        "number" : 802,
+        "title" : "Find better name for the `data` module",
+        "url" : "https://github.com/scalacenter/scaladex/issues/802"
+      },
+      {
+        "number" : 784,
+        "title" : "Some failure with badges support",
+        "url" : "https://github.com/scalacenter/scaladex/issues/784"
+      },
+      {
+        "number" : 783,
+        "title" : "Some elastic failures",
+        "url" : "https://github.com/scalacenter/scaladex/issues/783"
+      },
+      {
+        "number" : 756,
+        "title" : "implement authentication for elasticSearch requests",
+        "url" : "https://github.com/scalacenter/scaladex/issues/756"
+      },
+      {
+        "number" : 749,
+        "title" : "Add an endpoint handling Scaladoc linking",
+        "url" : "https://github.com/scalacenter/scaladex/issues/749"
+      },
+      {
+        "number" : 748,
+        "title" : "Add more information in the `/project` endpoint v2",
+        "url" : "https://github.com/scalacenter/scaladex/issues/748"
+      },
+      {
+        "number" : 730,
+        "title" : "Scaladex should know the minimum required Scala 3 version of a library",
+        "url" : "https://github.com/scalacenter/scaladex/issues/730"
+      },
+      {
+        "number" : 728,
+        "title" : "Most used projects/libraries",
+        "url" : "https://github.com/scalacenter/scaladex/issues/728"
+      },
+      {
+        "number" : 727,
+        "title" : "Scaladex publishing tweets to highlight some projects",
+        "url" : "https://github.com/scalacenter/scaladex/issues/727"
+      },
+      {
+        "number" : 719,
+        "title" : "Improve BadgesSupport and show more badges ",
+        "url" : "https://github.com/scalacenter/scaladex/issues/719"
+      },
+      {
+        "number" : 690,
+        "title" : "Expose a `/release` endpoint",
+        "url" : "https://github.com/scalacenter/scaladex/issues/690"
+      },
+      {
+        "number" : 685,
+        "title" : "Contributing updated FAQ",
+        "url" : "https://github.com/scalacenter/scaladex/issues/685"
+      },
+      {
+        "number" : 658,
+        "title" : "Type-based search akin to Hoogle or Pursuit",
+        "url" : "https://github.com/scalacenter/scaladex/issues/658"
+      },
+      {
+        "number" : 657,
+        "title" : "github.com/nafg repos are stale",
+        "url" : "https://github.com/scalacenter/scaladex/issues/657"
+      },
+      {
+        "number" : 629,
+        "title" : "Update readme for scaladex repo:",
+        "url" : "https://github.com/scalacenter/scaladex/issues/629"
+      },
+      {
+        "number" : 623,
+        "title" : "Stack trace is printed when some exception is thrown on scaladex",
+        "url" : "https://github.com/scalacenter/scaladex/issues/623"
+      },
+      {
+        "number" : 596,
+        "title" : "Latest version from foreign project",
+        "url" : "https://github.com/scalacenter/scaladex/issues/596"
+      },
+      {
+        "number" : 588,
+        "title" : "Dropdowns for selecting artifacts or versions erase previous setting",
+        "url" : "https://github.com/scalacenter/scaladex/issues/588"
+      },
+      {
+        "number" : 580,
+        "title" : "bintray search is broken",
+        "url" : "https://github.com/scalacenter/scaladex/issues/580"
+      },
+      {
+        "number" : 570,
+        "title" : "try on scastie: library is not visible in scastie list",
+        "url" : "https://github.com/scalacenter/scaladex/issues/570"
+      },
+      {
+        "number" : 563,
+        "title" : "my multiple projects are not on scaladex",
+        "url" : "https://github.com/scalacenter/scaladex/issues/563"
+      },
+      {
+        "number" : 560,
+        "title" : "missing scala 2.12.7",
+        "url" : "https://github.com/scalacenter/scaladex/issues/560"
+      },
+      {
+        "number" : 549,
+        "title" : "Missing artifacts for Scala-Native",
+        "url" : "https://github.com/scalacenter/scaladex/issues/549"
+      },
+      {
+        "number" : 548,
+        "title" : "Latest version not consistent.",
+        "url" : "https://github.com/scalacenter/scaladex/issues/548"
+      },
+      {
+        "number" : 547,
+        "title" : "Consider adding giter8 templates alongside with libraries",
+        "url" : "https://github.com/scalacenter/scaladex/issues/547"
+      },
+      {
+        "number" : 545,
+        "title" : "The RTree2D library that has been released a month ago is not indexed still",
+        "url" : "https://github.com/scalacenter/scaladex/issues/545"
+      },
+      {
+        "number" : 541,
+        "title" : "Feature Request: search by package/namespace",
+        "url" : "https://github.com/scalacenter/scaladex/issues/541"
+      },
+      {
+        "number" : 503,
+        "title" : "BintrayDownloadSbtPlugins should also read maven style (poms).",
+        "url" : "https://github.com/scalacenter/scaladex/issues/503"
+      },
+      {
+        "number" : 502,
+        "title" : "No license in sbt plugins",
+        "url" : "https://github.com/scalacenter/scaladex/issues/502"
+      },
+      {
+        "number" : 501,
+        "title" : "Display latest version of the default artifact in the search result list",
+        "url" : "https://github.com/scalacenter/scaladex/issues/501"
+      },
+      {
+        "number" : 492,
+        "title" : "org.json4s.ParserUtil$ParseException when updating a page",
+        "url" : "https://github.com/scalacenter/scaladex/issues/492"
+      },
+      {
+        "number" : 474,
+        "title" : "Potential critical bug when scaladex disconnect from elasticsearch",
+        "url" : "https://github.com/scalacenter/scaladex/issues/474"
+      },
+      {
+        "number" : 472,
+        "title" : "Api vs html results for collection-strawman",
+        "url" : "https://github.com/scalacenter/scaladex/issues/472"
+      },
+      {
+        "number" : 468,
+        "title" : "DNS for library names",
+        "url" : "https://github.com/scalacenter/scaladex/issues/468"
+      },
+      {
+        "number" : 464,
+        "title" : "Code generate models for GitHub's GraphQl",
+        "url" : "https://github.com/scalacenter/scaladex/issues/464"
+      },
+      {
+        "number" : 457,
+        "title" : "create annother set of credential for dev server",
+        "url" : "https://github.com/scalacenter/scaladex/issues/457"
+      },
+      {
+        "number" : 453,
+        "title" : "filters on mobile should be displayed differently",
+        "url" : "https://github.com/scalacenter/scaladex/issues/453"
+      },
+      {
+        "number" : 450,
+        "title" : "Mismatch of license for agoda-com/kafka-jdbc-connector",
+        "url" : "https://github.com/scalacenter/scaladex/issues/450"
+      },
+      {
+        "number" : 437,
+        "title" : "RSS feed to subscribe to new releases of a project",
+        "url" : "https://github.com/scalacenter/scaladex/issues/437"
+      },
+      {
+        "number" : 422,
+        "title" : "add link to grant more organization for github authentication",
+        "url" : "https://github.com/scalacenter/scaladex/issues/422"
+      },
+      {
+        "number" : 403,
+        "title" : "Improve deployment to avoid downtime",
+        "url" : "https://github.com/scalacenter/scaladex/issues/403"
+      },
+      {
+        "number" : 374,
+        "title" : "create a sbt plugin to search and install scala libraries using scaladex",
+        "url" : "https://github.com/scalacenter/scaladex/issues/374"
+      },
+      {
+        "number" : 371,
+        "title" : "Investigate the possibly to include giter8 templates",
+        "url" : "https://github.com/scalacenter/scaladex/issues/371"
+      },
+      {
+        "number" : 353,
+        "title" : "Artifact naming by Dependents and Dependencies allows for ambiguity",
+        "url" : "https://github.com/scalacenter/scaladex/issues/353"
+      },
+      {
+        "number" : 327,
+        "title" : "Support GitHub-style Emoji",
+        "url" : "https://github.com/scalacenter/scaladex/issues/327"
+      },
+      {
+        "number" : 326,
+        "title" : "Display artifacts in search results instead of projects",
+        "url" : "https://github.com/scalacenter/scaladex/issues/326"
+      },
+      {
+        "number" : 319,
+        "title" : "Implement Cache Busting (etag for frontend assets)",
+        "url" : "https://github.com/scalacenter/scaladex/issues/319"
+      },
+      {
+        "number" : 315,
+        "title" : "Implement the Shields specification for badges",
+        "url" : "https://github.com/scalacenter/scaladex/issues/315"
+      },
+      {
+        "number" : 314,
+        "title" : "Clarification of \"Dependents\", \"Dependencies\", and \"Artifact Dependents\"",
+        "url" : "https://github.com/scalacenter/scaladex/issues/314"
+      },
+      {
+        "number" : 309,
+        "title" : "\"Contributors Wanted\" badge does not provide explanation",
+        "url" : "https://github.com/scalacenter/scaladex/issues/309"
+      },
+      {
+        "number" : 300,
+        "title" : "run Bintray indexing with a scheduler",
+        "url" : "https://github.com/scalacenter/scaladex/issues/300"
+      },
+      {
+        "number" : 290,
+        "title" : "Edit Deleted repos",
+        "url" : "https://github.com/scalacenter/scaladex/issues/290"
+      },
+      {
+        "number" : 287,
+        "title" : "Lazyly index GitHub projects",
+        "url" : "https://github.com/scalacenter/scaladex/issues/287"
+      },
+      {
+        "number" : 281,
+        "title" : "feature request: show recursive dependencies",
+        "url" : "https://github.com/scalacenter/scaladex/issues/281"
+      },
+      {
+        "number" : 235,
+        "title" : "libraries without dependencies",
+        "url" : "https://github.com/scalacenter/scaladex/issues/235"
+      },
+      {
+        "number" : 220,
+        "title" : "Project Edit: Improve the documentation section UI",
+        "url" : "https://github.com/scalacenter/scaladex/issues/220"
+      },
+      {
+        "number" : 178,
+        "title" : "don't trust scmInfo (Forked repositories)",
+        "url" : "https://github.com/scalacenter/scaladex/issues/178"
+      },
+      {
+        "number" : 169,
+        "title" : "Add an \"about us\" block to the front page of Scaladex",
+        "url" : "https://github.com/scalacenter/scaladex/issues/169"
+      },
+      {
+        "number" : 157,
+        "title" : "Selenium testing for webapp",
+        "url" : "https://github.com/scalacenter/scaladex/issues/157"
+      },
+      {
+        "number" : 142,
+        "title" : "\"Something not look right? Let us know\" link on artifact pages",
+        "url" : "https://github.com/scalacenter/scaladex/issues/142"
+      },
+      {
+        "number" : 119,
+        "title" : "gitter.im info",
+        "url" : "https://github.com/scalacenter/scaladex/issues/119"
+      },
+      {
+        "number" : 70,
+        "title" : "Version Baseline",
+        "url" : "https://github.com/scalacenter/scaladex/issues/70"
+      },
+      {
+        "number" : 29,
+        "title" : "notify new release via twitter",
+        "url" : "https://github.com/scalacenter/scaladex/issues/29"
+      },
+      {
+        "number" : 24,
+        "title" : "Way for companies to endorse projects",
+        "url" : "https://github.com/scalacenter/scaladex/issues/24"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : "sbt-scaladex",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "library-dependency-management",
+    "beginnerIssuesLabel" : "low-hanging fruit"
+  }
+}

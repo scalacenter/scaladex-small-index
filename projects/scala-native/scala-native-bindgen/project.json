@@ -1,0 +1,163 @@
+{
+  "organization" : "scala-native",
+  "repository" : "scala-native-bindgen",
+  "creationDate" : 1532476151726,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643193355811
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "https://scala-native.github.io/scala-native-bindgen/",
+    "description" : "Scala Native Binding Generator",
+    "logo" : "https://avatars.githubusercontent.com/u/17545605?v=4",
+    "stars" : 28,
+    "forks" : 6,
+    "watchers" : 6,
+    "issues" : 23,
+    "creationDate" : 1527156944000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-scala-native-binding-generator\" class=\"anchor\" aria-hidden=\"true\" href=\"#scala-native-binding-generator\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Scala Native Binding Generator</h1>\n<p dir=\"auto\"><a href=\"https://travis-ci.org/scala-native/scala-native-bindgen\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/688b5a4046dec1bcc079b6d275499e399d0ac87caea53e8b100fb9d27f81b8d3/68747470733a2f2f7472617669732d63692e6f72672f7363616c612d6e61746976652f7363616c612d6e61746976652d62696e6467656e2e7376673f6272616e63683d6d6173746572\" alt=\"Build Status\" data-canonical-src=\"https://travis-ci.org/scala-native/scala-native-bindgen.svg?branch=master\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">The tool generates Scala Native bindings from C headers.</p>\n<h2 dir=\"auto\"><a id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Documentation</h2>\n<p dir=\"auto\">Documentation can be found at <a href=\"https://scala-native.github.io/scala-native-bindgen/\" rel=\"nofollow\">scala-native.github.io/scala-native-bindgen</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-bindgen-features\" class=\"anchor\" aria-hidden=\"true\" href=\"#bindgen-features\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Bindgen Features</h2>\n<ul dir=\"auto\">\n<li>possibility to reuse types from existing bindings.</li>\n<li>type casts that make recursive structs be valid Scala Native structs.</li>\n<li>implicit classes for structs and unions that make fields access easier.</li>\n<li>implicit classes that add setters and getters to structs with more than 22 fields (such structs in Scala\nNative are represented as arrays of bytes).</li>\n<li>literal defines embedding <code>#define MY_CONSTANT 42</code> → <code>val MY_CONSTANT: native.CInt = 42</code>.</li>\n<li>read-only bindings for extern variables (such variables cannot be updated due to Scala Native limitation).</li>\n<li>declarations filtering by prefix.</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-example\" class=\"anchor\" aria-hidden=\"true\" href=\"#example\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Example</h2>\n<div class=\"highlight highlight-source-c position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"struct point {\n    float x;\n    float y;\n};\n\nstruct vector {\n    struct point a;\n    struct point b;\n};\n\nstruct vector *add(struct vector *v1, struct vector *v2);\"><pre><span class=\"pl-k\">struct</span> point {\n    <span class=\"pl-k\">float</span> x;\n    <span class=\"pl-k\">float</span> y;\n};\n\n<span class=\"pl-k\">struct</span> vector {\n    <span class=\"pl-k\">struct</span> point a;\n    <span class=\"pl-k\">struct</span> point b;\n};\n\n<span class=\"pl-k\">struct</span> vector *<span class=\"pl-en\">add</span>(<span class=\"pl-k\">struct</span> vector *v1, <span class=\"pl-k\">struct</span> vector *v2);</pre></div>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import scala.scalanative._\nimport scala.scalanative.native._\n\n@native.link(&quot;vector&quot;)\n@native.extern\nobject vector {\n  type struct_point = native.CStruct2[native.CFloat, native.CFloat]\n  type struct_vector = native.CStruct2[struct_point, struct_point]\n  def add(v1: native.Ptr[struct_vector], v2: native.Ptr[struct_vector]): native.Ptr[struct_vector] = native.extern\n\n  object implicits {\n    implicit class struct_point_ops(val p: native.Ptr[struct_point]) extends AnyVal {\n      def x: native.CFloat = !p._1\n      def x_=(value: native.CFloat): Unit = !p._1 = value\n      def y: native.CFloat = !p._2\n      def y_=(value: native.CFloat): Unit = !p._2 = value\n    }\n\n    implicit class struct_vector_ops(val p: native.Ptr[struct_vector]) extends AnyVal {\n      def a: native.Ptr[struct_point] = p._1\n      def a_=(value: native.Ptr[struct_point]): Unit = !p._1 = !value\n      def b: native.Ptr[struct_point] = p._2\n      def b_=(value: native.Ptr[struct_point]): Unit = !p._2 = !value\n    }\n  }\n\n  object struct_point {\n    import implicits._\n    def apply()(implicit z: native.Zone): native.Ptr[struct_point] = native.alloc[struct_point]\n    def apply(x: native.CFloat, y: native.CFloat)(implicit z: native.Zone): native.Ptr[struct_point] = {\n      val ptr = native.alloc[struct_point]\n      ptr.x = x\n      ptr.y = y\n      ptr\n    }\n  }\n\n  object struct_vector {\n    import implicits._\n    def apply()(implicit z: native.Zone): native.Ptr[struct_vector] = native.alloc[struct_vector]\n    def apply(a: native.Ptr[struct_point], b: native.Ptr[struct_point])(implicit z: native.Zone): native.Ptr[struct_vector] = {\n      val ptr = native.alloc[struct_vector]\n      ptr.a = a\n      ptr.b = b\n      ptr\n    }\n  }\n}\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">scala</span>.<span class=\"pl-en\">scalanative</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">scala</span>.<span class=\"pl-en\">scalanative</span>.<span class=\"pl-en\">native</span>.<span class=\"pl-en\">_</span>\n\n<span class=\"pl-k\">@</span>native.link(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>vector<span class=\"pl-pds\">\"</span></span>)\n<span class=\"pl-k\">@</span>native.extern\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">vector</span> {\n  <span class=\"pl-k\">type</span> <span class=\"pl-en\">struct_point</span> <span class=\"pl-k\">=</span> native.<span class=\"pl-en\">CStruct2</span>[native.<span class=\"pl-en\">CFloat</span>, native.<span class=\"pl-en\">CFloat</span>]\n  <span class=\"pl-k\">type</span> <span class=\"pl-en\">struct_vector</span> <span class=\"pl-k\">=</span> native.<span class=\"pl-en\">CStruct2</span>[struct_point, struct_point]\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">add</span>(<span class=\"pl-v\">v1</span>: native.<span class=\"pl-en\">Ptr</span>[struct_vector], <span class=\"pl-v\">v2</span>: native.<span class=\"pl-en\">Ptr</span>[struct_vector])<span class=\"pl-k\">:</span> native.<span class=\"pl-en\">Ptr</span>[struct_vector] <span class=\"pl-k\">=</span> native.extern\n\n  <span class=\"pl-k\">object</span> <span class=\"pl-en\">implicits</span> {\n    <span class=\"pl-k\">implicit</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">struct_point_ops</span>(<span class=\"pl-k\">val</span> <span class=\"pl-smi\">p</span><span class=\"pl-k\">:</span> native.<span class=\"pl-en\">Ptr</span>[struct_point]) <span class=\"pl-k\">extends</span> <span class=\"pl-e\">AnyVal</span> {\n      <span class=\"pl-k\">def</span> <span class=\"pl-en\">x</span><span class=\"pl-k\">:</span> native.<span class=\"pl-en\">CFloat</span> <span class=\"pl-k\">=</span> <span class=\"pl-k\">!</span>p._1\n      <span class=\"pl-k\">def</span> <span class=\"pl-en\">x_=</span>(<span class=\"pl-v\">value</span>: native.<span class=\"pl-en\">CFloat</span>)<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> <span class=\"pl-k\">!</span>p._1 <span class=\"pl-k\">=</span> value\n      <span class=\"pl-k\">def</span> <span class=\"pl-en\">y</span><span class=\"pl-k\">:</span> native.<span class=\"pl-en\">CFloat</span> <span class=\"pl-k\">=</span> <span class=\"pl-k\">!</span>p._2\n      <span class=\"pl-k\">def</span> <span class=\"pl-en\">y_=</span>(<span class=\"pl-v\">value</span>: native.<span class=\"pl-en\">CFloat</span>)<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> <span class=\"pl-k\">!</span>p._2 <span class=\"pl-k\">=</span> value\n    }\n\n    <span class=\"pl-k\">implicit</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">struct_vector_ops</span>(<span class=\"pl-k\">val</span> <span class=\"pl-smi\">p</span><span class=\"pl-k\">:</span> native.<span class=\"pl-en\">Ptr</span>[struct_vector]) <span class=\"pl-k\">extends</span> <span class=\"pl-e\">AnyVal</span> {\n      <span class=\"pl-k\">def</span> <span class=\"pl-en\">a</span><span class=\"pl-k\">:</span> native.<span class=\"pl-en\">Ptr</span>[struct_point] <span class=\"pl-k\">=</span> p._1\n      <span class=\"pl-k\">def</span> <span class=\"pl-en\">a_=</span>(<span class=\"pl-v\">value</span>: native.<span class=\"pl-en\">Ptr</span>[struct_point])<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> <span class=\"pl-k\">!</span>p._1 <span class=\"pl-k\">=</span> <span class=\"pl-k\">!</span>value\n      <span class=\"pl-k\">def</span> <span class=\"pl-en\">b</span><span class=\"pl-k\">:</span> native.<span class=\"pl-en\">Ptr</span>[struct_point] <span class=\"pl-k\">=</span> p._2\n      <span class=\"pl-k\">def</span> <span class=\"pl-en\">b_=</span>(<span class=\"pl-v\">value</span>: native.<span class=\"pl-en\">Ptr</span>[struct_point])<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> <span class=\"pl-k\">!</span>p._2 <span class=\"pl-k\">=</span> <span class=\"pl-k\">!</span>value\n    }\n  }\n\n  <span class=\"pl-k\">object</span> <span class=\"pl-en\">struct_point</span> {\n    <span class=\"pl-k\">import</span> <span class=\"pl-en\">implicits</span>.<span class=\"pl-en\">_</span>\n    <span class=\"pl-k\">def</span> <span class=\"pl-en\">apply</span>()(<span class=\"pl-k\">implicit</span> <span class=\"pl-v\">z</span>: native.<span class=\"pl-en\">Zone</span>)<span class=\"pl-k\">:</span> native.<span class=\"pl-en\">Ptr</span>[struct_point] <span class=\"pl-k\">=</span> native.alloc[struct_point]\n    <span class=\"pl-k\">def</span> <span class=\"pl-en\">apply</span>(<span class=\"pl-v\">x</span>: native.<span class=\"pl-en\">CFloat</span>, <span class=\"pl-v\">y</span>: native.<span class=\"pl-en\">CFloat</span>)(<span class=\"pl-k\">implicit</span> <span class=\"pl-v\">z</span>: native.<span class=\"pl-en\">Zone</span>)<span class=\"pl-k\">:</span> native.<span class=\"pl-en\">Ptr</span>[struct_point] <span class=\"pl-k\">=</span> {\n      <span class=\"pl-k\">val</span> <span class=\"pl-smi\">ptr</span> <span class=\"pl-k\">=</span> native.alloc[struct_point]\n      ptr.x <span class=\"pl-k\">=</span> x\n      ptr.y <span class=\"pl-k\">=</span> y\n      ptr\n    }\n  }\n\n  <span class=\"pl-k\">object</span> <span class=\"pl-en\">struct_vector</span> {\n    <span class=\"pl-k\">import</span> <span class=\"pl-en\">implicits</span>.<span class=\"pl-en\">_</span>\n    <span class=\"pl-k\">def</span> <span class=\"pl-en\">apply</span>()(<span class=\"pl-k\">implicit</span> <span class=\"pl-v\">z</span>: native.<span class=\"pl-en\">Zone</span>)<span class=\"pl-k\">:</span> native.<span class=\"pl-en\">Ptr</span>[struct_vector] <span class=\"pl-k\">=</span> native.alloc[struct_vector]\n    <span class=\"pl-k\">def</span> <span class=\"pl-en\">apply</span>(<span class=\"pl-v\">a</span>: native.<span class=\"pl-en\">Ptr</span>[struct_point], <span class=\"pl-v\">b</span>: native.<span class=\"pl-en\">Ptr</span>[struct_point])(<span class=\"pl-k\">implicit</span> <span class=\"pl-v\">z</span>: native.<span class=\"pl-en\">Zone</span>)<span class=\"pl-k\">:</span> native.<span class=\"pl-en\">Ptr</span>[struct_vector] <span class=\"pl-k\">=</span> {\n      <span class=\"pl-k\">val</span> <span class=\"pl-smi\">ptr</span> <span class=\"pl-k\">=</span> native.alloc[struct_vector]\n      ptr.a <span class=\"pl-k\">=</span> a\n      ptr.b <span class=\"pl-k\">=</span> b\n      ptr\n    }\n  }\n}</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>License</h2>\n<p dir=\"auto\">This project is distributed under the Scala license.\n<a href=\"LICENSE.txt\">See LICENSE.txt for details</a></p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "kornilova203",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23450724?v=4",
+        "url" : "https://api.github.com/users/kornilova203",
+        "contributions" : 240
+      },
+      {
+        "login" : "jonas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8417?v=4",
+        "url" : "https://api.github.com/users/jonas",
+        "contributions" : 123
+      },
+      {
+        "login" : "mrRosset",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11291979?v=4",
+        "url" : "https://api.github.com/users/mrRosset",
+        "contributions" : 76
+      }
+    ],
+    "commits" : 439,
+    "topics" : [
+      "binding-generator",
+      "bindings",
+      "scala-native"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 197,
+        "title" : "Incorrect translation of fixed size array to CArray",
+        "url" : "https://github.com/scala-native/scala-native-bindgen/issues/197"
+      },
+      {
+        "number" : 196,
+        "title" : "Bindgen crashes on enums mixed with macros (#define)",
+        "url" : "https://github.com/scala-native/scala-native-bindgen/issues/196"
+      },
+      {
+        "number" : 194,
+        "title" : "Align scala-native-bindgen with Scala Native 0.4.x API",
+        "url" : "https://github.com/scala-native/scala-native-bindgen/issues/194"
+      },
+      {
+        "number" : 192,
+        "title" : "Cannot use union members",
+        "url" : "https://github.com/scala-native/scala-native-bindgen/issues/192"
+      },
+      {
+        "number" : 190,
+        "title" : "Anonymous union types in structs lead to invalid generated code",
+        "url" : "https://github.com/scala-native/scala-native-bindgen/issues/190"
+      },
+      {
+        "number" : 172,
+        "title" : "List of blocking Scala Native issues",
+        "url" : "https://github.com/scala-native/scala-native-bindgen/issues/172"
+      },
+      {
+        "number" : 171,
+        "title" : "Add redis C library binding",
+        "url" : "https://github.com/scala-native/scala-native-bindgen/issues/171"
+      },
+      {
+        "number" : 170,
+        "title" : "Add sqlite binding",
+        "url" : "https://github.com/scala-native/scala-native-bindgen/issues/170"
+      },
+      {
+        "number" : 169,
+        "title" : "Add libuv binding",
+        "url" : "https://github.com/scala-native/scala-native-bindgen/issues/169"
+      },
+      {
+        "number" : 147,
+        "title" : "Provide a default config to integrate standard bindings from Scala Native",
+        "url" : "https://github.com/scala-native/scala-native-bindgen/issues/147"
+      },
+      {
+        "number" : 117,
+        "title" : "Move transformations and code generation out of the intermediate representation ",
+        "url" : "https://github.com/scala-native/scala-native-bindgen/issues/117"
+      },
+      {
+        "number" : 100,
+        "title" : "Sort types",
+        "url" : "https://github.com/scala-native/scala-native-bindgen/issues/100"
+      },
+      {
+        "number" : 95,
+        "title" : "Consider shortening the output",
+        "url" : "https://github.com/scala-native/scala-native-bindgen/issues/95"
+      },
+      {
+        "number" : 84,
+        "title" : "Run tests with valgrind enabled",
+        "url" : "https://github.com/scala-native/scala-native-bindgen/issues/84"
+      },
+      {
+        "number" : 74,
+        "title" : "Fix warning: integer value does not fit into 8 bytes",
+        "url" : "https://github.com/scala-native/scala-native-bindgen/issues/74"
+      },
+      {
+        "number" : 73,
+        "title" : "Limited support for `const` qualifier",
+        "url" : "https://github.com/scala-native/scala-native-bindgen/issues/73"
+      },
+      {
+        "number" : 40,
+        "title" : "Generate C wrappers for functions that pass structs by value",
+        "url" : "https://github.com/scala-native/scala-native-bindgen/issues/40"
+      },
+      {
+        "number" : 5,
+        "title" : "Optional renaming of methods according to Scala naming conventions",
+        "url" : "https://github.com/scala-native/scala-native-bindgen/issues/5"
+      },
+      {
+        "number" : 1,
+        "title" : "Support POSIX, GNU and OS specific flavours of standard headers",
+        "url" : "https://github.com/scala-native/scala-native-bindgen/issues/1"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : null,
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "programming-language-interfaces",
+    "beginnerIssuesLabel" : null
+  }
+}

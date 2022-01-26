@@ -1,0 +1,408 @@
+{
+  "organization" : "sbt",
+  "repository" : "sbt-web",
+  "creationDate" : 1396605800000,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643187561923
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "",
+    "description" : "Library for building sbt plugins for the web",
+    "logo" : "https://avatars.githubusercontent.com/u/1158012?v=4",
+    "stars" : 358,
+    "forks" : 63,
+    "watchers" : 26,
+    "issues" : 30,
+    "creationDate" : 1384751387000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-sbt-web\" class=\"anchor\" aria-hidden=\"true\" href=\"#sbt-web\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>sbt-web</h1>\n<p dir=\"auto\"><a href=\"https://travis-ci.org/sbt/sbt-web\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/b39dc68fc50b851b3cca9c4003ead5b10026f3a2973d8e0414597a88afc6d9ed/68747470733a2f2f6170692e7472617669732d63692e6f72672f7362742f7362742d7765622e706e673f6272616e63683d6d6173746572\" alt=\"Build Status\" data-canonical-src=\"https://api.travis-ci.org/sbt/sbt-web.png?branch=master\" style=\"max-width: 100%;\"></a> <a href=\"https://bintray.com/sbt-web/sbt-plugin-releases/sbt-web/_latestVersion\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/754ec33e6c1a0e1ae773ef5aea160e6107044a35e0e74878989e6aa67276b458/68747470733a2f2f6170692e62696e747261792e636f6d2f7061636b616765732f7362742d7765622f7362742d706c7567696e2d72656c65617365732f7362742d7765622f696d616765732f646f776e6c6f61642e737667\" alt=\"Download\" data-canonical-src=\"https://api.bintray.com/packages/sbt-web/sbt-plugin-releases/sbt-web/images/download.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">This project provides the building blocks for web oriented sbt plugins by bringing together the following concerns:</p>\n<ul dir=\"auto\">\n<li>File directory layout conventions for resources intended to be served by a web server (otherwise known as assets)</li>\n<li>Incremental execution of fine-grained operations within sbt tasks</li>\n<li>Utilities for managing <a href=\"http://akka.io/\" rel=\"nofollow\">Akka</a> from within sbt (sbt-web based plugins use Akka)</li>\n<li>Utilities for managing <a href=\"http://www.webjars.org/\" rel=\"nofollow\">WebJars</a> including the ability to extract a WebJar's contents on to disk</li>\n<li>Standardised reporting of compilation style errors</li>\n</ul>\n<p dir=\"auto\">sbt-web was driven from the desire to factor out client-side web concerns from the <a href=\"http://www.playframework.com/\" rel=\"nofollow\">Play Framework</a>.\nHowever sbt-web is entirely independent of Play and can be used for any project that uses sbt as its build system.</p>\n<p dir=\"auto\">For an overview of sbt-web: <a href=\"http://www.ustream.tv/recorded/42774873\" rel=\"nofollow\">http://www.ustream.tv/recorded/42774873</a></p>\n<h2 dir=\"auto\"><a id=\"user-content-available-plugins\" class=\"anchor\" aria-hidden=\"true\" href=\"#available-plugins\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Available Plugins</h2>\n<p dir=\"auto\">The following is a list of plugins we know of that are built on sbt-web:</p>\n<ul dir=\"auto\">\n<li><a href=\"https://github.com/matthewrennie/sbt-autoprefixer\">sbt-autoprefixer</a></li>\n<li><a href=\"https://github.com/ground5hark/sbt-closure#sbt-closure\">sbt-closure</a></li>\n<li><a href=\"https://github.com/sbt/sbt-coffeescript#sbt-coffeescript\">sbt-coffeescript</a></li>\n<li><a href=\"https://github.com/ShaggyYeti/sbt-coffeescript-reactjs\">sbt-coffeescript-reactjs</a></li>\n<li><a href=\"https://github.com/ground5hark/sbt-concat#sbt-concat\">sbt-concat</a></li>\n<li><a href=\"https://github.com/ground5hark/sbt-css-compress#sbt-css-compress\">sbt-css-compress</a></li>\n<li><a href=\"https://github.com/sbt/sbt-digest#sbt-digest\">sbt-digest</a></li>\n<li><a href=\"https://github.com/jmparsons/sbt-dustjs-linkedin\">sbt-dustjs-linkedin</a></li>\n<li><a href=\"https://github.com/dwickern/sbt-emberjs\">sbt-emberjs</a></li>\n<li><a href=\"https://github.com/rgcottrell/sbt-filter\">sbt-filter</a></li>\n<li><a href=\"https://github.com/sbt/sbt-gzip#sbt-gzip\">sbt-gzip</a></li>\n<li><a href=\"https://github.com/Amadeus82/sbt-handlebars\">sbt-handlebars</a></li>\n<li><a href=\"https://github.com/bicouy0/sbt-hbs\">sbt-hbs</a></li>\n<li><a href=\"https://github.com/kolloch/sbt-html-js-wrap\">sbt-html-js-wrap</a></li>\n<li><a href=\"https://github.com/rgcottrell/sbt-html-minifier\">sbt-html-minifier</a></li>\n<li><a href=\"https://github.com/rgcottrell/sbt-imagemin\">sbt-imagemin</a></li>\n<li><a href=\"https://github.com/joost-de-vries/sbt-jasmine\">sbt-jasmine</a></li>\n<li><a href=\"https://github.com/sbt/sbt-jshint#sbt-jshint\">sbt-jshint</a></li>\n<li><a href=\"https://github.com/matthewrennie/sbt-jst\">sbt-jst</a></li>\n<li><a href=\"https://github.com/sbt/sbt-less#sbt-less\">sbt-less</a></li>\n<li><a href=\"https://github.com/sbt/sbt-mocha\">sbt-mocha</a></li>\n<li><a href=\"https://github.com/eamelink/sbt-purescript\">sbt-purescript</a></li>\n<li><a href=\"https://github.com/ddispaltro/sbt-reactjs\">sbt-reactjs</a></li>\n<li><a href=\"https://github.com/sbt/sbt-rjs#sbt-rjs\">sbt-rjs</a></li>\n<li><a href=\"https://github.com/madoushi/sbt-sass\">sbt-sass</a></li>\n<li><a href=\"https://github.com/irundaia/sbt-sassify\">sbt-sassify</a></li>\n<li><a href=\"https://chiselapp.com/user/twenstar/repository/sbt-puresass\" rel=\"nofollow\">sbt-puresass</a></li>\n<li><a href=\"https://github.com/neomaclin/sbt-simple-url-update#sbt-simple-url-update\">sbt-simple-url-update</a></li>\n<li><a href=\"https://github.com/sbt/sbt-stylus\">sbt-stylus</a></li>\n<li><a href=\"https://github.com/andriimartynov/sbt-terser\">sbt-terser</a></li>\n<li><a href=\"https://github.com/LuigiPeace/sbt-traceur\">sbt-traceur</a></li>\n<li><a href=\"https://github.com/joost-de-vries/sbt-tslint\">sbt-tslint</a></li>\n<li><a href=\"https://github.com/joost-de-vries/sbt-typescript\">sbt-typescript</a></li>\n<li><a href=\"https://github.com/sbt/sbt-uglify\">sbt-uglify</a></li>\n<li><a href=\"https://github.com/GIVESocialMovement/sbt-vuefy\">sbt-vuefy</a></li>\n<li><a href=\"https://github.com/vmunier/sbt-web-scalajs\">sbt-web-scalajs</a></li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-ideas-for-plugins\" class=\"anchor\" aria-hidden=\"true\" href=\"#ideas-for-plugins\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Ideas for Plugins</h2>\n<ul dir=\"auto\">\n<li><a href=\"http://jasmine.github.io/\" rel=\"nofollow\">jasmine</a></li>\n<li><a href=\"http://handlebarsjs.com/\" rel=\"nofollow\">handlebars</a></li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-plugins-in-development\" class=\"anchor\" aria-hidden=\"true\" href=\"#plugins-in-development\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Plugins in Development</h2>\n<ul dir=\"auto\">\n<li>C'mon community, get involved! Watch the talk on the anatomy of an <a href=\"https://www.youtube.com/watch?v=lIznJSBW-GU\" rel=\"nofollow\">sbt-web plugin</a></li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-file-directory-layout\" class=\"anchor\" aria-hidden=\"true\" href=\"#file-directory-layout\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>File Directory Layout</h2>\n<p dir=\"auto\">The following directory layout is declared by sbt-web with an indication of the associated settings:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"+ src\n--+ main\n----+ assets .....(sourceDirectory in Assets)\n------+ js\n----+ public .....(resourceDirectory in Assets)\n------+ css\n------+ images\n------+ js\n--+ test\n----+ assets .....(sourceDirectory in TestAssets)\n------+ js\n----+ public .....(resourceDirectory in TestAssets)\n------+ css\n------+ images\n------+ js\n\n+ target\n--+ web ............(webTarget)\n----+ public\n------+ main .......(resourceManaged in Assets)\n--------+ css\n--------+ images\n--------+ js\n------+ test .......(resourceManaged in TestAssets)\n--------+ css\n--------+ images\n--------+ js\n----+ stage ........(stagingDirectory)\"><pre><code>+ src\n--+ main\n----+ assets .....(sourceDirectory in Assets)\n------+ js\n----+ public .....(resourceDirectory in Assets)\n------+ css\n------+ images\n------+ js\n--+ test\n----+ assets .....(sourceDirectory in TestAssets)\n------+ js\n----+ public .....(resourceDirectory in TestAssets)\n------+ css\n------+ images\n------+ js\n\n+ target\n--+ web ............(webTarget)\n----+ public\n------+ main .......(resourceManaged in Assets)\n--------+ css\n--------+ images\n--------+ js\n------+ test .......(resourceManaged in TestAssets)\n--------+ css\n--------+ images\n--------+ js\n----+ stage ........(stagingDirectory)\n</code></pre></div>\n<p dir=\"auto\">The plugin introduces the notion of <code>assets</code> to sbt. Assets are public resources that are intended for client-side\nconsumption e.g. by a browser. This is also distinct from sbt's existing notion of <code>resources</code> as\nproject resources are generally not made public by a web server.</p>\n<p dir=\"auto\">In sbt, asset source files are considered the source for plugins that process them. When they are processed any resultant\nfiles go into a <code>public</code> directory in the classpath.  By configuration, sbt-web apps serve static assets from the <code>public</code>\ndirectory on the classpath. For example a CoffeeScript plugin would use files from <code>sourceDirectory in Assets</code>\nand produce them to <code>resourceManaged in Assets</code>.</p>\n<p dir=\"auto\">All assets whether they need processing or are static in nature, will be copied to the resourceManaged destinations.</p>\n<p dir=\"auto\">Assets can be organized however desired within the <code>assets</code> directory.</p>\n<p dir=\"auto\">One last thing regarding the public and public-test folders... any WebJar depended on by the project will be automatically\nextracted into these folders e.g. target/web/public/main/lib/jquery/jquery.js. In addition the public-test folder receives\nthe contents of the public folder as well as test assets. This eases the support of test frameworks given that\nall files are locatable from one root.</p>\n<p dir=\"auto\">The \"stage\" directory is product of processing the asset pipeline and results in files prepared for deployment\nto a web server.</p>\n<h2 dir=\"auto\"><a id=\"user-content-configurations\" class=\"anchor\" aria-hidden=\"true\" href=\"#configurations\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Configurations</h2>\n<p dir=\"auto\">sbt holds the notion of configurations which are similar to Maven's phases. Configurations aggregate settings and tasks. Familiar configurations will be <code>Compile</code> and <code>Test</code>. sbt-web introduces two new configurations named <code>Assets</code> and <code>TestAssets</code> correlating roughly with <code>Compile</code> and <code>Test</code>, but for web assets.</p>\n<h2 dir=\"auto\"><a id=\"user-content-incremental-execution\" class=\"anchor\" aria-hidden=\"true\" href=\"#incremental-execution\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Incremental Execution</h2>\n<p dir=\"auto\">The incremental task API lets tasks run more quickly when they are\ncalled more than once. The idea is to do less work when tasks are\ncalled a second time, by skipping any work that has already been done.\nIn other words, tasks only perform the \"incremental\" work that is\nnecessary since they were last run.</p>\n<p dir=\"auto\">To analyse which work needs to be done, a task's work is broken up\ninto a number of sub-operations, each of which can be run\nindependently. Each operation takes input parameters and can read and\nwrite files. The incremental task API keeps a record of which\noperations have been run so that that those operations don't need to\nbe repeated in the future.</p>\n<h2 dir=\"auto\"><a id=\"user-content-asset-pipeline\" class=\"anchor\" aria-hidden=\"true\" href=\"#asset-pipeline\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Asset Pipeline</h2>\n<p dir=\"auto\">There are two categories of sbt-web based tasks:</p>\n<ul dir=\"auto\">\n<li>those that operate on source files</li>\n<li>those that operate on web assets</li>\n</ul>\n<p dir=\"auto\">Examples of source file tasks as plugins are CoffeeScript, LESS and JSHint. Some of these take a source file and produce a\ntarget web asset e.g. CoffeeScript produces JS files. Plugins in this category are mutually exclusive to each other in\nterms of their function i.e. only one CoffeeScript plugin will take CoffeeScript sources and produce target JS files.\nIn summary, source file plugins produce web assets.</p>\n<p dir=\"auto\">Asset tasks operate on web assets directly. The assets they operate on depend on a \"stage\" in the asset pipeline.\nExamples of web asset tasks as plugins include RequireJs optimisation, gzip and md5 hashing.</p>\n<p dir=\"auto\">Source file tasks can be considered to provide files for the first stage of asset pipeline processing and they will be\nexecuted often e.g. for each compilation of your project's source files. Asset pipeline tasks are generally executed at the time\nthat you wish to prepare a distribution for deployment into, say, production.</p>\n<h2 dir=\"auto\"><a id=\"user-content-exporting-assets\" class=\"anchor\" aria-hidden=\"true\" href=\"#exporting-assets\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Exporting Assets</h2>\n<p dir=\"auto\">Assets are automatically available across subproject dependencies using sbt's\nclasspath setup. The assets are exported in the webjar format and are imported\nin the same way as other webjar dependencies.</p>\n<p dir=\"auto\">So given a project dependency like this, where project A depends on project B:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"lazy val a = (project in file(&quot;a&quot;))\n  .enablePlugins(SbtWeb)\n  .dependsOn(b)\n\nlazy val b = (project in file(&quot;b&quot;))\n  .enablePlugins(SbtWeb)\"><pre><span class=\"pl-k\">lazy</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">a</span> <span class=\"pl-k\">=</span> (project in file(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>a<span class=\"pl-pds\">\"</span></span>))\n  .enablePlugins(<span class=\"pl-en\">SbtWeb</span>)\n  .dependsOn(b)\n\n<span class=\"pl-k\">lazy</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">b</span> <span class=\"pl-k\">=</span> (project in file(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>b<span class=\"pl-pds\">\"</span></span>))\n  .enablePlugins(<span class=\"pl-en\">SbtWeb</span>)</pre></div>\n<p dir=\"auto\">Assets from project B are available to project A under <code>lib/b/</code>.</p>\n<p dir=\"auto\">The module name for imported assets is the same as the project module name (the\nnormalized name of the project). This can be changed with the\n<code>moduleName in Assets</code> setting.</p>\n<p dir=\"auto\">Test assets are also exported if a test dependency is specified. For example:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"lazy val a = (project in file(&quot;a&quot;))\n  .enablePlugins(SbtWeb)\n  .dependsOn(b % &quot;compile;test-&gt;test&quot;)\"><pre><span class=\"pl-k\">lazy</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">a</span> <span class=\"pl-k\">=</span> (project in file(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>a<span class=\"pl-pds\">\"</span></span>))\n  .enablePlugins(<span class=\"pl-en\">SbtWeb</span>)\n  .dependsOn(b <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>compile;test-&gt;test<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-packaging-and-publishing\" class=\"anchor\" aria-hidden=\"true\" href=\"#packaging-and-publishing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Packaging and Publishing</h3>\n<p dir=\"auto\"><em>The packaging and publishing behavior is documented for sbt-web version <code>1.1.0</code> and above.</em></p>\n<p dir=\"auto\">Assets are automatically packaged and published along with project classes\nat the following path inside the jar: <code>META-INF/resources/webjars/module/version/</code>.\nThis means that assets can be shared as external library dependencies. Simply publish\nthe project and use as a library dependency. The assets will be extracted and\navailable under <code>lib/module/</code> in the same way as other webjar dependencies or\ninternal dependencies.</p>\n<p dir=\"auto\">To package all assets for production there is a <code>packageBin in Assets</code> task,\n<code>web-assets:package</code> in the sbt shell. This packages the result of the asset\npipeline. An optional path prefix can be specified with the <code>packagePrefix in Assets</code> setting. For example, to have assets packaged under a <code>public</code>\ndirectory, as used for Play Framework distributions:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"WebKeys.packagePrefix in Assets := &quot;public/&quot;\"><pre><span class=\"pl-en\">WebKeys</span>.packagePrefix in <span class=\"pl-en\">Assets</span> <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>public/<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">To automatically add the production-ready assets to classpath, the following might be useful:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"(managedClasspath in Runtime) += (packageBin in Assets).value\"><pre>(managedClasspath in <span class=\"pl-en\">Runtime</span>) <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> (packageBin in <span class=\"pl-en\">Assets</span>).value</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-writing-a-source-file-task\" class=\"anchor\" aria-hidden=\"true\" href=\"#writing-a-source-file-task\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Writing a Source File task</h2>\n<p dir=\"auto\">The following represents the minimum amount of code required in a <code>build.sbt</code> to create a task that operates on source files i.e.\nthose files that are available for processing from <code>src/main/assets</code>. Source file tasks are\nresource generators in sbt terms.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val mySourceFileTask = taskKey[Seq[File]](&quot;Some source file task&quot;)\n\nmySourceFileTask := Nil\n\nsourceGenerators in Assets += mySourceFileTask.taskValue\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">mySourceFileTask</span> <span class=\"pl-k\">=</span> taskKey[<span class=\"pl-en\">Seq</span>[<span class=\"pl-en\">File</span>]](<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Some source file task<span class=\"pl-pds\">\"</span></span>)\n\nmySourceFileTask <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Nil</span>\n\nsourceGenerators in <span class=\"pl-en\">Assets</span> <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> mySourceFileTask.taskValue</pre></div>\n<p dir=\"auto\">The addition of the <code>mySourceFileTask</code> to <code>sourceGenerators in Assets</code> declares the task as a resource generator and,\nas such, will be executed in parallel with other resource generators during the <code>WebKeys.assets</code> task execution.\nUsing sbt's <code>show</code> command will yield the directory where all source file assets have been written to e.g.:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"show web-assets:assets\"><pre>show web<span class=\"pl-k\">-</span>assets<span class=\"pl-k\">:</span>assets</pre></div>\n<p dir=\"auto\">Source file tasks take input, typically from <code>sourceDirectory in Assets</code> (and/or <code>TestAssets</code>) and produce a sequence\nof files that have been generated from that input.</p>\n<p dir=\"auto\">The following code illustrates a more complete example where input files matching *.coffee are taken and copied to an\noutput folder:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"mySourceFileTask := {\n  // translate .coffee files into .js files\n  val sourceDir = (sourceDirectory in Assets).value\n  val targetDir = webTarget.value / &quot;cs-plugin&quot;\n  val sources = sourceDir ** &quot;*.coffee&quot;\n  val mappings = sources pair relativeTo(sourceDir)\n  val renamed = mappings map { case (file, path) =&gt; file -&gt; path.replaceAll(&quot;coffee&quot;, &quot;js&quot;) }\n  val copies = renamed map { case (file, path) =&gt; file -&gt; (resourceManaged in Assets).value / path }\n  IO.copy(copies)\n  copies map (_._2)\n}\"><pre>mySourceFileTask <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> {\n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> translate .coffee files into .js files</span>\n  <span class=\"pl-k\">val</span> <span class=\"pl-smi\">sourceDir</span> <span class=\"pl-k\">=</span> (sourceDirectory in <span class=\"pl-en\">Assets</span>).value\n  <span class=\"pl-k\">val</span> <span class=\"pl-smi\">targetDir</span> <span class=\"pl-k\">=</span> webTarget.value <span class=\"pl-k\">/</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>cs-plugin<span class=\"pl-pds\">\"</span></span>\n  <span class=\"pl-k\">val</span> <span class=\"pl-smi\">sources</span> <span class=\"pl-k\">=</span> sourceDir <span class=\"pl-k\">**</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>*.coffee<span class=\"pl-pds\">\"</span></span>\n  <span class=\"pl-k\">val</span> <span class=\"pl-smi\">mappings</span> <span class=\"pl-k\">=</span> sources pair relativeTo(sourceDir)\n  <span class=\"pl-k\">val</span> <span class=\"pl-smi\">renamed</span> <span class=\"pl-k\">=</span> mappings map { <span class=\"pl-k\">case</span> (file, path) <span class=\"pl-k\">=&gt;</span> file <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> path.replaceAll(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>coffee<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>js<span class=\"pl-pds\">\"</span></span>) }\n  <span class=\"pl-k\">val</span> <span class=\"pl-smi\">copies</span> <span class=\"pl-k\">=</span> renamed map { <span class=\"pl-k\">case</span> (file, path) <span class=\"pl-k\">=&gt;</span> file <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> (resourceManaged in <span class=\"pl-en\">Assets</span>).value <span class=\"pl-k\">/</span> path }\n  <span class=\"pl-en\">IO</span>.copy(copies)\n  copies map (_._2)\n}</pre></div>\n<p dir=\"auto\">Using the <code>WebKeys.assets</code> task will perform source file tasks in parallel. If you find yourself using a\nsource file task across many projects then consider wrapping it with an sbt plugin. Example source file plugins\nare <code>sbt-jshint</code>, <code>sbt-coffeescript</code> and <code>sbt-stylus</code>.</p>\n<p dir=\"auto\">As a final note, if you plugin depends on node modules e.g. those that are extracted from WebJars or from NPM,\nthen you will need to have your task depend on the node module extraction task. The following illustrates how\ngiven the <code>Assets</code> scope:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"mySourceFileTask := Def.task {\n  Nil\n}.dependsOn(WebKeys.nodeModules in Assets).value\"><pre>mySourceFileTask <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Def</span>.task {\n  <span class=\"pl-en\">Nil</span>\n}.dependsOn(<span class=\"pl-en\">WebKeys</span>.nodeModules in <span class=\"pl-en\">Assets</span>).value</pre></div>\n<p dir=\"auto\">If you're wrapping the task within a plugin then you will need the Plugin's scope as opposed to the <code>Assets</code>\nscope i.e.:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"mySourceFileTask := Def.task {\n  Nil\n}.dependsOn(WebKeys.nodeModules in Plugin).value\"><pre>mySourceFileTask <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Def</span>.task {\n  <span class=\"pl-en\">Nil</span>\n}.dependsOn(<span class=\"pl-en\">WebKeys</span>.nodeModules in <span class=\"pl-en\">Plugin</span>).value</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-writing-an-asset-pipeline-task\" class=\"anchor\" aria-hidden=\"true\" href=\"#writing-an-asset-pipeline-task\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Writing an Asset Pipeline task</h2>\n<p dir=\"auto\">The following represents the minimum amount of code required to create a pipeline stage in a <code>build.sbt</code> file:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import com.typesafe.sbt.web.pipeline.Pipeline\n\nval myPipelineTask = taskKey[Pipeline.Stage](&quot;Some pipeline task&quot;)\n\nmyPipelineTask := identity\n\npipelineStages := Seq(myPipelineTask)\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">typesafe</span>.<span class=\"pl-en\">sbt</span>.<span class=\"pl-en\">web</span>.<span class=\"pl-en\">pipeline</span>.<span class=\"pl-en\">Pipeline</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">myPipelineTask</span> <span class=\"pl-k\">=</span> taskKey[<span class=\"pl-en\">Pipeline</span>.<span class=\"pl-en\">Stage</span>](<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Some pipeline task<span class=\"pl-pds\">\"</span></span>)\n\nmyPipelineTask <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> identity\n\npipelineStages <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Seq</span>(myPipelineTask)</pre></div>\n<p dir=\"auto\"><code>myPipelineTask</code> is a function that receives a <code>Seq[PathMapping]</code> and produces a <code>Seq[PathMapping]</code>. <code>PathMapping</code> is a tuple\nof <code>(File, String)</code> where the first member provides the full path to a file, and the second member declares the portion of that\npath which is to be considered relative. For example <code>(file(\"/a/b/c\"), \"b/c\"). </code>PathMapping` types are commonly used in sbt and\nare useful in terms of providing access to a file and preserving information about its relative path; the latter being typically\nuseful for copying files to a target folder where the relative portion of the path must be retained.</p>\n<p dir=\"auto\">In the above example an identity function is used i.e. what is passed in is simply returned. The task is included within a\nsequence and assigned to <code>pipelineStages</code> i.e. the sequence represents the asset pipeline. Each stage in the asset pipeline is\nexecuted after any previous stage has completed. A stage therefore receives the product of files any previous stage as input.\nA stage's output then becomes the input to any subsequent stage. The first stage will always receive the output of having\nexecuted source file tasks as its input.</p>\n<p dir=\"auto\">If you have some need for the assets produced by the <code>pipelineStages</code> in your development environment (during <code>play run</code>), then you can scope the <code>pipelineStages</code> to the <code>Assets</code> config.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"pipelineStages in Assets := Seq(myPipelineTask)\"><pre>pipelineStages in <span class=\"pl-en\">Assets</span> <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Seq</span>(myPipelineTask)</pre></div>\n<p dir=\"auto\">To perform the asset pipeline tasks use the <code>WebKeys.stage</code> task. If you use sbt's <code>show</code> command from the console then you will see the directory that the pipeline has been written to e.g.:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"show web-stage\"><pre>show web<span class=\"pl-k\">-</span>stage</pre></div>\n<p dir=\"auto\">Returning what is passed in is not particularly useful. Stages tend to add and remove files from the input as expressed in\nthe output returned. The following expanded task simulates minifying some js files and consequently adds files to the pipeline:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"myPipelineTask := { mappings: Seq[PathMapping] =&gt;\n  // pretend to combine all .js files into one .min.js file\n  val targetDir = webTarget.value / &quot;myPipelineTask&quot; / &quot;target&quot;\n  val (js, other) = mappings partition (_._2.endsWith(&quot;.js&quot;))\n  val minFile = targetDir / &quot;js&quot; / &quot;all.min.js&quot;\n  IO.touch(minFile)\n  val minMappings = Seq(minFile) pair relativeTo(targetDir)\n  minMappings ++ other\n}\"><pre>myPipelineTask <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> { <span class=\"pl-v\">mappings</span>: <span class=\"pl-en\">Seq</span>[<span class=\"pl-en\">PathMapping</span>] <span class=\"pl-k\">=&gt;</span>\n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> pretend to combine all .js files into one .min.js file</span>\n  <span class=\"pl-k\">val</span> <span class=\"pl-smi\">targetDir</span> <span class=\"pl-k\">=</span> webTarget.value <span class=\"pl-k\">/</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>myPipelineTask<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">/</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>target<span class=\"pl-pds\">\"</span></span>\n  <span class=\"pl-k\">val</span> (js, other) <span class=\"pl-k\">=</span> mappings partition (_._2.endsWith(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>.js<span class=\"pl-pds\">\"</span></span>))\n  <span class=\"pl-k\">val</span> <span class=\"pl-smi\">minFile</span> <span class=\"pl-k\">=</span> targetDir <span class=\"pl-k\">/</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>js<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">/</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>all.min.js<span class=\"pl-pds\">\"</span></span>\n  <span class=\"pl-en\">IO</span>.touch(minFile)\n  <span class=\"pl-k\">val</span> <span class=\"pl-smi\">minMappings</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Seq</span>(minFile) pair relativeTo(targetDir)\n  minMappings <span class=\"pl-k\">++</span> other\n}</pre></div>\n<p dir=\"auto\">If you find yourself commonly using a pipeline stage task across projects then you should consider wrapping it with an sbt\nplugin. Examples of such plugins are <code>sbt-digest</code>, <code>sbt-gzip</code>, <code>sbt-rjs</code> and <code>sbt-uglify</code>. The first two illustrate stages\nimplemented using JVM based libraries while the latter two illustrate invoking JavaScript via js-engine.</p>\n<h2 dir=\"auto\"><a id=\"user-content-webdriver-and-js-engine\" class=\"anchor\" aria-hidden=\"true\" href=\"#webdriver-and-js-engine\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>WebDriver and js-engine</h2>\n<p dir=\"auto\">The <a href=\"https://github.com/typesafehub/webdriver\">WebDriver</a> and\n<a href=\"https://github.com/typesafehub/js-engine\">js-engine</a> projects build on sbt-web and provide a DOM\noriented and DOM-less means of JavaScript execution respectively. sbt-web plugins will use one of the two of these\nplugins depending on their DOM requirements.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "huntc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/694893?v=4",
+        "url" : "https://api.github.com/users/huntc",
+        "contributions" : 173
+      },
+      {
+        "login" : "jroper",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/105833?v=4",
+        "url" : "https://api.github.com/users/jroper",
+        "contributions" : 47
+      },
+      {
+        "login" : "pvlugter",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/59895?v=4",
+        "url" : "https://api.github.com/users/pvlugter",
+        "contributions" : 30
+      },
+      {
+        "login" : "richdougherty",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14750?v=4",
+        "url" : "https://api.github.com/users/richdougherty",
+        "contributions" : 10
+      },
+      {
+        "login" : "benmccann",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/322311?v=4",
+        "url" : "https://api.github.com/users/benmccann",
+        "contributions" : 8
+      },
+      {
+        "login" : "gmethvin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/171663?v=4",
+        "url" : "https://api.github.com/users/gmethvin",
+        "contributions" : 5
+      },
+      {
+        "login" : "eed3si9n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/184683?v=4",
+        "url" : "https://api.github.com/users/eed3si9n",
+        "contributions" : 5
+      },
+      {
+        "login" : "jaceklaskowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/62313?v=4",
+        "url" : "https://api.github.com/users/jaceklaskowski",
+        "contributions" : 3
+      },
+      {
+        "login" : "joost-de-vries",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1859426?v=4",
+        "url" : "https://api.github.com/users/joost-de-vries",
+        "contributions" : 3
+      },
+      {
+        "login" : "mkurz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/644927?v=4",
+        "url" : "https://api.github.com/users/mkurz",
+        "contributions" : 3
+      },
+      {
+        "login" : "marcospereira",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4576?v=4",
+        "url" : "https://api.github.com/users/marcospereira",
+        "contributions" : 2
+      },
+      {
+        "login" : "jamesward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/65043?v=4",
+        "url" : "https://api.github.com/users/jamesward",
+        "contributions" : 2
+      },
+      {
+        "login" : "xuwei-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/389787?v=4",
+        "url" : "https://api.github.com/users/xuwei-k",
+        "contributions" : 2
+      },
+      {
+        "login" : "andriimartynov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2194653?v=4",
+        "url" : "https://api.github.com/users/andriimartynov",
+        "contributions" : 1
+      },
+      {
+        "login" : "arielscarpinelli",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1731260?v=4",
+        "url" : "https://api.github.com/users/arielscarpinelli",
+        "contributions" : 1
+      },
+      {
+        "login" : "schmitch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1641401?v=4",
+        "url" : "https://api.github.com/users/schmitch",
+        "contributions" : 1
+      },
+      {
+        "login" : "dwijnand",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/344610?v=4",
+        "url" : "https://api.github.com/users/dwijnand",
+        "contributions" : 1
+      },
+      {
+        "login" : "dwickern",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/752885?v=4",
+        "url" : "https://api.github.com/users/dwickern",
+        "contributions" : 1
+      },
+      {
+        "login" : "0x7fh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17913311?v=4",
+        "url" : "https://api.github.com/users/0x7fh",
+        "contributions" : 1
+      },
+      {
+        "login" : "eamelink",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/332784?v=4",
+        "url" : "https://api.github.com/users/eamelink",
+        "contributions" : 1
+      },
+      {
+        "login" : "ebruchez",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/105769?v=4",
+        "url" : "https://api.github.com/users/ebruchez",
+        "contributions" : 1
+      },
+      {
+        "login" : "irundaia",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7352941?v=4",
+        "url" : "https://api.github.com/users/irundaia",
+        "contributions" : 1
+      },
+      {
+        "login" : "earldouglas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/424946?v=4",
+        "url" : "https://api.github.com/users/earldouglas",
+        "contributions" : 1
+      },
+      {
+        "login" : "JasonStoltz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1427475?v=4",
+        "url" : "https://api.github.com/users/JasonStoltz",
+        "contributions" : 1
+      },
+      {
+        "login" : "guersam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/969120?v=4",
+        "url" : "https://api.github.com/users/guersam",
+        "contributions" : 1
+      },
+      {
+        "login" : "basedRNC",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/221734?v=4",
+        "url" : "https://api.github.com/users/basedRNC",
+        "contributions" : 1
+      },
+      {
+        "login" : "jmparsons",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/514330?v=4",
+        "url" : "https://api.github.com/users/jmparsons",
+        "contributions" : 1
+      },
+      {
+        "login" : "Damiya",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3479753?v=4",
+        "url" : "https://api.github.com/users/Damiya",
+        "contributions" : 1
+      },
+      {
+        "login" : "matthewrennie",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1607447?v=4",
+        "url" : "https://api.github.com/users/matthewrennie",
+        "contributions" : 1
+      },
+      {
+        "login" : "stanch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2670454?v=4",
+        "url" : "https://api.github.com/users/stanch",
+        "contributions" : 1
+      },
+      {
+        "login" : "kolloch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/339354?v=4",
+        "url" : "https://api.github.com/users/kolloch",
+        "contributions" : 1
+      },
+      {
+        "login" : "tanin47",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/494417?v=4",
+        "url" : "https://api.github.com/users/tanin47",
+        "contributions" : 1
+      },
+      {
+        "login" : "tindzk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/196819?v=4",
+        "url" : "https://api.github.com/users/tindzk",
+        "contributions" : 1
+      },
+      {
+        "login" : "vmunier",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1211392?v=4",
+        "url" : "https://api.github.com/users/vmunier",
+        "contributions" : 1
+      },
+      {
+        "login" : "nafg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/98384?v=4",
+        "url" : "https://api.github.com/users/nafg",
+        "contributions" : 1
+      },
+      {
+        "login" : "Atry",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/601530?v=4",
+        "url" : "https://api.github.com/users/Atry",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 316,
+    "topics" : [
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : "https://gitter.im/sbt/sbt-web",
+    "openIssues" : [
+      {
+        "number" : 183,
+        "title" : "Travis CI dropped",
+        "url" : "https://github.com/sbt/sbt-web/issues/183"
+      },
+      {
+        "number" : 181,
+        "title" : "\"overview of sbt-web\" link is broken",
+        "url" : "https://github.com/sbt/sbt-web/issues/181"
+      },
+      {
+        "number" : 180,
+        "title" : "Migrate repository away from travis-ci.org",
+        "url" : "https://github.com/sbt/sbt-web/issues/180"
+      },
+      {
+        "number" : 178,
+        "title" : "defining a sourceGenerator from a subproject",
+        "url" : "https://github.com/sbt/sbt-web/issues/178"
+      },
+      {
+        "number" : 175,
+        "title" : "Problems hooking task into asset phase",
+        "url" : "https://github.com/sbt/sbt-web/issues/175"
+      },
+      {
+        "number" : 173,
+        "title" : "\"org.webjars.npm\" % \"core-js\"not included in web-modules",
+        "url" : "https://github.com/sbt/sbt-web/issues/173"
+      },
+      {
+        "number" : 171,
+        "title" : "sbt-web fails under sbt 1.3.0-RC1",
+        "url" : "https://github.com/sbt/sbt-web/issues/171"
+      },
+      {
+        "number" : 170,
+        "title" : "Memory leak when switching branches, testing and reloading",
+        "url" : "https://github.com/sbt/sbt-web/issues/170"
+      },
+      {
+        "number" : 164,
+        "title" : "Different settings when using `sbt run` and `sbt stage`",
+        "url" : "https://github.com/sbt/sbt-web/issues/164"
+      },
+      {
+        "number" : 154,
+        "title" : "Managed ClassPath in Runtime + Scala.js causes Intellij to Perform Full Optimized Scala.js build in project load",
+        "url" : "https://github.com/sbt/sbt-web/issues/154"
+      },
+      {
+        "number" : 150,
+        "title" : "pipelineStages in Assets makes the build hang",
+        "url" : "https://github.com/sbt/sbt-web/issues/150"
+      },
+      {
+        "number" : 145,
+        "title" : "Merging source maps",
+        "url" : "https://github.com/sbt/sbt-web/issues/145"
+      },
+      {
+        "number" : 138,
+        "title" : "Question about handling assets in sbt",
+        "url" : "https://github.com/sbt/sbt-web/issues/138"
+      },
+      {
+        "number" : 133,
+        "title" : "Symbolic links in multi-modules play project",
+        "url" : "https://github.com/sbt/sbt-web/issues/133"
+      },
+      {
+        "number" : 132,
+        "title" : "Silence webjars logging during compilation",
+        "url" : "https://github.com/sbt/sbt-web/issues/132"
+      },
+      {
+        "number" : 126,
+        "title" : "Including unmanagedResources as watchSources",
+        "url" : "https://github.com/sbt/sbt-web/issues/126"
+      },
+      {
+        "number" : 125,
+        "title" : "NPM webjars expanding to directories with wrong name",
+        "url" : "https://github.com/sbt/sbt-web/issues/125"
+      },
+      {
+        "number" : 124,
+        "title" : "Fat WebJars Expand node_modules to Wrong Directories",
+        "url" : "https://github.com/sbt/sbt-web/issues/124"
+      },
+      {
+        "number" : 122,
+        "title" : "sbt-web asset output directory setup question",
+        "url" : "https://github.com/sbt/sbt-web/issues/122"
+      },
+      {
+        "number" : 121,
+        "title" : "SBT is trying to copy the application.log file, RuntimeException: Could not copy",
+        "url" : "https://github.com/sbt/sbt-web/issues/121"
+      },
+      {
+        "number" : 118,
+        "title" : "Using processed sbt-web assets in multi-module play project",
+        "url" : "https://github.com/sbt/sbt-web/issues/118"
+      },
+      {
+        "number" : 112,
+        "title" : "Deduplicators are case-sensitive on Windows",
+        "url" : "https://github.com/sbt/sbt-web/issues/112"
+      },
+      {
+        "number" : 108,
+        "title" : "Disable copying everything from assets folder to public folder",
+        "url" : "https://github.com/sbt/sbt-web/issues/108"
+      },
+      {
+        "number" : 104,
+        "title" : "Webjar locator throws IllegalStateException when adding sbt-web to the project",
+        "url" : "https://github.com/sbt/sbt-web/issues/104"
+      },
+      {
+        "number" : 67,
+        "title" : "Using WebJar artifactId for directory can cause issues",
+        "url" : "https://github.com/sbt/sbt-web/issues/67"
+      },
+      {
+        "number" : 65,
+        "title" : "Unminified assets remain accessible",
+        "url" : "https://github.com/sbt/sbt-web/issues/65"
+      },
+      {
+        "number" : 56,
+        "title" : "sbt-web workflow vs. Grunt workflow",
+        "url" : "https://github.com/sbt/sbt-web/issues/56"
+      },
+      {
+        "number" : 54,
+        "title" : "it:test (IntegrationTest) does not see (does not compile?) sbt-web managed sources",
+        "url" : "https://github.com/sbt/sbt-web/issues/54"
+      },
+      {
+        "number" : 45,
+        "title" : "Add sbt-jasmine",
+        "url" : "https://github.com/sbt/sbt-web/issues/45"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : null,
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "asset-management-and-bundlers",
+    "beginnerIssuesLabel" : null
+  }
+}

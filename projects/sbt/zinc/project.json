@@ -1,0 +1,974 @@
+{
+  "organization" : "sbt",
+  "repository" : "zinc",
+  "creationDate" : 1476409819028,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643170375527
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "",
+    "description" : "Scala incremental compiler library, originally part of sbt",
+    "logo" : "https://avatars.githubusercontent.com/u/1158012?v=4",
+    "stars" : 267,
+    "forks" : 106,
+    "watchers" : 27,
+    "issues" : 86,
+    "creationDate" : 1438723978000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><p dir=\"auto\"><strong>Zinc</strong> is the incremental compiler for Scala.</p>\n<p dir=\"auto\">Most Scala developers use it constantly without noticing. It's leveraged by build tools\nsuch as <a href=\"https://scala-sbt.org\" rel=\"nofollow\">sbt</a>, <a href=\"https://github.com/Jetbrains/intellij-scala\">IntelliJ</a>, <a href=\"https://github.com/davidB/scala-maven-plugin\">Maven</a>, <a href=\"https://docs.gradle.org/current/userguide/scala_plugin.html\" rel=\"nofollow\">Gradle</a>, <a href=\"https://github.com/com-lihaoyi/mill\">Mill</a>, <a href=\"http://pantsbuild.org\" rel=\"nofollow\">Pants</a>, <a href=\"https://github.com/higherkindness/rules_scala\">Bazel</a>,\nand <a href=\"https://github.com/scalacenter/bloop\">Bloop</a>.</p>\n<p dir=\"auto\">Zinc reduces compilation times without sacrificing\ncorrectness. When you change a source file, Zinc analyzes the structure of\nyour code and recompiles only the source files affected by your\nchange. The result should be identical to the output of a clean compile.</p>\n<h2 dir=\"auto\"><a id=\"user-content-code-of-conduct\" class=\"anchor\" aria-hidden=\"true\" href=\"#code-of-conduct\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Code of conduct</h2>\n<p dir=\"auto\">All communication in <code>sbt/*</code> repositories and chat rooms\nis covered by <a href=\"https://scala-lang.org/conduct/\" rel=\"nofollow\">Scala Code of Conduct</a>.\nPlease be kind and courteous to each other.</p>\n<h2 dir=\"auto\"><a id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Contributing</h2>\n<p dir=\"auto\">This project is maintained by Lightbend, the <a href=\"https://scala.epfl.ch\" rel=\"nofollow\">Scala Center</a>,\nand other OSS contributors.</p>\n<p dir=\"auto\">You're welcome to participate. To learn how,\nsee the <a href=\"CONTRIBUTING.md\">CONTRIBUTING guide</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-integrating-zinc\" class=\"anchor\" aria-hidden=\"true\" href=\"#integrating-zinc\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Integrating Zinc</h2>\n<p dir=\"auto\">Most Scala users don't need to think about Zinc at all. Just use\nany of the build tools listed above, and you get Zinc's benefits.</p>\n<p dir=\"auto\">If you're a build tool author, add Zinc to your project with:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;org.scala-sbt&quot; %% &quot;zinc&quot; % &quot;$ZINC_VERSION&quot;\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.scala-sbt<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>zinc<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>$ZINC_VERSION<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">where <code>$ZINC_VERSION</code> is the latest tag pushed to the GitHub repository.</p>\n<p dir=\"auto\">To integrate Zinc, you have two options:</p>\n<ol dir=\"auto\">\n<li>Interface directly with Zinc APIs and maintain your own integration.</li>\n<li>Use Bloop (which has a compilation server that simplifies tooling integrations).</li>\n</ol>\n<h3 dir=\"auto\"><a id=\"user-content-note-to-compiler-bridge-authors\" class=\"anchor\" aria-hidden=\"true\" href=\"#note-to-compiler-bridge-authors\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Note to compiler bridge authors</h3>\n<p dir=\"auto\">The compiler bridge classes are loaded using <a href=\"https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html\" rel=\"nofollow\">java.util.ServiceLoader</a>. In other words, the class implementing <code>xsbti.compile.CompilerInterface2</code> must be mentioned in a file named: <code>/META-INF/services/xsbti.compile.CompilerInterface2</code>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-acknowledgements\" class=\"anchor\" aria-hidden=\"true\" href=\"#acknowledgements\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Acknowledgements</h2>\n<table>\n<thead>\n<tr>\n<th>Logo</th>\n<th>Acknowledgement</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/81cebad9a613009454b2b36f2d410e5ccc2c8e27b6736f9c7074df8cdf6ebd2a/68747470733a2f2f7777772e796f75726b69742e636f6d2f696d616765732f796b6c6f676f2e706e67\"><img src=\"https://camo.githubusercontent.com/81cebad9a613009454b2b36f2d410e5ccc2c8e27b6736f9c7074df8cdf6ebd2a/68747470733a2f2f7777772e796f75726b69742e636f6d2f696d616765732f796b6c6f676f2e706e67\" alt=\"\" data-canonical-src=\"https://www.yourkit.com/images/yklogo.png\" style=\"max-width: 100%;\"></a></td>\n<td>We thank <a href=\"https://www.yourkit.com/\" rel=\"nofollow\">Yourkit</a> for supporting this open-source project with its full-featured profiler.</td>\n</tr>\n</tbody>\n</table>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "eed3si9n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/184683?v=4",
+        "url" : "https://api.github.com/users/eed3si9n",
+        "contributions" : 809
+      },
+      {
+        "login" : "jvican",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2462974?v=4",
+        "url" : "https://api.github.com/users/jvican",
+        "contributions" : 397
+      },
+      {
+        "login" : "harrah",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/72742?v=4",
+        "url" : "https://api.github.com/users/harrah",
+        "contributions" : 375
+      },
+      {
+        "login" : "dwijnand",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/344610?v=4",
+        "url" : "https://api.github.com/users/dwijnand",
+        "contributions" : 280
+      },
+      {
+        "login" : "gkossakowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4217?v=4",
+        "url" : "https://api.github.com/users/gkossakowski",
+        "contributions" : 224
+      },
+      {
+        "login" : "Duhemm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1765926?v=4",
+        "url" : "https://api.github.com/users/Duhemm",
+        "contributions" : 142
+      },
+      {
+        "login" : "jsuereth",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/29006?v=4",
+        "url" : "https://api.github.com/users/jsuereth",
+        "contributions" : 98
+      },
+      {
+        "login" : "retronym",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/65551?v=4",
+        "url" : "https://api.github.com/users/retronym",
+        "contributions" : 63
+      },
+      {
+        "login" : "romanowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3967938?v=4",
+        "url" : "https://api.github.com/users/romanowski",
+        "contributions" : 49
+      },
+      {
+        "login" : "lukaszwawrzyk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10235198?v=4",
+        "url" : "https://api.github.com/users/lukaszwawrzyk",
+        "contributions" : 47
+      },
+      {
+        "login" : "eatkins",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2658825?v=4",
+        "url" : "https://api.github.com/users/eatkins",
+        "contributions" : 34
+      },
+      {
+        "login" : "smarter",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/63430?v=4",
+        "url" : "https://api.github.com/users/smarter",
+        "contributions" : 22
+      },
+      {
+        "login" : "adriaanm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/91083?v=4",
+        "url" : "https://api.github.com/users/adriaanm",
+        "contributions" : 13
+      },
+      {
+        "login" : "adpi2",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13123162?v=4",
+        "url" : "https://api.github.com/users/adpi2",
+        "contributions" : 12
+      },
+      {
+        "login" : "ephemerist",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2707638?v=4",
+        "url" : "https://api.github.com/users/ephemerist",
+        "contributions" : 11
+      },
+      {
+        "login" : "exoego",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/127635?v=4",
+        "url" : "https://api.github.com/users/exoego",
+        "contributions" : 11
+      },
+      {
+        "login" : "stuhood",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/46740?v=4",
+        "url" : "https://api.github.com/users/stuhood",
+        "contributions" : 9
+      },
+      {
+        "login" : "xuwei-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/389787?v=4",
+        "url" : "https://api.github.com/users/xuwei-k",
+        "contributions" : 9
+      },
+      {
+        "login" : "indrajitr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/93846?v=4",
+        "url" : "https://api.github.com/users/indrajitr",
+        "contributions" : 7
+      },
+      {
+        "login" : "jedesah",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1780116?v=4",
+        "url" : "https://api.github.com/users/jedesah",
+        "contributions" : 7
+      },
+      {
+        "login" : "vigdorchik",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/707755?v=4",
+        "url" : "https://api.github.com/users/vigdorchik",
+        "contributions" : 6
+      },
+      {
+        "login" : "pdalpra",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1514127?v=4",
+        "url" : "https://api.github.com/users/pdalpra",
+        "contributions" : 6
+      },
+      {
+        "login" : "ttreyer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/221672?v=4",
+        "url" : "https://api.github.com/users/ttreyer",
+        "contributions" : 6
+      },
+      {
+        "login" : "jroper",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/105833?v=4",
+        "url" : "https://api.github.com/users/jroper",
+        "contributions" : 5
+      },
+      {
+        "login" : "dotta",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/703748?v=4",
+        "url" : "https://api.github.com/users/dotta",
+        "contributions" : 5
+      },
+      {
+        "login" : "SethTisue",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
+        "url" : "https://api.github.com/users/SethTisue",
+        "contributions" : 5
+      },
+      {
+        "login" : "OlegYch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/268312?v=4",
+        "url" : "https://api.github.com/users/OlegYch",
+        "contributions" : 4
+      },
+      {
+        "login" : "paulp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9135?v=4",
+        "url" : "https://api.github.com/users/paulp",
+        "contributions" : 4
+      },
+      {
+        "login" : "pvlugter",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/59895?v=4",
+        "url" : "https://api.github.com/users/pvlugter",
+        "contributions" : 4
+      },
+      {
+        "login" : "knirski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1839931?v=4",
+        "url" : "https://api.github.com/users/knirski",
+        "contributions" : 4
+      },
+      {
+        "login" : "havocp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/218689?v=4",
+        "url" : "https://api.github.com/users/havocp",
+        "contributions" : 3
+      },
+      {
+        "login" : "ijuma",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24747?v=4",
+        "url" : "https://api.github.com/users/ijuma",
+        "contributions" : 3
+      },
+      {
+        "login" : "jtjeferreira",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/943051?v=4",
+        "url" : "https://api.github.com/users/jtjeferreira",
+        "contributions" : 3
+      },
+      {
+        "login" : "liosedhel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6508826?v=4",
+        "url" : "https://api.github.com/users/liosedhel",
+        "contributions" : 3
+      },
+      {
+        "login" : "Blaisorblade",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/289960?v=4",
+        "url" : "https://api.github.com/users/Blaisorblade",
+        "contributions" : 3
+      },
+      {
+        "login" : "slandelle",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/849197?v=4",
+        "url" : "https://api.github.com/users/slandelle",
+        "contributions" : 3
+      },
+      {
+        "login" : "Krever",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2219224?v=4",
+        "url" : "https://api.github.com/users/Krever",
+        "contributions" : 3
+      },
+      {
+        "login" : "raboof",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/131856?v=4",
+        "url" : "https://api.github.com/users/raboof",
+        "contributions" : 3
+      },
+      {
+        "login" : "pkukielka",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1519649?v=4",
+        "url" : "https://api.github.com/users/pkukielka",
+        "contributions" : 3
+      },
+      {
+        "login" : "allanrenucci",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4996324?v=4",
+        "url" : "https://api.github.com/users/allanrenucci",
+        "contributions" : 2
+      },
+      {
+        "login" : "chrisandrews-ms",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/29573272?v=4",
+        "url" : "https://api.github.com/users/chrisandrews-ms",
+        "contributions" : 2
+      },
+      {
+        "login" : "lrytz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/119636?v=4",
+        "url" : "https://api.github.com/users/lrytz",
+        "contributions" : 2
+      },
+      {
+        "login" : "pkolaczk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1352795?v=4",
+        "url" : "https://api.github.com/users/pkolaczk",
+        "contributions" : 2
+      },
+      {
+        "login" : "som-snytt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/369425?v=4",
+        "url" : "https://api.github.com/users/som-snytt",
+        "contributions" : 2
+      },
+      {
+        "login" : "psilospore",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5355976?v=4",
+        "url" : "https://api.github.com/users/psilospore",
+        "contributions" : 2
+      },
+      {
+        "login" : "lefou",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1321393?v=4",
+        "url" : "https://api.github.com/users/lefou",
+        "contributions" : 2
+      },
+      {
+        "login" : "wlk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/314328?v=4",
+        "url" : "https://api.github.com/users/wlk",
+        "contributions" : 2
+      },
+      {
+        "login" : "jilen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/546573?v=4",
+        "url" : "https://api.github.com/users/jilen",
+        "contributions" : 2
+      },
+      {
+        "login" : "natansil",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11754053?v=4",
+        "url" : "https://api.github.com/users/natansil",
+        "contributions" : 2
+      },
+      {
+        "login" : "wpopielarski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11613003?v=4",
+        "url" : "https://api.github.com/users/wpopielarski",
+        "contributions" : 2
+      },
+      {
+        "login" : "aidan-fitz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2768977?v=4",
+        "url" : "https://api.github.com/users/aidan-fitz",
+        "contributions" : 1
+      },
+      {
+        "login" : "azolotko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/110424?v=4",
+        "url" : "https://api.github.com/users/azolotko",
+        "contributions" : 1
+      },
+      {
+        "login" : "allantl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14335852?v=4",
+        "url" : "https://api.github.com/users/allantl",
+        "contributions" : 1
+      },
+      {
+        "login" : "Andrei-Pozolotin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1622151?v=4",
+        "url" : "https://api.github.com/users/Andrei-Pozolotin",
+        "contributions" : 1
+      },
+      {
+        "login" : "kaygorodov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1989016?v=4",
+        "url" : "https://api.github.com/users/kaygorodov",
+        "contributions" : 1
+      },
+      {
+        "login" : "Arthurm1",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5612295?v=4",
+        "url" : "https://api.github.com/users/Arthurm1",
+        "contributions" : 1
+      },
+      {
+        "login" : "aolshevskiy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/38494?v=4",
+        "url" : "https://api.github.com/users/aolshevskiy",
+        "contributions" : 1
+      },
+      {
+        "login" : "asethia",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3966496?v=4",
+        "url" : "https://api.github.com/users/asethia",
+        "contributions" : 1
+      },
+      {
+        "login" : "benjyw",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/512764?v=4",
+        "url" : "https://api.github.com/users/benjyw",
+        "contributions" : 1
+      },
+      {
+        "login" : "puffnfresh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/37715?v=4",
+        "url" : "https://api.github.com/users/puffnfresh",
+        "contributions" : 1
+      },
+      {
+        "login" : "briantopping",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/158115?v=4",
+        "url" : "https://api.github.com/users/briantopping",
+        "contributions" : 1
+      },
+      {
+        "login" : "cb372",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/106760?v=4",
+        "url" : "https://api.github.com/users/cb372",
+        "contributions" : 1
+      },
+      {
+        "login" : "avdv",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3471749?v=4",
+        "url" : "https://api.github.com/users/avdv",
+        "contributions" : 1
+      },
+      {
+        "login" : "dpratt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/721499?v=4",
+        "url" : "https://api.github.com/users/dpratt",
+        "contributions" : 1
+      },
+      {
+        "login" : "er1c",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/64685?v=4",
+        "url" : "https://api.github.com/users/er1c",
+        "contributions" : 1
+      },
+      {
+        "login" : "fpopic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2332638?v=4",
+        "url" : "https://api.github.com/users/fpopic",
+        "contributions" : 1
+      },
+      {
+        "login" : "hanikhan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6334309?v=4",
+        "url" : "https://api.github.com/users/hanikhan",
+        "contributions" : 1
+      },
+      {
+        "login" : "hvesalai",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/861035?v=4",
+        "url" : "https://api.github.com/users/hvesalai",
+        "contributions" : 1
+      },
+      {
+        "login" : "itohiro73",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2220637?v=4",
+        "url" : "https://api.github.com/users/itohiro73",
+        "contributions" : 1
+      },
+      {
+        "login" : "jaceklaskowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/62313?v=4",
+        "url" : "https://api.github.com/users/jaceklaskowski",
+        "contributions" : 1
+      },
+      {
+        "login" : "jan0sch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/373810?v=4",
+        "url" : "https://api.github.com/users/jan0sch",
+        "contributions" : 1
+      },
+      {
+        "login" : "johnduffell",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7304387?v=4",
+        "url" : "https://api.github.com/users/johnduffell",
+        "contributions" : 1
+      },
+      {
+        "login" : "VlachJosef",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5246747?v=4",
+        "url" : "https://api.github.com/users/VlachJosef",
+        "contributions" : 1
+      },
+      {
+        "login" : "seratch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19658?v=4",
+        "url" : "https://api.github.com/users/seratch",
+        "contributions" : 1
+      },
+      {
+        "login" : "lexspoon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/274906?v=4",
+        "url" : "https://api.github.com/users/lexspoon",
+        "contributions" : 1
+      },
+      {
+        "login" : "urbas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/771193?v=4",
+        "url" : "https://api.github.com/users/urbas",
+        "contributions" : 1
+      },
+      {
+        "login" : "mkurz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/644927?v=4",
+        "url" : "https://api.github.com/users/mkurz",
+        "contributions" : 1
+      },
+      {
+        "login" : "niktrop",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3604749?v=4",
+        "url" : "https://api.github.com/users/niktrop",
+        "contributions" : 1
+      },
+      {
+        "login" : "peiyuwang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2474428?v=4",
+        "url" : "https://api.github.com/users/peiyuwang",
+        "contributions" : 1
+      },
+      {
+        "login" : "kiritsuku",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/488530?v=4",
+        "url" : "https://api.github.com/users/kiritsuku",
+        "contributions" : 1
+      },
+      {
+        "login" : "thkoch2001",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/94641?v=4",
+        "url" : "https://api.github.com/users/thkoch2001",
+        "contributions" : 1
+      },
+      {
+        "login" : "vjovanov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/352820?v=4",
+        "url" : "https://api.github.com/users/vjovanov",
+        "contributions" : 1
+      },
+      {
+        "login" : "liufengyun",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/754633?v=4",
+        "url" : "https://api.github.com/users/liufengyun",
+        "contributions" : 1
+      },
+      {
+        "login" : "lloydmeta",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/914805?v=4",
+        "url" : "https://api.github.com/users/lloydmeta",
+        "contributions" : 1
+      },
+      {
+        "login" : "nau",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/138045?v=4",
+        "url" : "https://api.github.com/users/nau",
+        "contributions" : 1
+      },
+      {
+        "login" : "soc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/42493?v=4",
+        "url" : "https://api.github.com/users/soc",
+        "contributions" : 1
+      },
+      {
+        "login" : "P3trur0",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11474157?v=4",
+        "url" : "https://api.github.com/users/P3trur0",
+        "contributions" : 1
+      },
+      {
+        "login" : "lukeindykiewicz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3164986?v=4",
+        "url" : "https://api.github.com/users/lukeindykiewicz",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 2755,
+    "topics" : [
+      "compiler",
+      "sbt",
+      "scala",
+      "zinc"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 1023,
+        "title" : "Unable to use custom doclet in sbt doc build",
+        "url" : "https://github.com/sbt/zinc/issues/1023"
+      },
+      {
+        "number" : 1010,
+        "title" : "Stackoverflow in `ExtractUsedNamesTraverser` introduced in zinc-1.5.8",
+        "url" : "https://github.com/sbt/zinc/issues/1010"
+      },
+      {
+        "number" : 984,
+        "title" : "Improve performance of Analysis deserialization.",
+        "url" : "https://github.com/sbt/zinc/issues/984"
+      },
+      {
+        "number" : 966,
+        "title" : "Unexpected zinc cache invalidation after sbt remote cache hit",
+        "url" : "https://github.com/sbt/zinc/issues/966"
+      },
+      {
+        "number" : 963,
+        "title" : "MatchError in ApiPhase",
+        "url" : "https://github.com/sbt/zinc/issues/963"
+      },
+      {
+        "number" : 946,
+        "title" : "Zinc foreground CLI?",
+        "url" : "https://github.com/sbt/zinc/issues/946"
+      },
+      {
+        "number" : 945,
+        "title" : "Zinc doesn't notice that `implicit` keyword has been removed from a method",
+        "url" : "https://github.com/sbt/zinc/issues/945"
+      },
+      {
+        "number" : 932,
+        "title" : "Feature request: Build and return `SourceInfos` when incremental compilation fails",
+        "url" : "https://github.com/sbt/zinc/issues/932"
+      },
+      {
+        "number" : 884,
+        "title" : "Bloop sbt build doesn't load with latest zinc",
+        "url" : "https://github.com/sbt/zinc/issues/884"
+      },
+      {
+        "number" : 837,
+        "title" : "IllegalArgumentException thrown in analysis of Java compiled with --add-exports",
+        "url" : "https://github.com/sbt/zinc/issues/837"
+      },
+      {
+        "number" : 830,
+        "title" : "SAM type change causes undercompilation",
+        "url" : "https://github.com/sbt/zinc/issues/830"
+      },
+      {
+        "number" : 825,
+        "title" : "Changing JVM version compilation failure",
+        "url" : "https://github.com/sbt/zinc/issues/825"
+      },
+      {
+        "number" : 806,
+        "title" : "NPE under -Vdebug",
+        "url" : "https://github.com/sbt/zinc/issues/806"
+      },
+      {
+        "number" : 797,
+        "title" : "\"Unable to locate class file for inner class\" (mixed compilation bug?)",
+        "url" : "https://github.com/sbt/zinc/issues/797"
+      },
+      {
+        "number" : 780,
+        "title" : "Reduce memory of Zinc by de-duplicating Strings, etc",
+        "url" : "https://github.com/sbt/zinc/issues/780"
+      },
+      {
+        "number" : 776,
+        "title" : "Dealias symlinks (via getCanonicalPath etc) somewhere",
+        "url" : "https://github.com/sbt/zinc/issues/776"
+      },
+      {
+        "number" : 775,
+        "title" : "Could apiHash be computed as an unordered hash of the name hashes?",
+        "url" : "https://github.com/sbt/zinc/issues/775"
+      },
+      {
+        "number" : 753,
+        "title" : "optimized sealed option may not be working for 2.13",
+        "url" : "https://github.com/sbt/zinc/issues/753"
+      },
+      {
+        "number" : 745,
+        "title" : "Underscore import does not report a valid Relation",
+        "url" : "https://github.com/sbt/zinc/issues/745"
+      },
+      {
+        "number" : 727,
+        "title" : "Local Java invocation API migration ",
+        "url" : "https://github.com/sbt/zinc/issues/727"
+      },
+      {
+        "number" : 717,
+        "title" : "Allow operation without a filesystem",
+        "url" : "https://github.com/sbt/zinc/issues/717"
+      },
+      {
+        "number" : 716,
+        "title" : "Unnecessary recompilation with long nested type names under -Xmax-classfile-name",
+        "url" : "https://github.com/sbt/zinc/issues/716"
+      },
+      {
+        "number" : 683,
+        "title" : "Zinc writes inconsistent analysis files",
+        "url" : "https://github.com/sbt/zinc/issues/683"
+      },
+      {
+        "number" : 666,
+        "title" : "Maven pom contains duplicate repositories",
+        "url" : "https://github.com/sbt/zinc/issues/666"
+      },
+      {
+        "number" : 663,
+        "title" : "MatchError when apiDebug is enabled and a `TraitPrivateMembersModified` api change is found",
+        "url" : "https://github.com/sbt/zinc/issues/663"
+      },
+      {
+        "number" : 662,
+        "title" : "Under compilation of class that transitively extends trait which has had private field renamed",
+        "url" : "https://github.com/sbt/zinc/issues/662"
+      },
+      {
+        "number" : 659,
+        "title" : "A package object with a monadSynax import is alway recompiled even when no file is changed",
+        "url" : "https://github.com/sbt/zinc/issues/659"
+      },
+      {
+        "number" : 653,
+        "title" : "Extractor outputs are different in Scala 2.13.0-RC1",
+        "url" : "https://github.com/sbt/zinc/issues/653"
+      },
+      {
+        "number" : 645,
+        "title" : "[1.x] assertion failed: The <none> defined at <none> is not a class symbol",
+        "url" : "https://github.com/sbt/zinc/issues/645"
+      },
+      {
+        "number" : 636,
+        "title" : "Support Scala bootstrapping",
+        "url" : "https://github.com/sbt/zinc/issues/636"
+      },
+      {
+        "number" : 631,
+        "title" : "Deprecate GenericMappers.mapMiniSetup",
+        "url" : "https://github.com/sbt/zinc/issues/631"
+      },
+      {
+        "number" : 630,
+        "title" : "Adding @Retention(RetentionPolicy.RUNTIME) to a java annotation does not correctly recompile downstream classes",
+        "url" : "https://github.com/sbt/zinc/issues/630"
+      },
+      {
+        "number" : 623,
+        "title" : "Writing the analysis file is slow",
+        "url" : "https://github.com/sbt/zinc/issues/623"
+      },
+      {
+        "number" : 616,
+        "title" : "Zinc does not consider implicit in default namespace",
+        "url" : "https://github.com/sbt/zinc/issues/616"
+      },
+      {
+        "number" : 613,
+        "title" : "ClassNameSpecification fails on 2.13.0-M5",
+        "url" : "https://github.com/sbt/zinc/issues/613"
+      },
+      {
+        "number" : 611,
+        "title" : "v1.class' does not exist. ",
+        "url" : "https://github.com/sbt/zinc/issues/611"
+      },
+      {
+        "number" : 609,
+        "title" : "Keep track of java dependencies in JDK versions > 8",
+        "url" : "https://github.com/sbt/zinc/issues/609"
+      },
+      {
+        "number" : 604,
+        "title" : "Fix \"X comes from unknown origin\" errors in latest master",
+        "url" : "https://github.com/sbt/zinc/issues/604"
+      },
+      {
+        "number" : 598,
+        "title" : "Changing abstract class to trait causes \"invalid superClass\"",
+        "url" : "https://github.com/sbt/zinc/issues/598"
+      },
+      {
+        "number" : 593,
+        "title" : "LookupImpl.lookupAnalysis is O(N) wrt classpath length",
+        "url" : "https://github.com/sbt/zinc/issues/593"
+      },
+      {
+        "number" : 586,
+        "title" : "Investigate problem in java compilation in akka persistence module",
+        "url" : "https://github.com/sbt/zinc/issues/586"
+      },
+      {
+        "number" : 578,
+        "title" : "Make `this` names context-dependent",
+        "url" : "https://github.com/sbt/zinc/issues/578"
+      },
+      {
+        "number" : 547,
+        "title" : "CompileAnalysis contains many redundant strings",
+        "url" : "https://github.com/sbt/zinc/issues/547"
+      },
+      {
+        "number" : 544,
+        "title" : "Add a command-line interface?",
+        "url" : "https://github.com/sbt/zinc/issues/544"
+      },
+      {
+        "number" : 537,
+        "title" : "-opt:l:inline breaks incremental compilation",
+        "url" : "https://github.com/sbt/zinc/issues/537"
+      },
+      {
+        "number" : 535,
+        "title" : "Zinc doesn't like type aliases + type projections",
+        "url" : "https://github.com/sbt/zinc/issues/535"
+      },
+      {
+        "number" : 531,
+        "title" : "Failed to find name hashed for types with `$$`",
+        "url" : "https://github.com/sbt/zinc/issues/531"
+      },
+      {
+        "number" : 621,
+        "title" : "NullPointerException when passing -Xshow-phases to scalac",
+        "url" : "https://github.com/sbt/zinc/issues/621"
+      },
+      {
+        "number" : 512,
+        "title" : "Refactor Zinc into a compiler plugin?",
+        "url" : "https://github.com/sbt/zinc/issues/512"
+      },
+      {
+        "number" : 476,
+        "title" : "Zinc undercompile in case of construct like A.type#B#C when type behind C changes",
+        "url" : "https://github.com/sbt/zinc/issues/476"
+      },
+      {
+        "number" : 435,
+        "title" : "Document Zinc internals in the wiki",
+        "url" : "https://github.com/sbt/zinc/issues/435"
+      },
+      {
+        "number" : 432,
+        "title" : "Negative test (-compile, or expectation of compilation error)",
+        "url" : "https://github.com/sbt/zinc/issues/432"
+      },
+      {
+        "number" : 430,
+        "title" : "Remove heuristic to recompile all when 50% of sources have changed in tests",
+        "url" : "https://github.com/sbt/zinc/issues/430"
+      },
+      {
+        "number" : 403,
+        "title" : "Allow compiler-interface to be set up as a provided dependency",
+        "url" : "https://github.com/sbt/zinc/issues/403"
+      },
+      {
+        "number" : 402,
+        "title" : "Provide a migration guide for upgrading from 0.3.15",
+        "url" : "https://github.com/sbt/zinc/issues/402"
+      },
+      {
+        "number" : 369,
+        "title" : "Cached doc is not using Tracked.outputChanged",
+        "url" : "https://github.com/sbt/zinc/issues/369"
+      },
+      {
+        "number" : 349,
+        "title" : "Remove warnings of every Zinc module",
+        "url" : "https://github.com/sbt/zinc/issues/349"
+      },
+      {
+        "number" : 348,
+        "title" : "Avoid adding a bootclasspath if it already exists",
+        "url" : "https://github.com/sbt/zinc/issues/348"
+      },
+      {
+        "number" : 338,
+        "title" : "Improve the invalidation logs of Zinc",
+        "url" : "https://github.com/sbt/zinc/issues/338"
+      },
+      {
+        "number" : 333,
+        "title" : "Make Zinc compilations reproducible",
+        "url" : "https://github.com/sbt/zinc/issues/333"
+      },
+      {
+        "number" : 310,
+        "title" : "ZincCompilerUtil#scalaCompiler doesn't accept ModuleID",
+        "url" : "https://github.com/sbt/zinc/issues/310"
+      },
+      {
+        "number" : 308,
+        "title" : "Allow users to provide librarymanagement update configuration",
+        "url" : "https://github.com/sbt/zinc/issues/308"
+      },
+      {
+        "number" : 284,
+        "title" : "Document the use of incOptions.properties in scripted tests",
+        "url" : "https://github.com/sbt/zinc/issues/284"
+      },
+      {
+        "number" : 283,
+        "title" : "Document how to enable debug info on scripted tests and/or make it much simpler",
+        "url" : "https://github.com/sbt/zinc/issues/283"
+      },
+      {
+        "number" : 265,
+        "title" : "Add support for incremental testing",
+        "url" : "https://github.com/sbt/zinc/issues/265"
+      },
+      {
+        "number" : 249,
+        "title" : "Add experimental macro support to Zinc 1.0",
+        "url" : "https://github.com/sbt/zinc/issues/249"
+      },
+      {
+        "number" : 248,
+        "title" : "Merge API and Dependency",
+        "url" : "https://github.com/sbt/zinc/issues/248"
+      },
+      {
+        "number" : 226,
+        "title" : "Zinc doesn't support wildcard-imported 'name' and 'implicit' shadowing",
+        "url" : "https://github.com/sbt/zinc/issues/226"
+      },
+      {
+        "number" : 168,
+        "title" : "Scala 2.12 support: trait compiles to an interface",
+        "url" : "https://github.com/sbt/zinc/issues/168"
+      },
+      {
+        "number" : 150,
+        "title" : "Inheritance of a field with a return type A causes A to be necessary in scalac analysis",
+        "url" : "https://github.com/sbt/zinc/issues/150"
+      },
+      {
+        "number" : 149,
+        "title" : "Add simple stub error support in Zinc Java analysis",
+        "url" : "https://github.com/sbt/zinc/issues/149"
+      },
+      {
+        "number" : 148,
+        "title" : "Untracked javac compilation requirements for JDK8",
+        "url" : "https://github.com/sbt/zinc/issues/148"
+      },
+      {
+        "number" : 147,
+        "title" : "Classes used only in generic positions not recorded in javac analysis",
+        "url" : "https://github.com/sbt/zinc/issues/147"
+      },
+      {
+        "number" : 146,
+        "title" : "Usage of annotations not detected by javac analysis",
+        "url" : "https://github.com/sbt/zinc/issues/146"
+      },
+      {
+        "number" : 145,
+        "title" : "Dependencies on java constants from java code not recognized",
+        "url" : "https://github.com/sbt/zinc/issues/145"
+      },
+      {
+        "number" : 140,
+        "title" : "Sources for generated types are not included in source artifacts",
+        "url" : "https://github.com/sbt/zinc/issues/140"
+      },
+      {
+        "number" : 123,
+        "title" : "ArrayStoreException when parsing Java annotation",
+        "url" : "https://github.com/sbt/zinc/issues/123"
+      },
+      {
+        "number" : 88,
+        "title" : "Spurious change to abstract modifier",
+        "url" : "https://github.com/sbt/zinc/issues/88"
+      },
+      {
+        "number" : 78,
+        "title" : "Split \"Compile API\" (compiler-interface, compiler-bridge) into another repo",
+        "url" : "https://github.com/sbt/zinc/issues/78"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : "zinc",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "compilers",
+    "beginnerIssuesLabel" : "spree"
+  }
+}

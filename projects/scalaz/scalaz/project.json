@@ -1,0 +1,1842 @@
+{
+  "organization" : "scalaz",
+  "repository" : "scalaz",
+  "creationDate" : 1405329311384,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643190069676
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "https://scalaz.github.io/",
+    "description" : "Principled Functional Programming in Scala",
+    "logo" : "https://avatars.githubusercontent.com/u/183416?v=4",
+    "stars" : 4521,
+    "forks" : 715,
+    "watchers" : 234,
+    "issues" : 171,
+    "creationDate" : 1263622731000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-scalaz\" class=\"anchor\" aria-hidden=\"true\" href=\"#scalaz\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Scalaz</h1>\n<p dir=\"auto\">Scalaz is a Scala library for functional programming.</p>\n<p dir=\"auto\">It provides purely functional data structures to complement those from the Scala standard library.\nIt defines a set of foundational type classes (e.g. <code>Functor</code>, <code>Monad</code>) and corresponding instances for\na large number of data structures.</p>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/2c5f98a7a87ffa244cc4bd27a0d980af8925896dabee30e18e88e64f6a8d5f4c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636861742d6f6e2532306c69626572612d627269676874677265656e2e737667\"><img src=\"https://camo.githubusercontent.com/2c5f98a7a87ffa244cc4bd27a0d980af8925896dabee30e18e88e64f6a8d5f4c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636861742d6f6e2532306c69626572612d627269676874677265656e2e737667\" alt=\"IRC\" data-canonical-src=\"https://img.shields.io/badge/chat-on%20libera-brightgreen.svg\" style=\"max-width: 100%;\"></a></p>\n<h2 dir=\"auto\"><a id=\"user-content-getting-scalaz\" class=\"anchor\" aria-hidden=\"true\" href=\"#getting-scalaz\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Getting Scalaz</h2>\n<p dir=\"auto\">The current stable version is 7.3.6, which is cross-built against Scala 2.11.x, 2.12.x, 2.13.x, 3.x and Scala.js, scala-native.</p>\n<p dir=\"auto\">If you're using SBT, add the following line to your build file:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;org.scalaz&quot; %% &quot;scalaz-core&quot; % &quot;7.3.6&quot;\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.scalaz<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>scalaz-core<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>7.3.6<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">For Maven and other build tools, you can visit <a href=\"https://search.maven.org/search?q=g:org.scalaz%20AND%20v:7.3.6\" rel=\"nofollow\">search.maven.org</a>.\n(This search will also list all available modules of scalaz.)</p>\n<p dir=\"auto\">To get sample configurations, click on the version of the module you are interested in.\nYou can also find direct download links at the bottom of that page. Choose the file ending in <code>7.3.6.jar</code>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-quick-start\" class=\"anchor\" aria-hidden=\"true\" href=\"#quick-start\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Quick Start</h2>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import scalaz._\nimport std.option._, std.list._ // functions and type class instances for Option and List\n\nscala&gt; Apply[Option].apply2(some(1), some(2))((a, b) =&gt; a + b)\nres0: Option[Int] = Some(3)\n\nscala&gt; Traverse[List].traverse(List(1, 2, 3))(i =&gt; some(i))\nres1: Option[List[Int]] = Some(List(1, 2, 3))\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">scalaz</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">std</span>.<span class=\"pl-en\">option</span>.<span class=\"pl-en\">_</span>, <span class=\"pl-en\">std</span>.<span class=\"pl-en\">list</span>.<span class=\"pl-en\">_</span> <span class=\"pl-c\"><span class=\"pl-c\">//</span> functions and type class instances for Option and List</span>\n\nscala<span class=\"pl-k\">&gt;</span> <span class=\"pl-en\">Apply</span>[<span class=\"pl-en\">Option</span>].apply2(some(<span class=\"pl-c1\">1</span>), some(<span class=\"pl-c1\">2</span>))((a, b) <span class=\"pl-k\">=&gt;</span> a <span class=\"pl-k\">+</span> b)\nres0<span class=\"pl-k\">:</span> <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">Int</span>] <span class=\"pl-k\">=</span> <span class=\"pl-en\">Some</span>(<span class=\"pl-c1\">3</span>)\n\nscala<span class=\"pl-k\">&gt;</span> <span class=\"pl-en\">Traverse</span>[<span class=\"pl-en\">List</span>].traverse(<span class=\"pl-en\">List</span>(<span class=\"pl-c1\">1</span>, <span class=\"pl-c1\">2</span>, <span class=\"pl-c1\">3</span>))(i <span class=\"pl-k\">=&gt;</span> some(i))\nres1<span class=\"pl-k\">:</span> <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">List</span>[<span class=\"pl-en\">Int</span>]] <span class=\"pl-k\">=</span> <span class=\"pl-en\">Some</span>(<span class=\"pl-en\">List</span>(<span class=\"pl-c1\">1</span>, <span class=\"pl-c1\">2</span>, <span class=\"pl-c1\">3</span>))</pre></div>\n<p dir=\"auto\">Use of the <code>Ops</code> classes, defined under <code>scalaz.syntax</code>.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import scalaz._\nimport std.list._ // type class instances for List\nimport syntax.bind._ // syntax for the Bind type class (and its parents)\n\nscala&gt; List(List(1)).join\nres0: List[Int] = List(1)\n\nscala&gt; List(true, false).ifM(List(0, 1), List(2, 3))\nres1: List[Int] = List(0, 1, 2, 3)\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">scalaz</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">std</span>.<span class=\"pl-en\">list</span>.<span class=\"pl-en\">_</span> <span class=\"pl-c\"><span class=\"pl-c\">//</span> type class instances for List</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">syntax</span>.<span class=\"pl-en\">bind</span>.<span class=\"pl-en\">_</span> <span class=\"pl-c\"><span class=\"pl-c\">//</span> syntax for the Bind type class (and its parents)</span>\n\nscala<span class=\"pl-k\">&gt;</span> <span class=\"pl-en\">List</span>(<span class=\"pl-en\">List</span>(<span class=\"pl-c1\">1</span>)).join\nres0<span class=\"pl-k\">:</span> <span class=\"pl-en\">List</span>[<span class=\"pl-en\">Int</span>] <span class=\"pl-k\">=</span> <span class=\"pl-en\">List</span>(<span class=\"pl-c1\">1</span>)\n\nscala<span class=\"pl-k\">&gt;</span> <span class=\"pl-en\">List</span>(<span class=\"pl-c1\">true</span>, <span class=\"pl-c1\">false</span>).ifM(<span class=\"pl-en\">List</span>(<span class=\"pl-c1\">0</span>, <span class=\"pl-c1\">1</span>), <span class=\"pl-en\">List</span>(<span class=\"pl-c1\">2</span>, <span class=\"pl-c1\">3</span>))\nres1<span class=\"pl-k\">:</span> <span class=\"pl-en\">List</span>[<span class=\"pl-en\">Int</span>] <span class=\"pl-k\">=</span> <span class=\"pl-en\">List</span>(<span class=\"pl-c1\">0</span>, <span class=\"pl-c1\">1</span>, <span class=\"pl-c1\">2</span>, <span class=\"pl-c1\">3</span>)</pre></div>\n<p dir=\"auto\">We've gone to great lengths to give you an <em>a-la-carte</em> importing experience, but if you prefer an all-you-can-eat\nbuffet, you're in luck:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import scalaz._\nimport Scalaz._\n\nscala&gt; NonEmptyList(1, 2, 3).cojoin\nres0: scalaz.NonEmptyList[scalaz.NonEmptyList[Int]] = NonEmptyList(NonEmptyList(1, 2, 3), NonEmptyList(2, 3), NonEmptyList(3))\n\nscala&gt; 1.node(2.leaf, 3.node(4.leaf))\nres1: scalaz.Tree[Int] = &lt;tree&gt;\n\nscala&gt; List(some(1), none).suml\nres2: Option[Int] = Some(1)\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">scalaz</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">Scalaz</span>.<span class=\"pl-en\">_</span>\n\nscala<span class=\"pl-k\">&gt;</span> <span class=\"pl-en\">NonEmptyList</span>(<span class=\"pl-c1\">1</span>, <span class=\"pl-c1\">2</span>, <span class=\"pl-c1\">3</span>).cojoin\nres0<span class=\"pl-k\">:</span> scalaz.<span class=\"pl-en\">NonEmptyList</span>[scalaz.<span class=\"pl-en\">NonEmptyList</span>[<span class=\"pl-en\">Int</span>]] <span class=\"pl-k\">=</span> <span class=\"pl-en\">NonEmptyList</span>(<span class=\"pl-en\">NonEmptyList</span>(<span class=\"pl-c1\">1</span>, <span class=\"pl-c1\">2</span>, <span class=\"pl-c1\">3</span>), <span class=\"pl-en\">NonEmptyList</span>(<span class=\"pl-c1\">2</span>, <span class=\"pl-c1\">3</span>), <span class=\"pl-en\">NonEmptyList</span>(<span class=\"pl-c1\">3</span>))\n\nscala<span class=\"pl-k\">&gt;</span> <span class=\"pl-c1\">1</span>.node(<span class=\"pl-c1\">2</span>.leaf, <span class=\"pl-c1\">3</span>.node(<span class=\"pl-c1\">4</span>.leaf))\nres1<span class=\"pl-k\">:</span> scalaz.<span class=\"pl-en\">Tree</span>[<span class=\"pl-en\">Int</span>] <span class=\"pl-k\">=</span> &lt;<span class=\"pl-ent\">tree</span>&gt;\n\nscala<span class=\"pl-k\">&gt;</span> <span class=\"pl-en\">List</span>(some(<span class=\"pl-c1\">1</span>), none).suml\nres2<span class=\"pl-k\">:</span> <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">Int</span>] <span class=\"pl-k\">=</span> <span class=\"pl-en\">Some</span>(<span class=\"pl-c1\">1</span>)</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-resources\" class=\"anchor\" aria-hidden=\"true\" href=\"#resources\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Resources</h2>\n<p dir=\"auto\">Let the types speak for themselves via the <a href=\"https://scalaz.github.io/scalaz/#scaladoc\" rel=\"nofollow\">Scalaz Scaladocs</a>!</p>\n<p dir=\"auto\">The <a href=\"https://github.com/scalaz/scalaz/tree/master/example/src/main/scala/scalaz/example\">examples module</a> contains some snippets of Scalaz usage.</p>\n<p dir=\"auto\">The <a href=\"https://github.com/scalaz/scalaz/wiki\">wiki</a> contains release and migration information.</p>\n<p dir=\"auto\">Talk with us by joining <a href=\"https://web.libera.chat/#scalaz\" rel=\"nofollow\">IRC: irc.libera.chat channel #scalaz</a>, or join <a href=\"https://groups.google.com/group/scalaz\" rel=\"nofollow\">the Scalaz mailing list on Google Groups</a>.</p>\n<p dir=\"auto\">The <a href=\"https://typelevel.org/blog/\" rel=\"nofollow\">typelevel blog</a> has some great posts such as <a href=\"https://typelevel.org/blog/2013/10/13/towards-scalaz-1.html\" rel=\"nofollow\">Towards Scalaz</a> by <a href=\"https://twitter.com/adelbertchang\" rel=\"nofollow\">Adelbert Chang</a>.</p>\n<p dir=\"auto\"><a href=\"http://eed3si9n.com/learning-scalaz/index.html\" rel=\"nofollow\">Learning Scalaz</a> is a great series of blog posts by <a href=\"https://twitter.com/eed3si9n\" rel=\"nofollow\">Eugene Yokota</a>. Thanks, Eugene!</p>\n<h2 dir=\"auto\"><a id=\"user-content-changes-in-version-7\" class=\"anchor\" aria-hidden=\"true\" href=\"#changes-in-version-7\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Changes in Version 7</h2>\n<p dir=\"auto\">Scalaz 7 represents a major reorganization of the library. We have taken a fresh look\nat the challenges of encoding type classes in Scala, in particular at when and how to\nemploy the implicit scope.</p>\n<h3 dir=\"auto\"><a id=\"user-content-at-a-glance\" class=\"anchor\" aria-hidden=\"true\" href=\"#at-a-glance\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>At a glance</h3>\n<ul dir=\"auto\">\n<li><code>scalaz.{effect, iteratee}</code> split to separate sub-projects; <code>scalaz.{http, geo}</code> dropped.</li>\n<li>Refined and expanded the type class hierarchy.</li>\n<li>Type class instances are no longer defined in the companion objects of the type class.\nInstances for standard library types are defined under <code>scalaz.std</code>, and instances for\nScalaz data types are defined in the companion object for those types. An instance definition\ncan provide multiple type classes in a single place, which was not always possible in Scalaz 6.</li>\n<li>Type class instances have been organized to avoid ambiguity, a problem that arises when\ninstances are dependent on other instances (for example, <code>Monoid[(A, B)]</code>)</li>\n<li>Use of implicit views to provide access to Scalaz functionality as extension methods\nhas been segregated to <code>scalaz.syntax</code>, and can be imported selectively, and need not\nbe used at all.</li>\n<li>Related functions are defined in the type class trait, to support standalone\nusage of the type class. In Scalaz 6, these were defined in <code>Identity</code>, <code>MA</code>, or <code>MAB</code>.</li>\n<li>New data structures have been added, and existing ones generalized. A number of monad\ntransformers have been provided, in some cases generalizing old data structures.</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-modularity\" class=\"anchor\" aria-hidden=\"true\" href=\"#modularity\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Modularity</h3>\n<p dir=\"auto\">Scalaz has been modularised.</p>\n<ul dir=\"auto\">\n<li><strong>scalaz-core</strong>: Type class hierarchy, data structures, type class instances for the Scala and Java standard libraries,\nimplicit conversions / syntax to access these.</li>\n<li><strong>scalaz-effect</strong>: Data structures to represent and compose IO effects in the type system.</li>\n<li><strong>scalaz-iteratee</strong>: Experimental new Iteratee implementation</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-type-class-hierarchy\" class=\"anchor\" aria-hidden=\"true\" href=\"#type-class-hierarchy\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Type Class Hierarchy</h3>\n<ul dir=\"auto\">\n<li>Type classes form an inheritance hierarchy, as in Scalaz 6. This is convenient both at the call site and at the\ntype class instance definition. At the call site, it ensures that you can call a method requiring a more general\ntype class with an instance of a more specific type class:</li>\n</ul>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"def bar[M[_]: Functor] = ()\n\ndef foo[M[_]: Monad] = bar[M] // Monad[M] is a subtype of Functor[M]\"><pre><span class=\"pl-k\">def</span> <span class=\"pl-en\">bar</span>[<span class=\"pl-en\">M</span>[_]<span class=\"pl-k\">:</span> <span class=\"pl-en\">Functor</span>] <span class=\"pl-k\">=</span> ()\n\n<span class=\"pl-k\">def</span> <span class=\"pl-en\">foo</span>[<span class=\"pl-en\">M</span>[_]<span class=\"pl-k\">:</span> <span class=\"pl-en\">Monad</span>] <span class=\"pl-k\">=</span> bar[<span class=\"pl-en\">M</span>] <span class=\"pl-c\"><span class=\"pl-c\">//</span> Monad[M] is a subtype of Functor[M]</span></pre></div>\n<ul dir=\"auto\">\n<li>The hierarchy itself is largely the same as in Scalaz 6. However, there have been a few\nadjustments, some method signatures have been adjusted to support better standalone usage, so code depending on these will\nneed to be re-worked.</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-type-class-instance-definition\" class=\"anchor\" aria-hidden=\"true\" href=\"#type-class-instance-definition\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Type Class Instance Definition</h3>\n<ul dir=\"auto\">\n<li><em>Constructive</em> implicits, which create a type class instance automatically based on instances of\nall parent type classes, are removed. These led to subtle errors with ambiguous implicits, such as\nthis problem with <a href=\"https://stackoverflow.com/questions/7447591/how-do-i-use-name-as-an-applicative/7448111#7448111\" rel=\"nofollow\">FunctorBindApply</a></li>\n<li>Type class instances are no longer declared in fragments in the companion objects of the type class. Instead, they\nare defined in the package <code>scalaz.std</code>, and must be imported. These instances are defined in traits which will be\nmixed together into an object for importing <em>en-masse</em>, if desired.</li>\n<li>A single implicit can define a number of type class instances for a type.</li>\n<li>A type class definition can override methods (including derived methods) for efficiency.</li>\n</ul>\n<p dir=\"auto\">Here is an instance definition for <code>Option</code>. Notice that the method <code>map</code> has been overridden.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"  implicit val option: Traverse[Option] with MonadPlus[Option] = new Traverse[Option] with MonadPlus[Option] {\n    def point[A](a: =&gt; A) = Some(a)\n    def bind[A, B](fa: Option[A])(f: A =&gt; Option[B]): Option[B] = fa flatMap f\n    override def map[A, B](fa: Option[A])(f: A =&gt; B): Option[B] = fa map f\n    def traverseImpl[F[_], A, B](fa: Option[A])(f: A =&gt; F[B])(implicit F: Applicative[F]) =\n      fa map (a =&gt; F.map(f(a))(Some(_): Option[B])) getOrElse F.point(None)\n    def empty[A]: Option[A] = None\n    def plus[A](a: Option[A], b: =&gt; Option[A]) = a orElse b\n    def foldR[A, B](fa: Option[A], z: B)(f: (A) =&gt; (=&gt; B) =&gt; B): B = fa match {\n      case Some(a) =&gt; f(a)(z)\n      case None =&gt; z\n    }\n  }\"><pre>  <span class=\"pl-k\">implicit</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">option</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">Traverse</span>[<span class=\"pl-en\">Option</span>] <span class=\"pl-k\">with</span> <span class=\"pl-e\">MonadPlus</span>[<span class=\"pl-en\">Option</span>] <span class=\"pl-k\">=</span> <span class=\"pl-k\">new</span> <span class=\"pl-en\">Traverse</span>[<span class=\"pl-en\">Option</span>] <span class=\"pl-k\">with</span> <span class=\"pl-e\">MonadPlus</span>[<span class=\"pl-en\">Option</span>] {\n    <span class=\"pl-k\">def</span> <span class=\"pl-en\">point</span>[<span class=\"pl-en\">A</span>](<span class=\"pl-v\">a</span>: <span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">A</span>) <span class=\"pl-k\">=</span> <span class=\"pl-en\">Some</span>(a)\n    <span class=\"pl-k\">def</span> <span class=\"pl-en\">bind</span>[<span class=\"pl-en\">A</span>, <span class=\"pl-en\">B</span>](<span class=\"pl-v\">fa</span>: <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">A</span>])(<span class=\"pl-v\">f</span>: <span class=\"pl-en\">A</span> <span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">B</span>])<span class=\"pl-k\">:</span> <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">B</span>] <span class=\"pl-k\">=</span> fa flatMap f\n    <span class=\"pl-k\">override</span> <span class=\"pl-k\">def</span> <span class=\"pl-en\">map</span>[<span class=\"pl-en\">A</span>, <span class=\"pl-en\">B</span>](<span class=\"pl-v\">fa</span>: <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">A</span>])(<span class=\"pl-v\">f</span>: <span class=\"pl-en\">A</span> <span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">B</span>)<span class=\"pl-k\">:</span> <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">B</span>] <span class=\"pl-k\">=</span> fa map f\n    <span class=\"pl-k\">def</span> <span class=\"pl-en\">traverseImpl</span>[<span class=\"pl-en\">F</span>[_], <span class=\"pl-en\">A</span>, <span class=\"pl-en\">B</span>](<span class=\"pl-v\">fa</span>: <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">A</span>])(<span class=\"pl-v\">f</span>: <span class=\"pl-en\">A</span> <span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">F</span>[<span class=\"pl-en\">B</span>])(<span class=\"pl-k\">implicit</span> <span class=\"pl-en\">F</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">Applicative</span>[<span class=\"pl-en\">F</span>]) <span class=\"pl-k\">=</span>\n      fa map (a <span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">F</span>.map(f(a))(<span class=\"pl-en\">Some</span>(_)<span class=\"pl-k\">:</span> <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">B</span>])) getOrElse <span class=\"pl-en\">F</span>.point(<span class=\"pl-en\">None</span>)\n    <span class=\"pl-k\">def</span> <span class=\"pl-en\">empty</span>[<span class=\"pl-en\">A</span>]<span class=\"pl-k\">:</span> <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">A</span>] <span class=\"pl-k\">=</span> <span class=\"pl-en\">None</span>\n    <span class=\"pl-k\">def</span> <span class=\"pl-en\">plus</span>[<span class=\"pl-en\">A</span>](<span class=\"pl-v\">a</span>: <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">A</span>], <span class=\"pl-v\">b</span>: <span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">A</span>]) <span class=\"pl-k\">=</span> a orElse b\n    <span class=\"pl-k\">def</span> <span class=\"pl-en\">foldR</span>[<span class=\"pl-en\">A</span>, <span class=\"pl-en\">B</span>](<span class=\"pl-v\">fa</span>: <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">A</span>], <span class=\"pl-v\">z</span>: <span class=\"pl-en\">B</span>)(<span class=\"pl-v\">f</span>: (<span class=\"pl-en\">A</span>) <span class=\"pl-k\">=&gt;</span> (<span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">B</span>) <span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">B</span>)<span class=\"pl-k\">:</span> <span class=\"pl-en\">B</span> <span class=\"pl-k\">=</span> fa <span class=\"pl-k\">match</span> {\n      <span class=\"pl-k\">case</span> <span class=\"pl-en\">Some</span>(a) <span class=\"pl-k\">=&gt;</span> f(a)(z)\n      <span class=\"pl-k\">case</span> <span class=\"pl-en\">None</span> <span class=\"pl-k\">=&gt;</span> z\n    }\n  }</pre></div>\n<p dir=\"auto\">To use this, one would:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import scalaz.std.option.optionInstance\n// or, importing all instances en-masse\n// import scalaz.Scalaz._\n\nval M = Monad[Option]\nval oi: Option[Int] = M.point(0)\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">scalaz</span>.<span class=\"pl-en\">std</span>.<span class=\"pl-en\">option</span>.<span class=\"pl-en\">optionInstance</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> or, importing all instances en-masse</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> import scalaz.Scalaz._</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">M</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Monad</span>[<span class=\"pl-en\">Option</span>]\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">oi</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">Int</span>] <span class=\"pl-k\">=</span> <span class=\"pl-en\">M</span>.point(<span class=\"pl-c1\">0</span>)</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-syntax\" class=\"anchor\" aria-hidden=\"true\" href=\"#syntax\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Syntax</h3>\n<p dir=\"auto\">We co-opt the term <em>syntax</em> to refer to the way we allow the functionality of Scalaz to be\ncalled in the <code>object.method(args)</code> form, which can be easier to read, and, given that type inference\nin Scala flows from left-to-right, can require fewer type annotations.</p>\n<ul dir=\"auto\">\n<li>No more <code>Identity</code>, <code>MA</code>, or <code>MAB</code> from Scalaz 6.</li>\n<li>Syntax is segregated from rest of the library, in a sub-package <code>scalaz.syntax</code>.</li>\n<li>All Scalaz functionality is available <em>without</em> using the provided syntax, by directly calling methods\non the type class or its companion object.</li>\n<li>Syntax is available <em>a-la-carte</em>. You can import the syntax for working with particular\ntype classes where you need it. This avoids flooding the autocompletion in your IDE with\nevery possible extension method. This should also help compiler performance,\nby reducing the implicit search space.</li>\n<li>Syntax is layered in the same way as type classes. Importing the syntax for, say, <code>Applicative</code>\nwill also provide the syntax for <code>Apply</code> and <code>Functor</code>.</li>\n</ul>\n<p dir=\"auto\">Syntax can be imported in two ways. Firstly, the syntax specialized for a particular instance\nof a type class can be imported directly from the instance itself.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"// import the type class instance\nimport scalaz.std.option.optionInstance\n\n// import the implicit conversions to `MonadOps[Option, A]`, `BindOps[Option, A]`, ...\nimport optionInstance.monadSyntax._\n\nval oi: Option[Option[Int]] = Some(Some(1))\n\n// Expands to: `ToBindOps(io).join`\noi.join\"><pre><span class=\"pl-c\"><span class=\"pl-c\">//</span> import the type class instance</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">scalaz</span>.<span class=\"pl-en\">std</span>.<span class=\"pl-en\">option</span>.<span class=\"pl-en\">optionInstance</span>\n\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> import the implicit conversions to `MonadOps[Option, A]`, `BindOps[Option, A]`, ...</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">optionInstance</span>.<span class=\"pl-en\">monadSyntax</span>.<span class=\"pl-en\">_</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">oi</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">Option</span>[<span class=\"pl-en\">Int</span>]] <span class=\"pl-k\">=</span> <span class=\"pl-en\">Some</span>(<span class=\"pl-en\">Some</span>(<span class=\"pl-c1\">1</span>))\n\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> Expands to: `ToBindOps(io).join`</span>\noi.join</pre></div>\n<p dir=\"auto\">Alternatively, the syntax can be imported for a particular type class.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"// import the type class instance\nimport scalaz.std.option.optionInstance\n\n// import the implicit conversions to `MonadOps[F, A]`, `BindOps[F, A]`, ...\nimport scalaz.syntax.monad._\n\nval oi: Option[Option[Int]] = Some(Some(1))\n\n// Expands to: ToBindOps(io).join\noi.join\"><pre><span class=\"pl-c\"><span class=\"pl-c\">//</span> import the type class instance</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">scalaz</span>.<span class=\"pl-en\">std</span>.<span class=\"pl-en\">option</span>.<span class=\"pl-en\">optionInstance</span>\n\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> import the implicit conversions to `MonadOps[F, A]`, `BindOps[F, A]`, ...</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">scalaz</span>.<span class=\"pl-en\">syntax</span>.<span class=\"pl-en\">monad</span>.<span class=\"pl-en\">_</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">oi</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">Option</span>[<span class=\"pl-en\">Int</span>]] <span class=\"pl-k\">=</span> <span class=\"pl-en\">Some</span>(<span class=\"pl-en\">Some</span>(<span class=\"pl-c1\">1</span>))\n\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> Expands to: ToBindOps(io).join</span>\noi.join</pre></div>\n<p dir=\"auto\">For some degree of backwards compatibility with Scalaz 6, the über-import of <code>import scalaz.Scalaz._</code>\nwill import <em>all</em> implicit conversions that provide syntax (as well as type class instances and other\nfunctions). However, we recommend to review usage of this and replace with more focussed imports.</p>\n<h3 dir=\"auto\"><a id=\"user-content-standalone-type-class-usage\" class=\"anchor\" aria-hidden=\"true\" href=\"#standalone-type-class-usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Standalone Type Class Usage</h3>\n<p dir=\"auto\">Type classes should be directly usable, without first needing to trigger implicit conversions. This might be\ndesirable to reduce the runtime or cognitive overhead of the pimped types, or to define your own pimped\ntypes with a syntax of your choosing.</p>\n<ul dir=\"auto\">\n<li>The methods in type classes have been curried to maximize type inference.</li>\n<li>Derived methods, based on the abstract methods in a type class, are defined in the type class itself.</li>\n<li>Each type class companion object is fitted with a convenient <code>apply</code> method to obtain an instance of the type class.</li>\n</ul>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"    // Equivalent to `implicitly[Monad[Option]]`\n    val O = Monad[Option]\n\n    // `bind` is defined with two parameter sections, so that the type of `x` is inferred as `Int`.\n    O.bind(Some(1))(x =&gt; Some(x * 2))\n\n    def plus(a: Int, b: Int) = a + b\n\n    // `Apply#lift2` is a function derived from `Apply#ap`.\n    val plusOpt = O.lift2(plus)\"><pre>    <span class=\"pl-c\"><span class=\"pl-c\">//</span> Equivalent to `implicitly[Monad[Option]]`</span>\n    <span class=\"pl-k\">val</span> <span class=\"pl-smi\">O</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Monad</span>[<span class=\"pl-en\">Option</span>]\n\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> `bind` is defined with two parameter sections, so that the type of `x` is inferred as `Int`.</span>\n    <span class=\"pl-en\">O</span>.bind(<span class=\"pl-en\">Some</span>(<span class=\"pl-c1\">1</span>))(x <span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">Some</span>(x <span class=\"pl-k\">*</span> <span class=\"pl-c1\">2</span>))\n\n    <span class=\"pl-k\">def</span> <span class=\"pl-en\">plus</span>(<span class=\"pl-v\">a</span>: <span class=\"pl-en\">Int</span>, <span class=\"pl-v\">b</span>: <span class=\"pl-en\">Int</span>) <span class=\"pl-k\">=</span> a <span class=\"pl-k\">+</span> b\n\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> `Apply#lift2` is a function derived from `Apply#ap`.</span>\n    <span class=\"pl-k\">val</span> <span class=\"pl-smi\">plusOpt</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">O</span>.lift2(plus)</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-type-class-instance-dependencies\" class=\"anchor\" aria-hidden=\"true\" href=\"#type-class-instance-dependencies\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Type Class Instance Dependencies</h3>\n<p dir=\"auto\">Type class instances may depend on other instances. In simple cases, this is as straightforward as adding an implicit\nparameter (or, equivalently, a context bound), to the implicit method.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"  implicit def optionMonoid[A: Semigroup]: Monoid[Option[A]] = new Monoid[Option[A]] {\n    def append(f1: Option[A], f2: =&gt; Option[A]): Option[A] = (f1, f2) match {\n      case (Some(a1), Some(a2)) =&gt; Some(Semigroup[A].append(a1, a2))\n      case (Some(a1), None) =&gt; f1\n      case (None, Some(a2)) =&gt; f2\n      case (None, None) =&gt; None\n    }\n\n    def zero: Option[A] = None\n  }\"><pre>  <span class=\"pl-k\">implicit</span> <span class=\"pl-k\">def</span> <span class=\"pl-en\">optionMonoid</span>[<span class=\"pl-en\">A</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">Semigroup</span>]<span class=\"pl-k\">:</span> <span class=\"pl-en\">Monoid</span>[<span class=\"pl-en\">Option</span>[<span class=\"pl-en\">A</span>]] <span class=\"pl-k\">=</span> <span class=\"pl-k\">new</span> <span class=\"pl-en\">Monoid</span>[<span class=\"pl-en\">Option</span>[<span class=\"pl-en\">A</span>]] {\n    <span class=\"pl-k\">def</span> <span class=\"pl-en\">append</span>(<span class=\"pl-v\">f1</span>: <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">A</span>], <span class=\"pl-v\">f2</span>: <span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">A</span>])<span class=\"pl-k\">:</span> <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">A</span>] <span class=\"pl-k\">=</span> (f1, f2) <span class=\"pl-k\">match</span> {\n      <span class=\"pl-k\">case</span> (<span class=\"pl-en\">Some</span>(a1), <span class=\"pl-en\">Some</span>(a2)) <span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">Some</span>(<span class=\"pl-en\">Semigroup</span>[<span class=\"pl-en\">A</span>].append(a1, a2))\n      <span class=\"pl-k\">case</span> (<span class=\"pl-en\">Some</span>(a1), <span class=\"pl-en\">None</span>) <span class=\"pl-k\">=&gt;</span> f1\n      <span class=\"pl-k\">case</span> (<span class=\"pl-en\">None</span>, <span class=\"pl-en\">Some</span>(a2)) <span class=\"pl-k\">=&gt;</span> f2\n      <span class=\"pl-k\">case</span> (<span class=\"pl-en\">None</span>, <span class=\"pl-en\">None</span>) <span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">None</span>\n    }\n\n    <span class=\"pl-k\">def</span> <span class=\"pl-en\">zero</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">A</span>] <span class=\"pl-k\">=</span> <span class=\"pl-en\">None</span>\n  }</pre></div>\n<p dir=\"auto\">Type class instances for 'transformers', such as <code>OptionT</code>, present a more subtle challenge. <code>OptionT[F, A]</code>\nis a wrapper for a value of type <code>F[Option[A]]</code>. It allows us to write:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val ot = OptionT(List(Some(1), None))\not.map((a: Int) =&gt; a * 2) // OptionT(List(Some(2), None))\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">ot</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">OptionT</span>(<span class=\"pl-en\">List</span>(<span class=\"pl-en\">Some</span>(<span class=\"pl-c1\">1</span>), <span class=\"pl-en\">None</span>))\not.map((<span class=\"pl-v\">a</span>: <span class=\"pl-en\">Int</span>) <span class=\"pl-k\">=&gt;</span> a <span class=\"pl-k\">*</span> <span class=\"pl-c1\">2</span>) <span class=\"pl-c\"><span class=\"pl-c\">//</span> OptionT(List(Some(2), None))</span></pre></div>\n<p dir=\"auto\">The method <code>OptionT#map</code> requires an implicit parameter of type <code>Functor[F]</code>, whereas <code>OptionT#flatMap</code>\nrequires one of type <code>Monad[F]</code>. The capabilities of <code>OptionT</code> increase with those of <code>F</code>. We need to encode\nthis into the type class instances for <code>[a]OptionT[F[A]]</code>.</p>\n<p dir=\"auto\">This is done with a hierarchy of <a href=\"https://github.com/scalaz/scalaz/blob/v7.1.2/core/src/main/scala/scalaz/OptionT.scala#L122\">type class implementation traits</a>\nand a corresponding set of <a href=\"https://github.com/scalaz/scalaz/blob/v7.1.2/core/src/main/scala/scalaz/OptionT.scala#L24\">prioritized implicit methods</a>.</p>\n<p dir=\"auto\">In case of ambiguous implicits, Scala will favour one defined in a sub-class of the other. This is to avoid ambiguity\nwhen in cases like the following:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"type OptionTList[A] = OptionT[List[A]]\nimplicitly[Functor[OptionTList]]\n\n// Candidates:\n// 1. OptionT.OptionTFunctor[List](implicitly[Functor[List]])\n// 2. OptionT.OptionTMonad[List](implicitly[Functor[List]])\n// #2 is defined in a subclass of the enclosing class of #1, so #2 is preferred.\"><pre><span class=\"pl-k\">type</span> <span class=\"pl-en\">OptionTList</span>[<span class=\"pl-en\">A</span>] <span class=\"pl-k\">=</span> <span class=\"pl-en\">OptionT</span>[<span class=\"pl-en\">List</span>[<span class=\"pl-en\">A</span>]]\nimplicitly[<span class=\"pl-en\">Functor</span>[<span class=\"pl-en\">OptionTList</span>]]\n\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> Candidates:</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> 1. OptionT.OptionTFunctor[List](implicitly[Functor[List]])</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> 2. OptionT.OptionTMonad[List](implicitly[Functor[List]])</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> #2 is defined in a subclass of the enclosing class of #1, so #2 is preferred.</span></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-transformers-and-identity\" class=\"anchor\" aria-hidden=\"true\" href=\"#transformers-and-identity\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Transformers and Identity</h3>\n<p dir=\"auto\">A stronger emphasis has been placed on transformer data structures (aka Monad Transformers). For example <code>State</code> is now\na type alias for <code>StateT[Id, A, B]</code>.</p>\n<p dir=\"auto\"><code>Id</code> is defined in the <code>scalaz</code> package object as:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"type Id[A] = A\"><pre><span class=\"pl-k\">type</span> <span class=\"pl-en\">Id</span>[<span class=\"pl-en\">A</span>] <span class=\"pl-k\">=</span> <span class=\"pl-en\">A</span></pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Contributing</h2>\n<p dir=\"auto\"><a href=\"https://github.com/scalaz/scalaz/blob/master/CONTRIBUTING.md\">Documentation for contributors</a></p>\n<h2 dir=\"auto\"><a id=\"user-content-credits\" class=\"anchor\" aria-hidden=\"true\" href=\"#credits\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Credits</h2>\n<p dir=\"auto\">Support for Scalaz development is provided by <a href=\"https://www.jetbrains.com/idea/\" rel=\"nofollow\">Jetbrains</a>.</p>\n<p dir=\"auto\">Thanks to Mark Harrah and the sbt contributors for providing <a href=\"https://www.scala-sbt.org\" rel=\"nofollow\">our build tool</a>.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "xuwei-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/389787?v=4",
+        "url" : "https://api.github.com/users/xuwei-k",
+        "contributions" : 1660
+      },
+      {
+        "login" : "retronym",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/65551?v=4",
+        "url" : "https://api.github.com/users/retronym",
+        "contributions" : 1013
+      },
+      {
+        "login" : "larsrh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/923079?v=4",
+        "url" : "https://api.github.com/users/larsrh",
+        "contributions" : 656
+      },
+      {
+        "login" : "tonymorris",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/210558?v=4",
+        "url" : "https://api.github.com/users/tonymorris",
+        "contributions" : 375
+      },
+      {
+        "login" : "S11001001",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/219186?v=4",
+        "url" : "https://api.github.com/users/S11001001",
+        "contributions" : 337
+      },
+      {
+        "login" : "runarorama",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/130916?v=4",
+        "url" : "https://api.github.com/users/runarorama",
+        "contributions" : 308
+      },
+      {
+        "login" : "TomasMikula",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/433439?v=4",
+        "url" : "https://api.github.com/users/TomasMikula",
+        "contributions" : 123
+      },
+      {
+        "login" : "puffnfresh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/37715?v=4",
+        "url" : "https://api.github.com/users/puffnfresh",
+        "contributions" : 98
+      },
+      {
+        "login" : "purefn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/91643?v=4",
+        "url" : "https://api.github.com/users/purefn",
+        "contributions" : 96
+      },
+      {
+        "login" : "vmarquez",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/427578?v=4",
+        "url" : "https://api.github.com/users/vmarquez",
+        "contributions" : 67
+      },
+      {
+        "login" : "ceedubs",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/977929?v=4",
+        "url" : "https://api.github.com/users/ceedubs",
+        "contributions" : 60
+      },
+      {
+        "login" : "scalaz-bot[bot]",
+        "avatarUrl" : "https://avatars.githubusercontent.com/in/89659?v=4",
+        "url" : "https://api.github.com/users/scalaz-bot%5Bbot%5D",
+        "contributions" : 60
+      },
+      {
+        "login" : "pchiusano",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11074?v=4",
+        "url" : "https://api.github.com/users/pchiusano",
+        "contributions" : 58
+      },
+      {
+        "login" : "stew",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/66772?v=4",
+        "url" : "https://api.github.com/users/stew",
+        "contributions" : 54
+      },
+      {
+        "login" : "fommil",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1914041?v=4",
+        "url" : "https://api.github.com/users/fommil",
+        "contributions" : 53
+      },
+      {
+        "login" : "ekmett",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/304657?v=4",
+        "url" : "https://api.github.com/users/ekmett",
+        "contributions" : 46
+      },
+      {
+        "login" : "alexeyr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24733?v=4",
+        "url" : "https://api.github.com/users/alexeyr",
+        "contributions" : 38
+      },
+      {
+        "login" : "arjanblokzijl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/40184?v=4",
+        "url" : "https://api.github.com/users/arjanblokzijl",
+        "contributions" : 38
+      },
+      {
+        "login" : "Atry",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/601530?v=4",
+        "url" : "https://api.github.com/users/Atry",
+        "contributions" : 34
+      },
+      {
+        "login" : "monkey-mas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5261677?v=4",
+        "url" : "https://api.github.com/users/monkey-mas",
+        "contributions" : 30
+      },
+      {
+        "login" : "enzief",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/29031445?v=4",
+        "url" : "https://api.github.com/users/enzief",
+        "contributions" : 29
+      },
+      {
+        "login" : "jbgi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/221929?v=4",
+        "url" : "https://api.github.com/users/jbgi",
+        "contributions" : 26
+      },
+      {
+        "login" : "gseitz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/158412?v=4",
+        "url" : "https://api.github.com/users/gseitz",
+        "contributions" : 24
+      },
+      {
+        "login" : "tpolecat",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1200131?v=4",
+        "url" : "https://api.github.com/users/tpolecat",
+        "contributions" : 20
+      },
+      {
+        "login" : "adelbertc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1332980?v=4",
+        "url" : "https://api.github.com/users/adelbertc",
+        "contributions" : 17
+      },
+      {
+        "login" : "bmjames",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/21567?v=4",
+        "url" : "https://api.github.com/users/bmjames",
+        "contributions" : 17
+      },
+      {
+        "login" : "justjoheinz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/392164?v=4",
+        "url" : "https://api.github.com/users/justjoheinz",
+        "contributions" : 17
+      },
+      {
+        "login" : "lemastero",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10901543?v=4",
+        "url" : "https://api.github.com/users/lemastero",
+        "contributions" : 17
+      },
+      {
+        "login" : "mpilquist",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/118078?v=4",
+        "url" : "https://api.github.com/users/mpilquist",
+        "contributions" : 17
+      },
+      {
+        "login" : "gpampara",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/44838?v=4",
+        "url" : "https://api.github.com/users/gpampara",
+        "contributions" : 16
+      },
+      {
+        "login" : "seanparsons",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/217400?v=4",
+        "url" : "https://api.github.com/users/seanparsons",
+        "contributions" : 16
+      },
+      {
+        "login" : "dependabot[bot]",
+        "avatarUrl" : "https://avatars.githubusercontent.com/in/29110?v=4",
+        "url" : "https://api.github.com/users/dependabot%5Bbot%5D",
+        "contributions" : 15
+      },
+      {
+        "login" : "pthariensflame",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1847577?v=4",
+        "url" : "https://api.github.com/users/pthariensflame",
+        "contributions" : 14
+      },
+      {
+        "login" : "JordanMartinez",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8413037?v=4",
+        "url" : "https://api.github.com/users/JordanMartinez",
+        "contributions" : 14
+      },
+      {
+        "login" : "hrhino",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/28076058?v=4",
+        "url" : "https://api.github.com/users/hrhino",
+        "contributions" : 14
+      },
+      {
+        "login" : "japgolly",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/202935?v=4",
+        "url" : "https://api.github.com/users/japgolly",
+        "contributions" : 13
+      },
+      {
+        "login" : "markhibberd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22832?v=4",
+        "url" : "https://api.github.com/users/markhibberd",
+        "contributions" : 13
+      },
+      {
+        "login" : "jedws",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/228337?v=4",
+        "url" : "https://api.github.com/users/jedws",
+        "contributions" : 12
+      },
+      {
+        "login" : "folone",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/366132?v=4",
+        "url" : "https://api.github.com/users/folone",
+        "contributions" : 12
+      },
+      {
+        "login" : "aryairani",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/538571?v=4",
+        "url" : "https://api.github.com/users/aryairani",
+        "contributions" : 12
+      },
+      {
+        "login" : "github-actions[bot]",
+        "avatarUrl" : "https://avatars.githubusercontent.com/in/15368?v=4",
+        "url" : "https://api.github.com/users/github-actions%5Bbot%5D",
+        "contributions" : 12
+      },
+      {
+        "login" : "emilypi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10459342?v=4",
+        "url" : "https://api.github.com/users/emilypi",
+        "contributions" : 11
+      },
+      {
+        "login" : "wookietreiber",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/827088?v=4",
+        "url" : "https://api.github.com/users/wookietreiber",
+        "contributions" : 10
+      },
+      {
+        "login" : "jdegoes",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/156745?v=4",
+        "url" : "https://api.github.com/users/jdegoes",
+        "contributions" : 10
+      },
+      {
+        "login" : "Blaisorblade",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/289960?v=4",
+        "url" : "https://api.github.com/users/Blaisorblade",
+        "contributions" : 10
+      },
+      {
+        "login" : "halcat0x15a",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/552760?v=4",
+        "url" : "https://api.github.com/users/halcat0x15a",
+        "contributions" : 10
+      },
+      {
+        "login" : "edmundnoble",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1369693?v=4",
+        "url" : "https://api.github.com/users/edmundnoble",
+        "contributions" : 10
+      },
+      {
+        "login" : "NeQuissimus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/628342?v=4",
+        "url" : "https://api.github.com/users/NeQuissimus",
+        "contributions" : 10
+      },
+      {
+        "login" : "eed3si9n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/184683?v=4",
+        "url" : "https://api.github.com/users/eed3si9n",
+        "contributions" : 9
+      },
+      {
+        "login" : "etorreborre",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10988?v=4",
+        "url" : "https://api.github.com/users/etorreborre",
+        "contributions" : 9
+      },
+      {
+        "login" : "hgiddens",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/198783?v=4",
+        "url" : "https://api.github.com/users/hgiddens",
+        "contributions" : 8
+      },
+      {
+        "login" : "relrod",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43930?v=4",
+        "url" : "https://api.github.com/users/relrod",
+        "contributions" : 8
+      },
+      {
+        "login" : "mxswd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/136101?v=4",
+        "url" : "https://api.github.com/users/mxswd",
+        "contributions" : 8
+      },
+      {
+        "login" : "schmmd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/954798?v=4",
+        "url" : "https://api.github.com/users/schmmd",
+        "contributions" : 7
+      },
+      {
+        "login" : "nkpart",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1532?v=4",
+        "url" : "https://api.github.com/users/nkpart",
+        "contributions" : 7
+      },
+      {
+        "login" : "oxbowlakes",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/373291?v=4",
+        "url" : "https://api.github.com/users/oxbowlakes",
+        "contributions" : 6
+      },
+      {
+        "login" : "kaychaks",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/648615?v=4",
+        "url" : "https://api.github.com/users/kaychaks",
+        "contributions" : 6
+      },
+      {
+        "login" : "jedesah",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1780116?v=4",
+        "url" : "https://api.github.com/users/jedesah",
+        "contributions" : 6
+      },
+      {
+        "login" : "aloiscochard",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/215476?v=4",
+        "url" : "https://api.github.com/users/aloiscochard",
+        "contributions" : 5
+      },
+      {
+        "login" : "copumpkin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2623?v=4",
+        "url" : "https://api.github.com/users/copumpkin",
+        "contributions" : 5
+      },
+      {
+        "login" : "wemrysi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/32185?v=4",
+        "url" : "https://api.github.com/users/wemrysi",
+        "contributions" : 5
+      },
+      {
+        "login" : "YoEight",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/144545?v=4",
+        "url" : "https://api.github.com/users/YoEight",
+        "contributions" : 5
+      },
+      {
+        "login" : "GodPlaysChess",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3725273?v=4",
+        "url" : "https://api.github.com/users/GodPlaysChess",
+        "contributions" : 5
+      },
+      {
+        "login" : "azanin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8068183?v=4",
+        "url" : "https://api.github.com/users/azanin",
+        "contributions" : 4
+      },
+      {
+        "login" : "epost",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/834942?v=4",
+        "url" : "https://api.github.com/users/epost",
+        "contributions" : 4
+      },
+      {
+        "login" : "gildegoma",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/434654?v=4",
+        "url" : "https://api.github.com/users/gildegoma",
+        "contributions" : 4
+      },
+      {
+        "login" : "teigen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/25335?v=4",
+        "url" : "https://api.github.com/users/teigen",
+        "contributions" : 4
+      },
+      {
+        "login" : "everpeace",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/608782?v=4",
+        "url" : "https://api.github.com/users/everpeace",
+        "contributions" : 4
+      },
+      {
+        "login" : "julien-truffaut",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1859417?v=4",
+        "url" : "https://api.github.com/users/julien-truffaut",
+        "contributions" : 4
+      },
+      {
+        "login" : "pocketberserker",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/911952?v=4",
+        "url" : "https://api.github.com/users/pocketberserker",
+        "contributions" : 4
+      },
+      {
+        "login" : "izhangzhihao",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12044174?v=4",
+        "url" : "https://api.github.com/users/izhangzhihao",
+        "contributions" : 4
+      },
+      {
+        "login" : "joshcough",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/37799?v=4",
+        "url" : "https://api.github.com/users/joshcough",
+        "contributions" : 4
+      },
+      {
+        "login" : "kcsongor",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/313596?v=4",
+        "url" : "https://api.github.com/users/kcsongor",
+        "contributions" : 3
+      },
+      {
+        "login" : "dolio",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/750648?v=4",
+        "url" : "https://api.github.com/users/dolio",
+        "contributions" : 3
+      },
+      {
+        "login" : "drstevens",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/394663?v=4",
+        "url" : "https://api.github.com/users/drstevens",
+        "contributions" : 3
+      },
+      {
+        "login" : "sellout",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/33031?v=4",
+        "url" : "https://api.github.com/users/sellout",
+        "contributions" : 3
+      },
+      {
+        "login" : "LeifW",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/28711?v=4",
+        "url" : "https://api.github.com/users/LeifW",
+        "contributions" : 3
+      },
+      {
+        "login" : "markus1189",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/591567?v=4",
+        "url" : "https://api.github.com/users/markus1189",
+        "contributions" : 3
+      },
+      {
+        "login" : "lmmworkv",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8393380?v=4",
+        "url" : "https://api.github.com/users/lmmworkv",
+        "contributions" : 3
+      },
+      {
+        "login" : "pchlupacek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/678560?v=4",
+        "url" : "https://api.github.com/users/pchlupacek",
+        "contributions" : 3
+      },
+      {
+        "login" : "romanb",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/177309?v=4",
+        "url" : "https://api.github.com/users/romanb",
+        "contributions" : 3
+      },
+      {
+        "login" : "rossabaker",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/142698?v=4",
+        "url" : "https://api.github.com/users/rossabaker",
+        "contributions" : 3
+      },
+      {
+        "login" : "ethul",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/350411?v=4",
+        "url" : "https://api.github.com/users/ethul",
+        "contributions" : 3
+      },
+      {
+        "login" : "psilospore",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5355976?v=4",
+        "url" : "https://api.github.com/users/psilospore",
+        "contributions" : 3
+      },
+      {
+        "login" : "anovstrup",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/375423?v=4",
+        "url" : "https://api.github.com/users/anovstrup",
+        "contributions" : 2
+      },
+      {
+        "login" : "divarvel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/173299?v=4",
+        "url" : "https://api.github.com/users/divarvel",
+        "contributions" : 2
+      },
+      {
+        "login" : "coltfred",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/587319?v=4",
+        "url" : "https://api.github.com/users/coltfred",
+        "contributions" : 2
+      },
+      {
+        "login" : "joroKr21",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2218841?v=4",
+        "url" : "https://api.github.com/users/joroKr21",
+        "contributions" : 2
+      },
+      {
+        "login" : "Jacoby6000",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2672832?v=4",
+        "url" : "https://api.github.com/users/Jacoby6000",
+        "contributions" : 2
+      },
+      {
+        "login" : "jessitron",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1149737?v=4",
+        "url" : "https://api.github.com/users/jessitron",
+        "contributions" : 2
+      },
+      {
+        "login" : "jonm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/145088?v=4",
+        "url" : "https://api.github.com/users/jonm",
+        "contributions" : 2
+      },
+      {
+        "login" : "jozanek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10034393?v=4",
+        "url" : "https://api.github.com/users/jozanek",
+        "contributions" : 2
+      },
+      {
+        "login" : "nuttycom",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/27591?v=4",
+        "url" : "https://api.github.com/users/nuttycom",
+        "contributions" : 2
+      },
+      {
+        "login" : "malancas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16248153?v=4",
+        "url" : "https://api.github.com/users/malancas",
+        "contributions" : 2
+      },
+      {
+        "login" : "merlinorg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4071843?v=4",
+        "url" : "https://api.github.com/users/merlinorg",
+        "contributions" : 2
+      },
+      {
+        "login" : "miguel-negrao",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/382777?v=4",
+        "url" : "https://api.github.com/users/miguel-negrao",
+        "contributions" : 2
+      },
+      {
+        "login" : "poslegm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4687050?v=4",
+        "url" : "https://api.github.com/users/poslegm",
+        "contributions" : 2
+      },
+      {
+        "login" : "mossprescott",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6147371?v=4",
+        "url" : "https://api.github.com/users/mossprescott",
+        "contributions" : 2
+      },
+      {
+        "login" : "lebek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/901039?v=4",
+        "url" : "https://api.github.com/users/lebek",
+        "contributions" : 2
+      },
+      {
+        "login" : "greenrd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/164965?v=4",
+        "url" : "https://api.github.com/users/greenrd",
+        "contributions" : 2
+      },
+      {
+        "login" : "tixxit",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/120314?v=4",
+        "url" : "https://api.github.com/users/tixxit",
+        "contributions" : 2
+      },
+      {
+        "login" : "Milyardo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/99996?v=4",
+        "url" : "https://api.github.com/users/Milyardo",
+        "contributions" : 2
+      },
+      {
+        "login" : "miguel-vila",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/824335?v=4",
+        "url" : "https://api.github.com/users/miguel-vila",
+        "contributions" : 2
+      },
+      {
+        "login" : "densh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/320966?v=4",
+        "url" : "https://api.github.com/users/densh",
+        "contributions" : 2
+      },
+      {
+        "login" : "GrafBlutwurst",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2368458?v=4",
+        "url" : "https://api.github.com/users/GrafBlutwurst",
+        "contributions" : 2
+      },
+      {
+        "login" : "fthomas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/141252?v=4",
+        "url" : "https://api.github.com/users/fthomas",
+        "contributions" : 2
+      },
+      {
+        "login" : "shawjef3",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1625822?v=4",
+        "url" : "https://api.github.com/users/shawjef3",
+        "contributions" : 2
+      },
+      {
+        "login" : "ABHISHEK7",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/45190994?v=4",
+        "url" : "https://api.github.com/users/ABHISHEK7",
+        "contributions" : 1
+      },
+      {
+        "login" : "AlecZorab",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/470247?v=4",
+        "url" : "https://api.github.com/users/AlecZorab",
+        "contributions" : 1
+      },
+      {
+        "login" : "alexknvl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/559086?v=4",
+        "url" : "https://api.github.com/users/alexknvl",
+        "contributions" : 1
+      },
+      {
+        "login" : "allantl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14335852?v=4",
+        "url" : "https://api.github.com/users/allantl",
+        "contributions" : 1
+      },
+      {
+        "login" : "Rotsor",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/334572?v=4",
+        "url" : "https://api.github.com/users/Rotsor",
+        "contributions" : 1
+      },
+      {
+        "login" : "refried",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/37216257?v=4",
+        "url" : "https://api.github.com/users/refried",
+        "contributions" : 1
+      },
+      {
+        "login" : "bartosz-witkowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1169562?v=4",
+        "url" : "https://api.github.com/users/bartosz-witkowski",
+        "contributions" : 1
+      },
+      {
+        "login" : "blouerat",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/347039?v=4",
+        "url" : "https://api.github.com/users/blouerat",
+        "contributions" : 1
+      },
+      {
+        "login" : "MrAIring",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3328466?v=4",
+        "url" : "https://api.github.com/users/MrAIring",
+        "contributions" : 1
+      },
+      {
+        "login" : "bwignall",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5581066?v=4",
+        "url" : "https://api.github.com/users/bwignall",
+        "contributions" : 1
+      },
+      {
+        "login" : "bryce-anderson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2948506?v=4",
+        "url" : "https://api.github.com/users/bryce-anderson",
+        "contributions" : 1
+      },
+      {
+        "login" : "dashkal16",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/464894?v=4",
+        "url" : "https://api.github.com/users/dashkal16",
+        "contributions" : 1
+      },
+      {
+        "login" : "channingwalton",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/87845?v=4",
+        "url" : "https://api.github.com/users/channingwalton",
+        "contributions" : 1
+      },
+      {
+        "login" : "chris-martin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/399718?v=4",
+        "url" : "https://api.github.com/users/chris-martin",
+        "contributions" : 1
+      },
+      {
+        "login" : "ChristopherDavenport",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10272700?v=4",
+        "url" : "https://api.github.com/users/ChristopherDavenport",
+        "contributions" : 1
+      },
+      {
+        "login" : "fosskers",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/229679?v=4",
+        "url" : "https://api.github.com/users/fosskers",
+        "contributions" : 1
+      },
+      {
+        "login" : "djspiewak",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/752?v=4",
+        "url" : "https://api.github.com/users/djspiewak",
+        "contributions" : 1
+      },
+      {
+        "login" : "jdnavarro",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/215438?v=4",
+        "url" : "https://api.github.com/users/jdnavarro",
+        "contributions" : 1
+      },
+      {
+        "login" : "dchenbecker",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24858?v=4",
+        "url" : "https://api.github.com/users/dchenbecker",
+        "contributions" : 1
+      },
+      {
+        "login" : "derekjw",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7174?v=4",
+        "url" : "https://api.github.com/users/derekjw",
+        "contributions" : 1
+      },
+      {
+        "login" : "diminou",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9153558?v=4",
+        "url" : "https://api.github.com/users/diminou",
+        "contributions" : 1
+      },
+      {
+        "login" : "espringe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/201777?v=4",
+        "url" : "https://api.github.com/users/espringe",
+        "contributions" : 1
+      },
+      {
+        "login" : "gaelrenoux",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1738666?v=4",
+        "url" : "https://api.github.com/users/gaelrenoux",
+        "contributions" : 1
+      },
+      {
+        "login" : "gneuvill",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/369908?v=4",
+        "url" : "https://api.github.com/users/gneuvill",
+        "contributions" : 1
+      },
+      {
+        "login" : "bblfish",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/124506?v=4",
+        "url" : "https://api.github.com/users/bblfish",
+        "contributions" : 1
+      },
+      {
+        "login" : "igstan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/49002?v=4",
+        "url" : "https://api.github.com/users/igstan",
+        "contributions" : 1
+      },
+      {
+        "login" : "is2ei",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3948353?v=4",
+        "url" : "https://api.github.com/users/is2ei",
+        "contributions" : 1
+      },
+      {
+        "login" : "aij",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4732885?v=4",
+        "url" : "https://api.github.com/users/aij",
+        "contributions" : 1
+      },
+      {
+        "login" : "imeredith",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/140492?v=4",
+        "url" : "https://api.github.com/users/imeredith",
+        "contributions" : 1
+      },
+      {
+        "login" : "jaapterwoerds",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1687640?v=4",
+        "url" : "https://api.github.com/users/jaapterwoerds",
+        "contributions" : 1
+      },
+      {
+        "login" : "cvogt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/274947?v=4",
+        "url" : "https://api.github.com/users/cvogt",
+        "contributions" : 1
+      },
+      {
+        "login" : "Jwhiles",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/20307225?v=4",
+        "url" : "https://api.github.com/users/Jwhiles",
+        "contributions" : 1
+      },
+      {
+        "login" : "jsuereth",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/29006?v=4",
+        "url" : "https://api.github.com/users/jsuereth",
+        "contributions" : 1
+      },
+      {
+        "login" : "seratch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19658?v=4",
+        "url" : "https://api.github.com/users/seratch",
+        "contributions" : 1
+      },
+      {
+        "login" : "kazzna",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/429367?v=4",
+        "url" : "https://api.github.com/users/kazzna",
+        "contributions" : 1
+      },
+      {
+        "login" : "kenbot",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/316515?v=4",
+        "url" : "https://api.github.com/users/kenbot",
+        "contributions" : 1
+      },
+      {
+        "login" : "kevinmeredith",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1967302?v=4",
+        "url" : "https://api.github.com/users/kevinmeredith",
+        "contributions" : 1
+      },
+      {
+        "login" : "lloydmeta",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/914805?v=4",
+        "url" : "https://api.github.com/users/lloydmeta",
+        "contributions" : 1
+      },
+      {
+        "login" : "lolgab",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5793054?v=4",
+        "url" : "https://api.github.com/users/lolgab",
+        "contributions" : 1
+      },
+      {
+        "login" : "mrdziuban",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4718399?v=4",
+        "url" : "https://api.github.com/users/mrdziuban",
+        "contributions" : 1
+      },
+      {
+        "login" : "mking",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/489866?v=4",
+        "url" : "https://api.github.com/users/mking",
+        "contributions" : 1
+      },
+      {
+        "login" : "m50d",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1283489?v=4",
+        "url" : "https://api.github.com/users/m50d",
+        "contributions" : 1
+      },
+      {
+        "login" : "mkalish",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1225895?v=4",
+        "url" : "https://api.github.com/users/mkalish",
+        "contributions" : 1
+      },
+      {
+        "login" : "note",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/345056?v=4",
+        "url" : "https://api.github.com/users/note",
+        "contributions" : 1
+      },
+      {
+        "login" : "migmruiz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1760721?v=4",
+        "url" : "https://api.github.com/users/migmruiz",
+        "contributions" : 1
+      },
+      {
+        "login" : "nlim",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/886806?v=4",
+        "url" : "https://api.github.com/users/nlim",
+        "contributions" : 1
+      },
+      {
+        "login" : "NickPollard",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/243052?v=4",
+        "url" : "https://api.github.com/users/NickPollard",
+        "contributions" : 1
+      },
+      {
+        "login" : "pkukielka",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1519649?v=4",
+        "url" : "https://api.github.com/users/pkukielka",
+        "contributions" : 1
+      },
+      {
+        "login" : "ppurang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/326738?v=4",
+        "url" : "https://api.github.com/users/ppurang",
+        "contributions" : 1
+      },
+      {
+        "login" : "luthfianto",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1331389?v=4",
+        "url" : "https://api.github.com/users/luthfianto",
+        "contributions" : 1
+      },
+      {
+        "login" : "raronson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1817744?v=4",
+        "url" : "https://api.github.com/users/raronson",
+        "contributions" : 1
+      },
+      {
+        "login" : "saserr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/91235?v=4",
+        "url" : "https://api.github.com/users/saserr",
+        "contributions" : 1
+      },
+      {
+        "login" : "micrypt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/169394?v=4",
+        "url" : "https://api.github.com/users/micrypt",
+        "contributions" : 1
+      },
+      {
+        "login" : "reactormonk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/49185?v=4",
+        "url" : "https://api.github.com/users/reactormonk",
+        "contributions" : 1
+      },
+      {
+        "login" : "ahoy196",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/74860378?v=4",
+        "url" : "https://api.github.com/users/ahoy196",
+        "contributions" : 1
+      },
+      {
+        "login" : "skress",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/928860?v=4",
+        "url" : "https://api.github.com/users/skress",
+        "contributions" : 1
+      },
+      {
+        "login" : "gokyo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6510179?v=4",
+        "url" : "https://api.github.com/users/gokyo",
+        "contributions" : 1
+      },
+      {
+        "login" : "ilinum",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5924452?v=4",
+        "url" : "https://api.github.com/users/ilinum",
+        "contributions" : 1
+      },
+      {
+        "login" : "sjrd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/535934?v=4",
+        "url" : "https://api.github.com/users/sjrd",
+        "contributions" : 1
+      },
+      {
+        "login" : "tchajed",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1255037?v=4",
+        "url" : "https://api.github.com/users/tchajed",
+        "contributions" : 1
+      },
+      {
+        "login" : "tomjadams",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19047?v=4",
+        "url" : "https://api.github.com/users/tomjadams",
+        "contributions" : 1
+      },
+      {
+        "login" : "OleTraveler",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3804?v=4",
+        "url" : "https://api.github.com/users/OleTraveler",
+        "contributions" : 1
+      },
+      {
+        "login" : "travisbrown",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/316049?v=4",
+        "url" : "https://api.github.com/users/travisbrown",
+        "contributions" : 1
+      },
+      {
+        "login" : "lambdasawa",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9388092?v=4",
+        "url" : "https://api.github.com/users/lambdasawa",
+        "contributions" : 1
+      },
+      {
+        "login" : "etaty",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/461170?v=4",
+        "url" : "https://api.github.com/users/etaty",
+        "contributions" : 1
+      },
+      {
+        "login" : "riiswa",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24685602?v=4",
+        "url" : "https://api.github.com/users/riiswa",
+        "contributions" : 1
+      },
+      {
+        "login" : "YannMoisan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/681743?v=4",
+        "url" : "https://api.github.com/users/YannMoisan",
+        "contributions" : 1
+      },
+      {
+        "login" : "Yasushi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7523?v=4",
+        "url" : "https://api.github.com/users/Yasushi",
+        "contributions" : 1
+      },
+      {
+        "login" : "sh-abhi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6554853?v=4",
+        "url" : "https://api.github.com/users/sh-abhi",
+        "contributions" : 1
+      },
+      {
+        "login" : "aoiroaoino",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2589034?v=4",
+        "url" : "https://api.github.com/users/aoiroaoino",
+        "contributions" : 1
+      },
+      {
+        "login" : "cocoatomo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/223050?v=4",
+        "url" : "https://api.github.com/users/cocoatomo",
+        "contributions" : 1
+      },
+      {
+        "login" : "dstechenko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5430434?v=4",
+        "url" : "https://api.github.com/users/dstechenko",
+        "contributions" : 1
+      },
+      {
+        "login" : "julianmichael",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5375447?v=4",
+        "url" : "https://api.github.com/users/julianmichael",
+        "contributions" : 1
+      },
+      {
+        "login" : "jyane",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4113970?v=4",
+        "url" : "https://api.github.com/users/jyane",
+        "contributions" : 1
+      },
+      {
+        "login" : "hepin1989",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/501740?v=4",
+        "url" : "https://api.github.com/users/hepin1989",
+        "contributions" : 1
+      },
+      {
+        "login" : "krishnabhargav",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1259107?v=4",
+        "url" : "https://api.github.com/users/krishnabhargav",
+        "contributions" : 1
+      },
+      {
+        "login" : "martijnhoekstra",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/882449?v=4",
+        "url" : "https://api.github.com/users/martijnhoekstra",
+        "contributions" : 1
+      },
+      {
+        "login" : "n4to4",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/21071230?v=4",
+        "url" : "https://api.github.com/users/n4to4",
+        "contributions" : 1
+      },
+      {
+        "login" : "peterneyens",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6407606?v=4",
+        "url" : "https://api.github.com/users/peterneyens",
+        "contributions" : 1
+      },
+      {
+        "login" : "seanmcl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/110393?v=4",
+        "url" : "https://api.github.com/users/seanmcl",
+        "contributions" : 1
+      },
+      {
+        "login" : "swalker2m",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4906023?v=4",
+        "url" : "https://api.github.com/users/swalker2m",
+        "contributions" : 1
+      },
+      {
+        "login" : "tatatakky",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/29055712?v=4",
+        "url" : "https://api.github.com/users/tatatakky",
+        "contributions" : 1
+      },
+      {
+        "login" : "tim-zh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7420409?v=4",
+        "url" : "https://api.github.com/users/tim-zh",
+        "contributions" : 1
+      },
+      {
+        "login" : "vpatryshev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/241195?v=4",
+        "url" : "https://api.github.com/users/vpatryshev",
+        "contributions" : 1
+      },
+      {
+        "login" : "wedens",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/697162?v=4",
+        "url" : "https://api.github.com/users/wedens",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 5924,
+    "topics" : [
+      "functional-programming",
+      "scalajs",
+      "scala-native",
+      "scala",
+      "scalaz"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : "https://gitter.im/scalaz/scalaz",
+    "openIssues" : [
+      {
+        "number" : 2233,
+        "title" : "Shall we remove the mandatory Trampoline from Cofree?",
+        "url" : "https://github.com/scalaz/scalaz/issues/2233"
+      },
+      {
+        "number" : 2199,
+        "title" : "avoid `scala.App` in example",
+        "url" : "https://github.com/scalaz/scalaz/issues/2199"
+      },
+      {
+        "number" : 2192,
+        "title" : "libera.chat link does not work",
+        "url" : "https://github.com/scalaz/scalaz/issues/2192"
+      },
+      {
+        "number" : 2100,
+        "title" : "Scaladoc generation failing on .liftM[OptionT] in scalaz 7.3.1",
+        "url" : "https://github.com/scalaz/scalaz/issues/2100"
+      },
+      {
+        "number" : 2098,
+        "title" : "Reducer instance in Apply makes function unserializable",
+        "url" : "https://github.com/scalaz/scalaz/issues/2098"
+      },
+      {
+        "number" : 2084,
+        "title" : "Free, FreeAp and FreeT instances if Scala 2.13 or higher ",
+        "url" : "https://github.com/scalaz/scalaz/issues/2084"
+      },
+      {
+        "number" : 2082,
+        "title" : "scalaz.github.io is empty. There is no documentation.",
+        "url" : "https://github.com/scalaz/scalaz/issues/2082"
+      },
+      {
+        "number" : 2081,
+        "title" : "Support LazyList for Scala 2.13",
+        "url" : "https://github.com/scalaz/scalaz/issues/2081"
+      },
+      {
+        "number" : 2051,
+        "title" : "Consistent datatypes in scalaz.",
+        "url" : "https://github.com/scalaz/scalaz/issues/2051"
+      },
+      {
+        "number" : 2038,
+        "title" : "Delete scalaz.effect.IO",
+        "url" : "https://github.com/scalaz/scalaz/issues/2038"
+      },
+      {
+        "number" : 2034,
+        "title" : "Distributive members are swapped compared to Haskell/Purescript",
+        "url" : "https://github.com/scalaz/scalaz/issues/2034"
+      },
+      {
+        "number" : 2033,
+        "title" : "Show[Throwable]",
+        "url" : "https://github.com/scalaz/scalaz/issues/2033"
+      },
+      {
+        "number" : 2025,
+        "title" : "Type parameters order in `TracedT`",
+        "url" : "https://github.com/scalaz/scalaz/issues/2025"
+      },
+      {
+        "number" : 2024,
+        "title" : "scalaz.syntax.all._ doesn't work for MonadState/MonadError implicit parameters list.",
+        "url" : "https://github.com/scalaz/scalaz/issues/2024"
+      },
+      {
+        "number" : 2013,
+        "title" : "add more ApplicativeError instances",
+        "url" : "https://github.com/scalaz/scalaz/issues/2013"
+      },
+      {
+        "number" : 1991,
+        "title" : "get stream/vector out of our trees",
+        "url" : "https://github.com/scalaz/scalaz/issues/1991"
+      },
+      {
+        "number" : 1985,
+        "title" : "Generalized sort missing",
+        "url" : "https://github.com/scalaz/scalaz/issues/1985"
+      },
+      {
+        "number" : 1983,
+        "title" : "applyN / apN / tupleN up to 22?",
+        "url" : "https://github.com/scalaz/scalaz/issues/1983"
+      },
+      {
+        "number" : 1982,
+        "title" : "hash-based data structures?",
+        "url" : "https://github.com/scalaz/scalaz/issues/1982"
+      },
+      {
+        "number" : 1980,
+        "title" : "Implement Map.filterM",
+        "url" : "https://github.com/scalaz/scalaz/issues/1980"
+      },
+      {
+        "number" : 1974,
+        "title" : "Docs Docs Docs",
+        "url" : "https://github.com/scalaz/scalaz/issues/1974"
+      },
+      {
+        "number" : 1973,
+        "title" : "Migrate from Travis CI to Gitlab CI",
+        "url" : "https://github.com/scalaz/scalaz/issues/1973"
+      },
+      {
+        "number" : 1949,
+        "title" : "Port 7.3 microsite improvements",
+        "url" : "https://github.com/scalaz/scalaz/issues/1949"
+      },
+      {
+        "number" : 1948,
+        "title" : "Unapply matchers",
+        "url" : "https://github.com/scalaz/scalaz/issues/1948"
+      },
+      {
+        "number" : 1946,
+        "title" : "Semicategory op naming",
+        "url" : "https://github.com/scalaz/scalaz/issues/1946"
+      },
+      {
+        "number" : 1942,
+        "title" : "Laziness decisions",
+        "url" : "https://github.com/scalaz/scalaz/issues/1942"
+      },
+      {
+        "number" : 1940,
+        "title" : "Comprehensive instances for ZIO",
+        "url" : "https://github.com/scalaz/scalaz/issues/1940"
+      },
+      {
+        "number" : 1937,
+        "title" : "Remove double negation elimination.",
+        "url" : "https://github.com/scalaz/scalaz/issues/1937"
+      },
+      {
+        "number" : 1915,
+        "title" : "Flatten ApplicativeBuilder",
+        "url" : "https://github.com/scalaz/scalaz/issues/1915"
+      },
+      {
+        "number" : 1886,
+        "title" : "Augment IO and IO.type with helper methods for Disjunction, Maybe",
+        "url" : "https://github.com/scalaz/scalaz/issues/1886"
+      },
+      {
+        "number" : 1852,
+        "title" : "Revert the new module structure",
+        "url" : "https://github.com/scalaz/scalaz/issues/1852"
+      },
+      {
+        "number" : 1844,
+        "title" : "Interactive documentation",
+        "url" : "https://github.com/scalaz/scalaz/issues/1844"
+      },
+      {
+        "number" : 1835,
+        "title" : "Maybe type alias mismatch",
+        "url" : "https://github.com/scalaz/scalaz/issues/1835"
+      },
+      {
+        "number" : 1832,
+        "title" : "Maybe does not have exaustiveness warnings for pattern matches.",
+        "url" : "https://github.com/scalaz/scalaz/issues/1832"
+      },
+      {
+        "number" : 1826,
+        "title" : "Enforce acyclic package dependencies",
+        "url" : "https://github.com/scalaz/scalaz/issues/1826"
+      },
+      {
+        "number" : 1808,
+        "title" : "Improve performance of EqClass",
+        "url" : "https://github.com/scalaz/scalaz/issues/1808"
+      },
+      {
+        "number" : 1807,
+        "title" : "Scalaz 8 Collections",
+        "url" : "https://github.com/scalaz/scalaz/issues/1807"
+      },
+      {
+        "number" : 1763,
+        "title" : "module and package object initialization causes deadlocks",
+        "url" : "https://github.com/scalaz/scalaz/issues/1763"
+      },
+      {
+        "number" : 1731,
+        "title" : "Scalaz 8 Snapshot Binaries and Documentation",
+        "url" : "https://github.com/scalaz/scalaz/issues/1731"
+      },
+      {
+        "number" : 1729,
+        "title" : "Scalaz 8 legal issues",
+        "url" : "https://github.com/scalaz/scalaz/issues/1729"
+      },
+      {
+        "number" : 1726,
+        "title" : "Void for 7.3.x and 7.2.x",
+        "url" : "https://github.com/scalaz/scalaz/issues/1726"
+      },
+      {
+        "number" : 1725,
+        "title" : "Add scalaz.effect Type Class Hierarchy",
+        "url" : "https://github.com/scalaz/scalaz/issues/1725"
+      },
+      {
+        "number" : 1724,
+        "title" : "Implement IOQueue",
+        "url" : "https://github.com/scalaz/scalaz/issues/1724"
+      },
+      {
+        "number" : 1722,
+        "title" : "Decrease per-fiber memory overhead",
+        "url" : "https://github.com/scalaz/scalaz/issues/1722"
+      },
+      {
+        "number" : 1717,
+        "title" : "Make ApplicativePlus[F[_]] extends Applicative[F] with Plus[F]",
+        "url" : "https://github.com/scalaz/scalaz/issues/1717"
+      },
+      {
+        "number" : 1715,
+        "title" : "Implement short-circuiting for Applicatives with absorbing elements.",
+        "url" : "https://github.com/scalaz/scalaz/issues/1715"
+      },
+      {
+        "number" : 1663,
+        "title" : "add foldRightLazy / foldRightStrict to Foldable",
+        "url" : "https://github.com/scalaz/scalaz/issues/1663"
+      },
+      {
+        "number" : 1652,
+        "title" : "Add a Capture typeclass to scalaz8",
+        "url" : "https://github.com/scalaz/scalaz/issues/1652"
+      },
+      {
+        "number" : 1631,
+        "title" : "Add on instructions to build scalaz and run tests locally for contributing",
+        "url" : "https://github.com/scalaz/scalaz/issues/1631"
+      },
+      {
+        "number" : 1628,
+        "title" : "Remove local type classes instances and explicit type class arguments",
+        "url" : "https://github.com/scalaz/scalaz/issues/1628"
+      },
+      {
+        "number" : 1608,
+        "title" : "Auto-publish \"examples\" micro-site from master",
+        "url" : "https://github.com/scalaz/scalaz/issues/1608"
+      },
+      {
+        "number" : 1605,
+        "title" : "Opaque types via `newtype`?",
+        "url" : "https://github.com/scalaz/scalaz/issues/1605"
+      },
+      {
+        "number" : 1540,
+        "title" : "Scalaz 8 package organization",
+        "url" : "https://github.com/scalaz/scalaz/issues/1540"
+      },
+      {
+        "number" : 1538,
+        "title" : "[8.0.x] Maybe2 needs work",
+        "url" : "https://github.com/scalaz/scalaz/issues/1538"
+      },
+      {
+        "number" : 1533,
+        "title" : "Naming conventions: <typeclass>Instances vs. <datatype>Instances",
+        "url" : "https://github.com/scalaz/scalaz/issues/1533"
+      },
+      {
+        "number" : 1526,
+        "title" : "Scalaz 8 Roadmap",
+        "url" : "https://github.com/scalaz/scalaz/issues/1526"
+      },
+      {
+        "number" : 1514,
+        "title" : "Vector/Array implementation for scalaz 8",
+        "url" : "https://github.com/scalaz/scalaz/issues/1514"
+      },
+      {
+        "number" : 1490,
+        "title" : "Generalize over Either/Disjunction/Validated",
+        "url" : "https://github.com/scalaz/scalaz/issues/1490"
+      },
+      {
+        "number" : 1482,
+        "title" : "No exhaustivity warnings for Maybe2 pattern matching",
+        "url" : "https://github.com/scalaz/scalaz/issues/1482"
+      },
+      {
+        "number" : 1418,
+        "title" : "Scalaz: Adopt stronger branding & create repository for scalaz.org / scalaz.github.io",
+        "url" : "https://github.com/scalaz/scalaz/issues/1418"
+      },
+      {
+        "number" : 1386,
+        "title" : "Tags should be covariant",
+        "url" : "https://github.com/scalaz/scalaz/issues/1386"
+      },
+      {
+        "number" : 1380,
+        "title" : "use name based extractors? (avoid unnecessary allocations)",
+        "url" : "https://github.com/scalaz/scalaz/issues/1380"
+      },
+      {
+        "number" : 1379,
+        "title" : "Add Band type-class instances, ScalazProperties and tests",
+        "url" : "https://github.com/scalaz/scalaz/issues/1379"
+      },
+      {
+        "number" : 1363,
+        "title" : "`NonEmptyList.unapply` should return `Some`",
+        "url" : "https://github.com/scalaz/scalaz/issues/1363"
+      },
+      {
+        "number" : 1353,
+        "title" : "*->*-kinded tag",
+        "url" : "https://github.com/scalaz/scalaz/issues/1353"
+      },
+      {
+        "number" : 1343,
+        "title" : "Asynchronous type class",
+        "url" : "https://github.com/scalaz/scalaz/issues/1343"
+      },
+      {
+        "number" : 1332,
+        "title" : "design: too many implicits in scope causes headaches?",
+        "url" : "https://github.com/scalaz/scalaz/issues/1332"
+      },
+      {
+        "number" : 1329,
+        "title" : "design: in light of the SI-2712 fix, should `UpStar` not unify with `Kleisli`",
+        "url" : "https://github.com/scalaz/scalaz/issues/1329"
+      },
+      {
+        "number" : 1328,
+        "title" : "design: minimal methods on data structures?",
+        "url" : "https://github.com/scalaz/scalaz/issues/1328"
+      },
+      {
+        "number" : 1304,
+        "title" : "RegionT doesn't close resources",
+        "url" : "https://github.com/scalaz/scalaz/issues/1304"
+      },
+      {
+        "number" : 1301,
+        "title" : "consider another implementation of FreeAp",
+        "url" : "https://github.com/scalaz/scalaz/issues/1301"
+      },
+      {
+        "number" : 1298,
+        "title" : "Thanks for your work on Scalaz!",
+        "url" : "https://github.com/scalaz/scalaz/issues/1298"
+      },
+      {
+        "number" : 1293,
+        "title" : "intermittent TimerTest failure",
+        "url" : "https://github.com/scalaz/scalaz/issues/1293"
+      },
+      {
+        "number" : 1290,
+        "title" : "Data classes extending AnyVal",
+        "url" : "https://github.com/scalaz/scalaz/issues/1290"
+      },
+      {
+        "number" : 1287,
+        "title" : "Have the content of ScalazArbitrary declared in a trait",
+        "url" : "https://github.com/scalaz/scalaz/issues/1287"
+      },
+      {
+        "number" : 1277,
+        "title" : "Select first Task to complete",
+        "url" : "https://github.com/scalaz/scalaz/issues/1277"
+      },
+      {
+        "number" : 1267,
+        "title" : "MonadAsk",
+        "url" : "https://github.com/scalaz/scalaz/issues/1267"
+      },
+      {
+        "number" : 1266,
+        "title" : "FingerTree's V type parameter should be specialized for Int",
+        "url" : "https://github.com/scalaz/scalaz/issues/1266"
+      },
+      {
+        "number" : 1247,
+        "title" : "How to handle Tuple and Function instances",
+        "url" : "https://github.com/scalaz/scalaz/issues/1247"
+      },
+      {
+        "number" : 1235,
+        "title" : "Missing syntax for MonadReader and MonadState",
+        "url" : "https://github.com/scalaz/scalaz/issues/1235"
+      },
+      {
+        "number" : 1234,
+        "title" : "Implement/Port Leibniz equality.",
+        "url" : "https://github.com/scalaz/scalaz/issues/1234"
+      },
+      {
+        "number" : 1230,
+        "title" : "Introduce law checking and property-based testing.",
+        "url" : "https://github.com/scalaz/scalaz/issues/1230"
+      },
+      {
+        "number" : 1229,
+        "title" : "Zero-cost all the syntax.",
+        "url" : "https://github.com/scalaz/scalaz/issues/1229"
+      },
+      {
+        "number" : 1228,
+        "title" : "Implement/port IList.",
+        "url" : "https://github.com/scalaz/scalaz/issues/1228"
+      },
+      {
+        "number" : 1227,
+        "title" : "A lenses encoding that is both elegant and efficient.",
+        "url" : "https://github.com/scalaz/scalaz/issues/1227"
+      },
+      {
+        "number" : 1220,
+        "title" : "Monoid instances for primitives and String can easily lead to bugs",
+        "url" : "https://github.com/scalaz/scalaz/issues/1220"
+      },
+      {
+        "number" : 1213,
+        "title" : "Build failing on Travis (series/7.3.x)",
+        "url" : "https://github.com/scalaz/scalaz/issues/1213"
+      },
+      {
+        "number" : 1211,
+        "title" : "Numerical representation for Free",
+        "url" : "https://github.com/scalaz/scalaz/issues/1211"
+      },
+      {
+        "number" : 1199,
+        "title" : "binary compatibility broken",
+        "url" : "https://github.com/scalaz/scalaz/issues/1199"
+      },
+      {
+        "number" : 1189,
+        "title" : "Typeclass for evaluation strategy?",
+        "url" : "https://github.com/scalaz/scalaz/issues/1189"
+      },
+      {
+        "number" : 1176,
+        "title" : "Reduce unneeded calculation of Traverse[List].traverse",
+        "url" : "https://github.com/scalaz/scalaz/issues/1176"
+      },
+      {
+        "number" : 1142,
+        "title" : "Is it possible to link *Usage scaladocs from *?",
+        "url" : "https://github.com/scalaz/scalaz/issues/1142"
+      },
+      {
+        "number" : 1138,
+        "title" : "ISet does some dodgy equals stuff",
+        "url" : "https://github.com/scalaz/scalaz/issues/1138"
+      },
+      {
+        "number" : 1134,
+        "title" : "StreamT#toStream gives false illusion of laziness. Should it be changed to toList?",
+        "url" : "https://github.com/scalaz/scalaz/issues/1134"
+      },
+      {
+        "number" : 1133,
+        "title" : "Task never completes when ExecutorService rejects submit",
+        "url" : "https://github.com/scalaz/scalaz/issues/1133"
+      },
+      {
+        "number" : 1127,
+        "title" : "StreamT#foldRight is falsely advertised as lazy",
+        "url" : "https://github.com/scalaz/scalaz/issues/1127"
+      },
+      {
+        "number" : 1122,
+        "title" : "Stop fucking breaking shit and stop renaming shit too",
+        "url" : "https://github.com/scalaz/scalaz/issues/1122"
+      },
+      {
+        "number" : 1110,
+        "title" : "MTL-style doesn't seem to work in Scala",
+        "url" : "https://github.com/scalaz/scalaz/issues/1110"
+      },
+      {
+        "number" : 1098,
+        "title" : "IMap / ISet should allow lazy folding",
+        "url" : "https://github.com/scalaz/scalaz/issues/1098"
+      },
+      {
+        "number" : 1096,
+        "title" : "scalacheck vs scalaprops",
+        "url" : "https://github.com/scalaz/scalaz/issues/1096"
+      },
+      {
+        "number" : 1087,
+        "title" : "the visit function is not well-typed using IndexedCont's shift/reset",
+        "url" : "https://github.com/scalaz/scalaz/issues/1087"
+      },
+      {
+        "number" : 1068,
+        "title" : "Weird leftovers when zipping iteratees",
+        "url" : "https://github.com/scalaz/scalaz/issues/1068"
+      },
+      {
+        "number" : 1054,
+        "title" : "remove/deprecate `distinct` from concrete types?",
+        "url" : "https://github.com/scalaz/scalaz/issues/1054"
+      },
+      {
+        "number" : 1018,
+        "title" : "Scaladoc showing the wrong types for `sequenceU` and `traverseU`",
+        "url" : "https://github.com/scalaz/scalaz/issues/1018"
+      },
+      {
+        "number" : 1001,
+        "title" : "Tree.flatten stack overflow for wide trees",
+        "url" : "https://github.com/scalaz/scalaz/issues/1001"
+      },
+      {
+        "number" : 997,
+        "title" : "Task.gatherUnordered is very slow",
+        "url" : "https://github.com/scalaz/scalaz/issues/997"
+      },
+      {
+        "number" : 975,
+        "title" : "Empty and MonadEmpty type classes",
+        "url" : "https://github.com/scalaz/scalaz/issues/975"
+      },
+      {
+        "number" : 940,
+        "title" : "whileM_ throws StackOverflowError",
+        "url" : "https://github.com/scalaz/scalaz/issues/940"
+      },
+      {
+        "number" : 921,
+        "title" : "ListT violate the associative law",
+        "url" : "https://github.com/scalaz/scalaz/issues/921"
+      },
+      {
+        "number" : 909,
+        "title" : "Task/SFuture conversion",
+        "url" : "https://github.com/scalaz/scalaz/issues/909"
+      },
+      {
+        "number" : 900,
+        "title" : "Change implementation of plus for \\/  and make instance of MonadPlus",
+        "url" : "https://github.com/scalaz/scalaz/issues/900"
+      },
+      {
+        "number" : 895,
+        "title" : "modularity",
+        "url" : "https://github.com/scalaz/scalaz/issues/895"
+      },
+      {
+        "number" : 837,
+        "title" : "New tags are not always unboxed",
+        "url" : "https://github.com/scalaz/scalaz/issues/837"
+      },
+      {
+        "number" : 806,
+        "title" : "WriterOps.set conflicts with methods like Lens.set.",
+        "url" : "https://github.com/scalaz/scalaz/issues/806"
+      },
+      {
+        "number" : 757,
+        "title" : "Replace `BijectionT` by `Bijection`",
+        "url" : "https://github.com/scalaz/scalaz/issues/757"
+      },
+      {
+        "number" : 651,
+        "title" : "Make residual handling stack-safe for `Future` and `Task`",
+        "url" : "https://github.com/scalaz/scalaz/issues/651"
+      },
+      {
+        "number" : 649,
+        "title" : "Replace all <:< / =:= references with Liskov/Leibniz",
+        "url" : "https://github.com/scalaz/scalaz/issues/649"
+      },
+      {
+        "number" : 615,
+        "title" : "Stream traverse foldMap regression?",
+        "url" : "https://github.com/scalaz/scalaz/issues/615"
+      },
+      {
+        "number" : 600,
+        "title" : "Enhnance scalaz.concurrent.Actor to allow configurable batching",
+        "url" : "https://github.com/scalaz/scalaz/issues/600"
+      },
+      {
+        "number" : 578,
+        "title" : "add enqueue(iter: Iterable) to QueueLensFamily",
+        "url" : "https://github.com/scalaz/scalaz/issues/578"
+      },
+      {
+        "number" : 554,
+        "title" : "Enumeratee memory leak",
+        "url" : "https://github.com/scalaz/scalaz/issues/554"
+      },
+      {
+        "number" : 481,
+        "title" : "StackOverflowError with Foldable.foldLeftM",
+        "url" : "https://github.com/scalaz/scalaz/issues/481"
+      },
+      {
+        "number" : 373,
+        "title" : "[Maybe?] Fingertree isn't lazy enough",
+        "url" : "https://github.com/scalaz/scalaz/issues/373"
+      },
+      {
+        "number" : 240,
+        "title" : "Heap#toList StackOverflow",
+        "url" : "https://github.com/scalaz/scalaz/issues/240"
+      },
+      {
+        "number" : 77,
+        "title" : "Overridable multiply and multiply for Semigroup and Group  ",
+        "url" : "https://github.com/scalaz/scalaz/issues/77"
+      },
+      {
+        "number" : 11,
+        "title" : "MonadChoice + ArrowChoice",
+        "url" : "https://github.com/scalaz/scalaz/issues/11"
+      },
+      {
+        "number" : 8,
+        "title" : "Endo/State functions",
+        "url" : "https://github.com/scalaz/scalaz/issues/8"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : "scalaz-core",
+    "strictVersions" : false,
+    "customScalaDoc" : "https://oss.sonatype.org/service/local/repositories/releases/archive/org/scalaz/scalaz_2.11/[version]/scalaz_2.11-[version]-javadoc.jar/!/index.html#scalaz.package",
+    "documentationLinks" : [
+      {
+        "Website" : "http://scalaz.github.io/scalaz/"
+      }
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "functionnal-programming-and-category-theory",
+    "beginnerIssuesLabel" : "good first issue"
+  }
+}

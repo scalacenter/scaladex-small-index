@@ -1,0 +1,1602 @@
+{
+  "organization" : "typelevel",
+  "repository" : "fs2",
+  "creationDate" : 1463600610340,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643175276569
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "https://fs2.io",
+    "description" : "Compositional, streaming I/O library for Scala",
+    "logo" : "https://avatars.githubusercontent.com/u/3731824?v=4",
+    "stars" : 2014,
+    "forks" : 522,
+    "watchers" : 100,
+    "issues" : 49,
+    "creationDate" : 1362591255000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-fs2-functional-streams-for-scala\" class=\"anchor\" aria-hidden=\"true\" href=\"#fs2-functional-streams-for-scala\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>FS2: Functional Streams for Scala</h1>\n<p dir=\"auto\"><a href=\"https://github.com/functional-streams-for-scala/fs2/actions?query=workflow%3A%22Continuous+Integration%22\"><img src=\"https://github.com/functional-streams-for-scala/fs2/workflows/Continuous%20Integration/badge.svg\" alt=\"Continuous Integration\" style=\"max-width: 100%;\"></a>\n<a href=\"https://discord.gg/9V8FZTVZ9R\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/ab28a7bb180b98ce9130264a9312d7e82068a74ae51eecec98a3179dc570ee22/68747470733a2f2f696d672e736869656c64732e696f2f646973636f72642f3633323237373839363733393934363531372e7376673f6c6162656c3d266c6f676f3d646973636f7264266c6f676f436f6c6f723d66666666666626636f6c6f723d343034323434266c6162656c436f6c6f723d364137454332\" alt=\"Discord\" data-canonical-src=\"https://img.shields.io/discord/632277896739946517.svg?label=&amp;logo=discord&amp;logoColor=ffffff&amp;color=404244&amp;labelColor=6A7EC2\" style=\"max-width: 100%;\"></a>\n<a href=\"https://maven-badges.herokuapp.com/maven-central/co.fs2/fs2-core_2.13\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/8dcbe87c945b1e606e8ed457dc5ed25a4685fa098742c76c8cdba99d5b2b2fb8/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f2e6673322f6673322d636f72655f322e3133\" alt=\"Maven Central\" data-canonical-src=\"https://img.shields.io/maven-central/v/co.fs2/fs2-core_2.13\" style=\"max-width: 100%;\"></a></p>\n<h3 dir=\"auto\"><a id=\"user-content-overview\" class=\"anchor\" aria-hidden=\"true\" href=\"#overview\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Overview</h3>\n<p dir=\"auto\">FS2 is a library for purely functional, effectful, and polymorphic stream processing library in the <a href=\"https://scala-lang.org\" rel=\"nofollow\">Scala programming language</a>.\nIts design goals are compositionality, expressiveness, resource safety, and speed.\nThe name is a modified acronym for <strong>F</strong>unctional <strong>S</strong>treams for <strong>Scala</strong> (FSS, or FS2).</p>\n<p dir=\"auto\">FS2 is available for Scala 2.12, Scala 2.13, Scala 3, and <a href=\"http://www.scala-js.org/\" rel=\"nofollow\">Scala.js</a>.\nFS2 is built upon two major functional libraries for Scala, <a href=\"https://typelevel.org/cats/\" rel=\"nofollow\">Cats</a>, and <a href=\"https://typelevel.org/cats-effect/\" rel=\"nofollow\">Cats-Effect</a>.\nRegardless of those dependencies, FS2 core types (streams and pulls) are polymorphic in the effect type (as long as it is compatible with <code>cats-effect</code> typeclasses),\nand thus FS2 can be used with other effect libraries, such as <a href=\"https://monix.io/\" rel=\"nofollow\">Monix</a>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-getting-started\" class=\"anchor\" aria-hidden=\"true\" href=\"#getting-started\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Getting Started</h3>\n<p dir=\"auto\">Quick links:</p>\n<ul dir=\"auto\">\n<li><a href=\"http://fs2.io\" rel=\"nofollow\">Microsite</a></li>\n<li><a href=\"#about\">About the library</a></li>\n<li><a href=\"#getit\">How to get latest version</a></li>\n<li>API docs: <a href=\"https://oss.sonatype.org/service/local/repositories/releases/archive/co/fs2/fs2-core_2.13/3.1.0/fs2-core_2.13-3.1.0-javadoc.jar/!/fs2/index.html\" rel=\"nofollow\">fs2-core</a>, <a href=\"https://oss.sonatype.org/service/local/repositories/releases/archive/co/fs2/fs2-io_2.13/3.1.0/fs2-io_2.13-3.1.0-javadoc.jar/!/fs2/io/index.html\" rel=\"nofollow\">fs2-io</a>, <a href=\"https://oss.sonatype.org/service/local/repositories/releases/archive/co/fs2/fs2-reactive-streams_2.13/3.1.0/fs2-reactive-streams_2.13-3.1.0-javadoc.jar/!/fs2/interop/reactivestreams/index.html\" rel=\"nofollow\">fs2-reactive-streams</a></li>\n<li><a href=\"#docs\">Docs and getting help</a></li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-documentation-and-getting-help\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation-and-getting-help\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a id=\"user-content-docs\"></a>Documentation and getting help</h3>\n<ul dir=\"auto\">\n<li>There are Scaladoc API documentations for <a href=\"https://oss.sonatype.org/service/local/repositories/releases/archive/co/fs2/fs2-core_2.13/3.1.0/fs2-core_2.13-3.1.0-javadoc.jar/!/fs2/index.html\" rel=\"nofollow\">the core library</a>, which defines and implements the core types for streams and pulls, as well as the type aliases for pipes and sinks. <a href=\"https://oss.sonatype.org/service/local/repositories/releases/archive/co/fs2/fs2-io_2.13/3.1.0/fs2-io_2.13-3.1.0-javadoc.jar/!/fs2/io/index.html\" rel=\"nofollow\">The <code>io</code> library</a> provides FS2 bindings for NIO-based file I/O and TCP/UDP networking.</li>\n<li><a href=\"https://fs2.io/#/guide\" rel=\"nofollow\">The official guide</a> is a good starting point for learning more about the library.</li>\n<li>The <a href=\"https://fs2.io/#/documentation\" rel=\"nofollow\">documentation page</a> is intended to serve as a list of all references, including conference presentation recordings, academic papers, and blog posts, on the use and implementation of <code>fs2</code>.</li>\n<li><a href=\"https://fs2.io/#/faq\" rel=\"nofollow\">The FAQ</a> has frequently asked questions. Feel free to open issues or PRs with additions to the FAQ!</li>\n<li>Also feel free to come discuss and ask/answer questions in <a href=\"https://discord.gg/9V8FZTVZ9R\" rel=\"nofollow\">the Typelevel Discord channel</a> and/or on StackOverflow using <a href=\"http://stackoverflow.com/tags/fs2\" rel=\"nofollow\">the tag FS2</a>. Discord will generally get you a quicker answer.</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-projects-using-fs2\" class=\"anchor\" aria-hidden=\"true\" href=\"#projects-using-fs2\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Projects using FS2</h3>\n<p dir=\"auto\">You can find a list of libraries and integrations with data stores built on top of FS2 here: <a href=\"https://fs2.io/#/ecosystem\" rel=\"nofollow\">https://fs2.io/#/ecosystem</a>.</p>\n<p dir=\"auto\">If you have a project you'd like to include in this list, please open a PR or let us know in <a href=\"https://discord.gg/9V8FZTVZ9R\" rel=\"nofollow\">the Discord channel</a> and we'll add a link to it.</p>\n<h3 dir=\"auto\"><a id=\"user-content-acknowledgments\" class=\"anchor\" aria-hidden=\"true\" href=\"#acknowledgments\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Acknowledgments</h3>\n<p dir=\"auto\"><a href=\"https://www.yourkit.com/\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/81cebad9a613009454b2b36f2d410e5ccc2c8e27b6736f9c7074df8cdf6ebd2a/68747470733a2f2f7777772e796f75726b69742e636f6d2f696d616765732f796b6c6f676f2e706e67\" alt=\"YourKit\" data-canonical-src=\"https://www.yourkit.com/images/yklogo.png\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Special thanks to <a href=\"https://www.yourkit.com/\" rel=\"nofollow\">YourKit</a> for supporting this project's ongoing performance tuning efforts with licenses to their excellent product.</p>\n<h3 dir=\"auto\"><a id=\"user-content-code-of-conduct\" class=\"anchor\" aria-hidden=\"true\" href=\"#code-of-conduct\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Code of Conduct</h3>\n<p dir=\"auto\">See the <a href=\"https://github.com/functional-streams-for-scala/fs2/blob/main/CODE_OF_CONDUCT.md\">Code of Conduct</a>.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "mpilquist",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/118078?v=4",
+        "url" : "https://api.github.com/users/mpilquist",
+        "contributions" : 3279
+      },
+      {
+        "login" : "pchiusano",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11074?v=4",
+        "url" : "https://api.github.com/users/pchiusano",
+        "contributions" : 782
+      },
+      {
+        "login" : "SystemFw",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7769582?v=4",
+        "url" : "https://api.github.com/users/SystemFw",
+        "contributions" : 628
+      },
+      {
+        "login" : "pchlupacek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/678560?v=4",
+        "url" : "https://api.github.com/users/pchlupacek",
+        "contributions" : 597
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 347
+      },
+      {
+        "login" : "fthomas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/141252?v=4",
+        "url" : "https://api.github.com/users/fthomas",
+        "contributions" : 287
+      },
+      {
+        "login" : "armanbilge",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3119428?v=4",
+        "url" : "https://api.github.com/users/armanbilge",
+        "contributions" : 215
+      },
+      {
+        "login" : "diesalbla",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1764610?v=4",
+        "url" : "https://api.github.com/users/diesalbla",
+        "contributions" : 166
+      },
+      {
+        "login" : "djspiewak",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/752?v=4",
+        "url" : "https://api.github.com/users/djspiewak",
+        "contributions" : 160
+      },
+      {
+        "login" : "vasilmkd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7115459?v=4",
+        "url" : "https://api.github.com/users/vasilmkd",
+        "contributions" : 99
+      },
+      {
+        "login" : "larsrh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/923079?v=4",
+        "url" : "https://api.github.com/users/larsrh",
+        "contributions" : 72
+      },
+      {
+        "login" : "kubukoz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/894884?v=4",
+        "url" : "https://api.github.com/users/kubukoz",
+        "contributions" : 66
+      },
+      {
+        "login" : "nikiforo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16291948?v=4",
+        "url" : "https://api.github.com/users/nikiforo",
+        "contributions" : 63
+      },
+      {
+        "login" : "amarrella",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1425877?v=4",
+        "url" : "https://api.github.com/users/amarrella",
+        "contributions" : 41
+      },
+      {
+        "login" : "gvolpe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/443978?v=4",
+        "url" : "https://api.github.com/users/gvolpe",
+        "contributions" : 34
+      },
+      {
+        "login" : "ChristopherDavenport",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10272700?v=4",
+        "url" : "https://api.github.com/users/ChristopherDavenport",
+        "contributions" : 34
+      },
+      {
+        "login" : "fiadliel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1469613?v=4",
+        "url" : "https://api.github.com/users/fiadliel",
+        "contributions" : 33
+      },
+      {
+        "login" : "alissapajer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1088100?v=4",
+        "url" : "https://api.github.com/users/alissapajer",
+        "contributions" : 32
+      },
+      {
+        "login" : "rossabaker",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/142698?v=4",
+        "url" : "https://api.github.com/users/rossabaker",
+        "contributions" : 32
+      },
+      {
+        "login" : "AdamChlupacek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1897389?v=4",
+        "url" : "https://api.github.com/users/AdamChlupacek",
+        "contributions" : 26
+      },
+      {
+        "login" : "yilinwei",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8933128?v=4",
+        "url" : "https://api.github.com/users/yilinwei",
+        "contributions" : 24
+      },
+      {
+        "login" : "tom91136",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3199099?v=4",
+        "url" : "https://api.github.com/users/tom91136",
+        "contributions" : 22
+      },
+      {
+        "login" : "zaneli",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/379820?v=4",
+        "url" : "https://api.github.com/users/zaneli",
+        "contributions" : 22
+      },
+      {
+        "login" : "runarorama",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/130916?v=4",
+        "url" : "https://api.github.com/users/runarorama",
+        "contributions" : 18
+      },
+      {
+        "login" : "bplommer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8990749?v=4",
+        "url" : "https://api.github.com/users/bplommer",
+        "contributions" : 18
+      },
+      {
+        "login" : "stephenjudkins",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8593?v=4",
+        "url" : "https://api.github.com/users/stephenjudkins",
+        "contributions" : 17
+      },
+      {
+        "login" : "danicheg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19841757?v=4",
+        "url" : "https://api.github.com/users/danicheg",
+        "contributions" : 17
+      },
+      {
+        "login" : "mgibowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/617315?v=4",
+        "url" : "https://api.github.com/users/mgibowski",
+        "contributions" : 16
+      },
+      {
+        "login" : "LLCampos",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12008784?v=4",
+        "url" : "https://api.github.com/users/LLCampos",
+        "contributions" : 16
+      },
+      {
+        "login" : "CremboC",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/880130?v=4",
+        "url" : "https://api.github.com/users/CremboC",
+        "contributions" : 16
+      },
+      {
+        "login" : "radekm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/518912?v=4",
+        "url" : "https://api.github.com/users/radekm",
+        "contributions" : 15
+      },
+      {
+        "login" : "yanns",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/51669?v=4",
+        "url" : "https://api.github.com/users/yanns",
+        "contributions" : 15
+      },
+      {
+        "login" : "domaspoliakas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3426754?v=4",
+        "url" : "https://api.github.com/users/domaspoliakas",
+        "contributions" : 15
+      },
+      {
+        "login" : "bryce-anderson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2948506?v=4",
+        "url" : "https://api.github.com/users/bryce-anderson",
+        "contributions" : 14
+      },
+      {
+        "login" : "greg-a-atkinson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11074540?v=4",
+        "url" : "https://api.github.com/users/greg-a-atkinson",
+        "contributions" : 13
+      },
+      {
+        "login" : "vigoo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2292489?v=4",
+        "url" : "https://api.github.com/users/vigoo",
+        "contributions" : 12
+      },
+      {
+        "login" : "zainab-ali",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12057118?v=4",
+        "url" : "https://api.github.com/users/zainab-ali",
+        "contributions" : 12
+      },
+      {
+        "login" : "johnynek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/67958?v=4",
+        "url" : "https://api.github.com/users/johnynek",
+        "contributions" : 11
+      },
+      {
+        "login" : "changlinli",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1762540?v=4",
+        "url" : "https://api.github.com/users/changlinli",
+        "contributions" : 10
+      },
+      {
+        "login" : "shengc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/940628?v=4",
+        "url" : "https://api.github.com/users/shengc",
+        "contributions" : 10
+      },
+      {
+        "login" : "aeons",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1432894?v=4",
+        "url" : "https://api.github.com/users/aeons",
+        "contributions" : 9
+      },
+      {
+        "login" : "xuwei-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/389787?v=4",
+        "url" : "https://api.github.com/users/xuwei-k",
+        "contributions" : 9
+      },
+      {
+        "login" : "jedesah",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1780116?v=4",
+        "url" : "https://api.github.com/users/jedesah",
+        "contributions" : 9
+      },
+      {
+        "login" : "tmciver",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/742887?v=4",
+        "url" : "https://api.github.com/users/tmciver",
+        "contributions" : 8
+      },
+      {
+        "login" : "tmccarthy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4033606?v=4",
+        "url" : "https://api.github.com/users/tmccarthy",
+        "contributions" : 8
+      },
+      {
+        "login" : "shn-amn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17763302?v=4",
+        "url" : "https://api.github.com/users/shn-amn",
+        "contributions" : 8
+      },
+      {
+        "login" : "n4to4",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/21071230?v=4",
+        "url" : "https://api.github.com/users/n4to4",
+        "contributions" : 8
+      },
+      {
+        "login" : "kaiserpelagic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1222541?v=4",
+        "url" : "https://api.github.com/users/kaiserpelagic",
+        "contributions" : 8
+      },
+      {
+        "login" : "AdrianRaFo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15971742?v=4",
+        "url" : "https://api.github.com/users/AdrianRaFo",
+        "contributions" : 7
+      },
+      {
+        "login" : "valencik",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5440389?v=4",
+        "url" : "https://api.github.com/users/valencik",
+        "contributions" : 7
+      },
+      {
+        "login" : "bmjames",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/21567?v=4",
+        "url" : "https://api.github.com/users/bmjames",
+        "contributions" : 7
+      },
+      {
+        "login" : "durban",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1568978?v=4",
+        "url" : "https://api.github.com/users/durban",
+        "contributions" : 7
+      },
+      {
+        "login" : "LukaJCB",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9531747?v=4",
+        "url" : "https://api.github.com/users/LukaJCB",
+        "contributions" : 7
+      },
+      {
+        "login" : "TimWSpence",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3360080?v=4",
+        "url" : "https://api.github.com/users/TimWSpence",
+        "contributions" : 7
+      },
+      {
+        "login" : "DGolubets",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3066288?v=4",
+        "url" : "https://api.github.com/users/DGolubets",
+        "contributions" : 6
+      },
+      {
+        "login" : "kanterov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/467927?v=4",
+        "url" : "https://api.github.com/users/kanterov",
+        "contributions" : 6
+      },
+      {
+        "login" : "travisbrown",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/316049?v=4",
+        "url" : "https://api.github.com/users/travisbrown",
+        "contributions" : 6
+      },
+      {
+        "login" : "jmcardon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15273652?v=4",
+        "url" : "https://api.github.com/users/jmcardon",
+        "contributions" : 6
+      },
+      {
+        "login" : "MrAIring",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3328466?v=4",
+        "url" : "https://api.github.com/users/MrAIring",
+        "contributions" : 6
+      },
+      {
+        "login" : "bpholt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1455476?v=4",
+        "url" : "https://api.github.com/users/bpholt",
+        "contributions" : 6
+      },
+      {
+        "login" : "yurique",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/919230?v=4",
+        "url" : "https://api.github.com/users/yurique",
+        "contributions" : 6
+      },
+      {
+        "login" : "monadplus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22585643?v=4",
+        "url" : "https://api.github.com/users/monadplus",
+        "contributions" : 5
+      },
+      {
+        "login" : "edwinchoi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/773193?v=4",
+        "url" : "https://api.github.com/users/edwinchoi",
+        "contributions" : 5
+      },
+      {
+        "login" : "ikr0m",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6130308?v=4",
+        "url" : "https://api.github.com/users/ikr0m",
+        "contributions" : 5
+      },
+      {
+        "login" : "jatcwang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4957161?v=4",
+        "url" : "https://api.github.com/users/jatcwang",
+        "contributions" : 5
+      },
+      {
+        "login" : "keirlawson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/49213?v=4",
+        "url" : "https://api.github.com/users/keirlawson",
+        "contributions" : 5
+      },
+      {
+        "login" : "lukiano",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/686213?v=4",
+        "url" : "https://api.github.com/users/lukiano",
+        "contributions" : 5
+      },
+      {
+        "login" : "RaasAhsan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2617549?v=4",
+        "url" : "https://api.github.com/users/RaasAhsan",
+        "contributions" : 5
+      },
+      {
+        "login" : "shawjef3",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1625822?v=4",
+        "url" : "https://api.github.com/users/shawjef3",
+        "contributions" : 5
+      },
+      {
+        "login" : "wookietreiber",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/827088?v=4",
+        "url" : "https://api.github.com/users/wookietreiber",
+        "contributions" : 5
+      },
+      {
+        "login" : "asakaev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3930435?v=4",
+        "url" : "https://api.github.com/users/asakaev",
+        "contributions" : 5
+      },
+      {
+        "login" : "jhnsmth",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15067848?v=4",
+        "url" : "https://api.github.com/users/jhnsmth",
+        "contributions" : 4
+      },
+      {
+        "login" : "ChrisCoffey",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5373301?v=4",
+        "url" : "https://api.github.com/users/ChrisCoffey",
+        "contributions" : 4
+      },
+      {
+        "login" : "dmitriibundin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/55092833?v=4",
+        "url" : "https://api.github.com/users/dmitriibundin",
+        "contributions" : 4
+      },
+      {
+        "login" : "hamnis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/75431?v=4",
+        "url" : "https://api.github.com/users/hamnis",
+        "contributions" : 4
+      },
+      {
+        "login" : "smarter",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/63430?v=4",
+        "url" : "https://api.github.com/users/smarter",
+        "contributions" : 4
+      },
+      {
+        "login" : "jessitron",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1149737?v=4",
+        "url" : "https://api.github.com/users/jessitron",
+        "contributions" : 4
+      },
+      {
+        "login" : "krasserm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/202907?v=4",
+        "url" : "https://api.github.com/users/krasserm",
+        "contributions" : 4
+      },
+      {
+        "login" : "Billzabob",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3711832?v=4",
+        "url" : "https://api.github.com/users/Billzabob",
+        "contributions" : 4
+      },
+      {
+        "login" : "peterneyens",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6407606?v=4",
+        "url" : "https://api.github.com/users/peterneyens",
+        "contributions" : 4
+      },
+      {
+        "login" : "tpolecat",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1200131?v=4",
+        "url" : "https://api.github.com/users/tpolecat",
+        "contributions" : 4
+      },
+      {
+        "login" : "r-glyde",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/41615291?v=4",
+        "url" : "https://api.github.com/users/r-glyde",
+        "contributions" : 4
+      },
+      {
+        "login" : "susuro",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/64277069?v=4",
+        "url" : "https://api.github.com/users/susuro",
+        "contributions" : 4
+      },
+      {
+        "login" : "svalaskevicius",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/893660?v=4",
+        "url" : "https://api.github.com/users/svalaskevicius",
+        "contributions" : 4
+      },
+      {
+        "login" : "soumyarupsarkar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4432773?v=4",
+        "url" : "https://api.github.com/users/soumyarupsarkar",
+        "contributions" : 4
+      },
+      {
+        "login" : "almendar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1460799?v=4",
+        "url" : "https://api.github.com/users/almendar",
+        "contributions" : 4
+      },
+      {
+        "login" : "Z1kkurat",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7479593?v=4",
+        "url" : "https://api.github.com/users/Z1kkurat",
+        "contributions" : 4
+      },
+      {
+        "login" : "Zelenya",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11508062?v=4",
+        "url" : "https://api.github.com/users/Zelenya",
+        "contributions" : 4
+      },
+      {
+        "login" : "guersam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/969120?v=4",
+        "url" : "https://api.github.com/users/guersam",
+        "contributions" : 4
+      },
+      {
+        "login" : "jordiolivares",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1163790?v=4",
+        "url" : "https://api.github.com/users/jordiolivares",
+        "contributions" : 4
+      },
+      {
+        "login" : "japgolly",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/202935?v=4",
+        "url" : "https://api.github.com/users/japgolly",
+        "contributions" : 3
+      },
+      {
+        "login" : "Daenyth",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14644?v=4",
+        "url" : "https://api.github.com/users/Daenyth",
+        "contributions" : 3
+      },
+      {
+        "login" : "geoffreytchew",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/25935481?v=4",
+        "url" : "https://api.github.com/users/geoffreytchew",
+        "contributions" : 3
+      },
+      {
+        "login" : "gflanagan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/226259?v=4",
+        "url" : "https://api.github.com/users/gflanagan",
+        "contributions" : 3
+      },
+      {
+        "login" : "ingarabr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2236693?v=4",
+        "url" : "https://api.github.com/users/ingarabr",
+        "contributions" : 3
+      },
+      {
+        "login" : "satabin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2537737?v=4",
+        "url" : "https://api.github.com/users/satabin",
+        "contributions" : 3
+      },
+      {
+        "login" : "mraulim",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/463202?v=4",
+        "url" : "https://api.github.com/users/mraulim",
+        "contributions" : 3
+      },
+      {
+        "login" : "rehanone",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4037044?v=4",
+        "url" : "https://api.github.com/users/rehanone",
+        "contributions" : 3
+      },
+      {
+        "login" : "SethTisue",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
+        "url" : "https://api.github.com/users/SethTisue",
+        "contributions" : 3
+      },
+      {
+        "login" : "vpavkin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/410508?v=4",
+        "url" : "https://api.github.com/users/vpavkin",
+        "contributions" : 3
+      },
+      {
+        "login" : "bobbyrauchenberg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5950396?v=4",
+        "url" : "https://api.github.com/users/bobbyrauchenberg",
+        "contributions" : 3
+      },
+      {
+        "login" : "oskin1",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/29578480?v=4",
+        "url" : "https://api.github.com/users/oskin1",
+        "contributions" : 3
+      },
+      {
+        "login" : "nigredo-tori",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5962285?v=4",
+        "url" : "https://api.github.com/users/nigredo-tori",
+        "contributions" : 3
+      },
+      {
+        "login" : "etorreborre",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10988?v=4",
+        "url" : "https://api.github.com/users/etorreborre",
+        "contributions" : 3
+      },
+      {
+        "login" : "lucidd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/688888?v=4",
+        "url" : "https://api.github.com/users/lucidd",
+        "contributions" : 3
+      },
+      {
+        "login" : "lJoublanc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6293472?v=4",
+        "url" : "https://api.github.com/users/lJoublanc",
+        "contributions" : 3
+      },
+      {
+        "login" : "BalmungSan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11336950?v=4",
+        "url" : "https://api.github.com/users/BalmungSan",
+        "contributions" : 3
+      },
+      {
+        "login" : "matthughes",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/173132?v=4",
+        "url" : "https://api.github.com/users/matthughes",
+        "contributions" : 3
+      },
+      {
+        "login" : "avakhrenev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1060224?v=4",
+        "url" : "https://api.github.com/users/avakhrenev",
+        "contributions" : 2
+      },
+      {
+        "login" : "BenFradet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1737211?v=4",
+        "url" : "https://api.github.com/users/BenFradet",
+        "contributions" : 2
+      },
+      {
+        "login" : "kiambogo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4472397?v=4",
+        "url" : "https://api.github.com/users/kiambogo",
+        "contributions" : 2
+      },
+      {
+        "login" : "dvic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1214337?v=4",
+        "url" : "https://api.github.com/users/dvic",
+        "contributions" : 2
+      },
+      {
+        "login" : "ktonga",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1324947?v=4",
+        "url" : "https://api.github.com/users/ktonga",
+        "contributions" : 2
+      },
+      {
+        "login" : "joroKr21",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2218841?v=4",
+        "url" : "https://api.github.com/users/joroKr21",
+        "contributions" : 2
+      },
+      {
+        "login" : "kamilkloch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/807154?v=4",
+        "url" : "https://api.github.com/users/kamilkloch",
+        "contributions" : 2
+      },
+      {
+        "login" : "dreadedsoftware",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6840991?v=4",
+        "url" : "https://api.github.com/users/dreadedsoftware",
+        "contributions" : 2
+      },
+      {
+        "login" : "justjoheinz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/392164?v=4",
+        "url" : "https://api.github.com/users/justjoheinz",
+        "contributions" : 2
+      },
+      {
+        "login" : "mrdziuban",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4718399?v=4",
+        "url" : "https://api.github.com/users/mrdziuban",
+        "contributions" : 2
+      },
+      {
+        "login" : "mn98",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/61794940?v=4",
+        "url" : "https://api.github.com/users/mn98",
+        "contributions" : 2
+      },
+      {
+        "login" : "OlivierBlanvillain",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1085297?v=4",
+        "url" : "https://api.github.com/users/OlivierBlanvillain",
+        "contributions" : 2
+      },
+      {
+        "login" : "paualarco",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/33580722?v=4",
+        "url" : "https://api.github.com/users/paualarco",
+        "contributions" : 2
+      },
+      {
+        "login" : "peterbecich",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6315338?v=4",
+        "url" : "https://api.github.com/users/peterbecich",
+        "contributions" : 2
+      },
+      {
+        "login" : "ghostdogpr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7413894?v=4",
+        "url" : "https://api.github.com/users/ghostdogpr",
+        "contributions" : 2
+      },
+      {
+        "login" : "ppurang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/326738?v=4",
+        "url" : "https://api.github.com/users/ppurang",
+        "contributions" : 2
+      },
+      {
+        "login" : "ReadmeCritic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15367484?v=4",
+        "url" : "https://api.github.com/users/ReadmeCritic",
+        "contributions" : 2
+      },
+      {
+        "login" : "kovstas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5870198?v=4",
+        "url" : "https://api.github.com/users/kovstas",
+        "contributions" : 2
+      },
+      {
+        "login" : "tabdulradi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/725206?v=4",
+        "url" : "https://api.github.com/users/tabdulradi",
+        "contributions" : 2
+      },
+      {
+        "login" : "culturedsys",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13520372?v=4",
+        "url" : "https://api.github.com/users/culturedsys",
+        "contributions" : 2
+      },
+      {
+        "login" : "tscholak",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1568873?v=4",
+        "url" : "https://api.github.com/users/tscholak",
+        "contributions" : 2
+      },
+      {
+        "login" : "zmccoy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/280974?v=4",
+        "url" : "https://api.github.com/users/zmccoy",
+        "contributions" : 2
+      },
+      {
+        "login" : "agustafson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/628811?v=4",
+        "url" : "https://api.github.com/users/agustafson",
+        "contributions" : 2
+      },
+      {
+        "login" : "simonxikun",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/845199?v=4",
+        "url" : "https://api.github.com/users/simonxikun",
+        "contributions" : 2
+      },
+      {
+        "login" : "jilen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/546573?v=4",
+        "url" : "https://api.github.com/users/jilen",
+        "contributions" : 2
+      },
+      {
+        "login" : "slice",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4206232?v=4",
+        "url" : "https://api.github.com/users/slice",
+        "contributions" : 2
+      },
+      {
+        "login" : "vbergeron-ledger",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/65567572?v=4",
+        "url" : "https://api.github.com/users/vbergeron-ledger",
+        "contributions" : 2
+      },
+      {
+        "login" : "zakolenko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11807715?v=4",
+        "url" : "https://api.github.com/users/zakolenko",
+        "contributions" : 2
+      },
+      {
+        "login" : "Grogs",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1212907?v=4",
+        "url" : "https://api.github.com/users/Grogs",
+        "contributions" : 2
+      },
+      {
+        "login" : "mtomko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/610104?v=4",
+        "url" : "https://api.github.com/users/mtomko",
+        "contributions" : 2
+      },
+      {
+        "login" : "poliez",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6939709?v=4",
+        "url" : "https://api.github.com/users/poliez",
+        "contributions" : 2
+      },
+      {
+        "login" : "arosien",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/31163?v=4",
+        "url" : "https://api.github.com/users/arosien",
+        "contributions" : 1
+      },
+      {
+        "login" : "adelbertc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1332980?v=4",
+        "url" : "https://api.github.com/users/adelbertc",
+        "contributions" : 1
+      },
+      {
+        "login" : "ajaychandran",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4387263?v=4",
+        "url" : "https://api.github.com/users/ajaychandran",
+        "contributions" : 1
+      },
+      {
+        "login" : "asachdeva",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1237031?v=4",
+        "url" : "https://api.github.com/users/asachdeva",
+        "contributions" : 1
+      },
+      {
+        "login" : "azolotko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/110424?v=4",
+        "url" : "https://api.github.com/users/azolotko",
+        "contributions" : 1
+      },
+      {
+        "login" : "andrethobu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8555193?v=4",
+        "url" : "https://api.github.com/users/andrethobu",
+        "contributions" : 1
+      },
+      {
+        "login" : "ortex",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6235822?v=4",
+        "url" : "https://api.github.com/users/ortex",
+        "contributions" : 1
+      },
+      {
+        "login" : "asoltysik",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17353292?v=4",
+        "url" : "https://api.github.com/users/asoltysik",
+        "contributions" : 1
+      },
+      {
+        "login" : "arturaz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12931?v=4",
+        "url" : "https://api.github.com/users/arturaz",
+        "contributions" : 1
+      },
+      {
+        "login" : "aryairani",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/538571?v=4",
+        "url" : "https://api.github.com/users/aryairani",
+        "contributions" : 1
+      },
+      {
+        "login" : "barryoneill",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/885049?v=4",
+        "url" : "https://api.github.com/users/barryoneill",
+        "contributions" : 1
+      },
+      {
+        "login" : "bastewart",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10614835?v=4",
+        "url" : "https://api.github.com/users/bastewart",
+        "contributions" : 1
+      },
+      {
+        "login" : "waywardmonkeys",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/178582?v=4",
+        "url" : "https://api.github.com/users/waywardmonkeys",
+        "contributions" : 1
+      },
+      {
+        "login" : "channingwalton",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/87845?v=4",
+        "url" : "https://api.github.com/users/channingwalton",
+        "contributions" : 1
+      },
+      {
+        "login" : "cwmyers",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/356775?v=4",
+        "url" : "https://api.github.com/users/cwmyers",
+        "contributions" : 1
+      },
+      {
+        "login" : "coltfred",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/587319?v=4",
+        "url" : "https://api.github.com/users/coltfred",
+        "contributions" : 1
+      },
+      {
+        "login" : "jdnavarro",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/215438?v=4",
+        "url" : "https://api.github.com/users/jdnavarro",
+        "contributions" : 1
+      },
+      {
+        "login" : "daddykotex",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5230460?v=4",
+        "url" : "https://api.github.com/users/daddykotex",
+        "contributions" : 1
+      },
+      {
+        "login" : "notxcain",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/669177?v=4",
+        "url" : "https://api.github.com/users/notxcain",
+        "contributions" : 1
+      },
+      {
+        "login" : "derekjw",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7174?v=4",
+        "url" : "https://api.github.com/users/derekjw",
+        "contributions" : 1
+      },
+      {
+        "login" : "eikek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/701128?v=4",
+        "url" : "https://api.github.com/users/eikek",
+        "contributions" : 1
+      },
+      {
+        "login" : "wemrysi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/32185?v=4",
+        "url" : "https://api.github.com/users/wemrysi",
+        "contributions" : 1
+      },
+      {
+        "login" : "eugeniasimich",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8097811?v=4",
+        "url" : "https://api.github.com/users/eugeniasimich",
+        "contributions" : 1
+      },
+      {
+        "login" : "felixmulder",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1530049?v=4",
+        "url" : "https://api.github.com/users/felixmulder",
+        "contributions" : 1
+      },
+      {
+        "login" : "fcabestre",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/912629?v=4",
+        "url" : "https://api.github.com/users/fcabestre",
+        "contributions" : 1
+      },
+      {
+        "login" : "gruggiero",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/667101?v=4",
+        "url" : "https://api.github.com/users/gruggiero",
+        "contributions" : 1
+      },
+      {
+        "login" : "yoohaemin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22650536?v=4",
+        "url" : "https://api.github.com/users/yoohaemin",
+        "contributions" : 1
+      },
+      {
+        "login" : "hugo-vrijswijk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10114577?v=4",
+        "url" : "https://api.github.com/users/hugo-vrijswijk",
+        "contributions" : 1
+      },
+      {
+        "login" : "NightRa",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2140983?v=4",
+        "url" : "https://api.github.com/users/NightRa",
+        "contributions" : 1
+      },
+      {
+        "login" : "IVaSmi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/75545891?v=4",
+        "url" : "https://api.github.com/users/IVaSmi",
+        "contributions" : 1
+      },
+      {
+        "login" : "banshee",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14540?v=4",
+        "url" : "https://api.github.com/users/banshee",
+        "contributions" : 1
+      },
+      {
+        "login" : "janekdb",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1123855?v=4",
+        "url" : "https://api.github.com/users/janekdb",
+        "contributions" : 1
+      },
+      {
+        "login" : "jamonkko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/966161?v=4",
+        "url" : "https://api.github.com/users/jamonkko",
+        "contributions" : 1
+      },
+      {
+        "login" : "jedws",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/228337?v=4",
+        "url" : "https://api.github.com/users/jedws",
+        "contributions" : 1
+      },
+      {
+        "login" : "jenshalm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3116929?v=4",
+        "url" : "https://api.github.com/users/jenshalm",
+        "contributions" : 1
+      },
+      {
+        "login" : "jferris",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7591?v=4",
+        "url" : "https://api.github.com/users/jferris",
+        "contributions" : 1
+      },
+      {
+        "login" : "sullivan-",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/518346?v=4",
+        "url" : "https://api.github.com/users/sullivan-",
+        "contributions" : 1
+      },
+      {
+        "login" : "yetanotherion",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2205232?v=4",
+        "url" : "https://api.github.com/users/yetanotherion",
+        "contributions" : 1
+      },
+      {
+        "login" : "labra",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/308369?v=4",
+        "url" : "https://api.github.com/users/labra",
+        "contributions" : 1
+      },
+      {
+        "login" : "jgogstad",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/523922?v=4",
+        "url" : "https://api.github.com/users/jgogstad",
+        "contributions" : 1
+      },
+      {
+        "login" : "xjurko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/25619680?v=4",
+        "url" : "https://api.github.com/users/xjurko",
+        "contributions" : 1
+      },
+      {
+        "login" : "kczulko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19495571?v=4",
+        "url" : "https://api.github.com/users/kczulko",
+        "contributions" : 1
+      },
+      {
+        "login" : "seratch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19658?v=4",
+        "url" : "https://api.github.com/users/seratch",
+        "contributions" : 1
+      },
+      {
+        "login" : "Kirill5k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19238140?v=4",
+        "url" : "https://api.github.com/users/Kirill5k",
+        "contributions" : 1
+      },
+      {
+        "login" : "martijnhoekstra",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/882449?v=4",
+        "url" : "https://api.github.com/users/martijnhoekstra",
+        "contributions" : 1
+      },
+      {
+        "login" : "mpurins",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5012944?v=4",
+        "url" : "https://api.github.com/users/mpurins",
+        "contributions" : 1
+      },
+      {
+        "login" : "michael-smith",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/457307?v=4",
+        "url" : "https://api.github.com/users/michael-smith",
+        "contributions" : 1
+      },
+      {
+        "login" : "visox",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8051731?v=4",
+        "url" : "https://api.github.com/users/visox",
+        "contributions" : 1
+      },
+      {
+        "login" : "dincamihai",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1615643?v=4",
+        "url" : "https://api.github.com/users/dincamihai",
+        "contributions" : 1
+      },
+      {
+        "login" : "mgdigital",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/442933?v=4",
+        "url" : "https://api.github.com/users/mgdigital",
+        "contributions" : 1
+      },
+      {
+        "login" : "taig",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/567857?v=4",
+        "url" : "https://api.github.com/users/taig",
+        "contributions" : 1
+      },
+      {
+        "login" : "oleg-py",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4143670?v=4",
+        "url" : "https://api.github.com/users/oleg-py",
+        "contributions" : 1
+      },
+      {
+        "login" : "pvillega",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17598?v=4",
+        "url" : "https://api.github.com/users/pvillega",
+        "contributions" : 1
+      },
+      {
+        "login" : "philipphoffmann",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1279634?v=4",
+        "url" : "https://api.github.com/users/philipphoffmann",
+        "contributions" : 1
+      },
+      {
+        "login" : "pgabara",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4014765?v=4",
+        "url" : "https://api.github.com/users/pgabara",
+        "contributions" : 1
+      },
+      {
+        "login" : "Avasil",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12383899?v=4",
+        "url" : "https://api.github.com/users/Avasil",
+        "contributions" : 1
+      },
+      {
+        "login" : "rkrzewski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/671159?v=4",
+        "url" : "https://api.github.com/users/rkrzewski",
+        "contributions" : 1
+      },
+      {
+        "login" : "regis-leray",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/534387?v=4",
+        "url" : "https://api.github.com/users/regis-leray",
+        "contributions" : 1
+      },
+      {
+        "login" : "rtyley",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/52038?v=4",
+        "url" : "https://api.github.com/users/rtyley",
+        "contributions" : 1
+      },
+      {
+        "login" : "sloshy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/427237?v=4",
+        "url" : "https://api.github.com/users/sloshy",
+        "contributions" : 1
+      },
+      {
+        "login" : "desbo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1064734?v=4",
+        "url" : "https://api.github.com/users/desbo",
+        "contributions" : 1
+      },
+      {
+        "login" : "Sebruck",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2050823?v=4",
+        "url" : "https://api.github.com/users/Sebruck",
+        "contributions" : 1
+      },
+      {
+        "login" : "stephennancekivell",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/727013?v=4",
+        "url" : "https://api.github.com/users/stephennancekivell",
+        "contributions" : 1
+      },
+      {
+        "login" : "darksniper87",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6402985?v=4",
+        "url" : "https://api.github.com/users/darksniper87",
+        "contributions" : 1
+      },
+      {
+        "login" : "usommerl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4050763?v=4",
+        "url" : "https://api.github.com/users/usommerl",
+        "contributions" : 1
+      },
+      {
+        "login" : "valydia",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2129101?v=4",
+        "url" : "https://api.github.com/users/valydia",
+        "contributions" : 1
+      },
+      {
+        "login" : "lavrov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2944597?v=4",
+        "url" : "https://api.github.com/users/lavrov",
+        "contributions" : 1
+      },
+      {
+        "login" : "ScalaWilliam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2464813?v=4",
+        "url" : "https://api.github.com/users/ScalaWilliam",
+        "contributions" : 1
+      },
+      {
+        "login" : "xanderdunn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1313618?v=4",
+        "url" : "https://api.github.com/users/xanderdunn",
+        "contributions" : 1
+      },
+      {
+        "login" : "Unisay",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1009751?v=4",
+        "url" : "https://api.github.com/users/Unisay",
+        "contributions" : 1
+      },
+      {
+        "login" : "agadek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6850173?v=4",
+        "url" : "https://api.github.com/users/agadek",
+        "contributions" : 1
+      },
+      {
+        "login" : "arinal",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1906936?v=4",
+        "url" : "https://api.github.com/users/arinal",
+        "contributions" : 1
+      },
+      {
+        "login" : "augustjune",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/29662354?v=4",
+        "url" : "https://api.github.com/users/augustjune",
+        "contributions" : 1
+      },
+      {
+        "login" : "bedux",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7069297?v=4",
+        "url" : "https://api.github.com/users/bedux",
+        "contributions" : 1
+      },
+      {
+        "login" : "clhodapp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/108633?v=4",
+        "url" : "https://api.github.com/users/clhodapp",
+        "contributions" : 1
+      },
+      {
+        "login" : "d2a4u",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11477001?v=4",
+        "url" : "https://api.github.com/users/d2a4u",
+        "contributions" : 1
+      },
+      {
+        "login" : "dk14",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1016545?v=4",
+        "url" : "https://api.github.com/users/dk14",
+        "contributions" : 1
+      },
+      {
+        "login" : "ezhulenev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1174378?v=4",
+        "url" : "https://api.github.com/users/ezhulenev",
+        "contributions" : 1
+      },
+      {
+        "login" : "geoffjohn11",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8727889?v=4",
+        "url" : "https://api.github.com/users/geoffjohn11",
+        "contributions" : 1
+      },
+      {
+        "login" : "t5kaji",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9458203?v=4",
+        "url" : "https://api.github.com/users/t5kaji",
+        "contributions" : 1
+      },
+      {
+        "login" : "j-keck",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3081095?v=4",
+        "url" : "https://api.github.com/users/j-keck",
+        "contributions" : 1
+      },
+      {
+        "login" : "markhibberd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22832?v=4",
+        "url" : "https://api.github.com/users/markhibberd",
+        "contributions" : 1
+      },
+      {
+        "login" : "mmynsted",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1487713?v=4",
+        "url" : "https://api.github.com/users/mmynsted",
+        "contributions" : 1
+      },
+      {
+        "login" : "rintcius",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/888781?v=4",
+        "url" : "https://api.github.com/users/rintcius",
+        "contributions" : 1
+      },
+      {
+        "login" : "ssanj",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/366640?v=4",
+        "url" : "https://api.github.com/users/ssanj",
+        "contributions" : 1
+      },
+      {
+        "login" : "satorg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3954178?v=4",
+        "url" : "https://api.github.com/users/satorg",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 7785,
+    "topics" : [
+      "streaming-computation",
+      "functional-programming",
+      "fp",
+      "stream",
+      "scala"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 2778,
+        "title" : "`observe` could be simplified",
+        "url" : "https://github.com/typelevel/fs2/issues/2778"
+      },
+      {
+        "number" : 2777,
+        "title" : "Replace the auto-generated Node.js facade with a hand-maintained facade",
+        "url" : "https://github.com/typelevel/fs2/issues/2777"
+      },
+      {
+        "number" : 2770,
+        "title" : "Unix Socket SigInt fails resource cleanup",
+        "url" : "https://github.com/typelevel/fs2/issues/2770"
+      },
+      {
+        "number" : 2747,
+        "title" : "StreamDecoder isn't well defined to work with bytes, bits and other repeatable codecs",
+        "url" : "https://github.com/typelevel/fs2/issues/2747"
+      },
+      {
+        "number" : 2729,
+        "title" : "Topic trait as a combination of TopicSource and TopicSink?",
+        "url" : "https://github.com/typelevel/fs2/issues/2729"
+      },
+      {
+        "number" : 2674,
+        "title" : "Improve `parJoin` with the ability to select a join strategy",
+        "url" : "https://github.com/typelevel/fs2/issues/2674"
+      },
+      {
+        "number" : 2672,
+        "title" : "decodeCWithCharset error handling inconsistency",
+        "url" : "https://github.com/typelevel/fs2/issues/2672"
+      },
+      {
+        "number" : 2618,
+        "title" : "Document that `fs2.Compiler.Target` shouldn't be used as a context bound in downstream libraries and why",
+        "url" : "https://github.com/typelevel/fs2/issues/2618"
+      },
+      {
+        "number" : 2600,
+        "title" : "Some pipes occasionally get ahead when broadcasting through multiple pipes. ",
+        "url" : "https://github.com/typelevel/fs2/issues/2600"
+      },
+      {
+        "number" : 2558,
+        "title" : "Topic#subscribe on closed topics has surprising (non-terminating) semantics",
+        "url" : "https://github.com/typelevel/fs2/issues/2558"
+      },
+      {
+        "number" : 2432,
+        "title" : "Fix groupWithin test that intermittently fails",
+        "url" : "https://github.com/typelevel/fs2/issues/2432"
+      },
+      {
+        "number" : 2357,
+        "title" : "Docs: clicking on Concurrency Primitives takes you directly to the first sub-section",
+        "url" : "https://github.com/typelevel/fs2/issues/2357"
+      },
+      {
+        "number" : 2343,
+        "title" : "Proposal: stream resource ownership transfer",
+        "url" : "https://github.com/typelevel/fs2/issues/2343"
+      },
+      {
+        "number" : 2332,
+        "title" : "Unexpected parallelism degradation after merging streams with parEvalX",
+        "url" : "https://github.com/typelevel/fs2/issues/2332"
+      },
+      {
+        "number" : 2330,
+        "title" : "Unreliable stream interruption",
+        "url" : "https://github.com/typelevel/fs2/issues/2330"
+      },
+      {
+        "number" : 2319,
+        "title" : "Add support for Scala Native",
+        "url" : "https://github.com/typelevel/fs2/issues/2319"
+      },
+      {
+        "number" : 2297,
+        "title" : "Overhead in parEvalMap?",
+        "url" : "https://github.com/typelevel/fs2/issues/2297"
+      },
+      {
+        "number" : 2289,
+        "title" : "Semantically breaking change in SocketGroup.serverResource",
+        "url" : "https://github.com/typelevel/fs2/issues/2289"
+      },
+      {
+        "number" : 2260,
+        "title" : "StreamSubscriber hangs in some scenarios",
+        "url" : "https://github.com/typelevel/fs2/issues/2260"
+      },
+      {
+        "number" : 2258,
+        "title" : "Fix intermittent test issues",
+        "url" : "https://github.com/typelevel/fs2/issues/2258"
+      },
+      {
+        "number" : 2195,
+        "title" : "Incorrect termination of a cancelled stream",
+        "url" : "https://github.com/typelevel/fs2/issues/2195"
+      },
+      {
+        "number" : 2178,
+        "title" : "Broadcast. High CPU/Memory usage",
+        "url" : "https://github.com/typelevel/fs2/issues/2178"
+      },
+      {
+        "number" : 2165,
+        "title" : "Exercises",
+        "url" : "https://github.com/typelevel/fs2/issues/2165"
+      },
+      {
+        "number" : 2132,
+        "title" : "Determine Proper Error Handling for Thrown Exception in 2.x",
+        "url" : "https://github.com/typelevel/fs2/issues/2132"
+      },
+      {
+        "number" : 2063,
+        "title" : "Add UTF-8 file transcode example app to site/docs",
+        "url" : "https://github.com/typelevel/fs2/issues/2063"
+      },
+      {
+        "number" : 2060,
+        "title" : "Add groupedWeightedWithin",
+        "url" : "https://github.com/typelevel/fs2/issues/2060"
+      },
+      {
+        "number" : 2006,
+        "title" : "Failing seed for StreamMergeSuite",
+        "url" : "https://github.com/typelevel/fs2/issues/2006"
+      },
+      {
+        "number" : 1958,
+        "title" : "[Documentation] Add a reference page / cookbook of common concurrency operations",
+        "url" : "https://github.com/typelevel/fs2/issues/1958"
+      },
+      {
+        "number" : 1955,
+        "title" : "[Documentation] We need a page that explains what data types in the library are",
+        "url" : "https://github.com/typelevel/fs2/issues/1955"
+      },
+      {
+        "number" : 1931,
+        "title" : "Intermittent test failure in CompressionSpec",
+        "url" : "https://github.com/typelevel/fs2/issues/1931"
+      },
+      {
+        "number" : 1928,
+        "title" : "Decode text in any charset (utf-16 and others)",
+        "url" : "https://github.com/typelevel/fs2/issues/1928"
+      },
+      {
+        "number" : 1883,
+        "title" : "gzip compression not backwards compatible with gzip 1.3.12",
+        "url" : "https://github.com/typelevel/fs2/issues/1883"
+      },
+      {
+        "number" : 1829,
+        "title" : "switchMap stops working on a Signal#discrete made out of Applicative[Signal]",
+        "url" : "https://github.com/typelevel/fs2/issues/1829"
+      },
+      {
+        "number" : 1679,
+        "title" : "Scope lookup failure when using concurrently/merge/parJoinUnbounded",
+        "url" : "https://github.com/typelevel/fs2/issues/1679"
+      },
+      {
+        "number" : 1643,
+        "title" : "[Request] Add NoneTerminatedInspectableQueue",
+        "url" : "https://github.com/typelevel/fs2/issues/1643"
+      },
+      {
+        "number" : 1613,
+        "title" : "Semantics of `fold` apparently broken by `observe` in case of failure",
+        "url" : "https://github.com/typelevel/fs2/issues/1613"
+      },
+      {
+        "number" : 1568,
+        "title" : "Add `Parallel` instance for Stream",
+        "url" : "https://github.com/typelevel/fs2/issues/1568"
+      },
+      {
+        "number" : 1406,
+        "title" : "Topic suffers under heavy load, `Set` comparison CPU intensive",
+        "url" : "https://github.com/typelevel/fs2/issues/1406"
+      },
+      {
+        "number" : 1397,
+        "title" : "parJoin performance expectations",
+        "url" : "https://github.com/typelevel/fs2/issues/1397"
+      },
+      {
+        "number" : 1389,
+        "title" : "groupWithin causes double execution",
+        "url" : "https://github.com/typelevel/fs2/issues/1389"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : "fs2-core",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "asynchronous-and-reactive-programming",
+    "beginnerIssuesLabel" : null
+  }
+}

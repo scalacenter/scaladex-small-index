@@ -1,0 +1,1162 @@
+{
+  "organization" : "elastic",
+  "repository" : "elasticsearch-hadoop",
+  "creationDate" : 1435610863362,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643190567921
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "https://www.elastic.co/products/hadoop",
+    "description" : " :elephant: Elasticsearch real-time search and analytics natively integrated with Hadoop",
+    "logo" : "https://avatars.githubusercontent.com/u/6764390?v=4",
+    "stars" : 1849,
+    "forks" : 952,
+    "watchers" : 456,
+    "issues" : 104,
+    "creationDate" : 1363028257000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-elasticsearch-hadoop-\" class=\"anchor\" aria-hidden=\"true\" href=\"#elasticsearch-hadoop-\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Elasticsearch Hadoop <a href=\"https://travis-ci.org/elastic/elasticsearch-hadoop\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/f2113928101ce43beb5b206e59af853ac5aa5050957fe8eafca3d8791047005c/68747470733a2f2f7472617669732d63692e6f72672f656c61737469632f656c61737469637365617263682d6861646f6f702e7376673f6272616e63683d6d6173746572\" alt=\"Build Status\" data-canonical-src=\"https://travis-ci.org/elastic/elasticsearch-hadoop.svg?branch=master\" style=\"max-width: 100%;\"></a></h1>\n<p dir=\"auto\">Elasticsearch real-time search and analytics natively integrated with Hadoop.\nSupports <a href=\"#mapreduce\">Map/Reduce</a>, <a href=\"#apache-hive\">Apache Hive</a>, <a href=\"#apache-pig\">Apache Pig</a>, <a href=\"#apache-spark\">Apache Spark</a> and <a href=\"#apache-storm\">Apache Storm</a>.</p>\n<p dir=\"auto\">See  <a href=\"http://www.elastic.co/products/hadoop/\" rel=\"nofollow\">project page</a> and <a href=\"http://www.elastic.co/guide/en/elasticsearch/hadoop/current/index.html\" rel=\"nofollow\">documentation</a> for detailed information.</p>\n<h2 dir=\"auto\"><a id=\"user-content-requirements\" class=\"anchor\" aria-hidden=\"true\" href=\"#requirements\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Requirements</h2>\n<p dir=\"auto\">Elasticsearch (<strong>1.x</strong> or higher (2.x <em>highly</em> recommended)) cluster accessible through <a href=\"http://www.elastic.co/guide/en/elasticsearch/reference/current/api-conventions.html\" rel=\"nofollow\">REST</a>. That's it!\nSignificant effort has been invested to create a small, dependency-free, self-contained jar that can be downloaded and put to use without any dependencies. Simply make it available to your job classpath and you're set.\nFor a certain library, see the dedicated <a href=\"http://www.elastic.co/guide/en/elasticsearch/hadoop/current/requirements.html\" rel=\"nofollow\">chapter</a>.</p>\n<p dir=\"auto\">ES-Hadoop 6.x and higher are compatible with Elasticsearch <strong>1.X</strong>, <strong>2.X</strong>, <strong>5.X</strong>, and <strong>6.X</strong></p>\n<p dir=\"auto\">ES-Hadoop 5.x and higher are compatible with Elasticsearch <strong>1.X</strong>, <strong>2.X</strong> and <strong>5.X</strong></p>\n<p dir=\"auto\">ES-Hadoop 2.2.x and higher are compatible with Elasticsearch <strong>1.X</strong> and <strong>2.X</strong></p>\n<p dir=\"auto\">ES-Hadoop 2.0.x and 2.1.x are compatible with Elasticsearch <strong>1.X</strong> <em>only</em></p>\n<h2 dir=\"auto\"><a id=\"user-content-installation\" class=\"anchor\" aria-hidden=\"true\" href=\"#installation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Installation</h2>\n<h3 dir=\"auto\"><a id=\"user-content-stable-release-currently-800\" class=\"anchor\" aria-hidden=\"true\" href=\"#stable-release-currently-800\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Stable Release (currently <code>8.0.0</code>)</h3>\n<p dir=\"auto\">Available through any Maven-compatible tool:</p>\n<div class=\"highlight highlight-text-xml position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&lt;dependency&gt;\n  &lt;groupId&gt;org.elasticsearch&lt;/groupId&gt;\n  &lt;artifactId&gt;elasticsearch-hadoop&lt;/artifactId&gt;\n  &lt;version&gt;8.0.0&lt;/version&gt;\n&lt;/dependency&gt;\"><pre>&lt;<span class=\"pl-ent\">dependency</span>&gt;\n  &lt;<span class=\"pl-ent\">groupId</span>&gt;org.elasticsearch&lt;/<span class=\"pl-ent\">groupId</span>&gt;\n  &lt;<span class=\"pl-ent\">artifactId</span>&gt;elasticsearch-hadoop&lt;/<span class=\"pl-ent\">artifactId</span>&gt;\n  &lt;<span class=\"pl-ent\">version</span>&gt;8.0.0&lt;/<span class=\"pl-ent\">version</span>&gt;\n&lt;/<span class=\"pl-ent\">dependency</span>&gt;</pre></div>\n<p dir=\"auto\">or as a stand-alone <a href=\"http://www.elastic.co/downloads/hadoop\" rel=\"nofollow\">ZIP</a>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-development-snapshot\" class=\"anchor\" aria-hidden=\"true\" href=\"#development-snapshot\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Development Snapshot</h3>\n<p dir=\"auto\">Grab the latest nightly build from the <a href=\"http://oss.sonatype.org/content/repositories/snapshots/org/elasticsearch/elasticsearch-hadoop/\" rel=\"nofollow\">repository</a> again through Maven:</p>\n<div class=\"highlight highlight-text-xml position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&lt;dependency&gt;\n  &lt;groupId&gt;org.elasticsearch&lt;/groupId&gt;\n  &lt;artifactId&gt;elasticsearch-hadoop&lt;/artifactId&gt;\n  &lt;version&gt;8.1.0-SNAPSHOT&lt;/version&gt;\n&lt;/dependency&gt;\"><pre>&lt;<span class=\"pl-ent\">dependency</span>&gt;\n  &lt;<span class=\"pl-ent\">groupId</span>&gt;org.elasticsearch&lt;/<span class=\"pl-ent\">groupId</span>&gt;\n  &lt;<span class=\"pl-ent\">artifactId</span>&gt;elasticsearch-hadoop&lt;/<span class=\"pl-ent\">artifactId</span>&gt;\n  &lt;<span class=\"pl-ent\">version</span>&gt;8.1.0-SNAPSHOT&lt;/<span class=\"pl-ent\">version</span>&gt;\n&lt;/<span class=\"pl-ent\">dependency</span>&gt;</pre></div>\n<div class=\"highlight highlight-text-xml position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&lt;repositories&gt;\n  &lt;repository&gt;\n    &lt;id&gt;sonatype-oss&lt;/id&gt;\n    &lt;url&gt;http://oss.sonatype.org/content/repositories/snapshots&lt;/url&gt;\n    &lt;snapshots&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;/snapshots&gt;\n  &lt;/repository&gt;\n&lt;/repositories&gt;\"><pre>&lt;<span class=\"pl-ent\">repositories</span>&gt;\n  &lt;<span class=\"pl-ent\">repository</span>&gt;\n    &lt;<span class=\"pl-ent\">id</span>&gt;sonatype-oss&lt;/<span class=\"pl-ent\">id</span>&gt;\n    &lt;<span class=\"pl-ent\">url</span>&gt;http://oss.sonatype.org/content/repositories/snapshots&lt;/<span class=\"pl-ent\">url</span>&gt;\n    &lt;<span class=\"pl-ent\">snapshots</span>&gt;&lt;<span class=\"pl-ent\">enabled</span>&gt;true&lt;/<span class=\"pl-ent\">enabled</span>&gt;&lt;/<span class=\"pl-ent\">snapshots</span>&gt;\n  &lt;/<span class=\"pl-ent\">repository</span>&gt;\n&lt;/<span class=\"pl-ent\">repositories</span>&gt;</pre></div>\n<p dir=\"auto\">or <a href=\"#building-the-source\">build</a> the project yourself.</p>\n<p dir=\"auto\">We do build and test the code on <em>each</em> commit.</p>\n<h3 dir=\"auto\"><a id=\"user-content-supported-hadoop-versions\" class=\"anchor\" aria-hidden=\"true\" href=\"#supported-hadoop-versions\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Supported Hadoop Versions</h3>\n<p dir=\"auto\">Running against Hadoop 1.x is deprecated in 5.5 and will no longer be tested against in 6.0.\nES-Hadoop is developed for and tested against Hadoop 2.x and YARN.\nMore information in this <a href=\"http://www.elastic.co/guide/en/elasticsearch/hadoop/current/install.html\" rel=\"nofollow\">section</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-feedback--qa\" class=\"anchor\" aria-hidden=\"true\" href=\"#feedback--qa\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Feedback / Q&amp;A</h2>\n<p dir=\"auto\">We're interested in your feedback! You can find us on the User <a href=\"https://groups.google.com/forum/?fromgroups#!forum/elasticsearch\" rel=\"nofollow\">mailing list</a> - please append <code>[Hadoop]</code> to the post subject to filter it out. For more details, see the <a href=\"http://www.elastic.co/community\" rel=\"nofollow\">community</a> page.</p>\n<h2 dir=\"auto\"><a id=\"user-content-online-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#online-documentation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Online Documentation</h2>\n<p dir=\"auto\">The latest reference documentation is available online on the project <a href=\"http://www.elastic.co/guide/en/elasticsearch/hadoop/index.html\" rel=\"nofollow\">home page</a>. Below the README contains <em>basic</em> usage instructions at a glance.</p>\n<h2 dir=\"auto\"><a id=\"user-content-usage\" class=\"anchor\" aria-hidden=\"true\" href=\"#usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Usage</h2>\n<h3 dir=\"auto\"><a id=\"user-content-configuration-properties\" class=\"anchor\" aria-hidden=\"true\" href=\"#configuration-properties\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Configuration Properties</h3>\n<p dir=\"auto\">All configuration properties start with <code>es</code> prefix. Note that the <code>es.internal</code> namespace is reserved for the library internal use and should <em>not</em> be used by the user at any point.\nThe properties are read mainly from the Hadoop configuration but the user can specify (some of) them directly depending on the library used.</p>\n<h3 dir=\"auto\"><a id=\"user-content-required\" class=\"anchor\" aria-hidden=\"true\" href=\"#required\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Required</h3>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"es.resource=&lt;ES resource location, relative to the host/port specified above&gt;\"><pre><code>es.resource=&lt;ES resource location, relative to the host/port specified above&gt;\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-essential\" class=\"anchor\" aria-hidden=\"true\" href=\"#essential\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Essential</h3>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"es.query=&lt;uri or query dsl query&gt;              # defaults to {&quot;query&quot;:{&quot;match_all&quot;:{}}}\nes.nodes=&lt;ES host address&gt;                     # defaults to localhost\nes.port=&lt;ES REST port&gt;                         # defaults to 9200\"><pre><code>es.query=&lt;uri or query dsl query&gt;              # defaults to {\"query\":{\"match_all\":{}}}\nes.nodes=&lt;ES host address&gt;                     # defaults to localhost\nes.port=&lt;ES REST port&gt;                         # defaults to 9200\n</code></pre></div>\n<p dir=\"auto\">The full list is available <a href=\"http://www.elastic.co/guide/en/elasticsearch/hadoop/current/configuration.html\" rel=\"nofollow\">here</a></p>\n<h2 dir=\"auto\"><a id=\"user-content-mapreduce\" class=\"anchor\" aria-hidden=\"true\" href=\"#mapreduce\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a href=\"http://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html\" rel=\"nofollow\">Map/Reduce</a></h2>\n<p dir=\"auto\">For basic, low-level or performance-sensitive environments, ES-Hadoop provides dedicated <code>InputFormat</code> and <code>OutputFormat</code> that read and write data to Elasticsearch. To use them, add the <code>es-hadoop</code> jar to your job classpath\n(either by bundling the library along - it's ~300kB and there are no-dependencies), using the <a href=\"http://hadoop.apache.org/docs/stable/api/org/apache/hadoop/filecache/DistributedCache.html\" rel=\"nofollow\">DistributedCache</a> or by provisioning the cluster manually.\nSee the <a href=\"http://www.elastic.co/guide/en/elasticsearch/hadoop/current/index.html\" rel=\"nofollow\">documentation</a> for more information.</p>\n<p dir=\"auto\">Note that es-hadoop supports both the so-called 'old' and the 'new' API through its <code>EsInputFormat</code> and <code>EsOutputFormat</code> classes.</p>\n<h3 dir=\"auto\"><a id=\"user-content-old-orgapachehadoopmapred-api\" class=\"anchor\" aria-hidden=\"true\" href=\"#old-orgapachehadoopmapred-api\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>'Old' (<code>org.apache.hadoop.mapred</code>) API</h3>\n<h3 dir=\"auto\"><a id=\"user-content-reading\" class=\"anchor\" aria-hidden=\"true\" href=\"#reading\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Reading</h3>\n<p dir=\"auto\">To read data from ES, configure the <code>EsInputFormat</code> on your job configuration along with the relevant <a href=\"#configuration-properties\">properties</a>:</p>\n<div class=\"highlight highlight-source-java position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"JobConf conf = new JobConf();\nconf.setInputFormat(EsInputFormat.class);\nconf.set(&quot;es.resource&quot;, &quot;radio/artists&quot;);\nconf.set(&quot;es.query&quot;, &quot;?q=me*&quot;);             // replace this with the relevant query\n...\nJobClient.runJob(conf);\"><pre><span class=\"pl-smi\">JobConf</span> conf <span class=\"pl-k\">=</span> <span class=\"pl-k\">new</span> <span class=\"pl-smi\">JobConf</span>();\nconf<span class=\"pl-k\">.</span>setInputFormat(<span class=\"pl-smi\">EsInputFormat</span><span class=\"pl-k\">.</span>class);\nconf<span class=\"pl-k\">.</span>set(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>es.resource<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>radio/artists<span class=\"pl-pds\">\"</span></span>);\nconf<span class=\"pl-k\">.</span>set(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>es.query<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>?q=me*<span class=\"pl-pds\">\"</span></span>);             <span class=\"pl-c\"><span class=\"pl-c\">//</span> replace this with the relevant query</span>\n<span class=\"pl-c1\">...</span>\n<span class=\"pl-smi\">JobClient</span><span class=\"pl-k\">.</span>runJob(conf);</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-writing\" class=\"anchor\" aria-hidden=\"true\" href=\"#writing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Writing</h3>\n<p dir=\"auto\">Same configuration template can be used for writing but using <code>EsOuputFormat</code>:</p>\n<div class=\"highlight highlight-source-java position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"JobConf conf = new JobConf();\nconf.setOutputFormat(EsOutputFormat.class);\nconf.set(&quot;es.resource&quot;, &quot;radio/artists&quot;); // index or indices used for storing data\n...\nJobClient.runJob(conf);\"><pre><span class=\"pl-smi\">JobConf</span> conf <span class=\"pl-k\">=</span> <span class=\"pl-k\">new</span> <span class=\"pl-smi\">JobConf</span>();\nconf<span class=\"pl-k\">.</span>setOutputFormat(<span class=\"pl-smi\">EsOutputFormat</span><span class=\"pl-k\">.</span>class);\nconf<span class=\"pl-k\">.</span>set(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>es.resource<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>radio/artists<span class=\"pl-pds\">\"</span></span>); <span class=\"pl-c\"><span class=\"pl-c\">//</span> index or indices used for storing data</span>\n<span class=\"pl-c1\">...</span>\n<span class=\"pl-smi\">JobClient</span><span class=\"pl-k\">.</span>runJob(conf);</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-new-orgapachehadoopmapreduce-api\" class=\"anchor\" aria-hidden=\"true\" href=\"#new-orgapachehadoopmapreduce-api\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>'New' (<code>org.apache.hadoop.mapreduce</code>) API</h3>\n<h3 dir=\"auto\"><a id=\"user-content-reading-1\" class=\"anchor\" aria-hidden=\"true\" href=\"#reading-1\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Reading</h3>\n<div class=\"highlight highlight-source-java position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"Configuration conf = new Configuration();\nconf.set(&quot;es.resource&quot;, &quot;radio/artists&quot;);\nconf.set(&quot;es.query&quot;, &quot;?q=me*&quot;);             // replace this with the relevant query\nJob job = new Job(conf)\njob.setInputFormatClass(EsInputFormat.class);\n...\njob.waitForCompletion(true);\"><pre><span class=\"pl-smi\">Configuration</span> conf <span class=\"pl-k\">=</span> <span class=\"pl-k\">new</span> <span class=\"pl-smi\">Configuration</span>();\nconf<span class=\"pl-k\">.</span>set(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>es.resource<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>radio/artists<span class=\"pl-pds\">\"</span></span>);\nconf<span class=\"pl-k\">.</span>set(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>es.query<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>?q=me*<span class=\"pl-pds\">\"</span></span>);             <span class=\"pl-c\"><span class=\"pl-c\">//</span> replace this with the relevant query</span>\n<span class=\"pl-smi\">Job</span> job <span class=\"pl-k\">=</span> <span class=\"pl-k\">new</span> <span class=\"pl-smi\">Job</span>(conf)\njob<span class=\"pl-k\">.</span>setInputFormatClass(<span class=\"pl-smi\">EsInputFormat</span><span class=\"pl-k\">.</span>class);\n<span class=\"pl-c1\">...</span>\njob<span class=\"pl-k\">.</span>waitForCompletion(<span class=\"pl-c1\">true</span>);</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-writing-1\" class=\"anchor\" aria-hidden=\"true\" href=\"#writing-1\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Writing</h3>\n<div class=\"highlight highlight-source-java position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"Configuration conf = new Configuration();\nconf.set(&quot;es.resource&quot;, &quot;radio/artists&quot;); // index or indices used for storing data\nJob job = new Job(conf)\njob.setOutputFormatClass(EsOutputFormat.class);\n...\njob.waitForCompletion(true);\"><pre><span class=\"pl-smi\">Configuration</span> conf <span class=\"pl-k\">=</span> <span class=\"pl-k\">new</span> <span class=\"pl-smi\">Configuration</span>();\nconf<span class=\"pl-k\">.</span>set(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>es.resource<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>radio/artists<span class=\"pl-pds\">\"</span></span>); <span class=\"pl-c\"><span class=\"pl-c\">//</span> index or indices used for storing data</span>\n<span class=\"pl-smi\">Job</span> job <span class=\"pl-k\">=</span> <span class=\"pl-k\">new</span> <span class=\"pl-smi\">Job</span>(conf)\njob<span class=\"pl-k\">.</span>setOutputFormatClass(<span class=\"pl-smi\">EsOutputFormat</span><span class=\"pl-k\">.</span>class);\n<span class=\"pl-c1\">...</span>\njob<span class=\"pl-k\">.</span>waitForCompletion(<span class=\"pl-c1\">true</span>);</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-apache-hive\" class=\"anchor\" aria-hidden=\"true\" href=\"#apache-hive\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a href=\"http://hive.apache.org\" rel=\"nofollow\">Apache Hive</a></h2>\n<p dir=\"auto\">ES-Hadoop provides a Hive storage handler for Elasticsearch, meaning one can define an <a href=\"http://cwiki.apache.org/Hive/external-tables.html\" rel=\"nofollow\">external table</a> on top of ES.</p>\n<p dir=\"auto\">Add es-hadoop-.jar to <code>hive.aux.jars.path</code> or register it manually in your Hive script (recommended):</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"ADD JAR /path_to_jar/es-hadoop-&lt;version&gt;.jar;\"><pre><code>ADD JAR /path_to_jar/es-hadoop-&lt;version&gt;.jar;\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-reading-2\" class=\"anchor\" aria-hidden=\"true\" href=\"#reading-2\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Reading</h3>\n<p dir=\"auto\">To read data from ES, define a table backed by the desired index:</p>\n<div class=\"highlight highlight-source-sql position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"CREATE EXTERNAL TABLE artists (\n    id      BIGINT,\n    name    STRING,\n    links   STRUCT&lt;url:STRING, picture:STRING&gt;)\nSTORED BY 'org.elasticsearch.hadoop.hive.EsStorageHandler'\nTBLPROPERTIES('es.resource' = 'radio/artists', 'es.query' = '?q=me*');\"><pre>CREATE EXTERNAL TABLE artists (\n    id      <span class=\"pl-k\">BIGINT</span>,\n    name    STRING,\n    links   STRUCT<span class=\"pl-k\">&lt;</span>url:STRING, picture:STRING<span class=\"pl-k\">&gt;</span>)\nSTORED BY <span class=\"pl-s\"><span class=\"pl-pds\">'</span>org.elasticsearch.hadoop.hive.EsStorageHandler<span class=\"pl-pds\">'</span></span>\nTBLPROPERTIES(<span class=\"pl-s\"><span class=\"pl-pds\">'</span>es.resource<span class=\"pl-pds\">'</span></span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">'</span>radio/artists<span class=\"pl-pds\">'</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">'</span>es.query<span class=\"pl-pds\">'</span></span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">'</span>?q=me*<span class=\"pl-pds\">'</span></span>);</pre></div>\n<p dir=\"auto\">The fields defined in the table are mapped to the JSON when communicating with Elasticsearch. Notice the use of <code>TBLPROPERTIES</code> to define the location, that is the query used for reading from this table.</p>\n<p dir=\"auto\">Once defined, the table can be used just like any other:</p>\n<div class=\"highlight highlight-source-sql position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"SELECT * FROM artists;\"><pre><span class=\"pl-k\">SELECT</span> <span class=\"pl-k\">*</span> <span class=\"pl-k\">FROM</span> artists;</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-writing-2\" class=\"anchor\" aria-hidden=\"true\" href=\"#writing-2\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Writing</h3>\n<p dir=\"auto\">To write data, a similar definition is used but with a different <code>es.resource</code>:</p>\n<div class=\"highlight highlight-source-sql position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"CREATE EXTERNAL TABLE artists (\n    id      BIGINT,\n    name    STRING,\n    links   STRUCT&lt;url:STRING, picture:STRING&gt;)\nSTORED BY 'org.elasticsearch.hadoop.hive.EsStorageHandler'\nTBLPROPERTIES('es.resource' = 'radio/artists');\"><pre>CREATE EXTERNAL TABLE artists (\n    id      <span class=\"pl-k\">BIGINT</span>,\n    name    STRING,\n    links   STRUCT<span class=\"pl-k\">&lt;</span>url:STRING, picture:STRING<span class=\"pl-k\">&gt;</span>)\nSTORED BY <span class=\"pl-s\"><span class=\"pl-pds\">'</span>org.elasticsearch.hadoop.hive.EsStorageHandler<span class=\"pl-pds\">'</span></span>\nTBLPROPERTIES(<span class=\"pl-s\"><span class=\"pl-pds\">'</span>es.resource<span class=\"pl-pds\">'</span></span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">'</span>radio/artists<span class=\"pl-pds\">'</span></span>);</pre></div>\n<p dir=\"auto\">Any data passed to the table is then passed down to Elasticsearch; for example considering a table <code>s</code>, mapped to a TSV/CSV file, one can index it to Elasticsearch like this:</p>\n<div class=\"highlight highlight-source-sql position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"INSERT OVERWRITE TABLE artists\n    SELECT NULL, s.name, named_struct('url', s.url, 'picture', s.picture) FROM source s;\"><pre>INSERT OVERWRITE TABLE artists\n    <span class=\"pl-k\">SELECT</span> <span class=\"pl-k\">NULL</span>, <span class=\"pl-c1\">s</span>.<span class=\"pl-c1\">name</span>, named_struct(<span class=\"pl-s\"><span class=\"pl-pds\">'</span>url<span class=\"pl-pds\">'</span></span>, <span class=\"pl-c1\">s</span>.<span class=\"pl-c1\">url</span>, <span class=\"pl-s\"><span class=\"pl-pds\">'</span>picture<span class=\"pl-pds\">'</span></span>, <span class=\"pl-c1\">s</span>.<span class=\"pl-c1\">picture</span>) <span class=\"pl-k\">FROM</span> source s;</pre></div>\n<p dir=\"auto\">As one can note, currently the reading and writing are treated separately but we're working on unifying the two and automatically translating <a href=\"http://cwiki.apache.org/confluence/display/Hive/LanguageManual\" rel=\"nofollow\">HiveQL</a> to Elasticsearch queries.</p>\n<h2 dir=\"auto\"><a id=\"user-content-apache-pig\" class=\"anchor\" aria-hidden=\"true\" href=\"#apache-pig\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a href=\"http://pig.apache.org\" rel=\"nofollow\">Apache Pig</a></h2>\n<p dir=\"auto\">ES-Hadoop provides both read and write functions for Pig so you can access Elasticsearch from Pig scripts.</p>\n<p dir=\"auto\">Register ES-Hadoop jar into your script or add it to your Pig classpath:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"REGISTER /path_to_jar/es-hadoop-&lt;version&gt;.jar;\"><pre><code>REGISTER /path_to_jar/es-hadoop-&lt;version&gt;.jar;\n</code></pre></div>\n<p dir=\"auto\">Additionally one can define an alias to save some chars:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"%define ESSTORAGE org.elasticsearch.hadoop.pig.EsStorage()\"><pre><code>%define ESSTORAGE org.elasticsearch.hadoop.pig.EsStorage()\n</code></pre></div>\n<p dir=\"auto\">and use <code>$ESSTORAGE</code> for storage definition.</p>\n<h3 dir=\"auto\"><a id=\"user-content-reading-3\" class=\"anchor\" aria-hidden=\"true\" href=\"#reading-3\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Reading</h3>\n<p dir=\"auto\">To read data from ES, use <code>EsStorage</code> and specify the query through the <code>LOAD</code> function:</p>\n<div class=\"highlight highlight-source-sql position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"A = LOAD 'radio/artists' USING org.elasticsearch.hadoop.pig.EsStorage('es.query=?q=me*');\nDUMP A;\"><pre>A <span class=\"pl-k\">=</span> LOAD <span class=\"pl-s\"><span class=\"pl-pds\">'</span>radio/artists<span class=\"pl-pds\">'</span></span> USING <span class=\"pl-c1\">org</span>.<span class=\"pl-c1\">elasticsearch</span>.<span class=\"pl-c1\">hadoop</span>.<span class=\"pl-c1\">pig</span>.EsStorage(<span class=\"pl-s\"><span class=\"pl-pds\">'</span>es.query=?q=me*<span class=\"pl-pds\">'</span></span>);\nDUMP A;</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-writing-3\" class=\"anchor\" aria-hidden=\"true\" href=\"#writing-3\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Writing</h3>\n<p dir=\"auto\">Use the same <code>Storage</code> to write data to Elasticsearch:</p>\n<div class=\"highlight highlight-source-sql position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"A = LOAD 'src/artists.dat' USING PigStorage() AS (id:long, name, url:chararray, picture: chararray);\nB = FOREACH A GENERATE name, TOTUPLE(url, picture) AS links;\nSTORE B INTO 'radio/artists' USING org.elasticsearch.hadoop.pig.EsStorage();\"><pre>A <span class=\"pl-k\">=</span> LOAD <span class=\"pl-s\"><span class=\"pl-pds\">'</span>src/artists.dat<span class=\"pl-pds\">'</span></span> USING PigStorage() <span class=\"pl-k\">AS</span> (id:long, name, url:chararray, picture: chararray);\nB <span class=\"pl-k\">=</span> FOREACH A GENERATE name, TOTUPLE(url, picture) <span class=\"pl-k\">AS</span> links;\nSTORE B INTO <span class=\"pl-s\"><span class=\"pl-pds\">'</span>radio/artists<span class=\"pl-pds\">'</span></span> USING <span class=\"pl-c1\">org</span>.<span class=\"pl-c1\">elasticsearch</span>.<span class=\"pl-c1\">hadoop</span>.<span class=\"pl-c1\">pig</span>.EsStorage();</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-apache-spark\" class=\"anchor\" aria-hidden=\"true\" href=\"#apache-spark\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a href=\"http://spark.apache.org\" rel=\"nofollow\">Apache Spark</a></h2>\n<p dir=\"auto\">ES-Hadoop provides native (Java and Scala) integration with Spark: for reading a dedicated <code>RDD</code> and for writing, methods that work on any <code>RDD</code>. Spark SQL is also supported</p>\n<h3 dir=\"auto\"><a id=\"user-content-scala\" class=\"anchor\" aria-hidden=\"true\" href=\"#scala\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Scala</h3>\n<h3 dir=\"auto\"><a id=\"user-content-reading-4\" class=\"anchor\" aria-hidden=\"true\" href=\"#reading-4\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Reading</h3>\n<p dir=\"auto\">To read data from ES, create a dedicated <code>RDD</code> and specify the query as an argument:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import org.elasticsearch.spark._\n\n..\nval conf = ...\nval sc = new SparkContext(conf)\nsc.esRDD(&quot;radio/artists&quot;, &quot;?q=me*&quot;)\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">org</span>.<span class=\"pl-en\">elasticsearch</span>.<span class=\"pl-en\">spark</span>.<span class=\"pl-en\">_</span>\n\n..\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">conf</span> <span class=\"pl-k\">=</span> ...\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">sc</span> <span class=\"pl-k\">=</span> <span class=\"pl-k\">new</span> <span class=\"pl-en\">SparkContext</span>(conf)\nsc.esRDD(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>radio/artists<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>?q=me*<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<h4 dir=\"auto\"><a id=\"user-content-spark-sql\" class=\"anchor\" aria-hidden=\"true\" href=\"#spark-sql\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Spark SQL</h4>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import org.elasticsearch.spark.sql._\n\n// DataFrame schema automatically inferred\nval df = sqlContext.read.format(&quot;es&quot;).load(&quot;buckethead/albums&quot;)\n\n// operations get pushed down and translated at runtime to Elasticsearch QueryDSL\nval playlist = df.filter(df(&quot;category&quot;).equalTo(&quot;pikes&quot;).and(df(&quot;year&quot;).geq(2016)))\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">org</span>.<span class=\"pl-en\">elasticsearch</span>.<span class=\"pl-en\">spark</span>.<span class=\"pl-en\">sql</span>.<span class=\"pl-en\">_</span>\n\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> DataFrame schema automatically inferred</span>\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">df</span> <span class=\"pl-k\">=</span> sqlContext.read.format(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>es<span class=\"pl-pds\">\"</span></span>).load(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>buckethead/albums<span class=\"pl-pds\">\"</span></span>)\n\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> operations get pushed down and translated at runtime to Elasticsearch QueryDSL</span>\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">playlist</span> <span class=\"pl-k\">=</span> df.filter(df(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>category<span class=\"pl-pds\">\"</span></span>).equalTo(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>pikes<span class=\"pl-pds\">\"</span></span>).and(df(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>year<span class=\"pl-pds\">\"</span></span>).geq(<span class=\"pl-c1\">2016</span>)))</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-writing-4\" class=\"anchor\" aria-hidden=\"true\" href=\"#writing-4\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Writing</h3>\n<p dir=\"auto\">Import the <code>org.elasticsearch.spark._</code> package to gain <code>savetoEs</code> methods on your <code>RDD</code>s:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import org.elasticsearch.spark._\n\nval conf = ...\nval sc = new SparkContext(conf)\n\nval numbers = Map(&quot;one&quot; -&gt; 1, &quot;two&quot; -&gt; 2, &quot;three&quot; -&gt; 3)\nval airports = Map(&quot;OTP&quot; -&gt; &quot;Otopeni&quot;, &quot;SFO&quot; -&gt; &quot;San Fran&quot;)\n\nsc.makeRDD(Seq(numbers, airports)).saveToEs(&quot;spark/docs&quot;)\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">org</span>.<span class=\"pl-en\">elasticsearch</span>.<span class=\"pl-en\">spark</span>.<span class=\"pl-en\">_</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">conf</span> <span class=\"pl-k\">=</span> ...\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">sc</span> <span class=\"pl-k\">=</span> <span class=\"pl-k\">new</span> <span class=\"pl-en\">SparkContext</span>(conf)\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">numbers</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Map</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>one<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-c1\">1</span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>two<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-c1\">2</span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>three<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-c1\">3</span>)\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">airports</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Map</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>OTP<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Otopeni<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>SFO<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>San Fran<span class=\"pl-pds\">\"</span></span>)\n\nsc.makeRDD(<span class=\"pl-en\">Seq</span>(numbers, airports)).saveToEs(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>spark/docs<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<h4 dir=\"auto\"><a id=\"user-content-spark-sql-1\" class=\"anchor\" aria-hidden=\"true\" href=\"#spark-sql-1\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Spark SQL</h4>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import org.elasticsearch.spark.sql._\n\nval df = sqlContext.read.json(&quot;examples/people.json&quot;)\ndf.saveToEs(&quot;spark/people&quot;)\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">org</span>.<span class=\"pl-en\">elasticsearch</span>.<span class=\"pl-en\">spark</span>.<span class=\"pl-en\">sql</span>.<span class=\"pl-en\">_</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">df</span> <span class=\"pl-k\">=</span> sqlContext.read.json(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>examples/people.json<span class=\"pl-pds\">\"</span></span>)\ndf.saveToEs(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>spark/people<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-java\" class=\"anchor\" aria-hidden=\"true\" href=\"#java\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Java</h3>\n<p dir=\"auto\">In a Java environment, use the <code>org.elasticsearch.spark.rdd.java.api</code> package, in particular the <code>JavaEsSpark</code> class.</p>\n<h3 dir=\"auto\"><a id=\"user-content-reading-5\" class=\"anchor\" aria-hidden=\"true\" href=\"#reading-5\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Reading</h3>\n<p dir=\"auto\">To read data from ES, create a dedicated <code>RDD</code> and specify the query as an argument.</p>\n<div class=\"highlight highlight-source-java position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import org.apache.spark.api.java.JavaSparkContext;\nimport org.elasticsearch.spark.rdd.api.java.JavaEsSpark;\n\nSparkConf conf = ...\nJavaSparkContext jsc = new JavaSparkContext(conf);\n\nJavaPairRDD&lt;String, Map&lt;String, Object&gt;&gt; esRDD = JavaEsSpark.esRDD(jsc, &quot;radio/artists&quot;);\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-smi\">org.apache.spark.api.java.JavaSparkContext</span>;\n<span class=\"pl-k\">import</span> <span class=\"pl-smi\">org.elasticsearch.spark.rdd.api.java.JavaEsSpark</span>;\n\n<span class=\"pl-smi\">SparkConf</span> conf <span class=\"pl-k\">=</span> <span class=\"pl-c1\">...</span>\n<span class=\"pl-smi\">JavaSparkContext</span> jsc <span class=\"pl-k\">=</span> <span class=\"pl-k\">new</span> <span class=\"pl-smi\">JavaSparkContext</span>(conf);\n\n<span class=\"pl-k\">JavaPairRDD&lt;<span class=\"pl-smi\">String</span>, <span class=\"pl-k\">Map&lt;<span class=\"pl-smi\">String</span>, <span class=\"pl-smi\">Object</span>&gt;</span>&gt;</span> esRDD <span class=\"pl-k\">=</span> <span class=\"pl-smi\">JavaEsSpark</span><span class=\"pl-k\">.</span>esRDD(jsc, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>radio/artists<span class=\"pl-pds\">\"</span></span>);</pre></div>\n<h4 dir=\"auto\"><a id=\"user-content-spark-sql-2\" class=\"anchor\" aria-hidden=\"true\" href=\"#spark-sql-2\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Spark SQL</h4>\n<div class=\"highlight highlight-source-java position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"SQLContext sql = new SQLContext(sc);\nDataFrame df = sql.read().format(&quot;es&quot;).load(&quot;buckethead/albums&quot;);\nDataFrame playlist = df.filter(df.col(&quot;category&quot;).equalTo(&quot;pikes&quot;).and(df.col(&quot;year&quot;).geq(2016)))\"><pre><span class=\"pl-smi\">SQLContext</span> sql <span class=\"pl-k\">=</span> <span class=\"pl-k\">new</span> <span class=\"pl-smi\">SQLContext</span>(sc);\n<span class=\"pl-smi\">DataFrame</span> df <span class=\"pl-k\">=</span> sql<span class=\"pl-k\">.</span>read()<span class=\"pl-k\">.</span>format(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>es<span class=\"pl-pds\">\"</span></span>)<span class=\"pl-k\">.</span>load(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>buckethead/albums<span class=\"pl-pds\">\"</span></span>);\n<span class=\"pl-smi\">DataFrame</span> playlist <span class=\"pl-k\">=</span> df<span class=\"pl-k\">.</span>filter(df<span class=\"pl-k\">.</span>col(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>category<span class=\"pl-pds\">\"</span></span>)<span class=\"pl-k\">.</span>equalTo(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>pikes<span class=\"pl-pds\">\"</span></span>)<span class=\"pl-k\">.</span>and(df<span class=\"pl-k\">.</span>col(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>year<span class=\"pl-pds\">\"</span></span>)<span class=\"pl-k\">.</span>geq(<span class=\"pl-c1\">2016</span>)))</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-writing-5\" class=\"anchor\" aria-hidden=\"true\" href=\"#writing-5\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Writing</h3>\n<p dir=\"auto\">Use <code>JavaEsSpark</code> to index any <code>RDD</code> to Elasticsearch:</p>\n<div class=\"highlight highlight-source-java position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import org.elasticsearch.spark.rdd.api.java.JavaEsSpark;\n\nSparkConf conf = ...\nJavaSparkContext jsc = new JavaSparkContext(conf);\n\nMap&lt;String, ?&gt; numbers = ImmutableMap.of(&quot;one&quot;, 1, &quot;two&quot;, 2);\nMap&lt;String, ?&gt; airports = ImmutableMap.of(&quot;OTP&quot;, &quot;Otopeni&quot;, &quot;SFO&quot;, &quot;San Fran&quot;);\n\nJavaRDD&lt;Map&lt;String, ?&gt;&gt; javaRDD = jsc.parallelize(ImmutableList.of(numbers, airports));\nJavaEsSpark.saveToEs(javaRDD, &quot;spark/docs&quot;);\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-smi\">org.elasticsearch.spark.rdd.api.java.JavaEsSpark</span>;\n\n<span class=\"pl-smi\">SparkConf</span> conf <span class=\"pl-k\">=</span> <span class=\"pl-c1\">...</span>\n<span class=\"pl-smi\">JavaSparkContext</span> jsc <span class=\"pl-k\">=</span> <span class=\"pl-k\">new</span> <span class=\"pl-smi\">JavaSparkContext</span>(conf);\n\n<span class=\"pl-k\">Map&lt;<span class=\"pl-smi\">String</span>, ?&gt;</span> numbers <span class=\"pl-k\">=</span> <span class=\"pl-smi\">ImmutableMap</span><span class=\"pl-k\">.</span>of(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>one<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-c1\">1</span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>two<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-c1\">2</span>);\n<span class=\"pl-k\">Map&lt;<span class=\"pl-smi\">String</span>, ?&gt;</span> airports <span class=\"pl-k\">=</span> <span class=\"pl-smi\">ImmutableMap</span><span class=\"pl-k\">.</span>of(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>OTP<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Otopeni<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>SFO<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>San Fran<span class=\"pl-pds\">\"</span></span>);\n\n<span class=\"pl-k\">JavaRDD&lt;<span class=\"pl-k\">Map&lt;<span class=\"pl-smi\">String</span>, ?&gt;</span>&gt;</span> javaRDD <span class=\"pl-k\">=</span> jsc<span class=\"pl-k\">.</span>parallelize(<span class=\"pl-smi\">ImmutableList</span><span class=\"pl-k\">.</span>of(numbers, airports));\n<span class=\"pl-smi\">JavaEsSpark</span><span class=\"pl-k\">.</span>saveToEs(javaRDD, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>spark/docs<span class=\"pl-pds\">\"</span></span>);</pre></div>\n<h4 dir=\"auto\"><a id=\"user-content-spark-sql-3\" class=\"anchor\" aria-hidden=\"true\" href=\"#spark-sql-3\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Spark SQL</h4>\n<div class=\"highlight highlight-source-java position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import org.elasticsearch.spark.sql.api.java.JavaEsSparkSQL;\n\nDataFrame df = sqlContext.read.json(&quot;examples/people.json&quot;)\nJavaEsSparkSQL.saveToEs(df, &quot;spark/docs&quot;)\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-smi\">org.elasticsearch.spark.sql.api.java.JavaEsSparkSQL</span>;\n\n<span class=\"pl-smi\">DataFrame</span> df <span class=\"pl-k\">=</span> sqlContext<span class=\"pl-k\">.</span>read<span class=\"pl-k\">.</span>json(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>examples/people.json<span class=\"pl-pds\">\"</span></span>)\n<span class=\"pl-smi\">JavaEsSparkSQL</span><span class=\"pl-k\">.</span>saveToEs(df, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>spark/docs<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-apache-storm\" class=\"anchor\" aria-hidden=\"true\" href=\"#apache-storm\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a href=\"http://storm.apache.org\" rel=\"nofollow\">Apache Storm</a></h2>\n<p dir=\"auto\">ES-Hadoop provides native integration with Storm: for reading a dedicated <code>Spout</code> and for writing a specialized <code>Bolt</code></p>\n<h3 dir=\"auto\"><a id=\"user-content-reading-6\" class=\"anchor\" aria-hidden=\"true\" href=\"#reading-6\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Reading</h3>\n<p dir=\"auto\">To read data from ES, use <code>EsSpout</code>:</p>\n<div class=\"highlight highlight-source-java position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import org.elasticsearch.storm.EsSpout;\n\nTopologyBuilder builder = new TopologyBuilder();\nbuilder.setSpout(&quot;es-spout&quot;, new EsSpout(&quot;storm/docs&quot;, &quot;?q=me*&quot;), 5);\nbuilder.setBolt(&quot;bolt&quot;, new PrinterBolt()).shuffleGrouping(&quot;es-spout&quot;);\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-smi\">org.elasticsearch.storm.EsSpout</span>;\n\n<span class=\"pl-smi\">TopologyBuilder</span> builder <span class=\"pl-k\">=</span> <span class=\"pl-k\">new</span> <span class=\"pl-smi\">TopologyBuilder</span>();\nbuilder<span class=\"pl-k\">.</span>setSpout(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>es-spout<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-k\">new</span> <span class=\"pl-smi\">EsSpout</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>storm/docs<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>?q=me*<span class=\"pl-pds\">\"</span></span>), <span class=\"pl-c1\">5</span>);\nbuilder<span class=\"pl-k\">.</span>setBolt(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>bolt<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-k\">new</span> <span class=\"pl-smi\">PrinterBolt</span>())<span class=\"pl-k\">.</span>shuffleGrouping(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>es-spout<span class=\"pl-pds\">\"</span></span>);</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-writing-6\" class=\"anchor\" aria-hidden=\"true\" href=\"#writing-6\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Writing</h3>\n<p dir=\"auto\">To index data to ES, use <code>EsBolt</code>:</p>\n<div class=\"highlight highlight-source-java position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import org.elasticsearch.storm.EsBolt;\n\nTopologyBuilder builder = new TopologyBuilder();\nbuilder.setSpout(&quot;spout&quot;, new RandomSentenceSpout(), 10);\nbuilder.setBolt(&quot;es-bolt&quot;, new EsBolt(&quot;storm/docs&quot;), 5).shuffleGrouping(&quot;spout&quot;);\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-smi\">org.elasticsearch.storm.EsBolt</span>;\n\n<span class=\"pl-smi\">TopologyBuilder</span> builder <span class=\"pl-k\">=</span> <span class=\"pl-k\">new</span> <span class=\"pl-smi\">TopologyBuilder</span>();\nbuilder<span class=\"pl-k\">.</span>setSpout(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>spout<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-k\">new</span> <span class=\"pl-smi\">RandomSentenceSpout</span>(), <span class=\"pl-c1\">10</span>);\nbuilder<span class=\"pl-k\">.</span>setBolt(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>es-bolt<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-k\">new</span> <span class=\"pl-smi\">EsBolt</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>storm/docs<span class=\"pl-pds\">\"</span></span>), <span class=\"pl-c1\">5</span>)<span class=\"pl-k\">.</span>shuffleGrouping(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>spout<span class=\"pl-pds\">\"</span></span>);</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-building-the-source\" class=\"anchor\" aria-hidden=\"true\" href=\"#building-the-source\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Building the source</h2>\n<p dir=\"auto\">Elasticsearch Hadoop uses <a href=\"http://www.gradle.org/\" rel=\"nofollow\">Gradle</a> for its build system and it is not required to have it installed on your machine. By default (<code>gradlew</code>), it automatically builds the package and runs the unit tests. For integration testing, use the <code>integrationTests</code> task.\nSee <code>gradlew tasks</code> for more information.</p>\n<p dir=\"auto\">To create a distributable zip, run <code>gradlew distZip</code> from the command line; once completed you will find the jar in <code>build/libs</code>.</p>\n<p dir=\"auto\">To build the project, JVM 8 (Oracle one is recommended) or higher is required.</p>\n<h2 dir=\"auto\"><a id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>License</h2>\n<p dir=\"auto\">This project is released under version 2.0 of the <a href=\"http://www.apache.org/licenses/LICENSE-2.0\" rel=\"nofollow\">Apache License</a></p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"Licensed to Elasticsearch under one or more contributor\nlicense agreements. See the NOTICE file distributed with\nthis work for additional information regarding copyright\nownership. Elasticsearch licenses this file to you under\nthe Apache License, Version 2.0 (the &quot;License&quot;); you may\nnot use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing,\nsoftware distributed under the License is distributed on an\n&quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY\nKIND, either express or implied.  See the License for the\nspecific language governing permissions and limitations\nunder the License.\"><pre><code>Licensed to Elasticsearch under one or more contributor\nlicense agreements. See the NOTICE file distributed with\nthis work for additional information regarding copyright\nownership. Elasticsearch licenses this file to you under\nthe Apache License, Version 2.0 (the \"License\"); you may\nnot use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing,\nsoftware distributed under the License is distributed on an\n\"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY\nKIND, either express or implied.  See the License for the\nspecific language governing permissions and limitations\nunder the License.\n</code></pre></div>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "costin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/76245?v=4",
+        "url" : "https://api.github.com/users/costin",
+        "contributions" : 1428
+      },
+      {
+        "login" : "jbaiera",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/875779?v=4",
+        "url" : "https://api.github.com/users/jbaiera",
+        "contributions" : 400
+      },
+      {
+        "login" : "jrodewig",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/40268737?v=4",
+        "url" : "https://api.github.com/users/jrodewig",
+        "contributions" : 51
+      },
+      {
+        "login" : "masseyke",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/453603?v=4",
+        "url" : "https://api.github.com/users/masseyke",
+        "contributions" : 23
+      },
+      {
+        "login" : "clintongormley",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/56599?v=4",
+        "url" : "https://api.github.com/users/clintongormley",
+        "contributions" : 17
+      },
+      {
+        "login" : "mark-vieira",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4106672?v=4",
+        "url" : "https://api.github.com/users/mark-vieira",
+        "contributions" : 11
+      },
+      {
+        "login" : "jakelandis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/976291?v=4",
+        "url" : "https://api.github.com/users/jakelandis",
+        "contributions" : 10
+      },
+      {
+        "login" : "jasontedor",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4744941?v=4",
+        "url" : "https://api.github.com/users/jasontedor",
+        "contributions" : 9
+      },
+      {
+        "login" : "breskeby",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/77300?v=4",
+        "url" : "https://api.github.com/users/breskeby",
+        "contributions" : 9
+      },
+      {
+        "login" : "takezoe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1094760?v=4",
+        "url" : "https://api.github.com/users/takezoe",
+        "contributions" : 8
+      },
+      {
+        "login" : "nik9000",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/215970?v=4",
+        "url" : "https://api.github.com/users/nik9000",
+        "contributions" : 4
+      },
+      {
+        "login" : "lcawl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/26471269?v=4",
+        "url" : "https://api.github.com/users/lcawl",
+        "contributions" : 4
+      },
+      {
+        "login" : "martijnvg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/580421?v=4",
+        "url" : "https://api.github.com/users/martijnvg",
+        "contributions" : 4
+      },
+      {
+        "login" : "ebuildy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1219817?v=4",
+        "url" : "https://api.github.com/users/ebuildy",
+        "contributions" : 3
+      },
+      {
+        "login" : "Conky5",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/946950?v=4",
+        "url" : "https://api.github.com/users/Conky5",
+        "contributions" : 3
+      },
+      {
+        "login" : "nerdynick",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/117746?v=4",
+        "url" : "https://api.github.com/users/nerdynick",
+        "contributions" : 3
+      },
+      {
+        "login" : "debadair",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/362578?v=4",
+        "url" : "https://api.github.com/users/debadair",
+        "contributions" : 3
+      },
+      {
+        "login" : "acchen97",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13039544?v=4",
+        "url" : "https://api.github.com/users/acchen97",
+        "contributions" : 2
+      },
+      {
+        "login" : "fs111",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/33631?v=4",
+        "url" : "https://api.github.com/users/fs111",
+        "contributions" : 2
+      },
+      {
+        "login" : "jtibshirani",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7461306?v=4",
+        "url" : "https://api.github.com/users/jtibshirani",
+        "contributions" : 2
+      },
+      {
+        "login" : "pfcoperez",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/273379?v=4",
+        "url" : "https://api.github.com/users/pfcoperez",
+        "contributions" : 2
+      },
+      {
+        "login" : "lucabelluccini",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/87379?v=4",
+        "url" : "https://api.github.com/users/lucabelluccini",
+        "contributions" : 2
+      },
+      {
+        "login" : "lockewritesdocs",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/25848033?v=4",
+        "url" : "https://api.github.com/users/lockewritesdocs",
+        "contributions" : 1
+      },
+      {
+        "login" : "amatissart",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4726554?v=4",
+        "url" : "https://api.github.com/users/amatissart",
+        "contributions" : 1
+      },
+      {
+        "login" : "tdk93",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4271486?v=4",
+        "url" : "https://api.github.com/users/tdk93",
+        "contributions" : 1
+      },
+      {
+        "login" : "AliGouta",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12660350?v=4",
+        "url" : "https://api.github.com/users/AliGouta",
+        "contributions" : 1
+      },
+      {
+        "login" : "alpar-t",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2565652?v=4",
+        "url" : "https://api.github.com/users/alpar-t",
+        "contributions" : 1
+      },
+      {
+        "login" : "anandnalya",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/66878?v=4",
+        "url" : "https://api.github.com/users/anandnalya",
+        "contributions" : 1
+      },
+      {
+        "login" : "andregarcia",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/496893?v=4",
+        "url" : "https://api.github.com/users/andregarcia",
+        "contributions" : 1
+      },
+      {
+        "login" : "andreidan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1217601?v=4",
+        "url" : "https://api.github.com/users/andreidan",
+        "contributions" : 1
+      },
+      {
+        "login" : "ash211",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/357170?v=4",
+        "url" : "https://api.github.com/users/ash211",
+        "contributions" : 1
+      },
+      {
+        "login" : "andreybratus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6642048?v=4",
+        "url" : "https://api.github.com/users/andreybratus",
+        "contributions" : 1
+      },
+      {
+        "login" : "awislowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/783205?v=4",
+        "url" : "https://api.github.com/users/awislowski",
+        "contributions" : 1
+      },
+      {
+        "login" : "bitmelt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2905079?v=4",
+        "url" : "https://api.github.com/users/bitmelt",
+        "contributions" : 1
+      },
+      {
+        "login" : "bpintea",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1562801?v=4",
+        "url" : "https://api.github.com/users/bpintea",
+        "contributions" : 1
+      },
+      {
+        "login" : "divideby0",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/530343?v=4",
+        "url" : "https://api.github.com/users/divideby0",
+        "contributions" : 1
+      },
+      {
+        "login" : "cwensel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24684?v=4",
+        "url" : "https://api.github.com/users/cwensel",
+        "contributions" : 1
+      },
+      {
+        "login" : "AbelChan1989",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14013834?v=4",
+        "url" : "https://api.github.com/users/AbelChan1989",
+        "contributions" : 1
+      },
+      {
+        "login" : "danhermann",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22777892?v=4",
+        "url" : "https://api.github.com/users/danhermann",
+        "contributions" : 1
+      },
+      {
+        "login" : "dpb587",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/207601?v=4",
+        "url" : "https://api.github.com/users/dpb587",
+        "contributions" : 1
+      },
+      {
+        "login" : "deanchen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/350938?v=4",
+        "url" : "https://api.github.com/users/deanchen",
+        "contributions" : 1
+      },
+      {
+        "login" : "drudim",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1926182?v=4",
+        "url" : "https://api.github.com/users/drudim",
+        "contributions" : 1
+      },
+      {
+        "login" : "markoutso",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1496466?v=4",
+        "url" : "https://api.github.com/users/markoutso",
+        "contributions" : 1
+      },
+      {
+        "login" : "eliasah",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2973143?v=4",
+        "url" : "https://api.github.com/users/eliasah",
+        "contributions" : 1
+      },
+      {
+        "login" : "francjohny",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10945677?v=4",
+        "url" : "https://api.github.com/users/francjohny",
+        "contributions" : 1
+      },
+      {
+        "login" : "poiuytrez",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1167433?v=4",
+        "url" : "https://api.github.com/users/poiuytrez",
+        "contributions" : 1
+      },
+      {
+        "login" : "giurim",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15023637?v=4",
+        "url" : "https://api.github.com/users/giurim",
+        "contributions" : 1
+      },
+      {
+        "login" : "haizhou",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2293634?v=4",
+        "url" : "https://api.github.com/users/haizhou",
+        "contributions" : 1
+      },
+      {
+        "login" : "henningandersen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/33268011?v=4",
+        "url" : "https://api.github.com/users/henningandersen",
+        "contributions" : 1
+      },
+      {
+        "login" : "JamesLuoau",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4134141?v=4",
+        "url" : "https://api.github.com/users/JamesLuoau",
+        "contributions" : 1
+      },
+      {
+        "login" : "jaymode",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4339958?v=4",
+        "url" : "https://api.github.com/users/jaymode",
+        "contributions" : 1
+      },
+      {
+        "login" : "xjrk58",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1974824?v=4",
+        "url" : "https://api.github.com/users/xjrk58",
+        "contributions" : 1
+      },
+      {
+        "login" : "jnioche",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/218319?v=4",
+        "url" : "https://api.github.com/users/jnioche",
+        "contributions" : 1
+      },
+      {
+        "login" : "Lhfcws",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/898272?v=4",
+        "url" : "https://api.github.com/users/Lhfcws",
+        "contributions" : 1
+      },
+      {
+        "login" : "viirya",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/68855?v=4",
+        "url" : "https://api.github.com/users/viirya",
+        "contributions" : 1
+      },
+      {
+        "login" : "lidiyam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11800722?v=4",
+        "url" : "https://api.github.com/users/lidiyam",
+        "contributions" : 1
+      },
+      {
+        "login" : "lucebert",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/39068991?v=4",
+        "url" : "https://api.github.com/users/lucebert",
+        "contributions" : 1
+      },
+      {
+        "login" : "MSaifAsif",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6280554?v=4",
+        "url" : "https://api.github.com/users/MSaifAsif",
+        "contributions" : 1
+      },
+      {
+        "login" : "MLnick",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1036807?v=4",
+        "url" : "https://api.github.com/users/MLnick",
+        "contributions" : 1
+      },
+      {
+        "login" : "markpavey",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17084885?v=4",
+        "url" : "https://api.github.com/users/markpavey",
+        "contributions" : 1
+      },
+      {
+        "login" : "Mpdreamz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/245275?v=4",
+        "url" : "https://api.github.com/users/Mpdreamz",
+        "contributions" : 1
+      },
+      {
+        "login" : "mcascallares",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/481932?v=4",
+        "url" : "https://api.github.com/users/mcascallares",
+        "contributions" : 1
+      },
+      {
+        "login" : "mdelaney",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/665342?v=4",
+        "url" : "https://api.github.com/users/mdelaney",
+        "contributions" : 1
+      },
+      {
+        "login" : "maziyarpanahi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5762953?v=4",
+        "url" : "https://api.github.com/users/maziyarpanahi",
+        "contributions" : 1
+      },
+      {
+        "login" : "MrCitron",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4737770?v=4",
+        "url" : "https://api.github.com/users/MrCitron",
+        "contributions" : 1
+      },
+      {
+        "login" : "schonfeld",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/130491?v=4",
+        "url" : "https://api.github.com/users/schonfeld",
+        "contributions" : 1
+      },
+      {
+        "login" : "mharkins-spokeo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/31487088?v=4",
+        "url" : "https://api.github.com/users/mharkins-spokeo",
+        "contributions" : 1
+      },
+      {
+        "login" : "mjhugo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/33178?v=4",
+        "url" : "https://api.github.com/users/mjhugo",
+        "contributions" : 1
+      },
+      {
+        "login" : "nathanielwendt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6434521?v=4",
+        "url" : "https://api.github.com/users/nathanielwendt",
+        "contributions" : 1
+      },
+      {
+        "login" : "oliver006",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1222339?v=4",
+        "url" : "https://api.github.com/users/oliver006",
+        "contributions" : 1
+      },
+      {
+        "login" : "ppearcy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/307414?v=4",
+        "url" : "https://api.github.com/users/ppearcy",
+        "contributions" : 1
+      },
+      {
+        "login" : "probakowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3896475?v=4",
+        "url" : "https://api.github.com/users/probakowski",
+        "contributions" : 1
+      },
+      {
+        "login" : "rogersmarin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/813449?v=4",
+        "url" : "https://api.github.com/users/rogersmarin",
+        "contributions" : 1
+      },
+      {
+        "login" : "pugnascotia",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8696382?v=4",
+        "url" : "https://api.github.com/users/pugnascotia",
+        "contributions" : 1
+      },
+      {
+        "login" : "sanjayr88",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7819646?v=4",
+        "url" : "https://api.github.com/users/sanjayr88",
+        "contributions" : 1
+      },
+      {
+        "login" : "SHSE",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/224084?v=4",
+        "url" : "https://api.github.com/users/SHSE",
+        "contributions" : 1
+      },
+      {
+        "login" : "shawnsmith",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/295675?v=4",
+        "url" : "https://api.github.com/users/shawnsmith",
+        "contributions" : 1
+      },
+      {
+        "login" : "cheftechnical",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4693169?v=4",
+        "url" : "https://api.github.com/users/cheftechnical",
+        "contributions" : 1
+      },
+      {
+        "login" : "sreev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/441385?v=4",
+        "url" : "https://api.github.com/users/sreev",
+        "contributions" : 1
+      },
+      {
+        "login" : "tomcallahan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15988488?v=4",
+        "url" : "https://api.github.com/users/tomcallahan",
+        "contributions" : 1
+      },
+      {
+        "login" : "valery-shinkevich",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1697801?v=4",
+        "url" : "https://api.github.com/users/valery-shinkevich",
+        "contributions" : 1
+      },
+      {
+        "login" : "williamrandolph",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3253644?v=4",
+        "url" : "https://api.github.com/users/williamrandolph",
+        "contributions" : 1
+      },
+      {
+        "login" : "polyfractal",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1224228?v=4",
+        "url" : "https://api.github.com/users/polyfractal",
+        "contributions" : 1
+      },
+      {
+        "login" : "astefan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/893749?v=4",
+        "url" : "https://api.github.com/users/astefan",
+        "contributions" : 1
+      },
+      {
+        "login" : "charsyam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/439301?v=4",
+        "url" : "https://api.github.com/users/charsyam",
+        "contributions" : 1
+      },
+      {
+        "login" : "dmarkhas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16191105?v=4",
+        "url" : "https://api.github.com/users/dmarkhas",
+        "contributions" : 1
+      },
+      {
+        "login" : "falmp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/94873?v=4",
+        "url" : "https://api.github.com/users/falmp",
+        "contributions" : 1
+      },
+      {
+        "login" : "girirajsharma",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3286152?v=4",
+        "url" : "https://api.github.com/users/girirajsharma",
+        "contributions" : 1
+      },
+      {
+        "login" : "Gschiavon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11851009?v=4",
+        "url" : "https://api.github.com/users/Gschiavon",
+        "contributions" : 1
+      },
+      {
+        "login" : "hanbj",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7066180?v=4",
+        "url" : "https://api.github.com/users/hanbj",
+        "contributions" : 1
+      },
+      {
+        "login" : "HyukjinKwon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6477701?v=4",
+        "url" : "https://api.github.com/users/HyukjinKwon",
+        "contributions" : 1
+      },
+      {
+        "login" : "397090770",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5170878?v=4",
+        "url" : "https://api.github.com/users/397090770",
+        "contributions" : 1
+      },
+      {
+        "login" : "mazhechao",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3616997?v=4",
+        "url" : "https://api.github.com/users/mazhechao",
+        "contributions" : 1
+      },
+      {
+        "login" : "mccraigmccraig",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/29339?v=4",
+        "url" : "https://api.github.com/users/mccraigmccraig",
+        "contributions" : 1
+      },
+      {
+        "login" : "nicolasguyomar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6311544?v=4",
+        "url" : "https://api.github.com/users/nicolasguyomar",
+        "contributions" : 1
+      },
+      {
+        "login" : "nurazem",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2227794?v=4",
+        "url" : "https://api.github.com/users/nurazem",
+        "contributions" : 1
+      },
+      {
+        "login" : "rootnix",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/20636365?v=4",
+        "url" : "https://api.github.com/users/rootnix",
+        "contributions" : 1
+      },
+      {
+        "login" : "shimamoto",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1875052?v=4",
+        "url" : "https://api.github.com/users/shimamoto",
+        "contributions" : 1
+      },
+      {
+        "login" : "thefourtheye",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/696611?v=4",
+        "url" : "https://api.github.com/users/thefourtheye",
+        "contributions" : 1
+      },
+      {
+        "login" : "vincentarnaud90",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/37067128?v=4",
+        "url" : "https://api.github.com/users/vincentarnaud90",
+        "contributions" : 1
+      },
+      {
+        "login" : "wankunde",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3626747?v=4",
+        "url" : "https://api.github.com/users/wankunde",
+        "contributions" : 1
+      },
+      {
+        "login" : "wfowlks",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7023176?v=4",
+        "url" : "https://api.github.com/users/wfowlks",
+        "contributions" : 1
+      },
+      {
+        "login" : "withccm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17292878?v=4",
+        "url" : "https://api.github.com/users/withccm",
+        "contributions" : 1
+      },
+      {
+        "login" : "wmellouli",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2271328?v=4",
+        "url" : "https://api.github.com/users/wmellouli",
+        "contributions" : 1
+      },
+      {
+        "login" : "yangfeiran",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16400009?v=4",
+        "url" : "https://api.github.com/users/yangfeiran",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 2083,
+    "topics" : [
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 1879,
+        "title" : "NoClassDefFoundError: org/apache/spark/Partition",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1879"
+      },
+      {
+        "number" : 1877,
+        "title" : "ES Hadoop Jar - Potential log4j vulnerability ",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1877"
+      },
+      {
+        "number" : 1843,
+        "title" : "Documentation claims hadoop 2 is required, but we support hadoop 3",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1843"
+      },
+      {
+        "number" : 1813,
+        "title" : "Support for all Elasticsearch field types",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1813"
+      },
+      {
+        "number" : 1812,
+        "title" : "Make es-hadoop gradle 8 compatible",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1812"
+      },
+      {
+        "number" : 1801,
+        "title" : "Support Spark's Datasource V2 API",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1801"
+      },
+      {
+        "number" : 1772,
+        "title" : "Feature request - configurable retries for client timeouts to stabilise loading via a load balancer",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1772"
+      },
+      {
+        "number" : 1734,
+        "title" : "ES-Hadoop does not correctly read from frozen indices",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1734"
+      },
+      {
+        "number" : 1652,
+        "title" : "Cannot Read (show) pyspark DataFrame from es index",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1652"
+      },
+      {
+        "number" : 1651,
+        "title" : "Add verify_certs = False possibilities ",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1651"
+      },
+      {
+        "number" : 1637,
+        "title" : "Patterned resources cause issues when used without expanding them",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1637"
+      },
+      {
+        "number" : 1634,
+        "title" : "Document KeystoreWrapper in security section",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1634"
+      },
+      {
+        "number" : 1617,
+        "title" : "[Feature] Spark 3.1.1 Support",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1617"
+      },
+      {
+        "number" : 1593,
+        "title" : "Cannot specify index name using path setting on Spark SQL 3.0 temp tables",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1593"
+      },
+      {
+        "number" : 1541,
+        "title" : "Return to using provided scope for integration dependencies",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1541"
+      },
+      {
+        "number" : 1539,
+        "title" : "Add custom mapping configuration key",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1539"
+      },
+      {
+        "number" : 1470,
+        "title" : "Invalid Docs Received counter in MapReduce jobs using EsInputFormat",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1470"
+      },
+      {
+        "number" : 1466,
+        "title" : "Update commons-httpclient to latest version",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1466"
+      },
+      {
+        "number" : 1449,
+        "title" : "[Feature Request] scripted_upsert not supported",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1449"
+      },
+      {
+        "number" : 1437,
+        "title" : "Position for 'params.expo_cnt' not found in row; typically this is caused by a mapping inconsistency",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1437"
+      },
+      {
+        "number" : 1422,
+        "title" : "Support Continuous Processing Mode in Spark Streaming",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1422"
+      },
+      {
+        "number" : 1403,
+        "title" : "Pyspark  - scala.MatchError: null - ElasticSearch Nested mapping - Migrate from ES 5.6.3 to 6.8.3",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1403"
+      },
+      {
+        "number" : 1400,
+        "title" : "[FEATURE] es.batch.write.wait - time to wait between each bulk",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1400"
+      },
+      {
+        "number" : 1386,
+        "title" : "[Structured Streaming] Exactly-once guarantee with ILM/Rollover",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1386"
+      },
+      {
+        "number" : 1380,
+        "title" : "ES Hadoop Library doesn't support fields with commas in them",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1380"
+      },
+      {
+        "number" : 1366,
+        "title" : "Re-enable QA Kerberos Tests",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1366"
+      },
+      {
+        "number" : 1362,
+        "title" : "TransportPool validation failures are not handled correctly in Spark environment",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1362"
+      },
+      {
+        "number" : 1359,
+        "title" : "Version check fails on SpringBoot applications",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1359"
+      },
+      {
+        "number" : 1357,
+        "title" : "Cannot flush non-initialized write operation",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1357"
+      },
+      {
+        "number" : 1346,
+        "title" : "[DOCS] Requirement page needs review and update on the versions supported  ",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1346"
+      },
+      {
+        "number" : 1307,
+        "title" : "ES-Hadoop and PySpark SQL Failing with IN Statement",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1307"
+      },
+      {
+        "number" : 1303,
+        "title" : "SparkSQL write operations fail when using raw JSON",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1303"
+      },
+      {
+        "number" : 1298,
+        "title" : "Sample document with multiple values on geo_point field cause wrong schema",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1298"
+      },
+      {
+        "number" : 1292,
+        "title" : "Geo fields read from SparkSQL should ensure sample data is available",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1292"
+      },
+      {
+        "number" : 1291,
+        "title" : "Support WKT formatted Geo Shapes",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1291"
+      },
+      {
+        "number" : 1290,
+        "title" : "read array of map from es I got an NPE",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1290"
+      },
+      {
+        "number" : 1286,
+        "title" : "spark, can't read from multiple index pattern",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1286"
+      },
+      {
+        "number" : 1280,
+        "title" : "Saving dataframe with array column resulted in org.elasticsearch.hadoop.serialization.EsHadoopSerializationException",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1280"
+      },
+      {
+        "number" : 1251,
+        "title" : "qa:kerberos:cascadingLoadData fails with missing file",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1251"
+      },
+      {
+        "number" : 1250,
+        "title" : "Getting a Null Pointer error when connecting to an ES cluster via an https proxy",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1250"
+      },
+      {
+        "number" : 1248,
+        "title" : "Unable to retrieve a nested  geo_shape",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1248"
+      },
+      {
+        "number" : 1227,
+        "title" : "Support Spark Structured Streaming read from ES",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1227"
+      },
+      {
+        "number" : 1223,
+        "title" : "Remove Support for SOCKS Proxy",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1223"
+      },
+      {
+        "number" : 1219,
+        "title" : "Expose Stats within Spark",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1219"
+      },
+      {
+        "number" : 1188,
+        "title" : "Invalid format error on date for index pattern during index write",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1188"
+      },
+      {
+        "number" : 1184,
+        "title" : "Improve HTTP Rest Client Hygiene",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1184"
+      },
+      {
+        "number" : 1180,
+        "title" : "Hive \"es.mapping.routing\" Error",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1180"
+      },
+      {
+        "number" : 1179,
+        "title" : "Write to multiple clusters in same Hadoop job",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1179"
+      },
+      {
+        "number" : 1171,
+        "title" : "SimpleHttpConnectionManager warning",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1171"
+      },
+      {
+        "number" : 1170,
+        "title" : "Add more information to bulk failure messages",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1170"
+      },
+      {
+        "number" : 1164,
+        "title" : "Allow resource to be specified as a metadata field per record",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1164"
+      },
+      {
+        "number" : 1130,
+        "title" : "Implement 'partition by shard' algorithm and 'best effort routing' of bulk requests",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1130"
+      },
+      {
+        "number" : 1125,
+        "title" : "Dead letter error handler to Kafka",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1125"
+      },
+      {
+        "number" : 1118,
+        "title" : "ES hadoop does not support date math",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1118"
+      },
+      {
+        "number" : 1116,
+        "title" : "Storm docs outdated/missing/broken links.",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1116"
+      },
+      {
+        "number" : 1107,
+        "title" : "Automatically sense if schema field should be array based on user schema",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1107"
+      },
+      {
+        "number" : 1105,
+        "title" : "Support IPv6 Appropriately",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1105"
+      },
+      {
+        "number" : 1069,
+        "title" : "[Bug report.]Array datatype throw datatype cast exception when query in hive(ES: 5.2.2, Hive: 1.2.1)",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1069"
+      },
+      {
+        "number" : 1061,
+        "title" : "Alias with xpack security - Action is unauthorized for user",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1061"
+      },
+      {
+        "number" : 1055,
+        "title" : "Using es.index.read.missing.as.empty returns an empty result if one out of many indices is missing",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1055"
+      },
+      {
+        "number" : 1040,
+        "title" : "SparkSQL saves Timestamp/DateType's as Longs",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1040"
+      },
+      {
+        "number" : 1024,
+        "title" : "Document How to Set Logging Levels",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/1024"
+      },
+      {
+        "number" : 956,
+        "title" : "[BUG] saveToEsWithMeta fails to insert JSON data into ES from Spark RDD",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/956"
+      },
+      {
+        "number" : 953,
+        "title" : "\"uber mode\" does not work well in elasticsearch-hadoop",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/953"
+      },
+      {
+        "number" : 952,
+        "title" : "Storm is missing runtime dependencies in Gradle",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/952"
+      },
+      {
+        "number" : 949,
+        "title" : "DateIndexFormatterTest fails \bon my timezone",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/949"
+      },
+      {
+        "number" : 932,
+        "title" : "Integrate with ES Java REST client",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/932"
+      },
+      {
+        "number" : 917,
+        "title" : "Missing values from tuple when writing to Elasticsearch",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/917"
+      },
+      {
+        "number" : 914,
+        "title" : "Update operations to automatically omit _id",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/914"
+      },
+      {
+        "number" : 913,
+        "title" : "String value for \"_id\" metadata not encapsulated correctly",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/913"
+      },
+      {
+        "number" : 911,
+        "title" : "[Pig] Params in es.update.script.params converted to string",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/911"
+      },
+      {
+        "number" : 870,
+        "title" : "Unable to filter both text and keyword fields in same dataframe",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/870"
+      },
+      {
+        "number" : 869,
+        "title" : "Unable to query ip address fields unless strict=\"true\"",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/869"
+      },
+      {
+        "number" : 865,
+        "title" : "Pushdown doesn't work with nested fields",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/865"
+      },
+      {
+        "number" : 854,
+        "title" : "Values of fields with names containing dots shown as null",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/854"
+      },
+      {
+        "number" : 853,
+        "title" : "Dots in field names exception",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/853"
+      },
+      {
+        "number" : 845,
+        "title" : "Document ids in Spark Datasets",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/845"
+      },
+      {
+        "number" : 844,
+        "title" : "Support querying indexes with _source disabled",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/844"
+      },
+      {
+        "number" : 780,
+        "title" : "Clarify the use of Spark jars",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/780"
+      },
+      {
+        "number" : 771,
+        "title" : "Storm 1.x causes race conditions in test suite",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/771"
+      },
+      {
+        "number" : 726,
+        "title" : "Access sort value in Spark ",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/726"
+      },
+      {
+        "number" : 713,
+        "title" : "Eager loading in Spark to prevent ClassNotFound in case of exceptions",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/713"
+      },
+      {
+        "number" : 626,
+        "title" : "Append dynamic custom headers for http requests",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/626"
+      },
+      {
+        "number" : 602,
+        "title" : "Multi-threaded/async http support",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/602"
+      },
+      {
+        "number" : 573,
+        "title" : "Apache Flink Support",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/573"
+      },
+      {
+        "number" : 553,
+        "title" : "More support for `upsert` needed.",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/553"
+      },
+      {
+        "number" : 515,
+        "title" : "Support dynamic operations in BulkFactory",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/515"
+      },
+      {
+        "number" : 460,
+        "title" : "support highlighting and other non _source headers",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/460"
+      },
+      {
+        "number" : 404,
+        "title" : "Add percolator capabilities",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/404"
+      },
+      {
+        "number" : 394,
+        "title" : "org.elasticsearch.hadoop.EsHadoopIllegalArgumentException: Field [_col1] needs to be a primitive; found [array<map<string,string>>]",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/394"
+      },
+      {
+        "number" : 348,
+        "title" : "Add support for document delete in streaming map reduce",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/348"
+      },
+      {
+        "number" : 326,
+        "title" : "EsSpout : option to re-run a query when we get to the end of the results",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/326"
+      },
+      {
+        "number" : 276,
+        "title" : "Enhance aggregation support",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/276"
+      },
+      {
+        "number" : 265,
+        "title" : "Improved logging for discovery & topology",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/265"
+      },
+      {
+        "number" : 216,
+        "title" : "EsStorage does not load selected fields",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/216"
+      },
+      {
+        "number" : 117,
+        "title" : "Documents containing subdocuments are not handled correctly by pig interface - bug in projection logic in PigUtils.java?",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/117"
+      },
+      {
+        "number" : 4,
+        "title" : "Support Hive query and push down predicates",
+        "url" : "https://github.com/elastic/elasticsearch-hadoop/issues/4"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : "elasticsearch-spark",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : null,
+    "beginnerIssuesLabel" : null
+  }
+}

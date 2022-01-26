@@ -1,0 +1,4070 @@
+{
+  "organization" : "zio",
+  "repository" : "zio",
+  "creationDate" : 1611188697000,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643171625441
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "https://zio.dev",
+    "description" : "ZIO — A type-safe, composable library for async and concurrent programming in Scala",
+    "logo" : "https://avatars.githubusercontent.com/u/49655448?v=4",
+    "stars" : 3193,
+    "forks" : 966,
+    "watchers" : 120,
+    "issues" : 343,
+    "creationDate" : 1526748037000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"./ZIO.png\"><img src=\"./ZIO.png\" alt=\"ZIO Logo\" style=\"max-width: 100%;\"></a></p>\n<table>\n<thead>\n<tr>\n<th>Project Stage</th>\n<th>CI</th>\n<th>Release</th>\n<th>Snapshot</th>\n<th>Issues</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><a href=\"https://github.com/zio/zio/wiki/Project-Stages\"><img src=\"https://camo.githubusercontent.com/7615e29c58f6ea869dc23e46d8ad9990d898e8c596127e10d3cab4fc0dc5da05/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50726f6a65637425323053746167652d50726f64756374696f6e25323052656164792d627269676874677265656e2e737667\" alt=\"Project stage\" data-canonical-src=\"https://img.shields.io/badge/Project%20Stage-Production%20Ready-brightgreen.svg\" style=\"max-width: 100%;\"></a></td>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/zio/zio/workflows/CI/badge.svg\"><img src=\"https://github.com/zio/zio/workflows/CI/badge.svg\" alt=\"CI\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://oss.sonatype.org/content/repositories/releases/dev/zio/zio_2.12/\" title=\"Sonatype Releases\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/e49e170a41870f29408d4c7bda3d596391a40f05a51ae51272425d4a9f9238e2/68747470733a2f2f696d672e736869656c64732e696f2f6e657875732f722f68747470732f6f73732e736f6e61747970652e6f72672f6465762e7a696f2f7a696f5f322e31322e737667\" alt=\"Release Artifacts\" title=\"Sonatype Releases\" data-canonical-src=\"https://img.shields.io/nexus/r/https/oss.sonatype.org/dev.zio/zio_2.12.svg\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://oss.sonatype.org/content/repositories/snapshots/dev/zio/zio_2.12/\" title=\"Sonatype Snapshots\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/3442b1ebb38db2e10b715975f9e386ebbb910627a51a0eaa5e789f30c5032332/68747470733a2f2f696d672e736869656c64732e696f2f6e657875732f732f68747470732f6f73732e736f6e61747970652e6f72672f6465762e7a696f2f7a696f5f322e31322e737667\" alt=\"Snapshot Artifacts\" title=\"Sonatype Snapshots\" data-canonical-src=\"https://img.shields.io/nexus/s/https/oss.sonatype.org/dev.zio/zio_2.12.svg\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://isitmaintained.com/project/zio/zio\" title=\"Average time to resolve an issue\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/69a151b2d32aa16e70702c2afbf8f5005daebb98fbdf938e81a818751009d37e/687474703a2f2f697369746d61696e7461696e65642e636f6d2f62616467652f7265736f6c7574696f6e2f7a696f2f7a696f2e737667\" alt=\"Average time to resolve an issue\" title=\"Average time to resolve an issue\" data-canonical-src=\"http://isitmaintained.com/badge/resolution/zio/zio.svg\" style=\"max-width: 100%;\"></a></td>\n</tr>\n</tbody>\n</table>\n<table>\n<thead>\n<tr>\n<th>Scaladoc</th>\n<th>Scaladex</th>\n<th>Discord</th>\n<th>Twitter</th>\n<th>Gitpod</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><a href=\"https://javadoc.io/doc/dev.zio/zio_2.12/latest/zio/index.html\" rel=\"nofollow\">Scaladoc</a></td>\n<td><a href=\"https://index.scala-lang.org/zio/zio/zio\" title=\"Scaladex\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/9703eb75089e80a0864c8fc5f164e613703156dd6675ea30cfdda89352f5b8ac/68747470733a2f2f696e6465782e7363616c612d6c616e672e6f72672f7a696f2f7a696f2f7a696f2f6c61746573742e737667\" alt=\"Badge-Scaladex-page\" title=\"Scaladex\" data-canonical-src=\"https://index.scala-lang.org/zio/zio/zio/latest.svg\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://discord.gg/2ccFBr4\" title=\"Discord\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/72ea59418d6df28c791489769e1487ae97a331beceda682d06fcf349604dd885/68747470733a2f2f696d672e736869656c64732e696f2f646973636f72642f3632393439313539373037303832373533303f6c6f676f3d646973636f7264\" alt=\"Badge-Discord\" title=\"chat on discord\" data-canonical-src=\"https://img.shields.io/discord/629491597070827530?logo=discord\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://twitter.com/zioscala\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/c60e8aee3ee464569faeb5260a8b938aa3edeb088d3ac99f7eaa996aafe4fb5a/68747470733a2f2f696d672e736869656c64732e696f2f747769747465722f666f6c6c6f772f7a696f7363616c612e7376673f7374796c653d706c6173746963266c6162656c3d666f6c6c6f77266c6f676f3d74776974746572\" alt=\"Badge-Twitter\" data-canonical-src=\"https://img.shields.io/twitter/follow/zioscala.svg?style=plastic&amp;label=follow&amp;logo=twitter\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://gitpod.io/#https://github.com/zio/zio\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/daadb4894128d1e19b72d80236f5959f1f2b47f9fe081373f3246131f0189f6c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f476974706f642d72656164792d2d746f2d2d636f64652d626c75653f6c6f676f3d676974706f64\" alt=\"Gitpod ready-to-code\" data-canonical-src=\"https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod\" style=\"max-width: 100%;\"></a></td>\n</tr>\n</tbody>\n</table>\n<h1 dir=\"auto\"><a id=\"user-content-welcome-to-zio\" class=\"anchor\" aria-hidden=\"true\" href=\"#welcome-to-zio\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Welcome to ZIO</h1>\n<p dir=\"auto\">ZIO is a zero-dependency Scala library for asynchronous and concurrent programming.</p>\n<p dir=\"auto\">Powered by highly-scalable, non-blocking fibers that never waste or leak resources, ZIO lets you build scalable, resilient, and reactive applications that meet the needs of your business.</p>\n<ul dir=\"auto\">\n<li><strong>High-performance</strong>. Build scalable applications with 100x the performance of Scala's <code>Future</code>.</li>\n<li><strong>Type-safe</strong>. Use the full power of the Scala compiler to catch bugs at compile time.</li>\n<li><strong>Concurrent</strong>. Easily build concurrent apps without deadlocks, race conditions, or complexity.</li>\n<li><strong>Asynchronous</strong>. Write sequential code that looks the same whether it's asynchronous or synchronous.</li>\n<li><strong>Resource-safe</strong>. Build apps that never leak resources (including threads!), even when they fail.</li>\n<li><strong>Testable</strong>. Inject test services into your app for fast, deterministic, and type-safe testing.</li>\n<li><strong>Resilient</strong>. Build apps that never lose errors, and which respond to failure locally and flexibly.</li>\n<li><strong>Functional</strong>. Rapidly compose solutions to complex problems from simple building blocks.</li>\n</ul>\n<p dir=\"auto\">To learn more about ZIO, see the following references:</p>\n<ul dir=\"auto\">\n<li><a href=\"https://zio.dev/\" rel=\"nofollow\">Homepage</a></li>\n<li><a href=\"./docs/about/contributing.md\">Contributor's Guide</a></li>\n<li><a href=\"LICENSE\">License</a></li>\n<li><a href=\"https://github.com/zio/zio/issues\">Issues</a></li>\n<li><a href=\"https://github.com/zio/zio/pulls\">Pull Requests</a></li>\n</ul>\n<hr>\n<h1 dir=\"auto\"><a id=\"user-content-adopters\" class=\"anchor\" aria-hidden=\"true\" href=\"#adopters\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Adopters</h1>\n<p dir=\"auto\">Following is a partial list of companies happily using ZIO in\nproduction to craft concurrent applications.</p>\n<p dir=\"auto\">Want to see your company here? <a href=\"https://github.com/zio/zio/edit/master/README.md\">Submit a PR</a>!</p>\n<ul dir=\"auto\">\n<li><a href=\"https://adgear.com/en/\" rel=\"nofollow\">AdGear / Samsung Ads</a></li>\n<li><a href=\"https://www.adidas.com/\" rel=\"nofollow\">Adidas</a></li>\n<li><a href=\"https://www.adpulse.io/\" rel=\"nofollow\">adpulse.io</a></li>\n<li><a href=\"https://www.adsquare.com/\" rel=\"nofollow\">adsquare</a></li>\n<li><a href=\"https://www.ayolab.com/\" rel=\"nofollow\">Ayolab</a></li>\n<li><a href=\"https://asana.com/\" rel=\"nofollow\">Asana</a></li>\n<li><a href=\"https://www.aurinko.io/\" rel=\"nofollow\">Aurinko</a></li>\n<li><a href=\"https://auto.ru\" rel=\"nofollow\">auto.ru</a></li>\n<li><a href=\"https://www.autoscout24.de\" rel=\"nofollow\">AutoScout24</a></li>\n<li><a href=\"https://www.avast.com\" rel=\"nofollow\">Avast</a></li>\n<li><a href=\"https://www.bofa.com\" rel=\"nofollow\">Bank of America</a></li>\n<li><a href=\"https://www.calcbank.com.br\" rel=\"nofollow\">CalcBank</a></li>\n<li><a href=\"https://www.callhandling.co.uk/\" rel=\"nofollow\">Call Handling</a></li>\n<li><a href=\"https://www.carvana.com\" rel=\"nofollow\">Carvana</a></li>\n<li><a href=\"https://www.cellular.de\" rel=\"nofollow\">Cellular</a></li>\n<li><a href=\"https://cloudfarms.com\" rel=\"nofollow\">Cloudfarms</a></li>\n<li><a href=\"https://codecomprehension.com\" rel=\"nofollow\">CodeComprehension</a></li>\n<li><a href=\"https://www.codept.de/\" rel=\"nofollow\">Codept</a></li>\n<li><a href=\"https://www.colisweb.com/en\" rel=\"nofollow\">Colisweb</a></li>\n<li><a href=\"https://www.collibra.com/\" rel=\"nofollow\">Collibra</a></li>\n<li><a href=\"https://www.compellon.com/\" rel=\"nofollow\">Compellon</a></li>\n<li><a href=\"https://www.complicatedrobot.com/\" rel=\"nofollow\">Complicated Robot</a></li>\n<li><a href=\"https://www.conduktor.io\" rel=\"nofollow\">Conduktor</a></li>\n<li><a href=\"https://www.contramap.dev\" rel=\"nofollow\">Contramap</a></li>\n<li><a href=\"https://coralogix.com\" rel=\"nofollow\">Coralogix</a></li>\n<li><a href=\"https://creditkarma.com\" rel=\"nofollow\">Credit Karma</a></li>\n<li><a href=\"https://www.currencycloud.com/\" rel=\"nofollow\">CurrencyCloud</a></li>\n<li><a href=\"https://de-solution.com/\" rel=\"nofollow\">D.E.Solution</a></li>\n<li><a href=\"https://datachef.co\" rel=\"nofollow\">DataChef</a></li>\n<li><a href=\"https://www.demandbase.com\" rel=\"nofollow\">Demandbase</a></li>\n<li><a href=\"https://demyst.com\" rel=\"nofollow\">Demyst</a></li>\n<li><a href=\"https://devsisters.com/\" rel=\"nofollow\">Devsisters</a></li>\n<li><a href=\"https://www.werkenbijdhl.nl/it\" rel=\"nofollow\">DHL Parcel The Netherlands</a></li>\n<li><a href=\"https://doomoolmori.com/\" rel=\"nofollow\">Doomoolmori</a></li>\n<li><a href=\"https://www.dowjones.com\" rel=\"nofollow\">Dow Jones</a></li>\n<li><a href=\"https://www.dpgrecruitment.nl\" rel=\"nofollow\">DPG recruitment</a></li>\n<li><a href=\"https://dream11.com\" rel=\"nofollow\">Dream11</a></li>\n<li><a href=\"https://iot.telekom.com/en\" rel=\"nofollow\">Deutsche Telekom IoT GmbH</a></li>\n<li><a href=\"https://www.ebay.com\" rel=\"nofollow\">eBay</a></li>\n<li><a href=\"https://www.eaglescience.nl\" rel=\"nofollow\">Eaglescience</a></li>\n<li><a href=\"https://www.edf.fr/\" rel=\"nofollow\">Electricité de France (EDF)</a></li>\n<li><a href=\"https://www.enelx.com\" rel=\"nofollow\">EnelX</a></li>\n<li><a href=\"https://evolution.engineering\" rel=\"nofollow\">Evolution</a></li>\n<li><a href=\"https://evo.company\" rel=\"nofollow\">Evo</a></li>\n<li><a href=\"https://flipp.com/\" rel=\"nofollow\">Flipp</a></li>\n<li><a href=\"https://www.fugo.ai\" rel=\"nofollow\">Fugo.ai</a></li>\n<li><a href=\"https://www.gleancompany.com\" rel=\"nofollow\">Glean</a></li>\n<li><a href=\"https://grandparade.co.uk\" rel=\"nofollow\">GrandParade</a></li>\n<li><a href=\"https://greyflower.media\" rel=\"nofollow\">greyflower.media GmbH</a></li>\n<li><a href=\"https://hunters.ai\" rel=\"nofollow\">Hunters.AI</a></li>\n<li><a href=\"https://www.iheart.com/\" rel=\"nofollow\">iHeartRadio</a></li>\n<li><a href=\"https://investsuite.com/\" rel=\"nofollow\">Investsuite</a></li>\n<li><a href=\"https://kaizen-solutions.net/\" rel=\"nofollow\">Kaizen Solutions</a></li>\n<li><a href=\"https://kamon.io/\" rel=\"nofollow\">Kamon APM</a></li>\n<li><a href=\"https://www.kodmagi.se\" rel=\"nofollow\">Kodmagi</a></li>\n<li><a href=\"https://kensu.io\" rel=\"nofollow\">Kensu</a></li>\n<li><a href=\"https://www.lambdaworks.io/\" rel=\"nofollow\">LambdaWorks</a></li>\n<li><a href=\"https://leadiq.com\" rel=\"nofollow\">LeadIQ</a></li>\n<li><a href=\"https://liveintent.com\" rel=\"nofollow\">LiveIntent Inc.</a></li>\n<li><a href=\"https://matechs.com\" rel=\"nofollow\">MATECHS</a></li>\n<li><a href=\"https://megogo.net\" rel=\"nofollow\">Megogo</a></li>\n<li><a href=\"https://www.mylivn.com/\" rel=\"nofollow\">Mylivn</a></li>\n<li><a href=\"https://newmotion.com\" rel=\"nofollow\">NewMotion</a></li>\n<li><a href=\"https://www.nexxchange.com\" rel=\"nofollow\">Nexxchange</a></li>\n<li><a href=\"https://www.nslookup.io\" rel=\"nofollow\">NsLookup</a></li>\n<li><a href=\"https://ocadotechnology.com\" rel=\"nofollow\">Ocado Technology</a></li>\n<li><a href=\"https://olyro.de\" rel=\"nofollow\">Olyro GmbH</a></li>\n<li><a href=\"https://optrak.com\" rel=\"nofollow\">Optrak</a></li>\n<li><a href=\"https://www.performance-immo.com/\" rel=\"nofollow\">Performance Immo</a></li>\n<li><a href=\"https://www.playtika.com\" rel=\"nofollow\">Playtika</a></li>\n<li><a href=\"https://ppcsamurai.com/\" rel=\"nofollow\">PPC Samurai</a></li>\n<li><a href=\"https://www.werkenbijrandstad.nl\" rel=\"nofollow\">Randstad Groep Nederland</a></li>\n<li><a href=\"https://pimsolutions.ru/\" rel=\"nofollow\">PIM Solutions</a></li>\n<li><a href=\"http://rewe-digital.com/\" rel=\"nofollow\">REWE Digital</a></li>\n<li><a href=\"https://riskident.com/\" rel=\"nofollow\">Risk Ident</a></li>\n<li><a href=\"https://rocker.com/\" rel=\"nofollow\">Rocker</a></li>\n<li><a href=\"https://www.rudder.io/\" rel=\"nofollow\">Rudder</a></li>\n<li><a href=\"https://sanjagh.pro/\" rel=\"nofollow\">Sanjagh</a></li>\n<li><a href=\"https://scalac.io/\" rel=\"nofollow\">Scalac</a></li>\n<li><a href=\"https://www.securityscorecard.io/\" rel=\"nofollow\">SecurityScorecard</a></li>\n<li><a href=\"https://www.sentinelone.com/\" rel=\"nofollow\">SentinelOne</a></li>\n<li><a href=\"https://www.signicat.com/\" rel=\"nofollow\">Signicat</a></li>\n<li><a href=\"https://softwaremill.com/\" rel=\"nofollow\">SoftwareMill</a></li>\n<li><a href=\"https://www.streamweaver.com/\" rel=\"nofollow\">StreamWeaver</a></li>\n<li><a href=\"https://stuart.com/\" rel=\"nofollow\">Stuart</a></li>\n<li><a href=\"https://teads.com\" rel=\"nofollow\">Teads</a></li>\n<li><a href=\"https://tomtom.com\" rel=\"nofollow\">TomTom</a></li>\n<li><a href=\"https://tinkoff.ru\" rel=\"nofollow\">Tinkoff</a></li>\n<li><a href=\"https://tranzzo.com\" rel=\"nofollow\">Tranzzo</a></li>\n<li><a href=\"https://tweddle.com\" rel=\"nofollow\">Tweddle Group</a></li>\n<li><a href=\"https://unit.co\" rel=\"nofollow\">Unit</a></li>\n<li><a href=\"https://univalence.io\" rel=\"nofollow\">Univalence</a></li>\n<li><a href=\"https://www.vakantiediscounter.nl\" rel=\"nofollow\">Vakantiediscounter</a></li>\n<li><a href=\"https://www.verbund.com\" rel=\"nofollow\">Verbund AG</a></li>\n<li><a href=\"https://www.wehkamp.nl\" rel=\"nofollow\">Wehkamp</a></li>\n<li><a href=\"https://www.wolt.com/\" rel=\"nofollow\">Wolt</a></li>\n<li><a href=\"https://o.yandex.ru\" rel=\"nofollow\">Yandex.Classifieds</a></li>\n<li><a href=\"https://audela.ca\" rel=\"nofollow\">Audela</a></li>\n<li><a href=\"https://valamis.com\" rel=\"nofollow\">Valamis Group</a></li>\n<li><a href=\"https://virtuslab.com/\" rel=\"nofollow\">VirtusLab</a></li>\n<li><a href=\"https://getvish.com\" rel=\"nofollow\">Vish</a></li>\n<li><a href=\"https://vivid.money\" rel=\"nofollow\">Vivid Money</a></li>\n<li><a href=\"https://zalando.com/\" rel=\"nofollow\">Zalando</a></li>\n<li><a href=\"https://zooz.com/\" rel=\"nofollow\">Zooz</a></li>\n</ul>\n<h1 dir=\"auto\"><a id=\"user-content-sponsors\" class=\"anchor\" aria-hidden=\"true\" href=\"#sponsors\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Sponsors</h1>\n<p dir=\"auto\"><a href=\"https://ziverge.com\" title=\"Ziverge\" rel=\"nofollow\"><img src=\"./website/static/img/ziverge.png\" alt=\"Ziverge\" title=\"Ziverge\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\"><a href=\"https://ziverge.com\" title=\"Ziverge\" rel=\"nofollow\">Ziverge</a> is a leading contributor to ZIO.</p>\n<p dir=\"auto\"><a href=\"https://scalac.io\" title=\"Scalac\" rel=\"nofollow\"><img src=\"./website/static/img/scalac.svg\" alt=\"Scalac\" title=\"Scalac\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\"><a href=\"https://scalac.io\" title=\"Scalac\" rel=\"nofollow\">Scalac</a> sponsors ZIO Hackathons and contributes work to multiple projects in ZIO ecosystem.</p>\n<p dir=\"auto\"><a href=\"https://7mind.io\" title=\"Septimal Mind\" rel=\"nofollow\"><img src=\"./website/static/img/septimal_mind.svg\" alt=\"Septimal Mind\" title=\"Septimal Mind\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\"><a href=\"https://7mind.io\" title=\"Septimal Mind\" rel=\"nofollow\">Septimal Mind</a> sponsors work on ZIO Tracing and continuous maintenance.</p>\n<p dir=\"auto\"><a href=\"https://softwaremill.com\" title=\"SoftwareMill\" rel=\"nofollow\"><img src=\"./website/static/img/softwaremill.svg\" alt=\"SoftwareMill\" title=\"SoftwareMill\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\"><a href=\"https://softwaremill.com\" title=\"SoftwareMill\" rel=\"nofollow\">SoftwareMill</a> generously provides ZIO with paid-for CircleCI build infrastructure.</p>\n<p dir=\"auto\"><a href=\"https://www.yourkit.com\" title=\"YourKit\" rel=\"nofollow\"><img src=\"./website/static/img/yourkit.png\" alt=\"YourKit\" title=\"YourKit\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\"><a href=\"https://www.yourkit.com\" title=\"YourKit\" rel=\"nofollow\">YourKit</a> generously provides use of their monitoring and profiling tools to maximize the performance of ZIO applications.</p>\n<hr>\n<h1 dir=\"auto\"><a id=\"user-content-learn-more-on-the-zio-homepage\" class=\"anchor\" aria-hidden=\"true\" href=\"#learn-more-on-the-zio-homepage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a href=\"https://zio.dev/\" rel=\"nofollow\">Learn More on the ZIO Homepage</a></h1>\n<hr>\n<h2 dir=\"auto\"><a id=\"user-content-code-of-conduct\" class=\"anchor\" aria-hidden=\"true\" href=\"#code-of-conduct\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Code of Conduct</h2>\n<p dir=\"auto\">See the <a href=\"./docs/about/code_of_conduct.md\">Code of Conduct</a></p>\n<hr>\n<h2 dir=\"auto\"><a id=\"user-content-support\" class=\"anchor\" aria-hidden=\"true\" href=\"#support\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Support</h2>\n<p dir=\"auto\">Come chat with us on <a href=\"https://discord.gg/2ccFBr4\" title=\"Discord\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/72ea59418d6df28c791489769e1487ae97a331beceda682d06fcf349604dd885/68747470733a2f2f696d672e736869656c64732e696f2f646973636f72642f3632393439313539373037303832373533303f6c6f676f3d646973636f7264\" alt=\"Badge-Discord\" title=\"chat on discord\" data-canonical-src=\"https://img.shields.io/discord/629491597070827530?logo=discord\" style=\"max-width: 100%;\"></a>.</p>\n<hr>\n<h3 dir=\"auto\"><a id=\"user-content-legal\" class=\"anchor\" aria-hidden=\"true\" href=\"#legal\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Legal</h3>\n<p dir=\"auto\">Copyright 2017 - 2020 John A. De Goes and the ZIO Contributors. All rights reserved.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "jdegoes",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/156745?v=4",
+        "url" : "https://api.github.com/users/jdegoes",
+        "contributions" : 705
+      },
+      {
+        "login" : "adamgfraser",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/20825463?v=4",
+        "url" : "https://api.github.com/users/adamgfraser",
+        "contributions" : 651
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 577
+      },
+      {
+        "login" : "ghostdogpr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7413894?v=4",
+        "url" : "https://api.github.com/users/ghostdogpr",
+        "contributions" : 193
+      },
+      {
+        "login" : "mijicd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4712120?v=4",
+        "url" : "https://api.github.com/users/mijicd",
+        "contributions" : 156
+      },
+      {
+        "login" : "wi101",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3535357?v=4",
+        "url" : "https://api.github.com/users/wi101",
+        "contributions" : 137
+      },
+      {
+        "login" : "iravid",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/283332?v=4",
+        "url" : "https://api.github.com/users/iravid",
+        "contributions" : 118
+      },
+      {
+        "login" : "neko-kai",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/450507?v=4",
+        "url" : "https://api.github.com/users/neko-kai",
+        "contributions" : 106
+      },
+      {
+        "login" : "artempyanykh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2338443?v=4",
+        "url" : "https://api.github.com/users/artempyanykh",
+        "contributions" : 84
+      },
+      {
+        "login" : "NeQuissimus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/628342?v=4",
+        "url" : "https://api.github.com/users/NeQuissimus",
+        "contributions" : 83
+      },
+      {
+        "login" : "sideeffffect",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9019485?v=4",
+        "url" : "https://api.github.com/users/sideeffffect",
+        "contributions" : 79
+      },
+      {
+        "login" : "ktonga",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1324947?v=4",
+        "url" : "https://api.github.com/users/ktonga",
+        "contributions" : 79
+      },
+      {
+        "login" : "LGLO",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2694353?v=4",
+        "url" : "https://api.github.com/users/LGLO",
+        "contributions" : 66
+      },
+      {
+        "login" : "vasilmkd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7115459?v=4",
+        "url" : "https://api.github.com/users/vasilmkd",
+        "contributions" : 52
+      },
+      {
+        "login" : "RaasAhsan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2617549?v=4",
+        "url" : "https://api.github.com/users/RaasAhsan",
+        "contributions" : 51
+      },
+      {
+        "login" : "renovate[bot]",
+        "avatarUrl" : "https://avatars.githubusercontent.com/in/2740?v=4",
+        "url" : "https://api.github.com/users/renovate%5Bbot%5D",
+        "contributions" : 45
+      },
+      {
+        "login" : "ioleo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1419884?v=4",
+        "url" : "https://api.github.com/users/ioleo",
+        "contributions" : 43
+      },
+      {
+        "login" : "Dan-M",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/859495?v=4",
+        "url" : "https://api.github.com/users/Dan-M",
+        "contributions" : 43
+      },
+      {
+        "login" : "mschuwalow",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16665913?v=4",
+        "url" : "https://api.github.com/users/mschuwalow",
+        "contributions" : 41
+      },
+      {
+        "login" : "simpadjo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5566453?v=4",
+        "url" : "https://api.github.com/users/simpadjo",
+        "contributions" : 40
+      },
+      {
+        "login" : "softinio",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3371635?v=4",
+        "url" : "https://api.github.com/users/softinio",
+        "contributions" : 39
+      },
+      {
+        "login" : "saraiva132",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9886953?v=4",
+        "url" : "https://api.github.com/users/saraiva132",
+        "contributions" : 33
+      },
+      {
+        "login" : "Vilkina",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3358827?v=4",
+        "url" : "https://api.github.com/users/Vilkina",
+        "contributions" : 32
+      },
+      {
+        "login" : "luis3m",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8796793?v=4",
+        "url" : "https://api.github.com/users/luis3m",
+        "contributions" : 30
+      },
+      {
+        "login" : "sken77",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22631338?v=4",
+        "url" : "https://api.github.com/users/sken77",
+        "contributions" : 26
+      },
+      {
+        "login" : "ashabhasa",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/961448?v=4",
+        "url" : "https://api.github.com/users/ashabhasa",
+        "contributions" : 26
+      },
+      {
+        "login" : "kitlangton",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7587245?v=4",
+        "url" : "https://api.github.com/users/kitlangton",
+        "contributions" : 24
+      },
+      {
+        "login" : "dkarlinsky",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1577551?v=4",
+        "url" : "https://api.github.com/users/dkarlinsky",
+        "contributions" : 23
+      },
+      {
+        "login" : "reibitto",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6395394?v=4",
+        "url" : "https://api.github.com/users/reibitto",
+        "contributions" : 20
+      },
+      {
+        "login" : "jczuchnowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1301520?v=4",
+        "url" : "https://api.github.com/users/jczuchnowski",
+        "contributions" : 20
+      },
+      {
+        "login" : "khajavi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/235974?v=4",
+        "url" : "https://api.github.com/users/khajavi",
+        "contributions" : 19
+      },
+      {
+        "login" : "randbw",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11326720?v=4",
+        "url" : "https://api.github.com/users/randbw",
+        "contributions" : 19
+      },
+      {
+        "login" : "edvmorango",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6004914?v=4",
+        "url" : "https://api.github.com/users/edvmorango",
+        "contributions" : 17
+      },
+      {
+        "login" : "mlangc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7326646?v=4",
+        "url" : "https://api.github.com/users/mlangc",
+        "contributions" : 16
+      },
+      {
+        "login" : "prayagupa",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/978095?v=4",
+        "url" : "https://api.github.com/users/prayagupa",
+        "contributions" : 16
+      },
+      {
+        "login" : "lbialy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8607442?v=4",
+        "url" : "https://api.github.com/users/lbialy",
+        "contributions" : 16
+      },
+      {
+        "login" : "runtologist",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2004209?v=4",
+        "url" : "https://api.github.com/users/runtologist",
+        "contributions" : 15
+      },
+      {
+        "login" : "robmwalsh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30517573?v=4",
+        "url" : "https://api.github.com/users/robmwalsh",
+        "contributions" : 15
+      },
+      {
+        "login" : "fanf",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/44649?v=4",
+        "url" : "https://api.github.com/users/fanf",
+        "contributions" : 15
+      },
+      {
+        "login" : "gvolpe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/443978?v=4",
+        "url" : "https://api.github.com/users/gvolpe",
+        "contributions" : 14
+      },
+      {
+        "login" : "hmemcpy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/601206?v=4",
+        "url" : "https://api.github.com/users/hmemcpy",
+        "contributions" : 14
+      },
+      {
+        "login" : "barambani",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/201339?v=4",
+        "url" : "https://api.github.com/users/barambani",
+        "contributions" : 14
+      },
+      {
+        "login" : "wongelz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5416184?v=4",
+        "url" : "https://api.github.com/users/wongelz",
+        "contributions" : 14
+      },
+      {
+        "login" : "fommil",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1914041?v=4",
+        "url" : "https://api.github.com/users/fommil",
+        "contributions" : 13
+      },
+      {
+        "login" : "vilu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1489367?v=4",
+        "url" : "https://api.github.com/users/vilu",
+        "contributions" : 13
+      },
+      {
+        "login" : "joroKr21",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2218841?v=4",
+        "url" : "https://api.github.com/users/joroKr21",
+        "contributions" : 12
+      },
+      {
+        "login" : "fkowal",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/512798?v=4",
+        "url" : "https://api.github.com/users/fkowal",
+        "contributions" : 12
+      },
+      {
+        "login" : "pshirshov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/295225?v=4",
+        "url" : "https://api.github.com/users/pshirshov",
+        "contributions" : 12
+      },
+      {
+        "login" : "enzief",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/29031445?v=4",
+        "url" : "https://api.github.com/users/enzief",
+        "contributions" : 11
+      },
+      {
+        "login" : "tampler",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2816743?v=4",
+        "url" : "https://api.github.com/users/tampler",
+        "contributions" : 10
+      },
+      {
+        "login" : "danielyli",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1744438?v=4",
+        "url" : "https://api.github.com/users/danielyli",
+        "contributions" : 10
+      },
+      {
+        "login" : "ahoy-jon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/83247?v=4",
+        "url" : "https://api.github.com/users/ahoy-jon",
+        "contributions" : 10
+      },
+      {
+        "login" : "leszekgruchala",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/89165?v=4",
+        "url" : "https://api.github.com/users/leszekgruchala",
+        "contributions" : 10
+      },
+      {
+        "login" : "tuleism",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6073387?v=4",
+        "url" : "https://api.github.com/users/tuleism",
+        "contributions" : 9
+      },
+      {
+        "login" : "mvv",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/226680?v=4",
+        "url" : "https://api.github.com/users/mvv",
+        "contributions" : 9
+      },
+      {
+        "login" : "evis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23415191?v=4",
+        "url" : "https://api.github.com/users/evis",
+        "contributions" : 9
+      },
+      {
+        "login" : "antonyshchenko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/443906?v=4",
+        "url" : "https://api.github.com/users/antonyshchenko",
+        "contributions" : 8
+      },
+      {
+        "login" : "olivierschultz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16899405?v=4",
+        "url" : "https://api.github.com/users/olivierschultz",
+        "contributions" : 8
+      },
+      {
+        "login" : "pk044",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/27566245?v=4",
+        "url" : "https://api.github.com/users/pk044",
+        "contributions" : 8
+      },
+      {
+        "login" : "svroonland",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2190467?v=4",
+        "url" : "https://api.github.com/users/svroonland",
+        "contributions" : 8
+      },
+      {
+        "login" : "kamilkloch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/807154?v=4",
+        "url" : "https://api.github.com/users/kamilkloch",
+        "contributions" : 8
+      },
+      {
+        "login" : "hepin1989",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/501740?v=4",
+        "url" : "https://api.github.com/users/hepin1989",
+        "contributions" : 8
+      },
+      {
+        "login" : "calvinlfer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14280155?v=4",
+        "url" : "https://api.github.com/users/calvinlfer",
+        "contributions" : 8
+      },
+      {
+        "login" : "alexknvl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/559086?v=4",
+        "url" : "https://api.github.com/users/alexknvl",
+        "contributions" : 7
+      },
+      {
+        "login" : "vigoo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2292489?v=4",
+        "url" : "https://api.github.com/users/vigoo",
+        "contributions" : 7
+      },
+      {
+        "login" : "quelgar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12032?v=4",
+        "url" : "https://api.github.com/users/quelgar",
+        "contributions" : 7
+      },
+      {
+        "login" : "leandrob13",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5148173?v=4",
+        "url" : "https://api.github.com/users/leandrob13",
+        "contributions" : 7
+      },
+      {
+        "login" : "senia-psm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1751325?v=4",
+        "url" : "https://api.github.com/users/senia-psm",
+        "contributions" : 7
+      },
+      {
+        "login" : "darl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/423802?v=4",
+        "url" : "https://api.github.com/users/darl",
+        "contributions" : 7
+      },
+      {
+        "login" : "kazchimo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/31263328?v=4",
+        "url" : "https://api.github.com/users/kazchimo",
+        "contributions" : 7
+      },
+      {
+        "login" : "fsvehla",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1084?v=4",
+        "url" : "https://api.github.com/users/fsvehla",
+        "contributions" : 7
+      },
+      {
+        "login" : "VladKopanev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7037262?v=4",
+        "url" : "https://api.github.com/users/VladKopanev",
+        "contributions" : 7
+      },
+      {
+        "login" : "lemastero",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10901543?v=4",
+        "url" : "https://api.github.com/users/lemastero",
+        "contributions" : 7
+      },
+      {
+        "login" : "drmarjanovic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6232313?v=4",
+        "url" : "https://api.github.com/users/drmarjanovic",
+        "contributions" : 6
+      },
+      {
+        "login" : "yoohaemin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22650536?v=4",
+        "url" : "https://api.github.com/users/yoohaemin",
+        "contributions" : 6
+      },
+      {
+        "login" : "mikearnaldi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24249610?v=4",
+        "url" : "https://api.github.com/users/mikearnaldi",
+        "contributions" : 6
+      },
+      {
+        "login" : "TimPigden",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1270695?v=4",
+        "url" : "https://api.github.com/users/TimPigden",
+        "contributions" : 6
+      },
+      {
+        "login" : "felher",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/622354?v=4",
+        "url" : "https://api.github.com/users/felher",
+        "contributions" : 6
+      },
+      {
+        "login" : "regiskuckaertz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/629976?v=4",
+        "url" : "https://api.github.com/users/regiskuckaertz",
+        "contributions" : 6
+      },
+      {
+        "login" : "alexvanolst",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7325958?v=4",
+        "url" : "https://api.github.com/users/alexvanolst",
+        "contributions" : 5
+      },
+      {
+        "login" : "atooni",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/417282?v=4",
+        "url" : "https://api.github.com/users/atooni",
+        "contributions" : 5
+      },
+      {
+        "login" : "arnoldlacko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9975114?v=4",
+        "url" : "https://api.github.com/users/arnoldlacko",
+        "contributions" : 5
+      },
+      {
+        "login" : "fabianpage",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8473?v=4",
+        "url" : "https://api.github.com/users/fabianpage",
+        "contributions" : 5
+      },
+      {
+        "login" : "horned-sphere",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30577851?v=4",
+        "url" : "https://api.github.com/users/horned-sphere",
+        "contributions" : 5
+      },
+      {
+        "login" : "smarter",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/63430?v=4",
+        "url" : "https://api.github.com/users/smarter",
+        "contributions" : 5
+      },
+      {
+        "login" : "mielientiev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5612025?v=4",
+        "url" : "https://api.github.com/users/mielientiev",
+        "contributions" : 5
+      },
+      {
+        "login" : "jbgi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/221929?v=4",
+        "url" : "https://api.github.com/users/jbgi",
+        "contributions" : 5
+      },
+      {
+        "login" : "jcdelmas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/511278?v=4",
+        "url" : "https://api.github.com/users/jcdelmas",
+        "contributions" : 5
+      },
+      {
+        "login" : "LukaszByczynski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/139674?v=4",
+        "url" : "https://api.github.com/users/LukaszByczynski",
+        "contributions" : 5
+      },
+      {
+        "login" : "mmenestret",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11926041?v=4",
+        "url" : "https://api.github.com/users/mmenestret",
+        "contributions" : 5
+      },
+      {
+        "login" : "mtsokol",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8431159?v=4",
+        "url" : "https://api.github.com/users/mtsokol",
+        "contributions" : 5
+      },
+      {
+        "login" : "phderome",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11035032?v=4",
+        "url" : "https://api.github.com/users/phderome",
+        "contributions" : 5
+      },
+      {
+        "login" : "t5kaji",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9458203?v=4",
+        "url" : "https://api.github.com/users/t5kaji",
+        "contributions" : 5
+      },
+      {
+        "login" : "dependabot[bot]",
+        "avatarUrl" : "https://avatars.githubusercontent.com/in/29110?v=4",
+        "url" : "https://api.github.com/users/dependabot%5Bbot%5D",
+        "contributions" : 5
+      },
+      {
+        "login" : "afsalthaj",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7448613?v=4",
+        "url" : "https://api.github.com/users/afsalthaj",
+        "contributions" : 5
+      },
+      {
+        "login" : "asakaev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3930435?v=4",
+        "url" : "https://api.github.com/users/asakaev",
+        "contributions" : 5
+      },
+      {
+        "login" : "mgibowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/617315?v=4",
+        "url" : "https://api.github.com/users/mgibowski",
+        "contributions" : 5
+      },
+      {
+        "login" : "ajaychandran",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4387263?v=4",
+        "url" : "https://api.github.com/users/ajaychandran",
+        "contributions" : 4
+      },
+      {
+        "login" : "andreamarcolin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17480403?v=4",
+        "url" : "https://api.github.com/users/andreamarcolin",
+        "contributions" : 4
+      },
+      {
+        "login" : "contrun",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/32609395?v=4",
+        "url" : "https://api.github.com/users/contrun",
+        "contributions" : 4
+      },
+      {
+        "login" : "denisgarci",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5141673?v=4",
+        "url" : "https://api.github.com/users/denisgarci",
+        "contributions" : 4
+      },
+      {
+        "login" : "DennisVDB",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2470993?v=4",
+        "url" : "https://api.github.com/users/DennisVDB",
+        "contributions" : 4
+      },
+      {
+        "login" : "didierd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1076323?v=4",
+        "url" : "https://api.github.com/users/didierd",
+        "contributions" : 4
+      },
+      {
+        "login" : "er1c",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/64685?v=4",
+        "url" : "https://api.github.com/users/er1c",
+        "contributions" : 4
+      },
+      {
+        "login" : "jadireddi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16647482?v=4",
+        "url" : "https://api.github.com/users/jadireddi",
+        "contributions" : 4
+      },
+      {
+        "login" : "jaliss",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/997114?v=4",
+        "url" : "https://api.github.com/users/jaliss",
+        "contributions" : 4
+      },
+      {
+        "login" : "laurynaslubys",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/20045155?v=4",
+        "url" : "https://api.github.com/users/laurynaslubys",
+        "contributions" : 4
+      },
+      {
+        "login" : "LeeTibbert",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12221035?v=4",
+        "url" : "https://api.github.com/users/LeeTibbert",
+        "contributions" : 4
+      },
+      {
+        "login" : "octavz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23629302?v=4",
+        "url" : "https://api.github.com/users/octavz",
+        "contributions" : 4
+      },
+      {
+        "login" : "psisoyev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1637013?v=4",
+        "url" : "https://api.github.com/users/psisoyev",
+        "contributions" : 4
+      },
+      {
+        "login" : "pierangeloc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4460594?v=4",
+        "url" : "https://api.github.com/users/pierangeloc",
+        "contributions" : 4
+      },
+      {
+        "login" : "TapanVaishnav",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/50604343?v=4",
+        "url" : "https://api.github.com/users/TapanVaishnav",
+        "contributions" : 4
+      },
+      {
+        "login" : "TobiasPfeifer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/483514?v=4",
+        "url" : "https://api.github.com/users/TobiasPfeifer",
+        "contributions" : 4
+      },
+      {
+        "login" : "zezutom",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1328972?v=4",
+        "url" : "https://api.github.com/users/zezutom",
+        "contributions" : 4
+      },
+      {
+        "login" : "tusharmath",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/194482?v=4",
+        "url" : "https://api.github.com/users/tusharmath",
+        "contributions" : 4
+      },
+      {
+        "login" : "vvlevykin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4637632?v=4",
+        "url" : "https://api.github.com/users/vvlevykin",
+        "contributions" : 4
+      },
+      {
+        "login" : "YuvalItzchakov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3448320?v=4",
+        "url" : "https://api.github.com/users/YuvalItzchakov",
+        "contributions" : 4
+      },
+      {
+        "login" : "lloydmeta",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/914805?v=4",
+        "url" : "https://api.github.com/users/lloydmeta",
+        "contributions" : 4
+      },
+      {
+        "login" : "nicodelpiano",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5914822?v=4",
+        "url" : "https://api.github.com/users/nicodelpiano",
+        "contributions" : 4
+      },
+      {
+        "login" : "aartigao",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6449814?v=4",
+        "url" : "https://api.github.com/users/aartigao",
+        "contributions" : 4
+      },
+      {
+        "login" : "jupposessho",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/242156?v=4",
+        "url" : "https://api.github.com/users/jupposessho",
+        "contributions" : 4
+      },
+      {
+        "login" : "paulpdaniels",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2528918?v=4",
+        "url" : "https://api.github.com/users/paulpdaniels",
+        "contributions" : 4
+      },
+      {
+        "login" : "remiguittaut",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4837297?v=4",
+        "url" : "https://api.github.com/users/remiguittaut",
+        "contributions" : 4
+      },
+      {
+        "login" : "lvitaly",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/792792?v=4",
+        "url" : "https://api.github.com/users/lvitaly",
+        "contributions" : 4
+      },
+      {
+        "login" : "serragnoli",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4601281?v=4",
+        "url" : "https://api.github.com/users/serragnoli",
+        "contributions" : 4
+      },
+      {
+        "login" : "Jentsch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/818446?v=4",
+        "url" : "https://api.github.com/users/Jentsch",
+        "contributions" : 4
+      },
+      {
+        "login" : "AL333Z",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/953519?v=4",
+        "url" : "https://api.github.com/users/AL333Z",
+        "contributions" : 3
+      },
+      {
+        "login" : "amitrai48",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7351397?v=4",
+        "url" : "https://api.github.com/users/amitrai48",
+        "contributions" : 3
+      },
+      {
+        "login" : "kapke",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2965638?v=4",
+        "url" : "https://api.github.com/users/kapke",
+        "contributions" : 3
+      },
+      {
+        "login" : "heaven-born",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2235833?v=4",
+        "url" : "https://api.github.com/users/heaven-born",
+        "contributions" : 3
+      },
+      {
+        "login" : "Cereopsis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1003521?v=4",
+        "url" : "https://api.github.com/users/Cereopsis",
+        "contributions" : 3
+      },
+      {
+        "login" : "FunkyFunctor-Chris",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17892431?v=4",
+        "url" : "https://api.github.com/users/FunkyFunctor-Chris",
+        "contributions" : 3
+      },
+      {
+        "login" : "virusdave",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6148271?v=4",
+        "url" : "https://api.github.com/users/virusdave",
+        "contributions" : 3
+      },
+      {
+        "login" : "blast-hardcheese",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/278900?v=4",
+        "url" : "https://api.github.com/users/blast-hardcheese",
+        "contributions" : 3
+      },
+      {
+        "login" : "fokot",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1210852?v=4",
+        "url" : "https://api.github.com/users/fokot",
+        "contributions" : 3
+      },
+      {
+        "login" : "JD557",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1187242?v=4",
+        "url" : "https://api.github.com/users/JD557",
+        "contributions" : 3
+      },
+      {
+        "login" : "guizmaii",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1193670?v=4",
+        "url" : "https://api.github.com/users/guizmaii",
+        "contributions" : 3
+      },
+      {
+        "login" : "smart-ass",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30794376?v=4",
+        "url" : "https://api.github.com/users/smart-ass",
+        "contributions" : 3
+      },
+      {
+        "login" : "loicdescotte",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/638150?v=4",
+        "url" : "https://api.github.com/users/loicdescotte",
+        "contributions" : 3
+      },
+      {
+        "login" : "KadekM",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4306279?v=4",
+        "url" : "https://api.github.com/users/KadekM",
+        "contributions" : 3
+      },
+      {
+        "login" : "nightscape",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/35170?v=4",
+        "url" : "https://api.github.com/users/nightscape",
+        "contributions" : 3
+      },
+      {
+        "login" : "Twizty",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5902524?v=4",
+        "url" : "https://api.github.com/users/Twizty",
+        "contributions" : 3
+      },
+      {
+        "login" : "poslegm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4687050?v=4",
+        "url" : "https://api.github.com/users/poslegm",
+        "contributions" : 3
+      },
+      {
+        "login" : "thesamet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/307373?v=4",
+        "url" : "https://api.github.com/users/thesamet",
+        "contributions" : 3
+      },
+      {
+        "login" : "myazinn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/28982711?v=4",
+        "url" : "https://api.github.com/users/myazinn",
+        "contributions" : 3
+      },
+      {
+        "login" : "ollyw",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/632442?v=4",
+        "url" : "https://api.github.com/users/ollyw",
+        "contributions" : 3
+      },
+      {
+        "login" : "pme123",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3437927?v=4",
+        "url" : "https://api.github.com/users/pme123",
+        "contributions" : 3
+      },
+      {
+        "login" : "paulp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9135?v=4",
+        "url" : "https://api.github.com/users/paulp",
+        "contributions" : 3
+      },
+      {
+        "login" : "rleibman",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3268890?v=4",
+        "url" : "https://api.github.com/users/rleibman",
+        "contributions" : 3
+      },
+      {
+        "login" : "shankarshastri",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10391044?v=4",
+        "url" : "https://api.github.com/users/shankarshastri",
+        "contributions" : 3
+      },
+      {
+        "login" : "Stefanqn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/139038?v=4",
+        "url" : "https://api.github.com/users/Stefanqn",
+        "contributions" : 3
+      },
+      {
+        "login" : "taeguk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9107889?v=4",
+        "url" : "https://api.github.com/users/taeguk",
+        "contributions" : 3
+      },
+      {
+        "login" : "dorsev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11272438?v=4",
+        "url" : "https://api.github.com/users/dorsev",
+        "contributions" : 3
+      },
+      {
+        "login" : "peterlopen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19715361?v=4",
+        "url" : "https://api.github.com/users/peterlopen",
+        "contributions" : 3
+      },
+      {
+        "login" : "sidnt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11618157?v=4",
+        "url" : "https://api.github.com/users/sidnt",
+        "contributions" : 3
+      },
+      {
+        "login" : "dsebban",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/54588?v=4",
+        "url" : "https://api.github.com/users/dsebban",
+        "contributions" : 3
+      },
+      {
+        "login" : "jypma",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/483519?v=4",
+        "url" : "https://api.github.com/users/jypma",
+        "contributions" : 3
+      },
+      {
+        "login" : "narma",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/91045?v=4",
+        "url" : "https://api.github.com/users/narma",
+        "contributions" : 3
+      },
+      {
+        "login" : "timaliberdov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8186312?v=4",
+        "url" : "https://api.github.com/users/timaliberdov",
+        "contributions" : 3
+      },
+      {
+        "login" : "ubourdon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/853579?v=4",
+        "url" : "https://api.github.com/users/ubourdon",
+        "contributions" : 2
+      },
+      {
+        "login" : "adrianfilip",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3481889?v=4",
+        "url" : "https://api.github.com/users/adrianfilip",
+        "contributions" : 2
+      },
+      {
+        "login" : "Adriani-Furtado",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/58944585?v=4",
+        "url" : "https://api.github.com/users/Adriani-Furtado",
+        "contributions" : 2
+      },
+      {
+        "login" : "atrianac",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4065427?v=4",
+        "url" : "https://api.github.com/users/atrianac",
+        "contributions" : 2
+      },
+      {
+        "login" : "aleksandarskrbic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17418833?v=4",
+        "url" : "https://api.github.com/users/aleksandarskrbic",
+        "contributions" : 2
+      },
+      {
+        "login" : "XLPI",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8834162?v=4",
+        "url" : "https://api.github.com/users/XLPI",
+        "contributions" : 2
+      },
+      {
+        "login" : "gurghet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/420735?v=4",
+        "url" : "https://api.github.com/users/gurghet",
+        "contributions" : 2
+      },
+      {
+        "login" : "antivanov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/709180?v=4",
+        "url" : "https://api.github.com/users/antivanov",
+        "contributions" : 2
+      },
+      {
+        "login" : "saeltz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3619633?v=4",
+        "url" : "https://api.github.com/users/saeltz",
+        "contributions" : 2
+      },
+      {
+        "login" : "dzajkowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1588718?v=4",
+        "url" : "https://api.github.com/users/dzajkowski",
+        "contributions" : 2
+      },
+      {
+        "login" : "Eduardo-M-Cavalcanti",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1670984?v=4",
+        "url" : "https://api.github.com/users/Eduardo-M-Cavalcanti",
+        "contributions" : 2
+      },
+      {
+        "login" : "dohzya",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9595?v=4",
+        "url" : "https://api.github.com/users/dohzya",
+        "contributions" : 2
+      },
+      {
+        "login" : "fsarradin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/395048?v=4",
+        "url" : "https://api.github.com/users/fsarradin",
+        "contributions" : 2
+      },
+      {
+        "login" : "freskog",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/453251?v=4",
+        "url" : "https://api.github.com/users/freskog",
+        "contributions" : 2
+      },
+      {
+        "login" : "gerdreiss",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10079475?v=4",
+        "url" : "https://api.github.com/users/gerdreiss",
+        "contributions" : 2
+      },
+      {
+        "login" : "GodPlaysChess",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3725273?v=4",
+        "url" : "https://api.github.com/users/GodPlaysChess",
+        "contributions" : 2
+      },
+      {
+        "login" : "jakubjanecek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/901231?v=4",
+        "url" : "https://api.github.com/users/jakubjanecek",
+        "contributions" : 2
+      },
+      {
+        "login" : "kubukoz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/894884?v=4",
+        "url" : "https://api.github.com/users/kubukoz",
+        "contributions" : 2
+      },
+      {
+        "login" : "whysoserious",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1097302?v=4",
+        "url" : "https://api.github.com/users/whysoserious",
+        "contributions" : 2
+      },
+      {
+        "login" : "guersam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/969120?v=4",
+        "url" : "https://api.github.com/users/guersam",
+        "contributions" : 2
+      },
+      {
+        "login" : "jorge-vasquez-2301",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11579382?v=4",
+        "url" : "https://api.github.com/users/jorge-vasquez-2301",
+        "contributions" : 2
+      },
+      {
+        "login" : "justinhj",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/753059?v=4",
+        "url" : "https://api.github.com/users/justinhj",
+        "contributions" : 2
+      },
+      {
+        "login" : "kluen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13871367?v=4",
+        "url" : "https://api.github.com/users/kluen",
+        "contributions" : 2
+      },
+      {
+        "login" : "lolgab",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5793054?v=4",
+        "url" : "https://api.github.com/users/lolgab",
+        "contributions" : 2
+      },
+      {
+        "login" : "majakryzan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/25769111?v=4",
+        "url" : "https://api.github.com/users/majakryzan",
+        "contributions" : 2
+      },
+      {
+        "login" : "majidhosseini",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2950463?v=4",
+        "url" : "https://api.github.com/users/majidhosseini",
+        "contributions" : 2
+      },
+      {
+        "login" : "marekklis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/827314?v=4",
+        "url" : "https://api.github.com/users/marekklis",
+        "contributions" : 2
+      },
+      {
+        "login" : "cloudmark",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1745830?v=4",
+        "url" : "https://api.github.com/users/cloudmark",
+        "contributions" : 2
+      },
+      {
+        "login" : "Fristi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/141265?v=4",
+        "url" : "https://api.github.com/users/Fristi",
+        "contributions" : 2
+      },
+      {
+        "login" : "sirthias",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/135347?v=4",
+        "url" : "https://api.github.com/users/sirthias",
+        "contributions" : 2
+      },
+      {
+        "login" : "meras",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2388417?v=4",
+        "url" : "https://api.github.com/users/meras",
+        "contributions" : 2
+      },
+      {
+        "login" : "nadenf",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/657041?v=4",
+        "url" : "https://api.github.com/users/nadenf",
+        "contributions" : 2
+      },
+      {
+        "login" : "politrons",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2054461?v=4",
+        "url" : "https://api.github.com/users/politrons",
+        "contributions" : 2
+      },
+      {
+        "login" : "PawelGizka",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13944957?v=4",
+        "url" : "https://api.github.com/users/PawelGizka",
+        "contributions" : 2
+      },
+      {
+        "login" : "Philippus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1923596?v=4",
+        "url" : "https://api.github.com/users/Philippus",
+        "contributions" : 2
+      },
+      {
+        "login" : "raffael-dzikowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24585014?v=4",
+        "url" : "https://api.github.com/users/raffael-dzikowski",
+        "contributions" : 2
+      },
+      {
+        "login" : "searler",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/220239?v=4",
+        "url" : "https://api.github.com/users/searler",
+        "contributions" : 2
+      },
+      {
+        "login" : "ksarath",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1654916?v=4",
+        "url" : "https://api.github.com/users/ksarath",
+        "contributions" : 2
+      },
+      {
+        "login" : "swachter",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/540079?v=4",
+        "url" : "https://api.github.com/users/swachter",
+        "contributions" : 2
+      },
+      {
+        "login" : "erdeszt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1301484?v=4",
+        "url" : "https://api.github.com/users/erdeszt",
+        "contributions" : 2
+      },
+      {
+        "login" : "esthomw",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/39091820?v=4",
+        "url" : "https://api.github.com/users/esthomw",
+        "contributions" : 2
+      },
+      {
+        "login" : "vitaliis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1839541?v=4",
+        "url" : "https://api.github.com/users/vitaliis",
+        "contributions" : 2
+      },
+      {
+        "login" : "vladimirkl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/72238?v=4",
+        "url" : "https://api.github.com/users/vladimirkl",
+        "contributions" : 2
+      },
+      {
+        "login" : "vpavkin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/410508?v=4",
+        "url" : "https://api.github.com/users/vpavkin",
+        "contributions" : 2
+      },
+      {
+        "login" : "WesselVS",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5698918?v=4",
+        "url" : "https://api.github.com/users/WesselVS",
+        "contributions" : 2
+      },
+      {
+        "login" : "sigurdthor",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10078108?v=4",
+        "url" : "https://api.github.com/users/sigurdthor",
+        "contributions" : 2
+      },
+      {
+        "login" : "ywang412",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17756431?v=4",
+        "url" : "https://api.github.com/users/ywang412",
+        "contributions" : 2
+      },
+      {
+        "login" : "adamw",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/60503?v=4",
+        "url" : "https://api.github.com/users/adamw",
+        "contributions" : 2
+      },
+      {
+        "login" : "dariusrobson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7337408?v=4",
+        "url" : "https://api.github.com/users/dariusrobson",
+        "contributions" : 2
+      },
+      {
+        "login" : "dpovey",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/395066?v=4",
+        "url" : "https://api.github.com/users/dpovey",
+        "contributions" : 2
+      },
+      {
+        "login" : "jmcardon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15273652?v=4",
+        "url" : "https://api.github.com/users/jmcardon",
+        "contributions" : 2
+      },
+      {
+        "login" : "michalwarecki",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2143010?v=4",
+        "url" : "https://api.github.com/users/michalwarecki",
+        "contributions" : 2
+      },
+      {
+        "login" : "mvillafuertem",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24855057?v=4",
+        "url" : "https://api.github.com/users/mvillafuertem",
+        "contributions" : 2
+      },
+      {
+        "login" : "ohze",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/29271616?v=4",
+        "url" : "https://api.github.com/users/ohze",
+        "contributions" : 2
+      },
+      {
+        "login" : "roald-di",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4057806?v=4",
+        "url" : "https://api.github.com/users/roald-di",
+        "contributions" : 2
+      },
+      {
+        "login" : "scalavision",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3958212?v=4",
+        "url" : "https://api.github.com/users/scalavision",
+        "contributions" : 2
+      },
+      {
+        "login" : "xplosunn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7125555?v=4",
+        "url" : "https://api.github.com/users/xplosunn",
+        "contributions" : 2
+      },
+      {
+        "login" : "3link",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/34981284?v=4",
+        "url" : "https://api.github.com/users/3link",
+        "contributions" : 2
+      },
+      {
+        "login" : "mgenereu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/21925?v=4",
+        "url" : "https://api.github.com/users/mgenereu",
+        "contributions" : 2
+      },
+      {
+        "login" : "ThijsBroersen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4889512?v=4",
+        "url" : "https://api.github.com/users/ThijsBroersen",
+        "contributions" : 2
+      },
+      {
+        "login" : "2ne1ugly",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/47616772?v=4",
+        "url" : "https://api.github.com/users/2ne1ugly",
+        "contributions" : 1
+      },
+      {
+        "login" : "nhyne",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6908366?v=4",
+        "url" : "https://api.github.com/users/nhyne",
+        "contributions" : 1
+      },
+      {
+        "login" : "realfiretiger",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43117563?v=4",
+        "url" : "https://api.github.com/users/realfiretiger",
+        "contributions" : 1
+      },
+      {
+        "login" : "Adriani277",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/36544115?v=4",
+        "url" : "https://api.github.com/users/Adriani277",
+        "contributions" : 1
+      },
+      {
+        "login" : "asachdeva",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1237031?v=4",
+        "url" : "https://api.github.com/users/asachdeva",
+        "contributions" : 1
+      },
+      {
+        "login" : "spf3000",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15729581?v=4",
+        "url" : "https://api.github.com/users/spf3000",
+        "contributions" : 1
+      },
+      {
+        "login" : "fixxer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/557366?v=4",
+        "url" : "https://api.github.com/users/fixxer",
+        "contributions" : 1
+      },
+      {
+        "login" : "AlekseiLitkovetc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15446342?v=4",
+        "url" : "https://api.github.com/users/AlekseiLitkovetc",
+        "contributions" : 1
+      },
+      {
+        "login" : "alessandrovaccaro",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4050031?v=4",
+        "url" : "https://api.github.com/users/alessandrovaccaro",
+        "contributions" : 1
+      },
+      {
+        "login" : "AlexWerff",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4670051?v=4",
+        "url" : "https://api.github.com/users/AlexWerff",
+        "contributions" : 1
+      },
+      {
+        "login" : "agarella",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5504040?v=4",
+        "url" : "https://api.github.com/users/agarella",
+        "contributions" : 1
+      },
+      {
+        "login" : "alesavin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7188238?v=4",
+        "url" : "https://api.github.com/users/alesavin",
+        "contributions" : 1
+      },
+      {
+        "login" : "SimY4",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1394639?v=4",
+        "url" : "https://api.github.com/users/SimY4",
+        "contributions" : 1
+      },
+      {
+        "login" : "azolotko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/110424?v=4",
+        "url" : "https://api.github.com/users/azolotko",
+        "contributions" : 1
+      },
+      {
+        "login" : "erdnaxeli",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/479441?v=4",
+        "url" : "https://api.github.com/users/erdnaxeli",
+        "contributions" : 1
+      },
+      {
+        "login" : "Alexey8127",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10810264?v=4",
+        "url" : "https://api.github.com/users/Alexey8127",
+        "contributions" : 1
+      },
+      {
+        "login" : "13h3r",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/435085?v=4",
+        "url" : "https://api.github.com/users/13h3r",
+        "contributions" : 1
+      },
+      {
+        "login" : "alphaho",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/666504?v=4",
+        "url" : "https://api.github.com/users/alphaho",
+        "contributions" : 1
+      },
+      {
+        "login" : "amir",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4293?v=4",
+        "url" : "https://api.github.com/users/amir",
+        "contributions" : 1
+      },
+      {
+        "login" : "amitayh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/79721?v=4",
+        "url" : "https://api.github.com/users/amitayh",
+        "contributions" : 1
+      },
+      {
+        "login" : "ya-goodfella",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/31408417?v=4",
+        "url" : "https://api.github.com/users/ya-goodfella",
+        "contributions" : 1
+      },
+      {
+        "login" : "aaabramov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11317222?v=4",
+        "url" : "https://api.github.com/users/aaabramov",
+        "contributions" : 1
+      },
+      {
+        "login" : "txdv",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/116642?v=4",
+        "url" : "https://api.github.com/users/txdv",
+        "contributions" : 1
+      },
+      {
+        "login" : "yangzai",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2064190?v=4",
+        "url" : "https://api.github.com/users/yangzai",
+        "contributions" : 1
+      },
+      {
+        "login" : "asauray",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6672783?v=4",
+        "url" : "https://api.github.com/users/asauray",
+        "contributions" : 1
+      },
+      {
+        "login" : "arjun-1",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8102654?v=4",
+        "url" : "https://api.github.com/users/arjun-1",
+        "contributions" : 1
+      },
+      {
+        "login" : "apeshimam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/394226?v=4",
+        "url" : "https://api.github.com/users/apeshimam",
+        "contributions" : 1
+      },
+      {
+        "login" : "ArturGajowy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/460141?v=4",
+        "url" : "https://api.github.com/users/ArturGajowy",
+        "contributions" : 1
+      },
+      {
+        "login" : "Devian-ua",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15244468?v=4",
+        "url" : "https://api.github.com/users/Devian-ua",
+        "contributions" : 1
+      },
+      {
+        "login" : "kolov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/733349?v=4",
+        "url" : "https://api.github.com/users/kolov",
+        "contributions" : 1
+      },
+      {
+        "login" : "Avasil",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12383899?v=4",
+        "url" : "https://api.github.com/users/Avasil",
+        "contributions" : 1
+      },
+      {
+        "login" : "lightning95",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8745508?v=4",
+        "url" : "https://api.github.com/users/lightning95",
+        "contributions" : 1
+      },
+      {
+        "login" : "BardurArantsson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/459138?v=4",
+        "url" : "https://api.github.com/users/BardurArantsson",
+        "contributions" : 1
+      },
+      {
+        "login" : "stsatlantis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7964844?v=4",
+        "url" : "https://api.github.com/users/stsatlantis",
+        "contributions" : 1
+      },
+      {
+        "login" : "bmarinovic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/26936669?v=4",
+        "url" : "https://api.github.com/users/bmarinovic",
+        "contributions" : 1
+      },
+      {
+        "login" : "tenzki",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/590568?v=4",
+        "url" : "https://api.github.com/users/tenzki",
+        "contributions" : 1
+      },
+      {
+        "login" : "bblagojevic94",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17749693?v=4",
+        "url" : "https://api.github.com/users/bblagojevic94",
+        "contributions" : 1
+      },
+      {
+        "login" : "REDNBLACK",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1498939?v=4",
+        "url" : "https://api.github.com/users/REDNBLACK",
+        "contributions" : 1
+      },
+      {
+        "login" : "bburdiliak",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/521839?v=4",
+        "url" : "https://api.github.com/users/bburdiliak",
+        "contributions" : 1
+      },
+      {
+        "login" : "borissmidt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5995670?v=4",
+        "url" : "https://api.github.com/users/borissmidt",
+        "contributions" : 1
+      },
+      {
+        "login" : "BruceEckel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1001900?v=4",
+        "url" : "https://api.github.com/users/BruceEckel",
+        "contributions" : 1
+      },
+      {
+        "login" : "KineticCookie",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2300703?v=4",
+        "url" : "https://api.github.com/users/KineticCookie",
+        "contributions" : 1
+      },
+      {
+        "login" : "ciuncan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/827524?v=4",
+        "url" : "https://api.github.com/users/ciuncan",
+        "contributions" : 1
+      },
+      {
+        "login" : "yuchaoran2011",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1168769?v=4",
+        "url" : "https://api.github.com/users/yuchaoran2011",
+        "contributions" : 1
+      },
+      {
+        "login" : "cwinebrinner",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/181049?v=4",
+        "url" : "https://api.github.com/users/cwinebrinner",
+        "contributions" : 1
+      },
+      {
+        "login" : "cipriansofronia",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9365666?v=4",
+        "url" : "https://api.github.com/users/cipriansofronia",
+        "contributions" : 1
+      },
+      {
+        "login" : "djodar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/728864?v=4",
+        "url" : "https://api.github.com/users/djodar",
+        "contributions" : 1
+      },
+      {
+        "login" : "lodamar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15120716?v=4",
+        "url" : "https://api.github.com/users/lodamar",
+        "contributions" : 1
+      },
+      {
+        "login" : "TheBeastOfCaerbannog",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/20017097?v=4",
+        "url" : "https://api.github.com/users/TheBeastOfCaerbannog",
+        "contributions" : 1
+      },
+      {
+        "login" : "danilbykov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14955343?v=4",
+        "url" : "https://api.github.com/users/danilbykov",
+        "contributions" : 1
+      },
+      {
+        "login" : "kellydavid",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6256364?v=4",
+        "url" : "https://api.github.com/users/kellydavid",
+        "contributions" : 1
+      },
+      {
+        "login" : "davidlar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1035103?v=4",
+        "url" : "https://api.github.com/users/davidlar",
+        "contributions" : 1
+      },
+      {
+        "login" : "dmassart",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8623054?v=4",
+        "url" : "https://api.github.com/users/dmassart",
+        "contributions" : 1
+      },
+      {
+        "login" : "dpennell",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1100382?v=4",
+        "url" : "https://api.github.com/users/dpennell",
+        "contributions" : 1
+      },
+      {
+        "login" : "dkovalenko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/874918?v=4",
+        "url" : "https://api.github.com/users/dkovalenko",
+        "contributions" : 1
+      },
+      {
+        "login" : "nigredo-tori",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5962285?v=4",
+        "url" : "https://api.github.com/users/nigredo-tori",
+        "contributions" : 1
+      },
+      {
+        "login" : "DmytroOrlov-flixbus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/84337318?v=4",
+        "url" : "https://api.github.com/users/DmytroOrlov-flixbus",
+        "contributions" : 1
+      },
+      {
+        "login" : "domdorn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/100349?v=4",
+        "url" : "https://api.github.com/users/domdorn",
+        "contributions" : 1
+      },
+      {
+        "login" : "ChipChopChippy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15200668?v=4",
+        "url" : "https://api.github.com/users/ChipChopChippy",
+        "contributions" : 1
+      },
+      {
+        "login" : "edmundnoble",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1369693?v=4",
+        "url" : "https://api.github.com/users/edmundnoble",
+        "contributions" : 1
+      },
+      {
+        "login" : "Edvin-san",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6666292?v=4",
+        "url" : "https://api.github.com/users/Edvin-san",
+        "contributions" : 1
+      },
+      {
+        "login" : "ElaadF",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23410978?v=4",
+        "url" : "https://api.github.com/users/ElaadF",
+        "contributions" : 1
+      },
+      {
+        "login" : "emarx",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/706201?v=4",
+        "url" : "https://api.github.com/users/emarx",
+        "contributions" : 1
+      },
+      {
+        "login" : "eamelink",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/332784?v=4",
+        "url" : "https://api.github.com/users/eamelink",
+        "contributions" : 1
+      },
+      {
+        "login" : "egast",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1080133?v=4",
+        "url" : "https://api.github.com/users/egast",
+        "contributions" : 1
+      },
+      {
+        "login" : "erikvanoosten",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/630600?v=4",
+        "url" : "https://api.github.com/users/erikvanoosten",
+        "contributions" : 1
+      },
+      {
+        "login" : "Esardes",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4840873?v=4",
+        "url" : "https://api.github.com/users/Esardes",
+        "contributions" : 1
+      },
+      {
+        "login" : "Ethan-Edmond",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/71735640?v=4",
+        "url" : "https://api.github.com/users/Ethan-Edmond",
+        "contributions" : 1
+      },
+      {
+        "login" : "jozic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/124249?v=4",
+        "url" : "https://api.github.com/users/jozic",
+        "contributions" : 1
+      },
+      {
+        "login" : "FelAl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4502817?v=4",
+        "url" : "https://api.github.com/users/FelAl",
+        "contributions" : 1
+      },
+      {
+        "login" : "ftrianakast",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3970411?v=4",
+        "url" : "https://api.github.com/users/ftrianakast",
+        "contributions" : 1
+      },
+      {
+        "login" : "felipehaack",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3798706?v=4",
+        "url" : "https://api.github.com/users/felipehaack",
+        "contributions" : 1
+      },
+      {
+        "login" : "dannashirn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30631455?v=4",
+        "url" : "https://api.github.com/users/dannashirn",
+        "contributions" : 1
+      },
+      {
+        "login" : "frekw",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43631?v=4",
+        "url" : "https://api.github.com/users/frekw",
+        "contributions" : 1
+      },
+      {
+        "login" : "gaelrenoux",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1738666?v=4",
+        "url" : "https://api.github.com/users/gaelrenoux",
+        "contributions" : 1
+      },
+      {
+        "login" : "geymed",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2660715?v=4",
+        "url" : "https://api.github.com/users/geymed",
+        "contributions" : 1
+      },
+      {
+        "login" : "girishkolantra",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8562689?v=4",
+        "url" : "https://api.github.com/users/girishkolantra",
+        "contributions" : 1
+      },
+      {
+        "login" : "lobzison",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/31935368?v=4",
+        "url" : "https://api.github.com/users/lobzison",
+        "contributions" : 1
+      },
+      {
+        "login" : "dag2ww",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22566383?v=4",
+        "url" : "https://api.github.com/users/dag2ww",
+        "contributions" : 1
+      },
+      {
+        "login" : "hanny24",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3010229?v=4",
+        "url" : "https://api.github.com/users/hanny24",
+        "contributions" : 1
+      },
+      {
+        "login" : "civilizeddev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15084045?v=4",
+        "url" : "https://api.github.com/users/civilizeddev",
+        "contributions" : 1
+      },
+      {
+        "login" : "ibraheemdev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/34988408?v=4",
+        "url" : "https://api.github.com/users/ibraheemdev",
+        "contributions" : 1
+      },
+      {
+        "login" : "eugengarkusha",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2553554?v=4",
+        "url" : "https://api.github.com/users/eugengarkusha",
+        "contributions" : 1
+      },
+      {
+        "login" : "isterin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/41268?v=4",
+        "url" : "https://api.github.com/users/isterin",
+        "contributions" : 1
+      },
+      {
+        "login" : "isaias-b",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11379847?v=4",
+        "url" : "https://api.github.com/users/isaias-b",
+        "contributions" : 1
+      },
+      {
+        "login" : "igrebenik",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1790371?v=4",
+        "url" : "https://api.github.com/users/igrebenik",
+        "contributions" : 1
+      },
+      {
+        "login" : "ikryvorotenko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4487441?v=4",
+        "url" : "https://api.github.com/users/ikryvorotenko",
+        "contributions" : 1
+      },
+      {
+        "login" : "avast-scala-builder",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/65904477?v=4",
+        "url" : "https://api.github.com/users/avast-scala-builder",
+        "contributions" : 1
+      },
+      {
+        "login" : "jamesward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/65043?v=4",
+        "url" : "https://api.github.com/users/jamesward",
+        "contributions" : 1
+      },
+      {
+        "login" : "jantoebes",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1512879?v=4",
+        "url" : "https://api.github.com/users/jantoebes",
+        "contributions" : 1
+      },
+      {
+        "login" : "jedws",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/228337?v=4",
+        "url" : "https://api.github.com/users/jedws",
+        "contributions" : 1
+      },
+      {
+        "login" : "jeffwilde",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6980603?v=4",
+        "url" : "https://api.github.com/users/jeffwilde",
+        "contributions" : 1
+      },
+      {
+        "login" : "jchoffmann",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1658459?v=4",
+        "url" : "https://api.github.com/users/jchoffmann",
+        "contributions" : 1
+      },
+      {
+        "login" : "jeroenr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/332726?v=4",
+        "url" : "https://api.github.com/users/jeroenr",
+        "contributions" : 1
+      },
+      {
+        "login" : "jsilva",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/169950?v=4",
+        "url" : "https://api.github.com/users/jsilva",
+        "contributions" : 1
+      },
+      {
+        "login" : "lgastako",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1300?v=4",
+        "url" : "https://api.github.com/users/lgastako",
+        "contributions" : 1
+      },
+      {
+        "login" : "JonasAckermann",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1732237?v=4",
+        "url" : "https://api.github.com/users/JonasAckermann",
+        "contributions" : 1
+      },
+      {
+        "login" : "lancelet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/356739?v=4",
+        "url" : "https://api.github.com/users/lancelet",
+        "contributions" : 1
+      },
+      {
+        "login" : "jrglee",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1198202?v=4",
+        "url" : "https://api.github.com/users/jrglee",
+        "contributions" : 1
+      },
+      {
+        "login" : "joriscode",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2750485?v=4",
+        "url" : "https://api.github.com/users/joriscode",
+        "contributions" : 1
+      },
+      {
+        "login" : "joprice",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2175555?v=4",
+        "url" : "https://api.github.com/users/joprice",
+        "contributions" : 1
+      },
+      {
+        "login" : "jsoref",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2119212?v=4",
+        "url" : "https://api.github.com/users/jsoref",
+        "contributions" : 1
+      },
+      {
+        "login" : "juliano",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/35762?v=4",
+        "url" : "https://api.github.com/users/juliano",
+        "contributions" : 1
+      },
+      {
+        "login" : "KamalKang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24402317?v=4",
+        "url" : "https://api.github.com/users/KamalKang",
+        "contributions" : 1
+      },
+      {
+        "login" : "dieproht",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/38581665?v=4",
+        "url" : "https://api.github.com/users/dieproht",
+        "contributions" : 1
+      },
+      {
+        "login" : "karolchmist",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1927188?v=4",
+        "url" : "https://api.github.com/users/karolchmist",
+        "contributions" : 1
+      },
+      {
+        "login" : "ghostbuster91",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5662622?v=4",
+        "url" : "https://api.github.com/users/ghostbuster91",
+        "contributions" : 1
+      },
+      {
+        "login" : "kmatasfp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/33095685?v=4",
+        "url" : "https://api.github.com/users/kmatasfp",
+        "contributions" : 1
+      },
+      {
+        "login" : "kelvin-chappell",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1722550?v=4",
+        "url" : "https://api.github.com/users/kelvin-chappell",
+        "contributions" : 1
+      },
+      {
+        "login" : "kentfrazier",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/417848?v=4",
+        "url" : "https://api.github.com/users/kentfrazier",
+        "contributions" : 1
+      },
+      {
+        "login" : "kolemannix",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5499192?v=4",
+        "url" : "https://api.github.com/users/kolemannix",
+        "contributions" : 1
+      },
+      {
+        "login" : "lpld",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/995622?v=4",
+        "url" : "https://api.github.com/users/lpld",
+        "contributions" : 1
+      },
+      {
+        "login" : "BalmungSan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11336950?v=4",
+        "url" : "https://api.github.com/users/BalmungSan",
+        "contributions" : 1
+      },
+      {
+        "login" : "lmserrano",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1115819?v=4",
+        "url" : "https://api.github.com/users/lmserrano",
+        "contributions" : 1
+      },
+      {
+        "login" : "Zuchos",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1469034?v=4",
+        "url" : "https://api.github.com/users/Zuchos",
+        "contributions" : 1
+      },
+      {
+        "login" : "thyming",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2217705?v=4",
+        "url" : "https://api.github.com/users/thyming",
+        "contributions" : 1
+      },
+      {
+        "login" : "MaT1g3R",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15258494?v=4",
+        "url" : "https://api.github.com/users/MaT1g3R",
+        "contributions" : 1
+      },
+      {
+        "login" : "markosski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/916909?v=4",
+        "url" : "https://api.github.com/users/markosski",
+        "contributions" : 1
+      },
+      {
+        "login" : "MarkRBM",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5074813?v=4",
+        "url" : "https://api.github.com/users/MarkRBM",
+        "contributions" : 1
+      },
+      {
+        "login" : "martinlechner1",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6671209?v=4",
+        "url" : "https://api.github.com/users/martinlechner1",
+        "contributions" : 1
+      },
+      {
+        "login" : "cyberzac",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/286044?v=4",
+        "url" : "https://api.github.com/users/cyberzac",
+        "contributions" : 1
+      },
+      {
+        "login" : "MateuszJajeGP",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/18032095?v=4",
+        "url" : "https://api.github.com/users/MateuszJajeGP",
+        "contributions" : 1
+      },
+      {
+        "login" : "mberndt123",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11650737?v=4",
+        "url" : "https://api.github.com/users/mberndt123",
+        "contributions" : 1
+      },
+      {
+        "login" : "maxim092001",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/35135337?v=4",
+        "url" : "https://api.github.com/users/maxim092001",
+        "contributions" : 1
+      },
+      {
+        "login" : "melvic-ybanez",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4519785?v=4",
+        "url" : "https://api.github.com/users/melvic-ybanez",
+        "contributions" : 1
+      },
+      {
+        "login" : "Michaelt293",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14012083?v=4",
+        "url" : "https://api.github.com/users/Michaelt293",
+        "contributions" : 1
+      },
+      {
+        "login" : "mkows",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1754664?v=4",
+        "url" : "https://api.github.com/users/mkows",
+        "contributions" : 1
+      },
+      {
+        "login" : "CucumisSativus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1032987?v=4",
+        "url" : "https://api.github.com/users/CucumisSativus",
+        "contributions" : 1
+      },
+      {
+        "login" : "MichalPawlicki",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5757750?v=4",
+        "url" : "https://api.github.com/users/MichalPawlicki",
+        "contributions" : 1
+      },
+      {
+        "login" : "tyrcho",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/700260?v=4",
+        "url" : "https://api.github.com/users/tyrcho",
+        "contributions" : 1
+      },
+      {
+        "login" : "mitsutaka-takeda",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/830260?v=4",
+        "url" : "https://api.github.com/users/mitsutaka-takeda",
+        "contributions" : 1
+      },
+      {
+        "login" : "EtaCassiopeia",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/209719?v=4",
+        "url" : "https://api.github.com/users/EtaCassiopeia",
+        "contributions" : 1
+      },
+      {
+        "login" : "987Nabil",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7283535?v=4",
+        "url" : "https://api.github.com/users/987Nabil",
+        "contributions" : 1
+      },
+      {
+        "login" : "pinguinson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6963186?v=4",
+        "url" : "https://api.github.com/users/pinguinson",
+        "contributions" : 1
+      },
+      {
+        "login" : "nartamonov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1040557?v=4",
+        "url" : "https://api.github.com/users/nartamonov",
+        "contributions" : 1
+      },
+      {
+        "login" : "oliveiosello",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/67493878?v=4",
+        "url" : "https://api.github.com/users/oliveiosello",
+        "contributions" : 1
+      },
+      {
+        "login" : "cheleb",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/378539?v=4",
+        "url" : "https://api.github.com/users/cheleb",
+        "contributions" : 1
+      },
+      {
+        "login" : "oscarvarto",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1676245?v=4",
+        "url" : "https://api.github.com/users/oscarvarto",
+        "contributions" : 1
+      },
+      {
+        "login" : "pauldeschacht",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/408144?v=4",
+        "url" : "https://api.github.com/users/pauldeschacht",
+        "contributions" : 1
+      },
+      {
+        "login" : "pjoneswork",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9849341?v=4",
+        "url" : "https://api.github.com/users/pjoneswork",
+        "contributions" : 1
+      },
+      {
+        "login" : "P3trur0",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11474157?v=4",
+        "url" : "https://api.github.com/users/P3trur0",
+        "contributions" : 1
+      },
+      {
+        "login" : "petomat",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7974182?v=4",
+        "url" : "https://api.github.com/users/petomat",
+        "contributions" : 1
+      },
+      {
+        "login" : "pgabara",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4014765?v=4",
+        "url" : "https://api.github.com/users/pgabara",
+        "contributions" : 1
+      },
+      {
+        "login" : "rafaelmt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/966553?v=4",
+        "url" : "https://api.github.com/users/rafaelmt",
+        "contributions" : 1
+      },
+      {
+        "login" : "regis-leray",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/534387?v=4",
+        "url" : "https://api.github.com/users/regis-leray",
+        "contributions" : 1
+      },
+      {
+        "login" : "ReiReiRei",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5843244?v=4",
+        "url" : "https://api.github.com/users/ReiReiRei",
+        "contributions" : 1
+      },
+      {
+        "login" : "rwhaling",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/253435?v=4",
+        "url" : "https://api.github.com/users/rwhaling",
+        "contributions" : 1
+      },
+      {
+        "login" : "greenrd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/164965?v=4",
+        "url" : "https://api.github.com/users/greenrd",
+        "contributions" : 1
+      },
+      {
+        "login" : "rtimush",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/831307?v=4",
+        "url" : "https://api.github.com/users/rtimush",
+        "contributions" : 1
+      },
+      {
+        "login" : "ruurtjan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1055478?v=4",
+        "url" : "https://api.github.com/users/ruurtjan",
+        "contributions" : 1
+      },
+      {
+        "login" : "sallareznov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10208974?v=4",
+        "url" : "https://api.github.com/users/sallareznov",
+        "contributions" : 1
+      },
+      {
+        "login" : "sb-dev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22468184?v=4",
+        "url" : "https://api.github.com/users/sb-dev",
+        "contributions" : 1
+      },
+      {
+        "login" : "svranesevic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/20240220?v=4",
+        "url" : "https://api.github.com/users/svranesevic",
+        "contributions" : 1
+      },
+      {
+        "login" : "droptheplot",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2979521?v=4",
+        "url" : "https://api.github.com/users/droptheplot",
+        "contributions" : 1
+      },
+      {
+        "login" : "sergey-lagutin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11209668?v=4",
+        "url" : "https://api.github.com/users/sergey-lagutin",
+        "contributions" : 1
+      },
+      {
+        "login" : "SimunKaracic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13893057?v=4",
+        "url" : "https://api.github.com/users/SimunKaracic",
+        "contributions" : 1
+      },
+      {
+        "login" : "sloanesturz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3239962?v=4",
+        "url" : "https://api.github.com/users/sloanesturz",
+        "contributions" : 1
+      },
+      {
+        "login" : "stkeky",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16312404?v=4",
+        "url" : "https://api.github.com/users/stkeky",
+        "contributions" : 1
+      },
+      {
+        "login" : "stephendavidmarsh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4398863?v=4",
+        "url" : "https://api.github.com/users/stephendavidmarsh",
+        "contributions" : 1
+      },
+      {
+        "login" : "sderosiaux",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3936459?v=4",
+        "url" : "https://api.github.com/users/sderosiaux",
+        "contributions" : 1
+      },
+      {
+        "login" : "szymon-rd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4761866?v=4",
+        "url" : "https://api.github.com/users/szymon-rd",
+        "contributions" : 1
+      },
+      {
+        "login" : "tkolleh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3095197?v=4",
+        "url" : "https://api.github.com/users/tkolleh",
+        "contributions" : 1
+      },
+      {
+        "login" : "tabdulradi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/725206?v=4",
+        "url" : "https://api.github.com/users/tabdulradi",
+        "contributions" : 1
+      },
+      {
+        "login" : "vsobakekot",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/47831088?v=4",
+        "url" : "https://api.github.com/users/vsobakekot",
+        "contributions" : 1
+      },
+      {
+        "login" : "tdrozdowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1784034?v=4",
+        "url" : "https://api.github.com/users/tdrozdowski",
+        "contributions" : 1
+      },
+      {
+        "login" : "gitter-badger",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8518239?v=4",
+        "url" : "https://api.github.com/users/gitter-badger",
+        "contributions" : 1
+      },
+      {
+        "login" : "TheMayoras",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/46846262?v=4",
+        "url" : "https://api.github.com/users/TheMayoras",
+        "contributions" : 1
+      },
+      {
+        "login" : "timrourke",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8141770?v=4",
+        "url" : "https://api.github.com/users/timrourke",
+        "contributions" : 1
+      },
+      {
+        "login" : "timothyklim",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/387270?v=4",
+        "url" : "https://api.github.com/users/timothyklim",
+        "contributions" : 1
+      },
+      {
+        "login" : "tmccarthy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4033606?v=4",
+        "url" : "https://api.github.com/users/tmccarthy",
+        "contributions" : 1
+      },
+      {
+        "login" : "SrTobi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4148534?v=4",
+        "url" : "https://api.github.com/users/SrTobi",
+        "contributions" : 1
+      },
+      {
+        "login" : "axtsnee",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/79920600?v=4",
+        "url" : "https://api.github.com/users/axtsnee",
+        "contributions" : 1
+      },
+      {
+        "login" : "almendar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1460799?v=4",
+        "url" : "https://api.github.com/users/almendar",
+        "contributions" : 1
+      },
+      {
+        "login" : "tplaskowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5187830?v=4",
+        "url" : "https://api.github.com/users/tplaskowski",
+        "contributions" : 1
+      },
+      {
+        "login" : "truongrocker",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/78155685?v=4",
+        "url" : "https://api.github.com/users/truongrocker",
+        "contributions" : 1
+      },
+      {
+        "login" : "chikei",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/84867?v=4",
+        "url" : "https://api.github.com/users/chikei",
+        "contributions" : 1
+      },
+      {
+        "login" : "valenterry",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1632588?v=4",
+        "url" : "https://api.github.com/users/valenterry",
+        "contributions" : 1
+      },
+      {
+        "login" : "vkurdin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/136200?v=4",
+        "url" : "https://api.github.com/users/vkurdin",
+        "contributions" : 1
+      },
+      {
+        "login" : "voidconductor",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7975352?v=4",
+        "url" : "https://api.github.com/users/voidconductor",
+        "contributions" : 1
+      },
+      {
+        "login" : "vitaliihonta",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17992745?v=4",
+        "url" : "https://api.github.com/users/vitaliihonta",
+        "contributions" : 1
+      },
+      {
+        "login" : "vitaly-pushkar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/305786?v=4",
+        "url" : "https://api.github.com/users/vitaly-pushkar",
+        "contributions" : 1
+      },
+      {
+        "login" : "VladPodilnyk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12114216?v=4",
+        "url" : "https://api.github.com/users/VladPodilnyk",
+        "contributions" : 1
+      },
+      {
+        "login" : "wgreven-ibr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7009180?v=4",
+        "url" : "https://api.github.com/users/wgreven-ibr",
+        "contributions" : 1
+      },
+      {
+        "login" : "harveywi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1690003?v=4",
+        "url" : "https://api.github.com/users/harveywi",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 4737,
+    "topics" : [
+      "stm",
+      "queues",
+      "concurrent-data-structure",
+      "asynchronicity",
+      "asynchronous-programming",
+      "asynchronous",
+      "concurrent-programming",
+      "concurrent",
+      "effects",
+      "functional-programming",
+      "streams",
+      "concurrency",
+      "zio",
+      "promises",
+      "scala"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 6281,
+        "title" : "Provide ZStream.debug helper method",
+        "url" : "https://github.com/zio/zio/issues/6281"
+      },
+      {
+        "number" : 6280,
+        "title" : "ZStream.when working in unexpected way",
+        "url" : "https://github.com/zio/zio/issues/6280"
+      },
+      {
+        "number" : 6247,
+        "title" : "Publish ZIO for Scala 3 and scala-native",
+        "url" : "https://github.com/zio/zio/issues/6247"
+      },
+      {
+        "number" : 6241,
+        "title" : "Non-bytecode based `Tracer` implementation for `native-image` AOT-compiled binaries",
+        "url" : "https://github.com/zio/zio/issues/6241"
+      },
+      {
+        "number" : 6225,
+        "title" : "ZIO 2.0: suggestion to have fallback ZLayer error messages with ASCII characters for Windows users",
+        "url" : "https://github.com/zio/zio/issues/6225"
+      },
+      {
+        "number" : 6208,
+        "title" : "Wrong ZLayer Warning",
+        "url" : "https://github.com/zio/zio/issues/6208"
+      },
+      {
+        "number" : 6206,
+        "title" : "ZLayer Deprecations Point to Missing `toLayer`",
+        "url" : "https://github.com/zio/zio/issues/6206"
+      },
+      {
+        "number" : 6204,
+        "title" : "Flaky ZIOApp Spec",
+        "url" : "https://github.com/zio/zio/issues/6204"
+      },
+      {
+        "number" : 6190,
+        "title" : "zio-test: Provide easy way to get Runtime[TestEnvironment]",
+        "url" : "https://github.com/zio/zio/issues/6190"
+      },
+      {
+        "number" : 6163,
+        "title" : "ZPipeline JVM timeout",
+        "url" : "https://github.com/zio/zio/issues/6163"
+      },
+      {
+        "number" : 6162,
+        "title" : "Possible TestClock issue",
+        "url" : "https://github.com/zio/zio/issues/6162"
+      },
+      {
+        "number" : 6147,
+        "title" : "zio 2.0: provide equivalent of zio-logging `zio.logging.log.trace`",
+        "url" : "https://github.com/zio/zio/issues/6147"
+      },
+      {
+        "number" : 6146,
+        "title" : "zio 2.0: provide equivalent of `_.locally(SomeLogAnnotation, value)` in new logging mechanism",
+        "url" : "https://github.com/zio/zio/issues/6146"
+      },
+      {
+        "number" : 6121,
+        "title" : "zio 2.0: allow to log blocking effects",
+        "url" : "https://github.com/zio/zio/issues/6121"
+      },
+      {
+        "number" : 6117,
+        "title" : "Compiler error when using injectSome",
+        "url" : "https://github.com/zio/zio/issues/6117"
+      },
+      {
+        "number" : 6102,
+        "title" : "TestClock.setDateTime would not work with MutableRunnableSpec's layer",
+        "url" : "https://github.com/zio/zio/issues/6102"
+      },
+      {
+        "number" : 6101,
+        "title" : "ZIO Test is not capturing the standard out and standard error into JUnit test report",
+        "url" : "https://github.com/zio/zio/issues/6101"
+      },
+      {
+        "number" : 6090,
+        "title" : "type checking succeeded incorrectly for `hasSameElements` in zio test",
+        "url" : "https://github.com/zio/zio/issues/6090"
+      },
+      {
+        "number" : 6044,
+        "title" : "Fix mock type in documentation",
+        "url" : "https://github.com/zio/zio/issues/6044"
+      },
+      {
+        "number" : 6039,
+        "title" : "ZIO 2.0: Extract ZIO Mock from ZIO Test",
+        "url" : "https://github.com/zio/zio/issues/6039"
+      },
+      {
+        "number" : 6032,
+        "title" : "andThen is broken for optional expectations",
+        "url" : "https://github.com/zio/zio/issues/6032"
+      },
+      {
+        "number" : 6025,
+        "title" : "`ZStream#aggregateAsync` doesn't wait for downstream",
+        "url" : "https://github.com/zio/zio/issues/6025"
+      },
+      {
+        "number" : 6024,
+        "title" : "Flaky Stream Test",
+        "url" : "https://github.com/zio/zio/issues/6024"
+      },
+      {
+        "number" : 6021,
+        "title" : "Reviving MVar",
+        "url" : "https://github.com/zio/zio/issues/6021"
+      },
+      {
+        "number" : 5968,
+        "title" : "ZIO 2.0: Migrate All Tests to New Spec Type",
+        "url" : "https://github.com/zio/zio/issues/5968"
+      },
+      {
+        "number" : 5965,
+        "title" : "Document new zio.concurrent datatypes",
+        "url" : "https://github.com/zio/zio/issues/5965"
+      },
+      {
+        "number" : 5959,
+        "title" : "Using ZStream#mapMPar makes it impossible to retry the stream",
+        "url" : "https://github.com/zio/zio/issues/5959"
+      },
+      {
+        "number" : 5946,
+        "title" : "ZIO Streams 2.0: Add ChunkContext to trace elements through a ZStream",
+        "url" : "https://github.com/zio/zio/issues/5946"
+      },
+      {
+        "number" : 5938,
+        "title" : "ZStream.GroupBy.apply(...) does not support consuming the parameter stream more than once",
+        "url" : "https://github.com/zio/zio/issues/5938"
+      },
+      {
+        "number" : 5930,
+        "title" : "ZIO.log* should have overload with cause ",
+        "url" : "https://github.com/zio/zio/issues/5930"
+      },
+      {
+        "number" : 5892,
+        "title" : "Add Condition for creating waiting queues around locks",
+        "url" : "https://github.com/zio/zio/issues/5892"
+      },
+      {
+        "number" : 5882,
+        "title" : "ZIO 2.0: Minimize memory footprint of FiberContext",
+        "url" : "https://github.com/zio/zio/issues/5882"
+      },
+      {
+        "number" : 5878,
+        "title" : "ZIO 1.x: Backport RuntimeConfigAspect.trackFiberRef",
+        "url" : "https://github.com/zio/zio/issues/5878"
+      },
+      {
+        "number" : 5877,
+        "title" : "ZIO 1.0: Backport some improvements to supervisor",
+        "url" : "https://github.com/zio/zio/issues/5877"
+      },
+      {
+        "number" : 5875,
+        "title" : "ZIO 2.0: Implement useful `toString()` method on `FiberContext`",
+        "url" : "https://github.com/zio/zio/issues/5875"
+      },
+      {
+        "number" : 5874,
+        "title" : "ZIO 2.0: Improve efficiency of FiberId storage inside FiberContext",
+        "url" : "https://github.com/zio/zio/issues/5874"
+      },
+      {
+        "number" : 5856,
+        "title" : "ZIO 2.0: Generalize Logged to accept messages of any type",
+        "url" : "https://github.com/zio/zio/issues/5856"
+      },
+      {
+        "number" : 5854,
+        "title" : "ZIO 2.0: Revamp fiber dump rendering",
+        "url" : "https://github.com/zio/zio/issues/5854"
+      },
+      {
+        "number" : 5850,
+        "title" : "ZIO 2.0: Filter ZIO internals from actual Throwable stack traces",
+        "url" : "https://github.com/zio/zio/issues/5850"
+      },
+      {
+        "number" : 5831,
+        "title" : "ZIO Test 2.0: Make annotating test failures with custom labels easy",
+        "url" : "https://github.com/zio/zio/issues/5831"
+      },
+      {
+        "number" : 5821,
+        "title" : "Flaky TestClock#asScheduledExecutorService Test",
+        "url" : "https://github.com/zio/zio/issues/5821"
+      },
+      {
+        "number" : 5807,
+        "title" : "Add ReentrantLock",
+        "url" : "https://github.com/zio/zio/issues/5807"
+      },
+      {
+        "number" : 5798,
+        "title" : "Complete 2.0 Migration Guide",
+        "url" : "https://github.com/zio/zio/issues/5798"
+      },
+      {
+        "number" : 5797,
+        "title" : "Add ZIO 2.0 Migration Guide Section for Library Authors",
+        "url" : "https://github.com/zio/zio/issues/5797"
+      },
+      {
+        "number" : 5796,
+        "title" : "Document the Latest ZIO 2.0 Features",
+        "url" : "https://github.com/zio/zio/issues/5796"
+      },
+      {
+        "number" : 5789,
+        "title" : "ZIO 2.0: Add missing assert variants",
+        "url" : "https://github.com/zio/zio/issues/5789"
+      },
+      {
+        "number" : 5785,
+        "title" : "Include the JVM stack up to `Runtime.unsafeRun*` in the fiber trace",
+        "url" : "https://github.com/zio/zio/issues/5785"
+      },
+      {
+        "number" : 5779,
+        "title" : "ZIO 2.0: Document Scalafix Migration",
+        "url" : "https://github.com/zio/zio/issues/5779"
+      },
+      {
+        "number" : 5768,
+        "title" : "ZIO 2.0: Investigate flaky test",
+        "url" : "https://github.com/zio/zio/issues/5768"
+      },
+      {
+        "number" : 5743,
+        "title" : "`assertTrue` ignores the label, if assigned to AssertionResult",
+        "url" : "https://github.com/zio/zio/issues/5743"
+      },
+      {
+        "number" : 5736,
+        "title" : "ZLayer Fails at Runtime with a 'java.lang.NoClassDefFoundError: scala/<repeated>' for Vararg Value Classes",
+        "url" : "https://github.com/zio/zio/issues/5736"
+      },
+      {
+        "number" : 5713,
+        "title" : "Streaming test results in ZIO Test",
+        "url" : "https://github.com/zio/zio/issues/5713"
+      },
+      {
+        "number" : 5648,
+        "title" : "Bring back the newsletter subscribe button on the ZIO web page",
+        "url" : "https://github.com/zio/zio/issues/5648"
+      },
+      {
+        "number" : 5638,
+        "title" : "ZIO Streams 2.0: Name cleanup ticket",
+        "url" : "https://github.com/zio/zio/issues/5638"
+      },
+      {
+        "number" : 5634,
+        "title" : "ZIO Streams 2.0: Compositional chunking",
+        "url" : "https://github.com/zio/zio/issues/5634"
+      },
+      {
+        "number" : 5632,
+        "title" : "ZIO Streams 2.0: Standardize constructors",
+        "url" : "https://github.com/zio/zio/issues/5632"
+      },
+      {
+        "number" : 5616,
+        "title" : "Deterministic Generators Do Not Compose Well With Gen.oneOf",
+        "url" : "https://github.com/zio/zio/issues/5616"
+      },
+      {
+        "number" : 5610,
+        "title" : "(2.0) provide assertion that can be used in a for-comprehension",
+        "url" : "https://github.com/zio/zio/issues/5610"
+      },
+      {
+        "number" : 5600,
+        "title" : "ZIO 2.0: Preliminary thoughts on executable encoding for ZIO tests (WIP)",
+        "url" : "https://github.com/zio/zio/issues/5600"
+      },
+      {
+        "number" : 5595,
+        "title" : "add testaspect for graalvm native-image",
+        "url" : "https://github.com/zio/zio/issues/5595"
+      },
+      {
+        "number" : 5592,
+        "title" : "(WIP) SLAs: Support TTLs additionally to interruption",
+        "url" : "https://github.com/zio/zio/issues/5592"
+      },
+      {
+        "number" : 5544,
+        "title" : "ZIO 2.0: Operators That Don't Return A Meaningful Result Should Return Any",
+        "url" : "https://github.com/zio/zio/issues/5544"
+      },
+      {
+        "number" : 5543,
+        "title" : "Implement Developer Mode Metrics Reporting",
+        "url" : "https://github.com/zio/zio/issues/5543"
+      },
+      {
+        "number" : 5542,
+        "title" : "Documentation For Metrics",
+        "url" : "https://github.com/zio/zio/issues/5542"
+      },
+      {
+        "number" : 5539,
+        "title" : "Add Tests for Metrics",
+        "url" : "https://github.com/zio/zio/issues/5539"
+      },
+      {
+        "number" : 5530,
+        "title" : "`Defect in zio.Has: Could not find package`",
+        "url" : "https://github.com/zio/zio/issues/5530"
+      },
+      {
+        "number" : 5516,
+        "title" : "ZIO 2.0: Investigate issue with forking",
+        "url" : "https://github.com/zio/zio/issues/5516"
+      },
+      {
+        "number" : 5513,
+        "title" : "Flaky Streams Test",
+        "url" : "https://github.com/zio/zio/issues/5513"
+      },
+      {
+        "number" : 5485,
+        "title" : "Accessible macro generates misleading error message",
+        "url" : "https://github.com/zio/zio/issues/5485"
+      },
+      {
+        "number" : 5470,
+        "title" : "ZIO 2.0",
+        "url" : "https://github.com/zio/zio/issues/5470"
+      },
+      {
+        "number" : 5466,
+        "title" : "Introduce Equality typeclass for Smart Assertions",
+        "url" : "https://github.com/zio/zio/issues/5466"
+      },
+      {
+        "number" : 5464,
+        "title" : "Polymorphic mocks fail with scala 3",
+        "url" : "https://github.com/zio/zio/issues/5464"
+      },
+      {
+        "number" : 5440,
+        "title" : "Use javascript weak references",
+        "url" : "https://github.com/zio/zio/issues/5440"
+      },
+      {
+        "number" : 5421,
+        "title" : "Has ++ fails in Scala 3 in a method when inside a container and there is no implicit param of Tag[Has[B]]",
+        "url" : "https://github.com/zio/zio/issues/5421"
+      },
+      {
+        "number" : 5382,
+        "title" : "We need a zio.Zunit - a strong alternative to Unit",
+        "url" : "https://github.com/zio/zio/issues/5382"
+      },
+      {
+        "number" : 5359,
+        "title" : "Error:  statically known to be contained within the environment are missing",
+        "url" : "https://github.com/zio/zio/issues/5359"
+      },
+      {
+        "number" : 5264,
+        "title" : "ZManaged.race combinator is missing",
+        "url" : "https://github.com/zio/zio/issues/5264"
+      },
+      {
+        "number" : 5217,
+        "title" : "@mockable doesn't handle default arguments",
+        "url" : "https://github.com/zio/zio/issues/5217"
+      },
+      {
+        "number" : 5206,
+        "title" : "Unused parameter in generated code from @mockable",
+        "url" : "https://github.com/zio/zio/issues/5206"
+      },
+      {
+        "number" : 5205,
+        "title" : "@mockable macro picks the wrong class when there is a package-local one",
+        "url" : "https://github.com/zio/zio/issues/5205"
+      },
+      {
+        "number" : 5185,
+        "title" : "ZIO App hangs if System.exit called ",
+        "url" : "https://github.com/zio/zio/issues/5185"
+      },
+      {
+        "number" : 5181,
+        "title" : "ZIO Test: failFast operator",
+        "url" : "https://github.com/zio/zio/issues/5181"
+      },
+      {
+        "number" : 5173,
+        "title" : "Test with TestClock and a schedule hangs, when the repeated effect uses Thread.sleep",
+        "url" : "https://github.com/zio/zio/issues/5173"
+      },
+      {
+        "number" : 5170,
+        "title" : "toLayer not found on parameterless case class",
+        "url" : "https://github.com/zio/zio/issues/5170"
+      },
+      {
+        "number" : 5137,
+        "title" : "Flaky Stream Test On ZIO 2.0 Branch",
+        "url" : "https://github.com/zio/zio/issues/5137"
+      },
+      {
+        "number" : 5108,
+        "title" : "Improve documentation for Runtime#unsafeRunAsyncCancelable",
+        "url" : "https://github.com/zio/zio/issues/5108"
+      },
+      {
+        "number" : 5093,
+        "title" : "ZIO Test: Make specs more compositional",
+        "url" : "https://github.com/zio/zio/issues/5093"
+      },
+      {
+        "number" : 5050,
+        "title" : "ZIO 2.0: Improve Chunk[Boolean] for bit-oriented operations",
+        "url" : "https://github.com/zio/zio/issues/5050"
+      },
+      {
+        "number" : 5027,
+        "title" : "Flaky ZStream Tests",
+        "url" : "https://github.com/zio/zio/issues/5027"
+      },
+      {
+        "number" : 5026,
+        "title" : "javadoc jars for 3.0.0-x are missing contents",
+        "url" : "https://github.com/zio/zio/issues/5026"
+      },
+      {
+        "number" : 5014,
+        "title" : "FR: @accessible should elide accessors for `protected` and `private` members",
+        "url" : "https://github.com/zio/zio/issues/5014"
+      },
+      {
+        "number" : 5004,
+        "title" : "Better support for Graal native-image `--initialize-at-build-time`",
+        "url" : "https://github.com/zio/zio/issues/5004"
+      },
+      {
+        "number" : 4959,
+        "title" : "Add Information on Upgrading From Monix Observable to Migration Guide",
+        "url" : "https://github.com/zio/zio/issues/4959"
+      },
+      {
+        "number" : 4905,
+        "title" : "[dotty][zio-test][1.0.4+] Scala 2 macro cannot be used in Dotty",
+        "url" : "https://github.com/zio/zio/issues/4905"
+      },
+      {
+        "number" : 4896,
+        "title" : "Test clock + ZStream issue",
+        "url" : "https://github.com/zio/zio/issues/4896"
+      },
+      {
+        "number" : 4886,
+        "title" : "Channels: follow-up work",
+        "url" : "https://github.com/zio/zio/issues/4886"
+      },
+      {
+        "number" : 4840,
+        "title" : "ZIO Test: Setting the seed doesn't work with shared layers",
+        "url" : "https://github.com/zio/zio/issues/4840"
+      },
+      {
+        "number" : 4809,
+        "title" : "Defect in zio.Has: Set(SttpBackend[=λ %2:0 → ZIO[-Any,+Throwable,+2:0],+{ZioStreams & package::WebSockets}]) statically known to be contained within the environment are missing",
+        "url" : "https://github.com/zio/zio/issues/4809"
+      },
+      {
+        "number" : 4806,
+        "title" : "simple ammonite script does not work with zio",
+        "url" : "https://github.com/zio/zio/issues/4806"
+      },
+      {
+        "number" : 4803,
+        "title" : "ZIO Test: Include duration and failure message in junit test report",
+        "url" : "https://github.com/zio/zio/issues/4803"
+      },
+      {
+        "number" : 4802,
+        "title" : "Strange Tag/Has Issue with Scala 3.0.0-RC1",
+        "url" : "https://github.com/zio/zio/issues/4802"
+      },
+      {
+        "number" : 4777,
+        "title" : "Potential Issue With Interaction Between ZLayer And Skunk",
+        "url" : "https://github.com/zio/zio/issues/4777"
+      },
+      {
+        "number" : 4747,
+        "title" : "Having a Supervisor that tracks every effect that is run with unsafeRun",
+        "url" : "https://github.com/zio/zio/issues/4747"
+      },
+      {
+        "number" : 4729,
+        "title" : "Null layer passed to ZLayer leads to late cryptic errors",
+        "url" : "https://github.com/zio/zio/issues/4729"
+      },
+      {
+        "number" : 4693,
+        "title" : "Unexpected partition buffering behaviour ",
+        "url" : "https://github.com/zio/zio/issues/4693"
+      },
+      {
+        "number" : 4600,
+        "title" : "ZIO Test: Upstream Generators From ZIO Test Refined Module",
+        "url" : "https://github.com/zio/zio/issues/4600"
+      },
+      {
+        "number" : 4593,
+        "title" : "Ensure All Examples From Documentation Are Compiled",
+        "url" : "https://github.com/zio/zio/issues/4593"
+      },
+      {
+        "number" : 4564,
+        "title" : "Issue with ZLayer/Has on Scala 3",
+        "url" : "https://github.com/zio/zio/issues/4564"
+      },
+      {
+        "number" : 4541,
+        "title" : "ZIO Test: Simplify Assertion",
+        "url" : "https://github.com/zio/zio/issues/4541"
+      },
+      {
+        "number" : 4530,
+        "title" : "ZIO Test: allow run @@ ignore tests",
+        "url" : "https://github.com/zio/zio/issues/4530"
+      },
+      {
+        "number" : 4528,
+        "title" : "Support mirroring FiberRef contents to ThreadLocal",
+        "url" : "https://github.com/zio/zio/issues/4528"
+      },
+      {
+        "number" : 4519,
+        "title" : "ZIO Test: Share layers across specs",
+        "url" : "https://github.com/zio/zio/issues/4519"
+      },
+      {
+        "number" : 4514,
+        "title" : "With two `mapMPar`s in a row, possible to lose an error",
+        "url" : "https://github.com/zio/zio/issues/4514"
+      },
+      {
+        "number" : 4513,
+        "title" : "Possble additional *OrFail variants?",
+        "url" : "https://github.com/zio/zio/issues/4513"
+      },
+      {
+        "number" : 4512,
+        "title" : "Higher arity versions for ZIO.mapN, ZIO.tupled, etc.",
+        "url" : "https://github.com/zio/zio/issues/4512"
+      },
+      {
+        "number" : 4495,
+        "title" : "ZIO Macro  @accessor only generates the accessors methods to the methods declared in the service, if you extend from the a trait parent does not work, only work with the methods declared locally in the service",
+        "url" : "https://github.com/zio/zio/issues/4495"
+      },
+      {
+        "number" : 4494,
+        "title" : "Stream.fromQueue and binary compatiblity",
+        "url" : "https://github.com/zio/zio/issues/4494"
+      },
+      {
+        "number" : 4493,
+        "title" : "Tests aren't discovered if spec is a class",
+        "url" : "https://github.com/zio/zio/issues/4493"
+      },
+      {
+        "number" : 4488,
+        "title" : "`grouped` and `collectAllN` don't produce maximum sized chunks",
+        "url" : "https://github.com/zio/zio/issues/4488"
+      },
+      {
+        "number" : 4480,
+        "title" : "Better report equalTo assertion errors for lists",
+        "url" : "https://github.com/zio/zio/issues/4480"
+      },
+      {
+        "number" : 4479,
+        "title" : "Escape strings in the equalTo assertion",
+        "url" : "https://github.com/zio/zio/issues/4479"
+      },
+      {
+        "number" : 4477,
+        "title" : "Feature-Request: add .map() to Has",
+        "url" : "https://github.com/zio/zio/issues/4477"
+      },
+      {
+        "number" : 4463,
+        "title" : "Confused by ZStream.groupWithin",
+        "url" : "https://github.com/zio/zio/issues/4463"
+      },
+      {
+        "number" : 4461,
+        "title" : "Improve interop with Java from Java-Side",
+        "url" : "https://github.com/zio/zio/issues/4461"
+      },
+      {
+        "number" : 4460,
+        "title" : "Bundle-size in scala-js",
+        "url" : "https://github.com/zio/zio/issues/4460"
+      },
+      {
+        "number" : 4435,
+        "title" : "JVM ZIO tests exceeded 10 minute timeout for Scala 2.12 on JDK 11",
+        "url" : "https://github.com/zio/zio/issues/4435"
+      },
+      {
+        "number" : 4433,
+        "title" : "Project loom and ZIO",
+        "url" : "https://github.com/zio/zio/issues/4433"
+      },
+      {
+        "number" : 4426,
+        "title" : "zio-test More flexible laws testing",
+        "url" : "https://github.com/zio/zio/issues/4426"
+      },
+      {
+        "number" : 4414,
+        "title" : "NPE in zio-test while rendering a Cause",
+        "url" : "https://github.com/zio/zio/issues/4414"
+      },
+      {
+        "number" : 4410,
+        "title" : "Misleadning error when using mapError on an effect returning a tuple",
+        "url" : "https://github.com/zio/zio/issues/4410"
+      },
+      {
+        "number" : 4402,
+        "title" : "Promise inefficiency when interrupting a joiner",
+        "url" : "https://github.com/zio/zio/issues/4402"
+      },
+      {
+        "number" : 4400,
+        "title" : "Improve ZStream#ChunkN",
+        "url" : "https://github.com/zio/zio/issues/4400"
+      },
+      {
+        "number" : 4396,
+        "title" : "ZIO Test: support streaming test output",
+        "url" : "https://github.com/zio/zio/issues/4396"
+      },
+      {
+        "number" : 4395,
+        "title" : "High cpu utilization of Promise.await and app degradation over time",
+        "url" : "https://github.com/zio/zio/issues/4395"
+      },
+      {
+        "number" : 4393,
+        "title" : "[zio-stream] Application with error exits successfully",
+        "url" : "https://github.com/zio/zio/issues/4393"
+      },
+      {
+        "number" : 4392,
+        "title" : "Inconsistent behaviour for under multiple invocations Streams.take",
+        "url" : "https://github.com/zio/zio/issues/4392"
+      },
+      {
+        "number" : 4391,
+        "title" : "1.0.3 regression: \"Defect in zio.Has\" exceptions due to izumi-reflect 1.0.0-M9 dependency",
+        "url" : "https://github.com/zio/zio/issues/4391"
+      },
+      {
+        "number" : 4389,
+        "title" : "UnsafeRunToFuture runs on calling thread, ignoring zio executor(ZIO + play threadpool issue)",
+        "url" : "https://github.com/zio/zio/issues/4389"
+      },
+      {
+        "number" : 4384,
+        "title" : "NullPointerException in ZTrace ",
+        "url" : "https://github.com/zio/zio/issues/4384"
+      },
+      {
+        "number" : 4351,
+        "title" : "Consider adding Schedule.deadline?",
+        "url" : "https://github.com/zio/zio/issues/4351"
+      },
+      {
+        "number" : 4348,
+        "title" : "Preserve original error in ZStream.MapMPar",
+        "url" : "https://github.com/zio/zio/issues/4348"
+      },
+      {
+        "number" : 4328,
+        "title" : "[zio-stream] missing operation to flatMap the Pull with a callback handler",
+        "url" : "https://github.com/zio/zio/issues/4328"
+      },
+      {
+        "number" : 4320,
+        "title" : "[zio-stream] How to extract multiple element errors?",
+        "url" : "https://github.com/zio/zio/issues/4320"
+      },
+      {
+        "number" : 4316,
+        "title" : "Inconsistent type signature of `repeat` between ZIO and ZStream",
+        "url" : "https://github.com/zio/zio/issues/4316"
+      },
+      {
+        "number" : 4315,
+        "title" : "Why vector?",
+        "url" : "https://github.com/zio/zio/issues/4315"
+      },
+      {
+        "number" : 4312,
+        "title" : "[zio-test] Implement LawfulF3 and LawsF3 for Zivariant",
+        "url" : "https://github.com/zio/zio/issues/4312"
+      },
+      {
+        "number" : 4300,
+        "title" : "Flaky ZManaged Test",
+        "url" : "https://github.com/zio/zio/issues/4300"
+      },
+      {
+        "number" : 4290,
+        "title" : "Flaky ZStream Test",
+        "url" : "https://github.com/zio/zio/issues/4290"
+      },
+      {
+        "number" : 4281,
+        "title" : "Test result rendering incorrect",
+        "url" : "https://github.com/zio/zio/issues/4281"
+      },
+      {
+        "number" : 4269,
+        "title" : "losing items with queue.take.timeout ",
+        "url" : "https://github.com/zio/zio/issues/4269"
+      },
+      {
+        "number" : 4264,
+        "title" : "Flaky streams test?",
+        "url" : "https://github.com/zio/zio/issues/4264"
+      },
+      {
+        "number" : 4257,
+        "title" : "Investigate new encoding for ZIO Test Aspects",
+        "url" : "https://github.com/zio/zio/issues/4257"
+      },
+      {
+        "number" : 4207,
+        "title" : "Add basic combinators (map,flatMap...) to Promise",
+        "url" : "https://github.com/zio/zio/issues/4207"
+      },
+      {
+        "number" : 4203,
+        "title" : "ZTransducer.foldWeighted does not work with negative cost function weights",
+        "url" : "https://github.com/zio/zio/issues/4203"
+      },
+      {
+        "number" : 4191,
+        "title" : "ZStream#groupByKey performance",
+        "url" : "https://github.com/zio/zio/issues/4191"
+      },
+      {
+        "number" : 4190,
+        "title" : "ZStream#throttleShape does not emit when chunks are larger than 'units'",
+        "url" : "https://github.com/zio/zio/issues/4190"
+      },
+      {
+        "number" : 4130,
+        "title" : "Report source of discrepancy when when an expectation (created with `@mockable`) is not met in ZIO tests",
+        "url" : "https://github.com/zio/zio/issues/4130"
+      },
+      {
+        "number" : 4103,
+        "title" : "When interrupted, managed resource closes before other dependent resources are closed.",
+        "url" : "https://github.com/zio/zio/issues/4103"
+      },
+      {
+        "number" : 4099,
+        "title" : "@accessible can't handle a type alias in a return type",
+        "url" : "https://github.com/zio/zio/issues/4099"
+      },
+      {
+        "number" : 4061,
+        "title" : "Flaky ZStreamSpec#haltAfter and #groupedWithin tests",
+        "url" : "https://github.com/zio/zio/issues/4061"
+      },
+      {
+        "number" : 4012,
+        "title" : "Add equalWith combinator to Cause",
+        "url" : "https://github.com/zio/zio/issues/4012"
+      },
+      {
+        "number" : 3995,
+        "title" : "[dotty][zio-test] error Type Mismatch Error env zio.test.mock.Expectation[zio.console.Console",
+        "url" : "https://github.com/zio/zio/issues/3995"
+      },
+      {
+        "number" : 3964,
+        "title" : "Borrow back useful improvements to ZIO Tracing, if any, from cats-effect's implementation",
+        "url" : "https://github.com/zio/zio/issues/3964"
+      },
+      {
+        "number" : 3962,
+        "title" : "Factor out BufferedPull(s)",
+        "url" : "https://github.com/zio/zio/issues/3962"
+      },
+      {
+        "number" : 3955,
+        "title" : "zio.streams needs scaladocs",
+        "url" : "https://github.com/zio/zio/issues/3955"
+      },
+      {
+        "number" : 3938,
+        "title" : "Allow ZManaged finalizer to throw errors",
+        "url" : "https://github.com/zio/zio/issues/3938"
+      },
+      {
+        "number" : 3903,
+        "title" : "Introduce foreachWhile",
+        "url" : "https://github.com/zio/zio/issues/3903"
+      },
+      {
+        "number" : 3894,
+        "title" : "Add error handling methods to ZSink and ZTransducer",
+        "url" : "https://github.com/zio/zio/issues/3894"
+      },
+      {
+        "number" : 3868,
+        "title" : "Rename 'master' branch",
+        "url" : "https://github.com/zio/zio/issues/3868"
+      },
+      {
+        "number" : 3865,
+        "title" : "ZTransducer: Add more useful transducers",
+        "url" : "https://github.com/zio/zio/issues/3865"
+      },
+      {
+        "number" : 3859,
+        "title" : "ZIO Stream / Sink JVM Enhanced Integration",
+        "url" : "https://github.com/zio/zio/issues/3859"
+      },
+      {
+        "number" : 3856,
+        "title" : "zio-test imports",
+        "url" : "https://github.com/zio/zio/issues/3856"
+      },
+      {
+        "number" : 3847,
+        "title" : "ZStream.fromJavaStream*: Consider always calling close on underlying stream",
+        "url" : "https://github.com/zio/zio/issues/3847"
+      },
+      {
+        "number" : 3841,
+        "title" : "`ZStream#fromIterator(Managed)` should have an optional `chunkSize` parameter",
+        "url" : "https://github.com/zio/zio/issues/3841"
+      },
+      {
+        "number" : 3840,
+        "title" : "ZIO Test: TestClock.adjust can hang in certain situations",
+        "url" : "https://github.com/zio/zio/issues/3840"
+      },
+      {
+        "number" : 3822,
+        "title" : "Chunk.fromIterable may lose the first element",
+        "url" : "https://github.com/zio/zio/issues/3822"
+      },
+      {
+        "number" : 3821,
+        "title" : "Recursive ADTs's derived Gen instances tends to OOM",
+        "url" : "https://github.com/zio/zio/issues/3821"
+      },
+      {
+        "number" : 3816,
+        "title" : "Defect in Has error and different compile behaviour with dotty",
+        "url" : "https://github.com/zio/zio/issues/3816"
+      },
+      {
+        "number" : 3811,
+        "title" : "Add ZIO.fromIterableEffect + fix inconsistent method naming",
+        "url" : "https://github.com/zio/zio/issues/3811"
+      },
+      {
+        "number" : 3799,
+        "title" : "scaladoc for streams produces broken links",
+        "url" : "https://github.com/zio/zio/issues/3799"
+      },
+      {
+        "number" : 3775,
+        "title" : "Leftovers of Zsink leftovers",
+        "url" : "https://github.com/zio/zio/issues/3775"
+      },
+      {
+        "number" : 3766,
+        "title" : "ZStream.buffer buffers chunks instead of single values",
+        "url" : "https://github.com/zio/zio/issues/3766"
+      },
+      {
+        "number" : 3760,
+        "title" : "Flaky ZManaged Test",
+        "url" : "https://github.com/zio/zio/issues/3760"
+      },
+      {
+        "number" : 3759,
+        "title" : "Add transducers for gzip and deflate",
+        "url" : "https://github.com/zio/zio/issues/3759"
+      },
+      {
+        "number" : 3732,
+        "title" : "Consider combinator that fails fast after first error is found",
+        "url" : "https://github.com/zio/zio/issues/3732"
+      },
+      {
+        "number" : 3726,
+        "title" : "ZIO Test: Better Functionality for Debug Information in Tests",
+        "url" : "https://github.com/zio/zio/issues/3726"
+      },
+      {
+        "number" : 3719,
+        "title" : "Stacktracer loses stack frames",
+        "url" : "https://github.com/zio/zio/issues/3719"
+      },
+      {
+        "number" : 3715,
+        "title" : "toPromiseJS should probably not assume E is Throwable",
+        "url" : "https://github.com/zio/zio/issues/3715"
+      },
+      {
+        "number" : 3714,
+        "title" : "js.Promise should probably be js.Thenable",
+        "url" : "https://github.com/zio/zio/issues/3714"
+      },
+      {
+        "number" : 3672,
+        "title" : "Use NonEmptyChunk for the inputs of ZTransducers and ZSinks",
+        "url" : "https://github.com/zio/zio/issues/3672"
+      },
+      {
+        "number" : 3668,
+        "title" : "Maintain the chunk structure on effectful ZStream combinators",
+        "url" : "https://github.com/zio/zio/issues/3668"
+      },
+      {
+        "number" : 3667,
+        "title" : "Rename Chunk#mapM_ to Chunk#tap",
+        "url" : "https://github.com/zio/zio/issues/3667"
+      },
+      {
+        "number" : 3655,
+        "title" : "Flaky StmReentrantLock test",
+        "url" : "https://github.com/zio/zio/issues/3655"
+      },
+      {
+        "number" : 3648,
+        "title" : "Add ZTransducer.forwardTo(ZSink), ZStream.forwardTo(ZSink)",
+        "url" : "https://github.com/zio/zio/issues/3648"
+      },
+      {
+        "number" : 3645,
+        "title" : "Flaky ZStream#interruptAfter test",
+        "url" : "https://github.com/zio/zio/issues/3645"
+      },
+      {
+        "number" : 3639,
+        "title" : "Flaky ZStream#groupWithin test",
+        "url" : "https://github.com/zio/zio/issues/3639"
+      },
+      {
+        "number" : 3629,
+        "title" : "zio rc19 - Defect in zio.Has: Set(Any) ",
+        "url" : "https://github.com/zio/zio/issues/3629"
+      },
+      {
+        "number" : 3623,
+        "title" : "Add tapChunks to ZStream",
+        "url" : "https://github.com/zio/zio/issues/3623"
+      },
+      {
+        "number" : 3614,
+        "title" : "add a testimonial section to zio website",
+        "url" : "https://github.com/zio/zio/issues/3614"
+      },
+      {
+        "number" : 3612,
+        "title" : "Flaky ZManaged test",
+        "url" : "https://github.com/zio/zio/issues/3612"
+      },
+      {
+        "number" : 3609,
+        "title" : "Add `ZStream.bracketExit` that wraps another stream",
+        "url" : "https://github.com/zio/zio/issues/3609"
+      },
+      {
+        "number" : 3597,
+        "title" : "Scala.js: something is wrong with sleeps under load",
+        "url" : "https://github.com/zio/zio/issues/3597"
+      },
+      {
+        "number" : 3582,
+        "title" : "Add methods to Chunk that convert it to an explicit primitive subtype",
+        "url" : "https://github.com/zio/zio/issues/3582"
+      },
+      {
+        "number" : 3578,
+        "title" : "Queue lost boundary",
+        "url" : "https://github.com/zio/zio/issues/3578"
+      },
+      {
+        "number" : 3577,
+        "title" : "raceFirst combinator",
+        "url" : "https://github.com/zio/zio/issues/3577"
+      },
+      {
+        "number" : 3573,
+        "title" : "Global sharing for resources in ZIO Test",
+        "url" : "https://github.com/zio/zio/issues/3573"
+      },
+      {
+        "number" : 3567,
+        "title" : "Consider Renaming MapN Variants",
+        "url" : "https://github.com/zio/zio/issues/3567"
+      },
+      {
+        "number" : 3563,
+        "title" : "Mocking framework doesn't provide the means to test the absence of method calls",
+        "url" : "https://github.com/zio/zio/issues/3563"
+      },
+      {
+        "number" : 3550,
+        "title" : "Tests: add generators and/or laws for testing stream chunking invariance",
+        "url" : "https://github.com/zio/zio/issues/3550"
+      },
+      {
+        "number" : 3549,
+        "title" : "Better support for mixing ZIO Clock and java.time.Clock",
+        "url" : "https://github.com/zio/zio/issues/3549"
+      },
+      {
+        "number" : 3525,
+        "title" : "FiberSpec flaky test",
+        "url" : "https://github.com/zio/zio/issues/3525"
+      },
+      {
+        "number" : 3499,
+        "title" : "Minimize ZIO Test type aliases ",
+        "url" : "https://github.com/zio/zio/issues/3499"
+      },
+      {
+        "number" : 3498,
+        "title" : "Generate dependency map from ZLayer",
+        "url" : "https://github.com/zio/zio/issues/3498"
+      },
+      {
+        "number" : 3495,
+        "title" : "Add ZTransducer arrow operations",
+        "url" : "https://github.com/zio/zio/issues/3495"
+      },
+      {
+        "number" : 3488,
+        "title" : "ZStream's use of ZManaged is not heap-safe in recursive binds and concatenations",
+        "url" : "https://github.com/zio/zio/issues/3488"
+      },
+      {
+        "number" : 3449,
+        "title" : "Chunk.fromIterable doesn't work with iterables of size > max array size",
+        "url" : "https://github.com/zio/zio/issues/3449"
+      },
+      {
+        "number" : 3442,
+        "title" : "Reconsider Use of PartialFunction[A, ZIO[R, E, B]] Signature",
+        "url" : "https://github.com/zio/zio/issues/3442"
+      },
+      {
+        "number" : 3427,
+        "title" : "Better ZLayer bounds error messages",
+        "url" : "https://github.com/zio/zio/issues/3427"
+      },
+      {
+        "number" : 3417,
+        "title" : "Reading stdin redirected from file ends unexpectedly",
+        "url" : "https://github.com/zio/zio/issues/3417"
+      },
+      {
+        "number" : 3395,
+        "title" : "ZIO Test, TestClock: Time should advance while suspended",
+        "url" : "https://github.com/zio/zio/issues/3395"
+      },
+      {
+        "number" : 3388,
+        "title" : "Add bitwise operations to Chunk.BitChunk",
+        "url" : "https://github.com/zio/zio/issues/3388"
+      },
+      {
+        "number" : 3385,
+        "title" : "Expand Chunk to support `Long` sized chunks",
+        "url" : "https://github.com/zio/zio/issues/3385"
+      },
+      {
+        "number" : 3380,
+        "title" : "ZIO Test: Multi JVM testing",
+        "url" : "https://github.com/zio/zio/issues/3380"
+      },
+      {
+        "number" : 3365,
+        "title" : "ZIO Tracing & ZMX docs",
+        "url" : "https://github.com/zio/zio/issues/3365"
+      },
+      {
+        "number" : 3355,
+        "title" : "Leak in Scala.js + ZIO 1.0.0-RC18-2",
+        "url" : "https://github.com/zio/zio/issues/3355"
+      },
+      {
+        "number" : 3353,
+        "title" : "Add More Chunk Benchmarks",
+        "url" : "https://github.com/zio/zio/issues/3353"
+      },
+      {
+        "number" : 3331,
+        "title" : "ZIO Test: More precise test selection?",
+        "url" : "https://github.com/zio/zio/issues/3331"
+      },
+      {
+        "number" : 3329,
+        "title" : "ZIO Mock support mocking objects outside of environment",
+        "url" : "https://github.com/zio/zio/issues/3329"
+      },
+      {
+        "number" : 3323,
+        "title" : "ZIO Core: Improve handling of Maps",
+        "url" : "https://github.com/zio/zio/issues/3323"
+      },
+      {
+        "number" : 3316,
+        "title" : "Lowercase methods names in ZIO Mock",
+        "url" : "https://github.com/zio/zio/issues/3316"
+      },
+      {
+        "number" : 3315,
+        "title" : "Best practices user guide",
+        "url" : "https://github.com/zio/zio/issues/3315"
+      },
+      {
+        "number" : 3310,
+        "title" : "Potential Flakiness in Stream Tests",
+        "url" : "https://github.com/zio/zio/issues/3310"
+      },
+      {
+        "number" : 3301,
+        "title" : "Improving performance on Chunk",
+        "url" : "https://github.com/zio/zio/issues/3301"
+      },
+      {
+        "number" : 3298,
+        "title" : "ZIO Mock document impure vals caveat",
+        "url" : "https://github.com/zio/zio/issues/3298"
+      },
+      {
+        "number" : 3289,
+        "title" : "Add BenchmarkSpec",
+        "url" : "https://github.com/zio/zio/issues/3289"
+      },
+      {
+        "number" : 3280,
+        "title" : "ZIO Test: Cancel after first failure feature",
+        "url" : "https://github.com/zio/zio/issues/3280"
+      },
+      {
+        "number" : 3278,
+        "title" : "js & native core/Runtime should do better job handling unsafeRun() & unsafeRunSync()",
+        "url" : "https://github.com/zio/zio/issues/3278"
+      },
+      {
+        "number" : 3268,
+        "title" : "Improve ZIO Mock documentation",
+        "url" : "https://github.com/zio/zio/issues/3268"
+      },
+      {
+        "number" : 3261,
+        "title" : "Convert accessible and mockable macros into blackbox macros",
+        "url" : "https://github.com/zio/zio/issues/3261"
+      },
+      {
+        "number" : 3243,
+        "title" : "Allow for user-supplied parameter rendering in Assertion",
+        "url" : "https://github.com/zio/zio/issues/3243"
+      },
+      {
+        "number" : 3237,
+        "title" : "ZIO Mock: support polymorphic Services",
+        "url" : "https://github.com/zio/zio/issues/3237"
+      },
+      {
+        "number" : 3226,
+        "title" : "ZIO Test: `@@ only` TestAspect",
+        "url" : "https://github.com/zio/zio/issues/3226"
+      },
+      {
+        "number" : 3218,
+        "title" : "ZIO Test: typeChecks assertion does not expand macros",
+        "url" : "https://github.com/zio/zio/issues/3218"
+      },
+      {
+        "number" : 3212,
+        "title" : "Refine retry storms handling",
+        "url" : "https://github.com/zio/zio/issues/3212"
+      },
+      {
+        "number" : 3203,
+        "title" : "ZIO Macros: add optional wrapper for accessors",
+        "url" : "https://github.com/zio/zio/issues/3203"
+      },
+      {
+        "number" : 3200,
+        "title" : "ZStream, merge multiple effectful streams provokes unknown Fiber interrupt",
+        "url" : "https://github.com/zio/zio/issues/3200"
+      },
+      {
+        "number" : 3187,
+        "title" : "Improve type inference for ZSink",
+        "url" : "https://github.com/zio/zio/issues/3187"
+      },
+      {
+        "number" : 3177,
+        "title" : "ZIO Core: Add foreachM",
+        "url" : "https://github.com/zio/zio/issues/3177"
+      },
+      {
+        "number" : 3150,
+        "title" : "ZIO Macros: add DebugProperties",
+        "url" : "https://github.com/zio/zio/issues/3150"
+      },
+      {
+        "number" : 3135,
+        "title" : "Improve Trace Output When A Test Fails",
+        "url" : "https://github.com/zio/zio/issues/3135"
+      },
+      {
+        "number" : 3133,
+        "title" : "ZIO Test: make test reporting more extensible",
+        "url" : "https://github.com/zio/zio/issues/3133"
+      },
+      {
+        "number" : 3097,
+        "title" : "ZIO Mock: implicit free encoding for spies",
+        "url" : "https://github.com/zio/zio/issues/3097"
+      },
+      {
+        "number" : 3078,
+        "title" : "Scala.js test failures: JSCom has been closed",
+        "url" : "https://github.com/zio/zio/issues/3078"
+      },
+      {
+        "number" : 3020,
+        "title" : "Add a Docusaurus blog to website",
+        "url" : "https://github.com/zio/zio/issues/3020"
+      },
+      {
+        "number" : 2990,
+        "title" : "ZIO Core: Consider separating decision from update in Schedule",
+        "url" : "https://github.com/zio/zio/issues/2990"
+      },
+      {
+        "number" : 2962,
+        "title" : "ZIO Core: Tracking side-effects with ZIO Environment",
+        "url" : "https://github.com/zio/zio/issues/2962"
+      },
+      {
+        "number" : 2890,
+        "title" : "Flaky validateFirstPar",
+        "url" : "https://github.com/zio/zio/issues/2890"
+      },
+      {
+        "number" : 2811,
+        "title" : "Flaky TestAspectSpec Test",
+        "url" : "https://github.com/zio/zio/issues/2811"
+      },
+      {
+        "number" : 2798,
+        "title" : "CD: Investigate GitHub Packages for deployment",
+        "url" : "https://github.com/zio/zio/issues/2798"
+      },
+      {
+        "number" : 2785,
+        "title" : "ZIO Test: Historical reports",
+        "url" : "https://github.com/zio/zio/issues/2785"
+      },
+      {
+        "number" : 2784,
+        "title" : "ZIO Test: Supporting pluggable diffing",
+        "url" : "https://github.com/zio/zio/issues/2784"
+      },
+      {
+        "number" : 2771,
+        "title" : "ZIO Test: Support Richer Reporting of Test Results",
+        "url" : "https://github.com/zio/zio/issues/2771"
+      },
+      {
+        "number" : 2750,
+        "title" : "Unable to Interrupt Future in ZIO#fromFutureInterrupt Test",
+        "url" : "https://github.com/zio/zio/issues/2750"
+      },
+      {
+        "number" : 2739,
+        "title" : "Nonterminating ZIO#foreachPar Test",
+        "url" : "https://github.com/zio/zio/issues/2739"
+      },
+      {
+        "number" : 2721,
+        "title" : "Upgrade mdoc Resolve mdoc upgrade issues",
+        "url" : "https://github.com/zio/zio/issues/2721"
+      },
+      {
+        "number" : 2698,
+        "title" : "Subtle inconsistency between ZManaged#onExit and ZManaged.makeExit",
+        "url" : "https://github.com/zio/zio/issues/2698"
+      },
+      {
+        "number" : 2696,
+        "title" : "ZIO Test: don't ignore silently `class extends DefaultRunnableSpec`",
+        "url" : "https://github.com/zio/zio/issues/2696"
+      },
+      {
+        "number" : 2693,
+        "title" : "Can We Do More To Preserve Combined Errors?",
+        "url" : "https://github.com/zio/zio/issues/2693"
+      },
+      {
+        "number" : 2563,
+        "title" : "ZIO Test: Influence merging of test aspects",
+        "url" : "https://github.com/zio/zio/issues/2563"
+      },
+      {
+        "number" : 2557,
+        "title" : "Flaky test: bracketFork release called on interrupt in separate fiber",
+        "url" : "https://github.com/zio/zio/issues/2557"
+      },
+      {
+        "number" : 2532,
+        "title" : "ZIO Test: Improve Distinction Between Test and Suite Level Resources",
+        "url" : "https://github.com/zio/zio/issues/2532"
+      },
+      {
+        "number" : 2518,
+        "title" : "Better Organization for ZIO Test Documentation",
+        "url" : "https://github.com/zio/zio/issues/2518"
+      },
+      {
+        "number" : 2507,
+        "title" : "Two Bad Things about the repo",
+        "url" : "https://github.com/zio/zio/issues/2507"
+      },
+      {
+        "number" : 2501,
+        "title" : "ZIO Test: Add test annotation for property-based tests",
+        "url" : "https://github.com/zio/zio/issues/2501"
+      },
+      {
+        "number" : 2451,
+        "title" : "Use immutable collections in api descriptions",
+        "url" : "https://github.com/zio/zio/issues/2451"
+      },
+      {
+        "number" : 2436,
+        "title" : "Fibers' `onTermination` effects are only run on sbt `exit`",
+        "url" : "https://github.com/zio/zio/issues/2436"
+      },
+      {
+        "number" : 2431,
+        "title" : "ZStream#aggregate, element level errors and safety guarantees of ZSink",
+        "url" : "https://github.com/zio/zio/issues/2431"
+      },
+      {
+        "number" : 2415,
+        "title" : "Group consecutive elements in a stream dependending on a common value",
+        "url" : "https://github.com/zio/zio/issues/2415"
+      },
+      {
+        "number" : 2405,
+        "title" : "Add `unfoldWhile` , `unfoldWhileM`, `unfoldUntil` , `unfoldUntilM` on `ZStream`and `Stream`",
+        "url" : "https://github.com/zio/zio/issues/2405"
+      },
+      {
+        "number" : 2344,
+        "title" : "ClassCastException BoxedUnit in ZIO.raceWith / Fiber.mapM#interrupt / Exit.foreach",
+        "url" : "https://github.com/zio/zio/issues/2344"
+      },
+      {
+        "number" : 2343,
+        "title" : "Consider making stepChunk not final on ZSink.",
+        "url" : "https://github.com/zio/zio/issues/2343"
+      },
+      {
+        "number" : 2342,
+        "title" : "Clarify constraints on ZSink's design",
+        "url" : "https://github.com/zio/zio/issues/2342"
+      },
+      {
+        "number" : 2329,
+        "title" : "Improve Chunk#zipAllWith",
+        "url" : "https://github.com/zio/zio/issues/2329"
+      },
+      {
+        "number" : 2327,
+        "title" : "Snapshot release and website",
+        "url" : "https://github.com/zio/zio/issues/2327"
+      },
+      {
+        "number" : 2275,
+        "title" : "Another Flaky Stream FlatMapParSwitch Test",
+        "url" : "https://github.com/zio/zio/issues/2275"
+      },
+      {
+        "number" : 2271,
+        "title" : "Add Additional Methods to Chunk",
+        "url" : "https://github.com/zio/zio/issues/2271"
+      },
+      {
+        "number" : 2263,
+        "title" : "Add a signal handler for dumping the fiber stack in zio.App",
+        "url" : "https://github.com/zio/zio/issues/2263"
+      },
+      {
+        "number" : 2255,
+        "title" : "Run CI builds after merging into master",
+        "url" : "https://github.com/zio/zio/issues/2255"
+      },
+      {
+        "number" : 2244,
+        "title" : "Flaky EffectAsyncMaybe Test",
+        "url" : "https://github.com/zio/zio/issues/2244"
+      },
+      {
+        "number" : 2243,
+        "title" : "Flaky FlatMapParSwitch Test",
+        "url" : "https://github.com/zio/zio/issues/2243"
+      },
+      {
+        "number" : 2232,
+        "title" : "ZIO Stream: ZStream#fromIterable Does Not Terminate on Dotty",
+        "url" : "https://github.com/zio/zio/issues/2232"
+      },
+      {
+        "number" : 2225,
+        "title" : "Improvements to zio.Chunk",
+        "url" : "https://github.com/zio/zio/issues/2225"
+      },
+      {
+        "number" : 2201,
+        "title" : "Warn about dangerous uses of unsafeRun",
+        "url" : "https://github.com/zio/zio/issues/2201"
+      },
+      {
+        "number" : 2110,
+        "title" : "Add ZStreamChunk#groupedSliding",
+        "url" : "https://github.com/zio/zio/issues/2110"
+      },
+      {
+        "number" : 2077,
+        "title" : "Port combinators from ZIO to ZManaged",
+        "url" : "https://github.com/zio/zio/issues/2077"
+      },
+      {
+        "number" : 2003,
+        "title" : "Allow renderer to access to both actual and expected parameters",
+        "url" : "https://github.com/zio/zio/issues/2003"
+      },
+      {
+        "number" : 1992,
+        "title" : "Flaky StreamBuffer Test",
+        "url" : "https://github.com/zio/zio/issues/1992"
+      },
+      {
+        "number" : 1987,
+        "title" : "Flaky ZIO test",
+        "url" : "https://github.com/zio/zio/issues/1987"
+      },
+      {
+        "number" : 1936,
+        "title" : "Flaky FiberRefSpec Test",
+        "url" : "https://github.com/zio/zio/issues/1936"
+      },
+      {
+        "number" : 1927,
+        "title" : "ZIO Test: Support SBT testQuick Command",
+        "url" : "https://github.com/zio/zio/issues/1927"
+      },
+      {
+        "number" : 1882,
+        "title" : "Flaky BlockingSpec Test",
+        "url" : "https://github.com/zio/zio/issues/1882"
+      },
+      {
+        "number" : 1873,
+        "title" : "Add ZQueue#drain (or equivalent)",
+        "url" : "https://github.com/zio/zio/issues/1873"
+      },
+      {
+        "number" : 1841,
+        "title" : "Hanging thread",
+        "url" : "https://github.com/zio/zio/issues/1841"
+      },
+      {
+        "number" : 1803,
+        "title" : "Add a variant of ZStream#throttleShape that allows dynamically changing the throttling rate",
+        "url" : "https://github.com/zio/zio/issues/1803"
+      },
+      {
+        "number" : 1765,
+        "title" : "Make ZStream's combinators resilient to failures",
+        "url" : "https://github.com/zio/zio/issues/1765"
+      },
+      {
+        "number" : 1629,
+        "title" : "ZIO Stream: Remove Legacy Short Circuiting Tests",
+        "url" : "https://github.com/zio/zio/issues/1629"
+      },
+      {
+        "number" : 1621,
+        "title" : "The site layout could be better for mobile devices",
+        "url" : "https://github.com/zio/zio/issues/1621"
+      },
+      {
+        "number" : 1570,
+        "title" : "Find an encoding for dependent pairs for use in ZSink",
+        "url" : "https://github.com/zio/zio/issues/1570"
+      },
+      {
+        "number" : 1538,
+        "title" : "Explore using ZSchedule for ZSink#throttleShape and ZSink#throttleEnforce",
+        "url" : "https://github.com/zio/zio/issues/1538"
+      },
+      {
+        "number" : 1529,
+        "title" : "Explore an Arrow-like DSL for PubSub and push streams",
+        "url" : "https://github.com/zio/zio/issues/1529"
+      },
+      {
+        "number" : 1464,
+        "title" : "Consider supporting interruption in some StreamEffect combinators",
+        "url" : "https://github.com/zio/zio/issues/1464"
+      },
+      {
+        "number" : 1420,
+        "title" : "Create a SIP to add source line info to scala.Function0",
+        "url" : "https://github.com/zio/zio/issues/1420"
+      },
+      {
+        "number" : 1400,
+        "title" : "Add StreamList / CachedStream?",
+        "url" : "https://github.com/zio/zio/issues/1400"
+      },
+      {
+        "number" : 1275,
+        "title" : "Blocking as default `effect` import?",
+        "url" : "https://github.com/zio/zio/issues/1275"
+      },
+      {
+        "number" : 1035,
+        "title" : "Add performance cooperation with CompletionStage",
+        "url" : "https://github.com/zio/zio/issues/1035"
+      },
+      {
+        "number" : 915,
+        "title" : "Untangle tracing logic from FiberContext",
+        "url" : "https://github.com/zio/zio/issues/915"
+      },
+      {
+        "number" : 639,
+        "title" : "Support Scala Native",
+        "url" : "https://github.com/zio/zio/issues/639"
+      },
+      {
+        "number" : 378,
+        "title" : "ZIO's java facade.",
+        "url" : "https://github.com/zio/zio/issues/378"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : false,
+    "defaultArtifact" : "zio-test",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "asynchronous-and-reactive-programming",
+    "beginnerIssuesLabel" : null
+  }
+}

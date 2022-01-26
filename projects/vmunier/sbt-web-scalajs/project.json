@@ -1,0 +1,149 @@
+{
+  "organization" : "vmunier",
+  "repository" : "sbt-web-scalajs",
+  "creationDate" : 1420335127000,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643190482634
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "",
+    "description" : "SBT plugin to use Scala.js along with any sbt-web server.",
+    "logo" : "https://avatars.githubusercontent.com/u/1211392?v=4",
+    "stars" : 188,
+    "forks" : 28,
+    "watchers" : 10,
+    "issues" : 5,
+    "creationDate" : 1420330060000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-sbt-web-scalajs\" class=\"anchor\" aria-hidden=\"true\" href=\"#sbt-web-scalajs\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>sbt-web-scalajs</h1>\n<p dir=\"auto\"><a href=\"http://www.apache.org/licenses/LICENSE-2.0.txt\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/928d7b8c53c11c3b6724082b12ecd45b5cfac8194346b03d757bf8548a7a581e/687474703a2f2f696d672e736869656c64732e696f2f3a6c6963656e73652d417061636865253230322d7265642e737667\" alt=\"License\" data-canonical-src=\"http://img.shields.io/:license-Apache%202-red.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://maven-badges.herokuapp.com/maven-central/com.vmunier/sbt-web-scalajs\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/a631098cafb450a11594f3ecd1b115cfa1ad0745cdbe547c3f4b00243544a8e4/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f636f6d2e766d756e6965722f7362742d7765622d7363616c616a732f62616467652e737667\" alt=\"Maven Central\" data-canonical-src=\"https://maven-badges.herokuapp.com/maven-central/com.vmunier/sbt-web-scalajs/badge.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://gitter.im/vmunier/sbt-web-scalajs?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/5dbac0213da25c445bd11f168587c11a200ba153ef3014e8408e462e410169b3/68747470733a2f2f6261646765732e6769747465722e696d2f4a6f696e253230436861742e737667\" alt=\"Gitter\" data-canonical-src=\"https://badges.gitter.im/Join%20Chat.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">sbt-web-scalajs is a SBT plugin which allows you to use Scala.js along with any sbt-web server. It uses the <a href=\"https://github.com/sbt/sbt-web\">sbt-web</a> and <a href=\"https://github.com/scala-js/scala-js\">scala-js</a> plugins.</p>\n<h2 dir=\"auto\"><a id=\"user-content-setup\" class=\"anchor\" aria-hidden=\"true\" href=\"#setup\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Setup</h2>\n<p dir=\"auto\">Specify the sbt version in <code>project/build.properties</code> (you can find the latest version <a href=\"https://www.scala-sbt.org/download.html\" rel=\"nofollow\">here</a>):</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"sbt.version=1.5.1\"><pre><code>sbt.version=1.5.1\n</code></pre></div>\n<p dir=\"auto\">Add the sbt-web-scalajs and Scala.js plugins to <code>project/plugins.sbt</code>:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"addSbtPlugin(&quot;com.vmunier&quot; % &quot;sbt-web-scalajs&quot; % &quot;1.2.0&quot;)\naddSbtPlugin(&quot;org.scala-js&quot; % &quot;sbt-scalajs&quot; % &quot;1.5.1&quot;)\"><pre><code>addSbtPlugin(\"com.vmunier\" % \"sbt-web-scalajs\" % \"1.2.0\")\naddSbtPlugin(\"org.scala-js\" % \"sbt-scalajs\" % \"1.5.1\")\n</code></pre></div>\n<p dir=\"auto\">Lastly, put the following configuration in <code>build.sbt</code>:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"lazy val server = project.settings(\n  scalaJSProjects := Seq(client),\n  Assets / pipelineStages := Seq(scalaJSPipeline)\n).enablePlugins(SbtWeb)\n\nlazy val client = project.enablePlugins(ScalaJSPlugin, ScalaJSWeb)\"><pre><code>lazy val server = project.settings(\n  scalaJSProjects := Seq(client),\n  Assets / pipelineStages := Seq(scalaJSPipeline)\n).enablePlugins(SbtWeb)\n\nlazy val client = project.enablePlugins(ScalaJSPlugin, ScalaJSWeb)\n</code></pre></div>\n<p dir=\"auto\">Note: make sure you use the <code>Assets</code> scope.</p>\n<h2 dir=\"auto\"><a id=\"user-content-examples\" class=\"anchor\" aria-hidden=\"true\" href=\"#examples\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Examples</h2>\n<p dir=\"auto\">To see the plugin in action, you can run <code>sbt new</code> with one of these Giter8 templates:</p>\n<ul dir=\"auto\">\n<li><a href=\"https://github.com/vmunier/play-scalajs.g8\">Play with Scala.js</a>: <code>sbt new vmunier/play-scalajs.g8</code></li>\n<li><a href=\"https://github.com/vmunier/akka-http-scalajs.g8\">Akka HTTP with Scala.js</a>: <code>sbt new vmunier/akka-http-scalajs.g8</code></li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-releases\" class=\"anchor\" aria-hidden=\"true\" href=\"#releases\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Releases</h2>\n<p dir=\"auto\">Have a look at the <a href=\"https://github.com/vmunier/sbt-web-scalajs/releases\">releases</a> to find out about the new features, bug fixes and how to upgrade when breaking changes were introduced.</p>\n<h2 dir=\"auto\"><a id=\"user-content-selecting-fastlinkjs-or-fulllinkjs\" class=\"anchor\" aria-hidden=\"true\" href=\"#selecting-fastlinkjs-or-fulllinkjs\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Selecting <code>fastLinkJS</code> or <code>fullLinkJS</code></h2>\n<p dir=\"auto\">sbt-web-scalajs looks up the <code>scalaJSStage</code> setting from the Scala.js projects to know whether to run <code>fastLinkJS</code> or <code>fullLinkJS</code>.</p>\n<ul dir=\"auto\">\n<li><code>scalaJSStage</code> setting is set to <code>FastOptStage</code> by default, which means sbt-web-scalajs runs <code>fastLinkJS</code> by default.</li>\n<li><code>scalaJSStage := FullOptStage</code> can be set in a Scala.js project, so that sbt-web-scalajs runs <code>fullLinkJS</code> for that project.</li>\n<li><code>Global / scalaJSStage := FullOptStage</code> sets <code>FullOptStage</code> for all the Scala.js projects from the build.</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-how-it-works\" class=\"anchor\" aria-hidden=\"true\" href=\"#how-it-works\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>How it works</h2>\n<p dir=\"auto\">There are two plugins: <code>WebScalaJS</code> and <code>ScalaJSWeb</code>.</p>\n<ul dir=\"auto\">\n<li><code>WebScalaJS</code> is automatically added to your SbtWeb project.</li>\n<li><code>ScalaJSWeb</code> should be manually added to the Scala.js projects that are used by your SbtWeb project.</li>\n<li>Scala.js projects are collected in the <code>scalaJSProjects</code> setting key of the SbtWeb project. The plugin does nothing if <code>scalaJSProjects</code> is not specified or is empty.</li>\n<li>When compilation or testing takes place, then the <code>WebScalaJS</code> plugin runs all required tasks on <code>scalaJSProjects</code> projects, copies the output to sbt-web assets and takes care of Source Maps.</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-settings-and-tasks\" class=\"anchor\" aria-hidden=\"true\" href=\"#settings-and-tasks\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Settings and Tasks</h2>\n<p dir=\"auto\">Defined in <code>WebScalaJS</code>:</p>\n<ul dir=\"auto\">\n<li>\n<p dir=\"auto\"><code>scalaJSProjects</code> setting lists the Scala.js projects whose output are used by the server.</p>\n</li>\n<li>\n<p dir=\"auto\"><code>scalaJSPipeline</code> task copies the JavaScript and Source Map files produced by Scala.js to the sbt-web assets. Scala files are also copied to be used for Source Maps.</p>\n<p dir=\"auto\">More precisely, <code>scalaJSPipeline</code> performs the following tasks for each project defined in the <code>scalaJSProjects</code> setting:</p>\n<ul dir=\"auto\">\n<li>\n<p dir=\"auto\">If Scala.js' <code>scalaJSStage</code> setting is equal to:</p>\n<ul dir=\"auto\">\n<li><code>FastOptStage</code>, then run <code>packageJSDependencies</code> and <code>fastLinkJS</code>.</li>\n<li><code>FullOptStage</code>, then run <code>packageJSDependencies</code>, <code>packageMinifiedJSDependencies</code> and <code>fullLinkJS</code>.</li>\n</ul>\n<p dir=\"auto\">The resulting JavaScript files are copied to the sbt-web assets, along with their corresponding source map files (.map) if they exist.</p>\n</li>\n<li>\n<p dir=\"auto\">Read the ScalaJSWeb's <code>sourceMappings</code> setting from the project and its transitive dependencies.\n<code>sourceMappings</code> lists the directories containing Scala files to be used for Source Maps.\nCopy all Scala files found in these directories to the sbt-web assets.</p>\n</li>\n</ul>\n</li>\n</ul>\n<p dir=\"auto\">Defined in <code>ScalaJSWeb</code>:</p>\n<ul dir=\"auto\">\n<li><code>jsMappings</code> task runs Scala.js <code>fastLinkJS</code>/<code>fullLinkJS</code> and convert output files to path mappings.\n<code>jsMappings</code> is scoped under <code>Compile</code>/<code>Test</code> and <code>fastLinkJS</code>/<code>fullLinkJS</code>. Let's have a look at the value of <code>Compile/fastLinkJS/jsMappings</code> in SBT:</li>\n</ul>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&gt; project client\n&gt; show Compile/fastLinkJS/jsMappings\n[info] * (&lt;path&gt;/client/target/scala-2.13/client-fastopt/main.js.map,client-fastopt/main.js.map)\n[info] * (&lt;path&gt;/client/target/scala-2.13/client-fastopt/main.js,client-fastopt/main.js)\"><pre><code>&gt; project client\n&gt; show Compile/fastLinkJS/jsMappings\n[info] * (&lt;path&gt;/client/target/scala-2.13/client-fastopt/main.js.map,client-fastopt/main.js.map)\n[info] * (&lt;path&gt;/client/target/scala-2.13/client-fastopt/main.js,client-fastopt/main.js)\n</code></pre></div>\n<p dir=\"auto\"><code>jsMappings</code> calls <code>fastLinkJS</code>, which creates two files: <code>main.js.map</code> and <code>main.js</code>.\nThe files are then converted to path mappings, i.e. a tuple of a file to a relative path.\nThe <code>main.js</code> file has a <code>client-fastopt/main.js</code> relative path.\n<code>WebScalaJS</code> will copy <code>main.js</code> to the server sbt-web assets under <code>server/target/web/public/main/client-fastopt/main.js</code>.</p>\n<p dir=\"auto\">We can extend <code>jsMappings</code> to add the output of other Scala.js tasks. When using the <a href=\"https://github.com/scala-js/jsdependencies\">sbt-jsdependencies</a> plugin, we can update <code>jsMappings</code> in build.sbt as follows:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import com.typesafe.sbt.web.PathMapping\n\nval client = project.settings(\n  Compile / fastLinkJS / jsMappings += toPathMapping((Compile / packageJSDependencies).value),\n  Compile / fullLinkJS / jsMappings += toPathMapping((Compile / packageMinifiedJSDependencies).value),\n  ...\n).enablePlugins(ScalaJSPlugin, ScalaJSWeb, JSDependenciesPlugin)\n\ndef toPathMapping(f: File): PathMapping = f -&gt; f.getName\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">typesafe</span>.<span class=\"pl-en\">sbt</span>.<span class=\"pl-en\">web</span>.<span class=\"pl-en\">PathMapping</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">client</span> <span class=\"pl-k\">=</span> project.settings(\n  <span class=\"pl-en\">Compile</span> <span class=\"pl-k\">/</span> fastLinkJS <span class=\"pl-k\">/</span> jsMappings <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> toPathMapping((<span class=\"pl-en\">Compile</span> <span class=\"pl-k\">/</span> packageJSDependencies).value),\n  <span class=\"pl-en\">Compile</span> <span class=\"pl-k\">/</span> fullLinkJS <span class=\"pl-k\">/</span> jsMappings <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> toPathMapping((<span class=\"pl-en\">Compile</span> <span class=\"pl-k\">/</span> packageMinifiedJSDependencies).value),\n  ...\n).enablePlugins(<span class=\"pl-en\">ScalaJSPlugin</span>, <span class=\"pl-en\">ScalaJSWeb</span>, <span class=\"pl-en\">JSDependenciesPlugin</span>)\n\n<span class=\"pl-k\">def</span> <span class=\"pl-en\">toPathMapping</span>(<span class=\"pl-v\">f</span>: <span class=\"pl-en\">File</span>)<span class=\"pl-k\">:</span> <span class=\"pl-en\">PathMapping</span> <span class=\"pl-k\">=</span> f <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> f.getName</pre></div>\n<ul dir=\"auto\">\n<li><code>sourceMappings</code> setting lists the directories containing Scala files to be used for Source Maps.\nThe Scala files from the Scala.js project need to be copied and packaged, so that the server can serve these files to the browser when using Source Maps.\nHere's an example of what <code>sourceMappings</code> returns:</li>\n</ul>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&gt; project client\n&gt; show Compile/fastLinkJS/sourceMappings\n[info] * (&lt;path&gt;/client/src/main/scala, scala/ae0a44)\"><pre><code>&gt; project client\n&gt; show Compile/fastLinkJS/sourceMappings\n[info] * (&lt;path&gt;/client/src/main/scala, scala/ae0a44)\n</code></pre></div>\n<p dir=\"auto\">The hash <code>ae0a44</code> has been computed from the directory's canonical path using <code>sbt.io.Hash.trimHashString(f.getCanonicalPath, 6)</code> and is used to configure the Scala.js <code>mapSourceURI</code> scalac option.\nWhen generating Source Maps, Scala.js will replace the prefix path of each Scala file with its hash value.\nThe hash uniquely identifies a file/directory and can be safely exposed to the users as the full file path is not disclosed.</p>\n<h2 dir=\"auto\"><a id=\"user-content-source-maps\" class=\"anchor\" aria-hidden=\"true\" href=\"#source-maps\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Source Maps</h2>\n<p dir=\"auto\">The plugin copies the Scala files to the sbt-web assets, so that they can be served to the browser and used for Source Maps.</p>\n<p dir=\"auto\">By default, Source Maps are enabled in both <code>fastLinkJS</code> and <code>fullLinkJS</code>.\nHowever, Source Maps can easily be disabled in <code>fullLinkJS</code> by adding the following line to the Scala.js project settings:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"Compile / fullLinkJS / scalaJSLinkerConfig ~= (_.withSourceMap(false))\"><pre><code>Compile / fullLinkJS / scalaJSLinkerConfig ~= (_.withSourceMap(false))\n</code></pre></div>\n<p dir=\"auto\">When Source Maps are disabled, the <code>.map</code> files and the Scala files are not copied and do not exist in the sbt-web assets.</p>\n<p dir=\"auto\">Note that Source Maps only get requested by the browser when the DevTools is open, so it does not hinder the performance of your website.</p>\n<h2 dir=\"auto\"><a id=\"user-content-scalajs-continuous-compilation\" class=\"anchor\" aria-hidden=\"true\" href=\"#scalajs-continuous-compilation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Scala.js continuous compilation</h2>\n<p dir=\"auto\">The plugin also watches files from the Scala.js projects.\nRedefine <code>compile</code> to trigger <code>scalaJSPipeline</code> when using <code>compile</code>, <code>~compile</code>, <code>~run</code>:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"Compile / compile := ((Compile / compile) dependsOn scalaJSPipeline).value\"><pre><code>Compile / compile := ((Compile / compile) dependsOn scalaJSPipeline).value\n</code></pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-publish-a-new-version-of-the-plugin\" class=\"anchor\" aria-hidden=\"true\" href=\"#publish-a-new-version-of-the-plugin\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Publish a new version of the plugin</h2>\n<p dir=\"auto\">New versions are automatically published to Sonatype when creating a git tag, thanks to <a href=\"https://github.com/olafurpg/sbt-ci-release\">sbt-ci-release</a>.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "vmunier",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1211392?v=4",
+        "url" : "https://api.github.com/users/vmunier",
+        "contributions" : 165
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 15
+      },
+      {
+        "login" : "antonkulaga",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/842436?v=4",
+        "url" : "https://api.github.com/users/antonkulaga",
+        "contributions" : 3
+      },
+      {
+        "login" : "Atry",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/601530?v=4",
+        "url" : "https://api.github.com/users/Atry",
+        "contributions" : 2
+      },
+      {
+        "login" : "FabioPinheiro",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4622245?v=4",
+        "url" : "https://api.github.com/users/FabioPinheiro",
+        "contributions" : 1
+      },
+      {
+        "login" : "jan0sch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/373810?v=4",
+        "url" : "https://api.github.com/users/jan0sch",
+        "contributions" : 1
+      },
+      {
+        "login" : "joan38",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1200478?v=4",
+        "url" : "https://api.github.com/users/joan38",
+        "contributions" : 1
+      },
+      {
+        "login" : "juanpedromoreno",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4879373?v=4",
+        "url" : "https://api.github.com/users/juanpedromoreno",
+        "contributions" : 1
+      },
+      {
+        "login" : "julienrf",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/332812?v=4",
+        "url" : "https://api.github.com/users/julienrf",
+        "contributions" : 1
+      },
+      {
+        "login" : "nightscape",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/35170?v=4",
+        "url" : "https://api.github.com/users/nightscape",
+        "contributions" : 1
+      },
+      {
+        "login" : "mb720",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4164548?v=4",
+        "url" : "https://api.github.com/users/mb720",
+        "contributions" : 1
+      },
+      {
+        "login" : "schmitch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1641401?v=4",
+        "url" : "https://api.github.com/users/schmitch",
+        "contributions" : 1
+      },
+      {
+        "login" : "sjrd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/535934?v=4",
+        "url" : "https://api.github.com/users/sjrd",
+        "contributions" : 1
+      },
+      {
+        "login" : "gitter-badger",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8518239?v=4",
+        "url" : "https://api.github.com/users/gitter-badger",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 195,
+    "topics" : [
+      "sbt",
+      "scala",
+      "scalajs"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : "https://gitter.im/vmunier/sbt-web-scalajs",
+    "openIssues" : [
+      {
+        "number" : 130,
+        "title" : "Can't set scalaJSStage for configurations other than Global",
+        "url" : "https://github.com/vmunier/sbt-web-scalajs/issues/130"
+      },
+      {
+        "number" : 80,
+        "title" : "Can't make the current version sbt-web-scalajs 1.1.0 to work properly",
+        "url" : "https://github.com/vmunier/sbt-web-scalajs/issues/80"
+      },
+      {
+        "number" : 36,
+        "title" : "Support source map with absolute path (IntelliJ debugging problem)",
+        "url" : "https://github.com/vmunier/sbt-web-scalajs/issues/36"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : null,
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "asset-management-and-bundlers",
+    "beginnerIssuesLabel" : null
+  }
+}

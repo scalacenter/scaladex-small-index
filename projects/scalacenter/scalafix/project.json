@@ -1,0 +1,830 @@
+{
+  "organization" : "scalacenter",
+  "repository" : "scalafix",
+  "creationDate" : 1475505237265,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643190448757
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "https://scalacenter.github.io/scalafix/",
+    "description" : "Refactoring and linting tool for Scala",
+    "logo" : "https://avatars.githubusercontent.com/u/16118980?v=4",
+    "stars" : 654,
+    "forks" : 149,
+    "watchers" : 31,
+    "issues" : 68,
+    "creationDate" : 1470656719000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-scalafix\" class=\"anchor\" aria-hidden=\"true\" href=\"#scalafix\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Scalafix\n<a href=\"https://index.scala-lang.org/scalacenter/scalafix/scalafix-core\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/cfbdf636c0b7a7f9608f6af4660d24e3490ef78f06738f46d35a18c12814a3b2/68747470733a2f2f696e6465782e7363616c612d6c616e672e6f72672f7363616c6163656e7465722f7363616c616669782f7363616c616669782d636f72652f6c61746573742e737667\" alt=\"Latest version\" data-canonical-src=\"https://index.scala-lang.org/scalacenter/scalafix/scalafix-core/latest.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://github.com/scalacenter/scalafix/actions?query=workflow\"><img src=\"https://github.com/scalacenter/scalafix/workflows/CI/badge.svg\" alt=\"Build status\" style=\"max-width: 100%;\"></a>\n<a href=\"https://gitter.im/scalacenter/scalafix\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/7900489eef56d01b38d77cabb968f6814d3ddad7757c093b9404dc862b330e25/68747470733a2f2f6261646765732e6769747465722e696d2f7363616c6163656e7465722f7363616c616669782e737667\" alt=\"Join the chat at https://gitter.im/scalacenter/scalafix\" data-canonical-src=\"https://badges.gitter.im/scalacenter/scalafix.svg\" style=\"max-width: 100%;\"></a></h1>\n<p dir=\"auto\">Rewrite and linting tool for Scala..</p>\n<h2 dir=\"auto\"><a id=\"user-content-user-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#user-documentation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>User documentation</h2>\n<p dir=\"auto\">Head over here: <a href=\"https://scalacenter.github.io/scalafix/\" rel=\"nofollow\">https://scalacenter.github.io/scalafix/</a></p>\n<h2 dir=\"auto\"><a id=\"user-content-team\" class=\"anchor\" aria-hidden=\"true\" href=\"#team\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Team</h2>\n<p dir=\"auto\">The current maintainers (people who can merge pull requests) are:</p>\n<ul dir=\"auto\">\n<li>Brice Jaglin - <a href=\"https://github.com/bjaglin\"><code>@bjaglin</code></a></li>\n<li>Gabriele Petronella - <a href=\"https://github.com/gabro\"><code>@gabro</code></a></li>\n<li>Guillaume Massé - <a href=\"https://github.com/MasseGuillaume\"><code>@MasseGuillaume</code></a></li>\n<li>Ólafur Páll Geirsson - <a href=\"https://github.com/olafurpg\"><code>@olafurpg</code></a></li>\n<li>Meriam Lachkar - <a href=\"https://github.com/mlachkar\"><code>@mlachkar</code></a></li>\n<li>Shane Delmore - <a href=\"https://github.com/ShaneDelmore\"><code>@ShaneDelmore</code></a></li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Contributing</h2>\n<p dir=\"auto\">Contributions are welcome! See <a href=\"CONTRIBUTING.md\">CONTRIBUTING.md</a>.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "olafurpg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1408093?v=4",
+        "url" : "https://api.github.com/users/olafurpg",
+        "contributions" : 1336
+      },
+      {
+        "login" : "github-brice-jaglin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/87750318?v=4",
+        "url" : "https://api.github.com/users/github-brice-jaglin",
+        "contributions" : 176
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 167
+      },
+      {
+        "login" : "MasseGuillaume",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/921490?v=4",
+        "url" : "https://api.github.com/users/MasseGuillaume",
+        "contributions" : 130
+      },
+      {
+        "login" : "vovapolu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4629312?v=4",
+        "url" : "https://api.github.com/users/vovapolu",
+        "contributions" : 106
+      },
+      {
+        "login" : "gabro",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/691940?v=4",
+        "url" : "https://api.github.com/users/gabro",
+        "contributions" : 96
+      },
+      {
+        "login" : "mlachkar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7843237?v=4",
+        "url" : "https://api.github.com/users/mlachkar",
+        "contributions" : 85
+      },
+      {
+        "login" : "bjaglin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/349077?v=4",
+        "url" : "https://api.github.com/users/bjaglin",
+        "contributions" : 63
+      },
+      {
+        "login" : "marcelocenerine",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1107367?v=4",
+        "url" : "https://api.github.com/users/marcelocenerine",
+        "contributions" : 48
+      },
+      {
+        "login" : "taisukeoe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1506707?v=4",
+        "url" : "https://api.github.com/users/taisukeoe",
+        "contributions" : 28
+      },
+      {
+        "login" : "giabao",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1702709?v=4",
+        "url" : "https://api.github.com/users/giabao",
+        "contributions" : 15
+      },
+      {
+        "login" : "tanishiking",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9353584?v=4",
+        "url" : "https://api.github.com/users/tanishiking",
+        "contributions" : 13
+      },
+      {
+        "login" : "xeno-by",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/609152?v=4",
+        "url" : "https://api.github.com/users/xeno-by",
+        "contributions" : 12
+      },
+      {
+        "login" : "Jacoby6000",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2672832?v=4",
+        "url" : "https://api.github.com/users/Jacoby6000",
+        "contributions" : 10
+      },
+      {
+        "login" : "barambani",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/201339?v=4",
+        "url" : "https://api.github.com/users/barambani",
+        "contributions" : 9
+      },
+      {
+        "login" : "erikwj",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3870830?v=4",
+        "url" : "https://api.github.com/users/erikwj",
+        "contributions" : 6
+      },
+      {
+        "login" : "fommil",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1914041?v=4",
+        "url" : "https://api.github.com/users/fommil",
+        "contributions" : 6
+      },
+      {
+        "login" : "exoego",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/127635?v=4",
+        "url" : "https://api.github.com/users/exoego",
+        "contributions" : 6
+      },
+      {
+        "login" : "allanrenucci",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4996324?v=4",
+        "url" : "https://api.github.com/users/allanrenucci",
+        "contributions" : 5
+      },
+      {
+        "login" : "dwijnand",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/344610?v=4",
+        "url" : "https://api.github.com/users/dwijnand",
+        "contributions" : 5
+      },
+      {
+        "login" : "ShaneDelmore",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4604933?v=4",
+        "url" : "https://api.github.com/users/ShaneDelmore",
+        "contributions" : 5
+      },
+      {
+        "login" : "SethTisue",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
+        "url" : "https://api.github.com/users/SethTisue",
+        "contributions" : 4
+      },
+      {
+        "login" : "github-sebastien-boulet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/87750437?v=4",
+        "url" : "https://api.github.com/users/github-sebastien-boulet",
+        "contributions" : 4
+      },
+      {
+        "login" : "ag91",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6580039?v=4",
+        "url" : "https://api.github.com/users/ag91",
+        "contributions" : 4
+      },
+      {
+        "login" : "insdami",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1742610?v=4",
+        "url" : "https://api.github.com/users/insdami",
+        "contributions" : 4
+      },
+      {
+        "login" : "tgodzik",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3807253?v=4",
+        "url" : "https://api.github.com/users/tgodzik",
+        "contributions" : 4
+      },
+      {
+        "login" : "liancheng",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/230655?v=4",
+        "url" : "https://api.github.com/users/liancheng",
+        "contributions" : 3
+      },
+      {
+        "login" : "DanielaSfregola",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/810447?v=4",
+        "url" : "https://api.github.com/users/DanielaSfregola",
+        "contributions" : 3
+      },
+      {
+        "login" : "mlangc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7326646?v=4",
+        "url" : "https://api.github.com/users/mlangc",
+        "contributions" : 3
+      },
+      {
+        "login" : "stuhood",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/46740?v=4",
+        "url" : "https://api.github.com/users/stuhood",
+        "contributions" : 3
+      },
+      {
+        "login" : "fanf",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/44649?v=4",
+        "url" : "https://api.github.com/users/fanf",
+        "contributions" : 3
+      },
+      {
+        "login" : "vincenzobaz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6325220?v=4",
+        "url" : "https://api.github.com/users/vincenzobaz",
+        "contributions" : 3
+      },
+      {
+        "login" : "cchantep",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/166062?v=4",
+        "url" : "https://api.github.com/users/cchantep",
+        "contributions" : 2
+      },
+      {
+        "login" : "jiminhsieh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5125598?v=4",
+        "url" : "https://api.github.com/users/jiminhsieh",
+        "contributions" : 2
+      },
+      {
+        "login" : "joan38",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1200478?v=4",
+        "url" : "https://api.github.com/users/joan38",
+        "contributions" : 2
+      },
+      {
+        "login" : "NicolasRouquette",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2359166?v=4",
+        "url" : "https://api.github.com/users/NicolasRouquette",
+        "contributions" : 2
+      },
+      {
+        "login" : "perok",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1502013?v=4",
+        "url" : "https://api.github.com/users/perok",
+        "contributions" : 2
+      },
+      {
+        "login" : "skyrylyuk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/785578?v=4",
+        "url" : "https://api.github.com/users/skyrylyuk",
+        "contributions" : 2
+      },
+      {
+        "login" : "ansvonwa",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9501177?v=4",
+        "url" : "https://api.github.com/users/ansvonwa",
+        "contributions" : 2
+      },
+      {
+        "login" : "ckipp01",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13974112?v=4",
+        "url" : "https://api.github.com/users/ckipp01",
+        "contributions" : 2
+      },
+      {
+        "login" : "dependabot[bot]",
+        "avatarUrl" : "https://avatars.githubusercontent.com/in/29110?v=4",
+        "url" : "https://api.github.com/users/dependabot%5Bbot%5D",
+        "contributions" : 2
+      },
+      {
+        "login" : "oyvindberg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/247937?v=4",
+        "url" : "https://api.github.com/users/oyvindberg",
+        "contributions" : 2
+      },
+      {
+        "login" : "xuwei-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/389787?v=4",
+        "url" : "https://api.github.com/users/xuwei-k",
+        "contributions" : 2
+      },
+      {
+        "login" : "abeln",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1782179?v=4",
+        "url" : "https://api.github.com/users/abeln",
+        "contributions" : 1
+      },
+      {
+        "login" : "anatoliykmetyuk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2614813?v=4",
+        "url" : "https://api.github.com/users/anatoliykmetyuk",
+        "contributions" : 1
+      },
+      {
+        "login" : "andreaTP",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5792097?v=4",
+        "url" : "https://api.github.com/users/andreaTP",
+        "contributions" : 1
+      },
+      {
+        "login" : "valencik",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5440389?v=4",
+        "url" : "https://api.github.com/users/valencik",
+        "contributions" : 1
+      },
+      {
+        "login" : "bplommer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8990749?v=4",
+        "url" : "https://api.github.com/users/bplommer",
+        "contributions" : 1
+      },
+      {
+        "login" : "DavidDudson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2680733?v=4",
+        "url" : "https://api.github.com/users/DavidDudson",
+        "contributions" : 1
+      },
+      {
+        "login" : "eed3si9n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/184683?v=4",
+        "url" : "https://api.github.com/users/eed3si9n",
+        "contributions" : 1
+      },
+      {
+        "login" : "evis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23415191?v=4",
+        "url" : "https://api.github.com/users/evis",
+        "contributions" : 1
+      },
+      {
+        "login" : "fthomas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/141252?v=4",
+        "url" : "https://api.github.com/users/fthomas",
+        "contributions" : 1
+      },
+      {
+        "login" : "ingarabr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2236693?v=4",
+        "url" : "https://api.github.com/users/ingarabr",
+        "contributions" : 1
+      },
+      {
+        "login" : "jameskoch2",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23220251?v=4",
+        "url" : "https://api.github.com/users/jameskoch2",
+        "contributions" : 1
+      },
+      {
+        "login" : "mads-hartmann",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/83561?v=4",
+        "url" : "https://api.github.com/users/mads-hartmann",
+        "contributions" : 1
+      },
+      {
+        "login" : "mcanlas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/881934?v=4",
+        "url" : "https://api.github.com/users/mcanlas",
+        "contributions" : 1
+      },
+      {
+        "login" : "masahitojp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/42042?v=4",
+        "url" : "https://api.github.com/users/masahitojp",
+        "contributions" : 1
+      },
+      {
+        "login" : "mbryzek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/49875?v=4",
+        "url" : "https://api.github.com/users/mbryzek",
+        "contributions" : 1
+      },
+      {
+        "login" : "nvuillam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17500430?v=4",
+        "url" : "https://api.github.com/users/nvuillam",
+        "contributions" : 1
+      },
+      {
+        "login" : "OlivierBlanvillain",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1085297?v=4",
+        "url" : "https://api.github.com/users/OlivierBlanvillain",
+        "contributions" : 1
+      },
+      {
+        "login" : "rpiaggio",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1895643?v=4",
+        "url" : "https://api.github.com/users/rpiaggio",
+        "contributions" : 1
+      },
+      {
+        "login" : "rorygraves",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2352078?v=4",
+        "url" : "https://api.github.com/users/rorygraves",
+        "contributions" : 1
+      },
+      {
+        "login" : "rberenguel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2410938?v=4",
+        "url" : "https://api.github.com/users/rberenguel",
+        "contributions" : 1
+      },
+      {
+        "login" : "sake92",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12010694?v=4",
+        "url" : "https://api.github.com/users/sake92",
+        "contributions" : 1
+      },
+      {
+        "login" : "scottrice10",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3627116?v=4",
+        "url" : "https://api.github.com/users/scottrice10",
+        "contributions" : 1
+      },
+      {
+        "login" : "LeonardMeyer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1922364?v=4",
+        "url" : "https://api.github.com/users/LeonardMeyer",
+        "contributions" : 1
+      },
+      {
+        "login" : "tmciver",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/742887?v=4",
+        "url" : "https://api.github.com/users/tmciver",
+        "contributions" : 1
+      },
+      {
+        "login" : "travisbrown",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/316049?v=4",
+        "url" : "https://api.github.com/users/travisbrown",
+        "contributions" : 1
+      },
+      {
+        "login" : "Troxid",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3336378?v=4",
+        "url" : "https://api.github.com/users/Troxid",
+        "contributions" : 1
+      },
+      {
+        "login" : "UttejG",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4806234?v=4",
+        "url" : "https://api.github.com/users/UttejG",
+        "contributions" : 1
+      },
+      {
+        "login" : "dos65",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5816952?v=4",
+        "url" : "https://api.github.com/users/dos65",
+        "contributions" : 1
+      },
+      {
+        "login" : "abdheshkumar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3938842?v=4",
+        "url" : "https://api.github.com/users/abdheshkumar",
+        "contributions" : 1
+      },
+      {
+        "login" : "andyscott",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/310363?v=4",
+        "url" : "https://api.github.com/users/andyscott",
+        "contributions" : 1
+      },
+      {
+        "login" : "gosubpl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7828991?v=4",
+        "url" : "https://api.github.com/users/gosubpl",
+        "contributions" : 1
+      },
+      {
+        "login" : "nicodelpiano",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5914822?v=4",
+        "url" : "https://api.github.com/users/nicodelpiano",
+        "contributions" : 1
+      },
+      {
+        "login" : "Krever",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2219224?v=4",
+        "url" : "https://api.github.com/users/Krever",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 2420,
+    "topics" : [
+      "refactoring",
+      "scalafix",
+      "metaprogramming",
+      "linter",
+      "sbt",
+      "rewrite",
+      "scala",
+      "dotty"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : "https://gitter.im/scalacenter/scalafix",
+    "openIssues" : [
+      {
+        "number" : 1518,
+        "title" : "Docs point to out-of-date / broken named-literal-arguments repo",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1518"
+      },
+      {
+        "number" : 1510,
+        "title" : "Scalafix on Windows: OverlappingFileLockException",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1510"
+      },
+      {
+        "number" : 1488,
+        "title" : "sbt \"++${{ scala-version }} scalafixAll --check\" not parsed correctly",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1488"
+      },
+      {
+        "number" : 1484,
+        "title" : "When used in VSCode scala plugin. throws \"java.util.ServiceConfigurationError: scalafix.v1.Rule: Provider scalafix.internal.rule.DisableSyntax not a subtype\"",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1484"
+      },
+      {
+        "number" : 1469,
+        "title" : "Ability to rename and create files",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1469"
+      },
+      {
+        "number" : 1463,
+        "title" : "Custom rules from plain console",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1463"
+      },
+      {
+        "number" : 1462,
+        "title" : "RemoveUnused does not clean up nested unused references",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1462"
+      },
+      {
+        "number" : 1459,
+        "title" : "Running scalafix on a project results in error Missing symbol local17",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1459"
+      },
+      {
+        "number" : 1454,
+        "title" : "Improve the documentation of `withConfiguration`",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1454"
+      },
+      {
+        "number" : 1440,
+        "title" : "New built-in rule to update Scala 3 code to the new syntax ",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1440"
+      },
+      {
+        "number" : 1413,
+        "title" : "sbt-scalafix: better support for `skip := true` when running semantic rules",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1413"
+      },
+      {
+        "number" : 1316,
+        "title" : "Scala 3 support",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1316"
+      },
+      {
+        "number" : 1305,
+        "title" : "Scalafix rename that leads to a name collision breaks compilation",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1305"
+      },
+      {
+        "number" : 1277,
+        "title" : "ExplicitResultTypes incorrectly consider path-dependent types to be the same",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1277"
+      },
+      {
+        "number" : 1271,
+        "title" : "Make unused Scalafix suppression actionnable",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1271"
+      },
+      {
+        "number" : 1245,
+        "title" : "Stale symbol information when using sbt 1.3x injection style",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1245"
+      },
+      {
+        "number" : 1236,
+        "title" : "Add a method in scalafixApi that takes a semanticdbDocument",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1236"
+      },
+      {
+        "number" : 1220,
+        "title" : "ExplicitResultTypes does not automatically import `shapeless.::`",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1220"
+      },
+      {
+        "number" : 1219,
+        "title" : "ExplicitResultTypes should backquote identifiers if necessary",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1219"
+      },
+      {
+        "number" : 1216,
+        "title" : "ExplicitResultTypes does not skip implicit vals",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1216"
+      },
+      {
+        "number" : 1208,
+        "title" : "Inserted imports cause compile errors in source file with nested package declarations",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1208"
+      },
+      {
+        "number" : 1206,
+        "title" : "Better coordination between sbt-scalafmt & sbt-scalafix when scalaf..OnCompile := true",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1206"
+      },
+      {
+        "number" : 1204,
+        "title" : "scalafix-interfaces: provide hook to trigger recompilation between rule executions",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1204"
+      },
+      {
+        "number" : 1199,
+        "title" : "Let rules expose scala versions constraints",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1199"
+      },
+      {
+        "number" : 1197,
+        "title" : "make it easy to run Scalafix on ALL sbt configurations ",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1197"
+      },
+      {
+        "number" : 1178,
+        "title" : "RemovedUnused not working if -Wconf:any:warning-verbose",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1178"
+      },
+      {
+        "number" : 1175,
+        "title" : "Improve CLI docs in website",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1175"
+      },
+      {
+        "number" : 1171,
+        "title" : "sbt-scalafix don't run migrations on scripted sources",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1171"
+      },
+      {
+        "number" : 1168,
+        "title" : "make undocumented replace rules safe to use",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1168"
+      },
+      {
+        "number" : 1147,
+        "title" : "scalafix-testkit: expose --save-expect helper",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1147"
+      },
+      {
+        "number" : 1146,
+        "title" : "Separate versioning of sbt-scalafix and scalafix-core",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1146"
+      },
+      {
+        "number" : 1142,
+        "title" : "RemoveUnused skips some unused locals",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1142"
+      },
+      {
+        "number" : 1130,
+        "title" : "noValInAbstract: enable lazy vals?",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1130"
+      },
+      {
+        "number" : 1129,
+        "title" : "ExplicitResultTypes generate invalid code when use type lambda",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1129"
+      },
+      {
+        "number" : 1123,
+        "title" : "Running OrganizeImports 0.3.0+9-86c91c86-SNAPSHOT against Metals master hit scalafix.internal.v1.FileException ",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1123"
+      },
+      {
+        "number" : 1108,
+        "title" : "Towards Scalafix v1.0",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1108"
+      },
+      {
+        "number" : 1084,
+        "title" : "Ensure versions are displayed correctly in docs",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1084"
+      },
+      {
+        "number" : 1071,
+        "title" : "RemoveUnused failed cause `failed to generate semanticdb`",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1071"
+      },
+      {
+        "number" : 1056,
+        "title" : "Scalafix feat. Coursier re-downloads dependencies into a \"null\" folders on Windows",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1056"
+      },
+      {
+        "number" : 1049,
+        "title" : " sbt-scalafix doesn't respect sbt.override.build.repos",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1049"
+      },
+      {
+        "number" : 1046,
+        "title" : "Gradle support",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1046"
+      },
+      {
+        "number" : 1036,
+        "title" : "Add Scala213 dialect",
+        "url" : "https://github.com/scalacenter/scalafix/issues/1036"
+      },
+      {
+        "number" : 986,
+        "title" : "sbt: scalafixEnable resets sbt session settings",
+        "url" : "https://github.com/scalacenter/scalafix/issues/986"
+      },
+      {
+        "number" : 970,
+        "title" : "Document how to pass a list of arguments to a single parameter key",
+        "url" : "https://github.com/scalacenter/scalafix/issues/970"
+      },
+      {
+        "number" : 968,
+        "title" : "Scala scripts producing expected class or object definition error",
+        "url" : "https://github.com/scalacenter/scalafix/issues/968"
+      },
+      {
+        "number" : 965,
+        "title" : "Running a SemanticRule on a string in code",
+        "url" : "https://github.com/scalacenter/scalafix/issues/965"
+      },
+      {
+        "number" : 962,
+        "title" : "Insufficient/Unactionable error message.",
+        "url" : "https://github.com/scalacenter/scalafix/issues/962"
+      },
+      {
+        "number" : 958,
+        "title" : "sbt: allow specifying config as a string",
+        "url" : "https://github.com/scalacenter/scalafix/issues/958"
+      },
+      {
+        "number" : 956,
+        "title" : "Provide an option to look at linting errors without doing any rewrites",
+        "url" : "https://github.com/scalacenter/scalafix/issues/956"
+      },
+      {
+        "number" : 954,
+        "title" : "How to configure the Scala dialect?",
+        "url" : "https://github.com/scalacenter/scalafix/issues/954"
+      },
+      {
+        "number" : 953,
+        "title" : "SuppressWarnings inconsistency for noXml",
+        "url" : "https://github.com/scalacenter/scalafix/issues/953"
+      },
+      {
+        "number" : 951,
+        "title" : "Export scalafix report to a file or expose errors via an API",
+        "url" : "https://github.com/scalacenter/scalafix/issues/951"
+      },
+      {
+        "number" : 949,
+        "title" : "Scalafix --config=path doesn't work",
+        "url" : "https://github.com/scalacenter/scalafix/issues/949"
+      },
+      {
+        "number" : 920,
+        "title" : "Missing error message details in CommandLineError",
+        "url" : "https://github.com/scalacenter/scalafix/issues/920"
+      },
+      {
+        "number" : 916,
+        "title" : "add scalafixDisable command to the sbt plugin",
+        "url" : "https://github.com/scalacenter/scalafix/issues/916"
+      },
+      {
+        "number" : 914,
+        "title" : "error fix :remove unsed",
+        "url" : "https://github.com/scalacenter/scalafix/issues/914"
+      },
+      {
+        "number" : 782,
+        "title" : "Remove evil global cache for compiling rules",
+        "url" : "https://github.com/scalacenter/scalafix/issues/782"
+      },
+      {
+        "number" : 549,
+        "title" : "scalafixTest should support custom error message on failure",
+        "url" : "https://github.com/scalacenter/scalafix/issues/549"
+      },
+      {
+        "number" : 507,
+        "title" : "DisableSyntax.regex reports error on // scalafix:ok regex",
+        "url" : "https://github.com/scalacenter/scalafix/issues/507"
+      },
+      {
+        "number" : 376,
+        "title" : "Replace should unimport replaced symbol instead of shadow",
+        "url" : "https://github.com/scalacenter/scalafix/issues/376"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : "sbt-scalafix",
+    "strictVersions" : true,
+    "customScalaDoc" : "",
+    "documentationLinks" : [
+      {
+        "" : ""
+      },
+      {
+        "" : ""
+      },
+      {
+        "" : ""
+      },
+      {
+        "" : ""
+      },
+      {
+        "" : ""
+      },
+      {
+        "" : ""
+      }
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : true,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+      "scalafix-cli"
+    ],
+    "category" : "linting-and-refactoring",
+    "beginnerIssuesLabel" : "bug"
+  }
+}

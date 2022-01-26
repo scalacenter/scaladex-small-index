@@ -1,0 +1,994 @@
+{
+  "organization" : "twitter",
+  "repository" : "util",
+  "creationDate" : 1405142339619,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643168767040
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "https://twitter.github.io/util",
+    "description" : "Wonderful reusable code from Twitter",
+    "logo" : "https://avatars.githubusercontent.com/u/50278?v=4",
+    "stars" : 2497,
+    "forks" : 541,
+    "watchers" : 228,
+    "issues" : 7,
+    "creationDate" : 1301102601000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-twitter-util\" class=\"anchor\" aria-hidden=\"true\" href=\"#twitter-util\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Twitter Util</h1>\n<p dir=\"auto\"><a href=\"https://github.com/twitter/util/actions?query=workflow%3A%22continuous+integration%22+branch%3Adevelop\"><img src=\"https://github.com/twitter/util/workflows/continuous%20integration/badge.svg?branch=develop\" alt=\"Build Status\" style=\"max-width: 100%;\"></a>\n<a href=\"https://codecov.io/gh/twitter/util\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/f5d5a54e5bf17bf6c5d798233be4e66b708b2b5dffae5696c229675a8dc6aa4d/68747470733a2f2f636f6465636f762e696f2f67682f747769747465722f7574696c2f6272616e63682f646576656c6f702f67726170682f62616467652e737667\" alt=\"Codecov\" data-canonical-src=\"https://codecov.io/gh/twitter/util/branch/develop/graph/badge.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"#status\"><img src=\"https://camo.githubusercontent.com/2407dcb17690970c4aba5878083467663f623dbf08d5e5925edc56b7febea041/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7374617475732d6163746976652d627269676874677265656e2e737667\" alt=\"Project status\" data-canonical-src=\"https://img.shields.io/badge/status-active-brightgreen.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://gitter.im/twitter/finagle?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/13fbdc3c4b70ce5071a28af577bf554badd37de89092475263e053a3941163a7/68747470733a2f2f6261646765732e6769747465722e696d2f747769747465722f66696e61676c652e737667\" alt=\"Gitter\" data-canonical-src=\"https://badges.gitter.im/twitter/finagle.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://maven-badges.herokuapp.com/maven-central/com.twitter/util-core_2.12\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/8e49e999503c0d2e37bb638e3be49a3bd8c4c6f721f50dd786635dae29611d03/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f636f6d2e747769747465722f7574696c2d636f72655f322e31322f62616467652e737667\" alt=\"Maven Central\" data-canonical-src=\"https://maven-badges.herokuapp.com/maven-central/com.twitter/util-core_2.12/badge.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">A bunch of idiomatic, small, general purpose tools.</p>\n<p dir=\"auto\">See the Scaladoc <a href=\"https://twitter.github.io/util/docs/#com.twitter.util.package\" rel=\"nofollow\">here</a>\nor check out the <a href=\"https://twitter.github.io/util\" rel=\"nofollow\">user guide</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-status\" class=\"anchor\" aria-hidden=\"true\" href=\"#status\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Status</h2>\n<p dir=\"auto\">This project is used in production at Twitter (and many other organizations),\nand is being actively developed and maintained.</p>\n<h2 dir=\"auto\"><a id=\"user-content-releases\" class=\"anchor\" aria-hidden=\"true\" href=\"#releases\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Releases</h2>\n<p dir=\"auto\"><a href=\"https://maven-badges.herokuapp.com/maven-central/com.twitter/util_2.12\" rel=\"nofollow\">Releases</a>\nare done on an approximately monthly schedule. While <a href=\"https://semver.org/\" rel=\"nofollow\">semver</a>\nis not followed, the <a href=\"CHANGELOG.rst\">changelogs</a> are detailed and include sections on\npublic API breaks and changes in runtime behavior.</p>\n<h2 dir=\"auto\"><a id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Contributing</h2>\n<p dir=\"auto\">We feel that a welcoming community is important and we ask that you follow Twitter's\n<a href=\"https://github.com/twitter/.github/blob/main/code-of-conduct.md\">Open Source Code of Conduct</a>\nin all interactions with the community.</p>\n<p dir=\"auto\">The <code>release</code> branch of this repository contains the latest stable release of\nUtil, and weekly snapshots are published to the <code>develop</code> branch. In general\npull requests should be submitted against <code>develop</code>. See\n<a href=\"https://github.com/twitter/util/blob/release/CONTRIBUTING.md\">CONTRIBUTING.md</a>\nfor more details about how to contribute.</p>\n<h1 dir=\"auto\"><a id=\"user-content-using-in-your-project\" class=\"anchor\" aria-hidden=\"true\" href=\"#using-in-your-project\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Using in your project</h1>\n<p dir=\"auto\">An example SBT dependency string for the <code>util-core</code> library would look like this:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val utilCore = &quot;com.twitter&quot; %% &quot;util-core&quot; % &quot;22.1.0&quot;\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">utilCore</span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.twitter<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>util-core<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>22.1.0<span class=\"pl-pds\">\"</span></span></pre></div>\n<h1 dir=\"auto\"><a id=\"user-content-units\" class=\"anchor\" aria-hidden=\"true\" href=\"#units\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Units</h1>\n<h2 dir=\"auto\"><a id=\"user-content-time\" class=\"anchor\" aria-hidden=\"true\" href=\"#time\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Time</h2>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import com.twitter.conversions.DurationOps._\n\nval duration1 = 1.second\nval duration2 = 2.minutes\nduration1.inMillis // =&gt; 1000L\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">twitter</span>.<span class=\"pl-en\">conversions</span>.<span class=\"pl-en\">DurationOps</span>.<span class=\"pl-en\">_</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">duration1</span> <span class=\"pl-k\">=</span> <span class=\"pl-c1\">1</span>.second\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">duration2</span> <span class=\"pl-k\">=</span> <span class=\"pl-c1\">2</span>.minutes\nduration1.inMillis <span class=\"pl-c\"><span class=\"pl-c\">//</span> =&gt; 1000L</span></pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-space\" class=\"anchor\" aria-hidden=\"true\" href=\"#space\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Space</h2>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import com.twitter.conversions.StorageUnitOps._\nval amount = 8.megabytes\namount.inBytes // =&gt; 8388608L\namount.inKilobytes // =&gt; 8192L\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">twitter</span>.<span class=\"pl-en\">conversions</span>.<span class=\"pl-en\">StorageUnitOps</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">amount</span> <span class=\"pl-k\">=</span> <span class=\"pl-c1\">8</span>.megabytes\namount.inBytes <span class=\"pl-c\"><span class=\"pl-c\">//</span> =&gt; 8388608L</span>\namount.inKilobytes <span class=\"pl-c\"><span class=\"pl-c\">//</span> =&gt; 8192L</span></pre></div>\n<h1 dir=\"auto\"><a id=\"user-content-futures\" class=\"anchor\" aria-hidden=\"true\" href=\"#futures\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Futures</h1>\n<p dir=\"auto\">A Non-actor re-implementation of Scala Futures.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import com.twitter.conversions.DurationOps._\nimport com.twitter.util.{Await, Future, Promise}\n\nval f = new Promise[Int]\nval g = f.map { result =&gt; result + 1 }\nf.setValue(1)\nAwait.result(g, 1.second) // =&gt; this blocks for the futures result (and eventually returns 2)\n\n// Another option:\ng.onSuccess { result =&gt;\n  println(result) // =&gt; prints &quot;2&quot;\n}\n\n// Using for expressions:\nval xFuture = Future(1)\nval yFuture = Future(2)\n\nfor {\n  x &lt;- xFuture\n  y &lt;- yFuture\n} {\n  println(x + y) // =&gt; prints &quot;3&quot;\n}\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">twitter</span>.<span class=\"pl-en\">conversions</span>.<span class=\"pl-en\">DurationOps</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">twitter</span>.<span class=\"pl-en\">util</span>.{<span class=\"pl-en\">Await</span>, <span class=\"pl-en\">Future</span>, <span class=\"pl-en\">Promise</span>}\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">f</span> <span class=\"pl-k\">=</span> <span class=\"pl-k\">new</span> <span class=\"pl-en\">Promise</span>[<span class=\"pl-en\">Int</span>]\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">g</span> <span class=\"pl-k\">=</span> f.map { result <span class=\"pl-k\">=&gt;</span> result <span class=\"pl-k\">+</span> <span class=\"pl-c1\">1</span> }\nf.setValue(<span class=\"pl-c1\">1</span>)\n<span class=\"pl-en\">Await</span>.result(g, <span class=\"pl-c1\">1</span>.second) <span class=\"pl-c\"><span class=\"pl-c\">//</span> =&gt; this blocks for the futures result (and eventually returns 2)</span>\n\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> Another option:</span>\ng.onSuccess { result <span class=\"pl-k\">=&gt;</span>\n  println(result) <span class=\"pl-c\"><span class=\"pl-c\">//</span> =&gt; prints \"2\"</span>\n}\n\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> Using for expressions:</span>\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">xFuture</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Future</span>(<span class=\"pl-c1\">1</span>)\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">yFuture</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Future</span>(<span class=\"pl-c1\">2</span>)\n\n<span class=\"pl-k\">for</span> {\n  x <span class=\"pl-k\">&lt;</span><span class=\"pl-k\">-</span> xFuture\n  y <span class=\"pl-k\">&lt;</span><span class=\"pl-k\">-</span> yFuture\n} {\n  println(x <span class=\"pl-k\">+</span> y) <span class=\"pl-c\"><span class=\"pl-c\">//</span> =&gt; prints \"3\"</span>\n}</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-future-interrupts\" class=\"anchor\" aria-hidden=\"true\" href=\"#future-interrupts\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Future interrupts</h2>\n<p dir=\"auto\">Method <code>raise</code> on <code>Future</code> (<code>def raise(cause: Throwable)</code>) raises the interrupt described by\n<code>cause</code> to the producer of this <code>Future</code>. Interrupt handlers are installed on a <code>Promise</code>\nusing <code>setInterruptHandler</code>, which takes a partial function:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val p = new Promise[T]\np.setInterruptHandler {\n  case exc: MyException =&gt;\n    // deal with interrupt..\n}\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">p</span> <span class=\"pl-k\">=</span> <span class=\"pl-k\">new</span> <span class=\"pl-en\">Promise</span>[<span class=\"pl-en\">T</span>]\np.setInterruptHandler {\n  <span class=\"pl-k\">case</span> <span class=\"pl-v\">exc</span>: <span class=\"pl-en\">MyException</span> <span class=\"pl-k\">=&gt;</span>\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> deal with interrupt..</span>\n}</pre></div>\n<p dir=\"auto\">Interrupts differ in semantics from cancellation in important ways: there can only be one\ninterrupt handler per promise, and interrupts are only delivered if the promise is not yet\ncomplete.</p>\n<h1 dir=\"auto\"><a id=\"user-content-object-pool\" class=\"anchor\" aria-hidden=\"true\" href=\"#object-pool\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Object Pool</h1>\n<p dir=\"auto\">The pool order is FIFO.</p>\n<h2 dir=\"auto\"><a id=\"user-content-a-pool-of-constants\" class=\"anchor\" aria-hidden=\"true\" href=\"#a-pool-of-constants\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>A pool of constants</h2>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import scala.collection.mutable\nimport com.twitter.util.{Await, SimplePool}\n\nval queue = new mutable.Queue[Int] ++ List(1, 2, 3)\nval pool = new SimplePool(queue)\n\n// Note that the pool returns Futures, it doesn't block on exhaustion.\nassert(Await.result(pool.reserve()) == 1)\npool.reserve().onSuccess { item =&gt;\n  println(item) // prints &quot;2&quot;\n}\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">scala</span>.<span class=\"pl-en\">collection</span>.<span class=\"pl-en\">mutable</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">twitter</span>.<span class=\"pl-en\">util</span>.{<span class=\"pl-en\">Await</span>, <span class=\"pl-en\">SimplePool</span>}\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">queue</span> <span class=\"pl-k\">=</span> <span class=\"pl-k\">new</span> mutable.<span class=\"pl-en\">Queue</span>[<span class=\"pl-en\">Int</span>] <span class=\"pl-k\">++</span> <span class=\"pl-en\">List</span>(<span class=\"pl-c1\">1</span>, <span class=\"pl-c1\">2</span>, <span class=\"pl-c1\">3</span>)\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">pool</span> <span class=\"pl-k\">=</span> <span class=\"pl-k\">new</span> <span class=\"pl-en\">SimplePool</span>(queue)\n\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> Note that the pool returns Futures, it doesn't block on exhaustion.</span>\nassert(<span class=\"pl-en\">Await</span>.result(pool.reserve()) <span class=\"pl-k\">==</span> <span class=\"pl-c1\">1</span>)\npool.reserve().onSuccess { item <span class=\"pl-k\">=&gt;</span>\n  println(item) <span class=\"pl-c\"><span class=\"pl-c\">//</span> prints \"2\"</span>\n}</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-a-pool-of-dynamically-created-objects\" class=\"anchor\" aria-hidden=\"true\" href=\"#a-pool-of-dynamically-created-objects\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>A pool of dynamically created objects</h2>\n<p dir=\"auto\">Here is a pool of even-number generators. It stores 4 numbers at a time:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import com.twitter.util.{Future, FactoryPool}\n\nval pool = new FactoryPool[Int](4) {\n  var count = 0\n  def makeItem() = { count += 1; Future(count) }\n  def isHealthy(i: Int) = i % 2 == 0\n}\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">twitter</span>.<span class=\"pl-en\">util</span>.{<span class=\"pl-en\">Future</span>, <span class=\"pl-en\">FactoryPool</span>}\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">pool</span> <span class=\"pl-k\">=</span> <span class=\"pl-k\">new</span> <span class=\"pl-en\">FactoryPool</span>[<span class=\"pl-en\">Int</span>](<span class=\"pl-c1\">4</span>) {\n  <span class=\"pl-k\">var</span> <span class=\"pl-smi\">count</span> <span class=\"pl-k\">=</span> <span class=\"pl-c1\">0</span>\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">makeItem</span>() <span class=\"pl-k\">=</span> { count <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-c1\">1</span>; <span class=\"pl-en\">Future</span>(count) }\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">isHealthy</span>(<span class=\"pl-v\">i</span>: <span class=\"pl-en\">Int</span>) <span class=\"pl-k\">=</span> i <span class=\"pl-k\">%</span> <span class=\"pl-c1\">2</span> <span class=\"pl-k\">==</span> <span class=\"pl-c1\">0</span>\n}</pre></div>\n<p dir=\"auto\">It checks the health when you successfully reserve an object (i.e., when the Future yields).</p>\n<h1 dir=\"auto\"><a id=\"user-content-hashing\" class=\"anchor\" aria-hidden=\"true\" href=\"#hashing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Hashing</h1>\n<p dir=\"auto\"><code>util-hashing</code> is a collection of hash functions and hashing distributors (eg. ketama).</p>\n<p dir=\"auto\">To use one of the available hash functions:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import com.twitter.hashing.KeyHasher\n\nKeyHasher.FNV1_32.hashKey(&quot;string&quot;.getBytes)\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">twitter</span>.<span class=\"pl-en\">hashing</span>.<span class=\"pl-en\">KeyHasher</span>\n\n<span class=\"pl-en\">KeyHasher</span>.<span class=\"pl-en\">FNV1_32</span>.hashKey(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>string<span class=\"pl-pds\">\"</span></span>.getBytes)</pre></div>\n<p dir=\"auto\">Available hash functions are:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"FNV1_32\nFNV1A_32\nFNV1_64\nFNV1A_64\nKETAMA\nCRC32_ITU\nHSIEH\"><pre><code>FNV1_32\nFNV1A_32\nFNV1_64\nFNV1A_64\nKETAMA\nCRC32_ITU\nHSIEH\n</code></pre></div>\n<p dir=\"auto\">To use <code>KetamaDistributor</code>:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import com.twitter.hashing.{KetamaDistributor, KetamaNode, KeyHasher}\n\nval nodes = List(KetamaNode(&quot;host:port&quot;, 1 /* weight */, &quot;foo&quot; /* handle */))\nval distributor = new KetamaDistributor(nodes, 1 /* num reps */)\ndistributor.nodeForHash(&quot;abc&quot;.##) // =&gt; client\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">twitter</span>.<span class=\"pl-en\">hashing</span>.{<span class=\"pl-en\">KetamaDistributor</span>, <span class=\"pl-en\">KetamaNode</span>, <span class=\"pl-en\">KeyHasher</span>}\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">nodes</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">List</span>(<span class=\"pl-en\">KetamaNode</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>host:port<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-c1\">1</span> <span class=\"pl-c\"><span class=\"pl-c\">/*</span> weight <span class=\"pl-c\">*/</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>foo<span class=\"pl-pds\">\"</span></span> <span class=\"pl-c\"><span class=\"pl-c\">/*</span> handle <span class=\"pl-c\">*/</span></span>))\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">distributor</span> <span class=\"pl-k\">=</span> <span class=\"pl-k\">new</span> <span class=\"pl-en\">KetamaDistributor</span>(nodes, <span class=\"pl-c1\">1</span> <span class=\"pl-c\"><span class=\"pl-c\">/*</span> num reps <span class=\"pl-c\">*/</span></span>)\ndistributor.nodeForHash(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>abc<span class=\"pl-pds\">\"</span></span>.##) <span class=\"pl-c\"><span class=\"pl-c\">//</span> =&gt; client</span></pre></div>\n<h1 dir=\"auto\"><a id=\"user-content-time-and-duration\" class=\"anchor\" aria-hidden=\"true\" href=\"#time-and-duration\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Time and Duration</h1>\n<p dir=\"auto\">Like arithmetic on doubles, <code>Time</code> and <code>Duration</code> arithmetic is now free of overflows. Instead, they overflow to <code>Top</code> and <code>Bottom</code> values, which are analogous to positive and negative infinity.</p>\n<p dir=\"auto\">Since the resolution of <code>Time.now</code> has been reduced (and is also more expensive due to its use of system time), a new <code>Stopwatch</code> API has been introduced in order to calculate durations of time.</p>\n<p dir=\"auto\">It's used simply:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import com.twitter.util.{Duration, Stopwatch}\nval elapsed: () =&gt; Duration = Stopwatch.start()\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">twitter</span>.<span class=\"pl-en\">util</span>.{<span class=\"pl-en\">Duration</span>, <span class=\"pl-en\">Stopwatch</span>}\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">elapsed</span><span class=\"pl-k\">:</span> () <span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">Duration</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Stopwatch</span>.start()</pre></div>\n<p dir=\"auto\">which is read by applying <code>elapsed</code>:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val duration: Duration = elapsed()\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">duration</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">Duration</span> <span class=\"pl-k\">=</span> elapsed()</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>License</h2>\n<p dir=\"auto\">Copyright 2010 Twitter, Inc.</p>\n<p dir=\"auto\">Licensed under the Apache License, Version 2.0: <a href=\"https://www.apache.org/licenses/LICENSE-2.0\" rel=\"nofollow\">https://www.apache.org/licenses/LICENSE-2.0</a></p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "mariusae",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/32104?v=4",
+        "url" : "https://api.github.com/users/mariusae",
+        "contributions" : 389
+      },
+      {
+        "login" : "kevinoliver",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/347229?v=4",
+        "url" : "https://api.github.com/users/kevinoliver",
+        "contributions" : 239
+      },
+      {
+        "login" : "mosesn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/156562?v=4",
+        "url" : "https://api.github.com/users/mosesn",
+        "contributions" : 157
+      },
+      {
+        "login" : "vkostyukov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1098539?v=4",
+        "url" : "https://api.github.com/users/vkostyukov",
+        "contributions" : 128
+      },
+      {
+        "login" : "cacoco",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/613046?v=4",
+        "url" : "https://api.github.com/users/cacoco",
+        "contributions" : 112
+      },
+      {
+        "login" : "yufangong",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7762468?v=4",
+        "url" : "https://api.github.com/users/yufangong",
+        "contributions" : 77
+      },
+      {
+        "login" : "stevegury",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/376195?v=4",
+        "url" : "https://api.github.com/users/stevegury",
+        "contributions" : 75
+      },
+      {
+        "login" : "ryanoneill",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1393463?v=4",
+        "url" : "https://api.github.com/users/ryanoneill",
+        "contributions" : 60
+      },
+      {
+        "login" : "luciferous",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24509?v=4",
+        "url" : "https://api.github.com/users/luciferous",
+        "contributions" : 54
+      },
+      {
+        "login" : "jcrossley",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8378895?v=4",
+        "url" : "https://api.github.com/users/jcrossley",
+        "contributions" : 52
+      },
+      {
+        "login" : "bryce-anderson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2948506?v=4",
+        "url" : "https://api.github.com/users/bryce-anderson",
+        "contributions" : 51
+      },
+      {
+        "login" : "roanta",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1617360?v=4",
+        "url" : "https://api.github.com/users/roanta",
+        "contributions" : 40
+      },
+      {
+        "login" : "dschobel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/58369?v=4",
+        "url" : "https://api.github.com/users/dschobel",
+        "contributions" : 39
+      },
+      {
+        "login" : "stuhood",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/46740?v=4",
+        "url" : "https://api.github.com/users/stuhood",
+        "contributions" : 34
+      },
+      {
+        "login" : "bmdhacks",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1010987?v=4",
+        "url" : "https://api.github.com/users/bmdhacks",
+        "contributions" : 27
+      },
+      {
+        "login" : "freels",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1407?v=4",
+        "url" : "https://api.github.com/users/freels",
+        "contributions" : 24
+      },
+      {
+        "login" : "sprsquish",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/206?v=4",
+        "url" : "https://api.github.com/users/sprsquish",
+        "contributions" : 23
+      },
+      {
+        "login" : "hamdiallam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10552045?v=4",
+        "url" : "https://api.github.com/users/hamdiallam",
+        "contributions" : 22
+      },
+      {
+        "login" : "enbnt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/20496517?v=4",
+        "url" : "https://api.github.com/users/enbnt",
+        "contributions" : 22
+      },
+      {
+        "login" : "jyanJing",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19828635?v=4",
+        "url" : "https://api.github.com/users/jyanJing",
+        "contributions" : 22
+      },
+      {
+        "login" : "dotordogh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/28027359?v=4",
+        "url" : "https://api.github.com/users/dotordogh",
+        "contributions" : 17
+      },
+      {
+        "login" : "travisbrown",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/316049?v=4",
+        "url" : "https://api.github.com/users/travisbrown",
+        "contributions" : 16
+      },
+      {
+        "login" : "joybestourous",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/32601978?v=4",
+        "url" : "https://api.github.com/users/joybestourous",
+        "contributions" : 14
+      },
+      {
+        "login" : "mgodave",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/556310?v=4",
+        "url" : "https://api.github.com/users/mgodave",
+        "contributions" : 13
+      },
+      {
+        "login" : "wisechengyi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/596358?v=4",
+        "url" : "https://api.github.com/users/wisechengyi",
+        "contributions" : 12
+      },
+      {
+        "login" : "tigerlily-he",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13492525?v=4",
+        "url" : "https://api.github.com/users/tigerlily-he",
+        "contributions" : 10
+      },
+      {
+        "login" : "ShaneDelmore",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4604933?v=4",
+        "url" : "https://api.github.com/users/ShaneDelmore",
+        "contributions" : 10
+      },
+      {
+        "login" : "isabelmartin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10446444?v=4",
+        "url" : "https://api.github.com/users/isabelmartin",
+        "contributions" : 9
+      },
+      {
+        "login" : "j3h",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/200659?v=4",
+        "url" : "https://api.github.com/users/j3h",
+        "contributions" : 9
+      },
+      {
+        "login" : "mjeffryes",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1189194?v=4",
+        "url" : "https://api.github.com/users/mjeffryes",
+        "contributions" : 8
+      },
+      {
+        "login" : "patliu85",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/46382106?v=4",
+        "url" : "https://api.github.com/users/patliu85",
+        "contributions" : 8
+      },
+      {
+        "login" : "bierbaum",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13483?v=4",
+        "url" : "https://api.github.com/users/bierbaum",
+        "contributions" : 8
+      },
+      {
+        "login" : "fwbrasil",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/831175?v=4",
+        "url" : "https://api.github.com/users/fwbrasil",
+        "contributions" : 7
+      },
+      {
+        "login" : "bonniee",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2022625?v=4",
+        "url" : "https://api.github.com/users/bonniee",
+        "contributions" : 6
+      },
+      {
+        "login" : "illicitonion",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1131704?v=4",
+        "url" : "https://api.github.com/users/illicitonion",
+        "contributions" : 6
+      },
+      {
+        "login" : "felixbr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1295323?v=4",
+        "url" : "https://api.github.com/users/felixbr",
+        "contributions" : 6
+      },
+      {
+        "login" : "adam-singer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/654526?v=4",
+        "url" : "https://api.github.com/users/adam-singer",
+        "contributions" : 5
+      },
+      {
+        "login" : "blorente",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5861182?v=4",
+        "url" : "https://api.github.com/users/blorente",
+        "contributions" : 5
+      },
+      {
+        "login" : "grimreaper",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/433817?v=4",
+        "url" : "https://api.github.com/users/grimreaper",
+        "contributions" : 5
+      },
+      {
+        "login" : "honggangZ",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4381918?v=4",
+        "url" : "https://api.github.com/users/honggangZ",
+        "contributions" : 5
+      },
+      {
+        "login" : "nepthar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/359054?v=4",
+        "url" : "https://api.github.com/users/nepthar",
+        "contributions" : 5
+      },
+      {
+        "login" : "nshkrob",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4968002?v=4",
+        "url" : "https://api.github.com/users/nshkrob",
+        "contributions" : 5
+      },
+      {
+        "login" : "sameerparekh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1395413?v=4",
+        "url" : "https://api.github.com/users/sameerparekh",
+        "contributions" : 5
+      },
+      {
+        "login" : "taylorleese",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/202401?v=4",
+        "url" : "https://api.github.com/users/taylorleese",
+        "contributions" : 5
+      },
+      {
+        "login" : "twilliam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/326703?v=4",
+        "url" : "https://api.github.com/users/twilliam",
+        "contributions" : 5
+      },
+      {
+        "login" : "bdd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11135?v=4",
+        "url" : "https://api.github.com/users/bdd",
+        "contributions" : 5
+      },
+      {
+        "login" : "blackicewei",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/913743?v=4",
+        "url" : "https://api.github.com/users/blackicewei",
+        "contributions" : 4
+      },
+      {
+        "login" : "deanhillertwitter",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16492406?v=4",
+        "url" : "https://api.github.com/users/deanhillertwitter",
+        "contributions" : 4
+      },
+      {
+        "login" : "jcrawford13",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/20522436?v=4",
+        "url" : "https://api.github.com/users/jcrawford13",
+        "contributions" : 4
+      },
+      {
+        "login" : "johanoskarsson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/26380?v=4",
+        "url" : "https://api.github.com/users/johanoskarsson",
+        "contributions" : 4
+      },
+      {
+        "login" : "hjz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/480549?v=4",
+        "url" : "https://api.github.com/users/hjz",
+        "contributions" : 4
+      },
+      {
+        "login" : "szegedi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/122822?v=4",
+        "url" : "https://api.github.com/users/szegedi",
+        "contributions" : 4
+      },
+      {
+        "login" : "atollena",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1175711?v=4",
+        "url" : "https://api.github.com/users/atollena",
+        "contributions" : 3
+      },
+      {
+        "login" : "jordanbull",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1355932?v=4",
+        "url" : "https://api.github.com/users/jordanbull",
+        "contributions" : 3
+      },
+      {
+        "login" : "mattdickinson5",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/31137836?v=4",
+        "url" : "https://api.github.com/users/mattdickinson5",
+        "contributions" : 3
+      },
+      {
+        "login" : "baroquebobcat",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7378?v=4",
+        "url" : "https://api.github.com/users/baroquebobcat",
+        "contributions" : 3
+      },
+      {
+        "login" : "SethTisue",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
+        "url" : "https://api.github.com/users/SethTisue",
+        "contributions" : 3
+      },
+      {
+        "login" : "muachilin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/32566798?v=4",
+        "url" : "https://api.github.com/users/muachilin",
+        "contributions" : 3
+      },
+      {
+        "login" : "adleong",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3979810?v=4",
+        "url" : "https://api.github.com/users/adleong",
+        "contributions" : 3
+      },
+      {
+        "login" : "steveniemitz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1882981?v=4",
+        "url" : "https://api.github.com/users/steveniemitz",
+        "contributions" : 3
+      },
+      {
+        "login" : "isnotinvain",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/372969?v=4",
+        "url" : "https://api.github.com/users/isnotinvain",
+        "contributions" : 2
+      },
+      {
+        "login" : "edma2",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/272066?v=4",
+        "url" : "https://api.github.com/users/edma2",
+        "contributions" : 2
+      },
+      {
+        "login" : "ggrossman",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5636481?v=4",
+        "url" : "https://api.github.com/users/ggrossman",
+        "contributions" : 2
+      },
+      {
+        "login" : "jmhodges",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/598?v=4",
+        "url" : "https://api.github.com/users/jmhodges",
+        "contributions" : 2
+      },
+      {
+        "login" : "slyphon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/46660?v=4",
+        "url" : "https://api.github.com/users/slyphon",
+        "contributions" : 2
+      },
+      {
+        "login" : "DinoCassowary",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/93794674?v=4",
+        "url" : "https://api.github.com/users/DinoCassowary",
+        "contributions" : 2
+      },
+      {
+        "login" : "msbarry",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1480504?v=4",
+        "url" : "https://api.github.com/users/msbarry",
+        "contributions" : 2
+      },
+      {
+        "login" : "codeferret",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/872048?v=4",
+        "url" : "https://api.github.com/users/codeferret",
+        "contributions" : 2
+      },
+      {
+        "login" : "paradigmsort",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/627653?v=4",
+        "url" : "https://api.github.com/users/paradigmsort",
+        "contributions" : 2
+      },
+      {
+        "login" : "xsl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/438505?v=4",
+        "url" : "https://api.github.com/users/xsl",
+        "contributions" : 2
+      },
+      {
+        "login" : "okapies",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/657642?v=4",
+        "url" : "https://api.github.com/users/okapies",
+        "contributions" : 2
+      },
+      {
+        "login" : "xuwei-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/389787?v=4",
+        "url" : "https://api.github.com/users/xuwei-k",
+        "contributions" : 2
+      },
+      {
+        "login" : "ity",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1278541?v=4",
+        "url" : "https://api.github.com/users/ity",
+        "contributions" : 2
+      },
+      {
+        "login" : "olix0r",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/240738?v=4",
+        "url" : "https://api.github.com/users/olix0r",
+        "contributions" : 2
+      },
+      {
+        "login" : "johnynek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/67958?v=4",
+        "url" : "https://api.github.com/users/johnynek",
+        "contributions" : 2
+      },
+      {
+        "login" : "kimballa",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/87376?v=4",
+        "url" : "https://api.github.com/users/kimballa",
+        "contributions" : 1
+      },
+      {
+        "login" : "cevaris",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4671809?v=4",
+        "url" : "https://api.github.com/users/cevaris",
+        "contributions" : 1
+      },
+      {
+        "login" : "DuncanHills",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1975643?v=4",
+        "url" : "https://api.github.com/users/DuncanHills",
+        "contributions" : 1
+      },
+      {
+        "login" : "siggy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/236915?v=4",
+        "url" : "https://api.github.com/users/siggy",
+        "contributions" : 1
+      },
+      {
+        "login" : "Anurag870",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6295975?v=4",
+        "url" : "https://api.github.com/users/Anurag870",
+        "contributions" : 1
+      },
+      {
+        "login" : "benjumanji",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/290429?v=4",
+        "url" : "https://api.github.com/users/benjumanji",
+        "contributions" : 1
+      },
+      {
+        "login" : "bizrad6",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1273837?v=4",
+        "url" : "https://api.github.com/users/bizrad6",
+        "contributions" : 1
+      },
+      {
+        "login" : "brutkin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/18426604?v=4",
+        "url" : "https://api.github.com/users/brutkin",
+        "contributions" : 1
+      },
+      {
+        "login" : "uganson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4223008?v=4",
+        "url" : "https://api.github.com/users/uganson",
+        "contributions" : 1
+      },
+      {
+        "login" : "caniszczyk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/63777?v=4",
+        "url" : "https://api.github.com/users/caniszczyk",
+        "contributions" : 1
+      },
+      {
+        "login" : "christhalinger",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17127221?v=4",
+        "url" : "https://api.github.com/users/christhalinger",
+        "contributions" : 1
+      },
+      {
+        "login" : "jdanbrown",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/627486?v=4",
+        "url" : "https://api.github.com/users/jdanbrown",
+        "contributions" : 1
+      },
+      {
+        "login" : "dan-cx",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1310757?v=4",
+        "url" : "https://api.github.com/users/dan-cx",
+        "contributions" : 1
+      },
+      {
+        "login" : "dadjeibaah",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2197104?v=4",
+        "url" : "https://api.github.com/users/dadjeibaah",
+        "contributions" : 1
+      },
+      {
+        "login" : "diegoboston",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8549838?v=4",
+        "url" : "https://api.github.com/users/diegoboston",
+        "contributions" : 1
+      },
+      {
+        "login" : "Eternity-Yarr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3705333?v=4",
+        "url" : "https://api.github.com/users/Eternity-Yarr",
+        "contributions" : 1
+      },
+      {
+        "login" : "eirslett",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1872593?v=4",
+        "url" : "https://api.github.com/users/eirslett",
+        "contributions" : 1
+      },
+      {
+        "login" : "cattibrie",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/29643054?v=4",
+        "url" : "https://api.github.com/users/cattibrie",
+        "contributions" : 1
+      },
+      {
+        "login" : "evverx",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10195800?v=4",
+        "url" : "https://api.github.com/users/evverx",
+        "contributions" : 1
+      },
+      {
+        "login" : "basert",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1951610?v=4",
+        "url" : "https://api.github.com/users/basert",
+        "contributions" : 1
+      },
+      {
+        "login" : "folone",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/366132?v=4",
+        "url" : "https://api.github.com/users/folone",
+        "contributions" : 1
+      },
+      {
+        "login" : "gdickinson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1130928?v=4",
+        "url" : "https://api.github.com/users/gdickinson",
+        "contributions" : 1
+      },
+      {
+        "login" : "hmrm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1593612?v=4",
+        "url" : "https://api.github.com/users/hmrm",
+        "contributions" : 1
+      },
+      {
+        "login" : "hllrsr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/34038429?v=4",
+        "url" : "https://api.github.com/users/hllrsr",
+        "contributions" : 1
+      },
+      {
+        "login" : "jacksonic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8561456?v=4",
+        "url" : "https://api.github.com/users/jacksonic",
+        "contributions" : 1
+      },
+      {
+        "login" : "jakequist",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/207427?v=4",
+        "url" : "https://api.github.com/users/jakequist",
+        "contributions" : 1
+      },
+      {
+        "login" : "jeffreyolchovy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/202277?v=4",
+        "url" : "https://api.github.com/users/jeffreyolchovy",
+        "contributions" : 1
+      },
+      {
+        "login" : "DieBauer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2719894?v=4",
+        "url" : "https://api.github.com/users/DieBauer",
+        "contributions" : 1
+      },
+      {
+        "login" : "cheecheeo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/175882?v=4",
+        "url" : "https://api.github.com/users/cheecheeo",
+        "contributions" : 1
+      },
+      {
+        "login" : "jorgeortiz85",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5728?v=4",
+        "url" : "https://api.github.com/users/jorgeortiz85",
+        "contributions" : 1
+      },
+      {
+        "login" : "soxee",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/20067857?v=4",
+        "url" : "https://api.github.com/users/soxee",
+        "contributions" : 1
+      },
+      {
+        "login" : "jvirtanen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/183430?v=4",
+        "url" : "https://api.github.com/users/jvirtanen",
+        "contributions" : 1
+      },
+      {
+        "login" : "kenrose",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1178304?v=4",
+        "url" : "https://api.github.com/users/kenrose",
+        "contributions" : 1
+      },
+      {
+        "login" : "kevyang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2468631?v=4",
+        "url" : "https://api.github.com/users/kevyang",
+        "contributions" : 1
+      },
+      {
+        "login" : "koertkuipers",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/821284?v=4",
+        "url" : "https://api.github.com/users/koertkuipers",
+        "contributions" : 1
+      },
+      {
+        "login" : "kpagratis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6370933?v=4",
+        "url" : "https://api.github.com/users/kpagratis",
+        "contributions" : 1
+      },
+      {
+        "login" : "fizx",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8024?v=4",
+        "url" : "https://api.github.com/users/fizx",
+        "contributions" : 1
+      },
+      {
+        "login" : "mairbek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/549048?v=4",
+        "url" : "https://api.github.com/users/mairbek",
+        "contributions" : 1
+      },
+      {
+        "login" : "mejran",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/823108?v=4",
+        "url" : "https://api.github.com/users/mejran",
+        "contributions" : 1
+      },
+      {
+        "login" : "monkey-mas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5261677?v=4",
+        "url" : "https://api.github.com/users/monkey-mas",
+        "contributions" : 1
+      },
+      {
+        "login" : "suls",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2551?v=4",
+        "url" : "https://api.github.com/users/suls",
+        "contributions" : 1
+      },
+      {
+        "login" : "mkantor",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/35091?v=4",
+        "url" : "https://api.github.com/users/mkantor",
+        "contributions" : 1
+      },
+      {
+        "login" : "mtkp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2616083?v=4",
+        "url" : "https://api.github.com/users/mtkp",
+        "contributions" : 1
+      },
+      {
+        "login" : "matthewmichihara",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/79073?v=4",
+        "url" : "https://api.github.com/users/matthewmichihara",
+        "contributions" : 1
+      },
+      {
+        "login" : "sirmax",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/868418?v=4",
+        "url" : "https://api.github.com/users/sirmax",
+        "contributions" : 1
+      },
+      {
+        "login" : "mtd321",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2809341?v=4",
+        "url" : "https://api.github.com/users/mtd321",
+        "contributions" : 1
+      },
+      {
+        "login" : "mleinart",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/317999?v=4",
+        "url" : "https://api.github.com/users/mleinart",
+        "contributions" : 1
+      },
+      {
+        "login" : "mikepii",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/899412?v=4",
+        "url" : "https://api.github.com/users/mikepii",
+        "contributions" : 1
+      },
+      {
+        "login" : "WUMUXIAN",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1101630?v=4",
+        "url" : "https://api.github.com/users/WUMUXIAN",
+        "contributions" : 1
+      },
+      {
+        "login" : "oscar-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16548258?v=4",
+        "url" : "https://api.github.com/users/oscar-stripe",
+        "contributions" : 1
+      },
+      {
+        "login" : "pteichman",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/69112?v=4",
+        "url" : "https://api.github.com/users/pteichman",
+        "contributions" : 1
+      },
+      {
+        "login" : "pvasterd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4611833?v=4",
+        "url" : "https://api.github.com/users/pvasterd",
+        "contributions" : 1
+      },
+      {
+        "login" : "rahilb",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3636251?v=4",
+        "url" : "https://api.github.com/users/rahilb",
+        "contributions" : 1
+      },
+      {
+        "login" : "swangtw",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2897341?v=4",
+        "url" : "https://api.github.com/users/swangtw",
+        "contributions" : 1
+      },
+      {
+        "login" : "soojee",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8787286?v=4",
+        "url" : "https://api.github.com/users/soojee",
+        "contributions" : 1
+      },
+      {
+        "login" : "stephenjudkins",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8593?v=4",
+        "url" : "https://api.github.com/users/stephenjudkins",
+        "contributions" : 1
+      },
+      {
+        "login" : "kovszilard",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10949129?v=4",
+        "url" : "https://api.github.com/users/kovszilard",
+        "contributions" : 1
+      },
+      {
+        "login" : "bthuillier",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/482256?v=4",
+        "url" : "https://api.github.com/users/bthuillier",
+        "contributions" : 1
+      },
+      {
+        "login" : "tdyas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/901363?v=4",
+        "url" : "https://api.github.com/users/tdyas",
+        "contributions" : 1
+      },
+      {
+        "login" : "tonyd3",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1857875?v=4",
+        "url" : "https://api.github.com/users/tonyd3",
+        "contributions" : 1
+      },
+      {
+        "login" : "tquan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1066318?v=4",
+        "url" : "https://api.github.com/users/tquan",
+        "contributions" : 1
+      },
+      {
+        "login" : "trustin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/173918?v=4",
+        "url" : "https://api.github.com/users/trustin",
+        "contributions" : 1
+      },
+      {
+        "login" : "tushar19",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1427646?v=4",
+        "url" : "https://api.github.com/users/tushar19",
+        "contributions" : 1
+      },
+      {
+        "login" : "chikei",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/84867?v=4",
+        "url" : "https://api.github.com/users/chikei",
+        "contributions" : 1
+      },
+      {
+        "login" : "arxanas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/454057?v=4",
+        "url" : "https://api.github.com/users/arxanas",
+        "contributions" : 1
+      },
+      {
+        "login" : "wiwa",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1862202?v=4",
+        "url" : "https://api.github.com/users/wiwa",
+        "contributions" : 1
+      },
+      {
+        "login" : "willfeather",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/50676216?v=4",
+        "url" : "https://api.github.com/users/willfeather",
+        "contributions" : 1
+      },
+      {
+        "login" : "ystein",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/592626?v=4",
+        "url" : "https://api.github.com/users/ystein",
+        "contributions" : 1
+      },
+      {
+        "login" : "yuhua",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/727616?v=4",
+        "url" : "https://api.github.com/users/yuhua",
+        "contributions" : 1
+      },
+      {
+        "login" : "stremlenye",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/586343?v=4",
+        "url" : "https://api.github.com/users/stremlenye",
+        "contributions" : 1
+      },
+      {
+        "login" : "3tty0n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8289812?v=4",
+        "url" : "https://api.github.com/users/3tty0n",
+        "contributions" : 1
+      },
+      {
+        "login" : "zhiyuany",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/48106695?v=4",
+        "url" : "https://api.github.com/users/zhiyuany",
+        "contributions" : 1
+      },
+      {
+        "login" : "aoen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1592778?v=4",
+        "url" : "https://api.github.com/users/aoen",
+        "contributions" : 1
+      },
+      {
+        "login" : "crakjie",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6709653?v=4",
+        "url" : "https://api.github.com/users/crakjie",
+        "contributions" : 1
+      },
+      {
+        "login" : "kenchan0130",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1155067?v=4",
+        "url" : "https://api.github.com/users/kenchan0130",
+        "contributions" : 1
+      },
+      {
+        "login" : "krisgun",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2721545?v=4",
+        "url" : "https://api.github.com/users/krisgun",
+        "contributions" : 1
+      },
+      {
+        "login" : "mehmetgunturkun",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3748385?v=4",
+        "url" : "https://api.github.com/users/mehmetgunturkun",
+        "contributions" : 1
+      },
+      {
+        "login" : "nilday",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3797285?v=4",
+        "url" : "https://api.github.com/users/nilday",
+        "contributions" : 1
+      },
+      {
+        "login" : "teresy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43420401?v=4",
+        "url" : "https://api.github.com/users/teresy",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 2013,
+    "topics" : [
+      "finagle",
+      "scala",
+      "utility"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 277,
+        "title" : "Supporting scala-async",
+        "url" : "https://github.com/twitter/util/issues/277"
+      },
+      {
+        "number" : 274,
+        "title" : "Path to Scala 3",
+        "url" : "https://github.com/twitter/util/issues/274"
+      },
+      {
+        "number" : 266,
+        "title" : "Please reconsider #235",
+        "url" : "https://github.com/twitter/util/issues/266"
+      },
+      {
+        "number" : 207,
+        "title" : "Is there a ZooKeeper recursive path create function utils?",
+        "url" : "https://github.com/twitter/util/issues/207"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : "util",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "miscellaneous-utils",
+    "beginnerIssuesLabel" : null
+  }
+}

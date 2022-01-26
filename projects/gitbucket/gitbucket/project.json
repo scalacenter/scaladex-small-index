@@ -1,0 +1,2621 @@
+{
+  "organization" : "gitbucket",
+  "repository" : "gitbucket",
+  "creationDate" : 1607876151000,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643171673688
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "https://gitbucket.github.io/",
+    "description" : "A Git platform powered by Scala with easy installation, high extensibility & GitHub API compatibility",
+    "logo" : "https://avatars.githubusercontent.com/u/11145783?v=4",
+    "stars" : 8573,
+    "forks" : 1215,
+    "watchers" : 486,
+    "issues" : 340,
+    "creationDate" : 1365612095000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-gitbucket----\" class=\"anchor\" aria-hidden=\"true\" href=\"#gitbucket----\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>GitBucket <a href=\"https://gitter.im/gitbucket/gitbucket\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/2493ecb8913d318680f6c26ca20257b7a9d7c9f51c974c654000d0b8b4d8e01c/68747470733a2f2f6261646765732e6769747465722e696d2f6769746275636b65742f6769746275636b65742e737667\" alt=\"Gitter chat\" data-canonical-src=\"https://badges.gitter.im/gitbucket/gitbucket.svg\" style=\"max-width: 100%;\"></a> <a href=\"https://github.com/gitbucket/gitbucket/actions?query=workflow%3Abuild+branch%3Amaster\"><img src=\"https://github.com/gitbucket/gitbucket/workflows/build/badge.svg?branch=master\" alt=\"build\" style=\"max-width: 100%;\"></a> <a href=\"https://index.scala-lang.org/gitbucket/gitbucket/gitbucket\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/4f5373a1fa4c7c019b9c0164baec0bd49190c8d6805d71fe46699a228f777417/68747470733a2f2f696e6465782e7363616c612d6c616e672e6f72672f6769746275636b65742f6769746275636b65742f6769746275636b65742f6c61746573742d62792d7363616c612d76657273696f6e2e737667\" alt=\"gitbucket Scala version support\" data-canonical-src=\"https://index.scala-lang.org/gitbucket/gitbucket/gitbucket/latest-by-scala-version.svg\" style=\"max-width: 100%;\"></a> <a href=\"https://github.com/gitbucket/gitbucket/blob/master/LICENSE\"><img src=\"https://camo.githubusercontent.com/2a2157c971b7ae1deb8eb095799440551c33dcf61ea3d965d86b496a5a65df55/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d417061636865253230322e302d626c75652e737667\" alt=\"License\" data-canonical-src=\"https://img.shields.io/badge/License-Apache%202.0-blue.svg\" style=\"max-width: 100%;\"></a></h1>\n<p dir=\"auto\">GitBucket is a Git web platform powered by Scala offering:</p>\n<ul dir=\"auto\">\n<li>Easy installation</li>\n<li>Intuitive UI</li>\n<li>High extensibility by plugins</li>\n<li>API compatibility with GitHub</li>\n</ul>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/a482d915a86bde82e3b4347b97f6db7937c64812ead9d4af1a1ecc93828066fc/68747470733a2f2f6769746275636b65742e6769746875622e696f2f696d672f73637265656e73686f74732f73637265656e73686f742d7265706f7369746f72795f7669657765722e706e67\"><img src=\"https://camo.githubusercontent.com/a482d915a86bde82e3b4347b97f6db7937c64812ead9d4af1a1ecc93828066fc/68747470733a2f2f6769746275636b65742e6769746875622e696f2f696d672f73637265656e73686f74732f73637265656e73686f742d7265706f7369746f72795f7669657765722e706e67\" alt=\"GitBucket\" data-canonical-src=\"https://gitbucket.github.io/img/screenshots/screenshot-repository_viewer.png\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">You can try an <a href=\"https://gitbucket.herokuapp.com/\" rel=\"nofollow\">online demo</a> <em>(ID: root / Pass: root)</em> of GitBucket, and also get the latest information at <a href=\"https://gitbucket.github.io/gitbucket-news/\" rel=\"nofollow\">GitBucket News</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-features\" class=\"anchor\" aria-hidden=\"true\" href=\"#features\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Features</h2>\n<p dir=\"auto\">The current version of GitBucket provides many features such as:</p>\n<ul dir=\"auto\">\n<li>Public / Private Git repositories (with http/https and ssh access)</li>\n<li>GitLFS support</li>\n<li>Repository viewer including an online file editor</li>\n<li>Issues, Pull Requests and Wiki for repositories</li>\n<li>Activity timeline and email notifications</li>\n<li>Account and group management with LDAP integration</li>\n<li>a Plug-in system</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-installation\" class=\"anchor\" aria-hidden=\"true\" href=\"#installation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Installation</h2>\n<p dir=\"auto\">GitBucket requires <strong>Java8</strong>. You have to install it, if it is not already installed.</p>\n<ol dir=\"auto\">\n<li>Download the latest <strong>gitbucket.war</strong> from <a href=\"https://github.com/gitbucket/gitbucket/releases\">the releases page</a> and run it by <code>java -jar gitbucket.war</code>.</li>\n<li>Go to <code>http://[hostname]:8080/</code> and log in with ID: <strong>root</strong> / Pass: <strong>root</strong>.</li>\n</ol>\n<p dir=\"auto\">You can also deploy <code>gitbucket.war</code> to a servlet container which supports Servlet 3.0 (like Jetty, Tomcat, JBoss, etc)</p>\n<p dir=\"auto\">For more information about installation on Mac or Windows Server (with IIS), or configuration of Apache or Nginx and also integration with other tools or services such as Jenkins or Slack, see <a href=\"https://github.com/gitbucket/gitbucket/wiki\">Wiki</a>.</p>\n<p dir=\"auto\">To upgrade GitBucket, replace <code>gitbucket.war</code> with the new version, after stopping GitBucket. All GitBucket data is stored in <code>HOME/.gitbucket</code> by default. So if you want to back up GitBucket's data, copy this directory to the backup location.</p>\n<h2 dir=\"auto\"><a id=\"user-content-plugins\" class=\"anchor\" aria-hidden=\"true\" href=\"#plugins\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Plugins</h2>\n<p dir=\"auto\">GitBucket has a plug-in system that allows extra functionality. Officially the following plug-ins are provided:</p>\n<ul dir=\"auto\">\n<li><a href=\"https://github.com/gitbucket/gitbucket-gist-plugin\">gitbucket-gist-plugin</a></li>\n<li><a href=\"https://github.com/gitbucket/gitbucket-emoji-plugin\">gitbucket-emoji-plugin</a></li>\n<li><a href=\"https://github.com/gitbucket/gitbucket-pages-plugin\">gitbucket-pages-plugin</a></li>\n<li><a href=\"https://github.com/gitbucket/gitbucket-notifications-plugin\">gitbucket-notifications-plugin</a></li>\n</ul>\n<p dir=\"auto\">You can find more plugins made by the community at <a href=\"https://gitbucket-plugins.github.io/\" rel=\"nofollow\">GitBucket community plugins</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-building-and-development\" class=\"anchor\" aria-hidden=\"true\" href=\"#building-and-development\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Building and Development</h2>\n<p dir=\"auto\">If you want to try the development version of GitBucket, or want to contribute to the project, please see the <a href=\"https://github.com/gitbucket/gitbucket/blob/master/doc/readme.md\">Developer's Guide</a>.\nIt provides instructions on building from source and on setting up an IDE for debugging.\nIt also contains documentation of the core concepts used within the project.</p>\n<h2 dir=\"auto\"><a id=\"user-content-support\" class=\"anchor\" aria-hidden=\"true\" href=\"#support\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Support</h2>\n<ul dir=\"auto\">\n<li>If you have any questions about GitBucket, see <a href=\"https://github.com/gitbucket/gitbucket/wiki\">Wiki</a> and check issues whether there is a same question or request in the past.</li>\n<li>If you can't find same question and report, send it to our <a href=\"https://gitter.im/gitbucket/gitbucket\" rel=\"nofollow\">Gitter room</a> before raising an issue.</li>\n<li>The highest priority of GitBucket is the ease of installation and API compatibility with GitHub, so your feature request might be rejected if they go against those principles.</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-whats-new-in-437x\" class=\"anchor\" aria-hidden=\"true\" href=\"#whats-new-in-437x\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>What's New in 4.37.x</h2>\n<h3 dir=\"auto\"><a id=\"user-content-4372---16-jan-2022\" class=\"anchor\" aria-hidden=\"true\" href=\"#4372---16-jan-2022\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>4.37.2 - 16 Jan 2022</h3>\n<ul dir=\"auto\">\n<li>Security fix</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-4371---14-dec-2021\" class=\"anchor\" aria-hidden=\"true\" href=\"#4371---14-dec-2021\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>4.37.1 - 14 Dec 2021</h3>\n<ul dir=\"auto\">\n<li>Update gist-plugin and notification-plugin</li>\n<li>Fix SSHCommand extension point for apache-sshd 2.x</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-4370---11-dec-2021\" class=\"anchor\" aria-hidden=\"true\" href=\"#4370---11-dec-2021\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>4.37.0 - 11 Dec 2021</h3>\n<ul dir=\"auto\">\n<li>Enhance Git Reference APIs</li>\n<li>Add milestone data to issue list API</li>\n<li>Support \"all\" in issue list API</li>\n<li>Support EDDSA in signed commit verification</li>\n<li>Support custom SSH url</li>\n<li>Relax max passward length limitation</li>\n<li>Relax max webhook url length limitation</li>\n</ul>\n<p dir=\"auto\">See the <a href=\"CHANGELOG.md\">change log</a> for all of the updates.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "takezoe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1094760?v=4",
+        "url" : "https://api.github.com/users/takezoe",
+        "contributions" : 3802
+      },
+      {
+        "login" : "kounoike",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6997928?v=4",
+        "url" : "https://api.github.com/users/kounoike",
+        "contributions" : 181
+      },
+      {
+        "login" : "xuwei-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/389787?v=4",
+        "url" : "https://api.github.com/users/xuwei-k",
+        "contributions" : 169
+      },
+      {
+        "login" : "shimamoto",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1875052?v=4",
+        "url" : "https://api.github.com/users/shimamoto",
+        "contributions" : 155
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 147
+      },
+      {
+        "login" : "nazoking",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/18655?v=4",
+        "url" : "https://api.github.com/users/nazoking",
+        "contributions" : 129
+      },
+      {
+        "login" : "tanacasino",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/748569?v=4",
+        "url" : "https://api.github.com/users/tanacasino",
+        "contributions" : 99
+      },
+      {
+        "login" : "uli-heller",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1677414?v=4",
+        "url" : "https://api.github.com/users/uli-heller",
+        "contributions" : 74
+      },
+      {
+        "login" : "scala-steward-bot",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2517319?v=4",
+        "url" : "https://api.github.com/users/scala-steward-bot",
+        "contributions" : 56
+      },
+      {
+        "login" : "onukura",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/26293997?v=4",
+        "url" : "https://api.github.com/users/onukura",
+        "contributions" : 36
+      },
+      {
+        "login" : "mrkm4ntr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6421289?v=4",
+        "url" : "https://api.github.com/users/mrkm4ntr",
+        "contributions" : 34
+      },
+      {
+        "login" : "SIkebe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17608272?v=4",
+        "url" : "https://api.github.com/users/SIkebe",
+        "contributions" : 31
+      },
+      {
+        "login" : "McFoggy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1119660?v=4",
+        "url" : "https://api.github.com/users/McFoggy",
+        "contributions" : 24
+      },
+      {
+        "login" : "aadrian",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/140953?v=4",
+        "url" : "https://api.github.com/users/aadrian",
+        "contributions" : 21
+      },
+      {
+        "login" : "lefou",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1321393?v=4",
+        "url" : "https://api.github.com/users/lefou",
+        "contributions" : 18
+      },
+      {
+        "login" : "imeszaros",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/691942?v=4",
+        "url" : "https://api.github.com/users/imeszaros",
+        "contributions" : 18
+      },
+      {
+        "login" : "kazuki43zoo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5616270?v=4",
+        "url" : "https://api.github.com/users/kazuki43zoo",
+        "contributions" : 17
+      },
+      {
+        "login" : "shiena",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1295639?v=4",
+        "url" : "https://api.github.com/users/shiena",
+        "contributions" : 17
+      },
+      {
+        "login" : "bati11",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1365564?v=4",
+        "url" : "https://api.github.com/users/bati11",
+        "contributions" : 12
+      },
+      {
+        "login" : "t-tsutsumi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/70136380?v=4",
+        "url" : "https://api.github.com/users/t-tsutsumi",
+        "contributions" : 12
+      },
+      {
+        "login" : "nus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/242195?v=4",
+        "url" : "https://api.github.com/users/nus",
+        "contributions" : 11
+      },
+      {
+        "login" : "tkgdsg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1277658?v=4",
+        "url" : "https://api.github.com/users/tkgdsg",
+        "contributions" : 11
+      },
+      {
+        "login" : "int128",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/321266?v=4",
+        "url" : "https://api.github.com/users/int128",
+        "contributions" : 10
+      },
+      {
+        "login" : "jtyr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3788909?v=4",
+        "url" : "https://api.github.com/users/jtyr",
+        "contributions" : 10
+      },
+      {
+        "login" : "SilentSpud",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1478389?v=4",
+        "url" : "https://api.github.com/users/SilentSpud",
+        "contributions" : 10
+      },
+      {
+        "login" : "mslinn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/485818?v=4",
+        "url" : "https://api.github.com/users/mslinn",
+        "contributions" : 10
+      },
+      {
+        "login" : "oohira",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4208984?v=4",
+        "url" : "https://api.github.com/users/oohira",
+        "contributions" : 8
+      },
+      {
+        "login" : "sapk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4052400?v=4",
+        "url" : "https://api.github.com/users/sapk",
+        "contributions" : 7
+      },
+      {
+        "login" : "keiichiw",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3708146?v=4",
+        "url" : "https://api.github.com/users/keiichiw",
+        "contributions" : 6
+      },
+      {
+        "login" : "marklacroix",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1167829?v=4",
+        "url" : "https://api.github.com/users/marklacroix",
+        "contributions" : 6
+      },
+      {
+        "login" : "lidice",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/234142?v=4",
+        "url" : "https://api.github.com/users/lidice",
+        "contributions" : 6
+      },
+      {
+        "login" : "odz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/134481?v=4",
+        "url" : "https://api.github.com/users/odz",
+        "contributions" : 6
+      },
+      {
+        "login" : "seratch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19658?v=4",
+        "url" : "https://api.github.com/users/seratch",
+        "contributions" : 6
+      },
+      {
+        "login" : "HairyFotr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/566245?v=4",
+        "url" : "https://api.github.com/users/HairyFotr",
+        "contributions" : 5
+      },
+      {
+        "login" : "cubdesign",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2062713?v=4",
+        "url" : "https://api.github.com/users/cubdesign",
+        "contributions" : 5
+      },
+      {
+        "login" : "yaroot",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/42634?v=4",
+        "url" : "https://api.github.com/users/yaroot",
+        "contributions" : 5
+      },
+      {
+        "login" : "dependabot[bot]",
+        "avatarUrl" : "https://avatars.githubusercontent.com/in/29110?v=4",
+        "url" : "https://api.github.com/users/dependabot%5Bbot%5D",
+        "contributions" : 5
+      },
+      {
+        "login" : "ssogabe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/271370?v=4",
+        "url" : "https://api.github.com/users/ssogabe",
+        "contributions" : 5
+      },
+      {
+        "login" : "maliayas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/844008?v=4",
+        "url" : "https://api.github.com/users/maliayas",
+        "contributions" : 4
+      },
+      {
+        "login" : "garygreen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1702638?v=4",
+        "url" : "https://api.github.com/users/garygreen",
+        "contributions" : 4
+      },
+      {
+        "login" : "kasancode",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/28349574?v=4",
+        "url" : "https://api.github.com/users/kasancode",
+        "contributions" : 4
+      },
+      {
+        "login" : "viliamjr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/47677?v=4",
+        "url" : "https://api.github.com/users/viliamjr",
+        "contributions" : 4
+      },
+      {
+        "login" : "hikaruworld",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1309468?v=4",
+        "url" : "https://api.github.com/users/hikaruworld",
+        "contributions" : 4
+      },
+      {
+        "login" : "jparound30",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/764760?v=4",
+        "url" : "https://api.github.com/users/jparound30",
+        "contributions" : 4
+      },
+      {
+        "login" : "michaeljayt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2148277?v=4",
+        "url" : "https://api.github.com/users/michaeljayt",
+        "contributions" : 4
+      },
+      {
+        "login" : "x-way",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/53128?v=4",
+        "url" : "https://api.github.com/users/x-way",
+        "contributions" : 3
+      },
+      {
+        "login" : "dbronecki",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/25744491?v=4",
+        "url" : "https://api.github.com/users/dbronecki",
+        "contributions" : 3
+      },
+      {
+        "login" : "jyoo980",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24359440?v=4",
+        "url" : "https://api.github.com/users/jyoo980",
+        "contributions" : 3
+      },
+      {
+        "login" : "joobisb",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13068144?v=4",
+        "url" : "https://api.github.com/users/joobisb",
+        "contributions" : 3
+      },
+      {
+        "login" : "ghmer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3528427?v=4",
+        "url" : "https://api.github.com/users/ghmer",
+        "contributions" : 3
+      },
+      {
+        "login" : "ndarilek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1172?v=4",
+        "url" : "https://api.github.com/users/ndarilek",
+        "contributions" : 3
+      },
+      {
+        "login" : "stevegk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1156347?v=4",
+        "url" : "https://api.github.com/users/stevegk",
+        "contributions" : 3
+      },
+      {
+        "login" : "bviktor",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5798552?v=4",
+        "url" : "https://api.github.com/users/bviktor",
+        "contributions" : 3
+      },
+      {
+        "login" : "yoshinorin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11273093?v=4",
+        "url" : "https://api.github.com/users/yoshinorin",
+        "contributions" : 3
+      },
+      {
+        "login" : "kaakaa",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1453749?v=4",
+        "url" : "https://api.github.com/users/kaakaa",
+        "contributions" : 3
+      },
+      {
+        "login" : "kaz-on",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/58929100?v=4",
+        "url" : "https://api.github.com/users/kaz-on",
+        "contributions" : 3
+      },
+      {
+        "login" : "tomoki1207",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3643499?v=4",
+        "url" : "https://api.github.com/users/tomoki1207",
+        "contributions" : 3
+      },
+      {
+        "login" : "watari3",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22569573?v=4",
+        "url" : "https://api.github.com/users/watari3",
+        "contributions" : 3
+      },
+      {
+        "login" : "peccu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/147102?v=4",
+        "url" : "https://api.github.com/users/peccu",
+        "contributions" : 3
+      },
+      {
+        "login" : "aliuly",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/33324460?v=4",
+        "url" : "https://api.github.com/users/aliuly",
+        "contributions" : 2
+      },
+      {
+        "login" : "superhj1987",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1581901?v=4",
+        "url" : "https://api.github.com/users/superhj1987",
+        "contributions" : 2
+      },
+      {
+        "login" : "chris-vanvranken",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2123856?v=4",
+        "url" : "https://api.github.com/users/chris-vanvranken",
+        "contributions" : 2
+      },
+      {
+        "login" : "P1tt187",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1545867?v=4",
+        "url" : "https://api.github.com/users/P1tt187",
+        "contributions" : 2
+      },
+      {
+        "login" : "jvamvas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5830820?v=4",
+        "url" : "https://api.github.com/users/jvamvas",
+        "contributions" : 2
+      },
+      {
+        "login" : "JD557",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1187242?v=4",
+        "url" : "https://api.github.com/users/JD557",
+        "contributions" : 2
+      },
+      {
+        "login" : "Jookia",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/185275?v=4",
+        "url" : "https://api.github.com/users/Jookia",
+        "contributions" : 2
+      },
+      {
+        "login" : "lilian-benoit",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6814443?v=4",
+        "url" : "https://api.github.com/users/lilian-benoit",
+        "contributions" : 2
+      },
+      {
+        "login" : "mashabow",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6268183?v=4",
+        "url" : "https://api.github.com/users/mashabow",
+        "contributions" : 2
+      },
+      {
+        "login" : "NomadBlacky",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3215961?v=4",
+        "url" : "https://api.github.com/users/NomadBlacky",
+        "contributions" : 2
+      },
+      {
+        "login" : "pedrorijo91",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1999050?v=4",
+        "url" : "https://api.github.com/users/pedrorijo91",
+        "contributions" : 2
+      },
+      {
+        "login" : "mcveat",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/39942?v=4",
+        "url" : "https://api.github.com/users/mcveat",
+        "contributions" : 2
+      },
+      {
+        "login" : "robinst",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16778?v=4",
+        "url" : "https://api.github.com/users/robinst",
+        "contributions" : 2
+      },
+      {
+        "login" : "devagorilla",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4400701?v=4",
+        "url" : "https://api.github.com/users/devagorilla",
+        "contributions" : 2
+      },
+      {
+        "login" : "ROki1988",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/673046?v=4",
+        "url" : "https://api.github.com/users/ROki1988",
+        "contributions" : 2
+      },
+      {
+        "login" : "oshiro3",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/40717789?v=4",
+        "url" : "https://api.github.com/users/oshiro3",
+        "contributions" : 2
+      },
+      {
+        "login" : "S-YOU",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1001175?v=4",
+        "url" : "https://api.github.com/users/S-YOU",
+        "contributions" : 2
+      },
+      {
+        "login" : "banjun",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11156?v=4",
+        "url" : "https://api.github.com/users/banjun",
+        "contributions" : 2
+      },
+      {
+        "login" : "conradlink",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12776142?v=4",
+        "url" : "https://api.github.com/users/conradlink",
+        "contributions" : 2
+      },
+      {
+        "login" : "distkloc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1193849?v=4",
+        "url" : "https://api.github.com/users/distkloc",
+        "contributions" : 2
+      },
+      {
+        "login" : "guyon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/20666?v=4",
+        "url" : "https://api.github.com/users/guyon",
+        "contributions" : 2
+      },
+      {
+        "login" : "kxbmap",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/409709?v=4",
+        "url" : "https://api.github.com/users/kxbmap",
+        "contributions" : 2
+      },
+      {
+        "login" : "masterwto",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14148534?v=4",
+        "url" : "https://api.github.com/users/masterwto",
+        "contributions" : 2
+      },
+      {
+        "login" : "moccos",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1900919?v=4",
+        "url" : "https://api.github.com/users/moccos",
+        "contributions" : 2
+      },
+      {
+        "login" : "shootaroo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/435105?v=4",
+        "url" : "https://api.github.com/users/shootaroo",
+        "contributions" : 2
+      },
+      {
+        "login" : "sugamasao",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/97468?v=4",
+        "url" : "https://api.github.com/users/sugamasao",
+        "contributions" : 2
+      },
+      {
+        "login" : "tomykaira",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/789929?v=4",
+        "url" : "https://api.github.com/users/tomykaira",
+        "contributions" : 2
+      },
+      {
+        "login" : "utensil",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/64258?v=4",
+        "url" : "https://api.github.com/users/utensil",
+        "contributions" : 2
+      },
+      {
+        "login" : "dariko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6145906?v=4",
+        "url" : "https://api.github.com/users/dariko",
+        "contributions" : 2
+      },
+      {
+        "login" : "jmu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/37030?v=4",
+        "url" : "https://api.github.com/users/jmu",
+        "contributions" : 2
+      },
+      {
+        "login" : "ag-wood",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7600222?v=4",
+        "url" : "https://api.github.com/users/ag-wood",
+        "contributions" : 1
+      },
+      {
+        "login" : "decoch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11879823?v=4",
+        "url" : "https://api.github.com/users/decoch",
+        "contributions" : 1
+      },
+      {
+        "login" : "aoisupersix",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17172912?v=4",
+        "url" : "https://api.github.com/users/aoisupersix",
+        "contributions" : 1
+      },
+      {
+        "login" : "aruneko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2957726?v=4",
+        "url" : "https://api.github.com/users/aruneko",
+        "contributions" : 1
+      },
+      {
+        "login" : "bfritz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/70307?v=4",
+        "url" : "https://api.github.com/users/bfritz",
+        "contributions" : 1
+      },
+      {
+        "login" : "Brosilio",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15786675?v=4",
+        "url" : "https://api.github.com/users/Brosilio",
+        "contributions" : 1
+      },
+      {
+        "login" : "drwlrsn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/981387?v=4",
+        "url" : "https://api.github.com/users/drwlrsn",
+        "contributions" : 1
+      },
+      {
+        "login" : "haru",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/99401?v=4",
+        "url" : "https://api.github.com/users/haru",
+        "contributions" : 1
+      },
+      {
+        "login" : "hho",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/478228?v=4",
+        "url" : "https://api.github.com/users/hho",
+        "contributions" : 1
+      },
+      {
+        "login" : "yanma",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/845232?v=4",
+        "url" : "https://api.github.com/users/yanma",
+        "contributions" : 1
+      },
+      {
+        "login" : "umq",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/18342?v=4",
+        "url" : "https://api.github.com/users/umq",
+        "contributions" : 1
+      },
+      {
+        "login" : "vmi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/74394?v=4",
+        "url" : "https://api.github.com/users/vmi",
+        "contributions" : 1
+      },
+      {
+        "login" : "jhbruhn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1036566?v=4",
+        "url" : "https://api.github.com/users/jhbruhn",
+        "contributions" : 1
+      },
+      {
+        "login" : "deadserious",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/355276?v=4",
+        "url" : "https://api.github.com/users/deadserious",
+        "contributions" : 1
+      },
+      {
+        "login" : "jeffreyolchovy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/202277?v=4",
+        "url" : "https://api.github.com/users/jeffreyolchovy",
+        "contributions" : 1
+      },
+      {
+        "login" : "ThePrez",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17914061?v=4",
+        "url" : "https://api.github.com/users/ThePrez",
+        "contributions" : 1
+      },
+      {
+        "login" : "JLofgren",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9041060?v=4",
+        "url" : "https://api.github.com/users/JLofgren",
+        "contributions" : 1
+      },
+      {
+        "login" : "sebastiancadena",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10219?v=4",
+        "url" : "https://api.github.com/users/sebastiancadena",
+        "contributions" : 1
+      },
+      {
+        "login" : "justinpitts",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/504302?v=4",
+        "url" : "https://api.github.com/users/justinpitts",
+        "contributions" : 1
+      },
+      {
+        "login" : "KN4CK3R",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1666336?v=4",
+        "url" : "https://api.github.com/users/KN4CK3R",
+        "contributions" : 1
+      },
+      {
+        "login" : "smly",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19337?v=4",
+        "url" : "https://api.github.com/users/smly",
+        "contributions" : 1
+      },
+      {
+        "login" : "hanxue",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/760008?v=4",
+        "url" : "https://api.github.com/users/hanxue",
+        "contributions" : 1
+      },
+      {
+        "login" : "douglarek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1488134?v=4",
+        "url" : "https://api.github.com/users/douglarek",
+        "contributions" : 1
+      },
+      {
+        "login" : "keywordsalad",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/81108848?v=4",
+        "url" : "https://api.github.com/users/keywordsalad",
+        "contributions" : 1
+      },
+      {
+        "login" : "lucas-clemente",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/918034?v=4",
+        "url" : "https://api.github.com/users/lucas-clemente",
+        "contributions" : 1
+      },
+      {
+        "login" : "pluk77",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/524179?v=4",
+        "url" : "https://api.github.com/users/pluk77",
+        "contributions" : 1
+      },
+      {
+        "login" : "talios",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19093?v=4",
+        "url" : "https://api.github.com/users/talios",
+        "contributions" : 1
+      },
+      {
+        "login" : "mark-velez",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8049605?v=4",
+        "url" : "https://api.github.com/users/mark-velez",
+        "contributions" : 1
+      },
+      {
+        "login" : "noc06140728",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/353856?v=4",
+        "url" : "https://api.github.com/users/noc06140728",
+        "contributions" : 1
+      },
+      {
+        "login" : "mcs07",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/732185?v=4",
+        "url" : "https://api.github.com/users/mcs07",
+        "contributions" : 1
+      },
+      {
+        "login" : "ms502040",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15909390?v=4",
+        "url" : "https://api.github.com/users/ms502040",
+        "contributions" : 1
+      },
+      {
+        "login" : "Mura-Mi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2565089?v=4",
+        "url" : "https://api.github.com/users/Mura-Mi",
+        "contributions" : 1
+      },
+      {
+        "login" : "nico57c",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5278435?v=4",
+        "url" : "https://api.github.com/users/nico57c",
+        "contributions" : 1
+      },
+      {
+        "login" : "olivierdagenais",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/297515?v=4",
+        "url" : "https://api.github.com/users/olivierdagenais",
+        "contributions" : 1
+      },
+      {
+        "login" : "ledyba",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/391964?v=4",
+        "url" : "https://api.github.com/users/ledyba",
+        "contributions" : 1
+      },
+      {
+        "login" : "DrDub",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/315403?v=4",
+        "url" : "https://api.github.com/users/DrDub",
+        "contributions" : 1
+      },
+      {
+        "login" : "pgaskin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13909717?v=4",
+        "url" : "https://api.github.com/users/pgaskin",
+        "contributions" : 1
+      },
+      {
+        "login" : "rlazoti",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/137572?v=4",
+        "url" : "https://api.github.com/users/rlazoti",
+        "contributions" : 1
+      },
+      {
+        "login" : "rndstr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/32963?v=4",
+        "url" : "https://api.github.com/users/rndstr",
+        "contributions" : 1
+      },
+      {
+        "login" : "scf37",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1148465?v=4",
+        "url" : "https://api.github.com/users/scf37",
+        "contributions" : 1
+      },
+      {
+        "login" : "ShalokShalom",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6344099?v=4",
+        "url" : "https://api.github.com/users/ShalokShalom",
+        "contributions" : 1
+      },
+      {
+        "login" : "wy193777",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2449450?v=4",
+        "url" : "https://api.github.com/users/wy193777",
+        "contributions" : 1
+      },
+      {
+        "login" : "shreejanshrestha",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8445215?v=4",
+        "url" : "https://api.github.com/users/shreejanshrestha",
+        "contributions" : 1
+      },
+      {
+        "login" : "sakapoko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4066259?v=4",
+        "url" : "https://api.github.com/users/sakapoko",
+        "contributions" : 1
+      },
+      {
+        "login" : "todokr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2328540?v=4",
+        "url" : "https://api.github.com/users/todokr",
+        "contributions" : 1
+      },
+      {
+        "login" : "tlcd96",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7103685?v=4",
+        "url" : "https://api.github.com/users/tlcd96",
+        "contributions" : 1
+      },
+      {
+        "login" : "sraabe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6649700?v=4",
+        "url" : "https://api.github.com/users/sraabe",
+        "contributions" : 1
+      },
+      {
+        "login" : "stephengroat",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1159138?v=4",
+        "url" : "https://api.github.com/users/stephengroat",
+        "contributions" : 1
+      },
+      {
+        "login" : "skx",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/735291?v=4",
+        "url" : "https://api.github.com/users/skx",
+        "contributions" : 1
+      },
+      {
+        "login" : "smoyer64",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/328333?v=4",
+        "url" : "https://api.github.com/users/smoyer64",
+        "contributions" : 1
+      },
+      {
+        "login" : "swaldman",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1733981?v=4",
+        "url" : "https://api.github.com/users/swaldman",
+        "contributions" : 1
+      },
+      {
+        "login" : "tksugimoto",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13145001?v=4",
+        "url" : "https://api.github.com/users/tksugimoto",
+        "contributions" : 1
+      },
+      {
+        "login" : "ThaFridge",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5028811?v=4",
+        "url" : "https://api.github.com/users/ThaFridge",
+        "contributions" : 1
+      },
+      {
+        "login" : "tnayuki",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5898698?v=4",
+        "url" : "https://api.github.com/users/tnayuki",
+        "contributions" : 1
+      },
+      {
+        "login" : "torutk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2397032?v=4",
+        "url" : "https://api.github.com/users/torutk",
+        "contributions" : 1
+      },
+      {
+        "login" : "okapies",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/657642?v=4",
+        "url" : "https://api.github.com/users/okapies",
+        "contributions" : 1
+      },
+      {
+        "login" : "apkd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13803120?v=4",
+        "url" : "https://api.github.com/users/apkd",
+        "contributions" : 1
+      },
+      {
+        "login" : "cd01",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1701601?v=4",
+        "url" : "https://api.github.com/users/cd01",
+        "contributions" : 1
+      },
+      {
+        "login" : "officer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/473744?v=4",
+        "url" : "https://api.github.com/users/officer",
+        "contributions" : 1
+      },
+      {
+        "login" : "cranst0n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1173143?v=4",
+        "url" : "https://api.github.com/users/cranst0n",
+        "contributions" : 1
+      },
+      {
+        "login" : "eiryu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/926934?v=4",
+        "url" : "https://api.github.com/users/eiryu",
+        "contributions" : 1
+      },
+      {
+        "login" : "gageas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/40446?v=4",
+        "url" : "https://api.github.com/users/gageas",
+        "contributions" : 1
+      },
+      {
+        "login" : "garbagetown",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/78121?v=4",
+        "url" : "https://api.github.com/users/garbagetown",
+        "contributions" : 1
+      },
+      {
+        "login" : "jyuch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5879772?v=4",
+        "url" : "https://api.github.com/users/jyuch",
+        "contributions" : 1
+      },
+      {
+        "login" : "kanmi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3784259?v=4",
+        "url" : "https://api.github.com/users/kanmi",
+        "contributions" : 1
+      },
+      {
+        "login" : "kunigaku",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1298867?v=4",
+        "url" : "https://api.github.com/users/kunigaku",
+        "contributions" : 1
+      },
+      {
+        "login" : "MasanoriMT",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5078378?v=4",
+        "url" : "https://api.github.com/users/MasanoriMT",
+        "contributions" : 1
+      },
+      {
+        "login" : "milligramme",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/294127?v=4",
+        "url" : "https://api.github.com/users/milligramme",
+        "contributions" : 1
+      },
+      {
+        "login" : "motohacy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7507222?v=4",
+        "url" : "https://api.github.com/users/motohacy",
+        "contributions" : 1
+      },
+      {
+        "login" : "muddydixon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10035?v=4",
+        "url" : "https://api.github.com/users/muddydixon",
+        "contributions" : 1
+      },
+      {
+        "login" : "pbg42",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/32484920?v=4",
+        "url" : "https://api.github.com/users/pbg42",
+        "contributions" : 1
+      },
+      {
+        "login" : "philippefichet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6843043?v=4",
+        "url" : "https://api.github.com/users/philippefichet",
+        "contributions" : 1
+      },
+      {
+        "login" : "r0n22",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1553502?v=4",
+        "url" : "https://api.github.com/users/r0n22",
+        "contributions" : 1
+      },
+      {
+        "login" : "rabitarochan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1460594?v=4",
+        "url" : "https://api.github.com/users/rabitarochan",
+        "contributions" : 1
+      },
+      {
+        "login" : "ritschwumm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/547138?v=4",
+        "url" : "https://api.github.com/users/ritschwumm",
+        "contributions" : 1
+      },
+      {
+        "login" : "snowgooseyk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/205096?v=4",
+        "url" : "https://api.github.com/users/snowgooseyk",
+        "contributions" : 1
+      },
+      {
+        "login" : "solsticesurfer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5313686?v=4",
+        "url" : "https://api.github.com/users/solsticesurfer",
+        "contributions" : 1
+      },
+      {
+        "login" : "stheno",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1261986?v=4",
+        "url" : "https://api.github.com/users/stheno",
+        "contributions" : 1
+      },
+      {
+        "login" : "tiqwab",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11240297?v=4",
+        "url" : "https://api.github.com/users/tiqwab",
+        "contributions" : 1
+      },
+      {
+        "login" : "tomomura",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1995608?v=4",
+        "url" : "https://api.github.com/users/tomomura",
+        "contributions" : 1
+      },
+      {
+        "login" : "ziggystar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/459632?v=4",
+        "url" : "https://api.github.com/users/ziggystar",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 5395,
+    "topics" : [
+      "git",
+      "gitbucket",
+      "scala",
+      "scalatra"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : "https://gitter.im/gitbucket/gitbucket",
+    "openIssues" : [
+      {
+        "number" : 2978,
+        "title" : "Oauth support",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2978"
+      },
+      {
+        "number" : 2971,
+        "title" : "Rejected commit not announced when using web editor",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2971"
+      },
+      {
+        "number" : 2960,
+        "title" : "TomCat deployment error `NoClassDefFoundError: javax.servlet.http.HttpSessionListener`",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2960"
+      },
+      {
+        "number" : 2943,
+        "title" : "Root user can remove himself on demo instance",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2943"
+      },
+      {
+        "number" : 2942,
+        "title" : "Where Gitbucket support synchronous pre-receive hooks?",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2942"
+      },
+      {
+        "number" : 2938,
+        "title" : "Please add mermaid plugin",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2938"
+      },
+      {
+        "number" : 2924,
+        "title" : "JIRA Integration.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2924"
+      },
+      {
+        "number" : 2912,
+        "title" : "Easy to run under Replit",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2912"
+      },
+      {
+        "number" : 2898,
+        "title" : "Protected branch, push always granted",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2898"
+      },
+      {
+        "number" : 2893,
+        "title" : "Proxy Server",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2893"
+      },
+      {
+        "number" : 2887,
+        "title" : "Define directory for repos",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2887"
+      },
+      {
+        "number" : 2884,
+        "title" : "[Feature Request] Rexex for fail2ban and add docu",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2884"
+      },
+      {
+        "number" : 2881,
+        "title" : "Possibility to donate for this project?",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2881"
+      },
+      {
+        "number" : 2871,
+        "title" : "Internal Server Error",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2871"
+      },
+      {
+        "number" : 2864,
+        "title" : "[Feature Request]: Http header Authentication",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2864"
+      },
+      {
+        "number" : 2858,
+        "title" : "ApiRepositoryContentsControllerBase.scala is very slow (Docker 4.36.1)",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2858"
+      },
+      {
+        "number" : 2851,
+        "title" : "Feature request:  Forced LFS for selected files extensions configured in repository config or not if not necessary.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2851"
+      },
+      {
+        "number" : 2844,
+        "title" : "Feature request: Add \"In Progress\" to issue \"Mark As\".",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2844"
+      },
+      {
+        "number" : 2841,
+        "title" : "Feature request: Make group private",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2841"
+      },
+      {
+        "number" : 2840,
+        "title" : "Error with MySQL DB when migrating to v4.35.0",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2840"
+      },
+      {
+        "number" : 2812,
+        "title" : "Question about (MS) SQL Server support.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2812"
+      },
+      {
+        "number" : 2789,
+        "title" : "migrate to Scala 3",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2789"
+      },
+      {
+        "number" : 2755,
+        "title" : "Wiki - Backup Script - Windows - Needs URL and Token Update",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2755"
+      },
+      {
+        "number" : 2742,
+        "title" : "CommentsHook",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2742"
+      },
+      {
+        "number" : 2740,
+        "title" : "Webhooks issue with 4.35.3 --Promise already completed",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2740"
+      },
+      {
+        "number" : 2718,
+        "title" : "Switch new projects' default branch name to main",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2718"
+      },
+      {
+        "number" : 2700,
+        "title" : "Unable to migrate the application to Tomcat 7.0.108, Fails with 404 error.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2700"
+      },
+      {
+        "number" : 2687,
+        "title" : "Access Control for pull_request - As of now it is visible to all the members. How can it be restricted to only repo admin?",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2687"
+      },
+      {
+        "number" : 2674,
+        "title" : "API request to `contents/` is slow",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2674"
+      },
+      {
+        "number" : 2629,
+        "title" : "Custom _Sidebar.md and Relative Links",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2629"
+      },
+      {
+        "number" : 2614,
+        "title" : "gitbucket 4.35.1 does not build on apple silicon",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2614"
+      },
+      {
+        "number" : 2604,
+        "title" : "Last Modified Timestamps in GUI Not updated after merge/rebase",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2604"
+      },
+      {
+        "number" : 2598,
+        "title" : "AdminLTE skin setting for each user.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2598"
+      },
+      {
+        "number" : 2597,
+        "title" : "Remote Database using IPv6 not working",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2597"
+      },
+      {
+        "number" : 2593,
+        "title" : "Commit compare API end points appears broken",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2593"
+      },
+      {
+        "number" : 2591,
+        "title" : "JsonParseException on gitbucket home screen",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2591"
+      },
+      {
+        "number" : 2587,
+        "title" : "[feature] synchronize option to fork external repositories with synch",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2587"
+      },
+      {
+        "number" : 2584,
+        "title" : "Feature (Moved Code Sections)",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2584"
+      },
+      {
+        "number" : 2582,
+        "title" : "Dynamic or new Issues status",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2582"
+      },
+      {
+        "number" : 2577,
+        "title" : "Move Ticket to Discussion/Wiki.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2577"
+      },
+      {
+        "number" : 2576,
+        "title" : "Respect merge strategy when updating a branch on the UI",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2576"
+      },
+      {
+        "number" : 2568,
+        "title" : "Update apache-sshd to latest version 2.5.1",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2568"
+      },
+      {
+        "number" : 2554,
+        "title" : "Does it not support github api search?",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2554"
+      },
+      {
+        "number" : 2553,
+        "title" : "\"Open with GitHub Desktop\" doesn't work if your machine has no associated app",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2553"
+      },
+      {
+        "number" : 2545,
+        "title" : "Document how to use issue/PR templates",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2545"
+      },
+      {
+        "number" : 2533,
+        "title" : "Issue autocompletion should exclude the issue itself",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2533"
+      },
+      {
+        "number" : 2530,
+        "title" : "\"Confirm merge\" message requirement",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2530"
+      },
+      {
+        "number" : 2508,
+        "title" : "Provide user-friendly error message in Web API",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2508"
+      },
+      {
+        "number" : 2506,
+        "title" : "The GitHub plugin in Jenkins does not detect tags",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2506"
+      },
+      {
+        "number" : 2504,
+        "title" : "Suggestion: change syntax highlighter from google-code-prettify to highlight.js or Prism.js or etc.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2504"
+      },
+      {
+        "number" : 2502,
+        "title" : "Cannot push to large repo",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2502"
+      },
+      {
+        "number" : 2485,
+        "title" : "[FEATURE REQUEST] Function to quote / embed code into Wiki and Issue",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2485"
+      },
+      {
+        "number" : 2484,
+        "title" : "Creating a user via API does not work when using LDAP authentication",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2484"
+      },
+      {
+        "number" : 2483,
+        "title" : "External DB import failure",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2483"
+      },
+      {
+        "number" : 2480,
+        "title" : "Specify GitHub v3 REST API target version",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2480"
+      },
+      {
+        "number" : 2479,
+        "title" : "SQL error and corrupted H2 DB when transfering a repo",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2479"
+      },
+      {
+        "number" : 2467,
+        "title" : "AUTHENTICATION - Using a token as password still queries LDAP",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2467"
+      },
+      {
+        "number" : 2460,
+        "title" : "Abnormal symbolic link when tar.gz.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2460"
+      },
+      {
+        "number" : 2456,
+        "title" : "Wiki internal link between pages are broken",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2456"
+      },
+      {
+        "number" : 2451,
+        "title" : "Any plans for push to create repo? ",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2451"
+      },
+      {
+        "number" : 2450,
+        "title" : "Pinned repos",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2450"
+      },
+      {
+        "number" : 2446,
+        "title" : "help: big js/css/png not load corrently when use Nginx as reverse proxy ",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2446"
+      },
+      {
+        "number" : 2442,
+        "title" : "zip file cannot download if branch name include '/' charactor",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2442"
+      },
+      {
+        "number" : 2441,
+        "title" : "[Error] SSH Server is not going well",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2441"
+      },
+      {
+        "number" : 2440,
+        "title" : "\"sbt executable\" fails under proxy environment",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2440"
+      },
+      {
+        "number" : 2426,
+        "title" : "Git LFS problem when behind a reverse proxy with basic auth",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2426"
+      },
+      {
+        "number" : 2418,
+        "title" : "How to retry a failed PR in Github organisation model",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2418"
+      },
+      {
+        "number" : 2412,
+        "title" : "Wiki page with \"+\" in its page name cannot be open/edit",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2412"
+      },
+      {
+        "number" : 2404,
+        "title" : "Logger Timeout",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2404"
+      },
+      {
+        "number" : 2393,
+        "title" : "Zip download doesn't zip subfolders",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2393"
+      },
+      {
+        "number" : 2387,
+        "title" : "Group Activities Visualy!",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2387"
+      },
+      {
+        "number" : 2383,
+        "title" : "Single global sequence for issue numbers",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2383"
+      },
+      {
+        "number" : 2382,
+        "title" : "API calls collection for Postman",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2382"
+      },
+      {
+        "number" : 2369,
+        "title" : "issue not closing via commit with user/repo#id",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2369"
+      },
+      {
+        "number" : 2368,
+        "title" : "Please allow use email addresses for authentication/usernames.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2368"
+      },
+      {
+        "number" : 2349,
+        "title" : "[FEATURE REQUESTS] API - RELEASES AND MILESTONES",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2349"
+      },
+      {
+        "number" : 2344,
+        "title" : "Search Issues/Pull requests you are not assigned/created/mentioned across repositories",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2344"
+      },
+      {
+        "number" : 2342,
+        "title" : "Handling of improper URL since 4.31.0 (missing .git)",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2342"
+      },
+      {
+        "number" : 2329,
+        "title" : "In github webhook push event, include all fields from example",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2329"
+      },
+      {
+        "number" : 2316,
+        "title" : "Map role/permissions of federated identity provider to GitBucket admin role",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2316"
+      },
+      {
+        "number" : 2312,
+        "title" : "can't delete files and directories",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2312"
+      },
+      {
+        "number" : 2306,
+        "title" : "Creating pull request via web API returns escaped response",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2306"
+      },
+      {
+        "number" : 2296,
+        "title" : "Multiple assignees for an issue?",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2296"
+      },
+      {
+        "number" : 2293,
+        "title" : "consistency of 'url' in push webhook payload",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2293"
+      },
+      {
+        "number" : 2288,
+        "title" : "Private issues and pull requests",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2288"
+      },
+      {
+        "number" : 2281,
+        "title" : "Unable to login using LDAP authentication ",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2281"
+      },
+      {
+        "number" : 2275,
+        "title" : "Wiki pages for Groups",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2275"
+      },
+      {
+        "number" : 2273,
+        "title" : "Deleting repository leaves entry in PAGES table",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2273"
+      },
+      {
+        "number" : 2268,
+        "title" : "Last login date should be tracked when Git access.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2268"
+      },
+      {
+        "number" : 2260,
+        "title" : "Cannot PR (UI errors + NullPointerException) on forked repo within same group as base repo",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2260"
+      },
+      {
+        "number" : 2259,
+        "title" : "LDAPException: No Such Object",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2259"
+      },
+      {
+        "number" : 2258,
+        "title" : "Consider for releases not all tags!",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2258"
+      },
+      {
+        "number" : 2255,
+        "title" : "News Feed Activity Comments Display Raw Markdown",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2255"
+      },
+      {
+        "number" : 2254,
+        "title" : "Minor, cosmetic: Subdue the labels in the side bar",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2254"
+      },
+      {
+        "number" : 2253,
+        "title" : "RememberMe option on login form",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2253"
+      },
+      {
+        "number" : 2237,
+        "title" : "csv file support",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2237"
+      },
+      {
+        "number" : 2215,
+        "title" : "Hide and reveal non-owned \"recently updated\" repositories",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2215"
+      },
+      {
+        "number" : 2210,
+        "title" : "java.sql.SQLDataException: (conn=248) Incorrect string value: '\\xE2\\x80\\xA8pag...' for column 'ADDITIONAL_INFO' at row 1",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2210"
+      },
+      {
+        "number" : 2188,
+        "title" : "Keep file encoding as-is when editing in browser",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2188"
+      },
+      {
+        "number" : 2172,
+        "title" : "LDAP issue",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2172"
+      },
+      {
+        "number" : 2171,
+        "title" : "webhook url is wrong if prefix is defined",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2171"
+      },
+      {
+        "number" : 2169,
+        "title" : "Allow checkbox in markdown table",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2169"
+      },
+      {
+        "number" : 2153,
+        "title" : "Permission denied (publickey)",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2153"
+      },
+      {
+        "number" : 2152,
+        "title" : "Freeze repository (make repository read-only)",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2152"
+      },
+      {
+        "number" : 2146,
+        "title" : "Collaborators can delete Issue Comments",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2146"
+      },
+      {
+        "number" : 2143,
+        "title" : "System settings for default priorities and labels",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2143"
+      },
+      {
+        "number" : 2128,
+        "title" : "Security request: Create limitations for API calls",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2128"
+      },
+      {
+        "number" : 2125,
+        "title" : "Release native image for Linux ",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2125"
+      },
+      {
+        "number" : 2107,
+        "title" : "Math rendering in markdown/wiki",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2107"
+      },
+      {
+        "number" : 2100,
+        "title" : " Freely change the Tab size of source code in difference view.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2100"
+      },
+      {
+        "number" : 2099,
+        "title" : "Specific permission for Member and Managers of Groups",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2099"
+      },
+      {
+        "number" : 2088,
+        "title" : "SSL error after pressing Update button in the plugins page",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2088"
+      },
+      {
+        "number" : 2078,
+        "title" : "Mark required fields in forms with an asterisk.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2078"
+      },
+      {
+        "number" : 2076,
+        "title" : "Feature Request: Group View",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2076"
+      },
+      {
+        "number" : 2072,
+        "title" : "Question: Syncing a fork",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2072"
+      },
+      {
+        "number" : 2070,
+        "title" : "Feature Request: E-Mail verification",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2070"
+      },
+      {
+        "number" : 2069,
+        "title" : "Feature Request: Implement Google ReCaptcha",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2069"
+      },
+      {
+        "number" : 2068,
+        "title" : "Feature Request: More advanced permission system",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2068"
+      },
+      {
+        "number" : 2060,
+        "title" : "2 Factor Authentification",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2060"
+      },
+      {
+        "number" : 2059,
+        "title" : "gitbucket should be self-hosting and not dependent on github",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2059"
+      },
+      {
+        "number" : 2058,
+        "title" : "Hide search bar on login screen",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2058"
+      },
+      {
+        "number" : 2053,
+        "title" : "LDAP User authentication fails if email is already registered",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2053"
+      },
+      {
+        "number" : 2046,
+        "title" : "I can not run any verbs above 2.6.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2046"
+      },
+      {
+        "number" : 2045,
+        "title" : "Implement DeleteEvent web hook",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2045"
+      },
+      {
+        "number" : 2041,
+        "title" : "GitBucket gives internal server error after creating new repo with the same name as fork",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2041"
+      },
+      {
+        "number" : 2024,
+        "title" : "SSH access warning",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2024"
+      },
+      {
+        "number" : 2022,
+        "title" : "Option to disable git over HTTP",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2022"
+      },
+      {
+        "number" : 2012,
+        "title" : "Git protocol version 2",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2012"
+      },
+      {
+        "number" : 2010,
+        "title" : "Github deprecates Services API",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2010"
+      },
+      {
+        "number" : 2009,
+        "title" : "Web UI doesn't clone LFS files, only pointers.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2009"
+      },
+      {
+        "number" : 2008,
+        "title" : "Missing distinct attribute @ commit payload, on webhooks",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/2008"
+      },
+      {
+        "number" : 1992,
+        "title" : "Internal Server Error java.lang.NullPointerException when uploading or creating a file to gitBucket",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1992"
+      },
+      {
+        "number" : 1968,
+        "title" : "too many tags on commit page",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1968"
+      },
+      {
+        "number" : 1960,
+        "title" : "git mv should be displayed as renaming in the web viewer",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1960"
+      },
+      {
+        "number" : 1951,
+        "title" : "AWS CodeBuild requires a very long webhook URL and token",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1951"
+      },
+      {
+        "number" : 1947,
+        "title" : "Request:  Support for LDAP group sync",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1947"
+      },
+      {
+        "number" : 1945,
+        "title" : "Javascript slowdowns for large pull requests",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1945"
+      },
+      {
+        "number" : 1926,
+        "title" : "Gitmesh integration",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1926"
+      },
+      {
+        "number" : 1922,
+        "title" : "How Lfs is enabled?",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1922"
+      },
+      {
+        "number" : 1913,
+        "title" : "GitBucket should not omit closed milestones in issue list filter",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1913"
+      },
+      {
+        "number" : 1911,
+        "title" : "Cannot remove labels from Issues list",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1911"
+      },
+      {
+        "number" : 1905,
+        "title" : "allow to accept PR via fast-forward",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1905"
+      },
+      {
+        "number" : 1903,
+        "title" : "LDAP Authentication: Login works although I see this in the log: LDAP error: User does not exist.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1903"
+      },
+      {
+        "number" : 1899,
+        "title" : "Group view as administrator",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1899"
+      },
+      {
+        "number" : 1875,
+        "title" : "Missing Credentials Provider when cloning private github repo",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1875"
+      },
+      {
+        "number" : 1874,
+        "title" : "Some repos don't clone properly through the web",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1874"
+      },
+      {
+        "number" : 1839,
+        "title" : "nginx reverse proxy with lfs support",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1839"
+      },
+      {
+        "number" : 1837,
+        "title" : "Fork for a repository with no permissions ends up in invalid state",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1837"
+      },
+      {
+        "number" : 1828,
+        "title" : "Branches list not showing open pull request",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1828"
+      },
+      {
+        "number" : 1823,
+        "title" : "Migration Question",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1823"
+      },
+      {
+        "number" : 1820,
+        "title" : "Installing an not existing plugin uninstalls all others",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1820"
+      },
+      {
+        "number" : 1812,
+        "title" : "MS Sql server as external database",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1812"
+      },
+      {
+        "number" : 1795,
+        "title" : "Git cherry picking ",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1795"
+      },
+      {
+        "number" : 1793,
+        "title" : "Add toolbar and help to Markdown editor",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1793"
+      },
+      {
+        "number" : 1772,
+        "title" : "File locking",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1772"
+      },
+      {
+        "number" : 1745,
+        "title" : "Add \"created_by\" and \"updated_by\" Fields.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1745"
+      },
+      {
+        "number" : 1744,
+        "title" : "Mail notification after push",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1744"
+      },
+      {
+        "number" : 1743,
+        "title" : "/issues API to get all assigned issues",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1743"
+      },
+      {
+        "number" : 1737,
+        "title" : "Mysql connection pool error marked as broken because of SQLSTATE(08000), ErrorCode(1220)",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1737"
+      },
+      {
+        "number" : 1730,
+        "title" : "Wiki page navigation impossible on small screen",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1730"
+      },
+      {
+        "number" : 1728,
+        "title" : "Pull request reviewers support",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1728"
+      },
+      {
+        "number" : 1721,
+        "title" : "Remote sends output even though --quiet or -q is passed",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1721"
+      },
+      {
+        "number" : 1720,
+        "title" : "Anchors Url Encoding",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1720"
+      },
+      {
+        "number" : 1718,
+        "title" : "Duplicate Org and Duplicate Repository Functionality.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1718"
+      },
+      {
+        "number" : 1708,
+        "title" : "deploy_key generation",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1708"
+      },
+      {
+        "number" : 1694,
+        "title" : "Migration from H2 to MariaDB: SQLSyntaxErrorException: (conn:72) Query was empty",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1694"
+      },
+      {
+        "number" : 1684,
+        "title" : "Traverse LDAP groups",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1684"
+      },
+      {
+        "number" : 1660,
+        "title" : "Git LFS file lock support",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1660"
+      },
+      {
+        "number" : 1658,
+        "title" : "503 again in 4.14.1",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1658"
+      },
+      {
+        "number" : 1650,
+        "title" : "git fetch error on ver 4.14.1",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1650"
+      },
+      {
+        "number" : 1641,
+        "title" : "feature request: file listing sort by last commit (date)",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1641"
+      },
+      {
+        "number" : 1624,
+        "title" : "protect branch",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1624"
+      },
+      {
+        "number" : 1619,
+        "title" : "Relation for issues",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1619"
+      },
+      {
+        "number" : 1607,
+        "title" : "Feature Request: showing the line number on the comment",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1607"
+      },
+      {
+        "number" : 1604,
+        "title" : "Merge Organizations!",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1604"
+      },
+      {
+        "number" : 1603,
+        "title" : "Use Swagger for the API",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1603"
+      },
+      {
+        "number" : 1602,
+        "title" : "Be able to choose if \"collaborators of the private forked repository are copied from the original repository\" or not",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1602"
+      },
+      {
+        "number" : 1600,
+        "title" : "Possible MD Parsing Bug?",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1600"
+      },
+      {
+        "number" : 1589,
+        "title" : "[Feature] GPG Keys management",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1589"
+      },
+      {
+        "number" : 1578,
+        "title" : "Support BASIC authentication for accessing Atom feed",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1578"
+      },
+      {
+        "number" : 1565,
+        "title" : "GitHub Desktop Enterprise not working",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1565"
+      },
+      {
+        "number" : 1560,
+        "title" : "Autolinked references",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1560"
+      },
+      {
+        "number" : 1556,
+        "title" : "Repository mirror",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1556"
+      },
+      {
+        "number" : 1535,
+        "title" : "Support Basic Auth for \"Raw\" when repo is private.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1535"
+      },
+      {
+        "number" : 1528,
+        "title" : "DIFF too large -> can I somehow look at the diff of a single file within gitbucket?",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1528"
+      },
+      {
+        "number" : 1524,
+        "title" : "LDAP Login issue - for some",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1524"
+      },
+      {
+        "number" : 1515,
+        "title" : "GitBucket Compatibility Issues With golang",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1515"
+      },
+      {
+        "number" : 1510,
+        "title" : "Integration with Slack sends message with broken link if branch name has a slash character",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1510"
+      },
+      {
+        "number" : 1494,
+        "title" : "Update documentation (readme and/or Wiki) with the minimal requirements",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1494"
+      },
+      {
+        "number" : 1474,
+        "title" : "How to backup LFS files?",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1474"
+      },
+      {
+        "number" : 1472,
+        "title" : "Wrong Issue Save Button Label.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1472"
+      },
+      {
+        "number" : 1469,
+        "title" : "Hide wiki sidebar by a user choice",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1469"
+      },
+      {
+        "number" : 1465,
+        "title" : "allow plugins to register secured endpoint",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1465"
+      },
+      {
+        "number" : 1462,
+        "title" : "collaborators can edit any comment",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1462"
+      },
+      {
+        "number" : 1456,
+        "title" : "Accessing a \"standalone deployed\" gitbucket from the LAN",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1456"
+      },
+      {
+        "number" : 1454,
+        "title" : "Pull Request permissions on repos in another group",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1454"
+      },
+      {
+        "number" : 1449,
+        "title" : "Administrator doesn't see private repositories",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1449"
+      },
+      {
+        "number" : 1444,
+        "title" : "GVFS support",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1444"
+      },
+      {
+        "number" : 1440,
+        "title" : "Allow to specify a branch when filing for an issue",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1440"
+      },
+      {
+        "number" : 1433,
+        "title" : "Allow all users to view/post issues and edit wiki, but deny to view source.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1433"
+      },
+      {
+        "number" : 1430,
+        "title" : "use webjars",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1430"
+      },
+      {
+        "number" : 1429,
+        "title" : "Request: Hide navbar if anonymous access is active",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1429"
+      },
+      {
+        "number" : 1411,
+        "title" : "Hint about issue description syntax ",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1411"
+      },
+      {
+        "number" : 1380,
+        "title" : "Username is case sensitive, confuses users signing in",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1380"
+      },
+      {
+        "number" : 1341,
+        "title" : "Tip :: Create a roadmap",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1341"
+      },
+      {
+        "number" : 1335,
+        "title" : "LDAP authentication fails because of escaping characters in password",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1335"
+      },
+      {
+        "number" : 1322,
+        "title" : "Create issue button in top",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1322"
+      },
+      {
+        "number" : 1314,
+        "title" : "LDAP Authentication - some questions",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1314"
+      },
+      {
+        "number" : 1307,
+        "title" : "Replace markedj with Atlassian's commonmark library?",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1307"
+      },
+      {
+        "number" : 1303,
+        "title" : "Update OpenSSH Server default config to fix security issues",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1303"
+      },
+      {
+        "number" : 1295,
+        "title" : "Issues import",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1295"
+      },
+      {
+        "number" : 1294,
+        "title" : "Wiki pages import",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1294"
+      },
+      {
+        "number" : 1287,
+        "title" : "allow rich description rendering in plugin admin page",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1287"
+      },
+      {
+        "number" : 1284,
+        "title" : "Thank you for this software",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1284"
+      },
+      {
+        "number" : 1283,
+        "title" : "\"raw\" button should open in a new tab/window",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1283"
+      },
+      {
+        "number" : 1281,
+        "title" : "Disabled user session still lives!",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1281"
+      },
+      {
+        "number" : 1274,
+        "title" : "Export SQL Data including Schema",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1274"
+      },
+      {
+        "number" : 1254,
+        "title" : "DIFF view: Some diffs are too wide",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1254"
+      },
+      {
+        "number" : 1244,
+        "title" : "timeout on pull request API call",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1244"
+      },
+      {
+        "number" : 1222,
+        "title" : "XSS pentest result a 500 Internal server error",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1222"
+      },
+      {
+        "number" : 1218,
+        "title" : "Add/fix tooltips!",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1218"
+      },
+      {
+        "number" : 1210,
+        "title" : "Add a footer",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1210"
+      },
+      {
+        "number" : 1209,
+        "title" : "Add global Help menu item or link.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1209"
+      },
+      {
+        "number" : 1187,
+        "title" : "can't create view ISSUE_OUTLINE_VIEW when pointing to mysql<5.7.7",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1187"
+      },
+      {
+        "number" : 1173,
+        "title" : "Browse pull requests",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1173"
+      },
+      {
+        "number" : 1162,
+        "title" : "Misleading error message for ssh fetch if repository not found",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1162"
+      },
+      {
+        "number" : 1159,
+        "title" : "Add .gitignore for common languages",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1159"
+      },
+      {
+        "number" : 1157,
+        "title" : "Support displaying user's real name instead of user ID when using Active Directory",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1157"
+      },
+      {
+        "number" : 1136,
+        "title" : "customizing the main page",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1136"
+      },
+      {
+        "number" : 1109,
+        "title" : "does logback.xml need to be provided",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1109"
+      },
+      {
+        "number" : 1107,
+        "title" : "Option to ignore YAML front matter when previewing markdown",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1107"
+      },
+      {
+        "number" : 1081,
+        "title" : "Button to expand commit messages",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1081"
+      },
+      {
+        "number" : 1079,
+        "title" : "filter an issue by issue number?",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1079"
+      },
+      {
+        "number" : 1060,
+        "title" : "NullPointerException when sending notification",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1060"
+      },
+      {
+        "number" : 1053,
+        "title" : "LDAP avatar support via jpegPhoto attribute",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1053"
+      },
+      {
+        "number" : 1048,
+        "title" : "Request: Events API",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1048"
+      },
+      {
+        "number" : 1047,
+        "title" : "Feature request: change submodule URL on the fly on web UI",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1047"
+      },
+      {
+        "number" : 1045,
+        "title" : "Create issue per email",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1045"
+      },
+      {
+        "number" : 1041,
+        "title" : "on windows, jetty lock static content files.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1041"
+      },
+      {
+        "number" : 1022,
+        "title" : "how to wiki  support task list",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1022"
+      },
+      {
+        "number" : 1021,
+        "title" : "Markdown Link doesn't work in Wiki",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1021"
+      },
+      {
+        "number" : 1001,
+        "title" : "Keystore configuration",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/1001"
+      },
+      {
+        "number" : 993,
+        "title" : "Doesn't create a news feed, when I force push.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/993"
+      },
+      {
+        "number" : 991,
+        "title" : "NotFound error when access git-subtree-split link URL",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/991"
+      },
+      {
+        "number" : 985,
+        "title" : "Create user with restricted access",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/985"
+      },
+      {
+        "number" : 969,
+        "title" : "Still cannot fork big repository",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/969"
+      },
+      {
+        "number" : 965,
+        "title" : "Optimize the build artifacts.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/965"
+      },
+      {
+        "number" : 958,
+        "title" : "Warn before nuking user's repo",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/958"
+      },
+      {
+        "number" : 956,
+        "title" : "Issue-edit menu: Preview (missing) + Edit-window-size (too small)",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/956"
+      },
+      {
+        "number" : 953,
+        "title" : "Cross-repository referencing doesn't work",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/953"
+      },
+      {
+        "number" : 951,
+        "title" : "Can't change a repository name, if it changed from uppercase to lower case or vice versa.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/951"
+      },
+      {
+        "number" : 950,
+        "title" : "Transferring issues between repos",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/950"
+      },
+      {
+        "number" : 929,
+        "title" : "Logging should not be in catalina.out",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/929"
+      },
+      {
+        "number" : 928,
+        "title" : "Restrict simple users from creating groups",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/928"
+      },
+      {
+        "number" : 927,
+        "title" : "Clicking on \"H2 Console\" should prefill the right parameters to access the DB",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/927"
+      },
+      {
+        "number" : 922,
+        "title" : "show progress bar for checkbox lists",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/922"
+      },
+      {
+        "number" : 908,
+        "title" : "RepositoryNotFoundException when merge pull request",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/908"
+      },
+      {
+        "number" : 904,
+        "title" : "support .mailmap",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/904"
+      },
+      {
+        "number" : 901,
+        "title" : "reset password via email",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/901"
+      },
+      {
+        "number" : 892,
+        "title" : "Milestone detail page to show both issues and pull requests",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/892"
+      },
+      {
+        "number" : 891,
+        "title" : "\"Sort\" pull down menu for Labels and Milestones",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/891"
+      },
+      {
+        "number" : 843,
+        "title" : "Azure AD authentication",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/843"
+      },
+      {
+        "number" : 833,
+        "title" : "Support for S3 or AWS CodeCommit as a Repository Backend",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/833"
+      },
+      {
+        "number" : 819,
+        "title" : "Federation?",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/819"
+      },
+      {
+        "number" : 816,
+        "title" : "'x' days ago is not a useful information in commit list.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/816"
+      },
+      {
+        "number" : 803,
+        "title" : "Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception:   org.h2.jdbc.JdbcSQLException: General error: \"java.lang.NullPointerException\" [50000-180]",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/803"
+      },
+      {
+        "number" : 753,
+        "title" : "pretty printing",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/753"
+      },
+      {
+        "number" : 749,
+        "title" : "[Feature] Importer",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/749"
+      },
+      {
+        "number" : 746,
+        "title" : "Comment in a pull request commit on a line number in split view is not visible to other users in unified view",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/746"
+      },
+      {
+        "number" : 743,
+        "title" : "Allow to shutdown gitbucket when launched with embedded jetty",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/743"
+      },
+      {
+        "number" : 742,
+        "title" : "Disable certain git commands",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/742"
+      },
+      {
+        "number" : 730,
+        "title" : "Private Activity - similar to the \"Public Activity\"",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/730"
+      },
+      {
+        "number" : 729,
+        "title" : "Display SVG images instead of blob by default",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/729"
+      },
+      {
+        "number" : 703,
+        "title" : "Personal Wiki page",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/703"
+      },
+      {
+        "number" : 687,
+        "title" : "Notify when an updated version of GitBucket has been released",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/687"
+      },
+      {
+        "number" : 678,
+        "title" : "Export/Import Repo functionality!",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/678"
+      },
+      {
+        "number" : 667,
+        "title" : "\"Load More\" action on the recent activity home page.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/667"
+      },
+      {
+        "number" : 658,
+        "title" : "RTL support in Markdown",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/658"
+      },
+      {
+        "number" : 648,
+        "title" : "organization level webhooks",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/648"
+      },
+      {
+        "number" : 634,
+        "title" : "LDAP BindDN password is plaintext readable in gitbucket.conf",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/634"
+      },
+      {
+        "number" : 624,
+        "title" : "See Active User Sessions!",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/624"
+      },
+      {
+        "number" : 599,
+        "title" : "Remove user and group",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/599"
+      },
+      {
+        "number" : 563,
+        "title" : "LDAP authentication for multiple domains",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/563"
+      },
+      {
+        "number" : 562,
+        "title" : "Constant OverlappingFileLockException on code change",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/562"
+      },
+      {
+        "number" : 525,
+        "title" : "Enhance LDAP support so repo-by-repo authorization is supported",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/525"
+      },
+      {
+        "number" : 524,
+        "title" : "LDAP User Activation by Admin",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/524"
+      },
+      {
+        "number" : 523,
+        "title" : "Error on LDAP-Login when user existed before locally ",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/523"
+      },
+      {
+        "number" : 486,
+        "title" : "New Feature: Use Virtual File System with S3 Driver for Heroku Persistance ",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/486"
+      },
+      {
+        "number" : 477,
+        "title" : "Branch access controll",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/477"
+      },
+      {
+        "number" : 430,
+        "title" : "HTTP basic authentication",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/430"
+      },
+      {
+        "number" : 429,
+        "title" : "Contributors on the repository viewer header",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/429"
+      },
+      {
+        "number" : 419,
+        "title" : "Reverting a pull request",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/419"
+      },
+      {
+        "number" : 400,
+        "title" : "More conditions for searching issues",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/400"
+      },
+      {
+        "number" : 395,
+        "title" : "Code search omits some important results",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/395"
+      },
+      {
+        "number" : 392,
+        "title" : "GitHub Compare View",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/392"
+      },
+      {
+        "number" : 391,
+        "title" : "rename and delete user",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/391"
+      },
+      {
+        "number" : 389,
+        "title" : "Submodules & symbolic links need better UI",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/389"
+      },
+      {
+        "number" : 352,
+        "title" : "Repo encryption support!",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/352"
+      },
+      {
+        "number" : 336,
+        "title" : "Always use \"display name\" in the front end instead \"username\" for better ldap integration",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/336"
+      },
+      {
+        "number" : 322,
+        "title" : "Init script",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/322"
+      },
+      {
+        "number" : 273,
+        "title" : "Code syntax highlighting",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/273"
+      },
+      {
+        "number" : 227,
+        "title" : "Provide common Single Sign On options",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/227"
+      },
+      {
+        "number" : 183,
+        "title" : "Option to create git bundle",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/183"
+      },
+      {
+        "number" : 166,
+        "title" : "Keyboard shortcuts",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/166"
+      },
+      {
+        "number" : 137,
+        "title" : "Spacing in large files with long lines is not displayed correctly",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/137"
+      },
+      {
+        "number" : 123,
+        "title" : "The change password page needs to require old password and 2 copies of the new password.",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/123"
+      },
+      {
+        "number" : 54,
+        "title" : "Cookie authentication instead of HttpSession",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/54"
+      },
+      {
+        "number" : 29,
+        "title" : "Issue label search should be AND condition",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/29"
+      },
+      {
+        "number" : 7,
+        "title" : "Star",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/7"
+      },
+      {
+        "number" : 6,
+        "title" : "Statistics",
+        "url" : "https://github.com/gitbucket/gitbucket/issues/6"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : "gitbucket",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "version-management",
+    "beginnerIssuesLabel" : null
+  }
+}

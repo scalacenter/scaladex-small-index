@@ -1,0 +1,1492 @@
+{
+  "organization" : "microsoft",
+  "repository" : "synapseml",
+  "creationDate" : null,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643190871765
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "http://aka.ms/spark",
+    "description" : "Simple and Distributed Machine Learning",
+    "logo" : "https://avatars.githubusercontent.com/u/6154722?v=4",
+    "stars" : 3095,
+    "forks" : 641,
+    "watchers" : 131,
+    "issues" : 239,
+    "creationDate" : 1496651024000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/ed6ec7d119b96167800da67acd9e044ffe9a379eef800ce743f34fde2d708410/68747470733a2f2f6d6d6c737061726b2e617a757265656467652e6e65742f69636f6e732f6d6d6c737061726b2e737667\"><img src=\"https://camo.githubusercontent.com/ed6ec7d119b96167800da67acd9e044ffe9a379eef800ce743f34fde2d708410/68747470733a2f2f6d6d6c737061726b2e617a757265656467652e6e65742f69636f6e732f6d6d6c737061726b2e737667\" alt=\"SynapseML\" data-canonical-src=\"https://mmlspark.azureedge.net/icons/mmlspark.svg\" style=\"max-width: 100%;\"></a></p>\n<h1 dir=\"auto\"><a id=\"user-content-synapse-machine-learning\" class=\"anchor\" aria-hidden=\"true\" href=\"#synapse-machine-learning\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Synapse Machine Learning</h1>\n<p dir=\"auto\"><a href=\"https://msdata.visualstudio.com/A365/_build/latest?definitionId=17563&amp;branchName=master\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/438b5f1b0c2dfc1e37d21ffa9eebb585278e50b4249292fd3d879c5de4925d51/68747470733a2f2f6d73646174612e76697375616c73747564696f2e636f6d2f413336352f5f617069732f6275696c642f7374617475732f6d6963726f736f66742e53796e617073654d4c3f6272616e63684e616d653d6d6173746572\" alt=\"Build Status\" data-canonical-src=\"https://msdata.visualstudio.com/A365/_apis/build/status/microsoft.SynapseML?branchName=master\" style=\"max-width: 100%;\"></a> <a href=\"https://codecov.io/gh/Microsoft/SynapseML\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/4ce5019d8c50d88ed52f3b280c160b661823a1346345973e776fab2ba307269b/68747470733a2f2f636f6465636f762e696f2f67682f4d6963726f736f66742f53796e617073654d4c2f6272616e63682f6d61737465722f67726170682f62616467652e737667\" alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/Microsoft/SynapseML/branch/master/graph/badge.svg\" style=\"max-width: 100%;\"></a> <a href=\"https://gitter.im/Microsoft/MMLSpark?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/0288a01332f280a450e19bf57800f85a705885f287ebc7141b85e9136af2b33c/68747470733a2f2f6261646765732e6769747465722e696d2f4d6963726f736f66742f4d4d4c537061726b2e737667\" alt=\"Gitter\" data-canonical-src=\"https://badges.gitter.im/Microsoft/MMLSpark.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\"><a href=\"https://github.com/Microsoft/SynapseML/releases\"><img src=\"https://camo.githubusercontent.com/303208c95798ace3875522aefb51529c824981e42c5ee3cd0b368006fdfe3ce0/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f72656c656173652d6e6f7465732d626c7565\" alt=\"Release Notes\" data-canonical-src=\"https://img.shields.io/badge/release-notes-blue\" style=\"max-width: 100%;\"></a> <a href=\"https://mmlspark.blob.core.windows.net/docs/0.9.5/scala/index.html#package\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/d148e29132868ea143c90f23fa1102b539ebe68a4f48a81f08438529359a34d4/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d617069253230646f6373266d6573736167653d7363616c6126636f6c6f723d626c7565266c6f676f3d7363616c61\" alt=\"Scala Docs\" data-canonical-src=\"https://img.shields.io/static/v1?label=api%20docs&amp;message=scala&amp;color=blue&amp;logo=scala\" style=\"max-width: 100%;\"></a> <a href=\"https://mmlspark.blob.core.windows.net/docs/0.9.5/pyspark/index.html\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/d21fbc2559645786e0563c052aa317079c5ce499d3807bdcbdcc3d3a22a7e53b/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d617069253230646f6373266d6573736167653d707974686f6e26636f6c6f723d626c7565266c6f676f3d707974686f6e\" alt=\"PySpark Docs\" data-canonical-src=\"https://img.shields.io/static/v1?label=api%20docs&amp;message=python&amp;color=blue&amp;logo=python\" style=\"max-width: 100%;\"></a> <a href=\"https://arxiv.org/abs/1810.08744\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/0f57b8c569a92eaeee7404cc2638d5b148fbbaf279eda3fcec8c86e7ad30ea1b/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f61636164656d69632d70617065722d376664636637\" alt=\"Academic Paper\" data-canonical-src=\"https://img.shields.io/badge/academic-paper-7fdcf7\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\"><a href=\"https://github.com/Microsoft/SynapseML/releases\"><img src=\"https://camo.githubusercontent.com/c250ce9743b4f7dafc0b10385b4d73da9425a2f3976b57cae395ddcfa400cc2c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f76657273696f6e2d302e392e352d626c7565\" alt=\"Version\" data-canonical-src=\"https://img.shields.io/badge/version-0.9.5-blue\" style=\"max-width: 100%;\"></a> <a href=\"#sbt\"><img src=\"https://camo.githubusercontent.com/4839320c7293ad724c4594763c02acd7e136190706765058e1c65e90bfcd954b/68747470733a2f2f6d6d6c737061726b2e626c6f622e636f72652e77696e646f77732e6e65742f69636f6e732f6261646765732f6d61737465725f76657273696f6e332e737667\" alt=\"Snapshot Version\" data-canonical-src=\"https://mmlspark.blob.core.windows.net/icons/badges/master_version3.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">SynapseML (previously MMLSpark) is an open source library to simplify the creation of scalable machine learning pipelines.\nSynapseML builds on <a href=\"https://github.com/apache/spark\">Apache Spark</a> and SparkML to enable new kinds of\nmachine learning, analytics, and model deployment workflows.\nSynapseML adds many deep learning and data science tools to the Spark ecosystem,\nincluding seamless integration of Spark Machine Learning pipelines with the <a href=\"https://onnx.ai\" rel=\"nofollow\">Open Neural Network Exchange\n(ONNX)</a>,\n<a href=\"https://github.com/Microsoft/LightGBM\">LightGBM</a>,\n<a href=\"https://azure.microsoft.com/en-us/services/cognitive-services/\" rel=\"nofollow\">The Cognitive Services</a>,\n<a href=\"https://vowpalwabbit.org/\" rel=\"nofollow\">Vowpal Wabbit</a>, and\n<a href=\"http://www.opencv.org/\" rel=\"nofollow\">OpenCV</a>. These tools enable powerful and highly-scalable predictive and analytical models\nfor a variety of datasources.</p>\n<p dir=\"auto\">SynapseML also brings new networking capabilities to the Spark Ecosystem. With the HTTP on Spark project, users\ncan embed <strong>any</strong> web service into their SparkML models.\nFor production grade deployment, the Spark Serving project enables high throughput,\nsub-millisecond latency web services, backed by your Spark cluster.</p>\n<p dir=\"auto\">SynapseML requires Scala 2.12, Spark 3.2+, and Python 3.6+.\nSee the API documentation <a href=\"https://mmlspark.blob.core.windows.net/docs/0.9.5/scala/index.html#package\" rel=\"nofollow\">for\nScala</a> and <a href=\"https://mmlspark.blob.core.windows.net/docs/0.9.5/pyspark/index.html\" rel=\"nofollow\">for\nPySpark</a>.</p>\n<details>\n<summary><strong><em>Table of Contents</em></strong></summary>\n<ul dir=\"auto\">\n<li><a href=\"#features\">Features</a></li>\n<li><a href=\"#documentation-and-examples\">Documentation</a></li>\n<li><a href=\"#setup-and-installation\">Setup and installation</a>\n<ul dir=\"auto\">\n<li><a href=\"#docker\">Docker</a></li>\n<li><a href=\"#gpu-vm-setup\">GPU VM Setup</a></li>\n<li><a href=\"#spark-package\">Spark package</a></li>\n<li><a href=\"#python\">Python</a></li>\n<li><a href=\"#databricks-cloud\">Databricks cloud</a></li>\n<li><a href=\"#sbt\">SBT</a></li>\n<li><a href=\"#building-from-source\">Building from source</a></li>\n</ul>\n</li>\n<li><a href=\"#blogs-and-publications\">Blogs and Publications</a></li>\n<li><a href=\"#contributing--feedback\">Contributing &amp; feedback</a></li>\n<li><a href=\"#other-relevant-projects\">Other relevant projects</a></li>\n</ul>\n</details>\n<h2 dir=\"auto\"><a id=\"user-content-features\" class=\"anchor\" aria-hidden=\"true\" href=\"#features\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Features</h2>\n<table>\n<thead>\n<tr>\n<th align=\"center\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/e7b006b347602e9bf8756a7577e380698a2e01a070343cc2b2b0efc76df75600/68747470733a2f2f6d6d6c737061726b2e626c6f622e636f72652e77696e646f77732e6e65742f67726170686963732f526561646d652f76772d626c75652d6461726b2d6f72616e67652e737667\"><img width=\"800\" src=\"https://camo.githubusercontent.com/e7b006b347602e9bf8756a7577e380698a2e01a070343cc2b2b0efc76df75600/68747470733a2f2f6d6d6c737061726b2e626c6f622e636f72652e77696e646f77732e6e65742f67726170686963732f526561646d652f76772d626c75652d6461726b2d6f72616e67652e737667\" data-canonical-src=\"https://mmlspark.blob.core.windows.net/graphics/Readme/vw-blue-dark-orange.svg\" style=\"max-width: 100%;\"></a></th>\n<th align=\"center\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/5082abfb4ffae7ee04a8c27386c17e8f85840fc290e31c73e845fcededf9a039/68747470733a2f2f6d6d6c737061726b2e626c6f622e636f72652e77696e646f77732e6e65742f67726170686963732f526561646d652f636f675f73657276696365735f6f6e5f737061726b5f322e737667\"><img width=\"800\" src=\"https://camo.githubusercontent.com/5082abfb4ffae7ee04a8c27386c17e8f85840fc290e31c73e845fcededf9a039/68747470733a2f2f6d6d6c737061726b2e626c6f622e636f72652e77696e646f77732e6e65742f67726170686963732f526561646d652f636f675f73657276696365735f6f6e5f737061726b5f322e737667\" data-canonical-src=\"https://mmlspark.blob.core.windows.net/graphics/Readme/cog_services_on_spark_2.svg\" style=\"max-width: 100%;\"></a></th>\n<th align=\"center\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/d13ea01eeb26955f7a437f8933c07aea26599caf8546adf44ed6ee9900748a29/68747470733a2f2f6d6d6c737061726b2e626c6f622e636f72652e77696e646f77732e6e65742f67726170686963732f526561646d652f6465636973696f6e5f747265655f7265636f6c6f722e706e67\"><img width=\"800\" src=\"https://camo.githubusercontent.com/d13ea01eeb26955f7a437f8933c07aea26599caf8546adf44ed6ee9900748a29/68747470733a2f2f6d6d6c737061726b2e626c6f622e636f72652e77696e646f77732e6e65742f67726170686963732f526561646d652f6465636973696f6e5f747265655f7265636f6c6f722e706e67\" data-canonical-src=\"https://mmlspark.blob.core.windows.net/graphics/Readme/decision_tree_recolor.png\" style=\"max-width: 100%;\"></a></th>\n<th align=\"center\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/b8d22a003f83559447d3510a3d853979bc4a5dbab70d2e62d269b1718a27363c/68747470733a2f2f6d6d6c737061726b2e626c6f622e636f72652e77696e646f77732e6e65742f67726170686963732f526561646d652f6d6d6c737061726b5f73657276696e675f7265636f6c6f722e737667\"><img width=\"800\" src=\"https://camo.githubusercontent.com/b8d22a003f83559447d3510a3d853979bc4a5dbab70d2e62d269b1718a27363c/68747470733a2f2f6d6d6c737061726b2e626c6f622e636f72652e77696e646f77732e6e65742f67726170686963732f526561646d652f6d6d6c737061726b5f73657276696e675f7265636f6c6f722e737667\" data-canonical-src=\"https://mmlspark.blob.core.windows.net/graphics/Readme/mmlspark_serving_recolor.svg\" style=\"max-width: 100%;\"></a></th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td align=\"center\"><a href=\"https://microsoft.github.io/SynapseML/docs/features/vw/about/\" rel=\"nofollow\"><strong>Vowpal Wabbit on Spark</strong></a></td>\n<td align=\"center\"><a href=\"https://microsoft.github.io/SynapseML/docs/features/cognitive_services/CognitiveServices%20-%20Overview/\" rel=\"nofollow\"><strong>The Cognitive Services for Big Data</strong></a></td>\n<td align=\"center\"><a href=\"https://microsoft.github.io/SynapseML/docs/features/lightgbm/about/\" rel=\"nofollow\"><strong>LightGBM on Spark</strong></a></td>\n<td align=\"center\"><a href=\"https://microsoft.github.io/SynapseML/docs/features/spark_serving/about/\" rel=\"nofollow\"><strong>Spark Serving</strong></a></td>\n</tr>\n<tr>\n<td align=\"center\">Fast, Sparse, and Effective Text Analytics</td>\n<td align=\"center\">Leverage the Microsoft Cognitive Services at Unprecedented Scales in your existing SparkML pipelines</td>\n<td align=\"center\">Train Gradient Boosted Machines with LightGBM</td>\n<td align=\"center\">Serve any Spark Computation as a Web Service with Sub-Millisecond Latency</td>\n</tr>\n</tbody>\n</table>\n<table>\n<thead>\n<tr>\n<th align=\"center\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/b441f6fff59360f77ef462fa928fcaa8a237650e194429c7db6ee25ec6714a2b/68747470733a2f2f6d6d6c737061726b2e626c6f622e636f72652e77696e646f77732e6e65742f67726170686963732f526561646d652f6d6963726f736572766963655f7265636f6c6f722e706e67\"><img width=\"800\" src=\"https://camo.githubusercontent.com/b441f6fff59360f77ef462fa928fcaa8a237650e194429c7db6ee25ec6714a2b/68747470733a2f2f6d6d6c737061726b2e626c6f622e636f72652e77696e646f77732e6e65742f67726170686963732f526561646d652f6d6963726f736572766963655f7265636f6c6f722e706e67\" data-canonical-src=\"https://mmlspark.blob.core.windows.net/graphics/Readme/microservice_recolor.png\" style=\"max-width: 100%;\"></a></th>\n<th align=\"center\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/825a26dd558d639d9df31b370cc494bc8495188b0a7018ee555ede2378972dad/68747470733a2f2f6d6d6c737061726b2e626c6f622e636f72652e77696e646f77732e6e65742f67726170686963732f656d61696c732f6f6e6e7861692d617232315f63726f702e737667\"><img width=\"800\" src=\"https://camo.githubusercontent.com/825a26dd558d639d9df31b370cc494bc8495188b0a7018ee555ede2378972dad/68747470733a2f2f6d6d6c737061726b2e626c6f622e636f72652e77696e646f77732e6e65742f67726170686963732f656d61696c732f6f6e6e7861692d617232315f63726f702e737667\" data-canonical-src=\"https://mmlspark.blob.core.windows.net/graphics/emails/onnxai-ar21_crop.svg\" style=\"max-width: 100%;\"></a></th>\n<th align=\"center\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/088d668c6ac1fe873f8b62e0ec38996756d30e9c41e143f7cfb5153a58ac59a0/68747470733a2f2f6d6d6c737061726b2e626c6f622e636f72652e77696e646f77732e6e65742f67726170686963732f656d61696c732f7363616c65732e737667\"><img width=\"800\" src=\"https://camo.githubusercontent.com/088d668c6ac1fe873f8b62e0ec38996756d30e9c41e143f7cfb5153a58ac59a0/68747470733a2f2f6d6d6c737061726b2e626c6f622e636f72652e77696e646f77732e6e65742f67726170686963732f656d61696c732f7363616c65732e737667\" data-canonical-src=\"https://mmlspark.blob.core.windows.net/graphics/emails/scales.svg\" style=\"max-width: 100%;\"></a></th>\n<th align=\"center\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/057b4ba8dd800e6d7c5495ffabffb1c340b80d270612c63da3dc9aee3773845a/68747470733a2f2f6d6d6c737061726b2e626c6f622e636f72652e77696e646f77732e6e65742f67726170686963732f526561646d652f62696e64696e67732e706e67\"><img width=\"800\" src=\"https://camo.githubusercontent.com/057b4ba8dd800e6d7c5495ffabffb1c340b80d270612c63da3dc9aee3773845a/68747470733a2f2f6d6d6c737061726b2e626c6f622e636f72652e77696e646f77732e6e65742f67726170686963732f526561646d652f62696e64696e67732e706e67\" data-canonical-src=\"https://mmlspark.blob.core.windows.net/graphics/Readme/bindings.png\" style=\"max-width: 100%;\"></a></th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td align=\"center\"><a href=\"https://microsoft.github.io/SynapseML/docs/features/cognitive_services/CognitiveServices%20-%20Overview/#arbitrary-web-apis\" rel=\"nofollow\"><strong>HTTP on Spark</strong></a></td>\n<td align=\"center\"><a href=\"https://microsoft.github.io/SynapseML/docs/features/onnx/about/\" rel=\"nofollow\"><strong>ONNX on Spark</strong></a></td>\n<td align=\"center\"><a href=\"https://microsoft.github.io/SynapseML/docs/features/responsible_ai/Model%20Interpretation%20on%20Spark/\" rel=\"nofollow\"><strong>Responsible AI</strong></a></td>\n<td align=\"center\"><a href=\"https://microsoft.github.io/SynapseML/docs/reference/developer-readme/#packagepython\" rel=\"nofollow\"><strong>Spark Binding Autogeneration</strong></a></td>\n</tr>\n<tr>\n<td align=\"center\">An Integration Between Spark and the HTTP Protocol, enabling Distributed Microservice Orchestration</td>\n<td align=\"center\">Distributed and Hardware Accelerated Model Inference on Spark</td>\n<td align=\"center\">Understand Opaque-box Models and Measure Dataset Biases</td>\n<td align=\"center\">Automatically Generate Spark bindings for PySpark and SparklyR</td>\n</tr>\n</tbody>\n</table>\n<table>\n<thead>\n<tr>\n<th align=\"center\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/3ae5c684064219db1cc97a5508ce2c6e0df3ab1514a97d53fe6956d489b2d7b5/68747470733a2f2f6d6d6c737061726b2e626c6f622e636f72652e77696e646f77732e6e65742f67726170686963732f656d61696c732f69736f6c6174696f6e20666f7265737420332e737667\"><img width=\"150\" src=\"https://camo.githubusercontent.com/3ae5c684064219db1cc97a5508ce2c6e0df3ab1514a97d53fe6956d489b2d7b5/68747470733a2f2f6d6d6c737061726b2e626c6f622e636f72652e77696e646f77732e6e65742f67726170686963732f656d61696c732f69736f6c6174696f6e20666f7265737420332e737667\" data-canonical-src=\"https://mmlspark.blob.core.windows.net/graphics/emails/isolation forest 3.svg\" style=\"max-width: 100%;\"></a></th>\n<th align=\"center\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/44bce83a17d136b6a2425c76770411f5e02d4cfb1eb927a89d856be898ab25fb/68747470733a2f2f6d6d6c737061726b2e626c6f622e636f72652e77696e646f77732e6e65742f67726170686963732f656d61696c732f63796265726d6c2e737667\"><img width=\"150\" src=\"https://camo.githubusercontent.com/44bce83a17d136b6a2425c76770411f5e02d4cfb1eb927a89d856be898ab25fb/68747470733a2f2f6d6d6c737061726b2e626c6f622e636f72652e77696e646f77732e6e65742f67726170686963732f656d61696c732f63796265726d6c2e737667\" data-canonical-src=\"https://mmlspark.blob.core.windows.net/graphics/emails/cyberml.svg\" style=\"max-width: 100%;\"></a></th>\n<th align=\"center\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/fff922e8543007a7c330c8098bdef883160787fec1042fa5b4e1497e990516db/68747470733a2f2f6d6d6c737061726b2e626c6f622e636f72652e77696e646f77732e6e65742f67726170686963732f656d61696c732f636f6e646974696f6e616c5f6b6e6e2e737667\"><img width=\"150\" src=\"https://camo.githubusercontent.com/fff922e8543007a7c330c8098bdef883160787fec1042fa5b4e1497e990516db/68747470733a2f2f6d6d6c737061726b2e626c6f622e636f72652e77696e646f77732e6e65742f67726170686963732f656d61696c732f636f6e646974696f6e616c5f6b6e6e2e737667\" data-canonical-src=\"https://mmlspark.blob.core.windows.net/graphics/emails/conditional_knn.svg\" style=\"max-width: 100%;\"></a></th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td align=\"center\"><a href=\"https://microsoft.github.io/SynapseML/docs/documentation/estimators/estimators_core/#isolationforest\" rel=\"nofollow\"><strong>Isolation Forest on Spark</strong></a></td>\n<td align=\"center\"><a href=\"https://github.com/microsoft/SynapseML/blob/master/notebooks/features/other/CyberML%20-%20Anomalous%20Access%20Detection.ipynb\"><strong>CyberML</strong></a></td>\n<td align=\"center\"><a href=\"https://microsoft.github.io/SynapseML/docs/features/other/ConditionalKNN%20-%20Exploring%20Art%20Across%20Cultures/\" rel=\"nofollow\"><strong>Conditional KNN</strong></a></td>\n</tr>\n<tr>\n<td align=\"center\">Distributed Nonlinear Outlier Detection</td>\n<td align=\"center\">Machine Learning Tools for Cyber Security</td>\n<td align=\"center\">Scalable KNN Models with Conditional Queries</td>\n</tr>\n</tbody>\n</table>\n<h2 dir=\"auto\"><a id=\"user-content-documentation-and-examples\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation-and-examples\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Documentation and Examples</h2>\n<p dir=\"auto\">For quickstarts, documentation, demos, and examples please see our <a href=\"https://aka.ms/spark\" rel=\"nofollow\">website</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-setup-and-installation\" class=\"anchor\" aria-hidden=\"true\" href=\"#setup-and-installation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Setup and installation</h2>\n<h3 dir=\"auto\"><a id=\"user-content-python\" class=\"anchor\" aria-hidden=\"true\" href=\"#python\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Python</h3>\n<p dir=\"auto\">To try out SynapseML on a Python (or Conda) installation you can get Spark\ninstalled via pip with <code>pip install pyspark</code>.  You can then use <code>pyspark</code> as in\nthe above example, or from python:</p>\n<div class=\"highlight highlight-source-python position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import pyspark\nspark = pyspark.sql.SparkSession.builder.appName(&quot;MyApp&quot;) \\\n            .config(&quot;spark.jars.packages&quot;, &quot;com.microsoft.azure:synapseml_2.12:0.9.5&quot;) \\\n            .getOrCreate()\nimport synapse.ml\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-s1\">pyspark</span>\n<span class=\"pl-s1\">spark</span> <span class=\"pl-c1\">=</span> <span class=\"pl-s1\">pyspark</span>.<span class=\"pl-s1\">sql</span>.<span class=\"pl-v\">SparkSession</span>.<span class=\"pl-s1\">builder</span>.<span class=\"pl-en\">appName</span>(<span class=\"pl-s\">\"MyApp\"</span>) \\\n            .<span class=\"pl-en\">config</span>(<span class=\"pl-s\">\"spark.jars.packages\"</span>, <span class=\"pl-s\">\"com.microsoft.azure:synapseml_2.12:0.9.5\"</span>) \\\n            .<span class=\"pl-en\">getOrCreate</span>()\n<span class=\"pl-k\">import</span> <span class=\"pl-s1\">synapse</span>.<span class=\"pl-s1\">ml</span></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-sbt\" class=\"anchor\" aria-hidden=\"true\" href=\"#sbt\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>SBT</h3>\n<p dir=\"auto\">If you are building a Spark application in Scala, add the following lines to\nyour <code>build.sbt</code>:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;com.microsoft.azure&quot; % &quot;synapseml_2.12&quot; % &quot;0.9.5&quot;\n\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.microsoft.azure<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>synapseml_2.12<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.9.5<span class=\"pl-pds\">\"</span></span>\n</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-spark-package\" class=\"anchor\" aria-hidden=\"true\" href=\"#spark-package\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Spark package</h3>\n<p dir=\"auto\">SynapseML can be conveniently installed on existing Spark clusters via the\n<code>--packages</code> option, examples:</p>\n<div class=\"highlight highlight-source-shell position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"spark-shell --packages com.microsoft.azure:synapseml_2.12:0.9.5\npyspark --packages com.microsoft.azure:synapseml_2.12:0.9.5\nspark-submit --packages com.microsoft.azure:synapseml_2.12:0.9.5 MyApp.jar\"><pre>spark-shell --packages com.microsoft.azure:synapseml_2.12:0.9.5\npyspark --packages com.microsoft.azure:synapseml_2.12:0.9.5\nspark-submit --packages com.microsoft.azure:synapseml_2.12:0.9.5 MyApp.jar</pre></div>\n<p dir=\"auto\">This can be used in other Spark contexts too. For example, you can use SynapseML\nin <a href=\"https://github.com/Azure/aztk/\">AZTK</a> by <a href=\"https://github.com/Azure/aztk/wiki/PySpark-on-Azure-with-AZTK#optional-set-up-mmlspark\">adding it to the\n<code>.aztk/spark-defaults.conf</code>\nfile</a>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-databricks\" class=\"anchor\" aria-hidden=\"true\" href=\"#databricks\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Databricks</h3>\n<p dir=\"auto\">To install SynapseML on the <a href=\"http://community.cloud.databricks.com\" rel=\"nofollow\">Databricks\ncloud</a>, create a new <a href=\"https://docs.databricks.com/user-guide/libraries.html#libraries-from-maven-pypi-or-spark-packages\" rel=\"nofollow\">library from Maven\ncoordinates</a>\nin your workspace.</p>\n<p dir=\"auto\">For the coordinates use: <code>com.microsoft.azure:synapseml_2.12:0.9.5</code>\nwith the resolver: <code>https://mmlspark.azureedge.net/maven</code>. Ensure this library is\nattached to your target cluster(s).</p>\n<p dir=\"auto\">Finally, ensure that your Spark cluster has at least Spark 3.2 and Scala 2.12. If you encounter Netty dependency issues please use DBR 10.1.</p>\n<p dir=\"auto\">You can use SynapseML in both your Scala and PySpark notebooks. To get started with our example notebooks import the following databricks archive:</p>\n<p dir=\"auto\"><code>https://mmlspark.blob.core.windows.net/dbcs/SynapseMLExamplesv0.9.5.dbc</code></p>\n<h3 dir=\"auto\"><a id=\"user-content-apache-livy-and-hdinsight\" class=\"anchor\" aria-hidden=\"true\" href=\"#apache-livy-and-hdinsight\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Apache Livy and HDInsight</h3>\n<p dir=\"auto\">To install SynapseML from within a Jupyter notebook served by Apache Livy the following configure magic can be used. You will need to start a new session after this configure cell is executed.</p>\n<p dir=\"auto\">Excluding certain packages from the library may be necessary due to current issues with Livy 0.5</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"%%configure -f\n{\n    &quot;name&quot;: &quot;synapseml&quot;,\n    &quot;conf&quot;: {\n        &quot;spark.jars.packages&quot;: &quot;com.microsoft.azure:synapseml_2.12:0.9.5&quot;,\n        &quot;spark.jars.excludes&quot;: &quot;org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.12,org.scalactic:scalactic_2.12,org.scalatest:scalatest_2.12&quot;\n    }\n}\"><pre><code>%%configure -f\n{\n    \"name\": \"synapseml\",\n    \"conf\": {\n        \"spark.jars.packages\": \"com.microsoft.azure:synapseml_2.12:0.9.5\",\n        \"spark.jars.excludes\": \"org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.12,org.scalactic:scalactic_2.12,org.scalatest:scalatest_2.12\"\n    }\n}\n</code></pre></div>\n<p dir=\"auto\">In Azure Synapse, \"spark.yarn.user.classpath.first\" should be set to \"true\" to override the existing SynapseML packages</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"%%configure -f\n{\n    &quot;name&quot;: &quot;synapseml&quot;,\n    &quot;conf&quot;: {\n        &quot;spark.jars.packages&quot;: &quot;com.microsoft.azure:synapseml_2.12:0.9.5&quot;,\n        &quot;spark.jars.excludes&quot;: &quot;org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.12,org.scalactic:scalactic_2.12,org.scalatest:scalatest_2.12&quot;,\n        &quot;spark.yarn.user.classpath.first&quot;: &quot;true&quot;\n    }\n}\"><pre><code>%%configure -f\n{\n    \"name\": \"synapseml\",\n    \"conf\": {\n        \"spark.jars.packages\": \"com.microsoft.azure:synapseml_2.12:0.9.5\",\n        \"spark.jars.excludes\": \"org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.12,org.scalactic:scalactic_2.12,org.scalatest:scalatest_2.12\",\n        \"spark.yarn.user.classpath.first\": \"true\"\n    }\n}\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-docker\" class=\"anchor\" aria-hidden=\"true\" href=\"#docker\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Docker</h3>\n<p dir=\"auto\">The easiest way to evaluate SynapseML is via our pre-built Docker container.  To\ndo so, run the following command:</p>\n<div class=\"highlight highlight-source-shell position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"docker run -it -p 8888:8888 -e ACCEPT_EULA=yes mcr.microsoft.com/mmlspark/release\"><pre>docker run -it -p 8888:8888 -e ACCEPT_EULA=yes mcr.microsoft.com/mmlspark/release</pre></div>\n<p dir=\"auto\">Navigate to <a href=\"http://localhost:8888/\" rel=\"nofollow\">http://localhost:8888/</a> in your web browser to run the sample\nnotebooks.  See the <a href=\"docs/docker.md\">documentation</a> for more on Docker use.</p>\n<blockquote>\n<p dir=\"auto\">To read the EULA for using the docker image, run \\\n<code>docker run -it -p 8888:8888 mcr.microsoft.com/mmlspark/release eula</code></p>\n</blockquote>\n<h3 dir=\"auto\"><a id=\"user-content-gpu-vm-setup\" class=\"anchor\" aria-hidden=\"true\" href=\"#gpu-vm-setup\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>GPU VM Setup</h3>\n<p dir=\"auto\">SynapseML can be used to train deep learning models on GPU nodes from a Spark\napplication.  See the instructions for <a href=\"docs/gpu-setup.md\">setting up an Azure GPU\nVM</a>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-building-from-source\" class=\"anchor\" aria-hidden=\"true\" href=\"#building-from-source\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Building from source</h3>\n<p dir=\"auto\">SynapseML has recently transitioned to a new build infrastructure.\nFor detailed developer docs please see the <a href=\"website/docs/reference/developer-readme.md\">Developer Readme</a></p>\n<p dir=\"auto\">If you are an existing synapsemldeveloper, you will need to reconfigure your\ndevelopment setup. We now support platform independent development and\nbetter integrate with intellij and SBT.\nIf you encounter issues please reach out to our support email!</p>\n<h3 dir=\"auto\"><a id=\"user-content-r-beta\" class=\"anchor\" aria-hidden=\"true\" href=\"#r-beta\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>R (Beta)</h3>\n<p dir=\"auto\">To try out SynapseML using the R autogenerated wrappers <a href=\"website/docs/reference/R-setup.md\">see our\ninstructions</a>.  Note: This feature is still under development\nand some necessary custom wrappers may be missing.</p>\n<h2 dir=\"auto\"><a id=\"user-content-papers\" class=\"anchor\" aria-hidden=\"true\" href=\"#papers\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Papers</h2>\n<ul dir=\"auto\">\n<li>\n<p dir=\"auto\"><a href=\"https://arxiv.org/abs/2009.08044\" rel=\"nofollow\">Large Scale Intelligent Microservices</a></p>\n</li>\n<li>\n<p dir=\"auto\"><a href=\"https://arxiv.org/abs/2007.07177\" rel=\"nofollow\">Conditional Image Retrieval</a></p>\n</li>\n<li>\n<p dir=\"auto\"><a href=\"https://arxiv.org/abs/1810.08744\" rel=\"nofollow\">MMLSpark: Unifying Machine Learning Ecosystems at Massive Scales</a></p>\n</li>\n<li>\n<p dir=\"auto\"><a href=\"https://arxiv.org/abs/1804.04031\" rel=\"nofollow\">Flexible and Scalable Deep Learning with SynapseML</a></p>\n</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-learn-more\" class=\"anchor\" aria-hidden=\"true\" href=\"#learn-more\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Learn More</h2>\n<ul dir=\"auto\">\n<li>\n<p dir=\"auto\">Visit our <a href=\"https://microsoft.github.io/SynapseML/\" title=\"aka.ms/spark\" rel=\"nofollow\">website</a>.</p>\n</li>\n<li>\n<p dir=\"auto\">Watch our keynote demos at <a href=\"https://youtu.be/T_fs4C0aqD0?t=425\" rel=\"nofollow\">the Spark+AI Summit 2019</a>, <a href=\"https://youtu.be/N3ozCZXeOeU?t=472\" rel=\"nofollow\">the Spark+AI European Summit 2018</a>, and <a href=\"https://databricks.com/sparkaisummit/north-america/spark-summit-2018-keynotes#Intelligent-cloud\" title=\"Developing for the Intelligent Cloud and Intelligent Edge\" rel=\"nofollow\">the Spark+AI Summit 2018</a>.</p>\n</li>\n<li>\n<p dir=\"auto\">See how SynapseML is used to <a href=\"https://www.microsoft.com/en-us/ai/ai-lab-stories?activetab=pivot1:primaryr3\" title=\"Identifying snow leopards with AI\" rel=\"nofollow\">help endangered species</a>.</p>\n</li>\n<li>\n<p dir=\"auto\">Explore generative adversarial artwork in <a href=\"https://www.microsoft.com/en-us/ai/ai-lab-stories?activetab=pivot1:primaryr4\" title=\"Generative art at the MET\" rel=\"nofollow\">our collaboration with The MET and MIT</a>.</p>\n</li>\n<li>\n<p dir=\"auto\">Explore <a href=\"https://blogs.technet.microsoft.com/machinelearning/2018/03/05/image-data-support-in-apache-spark/\" title=\"Image Data Support in Apache Spark\" rel=\"nofollow\">our collaboration with Apache Spark</a> on image analysis.</p>\n</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-contributing--feedback\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributing--feedback\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Contributing &amp; feedback</h2>\n<p dir=\"auto\">This project has adopted the <a href=\"https://opensource.microsoft.com/codeofconduct/\" rel=\"nofollow\">Microsoft Open Source Code of Conduct</a>.  For more\ninformation see the <a href=\"https://opensource.microsoft.com/codeofconduct/faq/\" rel=\"nofollow\">Code of Conduct FAQ</a> or contact\n<a href=\"mailto:opencode@microsoft.com\">opencode@microsoft.com</a> with any additional\nquestions or comments.</p>\n<p dir=\"auto\">See <a href=\"CONTRIBUTING.md\">CONTRIBUTING.md</a> for contribution guidelines.</p>\n<p dir=\"auto\">To give feedback and/or report an issue, open a <a href=\"https://help.github.com/articles/creating-an-issue/\">GitHub\nIssue</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-other-relevant-projects\" class=\"anchor\" aria-hidden=\"true\" href=\"#other-relevant-projects\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Other relevant projects</h2>\n<ul dir=\"auto\">\n<li>\n<p dir=\"auto\"><a href=\"https://github.com/VowpalWabbit/vowpal_wabbit\">Vowpal Wabbit</a></p>\n</li>\n<li>\n<p dir=\"auto\"><a href=\"https://github.com/Microsoft/LightGBM\">LightGBM</a></p>\n</li>\n<li>\n<p dir=\"auto\"><a href=\"https://github.com/Microsoft/DMTK\">DMTK: Microsoft Distributed Machine Learning Toolkit</a></p>\n</li>\n<li>\n<p dir=\"auto\"><a href=\"https://github.com/Microsoft/Recommenders\">Recommenders</a></p>\n</li>\n<li>\n<p dir=\"auto\"><a href=\"https://github.com/alipay/jpmml-sparkml-lightgbm\">JPMML-SparkML plugin for converting SynapseML LightGBM models to\nPMML</a></p>\n</li>\n<li>\n<p dir=\"auto\"><a href=\"https://github.com/Microsoft/CNTK\">Microsoft Cognitive Toolkit</a></p>\n</li>\n</ul>\n<p dir=\"auto\"><em>Apache®, Apache Spark, and Spark® are either registered trademarks or\ntrademarks of the Apache Software Foundation in the United States and/or other\ncountries.</em></p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "mhamilton723",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6456637?v=4",
+        "url" : "https://api.github.com/users/mhamilton723",
+        "contributions" : 501
+      },
+      {
+        "login" : "imatiach-msft",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24683184?v=4",
+        "url" : "https://api.github.com/users/imatiach-msft",
+        "contributions" : 136
+      },
+      {
+        "login" : "elibarzilay",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/185905?v=4",
+        "url" : "https://api.github.com/users/elibarzilay",
+        "contributions" : 99
+      },
+      {
+        "login" : "xuwq1993",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/80103478?v=4",
+        "url" : "https://api.github.com/users/xuwq1993",
+        "contributions" : 39
+      },
+      {
+        "login" : "memoryz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6992432?v=4",
+        "url" : "https://api.github.com/users/memoryz",
+        "contributions" : 29
+      },
+      {
+        "login" : "serena-ruan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/82044803?v=4",
+        "url" : "https://api.github.com/users/serena-ruan",
+        "contributions" : 25
+      },
+      {
+        "login" : "eisber",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10142286?v=4",
+        "url" : "https://api.github.com/users/eisber",
+        "contributions" : 21
+      },
+      {
+        "login" : "ocworld",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13185662?v=4",
+        "url" : "https://api.github.com/users/ocworld",
+        "contributions" : 15
+      },
+      {
+        "login" : "dciborow",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9027725?v=4",
+        "url" : "https://api.github.com/users/dciborow",
+        "contributions" : 10
+      },
+      {
+        "login" : "mabusch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/26605547?v=4",
+        "url" : "https://api.github.com/users/mabusch",
+        "contributions" : 9
+      },
+      {
+        "login" : "JoanFM",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19825685?v=4",
+        "url" : "https://api.github.com/users/JoanFM",
+        "contributions" : 6
+      },
+      {
+        "login" : "tongwen11",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/26636383?v=4",
+        "url" : "https://api.github.com/users/tongwen11",
+        "contributions" : 6
+      },
+      {
+        "login" : "chris-smith-zocdoc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2537809?v=4",
+        "url" : "https://api.github.com/users/chris-smith-zocdoc",
+        "contributions" : 6
+      },
+      {
+        "login" : "caseyhong",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10441090?v=4",
+        "url" : "https://api.github.com/users/caseyhong",
+        "contributions" : 6
+      },
+      {
+        "login" : "mmlspark-bot",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/29117994?v=4",
+        "url" : "https://api.github.com/users/mmlspark-bot",
+        "contributions" : 6
+      },
+      {
+        "login" : "terrytangyuan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4269898?v=4",
+        "url" : "https://api.github.com/users/terrytangyuan",
+        "contributions" : 6
+      },
+      {
+        "login" : "rastala",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/18446796?v=4",
+        "url" : "https://api.github.com/users/rastala",
+        "contributions" : 5
+      },
+      {
+        "login" : "stuartleeks",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1824461?v=4",
+        "url" : "https://api.github.com/users/stuartleeks",
+        "contributions" : 5
+      },
+      {
+        "login" : "dbanda",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1960911?v=4",
+        "url" : "https://api.github.com/users/dbanda",
+        "contributions" : 4
+      },
+      {
+        "login" : "dependabot[bot]",
+        "avatarUrl" : "https://avatars.githubusercontent.com/in/29110?v=4",
+        "url" : "https://api.github.com/users/dependabot%5Bbot%5D",
+        "contributions" : 4
+      },
+      {
+        "login" : "karajend",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/42655760?v=4",
+        "url" : "https://api.github.com/users/karajend",
+        "contributions" : 4
+      },
+      {
+        "login" : "ms-kashyap",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/64443771?v=4",
+        "url" : "https://api.github.com/users/ms-kashyap",
+        "contributions" : 4
+      },
+      {
+        "login" : "haal",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1443385?v=4",
+        "url" : "https://api.github.com/users/haal",
+        "contributions" : 3
+      },
+      {
+        "login" : "jackgerrits",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7558482?v=4",
+        "url" : "https://api.github.com/users/jackgerrits",
+        "contributions" : 3
+      },
+      {
+        "login" : "shishaochen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17514649?v=4",
+        "url" : "https://api.github.com/users/shishaochen",
+        "contributions" : 3
+      },
+      {
+        "login" : "rolevin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19407597?v=4",
+        "url" : "https://api.github.com/users/rolevin",
+        "contributions" : 3
+      },
+      {
+        "login" : "gramhagen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5720537?v=4",
+        "url" : "https://api.github.com/users/gramhagen",
+        "contributions" : 3
+      },
+      {
+        "login" : "esclee",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5288860?v=4",
+        "url" : "https://api.github.com/users/esclee",
+        "contributions" : 2
+      },
+      {
+        "login" : "dakirsa",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19518343?v=4",
+        "url" : "https://api.github.com/users/dakirsa",
+        "contributions" : 2
+      },
+      {
+        "login" : "rohit21agrawal",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1857490?v=4",
+        "url" : "https://api.github.com/users/rohit21agrawal",
+        "contributions" : 2
+      },
+      {
+        "login" : "drdarshan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/875518?v=4",
+        "url" : "https://api.github.com/users/drdarshan",
+        "contributions" : 2
+      },
+      {
+        "login" : "SudhindraKovalam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14932494?v=4",
+        "url" : "https://api.github.com/users/SudhindraKovalam",
+        "contributions" : 2
+      },
+      {
+        "login" : "ezherdeva",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/82470223?v=4",
+        "url" : "https://api.github.com/users/ezherdeva",
+        "contributions" : 2
+      },
+      {
+        "login" : "42B",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/37713517?v=4",
+        "url" : "https://api.github.com/users/42B",
+        "contributions" : 1
+      },
+      {
+        "login" : "AbhiramE",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10187445?v=4",
+        "url" : "https://api.github.com/users/AbhiramE",
+        "contributions" : 1
+      },
+      {
+        "login" : "akzaidi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1307603?v=4",
+        "url" : "https://api.github.com/users/akzaidi",
+        "contributions" : 1
+      },
+      {
+        "login" : "arv100kri",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/769282?v=4",
+        "url" : "https://api.github.com/users/arv100kri",
+        "contributions" : 1
+      },
+      {
+        "login" : "ashishsarout",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/54136699?v=4",
+        "url" : "https://api.github.com/users/ashishsarout",
+        "contributions" : 1
+      },
+      {
+        "login" : "AtieveWadhwa",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14178104?v=4",
+        "url" : "https://api.github.com/users/AtieveWadhwa",
+        "contributions" : 1
+      },
+      {
+        "login" : "brendan-src",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/37676373?v=4",
+        "url" : "https://api.github.com/users/brendan-src",
+        "contributions" : 1
+      },
+      {
+        "login" : "charliec443",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2498638?v=4",
+        "url" : "https://api.github.com/users/charliec443",
+        "contributions" : 1
+      },
+      {
+        "login" : "chenhuims",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/20047467?v=4",
+        "url" : "https://api.github.com/users/chenhuims",
+        "contributions" : 1
+      },
+      {
+        "login" : "WaterKnight1998",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/41203448?v=4",
+        "url" : "https://api.github.com/users/WaterKnight1998",
+        "contributions" : 1
+      },
+      {
+        "login" : "nhymxu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/535617?v=4",
+        "url" : "https://api.github.com/users/nhymxu",
+        "contributions" : 1
+      },
+      {
+        "login" : "felixtran39",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43281010?v=4",
+        "url" : "https://api.github.com/users/felixtran39",
+        "contributions" : 1
+      },
+      {
+        "login" : "Fokko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1134248?v=4",
+        "url" : "https://api.github.com/users/Fokko",
+        "contributions" : 1
+      },
+      {
+        "login" : "iemejia",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/79476?v=4",
+        "url" : "https://api.github.com/users/iemejia",
+        "contributions" : 1
+      },
+      {
+        "login" : "janhavi13",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16737404?v=4",
+        "url" : "https://api.github.com/users/janhavi13",
+        "contributions" : 1
+      },
+      {
+        "login" : "loomlike",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/42475935?v=4",
+        "url" : "https://api.github.com/users/loomlike",
+        "contributions" : 1
+      },
+      {
+        "login" : "martin0258",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1118615?v=4",
+        "url" : "https://api.github.com/users/martin0258",
+        "contributions" : 1
+      },
+      {
+        "login" : "mmaitre314",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8584604?v=4",
+        "url" : "https://api.github.com/users/mmaitre314",
+        "contributions" : 1
+      },
+      {
+        "login" : "RatanRSur",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4733314?v=4",
+        "url" : "https://api.github.com/users/RatanRSur",
+        "contributions" : 1
+      },
+      {
+        "login" : "emthomas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7446317?v=4",
+        "url" : "https://api.github.com/users/emthomas",
+        "contributions" : 1
+      },
+      {
+        "login" : "alexandrseverinov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12212893?v=4",
+        "url" : "https://api.github.com/users/alexandrseverinov",
+        "contributions" : 1
+      },
+      {
+        "login" : "SharathChandra-AV",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/39083646?v=4",
+        "url" : "https://api.github.com/users/SharathChandra-AV",
+        "contributions" : 1
+      },
+      {
+        "login" : "tommyzli",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8738538?v=4",
+        "url" : "https://api.github.com/users/tommyzli",
+        "contributions" : 1
+      },
+      {
+        "login" : "Utsav2",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5454763?v=4",
+        "url" : "https://api.github.com/users/Utsav2",
+        "contributions" : 1
+      },
+      {
+        "login" : "avanunts",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15657497?v=4",
+        "url" : "https://api.github.com/users/avanunts",
+        "contributions" : 1
+      },
+      {
+        "login" : "ywskycn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1824905?v=4",
+        "url" : "https://api.github.com/users/ywskycn",
+        "contributions" : 1
+      },
+      {
+        "login" : "avinassh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/640792?v=4",
+        "url" : "https://api.github.com/users/avinassh",
+        "contributions" : 1
+      },
+      {
+        "login" : "dvanasseldonk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/39174311?v=4",
+        "url" : "https://api.github.com/users/dvanasseldonk",
+        "contributions" : 1
+      },
+      {
+        "login" : "eedeleon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/31962564?v=4",
+        "url" : "https://api.github.com/users/eedeleon",
+        "contributions" : 1
+      },
+      {
+        "login" : "ekaterina-sereda-rf",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30288819?v=4",
+        "url" : "https://api.github.com/users/ekaterina-sereda-rf",
+        "contributions" : 1
+      },
+      {
+        "login" : "elswork",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1455507?v=4",
+        "url" : "https://api.github.com/users/elswork",
+        "contributions" : 1
+      },
+      {
+        "login" : "flybywind",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3611011?v=4",
+        "url" : "https://api.github.com/users/flybywind",
+        "contributions" : 1
+      },
+      {
+        "login" : "inchiosa",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4316698?v=4",
+        "url" : "https://api.github.com/users/inchiosa",
+        "contributions" : 1
+      },
+      {
+        "login" : "jayamathew",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/36704119?v=4",
+        "url" : "https://api.github.com/users/jayamathew",
+        "contributions" : 1
+      },
+      {
+        "login" : "jtinkus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/35308202?v=4",
+        "url" : "https://api.github.com/users/jtinkus",
+        "contributions" : 1
+      },
+      {
+        "login" : "sinnfashen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22710431?v=4",
+        "url" : "https://api.github.com/users/sinnfashen",
+        "contributions" : 1
+      },
+      {
+        "login" : "uchiiii",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/32426869?v=4",
+        "url" : "https://api.github.com/users/uchiiii",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 1010,
+    "topics" : [
+      "deep-learning",
+      "databricks",
+      "apache-spark",
+      "onnx",
+      "lightgbm",
+      "azure",
+      "cognitive-services",
+      "opencv",
+      "big-data",
+      "data-science",
+      "spark",
+      "ai",
+      "microsoft",
+      "machine-learning",
+      "ml",
+      "pyspark",
+      "synapse",
+      "scala",
+      "http",
+      "model-deployment"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 1364,
+        "title" : "Unable to run saveNativeModel for VWRegressionModel",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1364"
+      },
+      {
+        "number" : 1363,
+        "title" : "Answer from Java side is empty - MMLspark",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1363"
+      },
+      {
+        "number" : 1356,
+        "title" : "Which option to chose to set parameters to LightGBMClassifier()?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1356"
+      },
+      {
+        "number" : 1351,
+        "title" : "For contextualbandits the params are not clear.",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1351"
+      },
+      {
+        "number" : 1346,
+        "title" : "Error:  parameter numItemBlocks given invalid value 0",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1346"
+      },
+      {
+        "number" : 1338,
+        "title" : "java.lang.NegativeArraySizeException while trainning",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1338"
+      },
+      {
+        "number" : 1336,
+        "title" : "LightGBMRanker not repartition by grouping column when using BarrierExecutionMode ",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1336"
+      },
+      {
+        "number" : 1332,
+        "title" : " using same dataset and same parameters while trained two different model",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1332"
+      },
+      {
+        "number" : 1327,
+        "title" : "Prediction is significantly slow especially when data is large",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1327"
+      },
+      {
+        "number" : 1325,
+        "title" : "LightGBMClassificationModel.fit gives raise Py4JNetworkError(\"Answer from Java side is empty\") py4j.protocol.Py4JNetworkError: Answer from Java side is empty",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1325"
+      },
+      {
+        "number" : 1324,
+        "title" : "is the unit tests reproducible on my personal computer?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1324"
+      },
+      {
+        "number" : 1316,
+        "title" : "Why it almost  do not speedup with distributed learning?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1316"
+      },
+      {
+        "number" : 1311,
+        "title" : "Sometimes I can fit successfully , But errors occur occasionally. (same environment and params)",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1311"
+      },
+      {
+        "number" : 1310,
+        "title" : "Prebuilt docker image does not work",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1310"
+      },
+      {
+        "number" : 1308,
+        "title" : "Making synapse.ml compatible with pandas_on_pyspark",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1308"
+      },
+      {
+        "number" : 1306,
+        "title" : "How to track lightgbm eval performance during and post training?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1306"
+      },
+      {
+        "number" : 1302,
+        "title" : "java.lang.NoSuchMethodError: spray.json.BasicFormats.$init$(Lspray/json/BasicFormats;)V",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1302"
+      },
+      {
+        "number" : 1296,
+        "title" : "Getting typeError: 'JavaPackage' object is not callable. for LightGBMRegressor.",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1296"
+      },
+      {
+        "number" : 1291,
+        "title" : "Error while using mmlspark Lightgbm : Py4JJavaError('An error occurred while calling o527.fit.\\n', JavaObject id=o680)",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1291"
+      },
+      {
+        "number" : 1289,
+        "title" : "Unable to save the complete pipeline to disk",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1289"
+      },
+      {
+        "number" : 1280,
+        "title" : "Pre-built Docker container not working",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1280"
+      },
+      {
+        "number" : 1275,
+        "title" : "log_model fails after upgrading to Databricks 10.0ML",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1275"
+      },
+      {
+        "number" : 1274,
+        "title" : "Inside transformations",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1274"
+      },
+      {
+        "number" : 1224,
+        "title" : "Trying to run light-gbm example on spark 3",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1224"
+      },
+      {
+        "number" : 1179,
+        "title" : "Unstable result on training set with same code",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1179"
+      },
+      {
+        "number" : 1175,
+        "title" : "After updating version , I used the same code and data set, but the AUC changed a lot",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1175"
+      },
+      {
+        "number" : 1127,
+        "title" : "LightGBMClassifier high runtime on test dataset ",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1127"
+      },
+      {
+        "number" : 1094,
+        "title" : "How to see the number of iterations and loss changes when running model in mmlspark lightgbm?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1094"
+      },
+      {
+        "number" : 1072,
+        "title" : "Classifier ... doesn't extend from HasRawPredictionCol.",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1072"
+      },
+      {
+        "number" : 1068,
+        "title" : "mmlspark.lightgbm.LightGBMRegressor crashes when numIterations is high",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1068"
+      },
+      {
+        "number" : 1064,
+        "title" : "Lightgbm bug on big dataset",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1064"
+      },
+      {
+        "number" : 1060,
+        "title" : "Cognitive Services functions and latest spark",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1060"
+      },
+      {
+        "number" : 1056,
+        "title" : "What SHA used to produce the 1.0.0-rc1 JAR?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1056"
+      },
+      {
+        "number" : 1053,
+        "title" : "LightGBM stuck at \"reduce at LightGBMClassifier.scala:150\"",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1053"
+      },
+      {
+        "number" : 1050,
+        "title" : "MMSpark Serving continuousServer breaks under light load",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1050"
+      },
+      {
+        "number" : 1046,
+        "title" : "java.util.NoSuchElementException: Param binSampleCount does not exist on LightGBM",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1046"
+      },
+      {
+        "number" : 1044,
+        "title" : "Support ML Flow Logging",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1044"
+      },
+      {
+        "number" : 1026,
+        "title" : "Spark Serving in Kubernetes",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1026"
+      },
+      {
+        "number" : 1025,
+        "title" : "Cognitive Services - Speaker Recognition",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1025"
+      },
+      {
+        "number" : 1013,
+        "title" : "Python mmlspark typing information",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1013"
+      },
+      {
+        "number" : 1008,
+        "title" : "Spark not configured in docker image",
+        "url" : "https://github.com/microsoft/SynapseML/issues/1008"
+      },
+      {
+        "number" : 997,
+        "title" : "[LightGBM]Request to add some parameters(min_data_per_group, min_data_in_bin, cat_l2, max_cat_threshold, feature_fraction_seed, ...) from original LightGBM which are very important for training with higher accuracy",
+        "url" : "https://github.com/microsoft/SynapseML/issues/997"
+      },
+      {
+        "number" : 987,
+        "title" : "Module not found isssue",
+        "url" : "https://github.com/microsoft/SynapseML/issues/987"
+      },
+      {
+        "number" : 986,
+        "title" : "Large prediction results  unless using repartition(1) in databricks with lgbm model",
+        "url" : "https://github.com/microsoft/SynapseML/issues/986"
+      },
+      {
+        "number" : 978,
+        "title" : "[LightGBM] Distribute validation data for early stopping",
+        "url" : "https://github.com/microsoft/SynapseML/issues/978"
+      },
+      {
+        "number" : 976,
+        "title" : "Arbitrary web APIs does not work with some urls",
+        "url" : "https://github.com/microsoft/SynapseML/issues/976"
+      },
+      {
+        "number" : 975,
+        "title" : "No FileSystem for scheme: wasbs",
+        "url" : "https://github.com/microsoft/SynapseML/issues/975"
+      },
+      {
+        "number" : 974,
+        "title" : "No module named 'mmlspark.train._TrainClassifier'",
+        "url" : "https://github.com/microsoft/SynapseML/issues/974"
+      },
+      {
+        "number" : 971,
+        "title" : "Cannot find the saved native string model though SUCCSESS files are created",
+        "url" : "https://github.com/microsoft/SynapseML/issues/971"
+      },
+      {
+        "number" : 967,
+        "title" : "Text Analytics responses are missing \"id\" property",
+        "url" : "https://github.com/microsoft/SynapseML/issues/967"
+      },
+      {
+        "number" : 966,
+        "title" : "Multiple-quantile regression for LightGBMRegressor ",
+        "url" : "https://github.com/microsoft/SynapseML/issues/966"
+      },
+      {
+        "number" : 965,
+        "title" : "Could not recover from a failed barrier ResultStage",
+        "url" : "https://github.com/microsoft/SynapseML/issues/965"
+      },
+      {
+        "number" : 962,
+        "title" : "[LightGBM] can not run mmlspark in private cluster",
+        "url" : "https://github.com/microsoft/SynapseML/issues/962"
+      },
+      {
+        "number" : 960,
+        "title" : "What is the best Spark/YARN configuration to run a LightGBM train? Having memory issues",
+        "url" : "https://github.com/microsoft/SynapseML/issues/960"
+      },
+      {
+        "number" : 953,
+        "title" : "How do I view training metric values for each iteration?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/953"
+      },
+      {
+        "number" : 951,
+        "title" : "how to get the loss after each iteration",
+        "url" : "https://github.com/microsoft/SynapseML/issues/951"
+      },
+      {
+        "number" : 950,
+        "title" : "setting number of thread per executor",
+        "url" : "https://github.com/microsoft/SynapseML/issues/950"
+      },
+      {
+        "number" : 949,
+        "title" : "java.net.ConnectException: Connection refused when training LightGBM Classifier",
+        "url" : "https://github.com/microsoft/SynapseML/issues/949"
+      },
+      {
+        "number" : 938,
+        "title" : "README.md has outdated TOC",
+        "url" : "https://github.com/microsoft/SynapseML/issues/938"
+      },
+      {
+        "number" : 937,
+        "title" : "mmlspark serving: Simple pyspark pipeline example not working",
+        "url" : "https://github.com/microsoft/SynapseML/issues/937"
+      },
+      {
+        "number" : 936,
+        "title" : "code block LightGBMClassifier fit on yarn ",
+        "url" : "https://github.com/microsoft/SynapseML/issues/936"
+      },
+      {
+        "number" : 934,
+        "title" : "Examples for HyperParameter Tuning in Learning to Rank tasks with Python API",
+        "url" : "https://github.com/microsoft/SynapseML/issues/934"
+      },
+      {
+        "number" : 928,
+        "title" : "[LightGBM] Cannot set random seed value for LightGBM Classifier for reproducibility",
+        "url" : "https://github.com/microsoft/SynapseML/issues/928"
+      },
+      {
+        "number" : 925,
+        "title" : "[LightGBM] How to use all available parameters on the origina LightGBM API?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/925"
+      },
+      {
+        "number" : 924,
+        "title" : "[LightGBM] Faild evaluation phase using validationIndicatorCol",
+        "url" : "https://github.com/microsoft/SynapseML/issues/924"
+      },
+      {
+        "number" : 919,
+        "title" : "Upgrading to 1.0.0-rc2 results in a large drop in classification performance using LightGBMClassifier.",
+        "url" : "https://github.com/microsoft/SynapseML/issues/919"
+      },
+      {
+        "number" : 918,
+        "title" : "[LightGBM] Regression: how to penalize negative predictions",
+        "url" : "https://github.com/microsoft/SynapseML/issues/918"
+      },
+      {
+        "number" : 917,
+        "title" : "Missing attributes for OneHotEncoderModel in a Pipeline after loading mmlspark module",
+        "url" : "https://github.com/microsoft/SynapseML/issues/917"
+      },
+      {
+        "number" : 911,
+        "title" : "[Lightgbm] Support saving checkpoints during training",
+        "url" : "https://github.com/microsoft/SynapseML/issues/911"
+      },
+      {
+        "number" : 908,
+        "title" : "Dataset set feature names call failed in LightGBM with error: Do not support non-ascii characters in feature name.",
+        "url" : "https://github.com/microsoft/SynapseML/issues/908"
+      },
+      {
+        "number" : 906,
+        "title" : "Why the probability from Lightgbm can be larger than 1 and samller than 0?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/906"
+      },
+      {
+        "number" : 903,
+        "title" : "where to see mmlspark serving log?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/903"
+      },
+      {
+        "number" : 902,
+        "title" : "Request to add parameter use_missing, zero_as_missing",
+        "url" : "https://github.com/microsoft/SynapseML/issues/902"
+      },
+      {
+        "number" : 899,
+        "title" : "how do I install mmlspark to CDH cluster without network access?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/899"
+      },
+      {
+        "number" : 898,
+        "title" : "R package install error",
+        "url" : "https://github.com/microsoft/SynapseML/issues/898"
+      },
+      {
+        "number" : 894,
+        "title" : "java.lang.OutOfMemoryError: GC overhead limit exceeded",
+        "url" : "https://github.com/microsoft/SynapseML/issues/894"
+      },
+      {
+        "number" : 893,
+        "title" : "LightGBM: Launch container failed when predicting with spark 2.3 scala 2.11",
+        "url" : "https://github.com/microsoft/SynapseML/issues/893"
+      },
+      {
+        "number" : 891,
+        "title" : "Py4JJavaError: An error occurred while calling None.com.microsoft.ml.spark.lightgbm.LightGBMClassifier. : java.lang.NoClassDefFoundError: org/apache/spark/ml/util/MLWritable$class",
+        "url" : "https://github.com/microsoft/SynapseML/issues/891"
+      },
+      {
+        "number" : 889,
+        "title" : "How to perfectly migrate local lightgbm to spark lightgbm without effect change?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/889"
+      },
+      {
+        "number" : 884,
+        "title" : "Docker images from tools/helm not work",
+        "url" : "https://github.com/microsoft/SynapseML/issues/884"
+      },
+      {
+        "number" : 878,
+        "title" : "How to diagnose NaN predictions?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/878"
+      },
+      {
+        "number" : 877,
+        "title" : "Lightgbm categoricalSlotNames error",
+        "url" : "https://github.com/microsoft/SynapseML/issues/877"
+      },
+      {
+        "number" : 876,
+        "title" : "Lightgbm ValidationIndicatorCol - which are values exactly in this str Col",
+        "url" : "https://github.com/microsoft/SynapseML/issues/876"
+      },
+      {
+        "number" : 875,
+        "title" : "LightGBM doesnt have hyper-parameters as attributes in the java object",
+        "url" : "https://github.com/microsoft/SynapseML/issues/875"
+      },
+      {
+        "number" : 874,
+        "title" : "Categorical Features and Missing Values",
+        "url" : "https://github.com/microsoft/SynapseML/issues/874"
+      },
+      {
+        "number" : 868,
+        "title" : "Question : Why are regression tree ensemble predictions inconsistent with the ones from microsoft/LightGBM",
+        "url" : "https://github.com/microsoft/SynapseML/issues/868"
+      },
+      {
+        "number" : 867,
+        "title" : "LightGBMRanker stopped training (No further splits with positive gain)",
+        "url" : "https://github.com/microsoft/SynapseML/issues/867"
+      },
+      {
+        "number" : 865,
+        "title" : "Unable to trace Docker Image Version for MML/Spark2.4",
+        "url" : "https://github.com/microsoft/SynapseML/issues/865"
+      },
+      {
+        "number" : 859,
+        "title" : "Running mmlspark on Centos 7",
+        "url" : "https://github.com/microsoft/SynapseML/issues/859"
+      },
+      {
+        "number" : 858,
+        "title" : "java.lang.Exception: Dataset create call failed in LightGBM with error: vector::reserve",
+        "url" : "https://github.com/microsoft/SynapseML/issues/858"
+      },
+      {
+        "number" : 854,
+        "title" : "Provide more detailed documentation for pyspark install & implementation",
+        "url" : "https://github.com/microsoft/SynapseML/issues/854"
+      },
+      {
+        "number" : 848,
+        "title" : "add logging mechanism for all estimators/transformers",
+        "url" : "https://github.com/microsoft/SynapseML/issues/848"
+      },
+      {
+        "number" : 846,
+        "title" : "java.lang.NoClassDefFoundError: Lcom/microsoft/ml/lightgbm/SWIGTYPE_p_int64_t",
+        "url" : "https://github.com/microsoft/SynapseML/issues/846"
+      },
+      {
+        "number" : 844,
+        "title" : "com microsoft ml spark stages Lambda",
+        "url" : "https://github.com/microsoft/SynapseML/issues/844"
+      },
+      {
+        "number" : 830,
+        "title" : "ERROR: No matching distribution found for mmlspark",
+        "url" : "https://github.com/microsoft/SynapseML/issues/830"
+      },
+      {
+        "number" : 824,
+        "title" : "[Fatal] Tree model should contain cat_threshold field for lgbm",
+        "url" : "https://github.com/microsoft/SynapseML/issues/824"
+      },
+      {
+        "number" : 823,
+        "title" : "ClassCastException with LgbmRanker train",
+        "url" : "https://github.com/microsoft/SynapseML/issues/823"
+      },
+      {
+        "number" : 819,
+        "title" : "Error When Trying To Use CNTKModel()",
+        "url" : "https://github.com/microsoft/SynapseML/issues/819"
+      },
+      {
+        "number" : 815,
+        "title" : "java.lang.UnsatisfiedLinkError: Reason: image not found",
+        "url" : "https://github.com/microsoft/SynapseML/issues/815"
+      },
+      {
+        "number" : 813,
+        "title" : "Spark 3.0 build",
+        "url" : "https://github.com/microsoft/SynapseML/issues/813"
+      },
+      {
+        "number" : 807,
+        "title" : "Cannot save VowpalWabbit Model output in gcs",
+        "url" : "https://github.com/microsoft/SynapseML/issues/807"
+      },
+      {
+        "number" : 804,
+        "title" : "VowpalWabbitClassifier does not work with --oaa (One Against All) argument",
+        "url" : "https://github.com/microsoft/SynapseML/issues/804"
+      },
+      {
+        "number" : 803,
+        "title" : "Is there any example for mml.LightGBMClassifier that worked with a normal CSV file?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/803"
+      },
+      {
+        "number" : 801,
+        "title" : "[LIGHTGBM]LightGBMRanker failing for negative GroupColumn values with message: DatasetSetField call failed in LightGBM with error: Sum of query counts is not same with #data",
+        "url" : "https://github.com/microsoft/SynapseML/issues/801"
+      },
+      {
+        "number" : 790,
+        "title" : "Can't integrate with Zeppelin — Failed to collect dependencies",
+        "url" : "https://github.com/microsoft/SynapseML/issues/790"
+      },
+      {
+        "number" : 789,
+        "title" : "Request to add parameters - monotone_constraints, top_rate, other_rate, max_cat_threshold, max_cat_to_onehot, max_conflict_rate, is_enable_sparse, sparse_threshold, num_threads, data_random_seed, feature_fraction_seed, early_stopping_round, use_missing, zero_as_missing, min_data_in_bin, min_data_per_group, min_data_in_leaf, min_gain_to_split, cat_l2, cat_smooth, feature_fraction_bynode",
+        "url" : "https://github.com/microsoft/SynapseML/issues/789"
+      },
+      {
+        "number" : 788,
+        "title" : "Incorrect rawPrediction and probability from scoring test data?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/788"
+      },
+      {
+        "number" : 777,
+        "title" : "Error with sparse matrix",
+        "url" : "https://github.com/microsoft/SynapseML/issues/777"
+      },
+      {
+        "number" : 774,
+        "title" : "Lightgbm example code with Categorical feature",
+        "url" : "https://github.com/microsoft/SynapseML/issues/774"
+      },
+      {
+        "number" : 772,
+        "title" : "Does mmlspark support running on yarn?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/772"
+      },
+      {
+        "number" : 771,
+        "title" : "Error trying to install mmlspark",
+        "url" : "https://github.com/microsoft/SynapseML/issues/771"
+      },
+      {
+        "number" : 770,
+        "title" : "Crash when fitting a model twice",
+        "url" : "https://github.com/microsoft/SynapseML/issues/770"
+      },
+      {
+        "number" : 769,
+        "title" : "Still cant load latest version : RC1",
+        "url" : "https://github.com/microsoft/SynapseML/issues/769"
+      },
+      {
+        "number" : 767,
+        "title" : "How do I add the catalog input to the SAR model?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/767"
+      },
+      {
+        "number" : 764,
+        "title" : "LightGBM error when running on Mac with mmlspark 0.18.1",
+        "url" : "https://github.com/microsoft/SynapseML/issues/764"
+      },
+      {
+        "number" : 751,
+        "title" : "why is the trainning speed  of lightgbm on spark so slow compared with the local version?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/751"
+      },
+      {
+        "number" : 750,
+        "title" : "How to run mmlspark on yarn?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/750"
+      },
+      {
+        "number" : 749,
+        "title" : "Though setting a base model string to LightGBMClassifier, AUC and loss value in steps in retried experiment are very lows as training a model firstly",
+        "url" : "https://github.com/microsoft/SynapseML/issues/749"
+      },
+      {
+        "number" : 748,
+        "title" : "Connection Refused Error while using lightgbmRegressor",
+        "url" : "https://github.com/microsoft/SynapseML/issues/748"
+      },
+      {
+        "number" : 747,
+        "title" : "The result returned by the function of ClusterUtil.getNumExecutorCores() sometimes is incorrect.",
+        "url" : "https://github.com/microsoft/SynapseML/issues/747"
+      },
+      {
+        "number" : 745,
+        "title" : "Installation from Maven failing on Databricks",
+        "url" : "https://github.com/microsoft/SynapseML/issues/745"
+      },
+      {
+        "number" : 744,
+        "title" : "Can lightgbm support incremental training begine from a trained model?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/744"
+      },
+      {
+        "number" : 743,
+        "title" : "Question: when to use Barrier Execution Mode ? ",
+        "url" : "https://github.com/microsoft/SynapseML/issues/743"
+      },
+      {
+        "number" : 741,
+        "title" : "how to export pmml for FindBestModel?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/741"
+      },
+      {
+        "number" : 738,
+        "title" : "Saving lgb model and loading in local Python",
+        "url" : "https://github.com/microsoft/SynapseML/issues/738"
+      },
+      {
+        "number" : 737,
+        "title" : "Question: how to set two_round=true to prevent peak memory usage in LightGBM? ",
+        "url" : "https://github.com/microsoft/SynapseML/issues/737"
+      },
+      {
+        "number" : 736,
+        "title" : "NullPointerException while compute accuracy with ComputeModelStatistics",
+        "url" : "https://github.com/microsoft/SynapseML/issues/736"
+      },
+      {
+        "number" : 735,
+        "title" : "How to specify classification or regression for ComputeModelStatistics ?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/735"
+      },
+      {
+        "number" : 734,
+        "title" : "Question: what is a list of available metrics for ComputeModelStatistics().setEvaluationMetric()",
+        "url" : "https://github.com/microsoft/SynapseML/issues/734"
+      },
+      {
+        "number" : 732,
+        "title" : "How to add query data for LightGBM with objective lambdarank ?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/732"
+      },
+      {
+        "number" : 731,
+        "title" : "Request: Spark Scala standalone app example for LightGBM ",
+        "url" : "https://github.com/microsoft/SynapseML/issues/731"
+      },
+      {
+        "number" : 728,
+        "title" : "[LightGBM] [Fatal] Socket recv error, code: 104 when training with binary objective. ",
+        "url" : "https://github.com/microsoft/SynapseML/issues/728"
+      },
+      {
+        "number" : 727,
+        "title" : "HttpOnSpark databricks example is not working (service responsed with 405/GET Method not allowed)",
+        "url" : "https://github.com/microsoft/SynapseML/issues/727"
+      },
+      {
+        "number" : 718,
+        "title" : "mmlspark.lightgbm._LightGBMClassifier does not exist",
+        "url" : "https://github.com/microsoft/SynapseML/issues/718"
+      },
+      {
+        "number" : 717,
+        "title" : "Support VW native training format",
+        "url" : "https://github.com/microsoft/SynapseML/issues/717"
+      },
+      {
+        "number" : 716,
+        "title" : "LightGBMRegressor on DataBricks uses only 1 worker",
+        "url" : "https://github.com/microsoft/SynapseML/issues/716"
+      },
+      {
+        "number" : 715,
+        "title" : "pyspark --packages com.microsoft.ml.spark:mmlspark_2.11:1.0.0-rc1",
+        "url" : "https://github.com/microsoft/SynapseML/issues/715"
+      },
+      {
+        "number" : 707,
+        "title" : "ClusterUtil.getNumCoresPerExecutor returns the wrong number",
+        "url" : "https://github.com/microsoft/SynapseML/issues/707"
+      },
+      {
+        "number" : 701,
+        "title" : "new docker based install notebooks not loading",
+        "url" : "https://github.com/microsoft/SynapseML/issues/701"
+      },
+      {
+        "number" : 691,
+        "title" : "Access Training Metrics",
+        "url" : "https://github.com/microsoft/SynapseML/issues/691"
+      },
+      {
+        "number" : 689,
+        "title" : "At start up, validation collects validationIndicatorCol on the driver leading to crashes/hangs.",
+        "url" : "https://github.com/microsoft/SynapseML/issues/689"
+      },
+      {
+        "number" : 686,
+        "title" : "Parameter name equivalency with LightGBM -- snake_case vs camelCase",
+        "url" : "https://github.com/microsoft/SynapseML/issues/686"
+      },
+      {
+        "number" : 679,
+        "title" : "mmlspark 0.17 : java.lang.NullPointerException: Value at index 4 is null",
+        "url" : "https://github.com/microsoft/SynapseML/issues/679"
+      },
+      {
+        "number" : 670,
+        "title" : "Evaluator for Ranking Tasks",
+        "url" : "https://github.com/microsoft/SynapseML/issues/670"
+      },
+      {
+        "number" : 668,
+        "title" : "UnsatisfiedLinkError OSX",
+        "url" : "https://github.com/microsoft/SynapseML/issues/668"
+      },
+      {
+        "number" : 667,
+        "title" : "TuneHyperparameters - Exception thrown in awaitResult",
+        "url" : "https://github.com/microsoft/SynapseML/issues/667"
+      },
+      {
+        "number" : 662,
+        "title" : "Enable passing num_threads param to LightGBM",
+        "url" : "https://github.com/microsoft/SynapseML/issues/662"
+      },
+      {
+        "number" : 658,
+        "title" : "Write an image dataframe",
+        "url" : "https://github.com/microsoft/SynapseML/issues/658"
+      },
+      {
+        "number" : 646,
+        "title" : "[mmlspark=0.17] LightGBMRegressor failing due to Connection Exception",
+        "url" : "https://github.com/microsoft/SynapseML/issues/646"
+      },
+      {
+        "number" : 643,
+        "title" : "VW classifer should output vector for rawPredictions",
+        "url" : "https://github.com/microsoft/SynapseML/issues/643"
+      },
+      {
+        "number" : 639,
+        "title" : "train lgb",
+        "url" : "https://github.com/microsoft/SynapseML/issues/639"
+      },
+      {
+        "number" : 629,
+        "title" : "ClassCastException while training LightGBMRegressor [Urgent]",
+        "url" : "https://github.com/microsoft/SynapseML/issues/629"
+      },
+      {
+        "number" : 627,
+        "title" : "lib_lightgbm.so: cannot apply additional memory protection after relocation",
+        "url" : "https://github.com/microsoft/SynapseML/issues/627"
+      },
+      {
+        "number" : 623,
+        "title" : "LightGBMClassifier, LightGBMRegressor hang indefinitely without error at fit()",
+        "url" : "https://github.com/microsoft/SynapseML/issues/623"
+      },
+      {
+        "number" : 614,
+        "title" : "Cannot load PipelineModel",
+        "url" : "https://github.com/microsoft/SynapseML/issues/614"
+      },
+      {
+        "number" : 611,
+        "title" : " java.lang.NoClassDefFoundError:Lcom/microsoft/ml/lightgbm/SWIGTYPE_p_void",
+        "url" : "https://github.com/microsoft/SynapseML/issues/611"
+      },
+      {
+        "number" : 597,
+        "title" : "Docker Warning message and Postman request?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/597"
+      },
+      {
+        "number" : 590,
+        "title" : "Compiling project on CentOs7",
+        "url" : "https://github.com/microsoft/SynapseML/issues/590"
+      },
+      {
+        "number" : 588,
+        "title" : "LightGBMRegressor  NetworkInit failed with exception on local port 12464",
+        "url" : "https://github.com/microsoft/SynapseML/issues/588"
+      },
+      {
+        "number" : 582,
+        "title" : "Params from parent java estimators aren't copied to python mmlspark models",
+        "url" : "https://github.com/microsoft/SynapseML/issues/582"
+      },
+      {
+        "number" : 580,
+        "title" : "Training LightGBMRanker several times gives different NDCG on testing set",
+        "url" : "https://github.com/microsoft/SynapseML/issues/580"
+      },
+      {
+        "number" : 575,
+        "title" : "LightGBMRanker using only 50% of the cpu on each node",
+        "url" : "https://github.com/microsoft/SynapseML/issues/575"
+      },
+      {
+        "number" : 572,
+        "title" : "Mismatch in maven coordinates in the readme vs maven repo",
+        "url" : "https://github.com/microsoft/SynapseML/issues/572"
+      },
+      {
+        "number" : 571,
+        "title" : "OOM during model training because of coalesce",
+        "url" : "https://github.com/microsoft/SynapseML/issues/571"
+      },
+      {
+        "number" : 570,
+        "title" : "TabularLime errors",
+        "url" : "https://github.com/microsoft/SynapseML/issues/570"
+      },
+      {
+        "number" : 569,
+        "title" : "LightGBMClassifier: multiclass training, workers out of sync and early termination",
+        "url" : "https://github.com/microsoft/SynapseML/issues/569"
+      },
+      {
+        "number" : 564,
+        "title" : "lightgbm run twice with the same parameters, but got different result in validation",
+        "url" : "https://github.com/microsoft/SynapseML/issues/564"
+      },
+      {
+        "number" : 555,
+        "title" : "Using TrainClassifier with class weights (including ClassBalancer)",
+        "url" : "https://github.com/microsoft/SynapseML/issues/555"
+      },
+      {
+        "number" : 547,
+        "title" : "For Spark Serving, is it possible to bind more than 1 api to one port?",
+        "url" : "https://github.com/microsoft/SynapseML/issues/547"
+      },
+      {
+        "number" : 531,
+        "title" : "[Lightgbm] How to save models while training",
+        "url" : "https://github.com/microsoft/SynapseML/issues/531"
+      },
+      {
+        "number" : 486,
+        "title" : "MMLSpark runme installs CPU version of CNTK only",
+        "url" : "https://github.com/microsoft/SynapseML/issues/486"
+      },
+      {
+        "number" : 480,
+        "title" : "LightGBM online prediction ",
+        "url" : "https://github.com/microsoft/SynapseML/issues/480"
+      },
+      {
+        "number" : 477,
+        "title" : "Azure Search Writer Nice To Haves",
+        "url" : "https://github.com/microsoft/SynapseML/issues/477"
+      },
+      {
+        "number" : 454,
+        "title" : "Fatal Log4j issue when running LightGBM in Scala (MMLSpark v0.15)",
+        "url" : "https://github.com/microsoft/SynapseML/issues/454"
+      },
+      {
+        "number" : 453,
+        "title" : "Can you provide some ML examples of scala version ",
+        "url" : "https://github.com/microsoft/SynapseML/issues/453"
+      },
+      {
+        "number" : 445,
+        "title" : "Make it available for scala 2.12",
+        "url" : "https://github.com/microsoft/SynapseML/issues/445"
+      },
+      {
+        "number" : 421,
+        "title" : "Unroll Image tests hang occasionally",
+        "url" : "https://github.com/microsoft/SynapseML/issues/421"
+      },
+      {
+        "number" : 403,
+        "title" : "ResizeImageTransformer not properly wrapped",
+        "url" : "https://github.com/microsoft/SynapseML/issues/403"
+      },
+      {
+        "number" : 381,
+        "title" : "Synchronisation problem",
+        "url" : "https://github.com/microsoft/SynapseML/issues/381"
+      },
+      {
+        "number" : 376,
+        "title" : "UDFTransformer does not accept Python Lambdas",
+        "url" : "https://github.com/microsoft/SynapseML/issues/376"
+      },
+      {
+        "number" : 375,
+        "title" : "unable to use LightGBMClassifier in R due to wrong datatype",
+        "url" : "https://github.com/microsoft/SynapseML/issues/375"
+      },
+      {
+        "number" : 347,
+        "title" : "Make Spark Serving Easier to Use",
+        "url" : "https://github.com/microsoft/SynapseML/issues/347"
+      },
+      {
+        "number" : 319,
+        "title" : "LightGBM and dynamic allocation",
+        "url" : "https://github.com/microsoft/SynapseML/issues/319"
+      },
+      {
+        "number" : 311,
+        "title" : "MMLSpark on Cloudera",
+        "url" : "https://github.com/microsoft/SynapseML/issues/311"
+      },
+      {
+        "number" : 304,
+        "title" : "Featurizer should provide option to pass through missing values as Double.NaN instead of removing rows (currently the default)",
+        "url" : "https://github.com/microsoft/SynapseML/issues/304"
+      },
+      {
+        "number" : 295,
+        "title" : "LightGBM error java.lang.NoClassDefFoundError: Lcom/microsoft/ml/lightgbm/SWIGTYPE_p_void;",
+        "url" : "https://github.com/microsoft/SynapseML/issues/295"
+      },
+      {
+        "number" : 268,
+        "title" : "`/tmp` cleanups",
+        "url" : "https://github.com/microsoft/SynapseML/issues/268"
+      },
+      {
+        "number" : 243,
+        "title" : "UDFtransformer should not extend HasInputCol and HasInputCols",
+        "url" : "https://github.com/microsoft/SynapseML/issues/243"
+      },
+      {
+        "number" : 236,
+        "title" : "Can not install R packages on DataBricks, different expected folder structor. ",
+        "url" : "https://github.com/microsoft/SynapseML/issues/236"
+      },
+      {
+        "number" : 225,
+        "title" : "Python AutoGen does not append \"_\" to nested classes.",
+        "url" : "https://github.com/microsoft/SynapseML/issues/225"
+      },
+      {
+        "number" : 214,
+        "title" : "Improve CNTKTrainer Style",
+        "url" : "https://github.com/microsoft/SynapseML/issues/214"
+      },
+      {
+        "number" : 208,
+        "title" : "Code Gen does not autogenerate Evaluators",
+        "url" : "https://github.com/microsoft/SynapseML/issues/208"
+      },
+      {
+        "number" : 188,
+        "title" : "Notebooks for R wrappers",
+        "url" : "https://github.com/microsoft/SynapseML/issues/188"
+      },
+      {
+        "number" : 187,
+        "title" : "Additional R wrappers work",
+        "url" : "https://github.com/microsoft/SynapseML/issues/187"
+      },
+      {
+        "number" : 185,
+        "title" : "Add a notebook to demonstrate `TextPreprocessing`",
+        "url" : "https://github.com/microsoft/SynapseML/issues/185"
+      },
+      {
+        "number" : 166,
+        "title" : "are there in any scala examples",
+        "url" : "https://github.com/microsoft/SynapseML/issues/166"
+      },
+      {
+        "number" : 70,
+        "title" : "Need to Organize Repo Structure ",
+        "url" : "https://github.com/microsoft/SynapseML/issues/70"
+      },
+      {
+        "number" : 69,
+        "title" : "Featurize needs API review ",
+        "url" : "https://github.com/microsoft/SynapseML/issues/69"
+      },
+      {
+        "number" : 68,
+        "title" : "Train Classifier and Train Regressor need API review",
+        "url" : "https://github.com/microsoft/SynapseML/issues/68"
+      },
+      {
+        "number" : 26,
+        "title" : "In GPU VM template, allow user to specify existing storage account",
+        "url" : "https://github.com/microsoft/SynapseML/issues/26"
+      },
+      {
+        "number" : 13,
+        "title" : "Support scoring of TensorFlow-based neural network models",
+        "url" : "https://github.com/microsoft/SynapseML/issues/13"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : null,
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "probability-statistics-and-machine-learning",
+    "beginnerIssuesLabel" : null
+  }
+}

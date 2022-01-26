@@ -1,0 +1,226 @@
+{
+  "organization" : "wix",
+  "repository" : "accord",
+  "creationDate" : 1431233521107,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643196260239
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "http://wix.github.io/accord/",
+    "description" : "Accord: A sane validation library for Scala",
+    "logo" : "https://avatars.githubusercontent.com/u/686511?v=4",
+    "stars" : 520,
+    "forks" : 47,
+    "watchers" : 271,
+    "issues" : 25,
+    "creationDate" : 1384358153000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><p dir=\"auto\"><a href=\"https://travis-ci.org/wix/accord\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/722e1c066bb03db2f2262ee06f6c1031d94d6d329727cf5f2ceb97e732f97280/68747470733a2f2f7472617669732d63692e6f72672f7769782f6163636f72642e7376673f6272616e63683d6d6173746572\" alt=\"Build Status\" data-canonical-src=\"https://travis-ci.org/wix/accord.svg?branch=master\" style=\"max-width: 100%;\"></a> <a href=\"https://gitter.im/wix/accord?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/5dbac0213da25c445bd11f168587c11a200ba153ef3014e8408e462e410169b3/68747470733a2f2f6261646765732e6769747465722e696d2f4a6f696e253230436861742e737667\" alt=\"Gitter\" data-canonical-src=\"https://badges.gitter.im/Join%20Chat.svg\" style=\"max-width: 100%;\"></a> <a href=\"http://search.maven.org/#search%7Cgav%7C1%7Cg:com.wix%20AND%20a:accord*\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/e7ed31f727ea4a145d997d973f577dee32dfd3d41a4936413cc58c1899e24034/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e7769782f6163636f72642d636f72655f322e31312e7376673f6d61784167653d33363030\" alt=\"Maven Central\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.wix/accord-core_2.11.svg?maxAge=3600\" style=\"max-width: 100%;\"></a> <a href=\"https://www.scala-js.org\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/246eedc811241dbbc169d49d366ee6a997a3f06dd1ddc1a45cd9ce6d2d36bcc3/68747470733a2f2f7777772e7363616c612d6a732e6f72672f6173736574732f6261646765732f7363616c616a732d302e362e31372e737667\" alt=\"Scala.js\" data-canonical-src=\"https://www.scala-js.org/assets/badges/scalajs-0.6.17.svg\" style=\"max-width: 100%;\"></a></p>\n<h1 dir=\"auto\"><a id=\"user-content-overview\" class=\"anchor\" aria-hidden=\"true\" href=\"#overview\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Overview</h1>\n<p dir=\"auto\"><a href=\"http://wix.github.io/accord\" rel=\"nofollow\"><img src=\"assets/accord-logo-light.png\" alt=\"Accord\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Accord is a validation library written in and for Scala. Compared to <a href=\"http://jcp.org/en/jsr/detail?id=303\" rel=\"nofollow\">JSR 303</a> and <a href=\"https://github.com/scalaz/scalaz/blob/scalaz-seven/core/src/main/scala/scalaz/Validation.scala\">Scalaz validation</a> it aims to provide the following:</p>\n<ul dir=\"auto\">\n<li><strong>Composable</strong>: Because JSR 303 is annotation based, validation rules cannot be composed (annotations cannot receive other annotations as parameters). This is a real problem with some Scala features, for example <code>Option</code>s or collections. Accord's validation rules are trivially composable.</li>\n<li><strong>Simple</strong>: Accord provides a dead-simple story for validation rule definition by leveraging macros, as well as the validation call site (see example below).</li>\n<li><strong>Self-contained</strong>: Accord is macro-based but completely self-contained, and consequently only relies on the Scala runtime and reflection libraries.</li>\n<li><strong>Integrated</strong>: Other than providing its own DSL and matcher library, Accord is designed to easily integrate with the larger Scala ecosystem, and provides out-of-the-box support for <a href=\"http://www.scala-js.org\" rel=\"nofollow\">Scala.js</a>, as well as integration modules for <a href=\"http://wix.github.io/accord/spring3.html\" rel=\"nofollow\">Spring Validation</a>, <a href=\"http://wix.github.io/accord/specs2.html\" rel=\"nofollow\">Specs<sup>2</sup></a> and <a href=\"http://wix.github.io/accord/scalatest.html\" rel=\"nofollow\">ScalaTest</a>.</li>\n</ul>\n<p dir=\"auto\">For proper user guide and additional documentation please refer to <a href=\"http://wix.github.io/accord\" rel=\"nofollow\">project website</a>.</p>\n<p dir=\"auto\">Accord is developed and used at <a href=\"http://www.wix.com\" rel=\"nofollow\"><img src=\"assets/wix_logo.png\" width=\"42\" height=\"11\" alt=\"Wix.com\" style=\"max-width: 100%;\"></a> and distributed under the <a href=\"http://www.apache.org/licenses/LICENSE-2.0\" rel=\"nofollow\">Apache License, Version 2.0</a>, which basically means you can use and modify it freely. Feedback, bug reports and improvements are welcome!</p>\n<h1 dir=\"auto\"><a id=\"user-content-roadmap\" class=\"anchor\" aria-hidden=\"true\" href=\"#roadmap\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Roadmap</h1>\n<p dir=\"auto\">Accord is still fairly rudimentary, and there's plenty of improvements to be made:</p>\n<ul dir=\"auto\">\n<li>The <a href=\"https://github.com/wix/accord/milestones/0.8\">0.8 milestone</a> lists the planned improvements for the next release.</li>\n<li>Some future plans/ideas:\n<ul dir=\"auto\">\n<li>Performance benchmarks</li>\n<li>Elide DSL implicit invocations from resulting tree for better performance and smaller code</li>\n<li>Add syntax for custom violation message overrides (e.g. <code>p.firstName is notEmpty as \"no first name!\"</code>)</li>\n<li>Support custom violation types (e.g. <code>p.firstName is notEmpty as MyServerError( code = -3 )</code>)</li>\n<li>Full-blown i18n support (<a href=\"https://github.com/wix/accord/issues/21\">need feedback</a> on this)</li>\n</ul>\n</li>\n</ul>\n<p dir=\"auto\">Ideas and feature requests welcome! You can join the fun on our <a href=\"https://gitter.im/wix/accord\" rel=\"nofollow\">Gitter channel</a>, report an <a href=\"https://github.com/wix/accord/issues/\">issue</a> or contact the <a href=\"https://github.com/noam-almog\">maintainer</a> directly.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "holograph",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1114848?v=4",
+        "url" : "https://api.github.com/users/holograph",
+        "contributions" : 375
+      },
+      {
+        "login" : "noam-almog",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4091923?v=4",
+        "url" : "https://api.github.com/users/noam-almog",
+        "contributions" : 34
+      },
+      {
+        "login" : "dakatsuka",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/59034?v=4",
+        "url" : "https://api.github.com/users/dakatsuka",
+        "contributions" : 5
+      },
+      {
+        "login" : "xeno-by",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/609152?v=4",
+        "url" : "https://api.github.com/users/xeno-by",
+        "contributions" : 5
+      },
+      {
+        "login" : "Diagoras",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1823098?v=4",
+        "url" : "https://api.github.com/users/Diagoras",
+        "contributions" : 1
+      },
+      {
+        "login" : "linasmwix",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17002155?v=4",
+        "url" : "https://api.github.com/users/linasmwix",
+        "contributions" : 1
+      },
+      {
+        "login" : "markus1189",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/591567?v=4",
+        "url" : "https://api.github.com/users/markus1189",
+        "contributions" : 1
+      },
+      {
+        "login" : "nadavwe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10103990?v=4",
+        "url" : "https://api.github.com/users/nadavwe",
+        "contributions" : 1
+      },
+      {
+        "login" : "yaronyam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10505445?v=4",
+        "url" : "https://api.github.com/users/yaronyam",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 424,
+    "topics" : [
+      "macros",
+      "dsl",
+      "validation",
+      "library",
+      "scala"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : "https://gitter.im/wix/accord",
+    "openIssues" : [
+      {
+        "number" : 154,
+        "title" : "0.7.3 release is missing",
+        "url" : "https://github.com/wix/accord/issues/154"
+      },
+      {
+        "number" : 146,
+        "title" : "Error:(8, 30) exception during macro expansion:  java.lang.ClassCastException: scala.reflect.internal.Trees$Block cannot be cast to scala.reflect.api.Trees$CaseDefApi",
+        "url" : "https://github.com/wix/accord/issues/146"
+      },
+      {
+        "number" : 124,
+        "title" : "Problem with basic validator example",
+        "url" : "https://github.com/wix/accord/issues/124"
+      },
+      {
+        "number" : 123,
+        "title" : "NoSuchMethodError when creating implicit validator",
+        "url" : "https://github.com/wix/accord/issues/123"
+      },
+      {
+        "number" : 119,
+        "title" : "ScalaDoc generation fails with pattern matches [WORKAROUND AVAILABLE] ",
+        "url" : "https://github.com/wix/accord/issues/119"
+      },
+      {
+        "number" : 116,
+        "title" : "Switch to Tut for documentation",
+        "url" : "https://github.com/wix/accord/issues/116"
+      },
+      {
+        "number" : 114,
+        "title" : "sbt update failed,   but if I change scalaVersion := \"2.11.8\"    it is ok",
+        "url" : "https://github.com/wix/accord/issues/114"
+      },
+      {
+        "number" : 111,
+        "title" : "Feedback on Bean Validation 2.0 spec",
+        "url" : "https://github.com/wix/accord/issues/111"
+      },
+      {
+        "number" : 102,
+        "title" : "Validator macro does not support Shapeless Coproduct",
+        "url" : "https://github.com/wix/accord/issues/102"
+      },
+      {
+        "number" : 101,
+        "title" : "Enact a community-standard coding convention",
+        "url" : "https://github.com/wix/accord/issues/101"
+      },
+      {
+        "number" : 100,
+        "title" : "Define, measure and enforce performance targets",
+        "url" : "https://github.com/wix/accord/issues/100"
+      },
+      {
+        "number" : 99,
+        "title" : "Better modularization",
+        "url" : "https://github.com/wix/accord/issues/99"
+      },
+      {
+        "number" : 79,
+        "title" : "Easy way to ensure all fields are non-null",
+        "url" : "https://github.com/wix/accord/issues/79"
+      },
+      {
+        "number" : 56,
+        "title" : "Support for \"Async\" validation",
+        "url" : "https://github.com/wix/accord/issues/56"
+      },
+      {
+        "number" : 55,
+        "title" : "description is not passed to RuleViolation for Option.each ",
+        "url" : "https://github.com/wix/accord/issues/55"
+      },
+      {
+        "number" : 52,
+        "title" : "Support monadic operations (map, flatMap) on collection contexts",
+        "url" : "https://github.com/wix/accord/issues/52"
+      },
+      {
+        "number" : 50,
+        "title" : "Re-enable test coverage with Coveralls",
+        "url" : "https://github.com/wix/accord/issues/50"
+      },
+      {
+        "number" : 49,
+        "title" : "Add example project for Scala.js support",
+        "url" : "https://github.com/wix/accord/issues/49"
+      },
+      {
+        "number" : 42,
+        "title" : "Monadic result model",
+        "url" : "https://github.com/wix/accord/issues/42"
+      },
+      {
+        "number" : 36,
+        "title" : "Spring integration: Error details are not propagated to the error object",
+        "url" : "https://github.com/wix/accord/issues/36"
+      },
+      {
+        "number" : 26,
+        "title" : "Improved testkit",
+        "url" : "https://github.com/wix/accord/issues/26"
+      },
+      {
+        "number" : 21,
+        "title" : "Support overriding constraint messages (i18n support)",
+        "url" : "https://github.com/wix/accord/issues/21"
+      },
+      {
+        "number" : 6,
+        "title" : "Support inline expressions in validators",
+        "url" : "https://github.com/wix/accord/issues/6"
+      },
+      {
+        "number" : 3,
+        "title" : "Add sample transformation output to the documentation",
+        "url" : "https://github.com/wix/accord/issues/3"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : "accord-api",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "forms-and-validation",
+    "beginnerIssuesLabel" : null
+  }
+}

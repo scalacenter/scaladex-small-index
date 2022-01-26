@@ -1,0 +1,865 @@
+{
+  "organization" : "twitter",
+  "repository" : "algebird",
+  "creationDate" : 1405179040113,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643175022405
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "https://twitter.github.io/algebird",
+    "description" : "Abstract Algebra for Scala",
+    "logo" : "https://avatars.githubusercontent.com/u/50278?v=4",
+    "stars" : 2108,
+    "forks" : 308,
+    "watchers" : 239,
+    "issues" : 93,
+    "creationDate" : 1343928282000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h2 dir=\"auto\"><a id=\"user-content-algebird\" class=\"anchor\" aria-hidden=\"true\" href=\"#algebird\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Algebird</h2>\n<p dir=\"auto\"><a href=\"http://travis-ci.org/twitter/algebird\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/e0f5498f4cb04eb9cfee220d116e53f7d6d40dde06924b264743d7e1c196124b/68747470733a2f2f696d672e736869656c64732e696f2f7472617669732f747769747465722f616c6765626972642f646576656c6f702e737667\" alt=\"Build status\" data-canonical-src=\"https://img.shields.io/travis/twitter/algebird/develop.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://codecov.io/github/twitter/algebird\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/5340fa99c90dd32472324bd9a9aca981a1dc8d1dad04ad4e85d4fff4393e6e17/68747470733a2f2f696d672e736869656c64732e696f2f636f6465636f762f632f6769746875622f747769747465722f616c6765626972642f646576656c6f702e7376673f6d61784167653d33363030\" alt=\"Codecov branch\" data-canonical-src=\"https://img.shields.io/codecov/c/github/twitter/algebird/develop.svg?maxAge=3600\" style=\"max-width: 100%;\"></a>\n<a href=\"https://index.scala-lang.org/twitter/algebird/algebird-core\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/f3c958a9ccf9e393a35b4a0fb0bc39bf61462f1a51df8db57201ed2e835c9a7c/68747470733a2f2f696e6465782e7363616c612d6c616e672e6f72672f747769747465722f616c6765626972642f616c6765626972642d636f72652f6c61746573742e7376673f636f6c6f723d6f72616e6765\" alt=\"Latest version\" data-canonical-src=\"https://index.scala-lang.org/twitter/algebird/algebird-core/latest.svg?color=orange\" style=\"max-width: 100%;\"></a>\n<a href=\"https://gitter.im/twitter/algebird?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/856754991535aca407f4a8a08ced9343eae9681165bfe3384f847481350c8e17/68747470733a2f2f6261646765732e6769747465722e696d2f747769747465722f616c6765626972642e737667\" alt=\"Chat\" data-canonical-src=\"https://badges.gitter.im/twitter/algebird.svg\" style=\"max-width: 100%;\"></a></p>\n<h3 dir=\"auto\"><a id=\"user-content-overview\" class=\"anchor\" aria-hidden=\"true\" href=\"#overview\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Overview</h3>\n<p dir=\"auto\">Abstract algebra for Scala. This code is targeted at building aggregation systems (via <a href=\"https://github.com/twitter/scalding\">Scalding</a> or <a href=\"http://storm.apache.org/\" rel=\"nofollow\">Apache Storm</a>). It was originally developed as part of Scalding's Matrix API, where Matrices had values which are elements of Monoids, Groups, or Rings. Subsequently, it was clear that the code had broader application within Scalding and on other projects within Twitter.</p>\n<p dir=\"auto\">See the <a href=\"https://twitter.github.io/algebird\" rel=\"nofollow\">Algebird website</a> for more information.</p>\n<h3 dir=\"auto\"><a id=\"user-content-what-can-you-do-with-this-code\" class=\"anchor\" aria-hidden=\"true\" href=\"#what-can-you-do-with-this-code\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>What can you do with this code?</h3>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&gt; sbt algebird-core/console\n\nWelcome to Scala 2.12.14 (OpenJDK 64-Bit Server VM, Java 11.0.1).\nType in expressions for evaluation. Or try :help.\n\nscala&gt; import com.twitter.algebird._\nimport com.twitter.algebird._\n\nscala&gt; import com.twitter.algebird.Operators._\nimport com.twitter.algebird.Operators._\n\nscala&gt; Map(1 -&gt; Max(2)) + Map(1 -&gt; Max(3)) + Map(2 -&gt; Max(4))\nres0: scala.collection.immutable.Map[Int,com.twitter.algebird.Max[Int]] = Map(2 -&gt; Max(4), 1 -&gt; Max(3))\"><pre><span class=\"pl-k\">&gt;</span> sbt algebird<span class=\"pl-k\">-</span>core<span class=\"pl-k\">/</span>console\n\n<span class=\"pl-en\">Welcome</span> to <span class=\"pl-en\">Scala</span> <span class=\"pl-c1\">2.12.14</span> (<span class=\"pl-en\">OpenJDK</span> <span class=\"pl-c1\">64</span><span class=\"pl-k\">-</span><span class=\"pl-en\">Bit</span> <span class=\"pl-en\">Server</span> <span class=\"pl-en\">VM</span>, <span class=\"pl-en\">Java</span> <span class=\"pl-c1\">11.0.1</span>).\n<span class=\"pl-en\">Type</span> in expressions <span class=\"pl-k\">for</span> evaluation. <span class=\"pl-en\">Or</span> <span class=\"pl-k\">try</span> <span class=\"pl-k\">:</span>help.\n\nscala<span class=\"pl-k\">&gt;</span> <span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">twitter</span>.<span class=\"pl-en\">algebird</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">twitter</span>.<span class=\"pl-en\">algebird</span>.<span class=\"pl-en\">_</span>\n\nscala<span class=\"pl-k\">&gt;</span> <span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">twitter</span>.<span class=\"pl-en\">algebird</span>.<span class=\"pl-en\">Operators</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">twitter</span>.<span class=\"pl-en\">algebird</span>.<span class=\"pl-en\">Operators</span>.<span class=\"pl-en\">_</span>\n\nscala<span class=\"pl-k\">&gt;</span> <span class=\"pl-en\">Map</span>(<span class=\"pl-c1\">1</span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-en\">Max</span>(<span class=\"pl-c1\">2</span>)) <span class=\"pl-k\">+</span> <span class=\"pl-en\">Map</span>(<span class=\"pl-c1\">1</span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-en\">Max</span>(<span class=\"pl-c1\">3</span>)) <span class=\"pl-k\">+</span> <span class=\"pl-en\">Map</span>(<span class=\"pl-c1\">2</span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-en\">Max</span>(<span class=\"pl-c1\">4</span>))\nres0<span class=\"pl-k\">:</span> scala.collection.immutable.<span class=\"pl-en\">Map</span>[<span class=\"pl-en\">Int</span>,com.twitter.algebird.<span class=\"pl-en\">Max</span>[<span class=\"pl-en\">Int</span>]] <span class=\"pl-k\">=</span> <span class=\"pl-en\">Map</span>(<span class=\"pl-c1\">2</span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-en\">Max</span>(<span class=\"pl-c1\">4</span>), <span class=\"pl-c1\">1</span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-en\">Max</span>(<span class=\"pl-c1\">3</span>))</pre></div>\n<p dir=\"auto\">In the above, the class <code>Max[T]</code> signifies that the <code>+</code> operator should actually be <code>max</code> (this is accomplished by providing an implicit instance of a typeclass for <code>Max</code> that handles <code>+</code>).</p>\n<ul dir=\"auto\">\n<li>Model a wide class of \"reductions\" as a sum on some iterator of a particular value type. For example, average, moving average, max/min, set union, approximate set size (in much less memory with HyperLogLog), approximate item counting (using CountMinSketch).</li>\n<li>All of these combine naturally in tuples, vectors, maps, options and more standard scala classes.</li>\n<li>Implementations of Monoids for interesting approximation algorithms, such as Bloom filter, HyperLogLog and CountMinSketch. These allow you to think of these sophisticated operations like you might numbers, and add them up in hadoop or online to produce powerful statistics and analytics.</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Documentation</h2>\n<p dir=\"auto\">To learn more and find links to tutorials and information around the web, check out the <a href=\"https://twitter.github.io/algebird\" rel=\"nofollow\">Algebird website</a>.</p>\n<p dir=\"auto\">The latest API docs are hosted on Algebird's <a href=\"https://twitter.github.io/algebird/api/\" rel=\"nofollow\">ScalaDoc index</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-get-involved--code-of-conduct\" class=\"anchor\" aria-hidden=\"true\" href=\"#get-involved--code-of-conduct\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Get Involved + Code of Conduct</h2>\n<p dir=\"auto\">Pull requests and bug reports are always welcome! Check out our <a href=\"https://twitter.github.io/algebird/contributing.html\" rel=\"nofollow\">Contributing guide</a> for information on what we most need help with and how you can get started contributing.</p>\n<p dir=\"auto\">Discussion occurs primarily on the Algebird Gitter channel: <a href=\"https://gitter.im/twitter/algebird?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/856754991535aca407f4a8a08ced9343eae9681165bfe3384f847481350c8e17/68747470733a2f2f6261646765732e6769747465722e696d2f747769747465722f616c6765626972642e737667\" alt=\"Chat\" data-canonical-src=\"https://badges.gitter.im/twitter/algebird.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">We also monitor the <a href=\"https://groups.google.com/forum/#!forum/algebird\" rel=\"nofollow\">Algebird mailing list</a>.</p>\n<p dir=\"auto\">Issues should be reported on the <a href=\"https://github.com/twitter/algebird/issues\">GitHub issue tracker</a>.</p>\n<p dir=\"auto\">We use a lightweight form of project governance inspired by the one used by Apache projects.</p>\n<p dir=\"auto\">Please see <a href=\"https://github.com/twitter/analytics-infra-governance#contributing-and-committership\">Contributing and Committership</a> for our code of conduct and our pull request review process.</p>\n<p dir=\"auto\">The TL;DR is send us a pull request, iterate on the feedback + discussion, and get a +1 from a <a href=\"COMMITTERS.md\">Committer</a> in order to get your PR accepted.</p>\n<p dir=\"auto\">The current list of active committers (who can +1 a pull request) can be found here: <a href=\"COMMITTERS.md\">Committers</a></p>\n<p dir=\"auto\">A list of contributors to the project can be found here: <a href=\"https://github.com/twitter/algebird/graphs/contributors\">Contributors</a></p>\n<h2 dir=\"auto\"><a id=\"user-content-maven\" class=\"anchor\" aria-hidden=\"true\" href=\"#maven\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Maven</h2>\n<p dir=\"auto\">Algebird modules are available on maven central. The current groupid and version for all modules is, respectively, <code>\"com.twitter\"</code> and  <code>0.13.5</code>.</p>\n<p dir=\"auto\">See <a href=\"https://index.scala-lang.org/twitter/algebird\" rel=\"nofollow\">Algebird's page on the Scaladex</a> for information on all published artifacts and their associated Scala versions. Algebird currently supports Scala 2.10, 2.11 and 2.12.</p>\n<h2 dir=\"auto\"><a id=\"user-content-projects-using-algebird\" class=\"anchor\" aria-hidden=\"true\" href=\"#projects-using-algebird\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Projects using Algebird</h2>\n<ul dir=\"auto\">\n<li><a href=\"http://github.com/twitter/scalding\">Scalding</a></li>\n<li><a href=\"https://github.com/mesos/spark/pull/480\">Spark</a></li>\n<li><a href=\"https://github.com/avibryant/simmer\">Simmer</a></li>\n<li><a href=\"https://github.com/twitter/summingbird\">Summingbird</a></li>\n<li><a href=\"https://github.com/spotify/scio\">Scio</a></li>\n<li><a href=\"https://www.packetloop.com\" rel=\"nofollow\">Packetloop</a> (see <a href=\"https://twitter.com/cloudjunky/status/355073917720858626\" rel=\"nofollow\">this tweet</a>)</li>\n<li>Ebay uses Algebird for machine learning: <a href=\"http://www.slideshare.net/VitalyGordon/scalable-and-flexible-machine-learning-with-scala-linkedin\" rel=\"nofollow\">ScalaDays talk</a></li>\n<li><a href=\"https://news.ycombinator.com/item?id=16969118\" rel=\"nofollow\">Apple (FEAR Team)</a></li>\n</ul>\n<p dir=\"auto\">Other projects built with Algebird, as compiled by the Scaladex: <a href=\"https://index.scala-lang.org/search?q=dependencies:twitter/algebird-core\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/0aff79d30509b240ac7f354fcb2f8ad7ed4b77ac991fa27f64c4f93282786ada/68747470733a2f2f696e6465782e7363616c612d6c616e672e6f72672f636f756e742e7376673f713d646570656e64656e636965733a747769747465722f616c6765626972642a267375626a6563743d7363616c616465783a26636f6c6f723d626c7565267374796c653d666c61742d737175617265\" alt=\"Scaladex Dependents\" data-canonical-src=\"https://index.scala-lang.org/count.svg?q=dependencies:twitter/algebird*&amp;subject=scaladex:&amp;color=blue&amp;style=flat-square\" style=\"max-width: 100%;\"></a></p>\n<h2 dir=\"auto\"><a id=\"user-content-authors\" class=\"anchor\" aria-hidden=\"true\" href=\"#authors\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Authors</h2>\n<ul dir=\"auto\">\n<li>Oscar Boykin <a href=\"http://twitter.com/posco\" rel=\"nofollow\">http://twitter.com/posco</a></li>\n<li>Avi Bryant <a href=\"http://twitter.com/avibryant\" rel=\"nofollow\">http://twitter.com/avibryant</a></li>\n<li>Edwin Chen <a href=\"http://twitter.com/echen\" rel=\"nofollow\">http://twitter.com/echen</a></li>\n<li>ellchow <a href=\"http://github.com/ellchow\">http://github.com/ellchow</a></li>\n<li>Mike Gagnon <a href=\"https://twitter.com/gmike\" rel=\"nofollow\">https://twitter.com/gmike</a></li>\n<li>Moses Nakamura <a href=\"https://twitter.com/mnnakamura\" rel=\"nofollow\">https://twitter.com/mnnakamura</a></li>\n<li>Steven Noble <a href=\"http://twitter.com/snoble\" rel=\"nofollow\">http://twitter.com/snoble</a></li>\n<li>Sam Ritchie <a href=\"http://twitter.com/sritchie\" rel=\"nofollow\">http://twitter.com/sritchie</a></li>\n<li>Ashutosh Singhal <a href=\"http://twitter.com/daashu\" rel=\"nofollow\">http://twitter.com/daashu</a></li>\n<li>Argyris Zymnis <a href=\"http://twitter.com/argyris\" rel=\"nofollow\">http://twitter.com/argyris</a></li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>License</h2>\n<p dir=\"auto\">Copyright 2016 Twitter, Inc.</p>\n<p dir=\"auto\">Licensed under the <a href=\"http://www.apache.org/licenses/LICENSE-2.0\" rel=\"nofollow\">Apache License, Version 2.0</a>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-thanks-to-yourkit\" class=\"anchor\" aria-hidden=\"true\" href=\"#thanks-to-yourkit\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Thanks to Yourkit</h3>\n<p dir=\"auto\">YourKit supports open source projects with innovative and intelligent tools\nfor monitoring and profiling Java and .NET applications.\nYourKit is the creator of <a href=\"https://www.yourkit.com/java/profiler/\" rel=\"nofollow\">YourKit Java Profiler</a>,\n<a href=\"https://www.yourkit.com/.net/profiler/\" rel=\"nofollow\">YourKit .NET Profiler</a>,\nand <a href=\"https://www.yourkit.com/youmonitor/\" rel=\"nofollow\">YourKit YouMonitor</a>.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "johnynek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/67958?v=4",
+        "url" : "https://api.github.com/users/johnynek",
+        "contributions" : 425
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 219
+      },
+      {
+        "login" : "ianoc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/446652?v=4",
+        "url" : "https://api.github.com/users/ianoc",
+        "contributions" : 135
+      },
+      {
+        "login" : "sid-kap",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6425077?v=4",
+        "url" : "https://api.github.com/users/sid-kap",
+        "contributions" : 75
+      },
+      {
+        "login" : "sritchie",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/69635?v=4",
+        "url" : "https://api.github.com/users/sritchie",
+        "contributions" : 71
+      },
+      {
+        "login" : "regadas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/163899?v=4",
+        "url" : "https://api.github.com/users/regadas",
+        "contributions" : 53
+      },
+      {
+        "login" : "avi-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23175169?v=4",
+        "url" : "https://api.github.com/users/avi-stripe",
+        "contributions" : 34
+      },
+      {
+        "login" : "reconditesea",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4226979?v=4",
+        "url" : "https://api.github.com/users/reconditesea",
+        "contributions" : 31
+      },
+      {
+        "login" : "julienledem",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/367841?v=4",
+        "url" : "https://api.github.com/users/julienledem",
+        "contributions" : 29
+      },
+      {
+        "login" : "MansurAshraf",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/535144?v=4",
+        "url" : "https://api.github.com/users/MansurAshraf",
+        "contributions" : 24
+      },
+      {
+        "login" : "sritchie-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23121440?v=4",
+        "url" : "https://api.github.com/users/sritchie-stripe",
+        "contributions" : 23
+      },
+      {
+        "login" : "jcoveney",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/830087?v=4",
+        "url" : "https://api.github.com/users/jcoveney",
+        "contributions" : 21
+      },
+      {
+        "login" : "rgcase",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5905206?v=4",
+        "url" : "https://api.github.com/users/rgcase",
+        "contributions" : 17
+      },
+      {
+        "login" : "koertkuipers",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/821284?v=4",
+        "url" : "https://api.github.com/users/koertkuipers",
+        "contributions" : 15
+      },
+      {
+        "login" : "isnotinvain",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/372969?v=4",
+        "url" : "https://api.github.com/users/isnotinvain",
+        "contributions" : 15
+      },
+      {
+        "login" : "oscar-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16548258?v=4",
+        "url" : "https://api.github.com/users/oscar-stripe",
+        "contributions" : 14
+      },
+      {
+        "login" : "nevillelyh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/468514?v=4",
+        "url" : "https://api.github.com/users/nevillelyh",
+        "contributions" : 14
+      },
+      {
+        "login" : "avibryant",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9892?v=4",
+        "url" : "https://api.github.com/users/avibryant",
+        "contributions" : 13
+      },
+      {
+        "login" : "singhala",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/692918?v=4",
+        "url" : "https://api.github.com/users/singhala",
+        "contributions" : 12
+      },
+      {
+        "login" : "DanielleSucher",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1193691?v=4",
+        "url" : "https://api.github.com/users/DanielleSucher",
+        "contributions" : 11
+      },
+      {
+        "login" : "azymnis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/207127?v=4",
+        "url" : "https://api.github.com/users/azymnis",
+        "contributions" : 9
+      },
+      {
+        "login" : "smarden1",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/549155?v=4",
+        "url" : "https://api.github.com/users/smarden1",
+        "contributions" : 9
+      },
+      {
+        "login" : "dependabot[bot]",
+        "avatarUrl" : "https://avatars.githubusercontent.com/in/29110?v=4",
+        "url" : "https://api.github.com/users/dependabot%5Bbot%5D",
+        "contributions" : 8
+      },
+      {
+        "login" : "wlue",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/200448?v=4",
+        "url" : "https://api.github.com/users/wlue",
+        "contributions" : 7
+      },
+      {
+        "login" : "stephanh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/376868?v=4",
+        "url" : "https://api.github.com/users/stephanh",
+        "contributions" : 7
+      },
+      {
+        "login" : "hansmire",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1585732?v=4",
+        "url" : "https://api.github.com/users/hansmire",
+        "contributions" : 6
+      },
+      {
+        "login" : "mosesn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/156562?v=4",
+        "url" : "https://api.github.com/users/mosesn",
+        "contributions" : 6
+      },
+      {
+        "login" : "df-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23110114?v=4",
+        "url" : "https://api.github.com/users/df-stripe",
+        "contributions" : 5
+      },
+      {
+        "login" : "erikerlandson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/259898?v=4",
+        "url" : "https://api.github.com/users/erikerlandson",
+        "contributions" : 5
+      },
+      {
+        "login" : "erik-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16106269?v=4",
+        "url" : "https://api.github.com/users/erik-stripe",
+        "contributions" : 5
+      },
+      {
+        "login" : "snoble",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/57576?v=4",
+        "url" : "https://api.github.com/users/snoble",
+        "contributions" : 5
+      },
+      {
+        "login" : "berngp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/134985?v=4",
+        "url" : "https://api.github.com/users/berngp",
+        "contributions" : 4
+      },
+      {
+        "login" : "caniszczyk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/63777?v=4",
+        "url" : "https://api.github.com/users/caniszczyk",
+        "contributions" : 4
+      },
+      {
+        "login" : "johandahlberg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1788862?v=4",
+        "url" : "https://api.github.com/users/johandahlberg",
+        "contributions" : 4
+      },
+      {
+        "login" : "joshualande",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1341367?v=4",
+        "url" : "https://api.github.com/users/joshualande",
+        "contributions" : 4
+      },
+      {
+        "login" : "bkirwi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1596339?v=4",
+        "url" : "https://api.github.com/users/bkirwi",
+        "contributions" : 3
+      },
+      {
+        "login" : "echen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/102375?v=4",
+        "url" : "https://api.github.com/users/echen",
+        "contributions" : 3
+      },
+      {
+        "login" : "non",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/218045?v=4",
+        "url" : "https://api.github.com/users/non",
+        "contributions" : 3
+      },
+      {
+        "login" : "jackcwang1",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5184894?v=4",
+        "url" : "https://api.github.com/users/jackcwang1",
+        "contributions" : 3
+      },
+      {
+        "login" : "cheecheeo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/175882?v=4",
+        "url" : "https://api.github.com/users/cheecheeo",
+        "contributions" : 3
+      },
+      {
+        "login" : "mikegagnon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1526852?v=4",
+        "url" : "https://api.github.com/users/mikegagnon",
+        "contributions" : 3
+      },
+      {
+        "login" : "natapov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5787480?v=4",
+        "url" : "https://api.github.com/users/natapov",
+        "contributions" : 3
+      },
+      {
+        "login" : "dieu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/47102?v=4",
+        "url" : "https://api.github.com/users/dieu",
+        "contributions" : 3
+      },
+      {
+        "login" : "rubanm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2401144?v=4",
+        "url" : "https://api.github.com/users/rubanm",
+        "contributions" : 3
+      },
+      {
+        "login" : "alanbato",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11902612?v=4",
+        "url" : "https://api.github.com/users/alanbato",
+        "contributions" : 2
+      },
+      {
+        "login" : "Gabriel439",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1313787?v=4",
+        "url" : "https://api.github.com/users/Gabriel439",
+        "contributions" : 2
+      },
+      {
+        "login" : "jnievelt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4684038?v=4",
+        "url" : "https://api.github.com/users/jnievelt",
+        "contributions" : 2
+      },
+      {
+        "login" : "pawasranjan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1533927?v=4",
+        "url" : "https://api.github.com/users/pawasranjan",
+        "contributions" : 2
+      },
+      {
+        "login" : "olafurpg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1408093?v=4",
+        "url" : "https://api.github.com/users/olafurpg",
+        "contributions" : 2
+      },
+      {
+        "login" : "alexarchambault",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7063723?v=4",
+        "url" : "https://api.github.com/users/alexarchambault",
+        "contributions" : 1
+      },
+      {
+        "login" : "anish749",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15274312?v=4",
+        "url" : "https://api.github.com/users/anish749",
+        "contributions" : 1
+      },
+      {
+        "login" : "AustinDizzy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2718133?v=4",
+        "url" : "https://api.github.com/users/AustinDizzy",
+        "contributions" : 1
+      },
+      {
+        "login" : "bwignall",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5581066?v=4",
+        "url" : "https://api.github.com/users/bwignall",
+        "contributions" : 1
+      },
+      {
+        "login" : "cdg-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/27709010?v=4",
+        "url" : "https://api.github.com/users/cdg-stripe",
+        "contributions" : 1
+      },
+      {
+        "login" : "cchepelov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1515440?v=4",
+        "url" : "https://api.github.com/users/cchepelov",
+        "contributions" : 1
+      },
+      {
+        "login" : "egonina",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3441503?v=4",
+        "url" : "https://api.github.com/users/egonina",
+        "contributions" : 1
+      },
+      {
+        "login" : "EugenCepoi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3456977?v=4",
+        "url" : "https://api.github.com/users/EugenCepoi",
+        "contributions" : 1
+      },
+      {
+        "login" : "franklin-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23075123?v=4",
+        "url" : "https://api.github.com/users/franklin-stripe",
+        "contributions" : 1
+      },
+      {
+        "login" : "gkossakowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4217?v=4",
+        "url" : "https://api.github.com/users/gkossakowski",
+        "contributions" : 1
+      },
+      {
+        "login" : "eigenvariable",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1728275?v=4",
+        "url" : "https://api.github.com/users/eigenvariable",
+        "contributions" : 1
+      },
+      {
+        "login" : "jeremydhoon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/120956?v=4",
+        "url" : "https://api.github.com/users/jeremydhoon",
+        "contributions" : 1
+      },
+      {
+        "login" : "jimmycasey",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5089723?v=4",
+        "url" : "https://api.github.com/users/jimmycasey",
+        "contributions" : 1
+      },
+      {
+        "login" : "lomigmegard",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/434236?v=4",
+        "url" : "https://api.github.com/users/lomigmegard",
+        "contributions" : 1
+      },
+      {
+        "login" : "mlm-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23107530?v=4",
+        "url" : "https://api.github.com/users/mlm-stripe",
+        "contributions" : 1
+      },
+      {
+        "login" : "OlegYch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/268312?v=4",
+        "url" : "https://api.github.com/users/OlegYch",
+        "contributions" : 1
+      },
+      {
+        "login" : "gigamonkey",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/250053?v=4",
+        "url" : "https://api.github.com/users/gigamonkey",
+        "contributions" : 1
+      },
+      {
+        "login" : "Bekbolatov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3771643?v=4",
+        "url" : "https://api.github.com/users/Bekbolatov",
+        "contributions" : 1
+      },
+      {
+        "login" : "ElPicador",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16667?v=4",
+        "url" : "https://api.github.com/users/ElPicador",
+        "contributions" : 1
+      },
+      {
+        "login" : "tsdeng",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/169678?v=4",
+        "url" : "https://api.github.com/users/tsdeng",
+        "contributions" : 1
+      },
+      {
+        "login" : "tixxit",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/120314?v=4",
+        "url" : "https://api.github.com/users/tixxit",
+        "contributions" : 1
+      },
+      {
+        "login" : "travisbrown",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/316049?v=4",
+        "url" : "https://api.github.com/users/travisbrown",
+        "contributions" : 1
+      },
+      {
+        "login" : "VEINHORN",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3595400?v=4",
+        "url" : "https://api.github.com/users/VEINHORN",
+        "contributions" : 1
+      },
+      {
+        "login" : "bigsnarfdude",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2282364?v=4",
+        "url" : "https://api.github.com/users/bigsnarfdude",
+        "contributions" : 1
+      },
+      {
+        "login" : "david206",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/153303?v=4",
+        "url" : "https://api.github.com/users/david206",
+        "contributions" : 1
+      },
+      {
+        "login" : "enricoap",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/28707544?v=4",
+        "url" : "https://api.github.com/users/enricoap",
+        "contributions" : 1
+      },
+      {
+        "login" : "jeff-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23087917?v=4",
+        "url" : "https://api.github.com/users/jeff-stripe",
+        "contributions" : 1
+      },
+      {
+        "login" : "kellen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/486691?v=4",
+        "url" : "https://api.github.com/users/kellen",
+        "contributions" : 1
+      },
+      {
+        "login" : "xuwei-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/389787?v=4",
+        "url" : "https://api.github.com/users/xuwei-k",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 1405,
+    "topics" : [
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : "https://gitter.im/twitter/algebird",
+    "openIssues" : [
+      {
+        "number" : 959,
+        "title" : "SparseVector monoid flake",
+        "url" : "https://github.com/twitter/algebird/issues/959"
+      },
+      {
+        "number" : 856,
+        "title" : "Investigate flaky `com.twitter.algebird.CollectionSpecification` test",
+        "url" : "https://github.com/twitter/algebird/issues/856"
+      },
+      {
+        "number" : 851,
+        "title" : "configure mergify.io",
+        "url" : "https://github.com/twitter/algebird/issues/851"
+      },
+      {
+        "number" : 762,
+        "title" : "investigate flaky test on AdaptiveVector",
+        "url" : "https://github.com/twitter/algebird/issues/762"
+      },
+      {
+        "number" : 741,
+        "title" : "Add combinators on Semigroup, Monoid, Aggregator to reverse order.",
+        "url" : "https://github.com/twitter/algebird/issues/741"
+      },
+      {
+        "number" : 733,
+        "title" : "The GeneratedTupleAggregator is not recognized ",
+        "url" : "https://github.com/twitter/algebird/issues/733"
+      },
+      {
+        "number" : 675,
+        "title" : "Idea: BloomFilterAggregator can directly rely on a BitSet instead of a BFMonoid",
+        "url" : "https://github.com/twitter/algebird/issues/675"
+      },
+      {
+        "number" : 668,
+        "title" : "PriorityQueueMonoid- Is it strictly a monoid?",
+        "url" : "https://github.com/twitter/algebird/issues/668"
+      },
+      {
+        "number" : 661,
+        "title" : "Tuple2 implicits do not work with Arrays",
+        "url" : "https://github.com/twitter/algebird/issues/661"
+      },
+      {
+        "number" : 638,
+        "title" : "API changes review for Algebird Core",
+        "url" : "https://github.com/twitter/algebird/issues/638"
+      },
+      {
+        "number" : 634,
+        "title" : "The MinHasher execution depends by the number of nodes",
+        "url" : "https://github.com/twitter/algebird/issues/634"
+      },
+      {
+        "number" : 632,
+        "title" : "Size on saturated bloom filter throws an exception",
+        "url" : "https://github.com/twitter/algebird/issues/632"
+      },
+      {
+        "number" : 626,
+        "title" : "A monoid for sliding time window aggregations",
+        "url" : "https://github.com/twitter/algebird/issues/626"
+      },
+      {
+        "number" : 621,
+        "title" : "Add query methods to CMSSummation",
+        "url" : "https://github.com/twitter/algebird/issues/621"
+      },
+      {
+        "number" : 615,
+        "title" : "use algebra types more",
+        "url" : "https://github.com/twitter/algebird/issues/615"
+      },
+      {
+        "number" : 609,
+        "title" : "Using the MinHasher",
+        "url" : "https://github.com/twitter/algebird/issues/609"
+      },
+      {
+        "number" : 598,
+        "title" : "\"EventuallyRing is a Ring when we always convert\" fails ringLaws",
+        "url" : "https://github.com/twitter/algebird/issues/598"
+      },
+      {
+        "number" : 583,
+        "title" : "AdaptiveVector `isNonZero` is broken when sparseval == Monoid[T].zero",
+        "url" : "https://github.com/twitter/algebird/issues/583"
+      },
+      {
+        "number" : 582,
+        "title" : "auto-deploy github pages on merges to master",
+        "url" : "https://github.com/twitter/algebird/issues/582"
+      },
+      {
+        "number" : 573,
+        "title" : "implement AdaSketch - time adaptive sketches for streams",
+        "url" : "https://github.com/twitter/algebird/issues/573"
+      },
+      {
+        "number" : 572,
+        "title" : "Failure of HLL downsize law",
+        "url" : "https://github.com/twitter/algebird/issues/572"
+      },
+      {
+        "number" : 565,
+        "title" : "change/burst detection via CountMinSketch",
+        "url" : "https://github.com/twitter/algebird/issues/565"
+      },
+      {
+        "number" : 564,
+        "title" : "Estimate join sizes with CountMinSketch",
+        "url" : "https://github.com/twitter/algebird/issues/564"
+      },
+      {
+        "number" : 563,
+        "title" : "implement AMS Sketch (great for join size estimation)",
+        "url" : "https://github.com/twitter/algebird/issues/563"
+      },
+      {
+        "number" : 562,
+        "title" : "Investigate Forward Decay paper for possible data structures",
+        "url" : "https://github.com/twitter/algebird/issues/562"
+      },
+      {
+        "number" : 560,
+        "title" : "implement CuckooFilter (related to BloomFilter)",
+        "url" : "https://github.com/twitter/algebird/issues/560"
+      },
+      {
+        "number" : 559,
+        "title" : "implement count-mean-min-sketch",
+        "url" : "https://github.com/twitter/algebird/issues/559"
+      },
+      {
+        "number" : 536,
+        "title" : "spark tests are flakey",
+        "url" : "https://github.com/twitter/algebird/issues/536"
+      },
+      {
+        "number" : 517,
+        "title" : "Discrepancy in behavior of QTree[Long] and QTree[Double] for quantileBounds",
+        "url" : "https://github.com/twitter/algebird/issues/517"
+      },
+      {
+        "number" : 515,
+        "title" : "sumOption does not compose",
+        "url" : "https://github.com/twitter/algebird/issues/515"
+      },
+      {
+        "number" : 513,
+        "title" : "add a new mutable PriorityQueue Monoid",
+        "url" : "https://github.com/twitter/algebird/issues/513"
+      },
+      {
+        "number" : 512,
+        "title" : "CassandraMurmurHash.hash3_x64_128() not quite MurmurHash 3.0",
+        "url" : "https://github.com/twitter/algebird/issues/512"
+      },
+      {
+        "number" : 509,
+        "title" : "IllegalArgumentException when computing HLL intersection size",
+        "url" : "https://github.com/twitter/algebird/issues/509"
+      },
+      {
+        "number" : 508,
+        "title" : "Property test failure for `DecayedVector` associativity law",
+        "url" : "https://github.com/twitter/algebird/issues/508"
+      },
+      {
+        "number" : 497,
+        "title" : "CountMinSketch[K] assumes working equals method on K.",
+        "url" : "https://github.com/twitter/algebird/issues/497"
+      },
+      {
+        "number" : 488,
+        "title" : "Change type for rollup",
+        "url" : "https://github.com/twitter/algebird/issues/488"
+      },
+      {
+        "number" : 465,
+        "title" : "Formalization of approximate interface with an exact backing",
+        "url" : "https://github.com/twitter/algebird/issues/465"
+      },
+      {
+        "number" : 460,
+        "title" : "Add conservative update to CMS",
+        "url" : "https://github.com/twitter/algebird/issues/460"
+      },
+      {
+        "number" : 454,
+        "title" : "QTree bound test is flakey (or statistical)",
+        "url" : "https://github.com/twitter/algebird/issues/454"
+      },
+      {
+        "number" : 450,
+        "title" : "Add a non-sparse MapMonoid/Semigroup/Group/etc...",
+        "url" : "https://github.com/twitter/algebird/issues/450"
+      },
+      {
+        "number" : 435,
+        "title" : "Implement randomized LSH according to Chazelle's paper",
+        "url" : "https://github.com/twitter/algebird/issues/435"
+      },
+      {
+        "number" : 404,
+        "title" : "Self Learning bitmap",
+        "url" : "https://github.com/twitter/algebird/issues/404"
+      },
+      {
+        "number" : 396,
+        "title" : "QTree method to query a specified value's quantile given a quantile range",
+        "url" : "https://github.com/twitter/algebird/issues/396"
+      },
+      {
+        "number" : 362,
+        "title" : "Implement Fast-AGMS",
+        "url" : "https://github.com/twitter/algebird/issues/362"
+      },
+      {
+        "number" : 360,
+        "title" : "Decide on the future of SketchMap, CMS, SpaceSaver",
+        "url" : "https://github.com/twitter/algebird/issues/360"
+      },
+      {
+        "number" : 336,
+        "title" : "java LinkedHashMap has bad GC characteristics (SummingCache)",
+        "url" : "https://github.com/twitter/algebird/issues/336"
+      },
+      {
+        "number" : 326,
+        "title" : "Some HyperLogLog tests are not testing what we think.",
+        "url" : "https://github.com/twitter/algebird/issues/326"
+      },
+      {
+        "number" : 291,
+        "title" : "implement standard pattern for updateInto",
+        "url" : "https://github.com/twitter/algebird/issues/291"
+      },
+      {
+        "number" : 290,
+        "title" : "SummingCache should use sumOption",
+        "url" : "https://github.com/twitter/algebird/issues/290"
+      },
+      {
+        "number" : 282,
+        "title" : "translate bounds from QTree paper",
+        "url" : "https://github.com/twitter/algebird/issues/282"
+      },
+      {
+        "number" : 263,
+        "title" : "Remove AbstractIterable and AbstractIterator when we get to 2.11",
+        "url" : "https://github.com/twitter/algebird/issues/263"
+      },
+      {
+        "number" : 241,
+        "title" : "Add t-digest Monoid/Semigroup",
+        "url" : "https://github.com/twitter/algebird/issues/241"
+      },
+      {
+        "number" : 240,
+        "title" : "Move IteratorSums from Summingbird here",
+        "url" : "https://github.com/twitter/algebird/issues/240"
+      },
+      {
+        "number" : 239,
+        "title" : "Expose an official Java interface",
+        "url" : "https://github.com/twitter/algebird/issues/239"
+      },
+      {
+        "number" : 225,
+        "title" : "Creating a SketchMap from a large sequence of key value pairs can be slow",
+        "url" : "https://github.com/twitter/algebird/issues/225"
+      },
+      {
+        "number" : 219,
+        "title" : "parSum parSumOption for parallelized summing",
+        "url" : "https://github.com/twitter/algebird/issues/219"
+      },
+      {
+        "number" : 216,
+        "title" : "RollingSum",
+        "url" : "https://github.com/twitter/algebird/issues/216"
+      },
+      {
+        "number" : 215,
+        "title" : "GroupedSummer",
+        "url" : "https://github.com/twitter/algebird/issues/215"
+      },
+      {
+        "number" : 210,
+        "title" : "Add monoid laws for monoids that operate on mutable objects",
+        "url" : "https://github.com/twitter/algebird/issues/210"
+      },
+      {
+        "number" : 175,
+        "title" : "Add IntervalSet",
+        "url" : "https://github.com/twitter/algebird/issues/175"
+      },
+      {
+        "number" : 166,
+        "title" : "Add Bounded[T]",
+        "url" : "https://github.com/twitter/algebird/issues/166"
+      },
+      {
+        "number" : 162,
+        "title" : "Burst Detection Monoid",
+        "url" : "https://github.com/twitter/algebird/issues/162"
+      },
+      {
+        "number" : 155,
+        "title" : "Linear bloom filters",
+        "url" : "https://github.com/twitter/algebird/issues/155"
+      },
+      {
+        "number" : 139,
+        "title" : "Count-Min-Sketch Heavy Hitters duplication.",
+        "url" : "https://github.com/twitter/algebird/issues/139"
+      },
+      {
+        "number" : 135,
+        "title" : "FlowerFilter monoid",
+        "url" : "https://github.com/twitter/algebird/issues/135"
+      },
+      {
+        "number" : 129,
+        "title" : "Chernoff test",
+        "url" : "https://github.com/twitter/algebird/issues/129"
+      },
+      {
+        "number" : 119,
+        "title" : "algebird-serialization",
+        "url" : "https://github.com/twitter/algebird/issues/119"
+      },
+      {
+        "number" : 104,
+        "title" : "PoissonDecayedValue",
+        "url" : "https://github.com/twitter/algebird/issues/104"
+      },
+      {
+        "number" : 58,
+        "title" : "Range queries for CountMinSketch",
+        "url" : "https://github.com/twitter/algebird/issues/58"
+      },
+      {
+        "number" : 32,
+        "title" : "Implement FenwickTreeGroup",
+        "url" : "https://github.com/twitter/algebird/issues/32"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : "algebird-core",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "distributed-computing",
+    "beginnerIssuesLabel" : null
+  }
+}

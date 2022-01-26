@@ -1,0 +1,407 @@
+{
+  "organization" : "vegas-viz",
+  "repository" : "vegas",
+  "creationDate" : 1462812017793,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643196152245
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "",
+    "description" : "The missing MatPlotLib for Scala + Spark",
+    "logo" : "https://avatars.githubusercontent.com/u/22821011?v=4",
+    "stars" : 715,
+    "forks" : 100,
+    "watchers" : 45,
+    "issues" : 54,
+    "creationDate" : 1460652272000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-vegas\" class=\"anchor\" aria-hidden=\"true\" href=\"#vegas\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Vegas</h1>\n<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/62628db2ae576cfa758908f80b609be9b81775fc6e52baf5815a54b8c60f4561/68747470733a2f2f7777772e76656761732d76697a2e6f72672f696d616765732f6c6f676f2e706e67\"><img src=\"https://camo.githubusercontent.com/62628db2ae576cfa758908f80b609be9b81775fc6e52baf5815a54b8c60f4561/68747470733a2f2f7777772e76656761732d76697a2e6f72672f696d616765732f6c6f676f2e706e67\" alt=\"Vegas\" width=\"250px\" data-canonical-src=\"https://www.vegas-viz.org/images/logo.png\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\"><a href=\"https://travis-ci.org/vegas-viz/Vegas\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/93d3574ba11df46128535f7d03f74d17572b07e1900b5780bb6e7622362f9430/68747470733a2f2f7472617669732d63692e6f72672f76656761732d76697a2f56656761732e7376673f6272616e63683d6d6173746572\" alt=\"TravisCI\" data-canonical-src=\"https://travis-ci.org/vegas-viz/Vegas.svg?branch=master\" style=\"max-width: 100%;\"></a>\n<a href=\"https://codecov.io/gh/vegas-viz/Vegas\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/84c3228e591324711b9885e753d880bbf6503597cde4d07d03107847bb09bac5/68747470733a2f2f636f6465636f762e696f2f67682f76656761732d76697a2f56656761732f6272616e63682f6d61737465722f67726170682f62616467652e737667\" alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/vegas-viz/Vegas/branch/master/graph/badge.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Vegas aims to be the missing MatPlotLib for the Scala and Spark world. Vegas wraps around <a href=\"https://vega.github.io/vega-lite/\" rel=\"nofollow\">Vega-Lite</a> but provides syntax more familiar (and type checked) for use within Scala.</p>\n<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/561204b517753cee218be4cb8fc3b66b85b818a229866054b96c8a903a8c358a/68747470733a2f2f7777772e76656761732d76697a2e6f72672f696d616765732f67616c6c6572792e706e673f74727565\"><img src=\"https://camo.githubusercontent.com/561204b517753cee218be4cb8fc3b66b85b818a229866054b96c8a903a8c358a/68747470733a2f2f7777772e76656761732d76697a2e6f72672f696d616765732f67616c6c6572792e706e673f74727565\" width=\"1021\" data-canonical-src=\"https://www.vegas-viz.org/images/gallery.png?true\" style=\"max-width: 100%;\"></a></p>\n<h2 dir=\"auto\"><a id=\"user-content-quick-start\" class=\"anchor\" aria-hidden=\"true\" href=\"#quick-start\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Quick start</h2>\n<p dir=\"auto\">Add the following jar as an SBT dependency</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;org.vegas-viz&quot; %% &quot;vegas&quot; % {vegas-version}\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.vegas-viz<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>vegas<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> {vegas<span class=\"pl-k\">-</span>version}</pre></div>\n<p dir=\"auto\">And then use the following code to render a plot into a pop-up window (see below for more details on controlling how and where Vegas renders).</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import vegas._\nimport vegas.render.WindowRenderer._\n\nval plot = Vegas(&quot;Country Pop&quot;).\n  withData(\n    Seq(\n      Map(&quot;country&quot; -&gt; &quot;USA&quot;, &quot;population&quot; -&gt; 314),\n      Map(&quot;country&quot; -&gt; &quot;UK&quot;, &quot;population&quot; -&gt; 64),\n      Map(&quot;country&quot; -&gt; &quot;DK&quot;, &quot;population&quot; -&gt; 80)\n    )\n  ).\n  encodeX(&quot;country&quot;, Nom).\n  encodeY(&quot;population&quot;, Quant).\n  mark(Bar)\n\nplot.show\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">vegas</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">vegas</span>.<span class=\"pl-en\">render</span>.<span class=\"pl-en\">WindowRenderer</span>.<span class=\"pl-en\">_</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">plot</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Vegas</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Country Pop<span class=\"pl-pds\">\"</span></span>).\n  withData(\n    <span class=\"pl-en\">Seq</span>(\n      <span class=\"pl-en\">Map</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>country<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>USA<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>population<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-c1\">314</span>),\n      <span class=\"pl-en\">Map</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>country<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>UK<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>population<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-c1\">64</span>),\n      <span class=\"pl-en\">Map</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>country<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>DK<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>population<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-c1\">80</span>)\n    )\n  ).\n  encodeX(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>country<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-en\">Nom</span>).\n  encodeY(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>population<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-en\">Quant</span>).\n  mark(<span class=\"pl-en\">Bar</span>)\n\nplot.show</pre></div>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/0d123950f5d71c36434ff65624e21089f8cd31bfffc5125ac1355a855f4a6804/68747470733a2f2f7777772e76656761732d76697a2e6f72672f696d616765732f726561646d652d63686172742d312e706e67\"><img src=\"https://camo.githubusercontent.com/0d123950f5d71c36434ff65624e21089f8cd31bfffc5125ac1355a855f4a6804/68747470733a2f2f7777772e76656761732d76697a2e6f72672f696d616765732f726561646d652d63686172742d312e706e67\" alt=\"&quot;Readme Chart 1&quot;\" data-canonical-src=\"https://www.vegas-viz.org/images/readme-chart-1.png\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">See further examples <a href=\"http://nbviewer.jupyter.org/github/aishfenton/Vegas/blob/master/notebooks/jupyter_example.ipynb\" rel=\"nofollow\">here</a></p>\n<h2 dir=\"auto\"><a id=\"user-content-rendering\" class=\"anchor\" aria-hidden=\"true\" href=\"#rendering\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Rendering</h2>\n<p dir=\"auto\">Vegas provides several options for rendering plots. The primary focus is using Vegas within interactive notebook environments, such as Jupyter and Zeppelin.\nRendering is provided via an implicit instance of <code>ShowRender</code>, which tells Vegas how to display the plot in a particular environment. The default instance\nof <code>ShowRender</code> uses a macro which attempts to guess your environment, but if for some reason that fails, you can specify your own instance:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"// for outputting HTML, provide a function String =&gt; Unit which will receive the HTML for the plot\n// and use vegas.render.ShowHTML to create an instance for it\nimplicit val renderer = vegas.render.ShowHTML(str =&gt; println(s&quot;The HTML is $str&quot;))\n\n// to specify a function that receives the SpecBuilder instead, use vegas.render.ShowRender.using\nimplicit val renderer = vegas.render.ShowRender.using(sb =&gt; println(s&quot;The SpecBuilder is $sb&quot;))\"><pre><span class=\"pl-c\"><span class=\"pl-c\">//</span> for outputting HTML, provide a function String =&gt; Unit which will receive the HTML for the plot</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> and use vegas.render.ShowHTML to create an instance for it</span>\n<span class=\"pl-k\">implicit</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">renderer</span> <span class=\"pl-k\">=</span> vegas.render.<span class=\"pl-en\">ShowHTML</span>(str <span class=\"pl-k\">=&gt;</span> println(<span class=\"pl-k\">s</span><span class=\"pl-s\">\"</span><span class=\"pl-s\">The HTML is </span>$str<span class=\"pl-s\">\"</span>))\n\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> to specify a function that receives the SpecBuilder instead, use vegas.render.ShowRender.using</span>\n<span class=\"pl-k\">implicit</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">renderer</span> <span class=\"pl-k\">=</span> vegas.render.<span class=\"pl-en\">ShowRender</span>.using(sb <span class=\"pl-k\">=&gt;</span> println(<span class=\"pl-k\">s</span><span class=\"pl-s\">\"</span><span class=\"pl-s\">The SpecBuilder is </span>$sb<span class=\"pl-s\">\"</span>))</pre></div>\n<p dir=\"auto\">The following examples describe some common cases; these <em>should</em> be handled by the default macro, but are useful to\nsee (in case you need to construct your own instance of <code>ShowRender</code>):</p>\n<h3 dir=\"auto\"><a id=\"user-content-notebooks\" class=\"anchor\" aria-hidden=\"true\" href=\"#notebooks\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Notebooks</h3>\n<h4 dir=\"auto\"><a id=\"user-content-jupyter---scala\" class=\"anchor\" aria-hidden=\"true\" href=\"#jupyter---scala\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Jupyter - Scala</h4>\n<p dir=\"auto\">If you're using <a href=\"https://github.com/alexarchambault/jupyter-scala\">jupyter-scala</a>, then can include the following in your notebook before using Vegas.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import $ivy.`org.vegas-viz::vegas:{vegas-version}`\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">$ivy</span>.<span class=\"pl-en\">`org.vegas-viz::vegas:{vegas-version}`</span></pre></div>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"implicit val render = vegas.render.ShowHTML(publish(_))\"><pre><span class=\"pl-k\">implicit</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">render</span> <span class=\"pl-k\">=</span> vegas.render.<span class=\"pl-en\">ShowHTML</span>(publish(_))</pre></div>\n<h4 dir=\"auto\"><a id=\"user-content-jupyter---apache-toree\" class=\"anchor\" aria-hidden=\"true\" href=\"#jupyter---apache-toree\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Jupyter - Apache Toree</h4>\n<p dir=\"auto\">And if you're using <a href=\"https://toree.incubator.apache.org/\" rel=\"nofollow\">Apache Toree</a>, then this:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"%AddDeps org.vegas-viz vegas_2.11 {vegas-version} --transitive\"><pre><code>%AddDeps org.vegas-viz vegas_2.11 {vegas-version} --transitive\n</code></pre></div>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"implicit val render = vegas.render.ShowHTML(kernel.display.content(&quot;text/html&quot;, _))\"><pre><span class=\"pl-k\">implicit</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">render</span> <span class=\"pl-k\">=</span> vegas.render.<span class=\"pl-en\">ShowHTML</span>(kernel.display.content(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>text/html<span class=\"pl-pds\">\"</span></span>, _))</pre></div>\n<h4 dir=\"auto\"><a id=\"user-content-zeppelin\" class=\"anchor\" aria-hidden=\"true\" href=\"#zeppelin\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Zeppelin</h4>\n<p dir=\"auto\">If you're using <a href=\"https://zeppelin.incubator.apache.org/\" rel=\"nofollow\">Apache Zeppelin</a>:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"%dep\nz.load(&quot;org.vegas-viz:vegas_2.11:{vegas-version}&quot;)\"><pre><code>%dep\nz.load(\"org.vegas-viz:vegas_2.11:{vegas-version}\")\n</code></pre></div>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"implicit val render = vegas.render.ShowHTML(s =&gt; print(&quot;%html &quot; + s))\"><pre><span class=\"pl-k\">implicit</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">render</span> <span class=\"pl-k\">=</span> vegas.render.<span class=\"pl-en\">ShowHTML</span>(s <span class=\"pl-k\">=&gt;</span> print(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>%html <span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">+</span> s))</pre></div>\n<p dir=\"auto\">The last line in each of the above is required to connect Vegas to the notebook's HTML renderer (so that the returned HTML is rendered instead of displayed as a string).</p>\n<p dir=\"auto\">See a comprehensive list example notebook of plots  <a href=\"http://nbviewer.jupyter.org/github/aishfenton/Vegas/blob/master/notebooks/jupyter_example.ipynb\" rel=\"nofollow\">here</a></p>\n<h3 dir=\"auto\"><a id=\"user-content-standalone\" class=\"anchor\" aria-hidden=\"true\" href=\"#standalone\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Standalone</h3>\n<p dir=\"auto\">Vegas can also be used to produce standalone HTML or even render plots within a built-in display app (useful if you wanted to display plots for a command-line-app).</p>\n<p dir=\"auto\">The construction of the plot is <strong>independent from the rendering strategy</strong>: the same plot can be rendered as HTML or in a Window simply by importing a different renderer in the scope.</p>\n<p dir=\"auto\"><em>Note that the rendering examples below are wrapped in separate functions to avoid ambiguous implicit conversions if they were imported in the same scope.</em></p>\n<p dir=\"auto\">A plot is defined as:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import vegas._\n\nval plot = Vegas(&quot;Country Pop&quot;).\n  withData(\n    Seq(\n      Map(&quot;country&quot; -&gt; &quot;USA&quot;, &quot;population&quot; -&gt; 314),\n      Map(&quot;country&quot; -&gt; &quot;UK&quot;, &quot;population&quot; -&gt; 64),\n      Map(&quot;country&quot; -&gt; &quot;DK&quot;, &quot;population&quot; -&gt; 80)\n    )\n  ).\n  encodeX(&quot;country&quot;, Nom).\n  encodeY(&quot;population&quot;, Quant).\n  mark(Bar)\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">vegas</span>.<span class=\"pl-en\">_</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">plot</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Vegas</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Country Pop<span class=\"pl-pds\">\"</span></span>).\n  withData(\n    <span class=\"pl-en\">Seq</span>(\n      <span class=\"pl-en\">Map</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>country<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>USA<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>population<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-c1\">314</span>),\n      <span class=\"pl-en\">Map</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>country<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>UK<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>population<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-c1\">64</span>),\n      <span class=\"pl-en\">Map</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>country<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>DK<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>population<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-c1\">80</span>)\n    )\n  ).\n  encodeX(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>country<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-en\">Nom</span>).\n  encodeY(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>population<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-en\">Quant</span>).\n  mark(<span class=\"pl-en\">Bar</span>)</pre></div>\n<h4 dir=\"auto\"><a id=\"user-content-html\" class=\"anchor\" aria-hidden=\"true\" href=\"#html\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>HTML</h4>\n<p dir=\"auto\">The following renders the plot as HTML (which prints to the console).</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"def renderHTML = {\n  println(plot.html.pageHTML) // a complete HTML page containing the plot\n  println(plot.html.frameHTML(&quot;foo&quot;)) // an iframe containing the plot\n}\"><pre><span class=\"pl-k\">def</span> <span class=\"pl-en\">renderHTML</span> <span class=\"pl-k\">=</span> {\n  println(plot.html.pageHTML) <span class=\"pl-c\"><span class=\"pl-c\">//</span> a complete HTML page containing the plot</span>\n  println(plot.html.frameHTML(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>foo<span class=\"pl-pds\">\"</span></span>)) <span class=\"pl-c\"><span class=\"pl-c\">//</span> an iframe containing the plot</span>\n}</pre></div>\n<h4 dir=\"auto\"><a id=\"user-content-window\" class=\"anchor\" aria-hidden=\"true\" href=\"#window\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Window</h4>\n<p dir=\"auto\">Vegas also contains a self-contained display app for displaying plots (internally it uses JavaFX's HTML renderer). The following demonstrates this and can be used from the command line.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"def renderWindow = {\n  plot.window.show\n}\"><pre><span class=\"pl-k\">def</span> <span class=\"pl-en\">renderWindow</span> <span class=\"pl-k\">=</span> {\n  plot.window.show\n}</pre></div>\n<p dir=\"auto\">Make sure JavaFX is installed on your system or ships with your JDK distribution.</p>\n<h4 dir=\"auto\"><a id=\"user-content-json\" class=\"anchor\" aria-hidden=\"true\" href=\"#json\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>JSON</h4>\n<p dir=\"auto\">You can print the JSON containing the Vega-lite spec, without importing any renderer in the scope.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"println(plot.toJson)\"><pre>println(plot.toJson)</pre></div>\n<p dir=\"auto\">The output JSON can be copy-pasted into the Vega-lite <a href=\"https://vega.github.io/vega-editor/?mode=vega-lite&amp;spec=bar\" rel=\"nofollow\">editor</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-spark-integration\" class=\"anchor\" aria-hidden=\"true\" href=\"#spark-integration\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Spark integration</h2>\n<p dir=\"auto\">Vegas comes with an optional extension package that makes it easier to work with Spark DataFrames. First, you'll need an extra import</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;org.vegas-viz&quot; %% &quot;vegas-spark&quot; % &quot;{vegas-version}&quot;\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.vegas-viz<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>vegas-spark<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>{vegas-version}<span class=\"pl-pds\">\"</span></span></pre></div>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import vegas.sparkExt._\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">vegas</span>.<span class=\"pl-en\">sparkExt</span>.<span class=\"pl-en\">_</span></pre></div>\n<p dir=\"auto\">This adds the following new method:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"withDataFrame(df: DataFrame)\"><pre>withDataFrame(<span class=\"pl-v\">df</span>: <span class=\"pl-en\">DataFrame</span>)</pre></div>\n<p dir=\"auto\">Each DataFrame column is exposed as a field keyed using the column's name.</p>\n<h2 dir=\"auto\"><a id=\"user-content-flink-integration\" class=\"anchor\" aria-hidden=\"true\" href=\"#flink-integration\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Flink integration</h2>\n<p dir=\"auto\">Vegas also comes with an optional extension package that makes it easier to work with Flink DataSets. You'll also need to import:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;org.vegas-viz&quot; %% &quot;vegas-flink&quot; % &quot;{vegas-version}&quot;\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.vegas-viz<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>vegas-flink<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>{vegas-version}<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">To use:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import vegas.flink.Flink._\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">vegas</span>.<span class=\"pl-en\">flink</span>.<span class=\"pl-en\">Flink</span>.<span class=\"pl-en\">_</span></pre></div>\n<p dir=\"auto\">This adds the following method:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"withData[T &lt;: Product](ds: DataSet[T])\"><pre>withData[<span class=\"pl-en\">T</span> <span class=\"pl-k\">&lt;</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">Product</span>](<span class=\"pl-v\">ds</span>: <span class=\"pl-en\">DataSet</span>[<span class=\"pl-en\">T</span>])</pre></div>\n<p dir=\"auto\">Similarly, to the RDD concept in Spark, a DataSet of <em>case classes</em> or <em>tuples</em> is expected and reflection is used to map the case class' fields to fields within Vegas. In the case of tuples you can encode the fields using <code>\"_1\", \"_2\"</code> and so on.</p>\n<h2 dir=\"auto\"><a id=\"user-content-plot-options\" class=\"anchor\" aria-hidden=\"true\" href=\"#plot-options\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Plot Options</h2>\n<p dir=\"auto\">TODO</p>\n<h2 dir=\"auto\"><a id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Contributing</h2>\n<p dir=\"auto\">See <a href=\"CONTRIBUTING.md\">the contributing guide</a> for more information on contributing bug fixes and features.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "aishfenton",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/212780?v=4",
+        "url" : "https://api.github.com/users/aishfenton",
+        "contributions" : 53
+      },
+      {
+        "login" : "oshikiri",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10720090?v=4",
+        "url" : "https://api.github.com/users/oshikiri",
+        "contributions" : 25
+      },
+      {
+        "login" : "rogermenezes",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2406124?v=4",
+        "url" : "https://api.github.com/users/rogermenezes",
+        "contributions" : 14
+      },
+      {
+        "login" : "dbtsai",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1134574?v=4",
+        "url" : "https://api.github.com/users/dbtsai",
+        "contributions" : 9
+      },
+      {
+        "login" : "rgbkrk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/836375?v=4",
+        "url" : "https://api.github.com/users/rgbkrk",
+        "contributions" : 3
+      },
+      {
+        "login" : "ASRagab",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1041016?v=4",
+        "url" : "https://api.github.com/users/ASRagab",
+        "contributions" : 2
+      },
+      {
+        "login" : "jeremyrsmith",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/864869?v=4",
+        "url" : "https://api.github.com/users/jeremyrsmith",
+        "contributions" : 2
+      },
+      {
+        "login" : "ckchow",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3922740?v=4",
+        "url" : "https://api.github.com/users/ckchow",
+        "contributions" : 1
+      },
+      {
+        "login" : "chuyqa",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9003246?v=4",
+        "url" : "https://api.github.com/users/chuyqa",
+        "contributions" : 1
+      },
+      {
+        "login" : "nightscape",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/35170?v=4",
+        "url" : "https://api.github.com/users/nightscape",
+        "contributions" : 1
+      },
+      {
+        "login" : "matteverson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5479560?v=4",
+        "url" : "https://api.github.com/users/matteverson",
+        "contributions" : 1
+      },
+      {
+        "login" : "metasim",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/131013?v=4",
+        "url" : "https://api.github.com/users/metasim",
+        "contributions" : 1
+      },
+      {
+        "login" : "tjdett",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/437845?v=4",
+        "url" : "https://api.github.com/users/tjdett",
+        "contributions" : 1
+      },
+      {
+        "login" : "f1yegor",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1815205?v=4",
+        "url" : "https://api.github.com/users/f1yegor",
+        "contributions" : 1
+      },
+      {
+        "login" : "daniperez",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/579032?v=4",
+        "url" : "https://api.github.com/users/daniperez",
+        "contributions" : 1
+      },
+      {
+        "login" : "jopasserat",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/472083?v=4",
+        "url" : "https://api.github.com/users/jopasserat",
+        "contributions" : 1
+      },
+      {
+        "login" : "izhangzhihao",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12044174?v=4",
+        "url" : "https://api.github.com/users/izhangzhihao",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 118,
+    "topics" : [
+      "datascience",
+      "plotting",
+      "scala"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 180,
+        "title" : "error: Symbol 'term io.circe' is missing from the classpath In zeppelin",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/180"
+      },
+      {
+        "number" : 179,
+        "title" : "Using Vegas with SBT",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/179"
+      },
+      {
+        "number" : 178,
+        "title" : "where are the data-set files ?",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/178"
+      },
+      {
+        "number" : 176,
+        "title" : "Plot background color",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/176"
+      },
+      {
+        "number" : 175,
+        "title" : "Vegas install issue in Zeppelin",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/175"
+      },
+      {
+        "number" : 173,
+        "title" : "Fold transform doesn't support",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/173"
+      },
+      {
+        "number" : 172,
+        "title" : "Cannot normalize a stacked bar",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/172"
+      },
+      {
+        "number" : 171,
+        "title" : "pie chart is supported?",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/171"
+      },
+      {
+        "number" : 170,
+        "title" : "Adding Custom Spec in Vegas",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/170"
+      },
+      {
+        "number" : 169,
+        "title" : "topojson support in Vegas",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/169"
+      },
+      {
+        "number" : 168,
+        "title" : "Vegas-viz graphs not showing up when Jupyter notebook uploaded onto github ",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/168"
+      },
+      {
+        "number" : 166,
+        "title" : "Create title? ",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/166"
+      },
+      {
+        "number" : 165,
+        "title" : "Latest release is from July 2017 ??",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/165"
+      },
+      {
+        "number" : 163,
+        "title" : "I getting \"ArrayBuffer(ReferenceError: Can't find variable: vg)\"",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/163"
+      },
+      {
+        "number" : 156,
+        "title" : "Vegas fails to work when circe 0.9.3 is imported in Zeppelin ",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/156"
+      },
+      {
+        "number" : 153,
+        "title" : "Missing mark properties",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/153"
+      },
+      {
+        "number" : 144,
+        "title" : "StaticHTMLRenderer fix height",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/144"
+      },
+      {
+        "number" : 143,
+        "title" : "Spark - Vegas - Zeppelin - Trying to plot a simple bar graph. It is just printing the html file and not rendering.",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/143"
+      },
+      {
+        "number" : 142,
+        "title" : "Vegas doesn't work with Intellij +OSX",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/142"
+      },
+      {
+        "number" : 141,
+        "title" : "Render directly to png on local file system",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/141"
+      },
+      {
+        "number" : 138,
+        "title" : "Liveness of this project",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/138"
+      },
+      {
+        "number" : 136,
+        "title" : "NoClassDefFoundError: cats/functor/Contravariant",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/136"
+      },
+      {
+        "number" : 129,
+        "title" : "Equivalent to matplotlib's `savefig` ?",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/129"
+      },
+      {
+        "number" : 124,
+        "title" : "Cannot make vegas work in ammonite",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/124"
+      },
+      {
+        "number" : 122,
+        "title" : "Missing Rect mark",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/122"
+      },
+      {
+        "number" : 121,
+        "title" : "Specifying different color schemes ",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/121"
+      },
+      {
+        "number" : 120,
+        "title" : "Does vegas-spark sub-sample spark dataframes?",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/120"
+      },
+      {
+        "number" : 119,
+        "title" : "Support for CDF?",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/119"
+      },
+      {
+        "number" : 117,
+        "title" : "Push aggregations down to Spark",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/117"
+      },
+      {
+        "number" : 113,
+        "title" : "HDInsights",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/113"
+      },
+      {
+        "number" : 111,
+        "title" : "Disabling default renderer",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/111"
+      },
+      {
+        "number" : 107,
+        "title" : "Map visualizations",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/107"
+      },
+      {
+        "number" : 106,
+        "title" : "Update to Scala 2.12",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/106"
+      },
+      {
+        "number" : 105,
+        "title" : "How can I resize the JavaFX window ?",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/105"
+      },
+      {
+        "number" : 101,
+        "title" : "Error initializing dependencies in Jupyter/Toree",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/101"
+      },
+      {
+        "number" : 97,
+        "title" : "ConfigDSL.config is missing the apply(this)",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/97"
+      },
+      {
+        "number" : 88,
+        "title" : "Scalajs",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/88"
+      },
+      {
+        "number" : 85,
+        "title" : "Can not build vegas-viz",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/85"
+      },
+      {
+        "number" : 83,
+        "title" : "Update to vega-lite 1.2.1",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/83"
+      },
+      {
+        "number" : 82,
+        "title" : "Scatter matrix or something comparable available?",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/82"
+      },
+      {
+        "number" : 72,
+        "title" : "Remove unsupported JavaFX API use",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/72"
+      },
+      {
+        "number" : 71,
+        "title" : "Update Flink support to be inline with Spark naming convention.",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/71"
+      },
+      {
+        "number" : 65,
+        "title" : "Implement missing BasicPlot examples",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/65"
+      },
+      {
+        "number" : 52,
+        "title" : "Legend=false not supported",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/52"
+      },
+      {
+        "number" : 48,
+        "title" : "Implement encode*.{ Order, Path }",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/48"
+      },
+      {
+        "number" : 37,
+        "title" : "Make sure Readme is accurate",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/37"
+      },
+      {
+        "number" : 30,
+        "title" : "DataFormat type only supports `type` argument",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/30"
+      },
+      {
+        "number" : 29,
+        "title" : "Explore Filters DSL",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/29"
+      },
+      {
+        "number" : 9,
+        "title" : "Fix Heatmap padding issues. ",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/9"
+      },
+      {
+        "number" : 6,
+        "title" : "Write notebook docs",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/6"
+      },
+      {
+        "number" : 4,
+        "title" : "Fix bug with ScalaFX window sometimes being blank ",
+        "url" : "https://github.com/vegas-viz/Vegas/issues/4"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : null,
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "data-vizualization",
+    "beginnerIssuesLabel" : null
+  }
+}

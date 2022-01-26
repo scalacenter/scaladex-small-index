@@ -1,0 +1,1578 @@
+{
+  "organization" : "scala-native",
+  "repository" : "scala-native",
+  "creationDate" : 1487797446000,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643173244717
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "http://scala-native.org",
+    "description" : "Your favorite language gets closer to bare metal.",
+    "logo" : "https://avatars.githubusercontent.com/u/17545605?v=4",
+    "stars" : 4080,
+    "forks" : 297,
+    "watchers" : 144,
+    "issues" : 219,
+    "creationDate" : 1417109908000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-scala-native\" class=\"anchor\" aria-hidden=\"true\" href=\"#scala-native\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Scala Native</h1>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/scala-native/scala-native/actions/workflows/run-tests-linux.yml/badge.svg\"><img src=\"https://github.com/scala-native/scala-native/actions/workflows/run-tests-linux.yml/badge.svg\" alt=\"Posix Status\" style=\"max-width: 100%;\"></a>\n<a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/scala-native/scala-native/actions/workflows/run-tests-macos.yml/badge.svg\"><img src=\"https://github.com/scala-native/scala-native/actions/workflows/run-tests-macos.yml/badge.svg\" alt=\"MacOS Status\" style=\"max-width: 100%;\"></a>\n<a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/scala-native/scala-native/actions/workflows/run-tests-windows.yml/badge.svg\"><img src=\"https://github.com/scala-native/scala-native/actions/workflows/run-tests-windows.yml/badge.svg\" alt=\"Windows Status\" style=\"max-width: 100%;\"></a>\n<a href=\"https://maven-badges.herokuapp.com/maven-central/org.scala-native/tools_2.12\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/81de3a5dd76223a2e4ce2224e31f7237d5c6174374aa50a60acf8c7cadf4c1c9/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f6f72672e7363616c612d6e61746976652f746f6f6c735f322e31322e737667\" alt=\"Maven Central\" data-canonical-src=\"https://img.shields.io/maven-central/v/org.scala-native/tools_2.12.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Scala Native is an optimizing ahead-of-time compiler and lightweight managed runtime designed specifically for Scala.</p>\n<h2 dir=\"auto\"><a id=\"user-content-chat-and-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#chat-and-documentation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Chat and Documentation</h2>\n<p dir=\"auto\"><a href=\"https://discord.gg/scala\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/6b450e110650754fac58720d7910a45eadb65aab9c08a6e0cec059bd17bfe137/68747470733a2f2f696d672e736869656c64732e696f2f646973636f72642f3633323135303437303030303930323136342e7376673f6c6162656c3d266c6f676f3d646973636f7264266c6f676f436f6c6f723d66666666666626636f6c6f723d343034323434266c6162656c436f6c6f723d364137454332\" alt=\"Discord\" data-canonical-src=\"https://img.shields.io/discord/632150470000902164.svg?label=&amp;logo=discord&amp;logoColor=ffffff&amp;color=404244&amp;labelColor=6A7EC2\" style=\"max-width: 100%;\"></a>\n<a href=\"https://gitter.im/scala-native/scala-native?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/5dbac0213da25c445bd11f168587c11a200ba153ef3014e8408e462e410169b3/68747470733a2f2f6261646765732e6769747465722e696d2f4a6f696e253230436861742e737667\" alt=\"Join chat https://gitter.im/scala-native/scala-native\" data-canonical-src=\"https://badges.gitter.im/Join%20Chat.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Getting Started and full documentation can be found at <a href=\"http://www.scala-native.org/\" rel=\"nofollow\">http://www.scala-native.org/</a></p>\n<h2 dir=\"auto\"><a id=\"user-content-online-scaladoc\" class=\"anchor\" aria-hidden=\"true\" href=\"#online-scaladoc\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Online Scaladoc</h2>\n<p dir=\"auto\"><a href=\"https://javadoc.io/doc/org.scala-native/nativelib_native0.4_2.13\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/3c607ca665fefe0fa1155ba3c3fca4c9ec22e2c1b737e925eca3fcfae23da24c/68747470733a2f2f6a617661646f632e696f2f6261646765322f6f72672e7363616c612d6e61746976652f6e61746976656c69625f6e6174697665302e345f322e31332f6a617661646f632e7376673f6c6162656c3d6e61746976656c6962\" alt=\"Scaladoc nativelib\" data-canonical-src=\"https://javadoc.io/badge2/org.scala-native/nativelib_native0.4_2.13/javadoc.svg?label=nativelib\" style=\"max-width: 100%;\"></a>\n<a href=\"https://javadoc.io/doc/org.scala-native/clib_native0.4_2.13\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/bae7bf88deb82024a76fe427b7dc5931876387cfaa3a998bdfc7ce34d5cbfe2e/68747470733a2f2f6a617661646f632e696f2f6261646765322f6f72672e7363616c612d6e61746976652f636c69625f6e6174697665302e345f322e31332f6a617661646f632e7376673f6c6162656c3d636c6962\" alt=\"Scaladoc clib\" data-canonical-src=\"https://javadoc.io/badge2/org.scala-native/clib_native0.4_2.13/javadoc.svg?label=clib\" style=\"max-width: 100%;\"></a>\n<a href=\"https://javadoc.io/doc/org.scala-native/posixlib_native0.4_2.13\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/f952f297a4c114db99a0ef9de3df7202cee1c56c0ee70116cf4fb9154ac0068d/68747470733a2f2f6a617661646f632e696f2f6261646765322f6f72672e7363616c612d6e61746976652f706f7369786c69625f6e6174697665302e345f322e31332f6a617661646f632e7376673f6c6162656c3d706f7369786c6962\" alt=\"Scaladoc posixlib\" data-canonical-src=\"https://javadoc.io/badge2/org.scala-native/posixlib_native0.4_2.13/javadoc.svg?label=posixlib\" style=\"max-width: 100%;\"></a>\n<a href=\"https://javadoc.io/doc/org.scala-native/windowslib_native0.4_2.13\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/77aa37b7bff2d73d2da1efdfc9316057a1b21111aeacbdbbda2ad59899bee2e0/68747470733a2f2f6a617661646f632e696f2f6261646765322f6f72672e7363616c612d6e61746976652f77696e646f77736c69625f6e6174697665302e345f322e31332f6a617661646f632e7376673f6c6162656c3d77696e646f77736c6962\" alt=\"Scaladoc windowslib\" data-canonical-src=\"https://javadoc.io/badge2/org.scala-native/windowslib_native0.4_2.13/javadoc.svg?label=windowslib\" style=\"max-width: 100%;\"></a></p>\n<h2 dir=\"auto\"><a id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>License</h2>\n<p dir=\"auto\">Scala Native is distributed under the Apache License.\n<a href=\"https://github.com/scala-native/scala-native/blob/master/LICENSE.md\">See LICENSE.md for details</a></p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "densh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/320966?v=4",
+        "url" : "https://api.github.com/users/densh",
+        "contributions" : 859
+      },
+      {
+        "login" : "WojciechMazur",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19353690?v=4",
+        "url" : "https://api.github.com/users/WojciechMazur",
+        "contributions" : 177
+      },
+      {
+        "login" : "LeeTibbert",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12221035?v=4",
+        "url" : "https://api.github.com/users/LeeTibbert",
+        "contributions" : 153
+      },
+      {
+        "login" : "ekrich",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/933058?v=4",
+        "url" : "https://api.github.com/users/ekrich",
+        "contributions" : 98
+      },
+      {
+        "login" : "Duhemm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1765926?v=4",
+        "url" : "https://api.github.com/users/Duhemm",
+        "contributions" : 52
+      },
+      {
+        "login" : "MasseGuillaume",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/921490?v=4",
+        "url" : "https://api.github.com/users/MasseGuillaume",
+        "contributions" : 27
+      },
+      {
+        "login" : "jchyb",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/48855024?v=4",
+        "url" : "https://api.github.com/users/jchyb",
+        "contributions" : 22
+      },
+      {
+        "login" : "jonas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8417?v=4",
+        "url" : "https://api.github.com/users/jonas",
+        "contributions" : 18
+      },
+      {
+        "login" : "catap",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/37775?v=4",
+        "url" : "https://api.github.com/users/catap",
+        "contributions" : 17
+      },
+      {
+        "login" : "matil019",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/28897240?v=4",
+        "url" : "https://api.github.com/users/matil019",
+        "contributions" : 15
+      },
+      {
+        "login" : "t-hiroyoshi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10783208?v=4",
+        "url" : "https://api.github.com/users/t-hiroyoshi",
+        "contributions" : 13
+      },
+      {
+        "login" : "LukasKellenberger",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5486443?v=4",
+        "url" : "https://api.github.com/users/LukasKellenberger",
+        "contributions" : 12
+      },
+      {
+        "login" : "errikos",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5298184?v=4",
+        "url" : "https://api.github.com/users/errikos",
+        "contributions" : 11
+      },
+      {
+        "login" : "eatkins",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2658825?v=4",
+        "url" : "https://api.github.com/users/eatkins",
+        "contributions" : 11
+      },
+      {
+        "login" : "lolgab",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5793054?v=4",
+        "url" : "https://api.github.com/users/lolgab",
+        "contributions" : 11
+      },
+      {
+        "login" : "xuwei-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/389787?v=4",
+        "url" : "https://api.github.com/users/xuwei-k",
+        "contributions" : 11
+      },
+      {
+        "login" : "sjrd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/535934?v=4",
+        "url" : "https://api.github.com/users/sjrd",
+        "contributions" : 9
+      },
+      {
+        "login" : "valdisxp1",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2277076?v=4",
+        "url" : "https://api.github.com/users/valdisxp1",
+        "contributions" : 9
+      },
+      {
+        "login" : "asoltysik",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17353292?v=4",
+        "url" : "https://api.github.com/users/asoltysik",
+        "contributions" : 8
+      },
+      {
+        "login" : "muxanick",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1174482?v=4",
+        "url" : "https://api.github.com/users/muxanick",
+        "contributions" : 8
+      },
+      {
+        "login" : "ncordon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5649971?v=4",
+        "url" : "https://api.github.com/users/ncordon",
+        "contributions" : 6
+      },
+      {
+        "login" : "andreaTP",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5792097?v=4",
+        "url" : "https://api.github.com/users/andreaTP",
+        "contributions" : 6
+      },
+      {
+        "login" : "pbatko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1202093?v=4",
+        "url" : "https://api.github.com/users/pbatko",
+        "contributions" : 6
+      },
+      {
+        "login" : "Andrei-Pozolotin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1622151?v=4",
+        "url" : "https://api.github.com/users/Andrei-Pozolotin",
+        "contributions" : 5
+      },
+      {
+        "login" : "fbertra",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/18035?v=4",
+        "url" : "https://api.github.com/users/fbertra",
+        "contributions" : 5
+      },
+      {
+        "login" : "shadaj",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/543055?v=4",
+        "url" : "https://api.github.com/users/shadaj",
+        "contributions" : 5
+      },
+      {
+        "login" : "kmizu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/97326?v=4",
+        "url" : "https://api.github.com/users/kmizu",
+        "contributions" : 4
+      },
+      {
+        "login" : "zaneli",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/379820?v=4",
+        "url" : "https://api.github.com/users/zaneli",
+        "contributions" : 4
+      },
+      {
+        "login" : "lukeindykiewicz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3164986?v=4",
+        "url" : "https://api.github.com/users/lukeindykiewicz",
+        "contributions" : 4
+      },
+      {
+        "login" : "mkotsbak",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/296523?v=4",
+        "url" : "https://api.github.com/users/mkotsbak",
+        "contributions" : 4
+      },
+      {
+        "login" : "jiminhsieh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5125598?v=4",
+        "url" : "https://api.github.com/users/jiminhsieh",
+        "contributions" : 3
+      },
+      {
+        "login" : "gurinderu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1096153?v=4",
+        "url" : "https://api.github.com/users/gurinderu",
+        "contributions" : 3
+      },
+      {
+        "login" : "rwhaling",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/253435?v=4",
+        "url" : "https://api.github.com/users/rwhaling",
+        "contributions" : 3
+      },
+      {
+        "login" : "mccartney",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/762437?v=4",
+        "url" : "https://api.github.com/users/mccartney",
+        "contributions" : 3
+      },
+      {
+        "login" : "timothyklim",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/387270?v=4",
+        "url" : "https://api.github.com/users/timothyklim",
+        "contributions" : 3
+      },
+      {
+        "login" : "adam-singer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/654526?v=4",
+        "url" : "https://api.github.com/users/adam-singer",
+        "contributions" : 2
+      },
+      {
+        "login" : "ankitson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/855649?v=4",
+        "url" : "https://api.github.com/users/ankitson",
+        "contributions" : 2
+      },
+      {
+        "login" : "cquiroz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3615303?v=4",
+        "url" : "https://api.github.com/users/cquiroz",
+        "contributions" : 2
+      },
+      {
+        "login" : "coreyoconnor",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/34317?v=4",
+        "url" : "https://api.github.com/users/coreyoconnor",
+        "contributions" : 2
+      },
+      {
+        "login" : "darcy-shen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1267865?v=4",
+        "url" : "https://api.github.com/users/darcy-shen",
+        "contributions" : 2
+      },
+      {
+        "login" : "Sciss",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/131300?v=4",
+        "url" : "https://api.github.com/users/Sciss",
+        "contributions" : 2
+      },
+      {
+        "login" : "JD557",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1187242?v=4",
+        "url" : "https://api.github.com/users/JD557",
+        "contributions" : 2
+      },
+      {
+        "login" : "kmltml",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7456500?v=4",
+        "url" : "https://api.github.com/users/kmltml",
+        "contributions" : 2
+      },
+      {
+        "login" : "kornilova203",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23450724?v=4",
+        "url" : "https://api.github.com/users/kornilova203",
+        "contributions" : 2
+      },
+      {
+        "login" : "thesamet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/307373?v=4",
+        "url" : "https://api.github.com/users/thesamet",
+        "contributions" : 2
+      },
+      {
+        "login" : "sideeffffect",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9019485?v=4",
+        "url" : "https://api.github.com/users/sideeffffect",
+        "contributions" : 2
+      },
+      {
+        "login" : "phdoerfler",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/163428?v=4",
+        "url" : "https://api.github.com/users/phdoerfler",
+        "contributions" : 2
+      },
+      {
+        "login" : "soc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/42493?v=4",
+        "url" : "https://api.github.com/users/soc",
+        "contributions" : 2
+      },
+      {
+        "login" : "teodimoff",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8102231?v=4",
+        "url" : "https://api.github.com/users/teodimoff",
+        "contributions" : 2
+      },
+      {
+        "login" : "Milyardo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/99996?v=4",
+        "url" : "https://api.github.com/users/Milyardo",
+        "contributions" : 2
+      },
+      {
+        "login" : "cedricviaccoz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17364885?v=4",
+        "url" : "https://api.github.com/users/cedricviaccoz",
+        "contributions" : 2
+      },
+      {
+        "login" : "hepin1989",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/501740?v=4",
+        "url" : "https://api.github.com/users/hepin1989",
+        "contributions" : 2
+      },
+      {
+        "login" : "musabilal",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7125830?v=4",
+        "url" : "https://api.github.com/users/musabilal",
+        "contributions" : 2
+      },
+      {
+        "login" : "alexdupre",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3694371?v=4",
+        "url" : "https://api.github.com/users/alexdupre",
+        "contributions" : 2
+      },
+      {
+        "login" : "atty303",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/316079?v=4",
+        "url" : "https://api.github.com/users/atty303",
+        "contributions" : 1
+      },
+      {
+        "login" : "adamvoss",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/965439?v=4",
+        "url" : "https://api.github.com/users/adamvoss",
+        "contributions" : 1
+      },
+      {
+        "login" : "rexim",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/165283?v=4",
+        "url" : "https://api.github.com/users/rexim",
+        "contributions" : 1
+      },
+      {
+        "login" : "allanrenucci",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4996324?v=4",
+        "url" : "https://api.github.com/users/allanrenucci",
+        "contributions" : 1
+      },
+      {
+        "login" : "smithandrewl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/490251?v=4",
+        "url" : "https://api.github.com/users/smithandrewl",
+        "contributions" : 1
+      },
+      {
+        "login" : "keynmol",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1052965?v=4",
+        "url" : "https://api.github.com/users/keynmol",
+        "contributions" : 1
+      },
+      {
+        "login" : "bjornregnell",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3601817?v=4",
+        "url" : "https://api.github.com/users/bjornregnell",
+        "contributions" : 1
+      },
+      {
+        "login" : "wookietreiber",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/827088?v=4",
+        "url" : "https://api.github.com/users/wookietreiber",
+        "contributions" : 1
+      },
+      {
+        "login" : "dannylee8",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/51715345?v=4",
+        "url" : "https://api.github.com/users/dannylee8",
+        "contributions" : 1
+      },
+      {
+        "login" : "dlpatri",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2879880?v=4",
+        "url" : "https://api.github.com/users/dlpatri",
+        "contributions" : 1
+      },
+      {
+        "login" : "AlexandreDubray",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9006098?v=4",
+        "url" : "https://api.github.com/users/AlexandreDubray",
+        "contributions" : 1
+      },
+      {
+        "login" : "felixgborrego",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/650738?v=4",
+        "url" : "https://api.github.com/users/felixgborrego",
+        "contributions" : 1
+      },
+      {
+        "login" : "felixmulder",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1530049?v=4",
+        "url" : "https://api.github.com/users/felixmulder",
+        "contributions" : 1
+      },
+      {
+        "login" : "fduraffourg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/220489?v=4",
+        "url" : "https://api.github.com/users/fduraffourg",
+        "contributions" : 1
+      },
+      {
+        "login" : "Grogs",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1212907?v=4",
+        "url" : "https://api.github.com/users/Grogs",
+        "contributions" : 1
+      },
+      {
+        "login" : "hwielenberg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2743148?v=4",
+        "url" : "https://api.github.com/users/hwielenberg",
+        "contributions" : 1
+      },
+      {
+        "login" : "hubertp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/292128?v=4",
+        "url" : "https://api.github.com/users/hubertp",
+        "contributions" : 1
+      },
+      {
+        "login" : "loskutov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1202012?v=4",
+        "url" : "https://api.github.com/users/loskutov",
+        "contributions" : 1
+      },
+      {
+        "login" : "longshorej",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/515201?v=4",
+        "url" : "https://api.github.com/users/longshorej",
+        "contributions" : 1
+      },
+      {
+        "login" : "Jentsch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/818446?v=4",
+        "url" : "https://api.github.com/users/Jentsch",
+        "contributions" : 1
+      },
+      {
+        "login" : "Kazy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/59063?v=4",
+        "url" : "https://api.github.com/users/Kazy",
+        "contributions" : 1
+      },
+      {
+        "login" : "jvican",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2462974?v=4",
+        "url" : "https://api.github.com/users/jvican",
+        "contributions" : 1
+      },
+      {
+        "login" : "joprice",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2175555?v=4",
+        "url" : "https://api.github.com/users/joprice",
+        "contributions" : 1
+      },
+      {
+        "login" : "kpodsiad",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/37124721?v=4",
+        "url" : "https://api.github.com/users/kpodsiad",
+        "contributions" : 1
+      },
+      {
+        "login" : "nightscape",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/35170?v=4",
+        "url" : "https://api.github.com/users/nightscape",
+        "contributions" : 1
+      },
+      {
+        "login" : "tiqwab",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11240297?v=4",
+        "url" : "https://api.github.com/users/tiqwab",
+        "contributions" : 1
+      },
+      {
+        "login" : "siriux",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/715386?v=4",
+        "url" : "https://api.github.com/users/siriux",
+        "contributions" : 1
+      },
+      {
+        "login" : "pcejrowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9643002?v=4",
+        "url" : "https://api.github.com/users/pcejrowski",
+        "contributions" : 1
+      },
+      {
+        "login" : "paulfantom",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3531758?v=4",
+        "url" : "https://api.github.com/users/paulfantom",
+        "contributions" : 1
+      },
+      {
+        "login" : "piotrkwiecinski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2151333?v=4",
+        "url" : "https://api.github.com/users/piotrkwiecinski",
+        "contributions" : 1
+      },
+      {
+        "login" : "rzoller",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/52079981?v=4",
+        "url" : "https://api.github.com/users/rzoller",
+        "contributions" : 1
+      },
+      {
+        "login" : "rberenguel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2410938?v=4",
+        "url" : "https://api.github.com/users/rberenguel",
+        "contributions" : 1
+      },
+      {
+        "login" : "rssh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/191250?v=4",
+        "url" : "https://api.github.com/users/rssh",
+        "contributions" : 1
+      },
+      {
+        "login" : "tuxdna",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/52947?v=4",
+        "url" : "https://api.github.com/users/tuxdna",
+        "contributions" : 1
+      },
+      {
+        "login" : "fommil",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1914041?v=4",
+        "url" : "https://api.github.com/users/fommil",
+        "contributions" : 1
+      },
+      {
+        "login" : "techaddict",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1378755?v=4",
+        "url" : "https://api.github.com/users/techaddict",
+        "contributions" : 1
+      },
+      {
+        "login" : "schrepfler",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3553?v=4",
+        "url" : "https://api.github.com/users/schrepfler",
+        "contributions" : 1
+      },
+      {
+        "login" : "dozed",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/239058?v=4",
+        "url" : "https://api.github.com/users/dozed",
+        "contributions" : 1
+      },
+      {
+        "login" : "gitter-badger",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8518239?v=4",
+        "url" : "https://api.github.com/users/gitter-badger",
+        "contributions" : 1
+      },
+      {
+        "login" : "tindzk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/196819?v=4",
+        "url" : "https://api.github.com/users/tindzk",
+        "contributions" : 1
+      },
+      {
+        "login" : "dant3",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/820057?v=4",
+        "url" : "https://api.github.com/users/dant3",
+        "contributions" : 1
+      },
+      {
+        "login" : "vmunier",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1211392?v=4",
+        "url" : "https://api.github.com/users/vmunier",
+        "contributions" : 1
+      },
+      {
+        "login" : "riiswa",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24685602?v=4",
+        "url" : "https://api.github.com/users/riiswa",
+        "contributions" : 1
+      },
+      {
+        "login" : "xavier-fernandez",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10242025?v=4",
+        "url" : "https://api.github.com/users/xavier-fernandez",
+        "contributions" : 1
+      },
+      {
+        "login" : "ankusharya",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4048292?v=4",
+        "url" : "https://api.github.com/users/ankusharya",
+        "contributions" : 1
+      },
+      {
+        "login" : "henrymai",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/136857?v=4",
+        "url" : "https://api.github.com/users/henrymai",
+        "contributions" : 1
+      },
+      {
+        "login" : "jokade",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8112963?v=4",
+        "url" : "https://api.github.com/users/jokade",
+        "contributions" : 1
+      },
+      {
+        "login" : "philwalk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3171734?v=4",
+        "url" : "https://api.github.com/users/philwalk",
+        "contributions" : 1
+      },
+      {
+        "login" : "ragnr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/654606?v=4",
+        "url" : "https://api.github.com/users/ragnr",
+        "contributions" : 1
+      },
+      {
+        "login" : "Korf74",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15185503?v=4",
+        "url" : "https://api.github.com/users/Korf74",
+        "contributions" : 1
+      },
+      {
+        "login" : "vaartis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14316128?v=4",
+        "url" : "https://api.github.com/users/vaartis",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 1694,
+    "topics" : [
+      "scala-native",
+      "llvm",
+      "scala",
+      "aot",
+      "compiler",
+      "native"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : "https://gitter.im/scala-native/scala-native",
+    "openIssues" : [
+      {
+        "number" : 2546,
+        "title" : "Libraries built with Scala Native (0.4.3) can't be used via `for3Use2_13`",
+        "url" : "https://github.com/scala-native/scala-native/issues/2546"
+      },
+      {
+        "number" : 2544,
+        "title" : "Can't update scala-collection-compat",
+        "url" : "https://github.com/scala-native/scala-native/issues/2544"
+      },
+      {
+        "number" : 2543,
+        "title" : "Structural type support for Scala 3 (linker error)",
+        "url" : "https://github.com/scala-native/scala-native/issues/2543"
+      },
+      {
+        "number" : 2541,
+        "title" : "Two tests failing on JDK11",
+        "url" : "https://github.com/scala-native/scala-native/issues/2541"
+      },
+      {
+        "number" : 2540,
+        "title" : "add `ScalaNativeJUnitPlugin` sbt plugin like scala-js",
+        "url" : "https://github.com/scala-native/scala-native/issues/2540"
+      },
+      {
+        "number" : 2538,
+        "title" : "doc building failed for scala-2.13.8",
+        "url" : "https://github.com/scala-native/scala-native/issues/2538"
+      },
+      {
+        "number" : 2531,
+        "title" : "Failed to do native link in Scala 2.13.8 with Scala Native 0.4.2",
+        "url" : "https://github.com/scala-native/scala-native/issues/2531"
+      },
+      {
+        "number" : 2529,
+        "title" : "Rework documentation with JVM based site generator and mdoc",
+        "url" : "https://github.com/scala-native/scala-native/issues/2529"
+      },
+      {
+        "number" : 2528,
+        "title" : "Clarification about NIR compatibility in RC releases",
+        "url" : "https://github.com/scala-native/scala-native/issues/2528"
+      },
+      {
+        "number" : 2507,
+        "title" : "Consider renaming master to main",
+        "url" : "https://github.com/scala-native/scala-native/issues/2507"
+      },
+      {
+        "number" : 2505,
+        "title" : "Cannot read extern field if it's defined as an array instead of pointer",
+        "url" : "https://github.com/scala-native/scala-native/issues/2505"
+      },
+      {
+        "number" : 2503,
+        "title" : "[0.4.3-RC1][Scala 3.1.0]could not generate scaladoc",
+        "url" : "https://github.com/scala-native/scala-native/issues/2503"
+      },
+      {
+        "number" : 2500,
+        "title" : "Issue with fastparse library",
+        "url" : "https://github.com/scala-native/scala-native/issues/2500"
+      },
+      {
+        "number" : 2498,
+        "title" : "Throw compile-time error when `extern` cannot be used ",
+        "url" : "https://github.com/scala-native/scala-native/issues/2498"
+      },
+      {
+        "number" : 2494,
+        "title" : "CVarArgList not working correctly on macOS M1",
+        "url" : "https://github.com/scala-native/scala-native/issues/2494"
+      },
+      {
+        "number" : 2491,
+        "title" : "[0.4.3-SNAPSHOT][Scala 3] SegFault on large Bigints",
+        "url" : "https://github.com/scala-native/scala-native/issues/2491"
+      },
+      {
+        "number" : 2487,
+        "title" : "Accessing managed memory from a CFuncPtr throws an NPE",
+        "url" : "https://github.com/scala-native/scala-native/issues/2487"
+      },
+      {
+        "number" : 2483,
+        "title" : "`sbt test` fails on subproject without any tests when it depends on module which is using `scalatests` for tests and `sbt-crossproject`",
+        "url" : "https://github.com/scala-native/scala-native/issues/2483"
+      },
+      {
+        "number" : 2473,
+        "title" : "Java 9+ add additional Math functions",
+        "url" : "https://github.com/scala-native/scala-native/issues/2473"
+      },
+      {
+        "number" : 2445,
+        "title" : "Java 11, Missing Character.toString(Int) method",
+        "url" : "https://github.com/scala-native/scala-native/issues/2445"
+      },
+      {
+        "number" : 2438,
+        "title" : "Working directory in Config cannot be a relative path",
+        "url" : "https://github.com/scala-native/scala-native/issues/2438"
+      },
+      {
+        "number" : 2437,
+        "title" : "Performance reggresion in some of Scala 2.13 benchmarks",
+        "url" : "https://github.com/scala-native/scala-native/issues/2437"
+      },
+      {
+        "number" : 2436,
+        "title" : "GC not freeing short living variables under some circumstances",
+        "url" : "https://github.com/scala-native/scala-native/issues/2436"
+      },
+      {
+        "number" : 2435,
+        "title" : "Doc mention of `__empty.ll` is out of date",
+        "url" : "https://github.com/scala-native/scala-native/issues/2435"
+      },
+      {
+        "number" : 2432,
+        "title" : "Move test classes to new directory to match the package",
+        "url" : "https://github.com/scala-native/scala-native/issues/2432"
+      },
+      {
+        "number" : 2424,
+        "title" : "Missing methods in `java.util.Date`",
+        "url" : "https://github.com/scala-native/scala-native/issues/2424"
+      },
+      {
+        "number" : 2418,
+        "title" : "Building docs should be a part of the CI",
+        "url" : "https://github.com/scala-native/scala-native/issues/2418"
+      },
+      {
+        "number" : 2417,
+        "title" : "Scaladoc should be tested in the CI also for SNAPSHOT versions",
+        "url" : "https://github.com/scala-native/scala-native/issues/2417"
+      },
+      {
+        "number" : 2395,
+        "title" : "Fix POSIX unistd sleep functions",
+        "url" : "https://github.com/scala-native/scala-native/issues/2395"
+      },
+      {
+        "number" : 2359,
+        "title" : "Conversion of a Scala function passed as a function argument to a CFuncPtr1",
+        "url" : "https://github.com/scala-native/scala-native/issues/2359"
+      },
+      {
+        "number" : 2346,
+        "title" : "Is scala native garbage collector compatible with C interoperability?",
+        "url" : "https://github.com/scala-native/scala-native/issues/2346"
+      },
+      {
+        "number" : 2343,
+        "title" : "Loop performance versus JVM",
+        "url" : "https://github.com/scala-native/scala-native/issues/2343"
+      },
+      {
+        "number" : 2329,
+        "title" : "Consider alternatives get macOS properties os.name and os.version",
+        "url" : "https://github.com/scala-native/scala-native/issues/2329"
+      },
+      {
+        "number" : 2324,
+        "title" : "Regex problems found when porting scalafmt",
+        "url" : "https://github.com/scala-native/scala-native/issues/2324"
+      },
+      {
+        "number" : 2314,
+        "title" : "posix getaddrinfo() segfaults when given null hints argument",
+        "url" : "https://github.com/scala-native/scala-native/issues/2314"
+      },
+      {
+        "number" : 2311,
+        "title" : "Opportunities for improvement in posixlib SocketHelpers.scala",
+        "url" : "https://github.com/scala-native/scala-native/issues/2311"
+      },
+      {
+        "number" : 2310,
+        "title" : "Caching bug in InetAddress.scala",
+        "url" : "https://github.com/scala-native/scala-native/issues/2310"
+      },
+      {
+        "number" : 2302,
+        "title" : "test-scripted is user hostile",
+        "url" : "https://github.com/scala-native/scala-native/issues/2302"
+      },
+      {
+        "number" : 2295,
+        "title" : "Two defects in socket.scala",
+        "url" : "https://github.com/scala-native/scala-native/issues/2295"
+      },
+      {
+        "number" : 2292,
+        "title" : "Reconsider calling memset for stack allocated memory",
+        "url" : "https://github.com/scala-native/scala-native/issues/2292"
+      },
+      {
+        "number" : 2291,
+        "title" : "Stackalloc should document that it clears memory",
+        "url" : "https://github.com/scala-native/scala-native/issues/2291"
+      },
+      {
+        "number" : 2290,
+        "title" : "Posixlib build should define _POSIX_C_SOURCE on clang command line.",
+        "url" : "https://github.com/scala-native/scala-native/issues/2290"
+      },
+      {
+        "number" : 2286,
+        "title" : "Breaking news, ProcessTest is failing intermttently",
+        "url" : "https://github.com/scala-native/scala-native/issues/2286"
+      },
+      {
+        "number" : 2282,
+        "title" : "j.l.Throwables.scala allocates 4Kish on stack.",
+        "url" : "https://github.com/scala-native/scala-native/issues/2282"
+      },
+      {
+        "number" : 2280,
+        "title" : "javalib socket code appears to not support IPv6.",
+        "url" : "https://github.com/scala-native/scala-native/issues/2280"
+      },
+      {
+        "number" : 2279,
+        "title" : "javalib Datagram socket implementation is suspect",
+        "url" : "https://github.com/scala-native/scala-native/issues/2279"
+      },
+      {
+        "number" : 2261,
+        "title" : "posixlib limits.c has multiple defects.",
+        "url" : "https://github.com/scala-native/scala-native/issues/2261"
+      },
+      {
+        "number" : 2257,
+        "title" : "Consider generating API docs for the javalib",
+        "url" : "https://github.com/scala-native/scala-native/issues/2257"
+      },
+      {
+        "number" : 2255,
+        "title" : "Posix scatter/gather socket routines are not implemented.",
+        "url" : "https://github.com/scala-native/scala-native/issues/2255"
+      },
+      {
+        "number" : 2247,
+        "title" : "GC related random memory corruption",
+        "url" : "https://github.com/scala-native/scala-native/issues/2247"
+      },
+      {
+        "number" : 2245,
+        "title" : "Segmentation fault on access to implicit objects",
+        "url" : "https://github.com/scala-native/scala-native/issues/2245"
+      },
+      {
+        "number" : 2243,
+        "title" : "Stack / memory corruption",
+        "url" : "https://github.com/scala-native/scala-native/issues/2243"
+      },
+      {
+        "number" : 2233,
+        "title" : "Errors / warns in the tests with none LTO and debug mode",
+        "url" : "https://github.com/scala-native/scala-native/issues/2233"
+      },
+      {
+        "number" : 2228,
+        "title" : "readdir() declaration in posixlib dirent.scala does not follow specification.",
+        "url" : "https://github.com/scala-native/scala-native/issues/2228"
+      },
+      {
+        "number" : 2214,
+        "title" : "Avoid suggesting (undocumented) configuration-via-envvar is now deprecated.",
+        "url" : "https://github.com/scala-native/scala-native/issues/2214"
+      },
+      {
+        "number" : 2213,
+        "title" : "Proposal: Documenting that C signals are not Exceptions",
+        "url" : "https://github.com/scala-native/scala-native/issues/2213"
+      },
+      {
+        "number" : 2212,
+        "title" : "Three  test-tools failures using SN 2.13.4 release-fast lto=thin on macOS CI.",
+        "url" : "https://github.com/scala-native/scala-native/issues/2212"
+      },
+      {
+        "number" : 2199,
+        "title" : "Scala Steward and two update candidates",
+        "url" : "https://github.com/scala-native/scala-native/issues/2199"
+      },
+      {
+        "number" : 2194,
+        "title" : "Requesting help/feedback about posixlib sys/wait.h implementation",
+        "url" : "https://github.com/scala-native/scala-native/issues/2194"
+      },
+      {
+        "number" : 2192,
+        "title" : "Proposal: Native Loop and Execution Context selection",
+        "url" : "https://github.com/scala-native/scala-native/issues/2192"
+      },
+      {
+        "number" : 2171,
+        "title" : "Regex needs performance work",
+        "url" : "https://github.com/scala-native/scala-native/issues/2171"
+      },
+      {
+        "number" : 2155,
+        "title" : "Calls to String::repeat result in UndefinedBehaviorError",
+        "url" : "https://github.com/scala-native/scala-native/issues/2155"
+      },
+      {
+        "number" : 2123,
+        "title" : "Consider moving zip C support into javalib",
+        "url" : "https://github.com/scala-native/scala-native/issues/2123"
+      },
+      {
+        "number" : 2094,
+        "title" : "Posixlib & clib need toSize_t() method.",
+        "url" : "https://github.com/scala-native/scala-native/issues/2094"
+      },
+      {
+        "number" : 2055,
+        "title" : "Bug? Expected ClassCastException, got none.",
+        "url" : "https://github.com/scala-native/scala-native/issues/2055"
+      },
+      {
+        "number" : 2021,
+        "title" : "\"Can't call' defects should be errors in build",
+        "url" : "https://github.com/scala-native/scala-native/issues/2021"
+      },
+      {
+        "number" : 2002,
+        "title" : "Versioning issue with ReadTheDocs.io link from Homepage URL",
+        "url" : "https://github.com/scala-native/scala-native/issues/2002"
+      },
+      {
+        "number" : 1968,
+        "title" : "ProcessTest can leave zombie processes behind",
+        "url" : "https://github.com/scala-native/scala-native/issues/1968"
+      },
+      {
+        "number" : 1960,
+        "title" : "Proposal:  Weekly build to exercise Release-fast & LTO ",
+        "url" : "https://github.com/scala-native/scala-native/issues/1960"
+      },
+      {
+        "number" : 1948,
+        "title" : "nativelib time.c does not check errors, particularly gettimeofday()",
+        "url" : "https://github.com/scala-native/scala-native/issues/1948"
+      },
+      {
+        "number" : 1938,
+        "title" : "Can't build expression on scala-native via JDK12+",
+        "url" : "https://github.com/scala-native/scala-native/issues/1938"
+      },
+      {
+        "number" : 1920,
+        "title" : "Scala.js CollectionsTestBase.scala & descendents need to be ported to Scala Native.",
+        "url" : "https://github.com/scala-native/scala-native/issues/1920"
+      },
+      {
+        "number" : 1915,
+        "title" : "Consider clock_gettime for macos and linux",
+        "url" : "https://github.com/scala-native/scala-native/issues/1915"
+      },
+      {
+        "number" : 1908,
+        "title" : "AARCH64(ARM64) Format string function results in a crash.",
+        "url" : "https://github.com/scala-native/scala-native/issues/1908"
+      },
+      {
+        "number" : 1896,
+        "title" : "Number formatting/printing performance",
+        "url" : "https://github.com/scala-native/scala-native/issues/1896"
+      },
+      {
+        "number" : 1884,
+        "title" : "Text/XML parsing performance",
+        "url" : "https://github.com/scala-native/scala-native/issues/1884"
+      },
+      {
+        "number" : 1856,
+        "title" : "error: typedef redefinition with different types",
+        "url" : "https://github.com/scala-native/scala-native/issues/1856"
+      },
+      {
+        "number" : 1826,
+        "title" : "Add documentation for GC heap memory env vars",
+        "url" : "https://github.com/scala-native/scala-native/issues/1826"
+      },
+      {
+        "number" : 1753,
+        "title" : "Build.sbt scalacOptions should report unused imports",
+        "url" : "https://github.com/scala-native/scala-native/issues/1753"
+      },
+      {
+        "number" : 1739,
+        "title" : "refactoring of MemoryManagement/aggregate_and_sort example",
+        "url" : "https://github.com/scala-native/scala-native/issues/1739"
+      },
+      {
+        "number" : 1719,
+        "title" : "Rename 'extern' annotation or def",
+        "url" : "https://github.com/scala-native/scala-native/issues/1719"
+      },
+      {
+        "number" : 1713,
+        "title" : "Scala Native potential memory leak with regex (0.4.0-M2)",
+        "url" : "https://github.com/scala-native/scala-native/issues/1713"
+      },
+      {
+        "number" : 1695,
+        "title" : "j.u.ArrayList.toArray*  needs attention",
+        "url" : "https://github.com/scala-native/scala-native/issues/1695"
+      },
+      {
+        "number" : 1694,
+        "title" : "j.l.System.arraycopy should more closely match JVM; missing ArrayStoreExceptions",
+        "url" : "https://github.com/scala-native/scala-native/issues/1694"
+      },
+      {
+        "number" : 1681,
+        "title" : "Java 11 compiles but fails to link",
+        "url" : "https://github.com/scala-native/scala-native/issues/1681"
+      },
+      {
+        "number" : 1655,
+        "title" : "implement java.util.concurrent.CompletableFuture",
+        "url" : "https://github.com/scala-native/scala-native/issues/1655"
+      },
+      {
+        "number" : 1645,
+        "title" : "JVM (& SBT?) sets open file max higher, SN javalib does not.",
+        "url" : "https://github.com/scala-native/scala-native/issues/1645"
+      },
+      {
+        "number" : 1642,
+        "title" : "Missing a few useful ANSI/POSIX C functions",
+        "url" : "https://github.com/scala-native/scala-native/issues/1642"
+      },
+      {
+        "number" : 1628,
+        "title" : "Integration with external libs requiring some representation of SN objects",
+        "url" : "https://github.com/scala-native/scala-native/issues/1628"
+      },
+      {
+        "number" : 1626,
+        "title" : "Allow libraries to replace runtime.ExecutionContext with alternative ExecutionContext implemention",
+        "url" : "https://github.com/scala-native/scala-native/issues/1626"
+      },
+      {
+        "number" : 1619,
+        "title" : "Bug: incomplete implementation of Files.newDirectoryStream(dir: Path, glob: String)",
+        "url" : "https://github.com/scala-native/scala-native/issues/1619"
+      },
+      {
+        "number" : 1610,
+        "title" : "SN only supports seconds resolution for FileTime",
+        "url" : "https://github.com/scala-native/scala-native/issues/1610"
+      },
+      {
+        "number" : 1568,
+        "title" : "Interflow: profile-guided optimizations",
+        "url" : "https://github.com/scala-native/scala-native/issues/1568"
+      },
+      {
+        "number" : 1552,
+        "title" : "Optimize re2s-based regex for speed",
+        "url" : "https://github.com/scala-native/scala-native/issues/1552"
+      },
+      {
+        "number" : 1543,
+        "title" : "j.u.regex lacks region support.",
+        "url" : "https://github.com/scala-native/scala-native/issues/1543"
+      },
+      {
+        "number" : 1542,
+        "title" : "Unicode tables should be unified for consistency & minimal binary size",
+        "url" : "https://github.com/scala-native/scala-native/issues/1542"
+      },
+      {
+        "number" : 1529,
+        "title" : "Interflow: pass boxes by value",
+        "url" : "https://github.com/scala-native/scala-native/issues/1529"
+      },
+      {
+        "number" : 1513,
+        "title" : "Interflow: optimize away exceptional control-flow",
+        "url" : "https://github.com/scala-native/scala-native/issues/1513"
+      },
+      {
+        "number" : 1477,
+        "title" : "Interflow: refine flow state by instance checks",
+        "url" : "https://github.com/scala-native/scala-native/issues/1477"
+      },
+      {
+        "number" : 1476,
+        "title" : "Interflow: optimize in parallel in release mode",
+        "url" : "https://github.com/scala-native/scala-native/issues/1476"
+      },
+      {
+        "number" : 1458,
+        "title" : "scripted-tests shutdown is not a good citizen, two defects.",
+        "url" : "https://github.com/scala-native/scala-native/issues/1458"
+      },
+      {
+        "number" : 1449,
+        "title" : "Add support for packed structs",
+        "url" : "https://github.com/scala-native/scala-native/issues/1449"
+      },
+      {
+        "number" : 1405,
+        "title" : "Proposal: tiered testing",
+        "url" : "https://github.com/scala-native/scala-native/issues/1405"
+      },
+      {
+        "number" : 1396,
+        "title" : "Proposal: automatically growable stack",
+        "url" : "https://github.com/scala-native/scala-native/issues/1396"
+      },
+      {
+        "number" : 1376,
+        "title" : "Dealias platform-dependent numeric types at link-time",
+        "url" : "https://github.com/scala-native/scala-native/issues/1376"
+      },
+      {
+        "number" : 1287,
+        "title" : "NIR format refresh",
+        "url" : "https://github.com/scala-native/scala-native/issues/1287"
+      },
+      {
+        "number" : 1260,
+        "title" : "Contributor's Guide should describe documentation setup & creation",
+        "url" : "https://github.com/scala-native/scala-native/issues/1260"
+      },
+      {
+        "number" : 1233,
+        "title" : "Document Nix setup for IDE",
+        "url" : "https://github.com/scala-native/scala-native/issues/1233"
+      },
+      {
+        "number" : 1206,
+        "title" : "Proposal: WebAssembly for Non-Web Embeddings",
+        "url" : "https://github.com/scala-native/scala-native/issues/1206"
+      },
+      {
+        "number" : 1205,
+        "title" : "Proposal: Build API extensions",
+        "url" : "https://github.com/scala-native/scala-native/issues/1205"
+      },
+      {
+        "number" : 1204,
+        "title" : "Feature: support binding to top-level constants in C directly in scala",
+        "url" : "https://github.com/scala-native/scala-native/issues/1204"
+      },
+      {
+        "number" : 1186,
+        "title" : "User’s Guide: Building projects with Maven",
+        "url" : "https://github.com/scala-native/scala-native/issues/1186"
+      },
+      {
+        "number" : 1092,
+        "title" : "Add support for 32-bit ARM architecture",
+        "url" : "https://github.com/scala-native/scala-native/issues/1092"
+      },
+      {
+        "number" : 1061,
+        "title" : "Add official support for AArch64 on Linux",
+        "url" : "https://github.com/scala-native/scala-native/issues/1061"
+      },
+      {
+        "number" : 1023,
+        "title" : "Missing methods to support scala-java-time",
+        "url" : "https://github.com/scala-native/scala-native/issues/1023"
+      },
+      {
+        "number" : 989,
+        "title" : "`java.util.Formatter` is incomplete",
+        "url" : "https://github.com/scala-native/scala-native/issues/989"
+      },
+      {
+        "number" : 988,
+        "title" : "`java.util.TimeZone` is incomplete",
+        "url" : "https://github.com/scala-native/scala-native/issues/988"
+      },
+      {
+        "number" : 987,
+        "title" : "`java.util.Calendar` is incomplete",
+        "url" : "https://github.com/scala-native/scala-native/issues/987"
+      },
+      {
+        "number" : 986,
+        "title" : "`java.util.regex.Matcher.region` is missing",
+        "url" : "https://github.com/scala-native/scala-native/issues/986"
+      },
+      {
+        "number" : 983,
+        "title" : "Optimize String::{hashCode, equals} for speed",
+        "url" : "https://github.com/scala-native/scala-native/issues/983"
+      },
+      {
+        "number" : 981,
+        "title" : "Add support for invariant.load/invariant.group metadata",
+        "url" : "https://github.com/scala-native/scala-native/issues/981"
+      },
+      {
+        "number" : 980,
+        "title" : "Add support for dereferenceable/dereferenceable_or_null metadata",
+        "url" : "https://github.com/scala-native/scala-native/issues/980"
+      },
+      {
+        "number" : 970,
+        "title" : "Consider adding support for java.net.URL",
+        "url" : "https://github.com/scala-native/scala-native/issues/970"
+      },
+      {
+        "number" : 967,
+        "title" : "Blocking sockets support",
+        "url" : "https://github.com/scala-native/scala-native/issues/967"
+      },
+      {
+        "number" : 962,
+        "title" : "Port `javax.security.auth.x500.X500Principal` from Apache Harmony",
+        "url" : "https://github.com/scala-native/scala-native/issues/962"
+      },
+      {
+        "number" : 961,
+        "title" : "Port `java.security.cert.X509Extension` from Apache Harmony",
+        "url" : "https://github.com/scala-native/scala-native/issues/961"
+      },
+      {
+        "number" : 960,
+        "title" : "Port `java.security.cert.X509Certificate` from Apache Harmony",
+        "url" : "https://github.com/scala-native/scala-native/issues/960"
+      },
+      {
+        "number" : 958,
+        "title" : "Port `java.security.CodeSigner` from Apache Harmony",
+        "url" : "https://github.com/scala-native/scala-native/issues/958"
+      },
+      {
+        "number" : 957,
+        "title" : "Port `org.apache.harmony.security.utils.JarUtils` from Apache Harmony",
+        "url" : "https://github.com/scala-native/scala-native/issues/957"
+      },
+      {
+        "number" : 956,
+        "title" : "Add support for signed JARs",
+        "url" : "https://github.com/scala-native/scala-native/issues/956"
+      },
+      {
+        "number" : 955,
+        "title" : "Port `java.security.cert.CertificateFactory` from Apache Harmony",
+        "url" : "https://github.com/scala-native/scala-native/issues/955"
+      },
+      {
+        "number" : 954,
+        "title" : "Port `java.security.cert.Certificate` from Apache Harmony",
+        "url" : "https://github.com/scala-native/scala-native/issues/954"
+      },
+      {
+        "number" : 953,
+        "title" : "Port `java.security.MessageDigest` from Apache Harmony",
+        "url" : "https://github.com/scala-native/scala-native/issues/953"
+      },
+      {
+        "number" : 937,
+        "title" : "UTF-8 support in ZipEntry is incomplete",
+        "url" : "https://github.com/scala-native/scala-native/issues/937"
+      },
+      {
+        "number" : 936,
+        "title" : "ZipEntry.getTime and ZipEntry.setTime are missing because java.util.GregorianCalendar is incomplete",
+        "url" : "https://github.com/scala-native/scala-native/issues/936"
+      },
+      {
+        "number" : 906,
+        "title" : "Uninitialized util.ScopedVar should throw meaningful compilation error",
+        "url" : "https://github.com/scala-native/scala-native/issues/906"
+      },
+      {
+        "number" : 903,
+        "title" : "Replace current implementation of sort in java.util.Arrays with port of pdqsort",
+        "url" : "https://github.com/scala-native/scala-native/issues/903"
+      },
+      {
+        "number" : 897,
+        "title" : "Proposal: Interop 2.0",
+        "url" : "https://github.com/scala-native/scala-native/issues/897"
+      },
+      {
+        "number" : 856,
+        "title" : "Add support for object monitor methods",
+        "url" : "https://github.com/scala-native/scala-native/issues/856"
+      },
+      {
+        "number" : 855,
+        "title" : "Add support for @volatile annotation",
+        "url" : "https://github.com/scala-native/scala-native/issues/855"
+      },
+      {
+        "number" : 846,
+        "title" : "Add support for compact LATIN1 strings",
+        "url" : "https://github.com/scala-native/scala-native/issues/846"
+      },
+      {
+        "number" : 753,
+        "title" : "Add support for full atomic semantics of java.util.concurrent.{Atomic*} ",
+        "url" : "https://github.com/scala-native/scala-native/issues/753"
+      },
+      {
+        "number" : 731,
+        "title" : "Improve performance of merge sort using Scala collections",
+        "url" : "https://github.com/scala-native/scala-native/issues/731"
+      },
+      {
+        "number" : 727,
+        "title" : "Add support for x86 architecture",
+        "url" : "https://github.com/scala-native/scala-native/issues/727"
+      },
+      {
+        "number" : 699,
+        "title" : "Add support for Await.result",
+        "url" : "https://github.com/scala-native/scala-native/issues/699"
+      },
+      {
+        "number" : 687,
+        "title" : "Array literal -- or how to elegantly create an array of compile time constants",
+        "url" : "https://github.com/scala-native/scala-native/issues/687"
+      },
+      {
+        "number" : 666,
+        "title" : "Improve LLVM tool discovery not to pick incompatible versions",
+        "url" : "https://github.com/scala-native/scala-native/issues/666"
+      },
+      {
+        "number" : 638,
+        "title" : "Define scala.math.Numeric/Ordering instances for Unsigned* Scala Native types",
+        "url" : "https://github.com/scala-native/scala-native/issues/638"
+      },
+      {
+        "number" : 637,
+        "title" : "Add support for CStruct23 and beyond",
+        "url" : "https://github.com/scala-native/scala-native/issues/637"
+      },
+      {
+        "number" : 634,
+        "title" : "Make it easier to define recursive structs",
+        "url" : "https://github.com/scala-native/scala-native/issues/634"
+      },
+      {
+        "number" : 603,
+        "title" : "Proposal: add support for WebAssembly target",
+        "url" : "https://github.com/scala-native/scala-native/issues/603"
+      },
+      {
+        "number" : 567,
+        "title" : "Proposal: embed resources into executable",
+        "url" : "https://github.com/scala-native/scala-native/issues/567"
+      },
+      {
+        "number" : 566,
+        "title" : "Proposal: libraries can declare linking options",
+        "url" : "https://github.com/scala-native/scala-native/issues/566"
+      },
+      {
+        "number" : 555,
+        "title" : "Add support for passing CStruct-s and CArray-s by value",
+        "url" : "https://github.com/scala-native/scala-native/issues/555"
+      },
+      {
+        "number" : 494,
+        "title" : "Proposal: move docker configuration to a separate repo",
+        "url" : "https://github.com/scala-native/scala-native/issues/494"
+      },
+      {
+        "number" : 486,
+        "title" : "Add support for proper string interning",
+        "url" : "https://github.com/scala-native/scala-native/issues/486"
+      },
+      {
+        "number" : 450,
+        "title" : "Scala-JVM to Scala-Native interop",
+        "url" : "https://github.com/scala-native/scala-native/issues/450"
+      },
+      {
+        "number" : 391,
+        "title" : "Add support for TBAA metadata",
+        "url" : "https://github.com/scala-native/scala-native/issues/391"
+      },
+      {
+        "number" : 317,
+        "title" : "Front-end should be friendlier to people",
+        "url" : "https://github.com/scala-native/scala-native/issues/317"
+      },
+      {
+        "number" : 289,
+        "title" : "Proposal: external libs version compatibility specification",
+        "url" : "https://github.com/scala-native/scala-native/issues/289"
+      },
+      {
+        "number" : 284,
+        "title" : "Proposal: TCO for mutually recursive functions ",
+        "url" : "https://github.com/scala-native/scala-native/issues/284"
+      },
+      {
+        "number" : 266,
+        "title" : "Expose argv[0] since it is missing in the entrypoint: def main(args: Array[String])",
+        "url" : "https://github.com/scala-native/scala-native/issues/266"
+      },
+      {
+        "number" : 209,
+        "title" : "Extend Array.copy to support exact JVM semantics",
+        "url" : "https://github.com/scala-native/scala-native/issues/209"
+      },
+      {
+        "number" : 205,
+        "title" : "Improve interop with C's enums",
+        "url" : "https://github.com/scala-native/scala-native/issues/205"
+      },
+      {
+        "number" : 195,
+        "title" : "ABI of extern functions receiving @struct's as params differs from clang's",
+        "url" : "https://github.com/scala-native/scala-native/issues/195"
+      },
+      {
+        "number" : 189,
+        "title" : "Memory model",
+        "url" : "https://github.com/scala-native/scala-native/issues/189"
+      },
+      {
+        "number" : 182,
+        "title" : "Incremental compilation",
+        "url" : "https://github.com/scala-native/scala-native/issues/182"
+      },
+      {
+        "number" : 155,
+        "title" : "Add support for linking Scala code as a native library",
+        "url" : "https://github.com/scala-native/scala-native/issues/155"
+      },
+      {
+        "number" : 132,
+        "title" : "Optimize NIR for size",
+        "url" : "https://github.com/scala-native/scala-native/issues/132"
+      },
+      {
+        "number" : 127,
+        "title" : "Objective-C interop",
+        "url" : "https://github.com/scala-native/scala-native/issues/127"
+      },
+      {
+        "number" : 122,
+        "title" : "Use fastcc calling convention for Scala code",
+        "url" : "https://github.com/scala-native/scala-native/issues/122"
+      },
+      {
+        "number" : 104,
+        "title" : "Provide bindings for libc",
+        "url" : "https://github.com/scala-native/scala-native/issues/104"
+      },
+      {
+        "number" : 101,
+        "title" : "Threading model",
+        "url" : "https://github.com/scala-native/scala-native/issues/101"
+      },
+      {
+        "number" : 44,
+        "title" : "Adopt C#/Rust-style unsafe contexts",
+        "url" : "https://github.com/scala-native/scala-native/issues/44"
+      },
+      {
+        "number" : 38,
+        "title" : "@struct's should be able to implement traits",
+        "url" : "https://github.com/scala-native/scala-native/issues/38"
+      },
+      {
+        "number" : 37,
+        "title" : "Add support for SIMD",
+        "url" : "https://github.com/scala-native/scala-native/issues/37"
+      },
+      {
+        "number" : 34,
+        "title" : "Improve interop with C's union types",
+        "url" : "https://github.com/scala-native/scala-native/issues/34"
+      },
+      {
+        "number" : 29,
+        "title" : "LLDB integration",
+        "url" : "https://github.com/scala-native/scala-native/issues/29"
+      },
+      {
+        "number" : 18,
+        "title" : "Smi (small integers) optimization",
+        "url" : "https://github.com/scala-native/scala-native/issues/18"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : null,
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "compilers",
+    "beginnerIssuesLabel" : null
+  }
+}

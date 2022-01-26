@@ -1,0 +1,513 @@
+{
+  "organization" : "47degrees",
+  "repository" : "sbt-microsites",
+  "creationDate" : 1611877151000,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643186965046
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "https://47degrees.github.io/sbt-microsites/",
+    "description" : "An sbt plugin to create awesome microsites for your project",
+    "logo" : "https://avatars.githubusercontent.com/u/60125571?v=4",
+    "stars" : 306,
+    "forks" : 64,
+    "watchers" : 40,
+    "issues" : 20,
+    "creationDate" : 1473118382000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><p dir=\"auto\"><a href=\"https://repo1.maven.org/maven2/com/47deg/sbt-microsites_2.12_1.0\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/c6f1d7c5b0bf0af3c55d34d4537a3375777fcdbae74132213e9c2422fc8a9a8f/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6d6176656e25323063656e7472616c2d312e322e312d677265656e2e737667\" alt=\"Maven Central\" data-canonical-src=\"https://img.shields.io/badge/maven%20central-1.2.1-green.svg\" style=\"max-width: 100%;\"></a> <a href=\"https://raw.githubusercontent.com/47degrees/sbt-microsites/master/LICENSE\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/9330efc6e55b251db7966bffaec1bd48e3aae79348121f596d541991cfec8858/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d417061636865253230322d626c75652e737667\" alt=\"License\" data-canonical-src=\"https://img.shields.io/badge/license-Apache%202-blue.svg\" style=\"max-width: 100%;\"></a> <a href=\"https://gitter.im/47degrees/sbt-microsites?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/a2ed712bde6c9f634208bb140e24f6c4e74ec50c2844c545a7de3d8b470181cb/68747470733a2f2f6261646765732e6769747465722e696d2f3437646567726565732f7362742d6d6963726f73697465732e737667\" alt=\"Join the chat at https://gitter.im/47degrees/sbt-microsites\" data-canonical-src=\"https://badges.gitter.im/47degrees/sbt-microsites.svg\" style=\"max-width: 100%;\"></a> <a href=\"https://github.com/47degrees/sbt-microsites/issues\"><img src=\"https://camo.githubusercontent.com/6c4cfec684dc2e55a445743337b632db81e3dd6a1b1958539f7599b1fbb93d4e/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6973737565732f3437646567726565732f7362742d6d6963726f73697465732e737667\" alt=\"GitHub Issues\" data-canonical-src=\"https://img.shields.io/github/issues/47degrees/sbt-microsites.svg\" style=\"max-width: 100%;\"></a></p>\n<h1 dir=\"auto\"><a id=\"user-content-sbt-microsites\" class=\"anchor\" aria-hidden=\"true\" href=\"#sbt-microsites\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>sbt-microsites</h1>\n<p dir=\"auto\"><strong>sbt-microsites</strong> is an SBT plugin that facilitates the creation of fancy microsites for your projects, with minimal tweaks.</p>\n<h2 dir=\"auto\"><a id=\"user-content-what-is-a-microsite\" class=\"anchor\" aria-hidden=\"true\" href=\"#what-is-a-microsite\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>What is a microsite?</h2>\n<p dir=\"auto\">A microsite is an instance of Jekyll, ready to publish a static web page for your new library. Some of the benefits of having these auto-generated web pages are:</p>\n<ul dir=\"auto\">\n<li>You can write documentation easily in markdown format.</li>\n<li>Templates, layouts, styles, and other resources will be available through the plugin at compile time.</li>\n<li>You don't have to deal with the styling.</li>\n</ul>\n<h1 dir=\"auto\"><a id=\"user-content-installation\" class=\"anchor\" aria-hidden=\"true\" href=\"#installation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Installation</h1>\n<p dir=\"auto\">To begin, add the following lines to the <code>project/plugins.sbt</code> file within your project or sbt module where you want to use the <code>sbt-microsites</code> plugin.</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"addSbtPlugin(&quot;com.47deg&quot;  % &quot;sbt-microsites&quot; % &quot;1.3.4&quot;)\"><pre><code>addSbtPlugin(\"com.47deg\"  % \"sbt-microsites\" % \"1.3.4\")\n</code></pre></div>\n<p dir=\"auto\">Finally, to enable the plugin, add this to your <code>build.sbt</code> file:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"enablePlugins(MicrositesPlugin)\"><pre><code>enablePlugins(MicrositesPlugin)\n</code></pre></div>\n<p dir=\"auto\">We recommend taking a look at the <code>Getting Started</code> section in the <a href=\"https://47degrees.github.io/sbt-microsites/docs/\" rel=\"nofollow\">documentation</a> since there are some prerequisites that are needed to build your microsite.</p>\n<h1 dir=\"auto\"><a id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Documentation</h1>\n<p dir=\"auto\">Microsites comes with a range of options to customize and configure your project's site. Please visit the <a href=\"https://47degrees.github.io/sbt-microsites/docs/\" rel=\"nofollow\">documentation</a> section for more information.</p>\n<h1 dir=\"auto\"><a id=\"user-content-sbt-microsites-in-the-wild\" class=\"anchor\" aria-hidden=\"true\" href=\"#sbt-microsites-in-the-wild\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>sbt-microsites in the wild</h1>\n<p dir=\"auto\">Many Scala projects, libraries, and applications use sbt-microsites to display documentation and project notes. If you wish to add your library here, please consider a PR to include it in the list below.</p>\n<table>\n<thead>\n<tr>\n<th>★</th>\n<th>★</th>\n<th>★</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/ab829a9fcb56449d533ca2cca889a9e784d3999971ad5f0bfe095a6dcc2d9d62/687474703a2f2f747970656c6576656c2e6f72672f636174732f696d672f6e61766261725f6272616e642e706e67\"><img src=\"https://camo.githubusercontent.com/ab829a9fcb56449d533ca2cca889a9e784d3999971ad5f0bfe095a6dcc2d9d62/687474703a2f2f747970656c6576656c2e6f72672f636174732f696d672f6e61766261725f6272616e642e706e67\" alt=\"Cats\" data-canonical-src=\"http://typelevel.org/cats/img/navbar_brand.png\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://typelevel.org/cats/\" rel=\"nofollow\"><strong>Cats</strong></a></td>\n<td>A library of typeclasses for functional programming, such as functors, monads, and arrows.</td>\n</tr>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/21e61f29878dd1bd96ff51a5a4bf740eb990ffea5251c73c0ea9367a384e33f4/68747470733a2f2f7363616c617a2e6769746875622e696f2f382f696d672f6e61766261725f6272616e642e706e67\"><img src=\"https://camo.githubusercontent.com/21e61f29878dd1bd96ff51a5a4bf740eb990ffea5251c73c0ea9367a384e33f4/68747470733a2f2f7363616c617a2e6769746875622e696f2f382f696d672f6e61766261725f6272616e642e706e67\" alt=\"Scalaz\" data-canonical-src=\"https://scalaz.github.io/8/img/navbar_brand.png\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://scalaz.github.io/7/\" rel=\"nofollow\"><strong>Scalaz</strong></a></td>\n<td>A library of typeclasses for functional programming, such as functors, monads, and arrows.</td>\n</tr>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/ab829a9fcb56449d533ca2cca889a9e784d3999971ad5f0bfe095a6dcc2d9d62/687474703a2f2f747970656c6576656c2e6f72672f636174732f696d672f6e61766261725f6272616e642e706e67\"><img src=\"https://camo.githubusercontent.com/ab829a9fcb56449d533ca2cca889a9e784d3999971ad5f0bfe095a6dcc2d9d62/687474703a2f2f747970656c6576656c2e6f72672f636174732f696d672f6e61766261725f6272616e642e706e67\" alt=\"Cats-Effect\" data-canonical-src=\"http://typelevel.org/cats/img/navbar_brand.png\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://github.com/typelevel/cats-effect\"><strong>Cats-Effect</strong></a></td>\n<td>Extension of Cats for general effect types, with asynchronicity and concurrency</td>\n</tr>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/df90f319af4f370292f5fd56924a793047e829641d2208715ed7b05113b1c1e2/687474703a2f2f6673322e696f2f696d672f6e61766261725f6272616e642e706e67\"><img src=\"https://camo.githubusercontent.com/df90f319af4f370292f5fd56924a793047e829641d2208715ed7b05113b1c1e2/687474703a2f2f6673322e696f2f696d672f6e61766261725f6272616e642e706e67\" alt=\"FS2\" data-canonical-src=\"http://fs2.io/img/navbar_brand.png\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://fs2.io/guide.html\" rel=\"nofollow\"><strong>fs2</strong></a></td>\n<td>Functional Streams for Scala (FS2), based on <code>cats</code> and <code>cats-effect</code></td>\n</tr>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/98497203e2ebae0445976aa541ab3f13abcdd6c32ce910a44f2c938e86cacae6/68747470733a2f2f70757265636f6e6669672e6769746875622e696f2f696d672f6e61766261725f6272616e642e706e67\"><img src=\"https://camo.githubusercontent.com/98497203e2ebae0445976aa541ab3f13abcdd6c32ce910a44f2c938e86cacae6/68747470733a2f2f70757265636f6e6669672e6769746875622e696f2f696d672f6e61766261725f6272616e642e706e67\" alt=\"PureConfig\" data-canonical-src=\"https://pureconfig.github.io/img/navbar_brand.png\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://pureconfig.github.io/\" rel=\"nofollow\"><strong>pureconfig</strong></a></td>\n<td>A library for loading configuration files</td>\n</tr>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/93b77956daf87e020274f387ad33515ceb0cda72975bd6dc3f77f96dbf06aacb/68747470733a2f2f6369722e69732f696d672f6e61766261725f6272616e642e706e67\"><img src=\"https://camo.githubusercontent.com/93b77956daf87e020274f387ad33515ceb0cda72975bd6dc3f77f96dbf06aacb/68747470733a2f2f6369722e69732f696d672f6e61766261725f6272616e642e706e67\" alt=\"Ciris\" data-canonical-src=\"https://cir.is/img/navbar_brand.png\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://cir.is/\" rel=\"nofollow\"><strong>ciris</strong></a></td>\n<td>A <em>configuration as code</em> library for compile-time safe configurations</td>\n</tr>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/223e77319620e444f54e402efd5cc73cb73d824a4779f269cb6d7d50c70298f1/68747470733a2f2f74706f6c656361742e6769746875622e696f2f7475636f2f696d672f6e61766261725f6272616e642e706e67\"><img src=\"https://camo.githubusercontent.com/223e77319620e444f54e402efd5cc73cb73d824a4779f269cb6d7d50c70298f1/68747470733a2f2f74706f6c656361742e6769746875622e696f2f7475636f2f696d672f6e61766261725f6272616e642e706e67\" alt=\"Tuco\" data-canonical-src=\"https://tpolecat.github.io/tuco/img/navbar_brand.png\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://tpolecat.github.io/tuco/\" rel=\"nofollow\"><strong>Tuco</strong></a></td>\n<td>Tuco is a reasonable telnet server for Scala</td>\n</tr>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/d2ee789ce2032a4385f3b8faf87463d8a8100eef5f7ba7794c7632d8a77ffd35/68747470733a2f2f74706f6c656361742e6769746875622e696f2f6174746f2f696d672f6e61766261725f6272616e642e706e67\"><img src=\"https://camo.githubusercontent.com/d2ee789ce2032a4385f3b8faf87463d8a8100eef5f7ba7794c7632d8a77ffd35/68747470733a2f2f74706f6c656361742e6769746875622e696f2f6174746f2f696d672f6e61766261725f6272616e642e706e67\" alt=\"Atto\" data-canonical-src=\"https://tpolecat.github.io/atto/img/navbar_brand.png\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://tpolecat.github.io/atto/\" rel=\"nofollow\"><strong>Atto</strong></a></td>\n<td>Everyday parsers.</td>\n</tr>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/eb3a2d992b535b7174a894ab527d7407f4f181c222d77a4be7a80db9a74c0e88/687474703a2f2f747970656c6576656c2e6f72672f7363616c612f696d672f6e61766261725f6272616e642e706e67\"><img src=\"https://camo.githubusercontent.com/eb3a2d992b535b7174a894ab527d7407f4f181c222d77a4be7a80db9a74c0e88/687474703a2f2f747970656c6576656c2e6f72672f7363616c612f696d672f6e61766261725f6272616e642e706e67\" alt=\"Typelevel Scala\" data-canonical-src=\"http://typelevel.org/scala/img/navbar_brand.png\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://typelevel.org/scala/\" rel=\"nofollow\"><strong>Typelevel Scala</strong></a></td>\n<td>Our fork of the Scala compiler</td>\n</tr>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://raw.githubusercontent.com/julien-truffaut/Monocle/master/image/black_icons/navbar_brand.png\"><img src=\"https://raw.githubusercontent.com/julien-truffaut/Monocle/master/image/black_icons/navbar_brand.png\" alt=\"Monocle\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://julien-truffaut.github.io/Monocle/\" rel=\"nofollow\"><strong>Monocle</strong></a></td>\n<td>Optics library for Scala</td>\n</tr>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/bb4763fc7ee7be691e5944815de11de699d864e903e85a0b8320ea30aa8aa705/68747470733a2f2f63623337322e6769746875622e696f2f7363616c6163616368652f696d672f6e61766261725f6272616e642e706e67\"><img src=\"https://camo.githubusercontent.com/bb4763fc7ee7be691e5944815de11de699d864e903e85a0b8320ea30aa8aa705/68747470733a2f2f63623337322e6769746875622e696f2f7363616c6163616368652f696d672f6e61766261725f6272616e642e706e67\" alt=\"ScalaCache\" data-canonical-src=\"https://cb372.github.io/scalacache/img/navbar_brand.png\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://cb372.github.io/scalacache/\" rel=\"nofollow\"><strong>ScalaCache</strong></a></td>\n<td>A facade for popular cache implementations, such as Caffeine, Redis, or Memcached</td>\n</tr>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/ae0e5d12a6cc3da2681d40621e365fe351034ed29c0cdda290eb8078a1c3b227/68747470733a2f2f34376465672e6769746875622e696f2f7363616c61636865636b2d746f6f6c626f782f696d672f6e61766261725f6272616e642e706e67\"><img src=\"https://camo.githubusercontent.com/ae0e5d12a6cc3da2681d40621e365fe351034ed29c0cdda290eb8078a1c3b227/68747470733a2f2f34376465672e6769746875622e696f2f7363616c61636865636b2d746f6f6c626f782f696d672f6e61766261725f6272616e642e706e67\" alt=\"scalacheck-toolbox\" data-canonical-src=\"https://47deg.github.io/scalacheck-toolbox/img/navbar_brand.png\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://47deg.github.io/scalacheck-toolbox/\" rel=\"nofollow\"><strong>scalacheck-toolbox</strong></a></td>\n<td>Generating sensible data with ScalaCheck</td>\n</tr>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/cee5a9d5b616ff73398114bdba84a1f6b40343d17efefe9b771df93c8e2930f0/68747470733a2f2f747769747465722e6769746875622e696f2f616c6765626972642f696d672f6e61766261725f6272616e642e706e67\"><img src=\"https://camo.githubusercontent.com/cee5a9d5b616ff73398114bdba84a1f6b40343d17efefe9b771df93c8e2930f0/68747470733a2f2f747769747465722e6769746875622e696f2f616c6765626972642f696d672f6e61766261725f6272616e642e706e67\" alt=\"Algebird\" data-canonical-src=\"https://twitter.github.io/algebird/img/navbar_brand.png\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://twitter.github.io/algebird/\" rel=\"nofollow\"><strong>Algebird</strong></a></td>\n<td>Algebraic typeclasses and data structures for big data</td>\n</tr>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/616fe5d964fce6ff709063b5c82fe3128ff7616601b5df7509572c3d7d5c62ba/68747470733a2f2f747769747465722e6769746875622e696f2f7363616c64696e672f696d672f6e61766261725f6272616e642e706e67\"><img src=\"https://camo.githubusercontent.com/616fe5d964fce6ff709063b5c82fe3128ff7616601b5df7509572c3d7d5c62ba/68747470733a2f2f747769747465722e6769746875622e696f2f7363616c64696e672f696d672f6e61766261725f6272616e642e706e67\" alt=\"Scalding\" data-canonical-src=\"https://twitter.github.io/scalding/img/navbar_brand.png\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://twitter.github.io/scalding/\" rel=\"nofollow\"><strong>Scalding</strong></a></td>\n<td>Scala API for Hadoop and Cascading</td>\n</tr>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/78505188dbf26d6dff22a886a55fe8383f029b0f7de44b4880e0c1fe9cb79c78/68747470733a2f2f66696e61676c652e6769746875622e696f2f66696e63682f696d672f6e61766261725f6272616e642e706e67\"><img src=\"https://camo.githubusercontent.com/78505188dbf26d6dff22a886a55fe8383f029b0f7de44b4880e0c1fe9cb79c78/68747470733a2f2f66696e61676c652e6769746875622e696f2f66696e63682f696d672f6e61766261725f6272616e642e706e67\" alt=\"Finch\" data-canonical-src=\"https://finagle.github.io/finch/img/navbar_brand.png\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://finagle.github.io/finch/\" rel=\"nofollow\"><strong>Finch</strong></a></td>\n<td>A combinator API over the Finagle HTTP services</td>\n</tr>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/85653bd22bf27e1b958b88827f5f7fe1fddee9e3f8e89598275d0b6caf60e331/68747470733a2f2f34376465672e6769746875622e696f2f66657463682f696d672f6e61766261725f6272616e642e706e67\"><img src=\"https://camo.githubusercontent.com/85653bd22bf27e1b958b88827f5f7fe1fddee9e3f8e89598275d0b6caf60e331/68747470733a2f2f34376465672e6769746875622e696f2f66657463682f696d672f6e61766261725f6272616e642e706e67\" alt=\"fetch\" data-canonical-src=\"https://47deg.github.io/fetch/img/navbar_brand.png\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://47deg.github.io/fetch/\" rel=\"nofollow\"><strong>fetch</strong></a></td>\n<td>Simple &amp; Efficient data access for Scala and Scala.js</td>\n</tr>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/733876010f974c07b7733ab0ccb8daa4d8aff6e3719bfc6d2241bb1980272112/68747470733a2f2f34376465672e6769746875622e696f2f67697468756234732f696d672f6e61766261725f6272616e642e706e67\"><img src=\"https://camo.githubusercontent.com/733876010f974c07b7733ab0ccb8daa4d8aff6e3719bfc6d2241bb1980272112/68747470733a2f2f34376465672e6769746875622e696f2f67697468756234732f696d672f6e61766261725f6272616e642e706e67\" alt=\"github4s\" data-canonical-src=\"https://47deg.github.io/github4s/img/navbar_brand.png\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://47deg.github.io/github4s/\" rel=\"nofollow\"><strong>github4s</strong></a></td>\n<td>A GitHub API wrapper written in Scala</td>\n</tr>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/87c1ea4770380ff4c8af08bfff7471850b447739d3d912c846b8c65ac90256bb/68747470733a2f2f706570656761722e6769746875622e696f2f68616d6d6f636b2f696d672f6e61766261725f6272616e642e706e67\"><img src=\"https://camo.githubusercontent.com/87c1ea4770380ff4c8af08bfff7471850b447739d3d912c846b8c65ac90256bb/68747470733a2f2f706570656761722e6769746875622e696f2f68616d6d6f636b2f696d672f6e61766261725f6272616e642e706e67\" alt=\"hammock\" data-canonical-src=\"https://pepegar.github.io/hammock/img/navbar_brand.png\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://pepegar.github.io/hammock/\" rel=\"nofollow\"><strong>hammock</strong></a></td>\n<td>A purely functional HTTP client for Scala</td>\n</tr>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/80c04ee0991dd1e2ae101448a8edb9c45d2d83e03dac04853e8f8f1a4da7016d/68747470733a2f2f616c6f6e736f646f6d696e2e6769746875622e696f2f63726f6e34732f696d672f6e61766261725f6272616e642e706e67\"><img src=\"https://camo.githubusercontent.com/80c04ee0991dd1e2ae101448a8edb9c45d2d83e03dac04853e8f8f1a4da7016d/68747470733a2f2f616c6f6e736f646f6d696e2e6769746875622e696f2f63726f6e34732f696d672f6e61766261725f6272616e642e706e67\" alt=\"cron4s\" data-canonical-src=\"https://alonsodomin.github.io/cron4s/img/navbar_brand.png\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://alonsodomin.github.io/cron4s\" rel=\"nofollow\"><strong>cron4s</strong></a></td>\n<td>A CRON expression parser and AST for Scala</td>\n</tr>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/4404f128b4c7bff4ce4bbfa265c2f0ed196ceae64e5b51caa977c316024df971/687474703a2f2f66726565732e696f2f696d672f6e61766261725f6272616e642e706e67\"><img src=\"https://camo.githubusercontent.com/4404f128b4c7bff4ce4bbfa265c2f0ed196ceae64e5b51caa977c316024df971/687474703a2f2f66726565732e696f2f696d672f6e61766261725f6272616e642e706e67\" alt=\"freestyle\" data-canonical-src=\"http://frees.io/img/navbar_brand.png\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://frees.io/\" rel=\"nofollow\"><strong>freestyle</strong></a></td>\n<td>A cohesive &amp; pragmatic framework of FP centric Scala libraries</td>\n</tr>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/89f1d5d549686731f1fb695933a65fb0fff2a75167965480f451bfff61d3938c/68747470733a2f2f746f2d6974686163612e6769746875622e696f2f6c696272612f696d672f6e61766261725f6272616e642e706e67\"><img src=\"https://camo.githubusercontent.com/89f1d5d549686731f1fb695933a65fb0fff2a75167965480f451bfff61d3938c/68747470733a2f2f746f2d6974686163612e6769746875622e696f2f6c696272612f696d672f6e61766261725f6272616e642e706e67\" alt=\"libra\" data-canonical-src=\"https://to-ithaca.github.io/libra/img/navbar_brand.png\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://to-ithaca.github.io/libra\" rel=\"nofollow\"><strong>libra</strong></a></td>\n<td>A dimensional analysis library based on dependent types</td>\n</tr>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/ca4ff4f385ec7955fa25da1c26039a13e89ba687c8dcb3f9dd20d0ca15acb355/687474703a2f2f7777772e7363616e616d6f2e6f72672f696d672f6e61766261725f6272616e642e706e67\"><img src=\"https://camo.githubusercontent.com/ca4ff4f385ec7955fa25da1c26039a13e89ba687c8dcb3f9dd20d0ca15acb355/687474703a2f2f7777772e7363616e616d6f2e6f72672f696d672f6e61766261725f6272616e642e706e67\" alt=\"Scanamo\" data-canonical-src=\"http://www.scanamo.org/img/navbar_brand.png\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://www.scanamo.org\" rel=\"nofollow\"><strong>Scanamo</strong></a></td>\n<td>Simpler DynamoDB access for Scala</td>\n</tr>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/c65e335f419b1782134747f97ba8f9eed2a7485e1b6b5987888ea1454bc9d424/68747470733a2f2f6d6f636b656473747265616d732e6d616465776974687465612e636f6d2f696d672f6e61766261725f6272616e642e706e67\"><img src=\"https://camo.githubusercontent.com/c65e335f419b1782134747f97ba8f9eed2a7485e1b6b5987888ea1454bc9d424/68747470733a2f2f6d6f636b656473747265616d732e6d616465776974687465612e636f6d2f696d672f6e61766261725f6272616e642e706e67\" alt=\"Mocked Streams\" data-canonical-src=\"https://mockedstreams.madewithtea.com/img/navbar_brand.png\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"https://mockedstreams.madewithtea.com\" rel=\"nofollow\"><strong>Mocked Streams</strong></a></td>\n<td>Scala DSL for Unit-Testing Kafka Streams Topologies</td>\n</tr>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/1a8fa68c71b39aa7f75fa832002ea856e24979a2e66d5cc375a87cde7a63f57f/687474703a2f2f7362742d6b756265796d6c2e7661736c6162732e6f72672f696d672f6e61766261725f6272616e642e706e67\"><img src=\"https://camo.githubusercontent.com/1a8fa68c71b39aa7f75fa832002ea856e24979a2e66d5cc375a87cde7a63f57f/687474703a2f2f7362742d6b756265796d6c2e7661736c6162732e6f72672f696d672f6e61766261725f6272616e642e706e67\" alt=\"sbt-kubeyml\" data-canonical-src=\"http://sbt-kubeyml.vaslabs.org/img/navbar_brand.png\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://sbt-kubeyml.vaslabs.org\" rel=\"nofollow\"><strong>sbt-kubeyml</strong></a></td>\n<td>Typesafe Kubernetes manifests to deploy Scala applications</td>\n</tr>\n</tbody>\n</table>\n<h1 dir=\"auto\"><a id=\"user-content-copyright\" class=\"anchor\" aria-hidden=\"true\" href=\"#copyright\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Copyright</h1>\n<p dir=\"auto\">sbt-microsites is designed and developed by 47 Degrees</p>\n<p dir=\"auto\">Copyright (C) 2016-2020 47 Degrees. <a href=\"http://47deg.com\" rel=\"nofollow\">http://47deg.com</a></p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "juanpedromoreno",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4879373?v=4",
+        "url" : "https://api.github.com/users/juanpedromoreno",
+        "contributions" : 302
+      },
+      {
+        "login" : "47degdev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5580770?v=4",
+        "url" : "https://api.github.com/users/47degdev",
+        "contributions" : 169
+      },
+      {
+        "login" : "47erbot",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24799081?v=4",
+        "url" : "https://api.github.com/users/47erbot",
+        "contributions" : 154
+      },
+      {
+        "login" : "jdesiloniz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2835739?v=4",
+        "url" : "https://api.github.com/users/jdesiloniz",
+        "contributions" : 90
+      },
+      {
+        "login" : "AntonioMateoGomez",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/25897490?v=4",
+        "url" : "https://api.github.com/users/AntonioMateoGomez",
+        "contributions" : 63
+      },
+      {
+        "login" : "calvellido",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7753447?v=4",
+        "url" : "https://api.github.com/users/calvellido",
+        "contributions" : 63
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 57
+      },
+      {
+        "login" : "sloshy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/427237?v=4",
+        "url" : "https://api.github.com/users/sloshy",
+        "contributions" : 52
+      },
+      {
+        "login" : "rafaparadela",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/315070?v=4",
+        "url" : "https://api.github.com/users/rafaparadela",
+        "contributions" : 15
+      },
+      {
+        "login" : "fedefernandez",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/720923?v=4",
+        "url" : "https://api.github.com/users/fedefernandez",
+        "contributions" : 14
+      },
+      {
+        "login" : "israelperezglez",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/646886?v=4",
+        "url" : "https://api.github.com/users/israelperezglez",
+        "contributions" : 14
+      },
+      {
+        "login" : "raulraja",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/456796?v=4",
+        "url" : "https://api.github.com/users/raulraja",
+        "contributions" : 12
+      },
+      {
+        "login" : "dominv",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3943031?v=4",
+        "url" : "https://api.github.com/users/dominv",
+        "contributions" : 12
+      },
+      {
+        "login" : "suhasgaddam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7282584?v=4",
+        "url" : "https://api.github.com/users/suhasgaddam",
+        "contributions" : 10
+      },
+      {
+        "login" : "MaureenElsberry",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17556002?v=4",
+        "url" : "https://api.github.com/users/MaureenElsberry",
+        "contributions" : 8
+      },
+      {
+        "login" : "Jacoby6000",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2672832?v=4",
+        "url" : "https://api.github.com/users/Jacoby6000",
+        "contributions" : 7
+      },
+      {
+        "login" : "BenFradet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1737211?v=4",
+        "url" : "https://api.github.com/users/BenFradet",
+        "contributions" : 6
+      },
+      {
+        "login" : "jkmcclellan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/52432856?v=4",
+        "url" : "https://api.github.com/users/jkmcclellan",
+        "contributions" : 6
+      },
+      {
+        "login" : "Obarros",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2852971?v=4",
+        "url" : "https://api.github.com/users/Obarros",
+        "contributions" : 6
+      },
+      {
+        "login" : "xerial",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/57538?v=4",
+        "url" : "https://api.github.com/users/xerial",
+        "contributions" : 5
+      },
+      {
+        "login" : "cranst0n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1173143?v=4",
+        "url" : "https://api.github.com/users/cranst0n",
+        "contributions" : 5
+      },
+      {
+        "login" : "alejandrohdezma",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9027541?v=4",
+        "url" : "https://api.github.com/users/alejandrohdezma",
+        "contributions" : 5
+      },
+      {
+        "login" : "diesalbla",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1764610?v=4",
+        "url" : "https://api.github.com/users/diesalbla",
+        "contributions" : 4
+      },
+      {
+        "login" : "AdrianRaFo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15971742?v=4",
+        "url" : "https://api.github.com/users/AdrianRaFo",
+        "contributions" : 3
+      },
+      {
+        "login" : "cb372",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/106760?v=4",
+        "url" : "https://api.github.com/users/cb372",
+        "contributions" : 3
+      },
+      {
+        "login" : "gabro",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/691940?v=4",
+        "url" : "https://api.github.com/users/gabro",
+        "contributions" : 3
+      },
+      {
+        "login" : "sritchie",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/69635?v=4",
+        "url" : "https://api.github.com/users/sritchie",
+        "contributions" : 3
+      },
+      {
+        "login" : "skaldarnar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1448874?v=4",
+        "url" : "https://api.github.com/users/skaldarnar",
+        "contributions" : 3
+      },
+      {
+        "login" : "britneywright",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4439228?v=4",
+        "url" : "https://api.github.com/users/britneywright",
+        "contributions" : 3
+      },
+      {
+        "login" : "noelmarkham",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1492487?v=4",
+        "url" : "https://api.github.com/users/noelmarkham",
+        "contributions" : 3
+      },
+      {
+        "login" : "franciscodr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1200151?v=4",
+        "url" : "https://api.github.com/users/franciscodr",
+        "contributions" : 2
+      },
+      {
+        "login" : "julien-truffaut",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1859417?v=4",
+        "url" : "https://api.github.com/users/julien-truffaut",
+        "contributions" : 2
+      },
+      {
+        "login" : "ryan-williams",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/465045?v=4",
+        "url" : "https://api.github.com/users/ryan-williams",
+        "contributions" : 2
+      },
+      {
+        "login" : "travisbrown",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/316049?v=4",
+        "url" : "https://api.github.com/users/travisbrown",
+        "contributions" : 2
+      },
+      {
+        "login" : "xuwei-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/389787?v=4",
+        "url" : "https://api.github.com/users/xuwei-k",
+        "contributions" : 2
+      },
+      {
+        "login" : "anamariamv",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2183589?v=4",
+        "url" : "https://api.github.com/users/anamariamv",
+        "contributions" : 1
+      },
+      {
+        "login" : "Antoniojimenez47",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24649817?v=4",
+        "url" : "https://api.github.com/users/Antoniojimenez47",
+        "contributions" : 1
+      },
+      {
+        "login" : "ChristopherDavenport",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10272700?v=4",
+        "url" : "https://api.github.com/users/ChristopherDavenport",
+        "contributions" : 1
+      },
+      {
+        "login" : "erikerlandson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/259898?v=4",
+        "url" : "https://api.github.com/users/erikerlandson",
+        "contributions" : 1
+      },
+      {
+        "login" : "eperinan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3660921?v=4",
+        "url" : "https://api.github.com/users/eperinan",
+        "contributions" : 1
+      },
+      {
+        "login" : "felixmulder",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1530049?v=4",
+        "url" : "https://api.github.com/users/felixmulder",
+        "contributions" : 1
+      },
+      {
+        "login" : "fthomas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/141252?v=4",
+        "url" : "https://api.github.com/users/fthomas",
+        "contributions" : 1
+      },
+      {
+        "login" : "jatcwang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4957161?v=4",
+        "url" : "https://api.github.com/users/jatcwang",
+        "contributions" : 1
+      },
+      {
+        "login" : "jpzk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/31909?v=4",
+        "url" : "https://api.github.com/users/jpzk",
+        "contributions" : 1
+      },
+      {
+        "login" : "guersam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/969120?v=4",
+        "url" : "https://api.github.com/users/guersam",
+        "contributions" : 1
+      },
+      {
+        "login" : "jcazevedo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/143188?v=4",
+        "url" : "https://api.github.com/users/jcazevedo",
+        "contributions" : 1
+      },
+      {
+        "login" : "jonas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8417?v=4",
+        "url" : "https://api.github.com/users/jonas",
+        "contributions" : 1
+      },
+      {
+        "login" : "mcanlas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/881934?v=4",
+        "url" : "https://api.github.com/users/mcanlas",
+        "contributions" : 1
+      },
+      {
+        "login" : "thesamet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/307373?v=4",
+        "url" : "https://api.github.com/users/thesamet",
+        "contributions" : 1
+      },
+      {
+        "login" : "taig",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/567857?v=4",
+        "url" : "https://api.github.com/users/taig",
+        "contributions" : 1
+      },
+      {
+        "login" : "pdalpra",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1514127?v=4",
+        "url" : "https://api.github.com/users/pdalpra",
+        "contributions" : 1
+      },
+      {
+        "login" : "metasim",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/131013?v=4",
+        "url" : "https://api.github.com/users/metasim",
+        "contributions" : 1
+      },
+      {
+        "login" : "gitter-badger",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8518239?v=4",
+        "url" : "https://api.github.com/users/gitter-badger",
+        "contributions" : 1
+      },
+      {
+        "login" : "NeQuissimus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/628342?v=4",
+        "url" : "https://api.github.com/users/NeQuissimus",
+        "contributions" : 1
+      },
+      {
+        "login" : "valydia",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2129101?v=4",
+        "url" : "https://api.github.com/users/valydia",
+        "contributions" : 1
+      },
+      {
+        "login" : "vaslabs",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3875429?v=4",
+        "url" : "https://api.github.com/users/vaslabs",
+        "contributions" : 1
+      },
+      {
+        "login" : "jvican",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2462974?v=4",
+        "url" : "https://api.github.com/users/jvican",
+        "contributions" : 1
+      },
+      {
+        "login" : "kczulko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19495571?v=4",
+        "url" : "https://api.github.com/users/kczulko",
+        "contributions" : 1
+      },
+      {
+        "login" : "kencyke",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/26133249?v=4",
+        "url" : "https://api.github.com/users/kencyke",
+        "contributions" : 1
+      },
+      {
+        "login" : "lldh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2140264?v=4",
+        "url" : "https://api.github.com/users/lldh",
+        "contributions" : 1
+      },
+      {
+        "login" : "pepegar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/694179?v=4",
+        "url" : "https://api.github.com/users/pepegar",
+        "contributions" : 1
+      },
+      {
+        "login" : "slice",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4206232?v=4",
+        "url" : "https://api.github.com/users/slice",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 1137,
+    "topics" : [
+      "jekyll",
+      "microsite",
+      "sbt",
+      "scala"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 613,
+        "title" : "Weird DirectoryNotEmptyException when running makeMicrosite",
+        "url" : "https://github.com/47degrees/sbt-microsites/issues/613"
+      },
+      {
+        "number" : 578,
+        "title" : "Support customizing layout contents",
+        "url" : "https://github.com/47degrees/sbt-microsites/issues/578"
+      },
+      {
+        "number" : 550,
+        "title" : "Update docs for GitHub Actions",
+        "url" : "https://github.com/47degrees/sbt-microsites/issues/550"
+      },
+      {
+        "number" : 543,
+        "title" : "Enable search on small layouts",
+        "url" : "https://github.com/47degrees/sbt-microsites/issues/543"
+      },
+      {
+        "number" : 488,
+        "title" : "windows character bug when running sbt",
+        "url" : "https://github.com/47degrees/sbt-microsites/issues/488"
+      },
+      {
+        "number" : 468,
+        "title" : "Leverage library to do file I/O",
+        "url" : "https://github.com/47degrees/sbt-microsites/issues/468"
+      },
+      {
+        "number" : 457,
+        "title" : "Error while trying to use with Intellij: not found: https://repo1.maven.org/maven2/antlr/antlr/2.7.7/antlr-2.7.7-sources.jar",
+        "url" : "https://github.com/47degrees/sbt-microsites/issues/457"
+      },
+      {
+        "number" : 398,
+        "title" : "Github4s site publishing takes ~8 minutes",
+        "url" : "https://github.com/47degrees/sbt-microsites/issues/398"
+      },
+      {
+        "number" : 376,
+        "title" : "Enable mdoc typecheking for micrositeExtraMdFiles",
+        "url" : "https://github.com/47degrees/sbt-microsites/issues/376"
+      },
+      {
+        "number" : 269,
+        "title" : "Commits per build inquiry",
+        "url" : "https://github.com/47degrees/sbt-microsites/issues/269"
+      },
+      {
+        "number" : 252,
+        "title" : "Add support for Jekyll plugins via the gem mechanism",
+        "url" : "https://github.com/47degrees/sbt-microsites/issues/252"
+      },
+      {
+        "number" : 204,
+        "title" : "pre-processors for markdown files",
+        "url" : "https://github.com/47degrees/sbt-microsites/issues/204"
+      },
+      {
+        "number" : 192,
+        "title" : "Custom favicons overwritten by auto-generated favicons",
+        "url" : "https://github.com/47degrees/sbt-microsites/issues/192"
+      },
+      {
+        "number" : 191,
+        "title" : "Integrate scalafiddle",
+        "url" : "https://github.com/47degrees/sbt-microsites/issues/191"
+      },
+      {
+        "number" : 119,
+        "title" : "Divide current layouts into includes so they can be reused by external layouts",
+        "url" : "https://github.com/47degrees/sbt-microsites/issues/119"
+      },
+      {
+        "number" : 117,
+        "title" : "Breaks in git worktree",
+        "url" : "https://github.com/47degrees/sbt-microsites/issues/117"
+      },
+      {
+        "number" : 88,
+        "title" : "Support GFM style for syntax highlighting",
+        "url" : "https://github.com/47degrees/sbt-microsites/issues/88"
+      },
+      {
+        "number" : 78,
+        "title" : "Allow `makeMicrosite` be run in the background",
+        "url" : "https://github.com/47degrees/sbt-microsites/issues/78"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : null,
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "static-sites-and-documentation",
+    "beginnerIssuesLabel" : null
+  }
+}

@@ -1,0 +1,591 @@
+{
+  "organization" : "scalacenter",
+  "repository" : "scalajs-bundler",
+  "creationDate" : 1623184420000,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643186781454
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "https://scalacenter.github.io/scalajs-bundler",
+    "description" : null,
+    "logo" : "https://avatars.githubusercontent.com/u/16118980?v=4",
+    "stars" : 221,
+    "forks" : 92,
+    "watchers" : 24,
+    "issues" : 77,
+    "creationDate" : 1474460333000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-scalajs-bundler---\" class=\"anchor\" aria-hidden=\"true\" href=\"#scalajs-bundler---\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>scalajs-bundler <a href=\"https://index.scala-lang.org/scalacenter/scalajs-bundler\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/d0fd172da323face81b892755871c0964b272ae3a239e166b7974321cbb81069/68747470733a2f2f696e6465782e7363616c612d6c616e672e6f72672f7363616c6163656e7465722f7363616c616a732d62756e646c65722f7362742d7363616c616a732d62756e646c65722f6c61746573742e737667\" alt=\"\" data-canonical-src=\"https://index.scala-lang.org/scalacenter/scalajs-bundler/sbt-scalajs-bundler/latest.svg\" style=\"max-width: 100%;\"></a> <a href=\"https://gitter.im/scalacenter/scalajs-bundler\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/06c55569604c09f117e9c9795d1c21d1cc3aa2a4fadeb0e3a2bca46bcd494a67/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6769747465722d6a6f696e253230636861742d677265656e2e737667\" alt=\"Gitter\" data-canonical-src=\"https://img.shields.io/badge/gitter-join%20chat-green.svg\" style=\"max-width: 100%;\"></a> <a href=\"https://travis-ci.org/scalacenter/scalajs-bundler\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/e31de26792a673e3726b4d9c406befbe71591d0901b6b9195bd134ccc976ce48/68747470733a2f2f7472617669732d63692e6f72672f7363616c6163656e7465722f7363616c616a732d62756e646c65722e7376673f6272616e63683d6d61696e\" alt=\"Build Status\" data-canonical-src=\"https://travis-ci.org/scalacenter/scalajs-bundler.svg?branch=main\" style=\"max-width: 100%;\"></a></h1>\n<p dir=\"auto\">Module bundler for Scala.js projects that use NPM packages.</p>\n<p dir=\"auto\">Uses <a href=\"https://www.npmjs.com\" rel=\"nofollow\">npm</a> and <a href=\"https://webpack.github.io/\" rel=\"nofollow\">webpack</a> under the hood.</p>\n<h2 dir=\"auto\"><a id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Documentation</h2>\n<p dir=\"auto\">More information on how to use it in the <a href=\"https://scalacenter.github.io/scalajs-bundler\" rel=\"nofollow\">documentation</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Contributing</h2>\n<p dir=\"auto\">scalajs-bundler is community-maintained.</p>\n<p dir=\"auto\">Contributions are welcome! See the <a href=\"https://github.com/scalacenter/scalajs-bundler/issues\">open issues</a> and\nthe <a href=\"CONTRIBUTING.md\">CONTRIBUTING.md</a> file.</p>\n<h2 dir=\"auto\"><a id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>License</h2>\n<p dir=\"auto\">This content is released under the <a href=\"http://opensource.org/licenses/BSD-3-Clause\" rel=\"nofollow\">BSD 3-Clause License</a>.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "julienrf",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/332812?v=4",
+        "url" : "https://api.github.com/users/julienrf",
+        "contributions" : 274
+      },
+      {
+        "login" : "sjrd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/535934?v=4",
+        "url" : "https://api.github.com/users/sjrd",
+        "contributions" : 50
+      },
+      {
+        "login" : "cquiroz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3615303?v=4",
+        "url" : "https://api.github.com/users/cquiroz",
+        "contributions" : 49
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 21
+      },
+      {
+        "login" : "nigredo-tori",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5962285?v=4",
+        "url" : "https://api.github.com/users/nigredo-tori",
+        "contributions" : 15
+      },
+      {
+        "login" : "MasseGuillaume",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/921490?v=4",
+        "url" : "https://api.github.com/users/MasseGuillaume",
+        "contributions" : 9
+      },
+      {
+        "login" : "jtvoorde",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2729154?v=4",
+        "url" : "https://api.github.com/users/jtvoorde",
+        "contributions" : 8
+      },
+      {
+        "login" : "easel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/94159?v=4",
+        "url" : "https://api.github.com/users/easel",
+        "contributions" : 7
+      },
+      {
+        "login" : "cranst0n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1173143?v=4",
+        "url" : "https://api.github.com/users/cranst0n",
+        "contributions" : 7
+      },
+      {
+        "login" : "vhiairrassary",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6972399?v=4",
+        "url" : "https://api.github.com/users/vhiairrassary",
+        "contributions" : 6
+      },
+      {
+        "login" : "exoego",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/127635?v=4",
+        "url" : "https://api.github.com/users/exoego",
+        "contributions" : 4
+      },
+      {
+        "login" : "ngbinh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/211327?v=4",
+        "url" : "https://api.github.com/users/ngbinh",
+        "contributions" : 3
+      },
+      {
+        "login" : "dispalt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/46037?v=4",
+        "url" : "https://api.github.com/users/dispalt",
+        "contributions" : 3
+      },
+      {
+        "login" : "Sebruck",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2050823?v=4",
+        "url" : "https://api.github.com/users/Sebruck",
+        "contributions" : 3
+      },
+      {
+        "login" : "vmunier",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1211392?v=4",
+        "url" : "https://api.github.com/users/vmunier",
+        "contributions" : 3
+      },
+      {
+        "login" : "ant8e",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/229500?v=4",
+        "url" : "https://api.github.com/users/ant8e",
+        "contributions" : 2
+      },
+      {
+        "login" : "fdietze",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1186516?v=4",
+        "url" : "https://api.github.com/users/fdietze",
+        "contributions" : 2
+      },
+      {
+        "login" : "mathieuleclaire",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/800035?v=4",
+        "url" : "https://api.github.com/users/mathieuleclaire",
+        "contributions" : 2
+      },
+      {
+        "login" : "raquo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/532656?v=4",
+        "url" : "https://api.github.com/users/raquo",
+        "contributions" : 2
+      },
+      {
+        "login" : "Atry",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/601530?v=4",
+        "url" : "https://api.github.com/users/Atry",
+        "contributions" : 2
+      },
+      {
+        "login" : "atooni",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/417282?v=4",
+        "url" : "https://api.github.com/users/atooni",
+        "contributions" : 1
+      },
+      {
+        "login" : "chuwy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/681171?v=4",
+        "url" : "https://api.github.com/users/chuwy",
+        "contributions" : 1
+      },
+      {
+        "login" : "danxmoran",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2755881?v=4",
+        "url" : "https://api.github.com/users/danxmoran",
+        "contributions" : 1
+      },
+      {
+        "login" : "DylanArnold",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/437338?v=4",
+        "url" : "https://api.github.com/users/DylanArnold",
+        "contributions" : 1
+      },
+      {
+        "login" : "eatkins",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2658825?v=4",
+        "url" : "https://api.github.com/users/eatkins",
+        "contributions" : 1
+      },
+      {
+        "login" : "steinybot",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4659562?v=4",
+        "url" : "https://api.github.com/users/steinybot",
+        "contributions" : 1
+      },
+      {
+        "login" : "jonas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8417?v=4",
+        "url" : "https://api.github.com/users/jonas",
+        "contributions" : 1
+      },
+      {
+        "login" : "joprice",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2175555?v=4",
+        "url" : "https://api.github.com/users/joprice",
+        "contributions" : 1
+      },
+      {
+        "login" : "taig",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/567857?v=4",
+        "url" : "https://api.github.com/users/taig",
+        "contributions" : 1
+      },
+      {
+        "login" : "nstojiljkovic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2195612?v=4",
+        "url" : "https://api.github.com/users/nstojiljkovic",
+        "contributions" : 1
+      },
+      {
+        "login" : "kovstas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5870198?v=4",
+        "url" : "https://api.github.com/users/kovstas",
+        "contributions" : 1
+      },
+      {
+        "login" : "PuneetPatwari",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8803490?v=4",
+        "url" : "https://api.github.com/users/PuneetPatwari",
+        "contributions" : 1
+      },
+      {
+        "login" : "swhgoon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/840150?v=4",
+        "url" : "https://api.github.com/users/swhgoon",
+        "contributions" : 1
+      },
+      {
+        "login" : "ioleo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1419884?v=4",
+        "url" : "https://api.github.com/users/ioleo",
+        "contributions" : 1
+      },
+      {
+        "login" : "mn98",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/61794940?v=4",
+        "url" : "https://api.github.com/users/mn98",
+        "contributions" : 1
+      },
+      {
+        "login" : "unarist",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/705555?v=4",
+        "url" : "https://api.github.com/users/unarist",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 488,
+    "topics" : [
+      "npm",
+      "scala-js",
+      "webpack"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : "https://gitter.im/scalacenter/scalajs-bundler",
+    "openIssues" : [
+      {
+        "number" : 411,
+        "title" : "Generated source map points to incorrect URLs",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/411"
+      },
+      {
+        "number" : 409,
+        "title" : "Add first-class support for frozen lockfiles",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/409"
+      },
+      {
+        "number" : 407,
+        "title" : "The Strict Mode emitted by Scala.js is not always preserved",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/407"
+      },
+      {
+        "number" : 406,
+        "title" : "is npm ci supported?",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/406"
+      },
+      {
+        "number" : 402,
+        "title" : "Cannot download plug in --- instructions out of date / missing a step?",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/402"
+      },
+      {
+        "number" : 394,
+        "title" : "Wild null in documentation",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/394"
+      },
+      {
+        "number" : 385,
+        "title" : "top level anonymous given gives syntax error when loaded in browser",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/385"
+      },
+      {
+        "number" : 375,
+        "title" : "Pick either npm or yarn",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/375"
+      },
+      {
+        "number" : 362,
+        "title" : "webpackExtraArgs unused?",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/362"
+      },
+      {
+        "number" : 359,
+        "title" : "esbuild bundler instead of webpack",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/359"
+      },
+      {
+        "number" : 356,
+        "title" : "Webpack produced JS are not group and world readable",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/356"
+      },
+      {
+        "number" : 355,
+        "title" : "Workaround to depend on the browser window object while using the LibraryAndApplication bundling mode",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/355"
+      },
+      {
+        "number" : 350,
+        "title" : "Webpack 5 Support",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/350"
+      },
+      {
+        "number" : 346,
+        "title" : "Problem with webpackBundlingMode := BundlingMode.LibraryOnly() and the generated entrypoints.txt file",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/346"
+      },
+      {
+        "number" : 338,
+        "title" : "What is the significance of stats failing and how to prevent?",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/338"
+      },
+      {
+        "number" : 337,
+        "title" : "Support allowing client to pre-provision webpack (rather than through NPM/yarn)",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/337"
+      },
+      {
+        "number" : 331,
+        "title" : "Using both requireJsDomEnv and Node.js causes an error at jsEnvInput phase",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/331"
+      },
+      {
+        "number" : 323,
+        "title" : "Wrong entry in webpack config with BundlingMode.LibraryOnly()",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/323"
+      },
+      {
+        "number" : 321,
+        "title" : "Updating to 0.16 causes `error: not found: value scalaJSModuleKind`",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/321"
+      },
+      {
+        "number" : 314,
+        "title" : "Restrict the scope of this project",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/314"
+      },
+      {
+        "number" : 310,
+        "title" : "package.json support to work with tools like dependabot",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/310"
+      },
+      {
+        "number" : 309,
+        "title" : "running eslint-loader on fastOptJS::webpack",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/309"
+      },
+      {
+        "number" : 308,
+        "title" : "Issue with the Global Namespace example",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/308"
+      },
+      {
+        "number" : 301,
+        "title" : "A warning should be printed when LibraryOnly is used with fullOptJS",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/301"
+      },
+      {
+        "number" : 299,
+        "title" : "wrong cache for webpack when not using application bundling mode",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/299"
+      },
+      {
+        "number" : 293,
+        "title" : "Support ModuleKind.ESModule",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/293"
+      },
+      {
+        "number" : 290,
+        "title" : "The files returned by the LibraryAndApplication does not contain the bundle source map file",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/290"
+      },
+      {
+        "number" : 287,
+        "title" : "Document package-lock.json usage",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/287"
+      },
+      {
+        "number" : 286,
+        "title" : "Minor error in example common.webpack.config.js",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/286"
+      },
+      {
+        "number" : 285,
+        "title" : "scalajs-bundler does not respect ^x.y.z in version of webpack",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/285"
+      },
+      {
+        "number" : 283,
+        "title" : "TypeError: Cannot read property 'minify' of undefined",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/283"
+      },
+      {
+        "number" : 282,
+        "title" : "BundlingMode.LibraryOnly pollutes a global namespace",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/282"
+      },
+      {
+        "number" : 277,
+        "title" : "nodejs Buffer deprecation warning",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/277"
+      },
+      {
+        "number" : 275,
+        "title" : "additionalNpmConfig leads to mysterious `No webpack version defined` exception",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/275"
+      },
+      {
+        "number" : 259,
+        "title" : "yarn.lock different in compile and test",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/259"
+      },
+      {
+        "number" : 252,
+        "title" : "Is it possible to ignore dependencies?",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/252"
+      },
+      {
+        "number" : 250,
+        "title" : "...-loader.js refers window even if target is node",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/250"
+      },
+      {
+        "number" : 243,
+        "title" : "Create an example application with hot reloading and backend",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/243"
+      },
+      {
+        "number" : 236,
+        "title" : "Export webpack assets to sbt",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/236"
+      },
+      {
+        "number" : 211,
+        "title" : "scalajs-bundler web pipeline stage performance issues",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/211"
+      },
+      {
+        "number" : 209,
+        "title" : "npm WARN/notice are logged as error in sbt ",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/209"
+      },
+      {
+        "number" : 205,
+        "title" : "JSExportTopLevel doesn't work?",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/205"
+      },
+      {
+        "number" : 203,
+        "title" : "npmAssets should expose contents to resourceDirectory",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/203"
+      },
+      {
+        "number" : 199,
+        "title" : "Extract sbt-independent aspects to separate subproject",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/199"
+      },
+      {
+        "number" : 197,
+        "title" : "Provide Node.js interface through `global` object in `JSDOMNodeJSEnv`",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/197"
+      },
+      {
+        "number" : 196,
+        "title" : "js cache do not update when version changes in npmDependencies",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/196"
+      },
+      {
+        "number" : 191,
+        "title" : "Task to check latest npm versions (like sbt-updates for npmDependencies)",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/191"
+      },
+      {
+        "number" : 190,
+        "title" : "js files specified in jsDependencies are not included",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/190"
+      },
+      {
+        "number" : 188,
+        "title" : "Explain how to use BundlingMode.LibraryOnly + webpack-dev-server and (fingerprinted) static assets",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/188"
+      },
+      {
+        "number" : 187,
+        "title" : "webpack-dev-server recompiles code too often",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/187"
+      },
+      {
+        "number" : 186,
+        "title" : "npmResolutions doesn’t work well with npmDevDependencies",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/186"
+      },
+      {
+        "number" : 180,
+        "title" : "problems with devserver + BundlingMode.LibraryOnly + hot reloading",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/180"
+      },
+      {
+        "number" : 173,
+        "title" : "fastOptJS creates broken source map file",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/173"
+      },
+      {
+        "number" : 148,
+        "title" : "webpack-dev-server doesn't serve files from root",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/148"
+      },
+      {
+        "number" : 147,
+        "title" : "Mention that the file to include is the one suffixed by -bundle.js",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/147"
+      },
+      {
+        "number" : 134,
+        "title" : "ModuleParseError when referencing \"entities\" module",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/134"
+      },
+      {
+        "number" : 128,
+        "title" : "No option to use yarn in offline mode.",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/128"
+      },
+      {
+        "number" : 120,
+        "title" : "Running ScalaTest with fullOpt crashes",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/120"
+      },
+      {
+        "number" : 115,
+        "title" : "Bundle multi-module Scala.JS projects",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/115"
+      },
+      {
+        "number" : 107,
+        "title" : "JavaScript heap out of memory on  bundling",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/107"
+      },
+      {
+        "number" : 89,
+        "title" : "`testHtmlFastOpt` and `testHtmlFullOpt` use incorrect file",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/89"
+      },
+      {
+        "number" : 85,
+        "title" : "Another plugin for npm dependencies only",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/85"
+      },
+      {
+        "number" : 72,
+        "title" : "Export Scala.js projects as regular npm packages",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/72"
+      },
+      {
+        "number" : 5,
+        "title" : "Add cbt support",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/5"
+      },
+      {
+        "number" : 2,
+        "title" : "Improve code splitting support",
+        "url" : "https://github.com/scalacenter/scalajs-bundler/issues/2"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : "scalajs-bundler",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "asset-management-and-bundlers",
+    "beginnerIssuesLabel" : "low hanging fruit"
+  }
+}

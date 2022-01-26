@@ -1,0 +1,392 @@
+{
+  "organization" : "lightbend",
+  "repository" : "scala-logging",
+  "creationDate" : 1478090881034,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643197447588
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "",
+    "description" : "Convenient and performant logging library for Scala wrapping SLF4J.",
+    "logo" : "https://avatars.githubusercontent.com/u/16247783?v=4",
+    "stars" : 847,
+    "forks" : 127,
+    "watchers" : 27,
+    "issues" : 24,
+    "creationDate" : 1374006255000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><p dir=\"auto\">Scala Logging is a <strong>convenient</strong> and <strong>fast</strong> logging library wrapping <a href=\"http://www.slf4j.org\" rel=\"nofollow\">SLF4J</a>.</p>\n<p dir=\"auto\">It's convenient, because you can simply call log methods, <em>without</em> checking whether the respective log level is enabled:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"logger.debug(s&quot;Some $expensive message!&quot;)\"><pre>logger.debug(<span class=\"pl-k\">s</span><span class=\"pl-s\">\"</span><span class=\"pl-s\">Some </span>$expensive<span class=\"pl-s\"> message!</span><span class=\"pl-s\">\"</span>)</pre></div>\n<p dir=\"auto\">It's fast, because thanks to Scala macros the <em>check-enabled-idiom</em> is applied and the following code is generated:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"if (logger.isDebugEnabled) logger.debug(s&quot;Some $expensive message!&quot;)\"><pre><span class=\"pl-k\">if</span> (logger.isDebugEnabled) logger.debug(<span class=\"pl-k\">s</span><span class=\"pl-s\">\"</span><span class=\"pl-s\">Some </span>$expensive<span class=\"pl-s\"> message!</span><span class=\"pl-s\">\"</span>)</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-prerequisites\" class=\"anchor\" aria-hidden=\"true\" href=\"#prerequisites\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Prerequisites</h2>\n<ul dir=\"auto\">\n<li>Java 8 or higher</li>\n<li>Scala 2.11, 2.12, 2.13 or 3.0</li>\n<li>Logging backend compatible with SLF4J</li>\n</ul>\n<p dir=\"auto\">A compatible logging backend is <a href=\"http://logback.qos.ch\" rel=\"nofollow\">Logback</a>, add it to your sbt build definition:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;ch.qos.logback&quot; % &quot;logback-classic&quot; % &quot;1.2.10&quot;\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>ch.qos.logback<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>logback-classic<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.2.10<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">If you are looking for a version compatible with Scala 2.10, check out Scala Logging 2.x.</p>\n<h2 dir=\"auto\"><a id=\"user-content-getting-scala-logging\" class=\"anchor\" aria-hidden=\"true\" href=\"#getting-scala-logging\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Getting Scala Logging</h2>\n<p dir=\"auto\">Scala Logging is published to Sonatype OSS and Maven Central:</p>\n<ul dir=\"auto\">\n<li>Group id / organization: <em>com.typesafe.scala-logging</em></li>\n<li>Artifact id / name: <em>scala-logging</em></li>\n</ul>\n<p dir=\"auto\">sbt users may add this to their <code>build.sbt</code>:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;com.typesafe.scala-logging&quot; %% &quot;scala-logging&quot; % &quot;3.9.4&quot;\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.typesafe.scala-logging<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>scala-logging<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>3.9.4<span class=\"pl-pds\">\"</span></span></pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-using-scala-logging\" class=\"anchor\" aria-hidden=\"true\" href=\"#using-scala-logging\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Using Scala Logging</h2>\n<p dir=\"auto\">The <code>Logger</code> class from the <code>com.typesafe.scalalogging</code> package wraps an underlying SLF4J logger.\nIn order to create a <code>Logger</code>, you pass a name to the <code>apply</code> factory method defined in the <code>Logger</code> companion object:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val logger = Logger(&quot;name&quot;)\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">logger</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Logger</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>name<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<p dir=\"auto\">Or, you pass in a SLF4J logger instance:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val logger = Logger(LoggerFactory.getLogger(&quot;name&quot;))\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">logger</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Logger</span>(<span class=\"pl-en\">LoggerFactory</span>.getLogger(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>name<span class=\"pl-pds\">\"</span></span>))</pre></div>\n<p dir=\"auto\">Or, you pass in the name of the class into which it is defined:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val logger = Logger(getClass.getName)\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">logger</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Logger</span>(getClass.getName)</pre></div>\n<p dir=\"auto\">Or, you pass in a class:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val logger = Logger(classOf[MyClass])\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">logger</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Logger</span>(<span class=\"pl-c1\">classOf</span>[<span class=\"pl-en\">MyClass</span>])</pre></div>\n<p dir=\"auto\">Or, using the runtime class wrapped by the implicit class tag parameter:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val logger = Logger[MyClass]\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">logger</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Logger</span>[<span class=\"pl-en\">MyClass</span>]</pre></div>\n<p dir=\"auto\">The <code>LazyLogging</code> and <code>StrictLogging</code> traits from the <code>com.typesafe.scalalogging</code> package define the <code>logger</code> member as\na lazy or strict value respectively, whereas the <code>AnyLogging</code> trait defines an abstract <code>logger</code>.</p>\n<p dir=\"auto\">It depends on the individual use case which trait to use. However, we have defined some scenarios where you can use these traits:</p>\n<ul dir=\"auto\">\n<li>Use <code>LazyLogging</code> if you are creating lots of objects with this trait repetitively.</li>\n<li>Use <code>StrictLogging</code> pretty much by default, especially if the class is a singleton, or you know the log methods will always be invoked.</li>\n<li>Use <code>AnyLogging</code> when writing some trait which needs access to any logger without deciding on a specific implementation.</li>\n</ul>\n<p dir=\"auto\">In case of <code>LazyLogging</code> and <code>StrictLogging</code>, the underlying SLF4J logger is named according to the class into which\nthese traits are mixed:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"class LazyLoggingExample extends LazyLogging {\n  logger.debug(&quot;This is Lazy Logging ;-)&quot;)\n\n  logger.whenDebugEnabled {\n    println(&quot;This would only execute when the debug level is enabled.&quot;)\n    (1 to 10).foreach(x =&gt; println(&quot;Scala logging is great!&quot;))\n  }\n}\"><pre><span class=\"pl-k\">class</span> <span class=\"pl-en\">LazyLoggingExample</span> <span class=\"pl-k\">extends</span> <span class=\"pl-e\">LazyLogging</span> {\n  logger.debug(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>This is Lazy Logging ;-)<span class=\"pl-pds\">\"</span></span>)\n\n  logger.whenDebugEnabled {\n    println(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>This would only execute when the debug level is enabled.<span class=\"pl-pds\">\"</span></span>)\n    (<span class=\"pl-c1\">1</span> to <span class=\"pl-c1\">10</span>).foreach(x <span class=\"pl-k\">=&gt;</span> println(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Scala logging is great!<span class=\"pl-pds\">\"</span></span>))\n  }\n}</pre></div>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"class StrictLoggingExample extends StrictLogging {\n  logger.debug(&quot;This is Strict Logging ;-)&quot;)\n\n  logger.whenDebugEnabled {\n    println(&quot;This would only execute when the debug level is enabled.&quot;)\n    (1 to 10).foreach(x =&gt; println(&quot;Scala logging is great!&quot;))\n  }\n}\"><pre><span class=\"pl-k\">class</span> <span class=\"pl-en\">StrictLoggingExample</span> <span class=\"pl-k\">extends</span> <span class=\"pl-e\">StrictLogging</span> {\n  logger.debug(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>This is Strict Logging ;-)<span class=\"pl-pds\">\"</span></span>)\n\n  logger.whenDebugEnabled {\n    println(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>This would only execute when the debug level is enabled.<span class=\"pl-pds\">\"</span></span>)\n    (<span class=\"pl-c1\">1</span> to <span class=\"pl-c1\">10</span>).foreach(x <span class=\"pl-k\">=&gt;</span> println(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Scala logging is great!<span class=\"pl-pds\">\"</span></span>))\n  }\n}</pre></div>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"class AnyLoggingExample extends AnyLogging {\n  override protected val logger: Logger = Logger(&quot;name&quot;)\n\n  logger.info(&quot;This is Any Logging ;-)&quot;)\n\n  logger.whenInfoEnabled {\n    println(&quot;This would only execute when the info level is enabled.&quot;)\n    (1 to 10).foreach(x =&gt; println(&quot;Scala logging is great!&quot;))\n  }\n}\"><pre><span class=\"pl-k\">class</span> <span class=\"pl-en\">AnyLoggingExample</span> <span class=\"pl-k\">extends</span> <span class=\"pl-e\">AnyLogging</span> {\n  <span class=\"pl-k\">override</span> <span class=\"pl-k\">protected</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">logger</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">Logger</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Logger</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>name<span class=\"pl-pds\">\"</span></span>)\n\n  logger.info(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>This is Any Logging ;-)<span class=\"pl-pds\">\"</span></span>)\n\n  logger.whenInfoEnabled {\n    println(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>This would only execute when the info level is enabled.<span class=\"pl-pds\">\"</span></span>)\n    (<span class=\"pl-c1\">1</span> to <span class=\"pl-c1\">10</span>).foreach(x <span class=\"pl-k\">=&gt;</span> println(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Scala logging is great!<span class=\"pl-pds\">\"</span></span>))\n  }\n}</pre></div>\n<p dir=\"auto\"><code>LoggerTakingImplicit</code> provides the same methods as <code>Logger</code> class, but with additional implicit parameter <code>A</code>.\nDuring creation of the <code>LoggerTakingImplicit</code> evidence <code>CanLog[A]</code> is required.\nIt may be useful when contextual parameter (e.g. <em>Correlation ID</em>) is being passed around and you would like to include it in the log messages:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"case class CorrelationId(value: String)\nimplicit case object CanLogCorrelationId extends CanLog[CorrelationId] {\n  override def logMessage(originalMsg: String, a: CorrelationId): String = s&quot;${a.value} $originalMsg&quot;\n}\n\nimplicit val correlationId = CorrelationId(&quot;ID&quot;)\n\nval logger = Logger.takingImplicit[CorrelationId](&quot;test&quot;)\nlogger.info(&quot;Test&quot;) // takes implicit correlationId and logs &quot;ID Test&quot;\"><pre><span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">CorrelationId</span>(<span class=\"pl-v\">value</span>: <span class=\"pl-en\">String</span>)\n<span class=\"pl-k\">implicit</span> <span class=\"pl-k\">case</span> <span class=\"pl-k\">object</span> <span class=\"pl-en\">CanLogCorrelationId</span> <span class=\"pl-k\">extends</span> <span class=\"pl-e\">CanLog</span>[<span class=\"pl-en\">CorrelationId</span>] {\n  <span class=\"pl-k\">override</span> <span class=\"pl-k\">def</span> <span class=\"pl-en\">logMessage</span>(<span class=\"pl-v\">originalMsg</span>: <span class=\"pl-en\">String</span>, <span class=\"pl-v\">a</span>: <span class=\"pl-en\">CorrelationId</span>)<span class=\"pl-k\">:</span> <span class=\"pl-en\">String</span> <span class=\"pl-k\">=</span> <span class=\"pl-k\">s</span><span class=\"pl-s\">\"</span>${a.value}<span class=\"pl-s\"> </span>$originalMsg<span class=\"pl-s\">\"</span>\n}\n\n<span class=\"pl-k\">implicit</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">correlationId</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">CorrelationId</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>ID<span class=\"pl-pds\">\"</span></span>)\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">logger</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Logger</span>.takingImplicit[<span class=\"pl-en\">CorrelationId</span>](<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>test<span class=\"pl-pds\">\"</span></span>)\nlogger.info(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Test<span class=\"pl-pds\">\"</span></span>) <span class=\"pl-c\"><span class=\"pl-c\">//</span> takes implicit correlationId and logs \"ID Test\"</span></pre></div>\n<p dir=\"auto\">If you want to extract the context object associated with your logger i.e. <code>correlationId</code> here, use <code>getContext</code>.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val context = logger.canLogEv.getContext()\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">context</span> <span class=\"pl-k\">=</span> logger.canLogEv.getContext()</pre></div>\n<p dir=\"auto\">It's also possible to use <code>MDC</code> through <code>CanLog</code> without any troubles with execution context.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"case class CorrelationId(value: String)\nimplicit case object CanLogCorrelationId extends CanLog[CorrelationId] {\n  override def logMessage(originalMsg: String, a: CorrelationId): String = {\n    MDC.put(&quot;correlationId&quot;, a.value)\n    originalMsg\n  }\n\n  override def afterLog(a: CorrelationId): Unit = {\n    MDC.remove(&quot;correlationId&quot;)\n  }\n}\n\nimplicit val correlationId = CorrelationId(&quot;ID&quot;)\n\nval logger = Logger.takingImplicit[CorrelationId](&quot;test&quot;)\n\ndef serviceMethod(implicit correlationId: CorrelationId): Future[Result] = {\n  dbCall.map { value =&gt;\n    logger.trace(s&quot;Received value $value from db&quot;) // takes implicit correlationId\n    toResult(value)\n  }\n}\"><pre><span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">CorrelationId</span>(<span class=\"pl-v\">value</span>: <span class=\"pl-en\">String</span>)\n<span class=\"pl-k\">implicit</span> <span class=\"pl-k\">case</span> <span class=\"pl-k\">object</span> <span class=\"pl-en\">CanLogCorrelationId</span> <span class=\"pl-k\">extends</span> <span class=\"pl-e\">CanLog</span>[<span class=\"pl-en\">CorrelationId</span>] {\n  <span class=\"pl-k\">override</span> <span class=\"pl-k\">def</span> <span class=\"pl-en\">logMessage</span>(<span class=\"pl-v\">originalMsg</span>: <span class=\"pl-en\">String</span>, <span class=\"pl-v\">a</span>: <span class=\"pl-en\">CorrelationId</span>)<span class=\"pl-k\">:</span> <span class=\"pl-en\">String</span> <span class=\"pl-k\">=</span> {\n    <span class=\"pl-en\">MDC</span>.put(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>correlationId<span class=\"pl-pds\">\"</span></span>, a.value)\n    originalMsg\n  }\n\n  <span class=\"pl-k\">override</span> <span class=\"pl-k\">def</span> <span class=\"pl-en\">afterLog</span>(<span class=\"pl-v\">a</span>: <span class=\"pl-en\">CorrelationId</span>)<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> {\n    <span class=\"pl-en\">MDC</span>.remove(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>correlationId<span class=\"pl-pds\">\"</span></span>)\n  }\n}\n\n<span class=\"pl-k\">implicit</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">correlationId</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">CorrelationId</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>ID<span class=\"pl-pds\">\"</span></span>)\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">logger</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Logger</span>.takingImplicit[<span class=\"pl-en\">CorrelationId</span>](<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>test<span class=\"pl-pds\">\"</span></span>)\n\n<span class=\"pl-k\">def</span> <span class=\"pl-en\">serviceMethod</span>(<span class=\"pl-k\">implicit</span> <span class=\"pl-v\">correlationId</span>: <span class=\"pl-en\">CorrelationId</span>)<span class=\"pl-k\">:</span> <span class=\"pl-en\">Future</span>[<span class=\"pl-en\">Result</span>] <span class=\"pl-k\">=</span> {\n  dbCall.map { value <span class=\"pl-k\">=&gt;</span>\n    logger.trace(<span class=\"pl-k\">s</span><span class=\"pl-s\">\"</span><span class=\"pl-s\">Received value </span>$value<span class=\"pl-s\"> from db</span><span class=\"pl-s\">\"</span>) <span class=\"pl-c\"><span class=\"pl-c\">//</span> takes implicit correlationId</span>\n    toResult(value)\n  }\n}</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-string-interpolation\" class=\"anchor\" aria-hidden=\"true\" href=\"#string-interpolation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>String Interpolation</h2>\n<p dir=\"auto\">It is idiomatic to use Scala's string interpolation <code>logger.error(s\"log $value\")</code> instead of SLF4J string interpolation <code>logger.error(\"log {}\", value)</code>.\nHowever there are some tools (such as <a href=\"https://sentry.io\" rel=\"nofollow\">Sentry</a>) that use the log message format as grouping key. Therefore they do not work well with\nScala's string interpolation.</p>\n<p dir=\"auto\">Scala Logging replaces simple string interpolations with their SLF4J counterparts like this:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"logger.error(s&quot;my log message: $arg1 $arg2 $arg3&quot;)\"><pre>logger.error(<span class=\"pl-k\">s</span><span class=\"pl-s\">\"</span><span class=\"pl-s\">my log message: </span>$arg1<span class=\"pl-s\"> </span>$arg2<span class=\"pl-s\"> </span>$arg3<span class=\"pl-s\">\"</span>)</pre></div>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"logger.error(&quot;my log message: {} {} {}&quot;, arg1, arg2, arg3)\"><pre>logger.error(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>my log message: {} {} {}<span class=\"pl-pds\">\"</span></span>, arg1, arg2, arg3)</pre></div>\n<p dir=\"auto\">This has no effect on behavior and performace should be comparable (depends on the underlying logging library).</p>\n<h3 dir=\"auto\"><a id=\"user-content-limitations\" class=\"anchor\" aria-hidden=\"true\" href=\"#limitations\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Limitations</h3>\n<ul dir=\"auto\">\n<li>Works only when string interpolation is directly used inside the logging statement. That is when the log message is static (available at compile time).</li>\n<li>Works only for the <code>logger.&lt;level&gt;(message)</code> and <code>logger.&lt;level&gt;(marker, message)</code> logging methods. It does not work if you want to log an exception and\nuse string interpolation too (this is a limitation of the SLF4J API).</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-line-numbers-in-log-message\" class=\"anchor\" aria-hidden=\"true\" href=\"#line-numbers-in-log-message\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Line numbers in log message?</h2>\n<p dir=\"auto\">Using the <a href=\"https://github.com/lihaoyi/sourcecode#logging\">sourcecode</a> library, it's possible to add line number\ninformation (especially useful for debugging):</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"def foo(arg: String)(implicit line: sourcecode.Line, file: sourcecode.File) = {\n  ... do something with arg ...\n  ... do something with file.value ...\n}\n\nfoo(&quot;hello&quot;) // the implicit sourcecode.File is filled in automatically\"><pre><span class=\"pl-k\">def</span> <span class=\"pl-en\">foo</span>(<span class=\"pl-v\">arg</span>: <span class=\"pl-en\">String</span>)(<span class=\"pl-k\">implicit</span> <span class=\"pl-v\">line</span>: sourcecode.<span class=\"pl-en\">Line</span>, <span class=\"pl-v\">file</span>: sourcecode.<span class=\"pl-en\">File</span>) <span class=\"pl-k\">=</span> {\n  ... <span class=\"pl-k\">do</span> something <span class=\"pl-k\">with</span> arg ...\n  ... <span class=\"pl-k\">do</span> something <span class=\"pl-k\">with</span> file.value ...\n}\n\nfoo(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>hello<span class=\"pl-pds\">\"</span></span>) <span class=\"pl-c\"><span class=\"pl-c\">//</span> the implicit sourcecode.File is filled in automatically</span></pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-maintenance-status\" class=\"anchor\" aria-hidden=\"true\" href=\"#maintenance-status\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Maintenance status</h2>\n<p dir=\"auto\">This library is community-maintained. It is not supported under the Lightbend subscription.</p>\n<h2 dir=\"auto\"><a id=\"user-content-contribution-policy\" class=\"anchor\" aria-hidden=\"true\" href=\"#contribution-policy\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Contribution policy</h2>\n<p dir=\"auto\">Contributions via GitHub pull requests are gladly accepted from their original author. Before we can accept pull requests, you will need to agree to the <a href=\"https://www.lightbend.com/contribute/cla\" rel=\"nofollow\">Lightbend Contributor License Agreement</a> online, using your GitHub account.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "analytically",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/254434?v=4",
+        "url" : "https://api.github.com/users/analytically",
+        "contributions" : 72
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 57
+      },
+      {
+        "login" : "SethTisue",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
+        "url" : "https://api.github.com/users/SethTisue",
+        "contributions" : 30
+      },
+      {
+        "login" : "prateekatknoldus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/76527682?v=4",
+        "url" : "https://api.github.com/users/prateekatknoldus",
+        "contributions" : 19
+      },
+      {
+        "login" : "jcracknell",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1903829?v=4",
+        "url" : "https://api.github.com/users/jcracknell",
+        "contributions" : 8
+      },
+      {
+        "login" : "xuwei-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/389787?v=4",
+        "url" : "https://api.github.com/users/xuwei-k",
+        "contributions" : 8
+      },
+      {
+        "login" : "giabao",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1702709?v=4",
+        "url" : "https://api.github.com/users/giabao",
+        "contributions" : 5
+      },
+      {
+        "login" : "sullis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30938?v=4",
+        "url" : "https://api.github.com/users/sullis",
+        "contributions" : 5
+      },
+      {
+        "login" : "jakubjanecek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/901231?v=4",
+        "url" : "https://api.github.com/users/jakubjanecek",
+        "contributions" : 4
+      },
+      {
+        "login" : "Philippus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1923596?v=4",
+        "url" : "https://api.github.com/users/Philippus",
+        "contributions" : 3
+      },
+      {
+        "login" : "kutchar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/905435?v=4",
+        "url" : "https://api.github.com/users/kutchar",
+        "contributions" : 2
+      },
+      {
+        "login" : "hseeberger",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/41911?v=4",
+        "url" : "https://api.github.com/users/hseeberger",
+        "contributions" : 2
+      },
+      {
+        "login" : "liff",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/124475?v=4",
+        "url" : "https://api.github.com/users/liff",
+        "contributions" : 2
+      },
+      {
+        "login" : "amumurst",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4258408?v=4",
+        "url" : "https://api.github.com/users/amumurst",
+        "contributions" : 2
+      },
+      {
+        "login" : "adriaanm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/91083?v=4",
+        "url" : "https://api.github.com/users/adriaanm",
+        "contributions" : 1
+      },
+      {
+        "login" : "bplommer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8990749?v=4",
+        "url" : "https://api.github.com/users/bplommer",
+        "contributions" : 1
+      },
+      {
+        "login" : "bbonanno",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/241804?v=4",
+        "url" : "https://api.github.com/users/bbonanno",
+        "contributions" : 1
+      },
+      {
+        "login" : "chadluo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3235854?v=4",
+        "url" : "https://api.github.com/users/chadluo",
+        "contributions" : 1
+      },
+      {
+        "login" : "dejan2609",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19467899?v=4",
+        "url" : "https://api.github.com/users/dejan2609",
+        "contributions" : 1
+      },
+      {
+        "login" : "dwickern",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/752885?v=4",
+        "url" : "https://api.github.com/users/dwickern",
+        "contributions" : 1
+      },
+      {
+        "login" : "orium",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4107683?v=4",
+        "url" : "https://api.github.com/users/orium",
+        "contributions" : 1
+      },
+      {
+        "login" : "etspaceman",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/630953?v=4",
+        "url" : "https://api.github.com/users/etspaceman",
+        "contributions" : 1
+      },
+      {
+        "login" : "vagmcs",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2273160?v=4",
+        "url" : "https://api.github.com/users/vagmcs",
+        "contributions" : 1
+      },
+      {
+        "login" : "francisdb",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/161305?v=4",
+        "url" : "https://api.github.com/users/francisdb",
+        "contributions" : 1
+      },
+      {
+        "login" : "jsw",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/768828?v=4",
+        "url" : "https://api.github.com/users/jsw",
+        "contributions" : 1
+      },
+      {
+        "login" : "kpbochenek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10478402?v=4",
+        "url" : "https://api.github.com/users/kpbochenek",
+        "contributions" : 1
+      },
+      {
+        "login" : "povder",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16050375?v=4",
+        "url" : "https://api.github.com/users/povder",
+        "contributions" : 1
+      },
+      {
+        "login" : "MarkTickner",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7168740?v=4",
+        "url" : "https://api.github.com/users/MarkTickner",
+        "contributions" : 1
+      },
+      {
+        "login" : "justjoheinz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/392164?v=4",
+        "url" : "https://api.github.com/users/justjoheinz",
+        "contributions" : 1
+      },
+      {
+        "login" : "pjfanning",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11783444?v=4",
+        "url" : "https://api.github.com/users/pjfanning",
+        "contributions" : 1
+      },
+      {
+        "login" : "Sorixelle",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/38685302?v=4",
+        "url" : "https://api.github.com/users/Sorixelle",
+        "contributions" : 1
+      },
+      {
+        "login" : "Ophirr33",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15920577?v=4",
+        "url" : "https://api.github.com/users/Ophirr33",
+        "contributions" : 1
+      },
+      {
+        "login" : "umhan35",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3271612?v=4",
+        "url" : "https://api.github.com/users/umhan35",
+        "contributions" : 1
+      },
+      {
+        "login" : "eugeniyk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3932426?v=4",
+        "url" : "https://api.github.com/users/eugeniyk",
+        "contributions" : 1
+      },
+      {
+        "login" : "girishsubramanyam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10636391?v=4",
+        "url" : "https://api.github.com/users/girishsubramanyam",
+        "contributions" : 1
+      },
+      {
+        "login" : "mentegy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/50805527?v=4",
+        "url" : "https://api.github.com/users/mentegy",
+        "contributions" : 1
+      },
+      {
+        "login" : "mwielocha",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2657177?v=4",
+        "url" : "https://api.github.com/users/mwielocha",
+        "contributions" : 1
+      },
+      {
+        "login" : "Atry",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/601530?v=4",
+        "url" : "https://api.github.com/users/Atry",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 243,
+    "topics" : [
+      "jvm",
+      "logback",
+      "logging",
+      "sbt",
+      "macros",
+      "scala",
+      "slf4j"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 333,
+        "title" : "Include a way to create Logger always with the name of the class into which it is defined",
+        "url" : "https://github.com/lightbend/scala-logging/issues/333"
+      },
+      {
+        "number" : 317,
+        "title" : "Logging Macro Doesn't Support Scala2 + Scala3 Simultaneously",
+        "url" : "https://github.com/lightbend/scala-logging/issues/317"
+      },
+      {
+        "number" : 308,
+        "title" : "Unpatched vulnerability - https://jira.qos.ch/browse/LOGBACK-1591",
+        "url" : "https://github.com/lightbend/scala-logging/issues/308"
+      },
+      {
+        "number" : 287,
+        "title" : "request: Declare version scheme / policy",
+        "url" : "https://github.com/lightbend/scala-logging/issues/287"
+      },
+      {
+        "number" : 218,
+        "title" : "Remove \"$\" character from LazyLogging",
+        "url" : "https://github.com/lightbend/scala-logging/issues/218"
+      },
+      {
+        "number" : 208,
+        "title" : "feature request: logger taking context from mixin",
+        "url" : "https://github.com/lightbend/scala-logging/issues/208"
+      },
+      {
+        "number" : 205,
+        "title" : "-Ywarn-unused yields \"never used\" error in LoggerMacro",
+        "url" : "https://github.com/lightbend/scala-logging/issues/205"
+      },
+      {
+        "number" : 203,
+        "title" : " LoggerTakingImplicits, extract A on implicits",
+        "url" : "https://github.com/lightbend/scala-logging/issues/203"
+      },
+      {
+        "number" : 201,
+        "title" : "i checked the source code why logger return unit/void",
+        "url" : "https://github.com/lightbend/scala-logging/issues/201"
+      },
+      {
+        "number" : 195,
+        "title" : "Logging of exceptions",
+        "url" : "https://github.com/lightbend/scala-logging/issues/195"
+      },
+      {
+        "number" : 191,
+        "title" : "From v3.6.0 logging message cannot be compiled properly",
+        "url" : "https://github.com/lightbend/scala-logging/issues/191"
+      },
+      {
+        "number" : 154,
+        "title" : "Running from fat jar doesn't load xml file",
+        "url" : "https://github.com/lightbend/scala-logging/issues/154"
+      },
+      {
+        "number" : 152,
+        "title" : "Add support for Any (like in println)",
+        "url" : "https://github.com/lightbend/scala-logging/issues/152"
+      },
+      {
+        "number" : 130,
+        "title" : "could/should Logger be a value class?",
+        "url" : "https://github.com/lightbend/scala-logging/issues/130"
+      },
+      {
+        "number" : 128,
+        "title" : "Ensure compatibility with Graal",
+        "url" : "https://github.com/lightbend/scala-logging/issues/128"
+      },
+      {
+        "number" : 80,
+        "title" : "Implement a standard way of supporting MDC in an async application.",
+        "url" : "https://github.com/lightbend/scala-logging/issues/80"
+      },
+      {
+        "number" : 78,
+        "title" : "Can't import class file into REPL if lazy logging enabled",
+        "url" : "https://github.com/lightbend/scala-logging/issues/78"
+      },
+      {
+        "number" : 75,
+        "title" : "LazyLogging vs StrictLogging?",
+        "url" : "https://github.com/lightbend/scala-logging/issues/75"
+      },
+      {
+        "number" : 74,
+        "title" : "val logger = Logger(LoggerFactory.getLogger(\"name\"))",
+        "url" : "https://github.com/lightbend/scala-logging/issues/74"
+      },
+      {
+        "number" : 50,
+        "title" : "Add pretty printing?",
+        "url" : "https://github.com/lightbend/scala-logging/issues/50"
+      },
+      {
+        "number" : 46,
+        "title" : "Custom logger",
+        "url" : "https://github.com/lightbend/scala-logging/issues/46"
+      },
+      {
+        "number" : 43,
+        "title" : "Use scala-logging in a macro?",
+        "url" : "https://github.com/lightbend/scala-logging/issues/43"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : "scala-logging-api",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "logging",
+    "beginnerIssuesLabel" : null
+  }
+}

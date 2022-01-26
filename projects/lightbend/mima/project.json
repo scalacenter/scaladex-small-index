@@ -1,0 +1,382 @@
+{
+  "organization" : "lightbend",
+  "repository" : "mima",
+  "creationDate" : 1380016159000,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643188637603
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "",
+    "description" : "A tool for catching binary incompatibility in Scala",
+    "logo" : "https://avatars.githubusercontent.com/u/16247783?v=4",
+    "stars" : 384,
+    "forks" : 55,
+    "watchers" : 22,
+    "issues" : 25,
+    "creationDate" : 1337868537000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-mima\" class=\"anchor\" aria-hidden=\"true\" href=\"#mima\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>MiMa</h1>\n<p dir=\"auto\">MiMa (for \"Migration Manager\") is a tool for identifying <a href=\"https://docs.scala-lang.org/overviews/core/binary-compatibility-for-library-authors.html\" rel=\"nofollow\">binary incompatibilities</a> in Scala libraries.</p>\n<p dir=\"auto\">It's pronounced <em>MEE-ma</em>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-what-it-is\" class=\"anchor\" aria-hidden=\"true\" href=\"#what-it-is\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>What it is?</h2>\n<p dir=\"auto\">MiMa can report binary modifications that may\ncause the JVM to throw a <code>java.lang.LinkageError</code> (or one of its subtypes,\nlike <code>AbstractMethodError</code>) at runtime. Linkage errors are usually the\nconsequence of modifications in classes/members signature.</p>\n<p dir=\"auto\">MiMa compares all classfiles of two released libraries and reports all source\nof incompatibilities that may lead to a linkage error. MiMa provides you, the\nlibrary maintainer, with a tool that can greatly automates and simplifies the\nprocess of ensuring the release-to-release binary compatibility of your\nlibraries.</p>\n<p dir=\"auto\">A key aspect of MiMa to be aware of is that it only looks for <em>syntactic binary\nincompatibilities</em>. The semantic binary incompatibilities (such as adding or\nremoving a method invocation) are not considered. This is a pragmatic approach\nas it is up to you, the library maintainer, to make sure that no semantic\nchanges have occurred between two binary compatible releases. If a semantic\nchange occurred, then you should make sure to provide this information as part\nof the new release's change list.</p>\n<p dir=\"auto\">In addition, it is worth mentioning that <em>binary compatibility does not imply\nsource compatibility</em>, i.e., some of the changes that are considered compatible\nat the bytecode level may still break a codebase that depends on it.\nInterestingly, this is not an issue intrinsic to the Scala language. In the\nJava language binary compatibility does not imply source compatibility as well.\nMiMa focuses on binary compatibility and currently provides no insight into\nsource compatibility.</p>\n<h2 dir=\"auto\"><a id=\"user-content-usage\" class=\"anchor\" aria-hidden=\"true\" href=\"#usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Usage</h2>\n<p dir=\"auto\">MiMa's sbt plugin supports sbt 1.x only.  (Use v0.3.0 for sbt 0.13.x.)</p>\n<p dir=\"auto\">To use it add the following to your <code>project/plugins.sbt</code> file:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"addSbtPlugin(&quot;com.typesafe&quot; % &quot;sbt-mima-plugin&quot; % &quot;1.0.1&quot;)\"><pre><code>addSbtPlugin(\"com.typesafe\" % \"sbt-mima-plugin\" % \"1.0.1\")\n</code></pre></div>\n<p dir=\"auto\">Add the following to your <code>build.sbt</code> file:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"mimaPreviousArtifacts := Set(&quot;com.example&quot; %% &quot;my-library&quot; % &quot;1.2.3&quot;)\"><pre><code>mimaPreviousArtifacts := Set(\"com.example\" %% \"my-library\" % \"1.2.3\")\n</code></pre></div>\n<p dir=\"auto\">and run <code>mimaReportBinaryIssues</code> to see something like the following:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"[info] Found 4 potential binary incompatibilities\n[error]  * method rollbackTransactionResource()resource.Resource in object resource.Resource does not have a   correspondent in new version\n[error]  * method now()scala.util.continuations.ControlContext in trait resource.ManagedResourceOperations does not    have a correspondent in old version\n[error]  * abstract method now()scala.util.continuations.ControlContext in interface resource.ManagedResource does not have a correspondent in old version\n[error]  * method rollbackTransactionResource()resource.Resource in trait resource.MediumPriorityResourceImplicits does not have a correspondent in new version\n[error] {file:/home/jsuereth/project/personal/scala-arm/}scala-arm/*:mima-report-binary-issues: Binary compatibility check failed!\n[error] Total time: 15 s, completed May 18, 2012 11:32:29 AM\"><pre><code>[info] Found 4 potential binary incompatibilities\n[error]  * method rollbackTransactionResource()resource.Resource in object resource.Resource does not have a   correspondent in new version\n[error]  * method now()scala.util.continuations.ControlContext in trait resource.ManagedResourceOperations does not    have a correspondent in old version\n[error]  * abstract method now()scala.util.continuations.ControlContext in interface resource.ManagedResource does not have a correspondent in old version\n[error]  * method rollbackTransactionResource()resource.Resource in trait resource.MediumPriorityResourceImplicits does not have a correspondent in new version\n[error] {file:/home/jsuereth/project/personal/scala-arm/}scala-arm/*:mima-report-binary-issues: Binary compatibility check failed!\n[error] Total time: 15 s, completed May 18, 2012 11:32:29 AM\n</code></pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-filtering-binary-incompatibilities\" class=\"anchor\" aria-hidden=\"true\" href=\"#filtering-binary-incompatibilities\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Filtering binary incompatibilities</h2>\n<p dir=\"auto\">When MiMa reports a binary incompatibility that you consider acceptable, such as a change in an internal package,\nyou need to use the <code>mimaBinaryIssueFilters</code> setting to filter it out and get <code>mimaReportBinaryIssues</code> to\npass, like so:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import com.typesafe.tools.mima.core._\n\nmimaBinaryIssueFilters ++= Seq(\n  ProblemFilters.exclude[MissingClassProblem](&quot;com.example.mylibrary.internal.Foo&quot;),\n)\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">typesafe</span>.<span class=\"pl-en\">tools</span>.<span class=\"pl-en\">mima</span>.<span class=\"pl-en\">core</span>.<span class=\"pl-en\">_</span>\n\nmimaBinaryIssueFilters <span class=\"pl-k\">++</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Seq</span>(\n  <span class=\"pl-en\">ProblemFilters</span>.exclude[<span class=\"pl-en\">MissingClassProblem</span>](<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.example.mylibrary.internal.Foo<span class=\"pl-pds\">\"</span></span>),\n)</pre></div>\n<p dir=\"auto\">You may also use wildcards in the package and/or the top <code>Problem</code> parent type for such situations:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"mimaBinaryIssueFilters ++= Seq(\n  ProblemFilters.exclude[Problem](&quot;com.example.mylibrary.internal.*&quot;),\n)\"><pre>mimaBinaryIssueFilters <span class=\"pl-k\">++</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Seq</span>(\n  <span class=\"pl-en\">ProblemFilters</span>.exclude[<span class=\"pl-en\">Problem</span>](<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.example.mylibrary.internal.*<span class=\"pl-pds\">\"</span></span>),\n)</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-incompatiblesignatureproblem\" class=\"anchor\" aria-hidden=\"true\" href=\"#incompatiblesignatureproblem\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>IncompatibleSignatureProblem</h3>\n<p dir=\"auto\">Most MiMa checks (<code>DirectMissingMethod</code>, <code>IncompatibleResultType</code>,\n<code>IncompatibleMethType</code>, etc) are against the \"method descriptor\", which\nis the \"raw\" type signature, without any information about generic parameters.</p>\n<p dir=\"auto\">The <code>IncompatibleSignature</code> check compares the <code>Signature</code>, which includes the\nfull signature including generic parameters. This can catch real\nincompatibilities, but also sometimes triggers for a change in generics that\nwould not in fact cause problems at run time. Notably, it will warn when\nupdating your project to scala 2.12.9+ or 2.13.1+,\nsee <a href=\"https://github.com/lightbend/mima/issues/423\">this issue</a> for details.</p>\n<p dir=\"auto\">You can opt-in to this check by setting:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import com.typesafe.tools.mima.plugin.MimaKeys._\n\nThisBuild / mimaReportSignatureProblems := true\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">typesafe</span>.<span class=\"pl-en\">tools</span>.<span class=\"pl-en\">mima</span>.<span class=\"pl-en\">plugin</span>.<span class=\"pl-en\">MimaKeys</span>.<span class=\"pl-en\">_</span>\n\n<span class=\"pl-en\">ThisBuild</span> <span class=\"pl-k\">/</span> mimaReportSignatureProblems <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-c1\">true</span></pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-setting-different-mimapreviousartifacts\" class=\"anchor\" aria-hidden=\"true\" href=\"#setting-different-mimapreviousartifacts\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Setting different mimaPreviousArtifacts</h2>\n<p dir=\"auto\">From time to time you may need to set <code>mimaPreviousArtifacts</code> according to some conditions.  For\ninstance, if you have already ported your project to Scala 2.13 and set it up for cross-building to Scala 2.13,\nbut still haven't cut a release, you may want to define <code>mimaPreviousArtifacts</code> according to the Scala version,\nwith something like:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"mimaPreviousArtifacts := {\n  if (CrossVersion.partialVersion(scalaVersion.value) == Some((2, 13)))\n    Set.empty\n  else\n    Set(&quot;com.example&quot; %% &quot;my-library&quot; % &quot;1.2.3&quot;)\n}\"><pre>mimaPreviousArtifacts <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> {\n  <span class=\"pl-k\">if</span> (<span class=\"pl-en\">CrossVersion</span>.partialVersion(scalaVersion.value) <span class=\"pl-k\">==</span> <span class=\"pl-en\">Some</span>((<span class=\"pl-c1\">2</span>, <span class=\"pl-c1\">13</span>)))\n    <span class=\"pl-en\">Set</span>.empty\n  <span class=\"pl-k\">else</span>\n    <span class=\"pl-en\">Set</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.example<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>my-library<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.2.3<span class=\"pl-pds\">\"</span></span>)\n}</pre></div>\n<p dir=\"auto\">or perhaps using some of sbt 1.2's new API:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import sbt.librarymanagement.{ SemanticSelector, VersionNumber }\n\nmimaPreviousArtifacts := {\n  if (VersionNumber(scalaVersion.value).matchesSemVer(SemanticSelector(&quot;&gt;=2.13&quot;)))\n    Set.empty\n  else\n    Set(&quot;com.example&quot; %% &quot;my-library&quot; % &quot;1.2.3&quot;)\n}\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">sbt</span>.<span class=\"pl-en\">librarymanagement</span>.{ <span class=\"pl-en\">SemanticSelector</span>, <span class=\"pl-en\">VersionNumber</span> }\n\nmimaPreviousArtifacts <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> {\n  <span class=\"pl-k\">if</span> (<span class=\"pl-en\">VersionNumber</span>(scalaVersion.value).matchesSemVer(<span class=\"pl-en\">SemanticSelector</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>&gt;=2.13<span class=\"pl-pds\">\"</span></span>)))\n    <span class=\"pl-en\">Set</span>.empty\n  <span class=\"pl-k\">else</span>\n    <span class=\"pl-en\">Set</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.example<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>my-library<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.2.3<span class=\"pl-pds\">\"</span></span>)\n}</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-make-mimareportbinaryissues-not-fail\" class=\"anchor\" aria-hidden=\"true\" href=\"#make-mimareportbinaryissues-not-fail\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Make mimaReportBinaryIssues not fail</h2>\n<p dir=\"auto\">The setting <code>mimaFailOnNoPrevious</code> defaults to <code>true</code> and will make\n<code>mimaReportBinaryIssues</code> fail if <code>mimaPreviousArtifacts</code> hasn't been set.</p>\n<p dir=\"auto\">To make <code>mimaReportBinaryIssues</code> not fail you may want to do one of the following:</p>\n<ul dir=\"auto\">\n<li>set <code>mimaPreviousArtifacts</code> on all the projects that should be checking their binary compatibility</li>\n<li>avoid calling <code>mimaPreviousArtifacts</code> when binary compatibility checking isn't needed</li>\n<li>set <code>mimaFailOnNoPrevious := false</code> on specific projects that want to opt-out (alternatively <code>disablePlugins(MimaPlugin)</code>)</li>\n<li>set <code>ThisBuild / mimaFailOnNoPrevious := false</code>, which disables it build-wide, effectively reverting back to the previous behaviour</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-setting-mimapreviousartifacts-when-name-contains-a-\" class=\"anchor\" aria-hidden=\"true\" href=\"#setting-mimapreviousartifacts-when-name-contains-a-\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Setting mimaPreviousArtifacts when name contains a \".\"</h2>\n<p dir=\"auto\">To refer to the project name in <code>mimaPreviousArtifacts</code>, use <code>moduleName</code> rather\nthan <code>name</code>, like</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"mimaPreviousArtifacts := Set(organization.value %% moduleName.value % &quot;0.1.0&quot;)\"><pre>mimaPreviousArtifacts <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Set</span>(organization.value <span class=\"pl-k\">%%</span> moduleName.value <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.1.0<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<p dir=\"auto\">Unlike <code>name</code>, <code>moduleName</code> escapes characters like <code>.</code>, and is the name\nactually used by <code>publish</code> and <code>publishLocal</code> to publish your project. It's\nalso the value your users should use when adding your project to their\ndependencies.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "dwijnand",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/344610?v=4",
+        "url" : "https://api.github.com/users/dwijnand",
+        "contributions" : 634
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 109
+      },
+      {
+        "login" : "SethTisue",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
+        "url" : "https://api.github.com/users/SethTisue",
+        "contributions" : 89
+      },
+      {
+        "login" : "dotta",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/703748?v=4",
+        "url" : "https://api.github.com/users/dotta",
+        "contributions" : 69
+      },
+      {
+        "login" : "mergify[bot]",
+        "avatarUrl" : "https://avatars.githubusercontent.com/in/10562?v=4",
+        "url" : "https://api.github.com/users/mergify%5Bbot%5D",
+        "contributions" : 54
+      },
+      {
+        "login" : "jsuereth",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/29006?v=4",
+        "url" : "https://api.github.com/users/jsuereth",
+        "contributions" : 52
+      },
+      {
+        "login" : "raboof",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/131856?v=4",
+        "url" : "https://api.github.com/users/raboof",
+        "contributions" : 48
+      },
+      {
+        "login" : "2m",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/422086?v=4",
+        "url" : "https://api.github.com/users/2m",
+        "contributions" : 34
+      },
+      {
+        "login" : "szeiger",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/54262?v=4",
+        "url" : "https://api.github.com/users/szeiger",
+        "contributions" : 24
+      },
+      {
+        "login" : "xuwei-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/389787?v=4",
+        "url" : "https://api.github.com/users/xuwei-k",
+        "contributions" : 10
+      },
+      {
+        "login" : "retronym",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/65551?v=4",
+        "url" : "https://api.github.com/users/retronym",
+        "contributions" : 9
+      },
+      {
+        "login" : "havocp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/218689?v=4",
+        "url" : "https://api.github.com/users/havocp",
+        "contributions" : 6
+      },
+      {
+        "login" : "gkossakowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4217?v=4",
+        "url" : "https://api.github.com/users/gkossakowski",
+        "contributions" : 5
+      },
+      {
+        "login" : "alexarchambault",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7063723?v=4",
+        "url" : "https://api.github.com/users/alexarchambault",
+        "contributions" : 4
+      },
+      {
+        "login" : "bantonsson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/805830?v=4",
+        "url" : "https://api.github.com/users/bantonsson",
+        "contributions" : 3
+      },
+      {
+        "login" : "jsravn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/522123?v=4",
+        "url" : "https://api.github.com/users/jsravn",
+        "contributions" : 2
+      },
+      {
+        "login" : "jrudolph",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9868?v=4",
+        "url" : "https://api.github.com/users/jrudolph",
+        "contributions" : 2
+      },
+      {
+        "login" : "julienrf",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/332812?v=4",
+        "url" : "https://api.github.com/users/julienrf",
+        "contributions" : 2
+      },
+      {
+        "login" : "lefou",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1321393?v=4",
+        "url" : "https://api.github.com/users/lefou",
+        "contributions" : 2
+      },
+      {
+        "login" : "ashawley",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/358615?v=4",
+        "url" : "https://api.github.com/users/ashawley",
+        "contributions" : 1
+      },
+      {
+        "login" : "adriaanm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/91083?v=4",
+        "url" : "https://api.github.com/users/adriaanm",
+        "contributions" : 1
+      },
+      {
+        "login" : "btakashi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/382744?v=4",
+        "url" : "https://api.github.com/users/btakashi",
+        "contributions" : 1
+      },
+      {
+        "login" : "darabos",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1268018?v=4",
+        "url" : "https://api.github.com/users/darabos",
+        "contributions" : 1
+      },
+      {
+        "login" : "htmldoug",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/663139?v=4",
+        "url" : "https://api.github.com/users/htmldoug",
+        "contributions" : 1
+      },
+      {
+        "login" : "regadas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/163899?v=4",
+        "url" : "https://api.github.com/users/regadas",
+        "contributions" : 1
+      },
+      {
+        "login" : "fanf",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/44649?v=4",
+        "url" : "https://api.github.com/users/fanf",
+        "contributions" : 1
+      },
+      {
+        "login" : "huitseeker",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4142?v=4",
+        "url" : "https://api.github.com/users/huitseeker",
+        "contributions" : 1
+      },
+      {
+        "login" : "JoshRosen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/50748?v=4",
+        "url" : "https://api.github.com/users/JoshRosen",
+        "contributions" : 1
+      },
+      {
+        "login" : "ktoso",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/120979?v=4",
+        "url" : "https://api.github.com/users/ktoso",
+        "contributions" : 1
+      },
+      {
+        "login" : "lrytz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/119636?v=4",
+        "url" : "https://api.github.com/users/lrytz",
+        "contributions" : 1
+      },
+      {
+        "login" : "harrah",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/72742?v=4",
+        "url" : "https://api.github.com/users/harrah",
+        "contributions" : 1
+      },
+      {
+        "login" : "matthughes",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/173132?v=4",
+        "url" : "https://api.github.com/users/matthughes",
+        "contributions" : 1
+      },
+      {
+        "login" : "nick-nachos",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4942432?v=4",
+        "url" : "https://api.github.com/users/nick-nachos",
+        "contributions" : 1
+      },
+      {
+        "login" : "paulp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9135?v=4",
+        "url" : "https://api.github.com/users/paulp",
+        "contributions" : 1
+      },
+      {
+        "login" : "som-snytt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/369425?v=4",
+        "url" : "https://api.github.com/users/som-snytt",
+        "contributions" : 1
+      },
+      {
+        "login" : "nigredo-tori",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5962285?v=4",
+        "url" : "https://api.github.com/users/nigredo-tori",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 1175,
+    "topics" : [
+      "compatibility-testing",
+      "sbt-plugin",
+      "scala",
+      "supported"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 682,
+        "title" : "Automatically filter package-private changes on Scala 3",
+        "url" : "https://github.com/lightbend/mima/issues/682"
+      },
+      {
+        "number" : 670,
+        "title" : "Inconsistent name encoding between field and class?",
+        "url" : "https://github.com/lightbend/mima/issues/670"
+      },
+      {
+        "number" : 661,
+        "title" : "False positive when eliminating package-private class / object",
+        "url" : "https://github.com/lightbend/mima/issues/661"
+      },
+      {
+        "number" : 660,
+        "title" : "False positive for mixin forwarders of package private trait methods",
+        "url" : "https://github.com/lightbend/mima/issues/660"
+      },
+      {
+        "number" : 615,
+        "title" : "Possibility to set check direction per artifact",
+        "url" : "https://github.com/lightbend/mima/issues/615"
+      },
+      {
+        "number" : 590,
+        "title" : "DirectAbstractMethodProblem vs ReversedAbstractMethodProblem vs Scala 3",
+        "url" : "https://github.com/lightbend/mima/issues/590"
+      },
+      {
+        "number" : 554,
+        "title" : "Confusing error messages when overload is missing but others are still there",
+        "url" : "https://github.com/lightbend/mima/issues/554"
+      },
+      {
+        "number" : 532,
+        "title" : "False positive when adding a method to a class with the same name as a method in the companion object",
+        "url" : "https://github.com/lightbend/mima/issues/532"
+      },
+      {
+        "number" : 485,
+        "title" : "Cache previous artifact resolution",
+        "url" : "https://github.com/lightbend/mima/issues/485"
+      },
+      {
+        "number" : 474,
+        "title" : "Concrete to abstract classes w/ package private constructors",
+        "url" : "https://github.com/lightbend/mima/issues/474"
+      },
+      {
+        "number" : 433,
+        "title" : "False positive related to static forwarders",
+        "url" : "https://github.com/lightbend/mima/issues/433"
+      },
+      {
+        "number" : 423,
+        "title" : "Signature checks fail using value classes & upgrading to 2.12.9+ or 2.13.1+",
+        "url" : "https://github.com/lightbend/mima/issues/423"
+      },
+      {
+        "number" : 388,
+        "title" : "False positives on dropped bridge method forwarders",
+        "url" : "https://github.com/lightbend/mima/issues/388"
+      },
+      {
+        "number" : 381,
+        "title" : "More fine-grained exclusions (static vs non-static method problems)",
+        "url" : "https://github.com/lightbend/mima/issues/381"
+      },
+      {
+        "number" : 363,
+        "title" : "Signature checks fail on type param renames/reorder",
+        "url" : "https://github.com/lightbend/mima/issues/363"
+      },
+      {
+        "number" : 335,
+        "title" : "Signature checks fails on changes to 'throws' clause",
+        "url" : "https://github.com/lightbend/mima/issues/335"
+      },
+      {
+        "number" : 301,
+        "title" : "False positive on defaulting an interface/trait implementation",
+        "url" : "https://github.com/lightbend/mima/issues/301"
+      },
+      {
+        "number" : 266,
+        "title" : "False positive on constants",
+        "url" : "https://github.com/lightbend/mima/issues/266"
+      },
+      {
+        "number" : 237,
+        "title" : "False positive moving methods within sealed abstract class hierarchy",
+        "url" : "https://github.com/lightbend/mima/issues/237"
+      },
+      {
+        "number" : 225,
+        "title" : "Can't detect binary incompatibility when trait extends abstract class",
+        "url" : "https://github.com/lightbend/mima/issues/225"
+      },
+      {
+        "number" : 211,
+        "title" : "Unchanged parent class reported as having a missing method",
+        "url" : "https://github.com/lightbend/mima/issues/211"
+      },
+      {
+        "number" : 200,
+        "title" : "Warn on adding a type constructor to a sum type",
+        "url" : "https://github.com/lightbend/mima/issues/200"
+      },
+      {
+        "number" : 102,
+        "title" : "There is no inclusion filter",
+        "url" : "https://github.com/lightbend/mima/issues/102"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : "mima-core",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : true,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "code-analysis",
+    "beginnerIssuesLabel" : null
+  }
+}

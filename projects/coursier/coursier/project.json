@@ -1,0 +1,2119 @@
+{
+  "organization" : "coursier",
+  "repository" : "coursier",
+  "creationDate" : 1611062449000,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643195766326
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "https://get-coursier.io",
+    "description" : "Pure Scala Artifact Fetching",
+    "logo" : "https://avatars.githubusercontent.com/u/24917177?v=4",
+    "stars" : 1851,
+    "forks" : 245,
+    "watchers" : 60,
+    "issues" : 331,
+    "creationDate" : 1434479573000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-coursier\" class=\"anchor\" aria-hidden=\"true\" href=\"#coursier\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Coursier</h1>\n<p dir=\"auto\"><a href=\"https://github.com/coursier/coursier/actions?query=workflow%3ACI\"><img src=\"https://github.com/coursier/coursier/workflows/CI/badge.svg\" alt=\"Build status\" style=\"max-width: 100%;\"></a>\n<a href=\"https://gitter.im/coursier/coursier?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/5dbac0213da25c445bd11f168587c11a200ba153ef3014e8408e462e410169b3/68747470733a2f2f6261646765732e6769747465722e696d2f4a6f696e253230436861742e737667\" alt=\"Join the chat at https://gitter.im/coursier/coursier\" data-canonical-src=\"https://badges.gitter.im/Join%20Chat.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://maven-badges.herokuapp.com/maven-central/io.get-coursier/coursier_2.12\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/315ba8e39222908e63440b07531456050c2f11edb7ec81b492c7be07ed86bea0/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f696f2e6765742d636f7572736965722f636f7572736965725f322e31322e737667\" alt=\"Maven Central\" data-canonical-src=\"https://img.shields.io/maven-central/v/io.get-coursier/coursier_2.12.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://javadoc-badge.appspot.com/io.get-coursier/coursier-core_2.12\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/760d77c68ffda705dc083e9431991a1867701443bb4bdb1283d6e0f48e4112fb/68747470733a2f2f6a617661646f632d62616467652e61707073706f742e636f6d2f696f2e6765742d636f7572736965722f636f7572736965722d636f72655f322e31322e7376673f6c6162656c3d7363616c61646f63\" alt=\"Scaladoc\" data-canonical-src=\"https://javadoc-badge.appspot.com/io.get-coursier/coursier-core_2.12.svg?label=scaladoc\" style=\"max-width: 100%;\"></a></p>\n<h2 dir=\"auto\"><a id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Documentation</h2>\n<p dir=\"auto\">See the <a href=\"https://get-coursier.io\" rel=\"nofollow\">website</a> for more details.</p>\n<h2 dir=\"auto\"><a id=\"user-content-code-of-conduct\" class=\"anchor\" aria-hidden=\"true\" href=\"#code-of-conduct\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Code of Conduct</h2>\n<p dir=\"auto\">The coursier project welcomes contributions from anybody wishing to participate.\nAll code or documentation that is provided must be licensed with the same\nlicense that coursier is licensed with (Apache 2.0, see LICENSE).</p>\n<p dir=\"auto\">People are expected to follow the <a href=\"https://www.scala-lang.org/conduct\" rel=\"nofollow\">Scala Code of Conduct</a>\nwhen discussing coursier on GitHub, Gitter channel, or other venues.</p>\n<p dir=\"auto\">Feel free to open an issue if you notice a bug, have an idea for a feature, or have a question about the code. Pull requests are also gladly accepted.</p>\n<h2 dir=\"auto\"><a id=\"user-content-acknowledgments\" class=\"anchor\" aria-hidden=\"true\" href=\"#acknowledgments\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Acknowledgments</h2>\n<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/97f734fc56e4172312568dbba6e5a8e376d45166f8080cf57c870a9ab4c0f9a3/68747470733a2f2f7363616c612e6570666c2e63682f7265736f75726365732f696d672f7363616c612d63656e7465722d737769726c2e706e67\"><img src=\"https://camo.githubusercontent.com/97f734fc56e4172312568dbba6e5a8e376d45166f8080cf57c870a9ab4c0f9a3/68747470733a2f2f7363616c612e6570666c2e63682f7265736f75726365732f696d672f7363616c612d63656e7465722d737769726c2e706e67\" width=\"40px\" data-canonical-src=\"https://scala.epfl.ch/resources/img/scala-center-swirl.png\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Large parts of the developments in coursier since Sep. 2018 have been funded by the <a href=\"https://scala.epfl.ch\" rel=\"nofollow\">Scala Center</a>, through the employment or contracting of myself (Alexandre Archambault).</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "alexarchambault",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7063723?v=4",
+        "url" : "https://api.github.com/users/alexarchambault",
+        "contributions" : 3239
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 229
+      },
+      {
+        "login" : "wisechengyi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/596358?v=4",
+        "url" : "https://api.github.com/users/wisechengyi",
+        "contributions" : 17
+      },
+      {
+        "login" : "dwijnand",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/344610?v=4",
+        "url" : "https://api.github.com/users/dwijnand",
+        "contributions" : 10
+      },
+      {
+        "login" : "Jentsch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/818446?v=4",
+        "url" : "https://api.github.com/users/Jentsch",
+        "contributions" : 10
+      },
+      {
+        "login" : "leonardehrenfried",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/151346?v=4",
+        "url" : "https://api.github.com/users/leonardehrenfried",
+        "contributions" : 8
+      },
+      {
+        "login" : "eed3si9n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/184683?v=4",
+        "url" : "https://api.github.com/users/eed3si9n",
+        "contributions" : 8
+      },
+      {
+        "login" : "sjrd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/535934?v=4",
+        "url" : "https://api.github.com/users/sjrd",
+        "contributions" : 7
+      },
+      {
+        "login" : "adpi2",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13123162?v=4",
+        "url" : "https://api.github.com/users/adpi2",
+        "contributions" : 6
+      },
+      {
+        "login" : "jtjeferreira",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/943051?v=4",
+        "url" : "https://api.github.com/users/jtjeferreira",
+        "contributions" : 6
+      },
+      {
+        "login" : "dependabot[bot]",
+        "avatarUrl" : "https://avatars.githubusercontent.com/in/29110?v=4",
+        "url" : "https://api.github.com/users/dependabot%5Bbot%5D",
+        "contributions" : 6
+      },
+      {
+        "login" : "ckipp01",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13974112?v=4",
+        "url" : "https://api.github.com/users/ckipp01",
+        "contributions" : 6
+      },
+      {
+        "login" : "eloots",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2806012?v=4",
+        "url" : "https://api.github.com/users/eloots",
+        "contributions" : 6
+      },
+      {
+        "login" : "olafurpg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1408093?v=4",
+        "url" : "https://api.github.com/users/olafurpg",
+        "contributions" : 5
+      },
+      {
+        "login" : "fthomas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/141252?v=4",
+        "url" : "https://api.github.com/users/fthomas",
+        "contributions" : 5
+      },
+      {
+        "login" : "exoego",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/127635?v=4",
+        "url" : "https://api.github.com/users/exoego",
+        "contributions" : 5
+      },
+      {
+        "login" : "easel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/94159?v=4",
+        "url" : "https://api.github.com/users/easel",
+        "contributions" : 3
+      },
+      {
+        "login" : "MasseGuillaume",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/921490?v=4",
+        "url" : "https://api.github.com/users/MasseGuillaume",
+        "contributions" : 3
+      },
+      {
+        "login" : "darkjh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/802343?v=4",
+        "url" : "https://api.github.com/users/darkjh",
+        "contributions" : 3
+      },
+      {
+        "login" : "jsoref",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2119212?v=4",
+        "url" : "https://api.github.com/users/jsoref",
+        "contributions" : 3
+      },
+      {
+        "login" : "kzys",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19111?v=4",
+        "url" : "https://api.github.com/users/kzys",
+        "contributions" : 3
+      },
+      {
+        "login" : "2m",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/422086?v=4",
+        "url" : "https://api.github.com/users/2m",
+        "contributions" : 3
+      },
+      {
+        "login" : "baroquebobcat",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7378?v=4",
+        "url" : "https://api.github.com/users/baroquebobcat",
+        "contributions" : 3
+      },
+      {
+        "login" : "SethTisue",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
+        "url" : "https://api.github.com/users/SethTisue",
+        "contributions" : 3
+      },
+      {
+        "login" : "oyvindberg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/247937?v=4",
+        "url" : "https://api.github.com/users/oyvindberg",
+        "contributions" : 3
+      },
+      {
+        "login" : "teozkr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/649832?v=4",
+        "url" : "https://api.github.com/users/teozkr",
+        "contributions" : 3
+      },
+      {
+        "login" : "densh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/320966?v=4",
+        "url" : "https://api.github.com/users/densh",
+        "contributions" : 2
+      },
+      {
+        "login" : "diesalbla",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1764610?v=4",
+        "url" : "https://api.github.com/users/diesalbla",
+        "contributions" : 2
+      },
+      {
+        "login" : "dotordogh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/28027359?v=4",
+        "url" : "https://api.github.com/users/dotordogh",
+        "contributions" : 2
+      },
+      {
+        "login" : "regadas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/163899?v=4",
+        "url" : "https://api.github.com/users/regadas",
+        "contributions" : 2
+      },
+      {
+        "login" : "jgogstad",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/523922?v=4",
+        "url" : "https://api.github.com/users/jgogstad",
+        "contributions" : 2
+      },
+      {
+        "login" : "larsrh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/923079?v=4",
+        "url" : "https://api.github.com/users/larsrh",
+        "contributions" : 2
+      },
+      {
+        "login" : "MaximeKjaer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/990794?v=4",
+        "url" : "https://api.github.com/users/MaximeKjaer",
+        "contributions" : 2
+      },
+      {
+        "login" : "mxl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1078685?v=4",
+        "url" : "https://api.github.com/users/mxl",
+        "contributions" : 2
+      },
+      {
+        "login" : "rrramiro",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6574825?v=4",
+        "url" : "https://api.github.com/users/rrramiro",
+        "contributions" : 2
+      },
+      {
+        "login" : "sschuberth",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/349154?v=4",
+        "url" : "https://api.github.com/users/sschuberth",
+        "contributions" : 2
+      },
+      {
+        "login" : "shubhamJay",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/34642890?v=4",
+        "url" : "https://api.github.com/users/shubhamJay",
+        "contributions" : 2
+      },
+      {
+        "login" : "avdv",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3471749?v=4",
+        "url" : "https://api.github.com/users/avdv",
+        "contributions" : 2
+      },
+      {
+        "login" : "kiendang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6521018?v=4",
+        "url" : "https://api.github.com/users/kiendang",
+        "contributions" : 2
+      },
+      {
+        "login" : "rfkm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/857162?v=4",
+        "url" : "https://api.github.com/users/rfkm",
+        "contributions" : 2
+      },
+      {
+        "login" : "soc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/42493?v=4",
+        "url" : "https://api.github.com/users/soc",
+        "contributions" : 2
+      },
+      {
+        "login" : "keynmol",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1052965?v=4",
+        "url" : "https://api.github.com/users/keynmol",
+        "contributions" : 1
+      },
+      {
+        "login" : "raboof",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/131856?v=4",
+        "url" : "https://api.github.com/users/raboof",
+        "contributions" : 1
+      },
+      {
+        "login" : "benmccann",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/322311?v=4",
+        "url" : "https://api.github.com/users/benmccann",
+        "contributions" : 1
+      },
+      {
+        "login" : "bosyi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1587322?v=4",
+        "url" : "https://api.github.com/users/bosyi",
+        "contributions" : 1
+      },
+      {
+        "login" : "ChristopherDavenport",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10272700?v=4",
+        "url" : "https://api.github.com/users/ChristopherDavenport",
+        "contributions" : 1
+      },
+      {
+        "login" : "cchepelov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1515440?v=4",
+        "url" : "https://api.github.com/users/cchepelov",
+        "contributions" : 1
+      },
+      {
+        "login" : "engelsdamien",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/45879223?v=4",
+        "url" : "https://api.github.com/users/engelsdamien",
+        "contributions" : 1
+      },
+      {
+        "login" : "ferrazoli",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2861814?v=4",
+        "url" : "https://api.github.com/users/ferrazoli",
+        "contributions" : 1
+      },
+      {
+        "login" : "daddykotex",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5230460?v=4",
+        "url" : "https://api.github.com/users/daddykotex",
+        "contributions" : 1
+      },
+      {
+        "login" : "unkarjedy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3989292?v=4",
+        "url" : "https://api.github.com/users/unkarjedy",
+        "contributions" : 1
+      },
+      {
+        "login" : "er1c",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/64685?v=4",
+        "url" : "https://api.github.com/users/er1c",
+        "contributions" : 1
+      },
+      {
+        "login" : "gabor-aranyossy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/29858875?v=4",
+        "url" : "https://api.github.com/users/gabor-aranyossy",
+        "contributions" : 1
+      },
+      {
+        "login" : "hochgi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/881075?v=4",
+        "url" : "https://api.github.com/users/hochgi",
+        "contributions" : 1
+      },
+      {
+        "login" : "greg-a-atkinson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11074540?v=4",
+        "url" : "https://api.github.com/users/greg-a-atkinson",
+        "contributions" : 1
+      },
+      {
+        "login" : "Grogs",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1212907?v=4",
+        "url" : "https://api.github.com/users/Grogs",
+        "contributions" : 1
+      },
+      {
+        "login" : "guilgaly",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6560742?v=4",
+        "url" : "https://api.github.com/users/guilgaly",
+        "contributions" : 1
+      },
+      {
+        "login" : "smarter",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/63430?v=4",
+        "url" : "https://api.github.com/users/smarter",
+        "contributions" : 1
+      },
+      {
+        "login" : "viqueen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8287312?v=4",
+        "url" : "https://api.github.com/users/viqueen",
+        "contributions" : 1
+      },
+      {
+        "login" : "igstan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/49002?v=4",
+        "url" : "https://api.github.com/users/igstan",
+        "contributions" : 1
+      },
+      {
+        "login" : "jalaziz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/247849?v=4",
+        "url" : "https://api.github.com/users/jalaziz",
+        "contributions" : 1
+      },
+      {
+        "login" : "jsirois",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/157586?v=4",
+        "url" : "https://api.github.com/users/jsirois",
+        "contributions" : 1
+      },
+      {
+        "login" : "propensive",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1024588?v=4",
+        "url" : "https://api.github.com/users/propensive",
+        "contributions" : 1
+      },
+      {
+        "login" : "jonas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8417?v=4",
+        "url" : "https://api.github.com/users/jonas",
+        "contributions" : 1
+      },
+      {
+        "login" : "julienrf",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/332812?v=4",
+        "url" : "https://api.github.com/users/julienrf",
+        "contributions" : 1
+      },
+      {
+        "login" : "j-keck",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3081095?v=4",
+        "url" : "https://api.github.com/users/j-keck",
+        "contributions" : 1
+      },
+      {
+        "login" : "kpodsiad",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/37124721?v=4",
+        "url" : "https://api.github.com/users/kpodsiad",
+        "contributions" : 1
+      },
+      {
+        "login" : "seratch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19658?v=4",
+        "url" : "https://api.github.com/users/seratch",
+        "contributions" : 1
+      },
+      {
+        "login" : "vrinek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/81346?v=4",
+        "url" : "https://api.github.com/users/vrinek",
+        "contributions" : 1
+      },
+      {
+        "login" : "Tomahna",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8577941?v=4",
+        "url" : "https://api.github.com/users/Tomahna",
+        "contributions" : 1
+      },
+      {
+        "login" : "BalmungSan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11336950?v=4",
+        "url" : "https://api.github.com/users/BalmungSan",
+        "contributions" : 1
+      },
+      {
+        "login" : "marcprux",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/659086?v=4",
+        "url" : "https://api.github.com/users/marcprux",
+        "contributions" : 1
+      },
+      {
+        "login" : "MC-Escherichia",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4314236?v=4",
+        "url" : "https://api.github.com/users/MC-Escherichia",
+        "contributions" : 1
+      },
+      {
+        "login" : "matsluni",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2551177?v=4",
+        "url" : "https://api.github.com/users/matsluni",
+        "contributions" : 1
+      },
+      {
+        "login" : "maxstreese",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22156776?v=4",
+        "url" : "https://api.github.com/users/maxstreese",
+        "contributions" : 1
+      },
+      {
+        "login" : "mpollmeier",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/506752?v=4",
+        "url" : "https://api.github.com/users/mpollmeier",
+        "contributions" : 1
+      },
+      {
+        "login" : "note",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/345056?v=4",
+        "url" : "https://api.github.com/users/note",
+        "contributions" : 1
+      },
+      {
+        "login" : "mskimm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1531387?v=4",
+        "url" : "https://api.github.com/users/mskimm",
+        "contributions" : 1
+      },
+      {
+        "login" : "dotta",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/703748?v=4",
+        "url" : "https://api.github.com/users/dotta",
+        "contributions" : 1
+      },
+      {
+        "login" : "olivierdeckers",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1965514?v=4",
+        "url" : "https://api.github.com/users/olivierdeckers",
+        "contributions" : 1
+      },
+      {
+        "login" : "johnynek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/67958?v=4",
+        "url" : "https://api.github.com/users/johnynek",
+        "contributions" : 1
+      },
+      {
+        "login" : "patricklaw",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/577694?v=4",
+        "url" : "https://api.github.com/users/patricklaw",
+        "contributions" : 1
+      },
+      {
+        "login" : "Poorva17",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13188905?v=4",
+        "url" : "https://api.github.com/users/Poorva17",
+        "contributions" : 1
+      },
+      {
+        "login" : "przemek-pokrywka",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/483594?v=4",
+        "url" : "https://api.github.com/users/przemek-pokrywka",
+        "contributions" : 1
+      },
+      {
+        "login" : "rtfpessoa",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/902384?v=4",
+        "url" : "https://api.github.com/users/rtfpessoa",
+        "contributions" : 1
+      },
+      {
+        "login" : "RomanIakovlev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2363458?v=4",
+        "url" : "https://api.github.com/users/RomanIakovlev",
+        "contributions" : 1
+      },
+      {
+        "login" : "rberenguel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2410938?v=4",
+        "url" : "https://api.github.com/users/rberenguel",
+        "contributions" : 1
+      },
+      {
+        "login" : "sake92",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12010694?v=4",
+        "url" : "https://api.github.com/users/sake92",
+        "contributions" : 1
+      },
+      {
+        "login" : "mebubo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/626069?v=4",
+        "url" : "https://api.github.com/users/mebubo",
+        "contributions" : 1
+      },
+      {
+        "login" : "shanielh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/746471?v=4",
+        "url" : "https://api.github.com/users/shanielh",
+        "contributions" : 1
+      },
+      {
+        "login" : "sbrunk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3939659?v=4",
+        "url" : "https://api.github.com/users/sbrunk",
+        "contributions" : 1
+      },
+      {
+        "login" : "gitter-badger",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8518239?v=4",
+        "url" : "https://api.github.com/users/gitter-badger",
+        "contributions" : 1
+      },
+      {
+        "login" : "Mocuto",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5456121?v=4",
+        "url" : "https://api.github.com/users/Mocuto",
+        "contributions" : 1
+      },
+      {
+        "login" : "trentontrees",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11730706?v=4",
+        "url" : "https://api.github.com/users/trentontrees",
+        "contributions" : 1
+      },
+      {
+        "login" : "vil1",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/389356?v=4",
+        "url" : "https://api.github.com/users/vil1",
+        "contributions" : 1
+      },
+      {
+        "login" : "chimmi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3124852?v=4",
+        "url" : "https://api.github.com/users/chimmi",
+        "contributions" : 1
+      },
+      {
+        "login" : "lavrov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2944597?v=4",
+        "url" : "https://api.github.com/users/lavrov",
+        "contributions" : 1
+      },
+      {
+        "login" : "ScalaWilliam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2464813?v=4",
+        "url" : "https://api.github.com/users/ScalaWilliam",
+        "contributions" : 1
+      },
+      {
+        "login" : "darklore",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/958690?v=4",
+        "url" : "https://api.github.com/users/darklore",
+        "contributions" : 1
+      },
+      {
+        "login" : "ianoc-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23110726?v=4",
+        "url" : "https://api.github.com/users/ianoc-stripe",
+        "contributions" : 1
+      },
+      {
+        "login" : "jodersky",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1007012?v=4",
+        "url" : "https://api.github.com/users/jodersky",
+        "contributions" : 1
+      },
+      {
+        "login" : "kitterion",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12870762?v=4",
+        "url" : "https://api.github.com/users/kitterion",
+        "contributions" : 1
+      },
+      {
+        "login" : "maiflai",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4742102?v=4",
+        "url" : "https://api.github.com/users/maiflai",
+        "contributions" : 1
+      },
+      {
+        "login" : "n4to4",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/21071230?v=4",
+        "url" : "https://api.github.com/users/n4to4",
+        "contributions" : 1
+      },
+      {
+        "login" : "sullis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30938?v=4",
+        "url" : "https://api.github.com/users/sullis",
+        "contributions" : 1
+      },
+      {
+        "login" : "xuwei-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/389787?v=4",
+        "url" : "https://api.github.com/users/xuwei-k",
+        "contributions" : 1
+      },
+      {
+        "login" : "zheh12",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2442257?v=4",
+        "url" : "https://api.github.com/users/zheh12",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 3699,
+    "topics" : [
+      "scalajs",
+      "scala-native",
+      "scala",
+      "sbt-plugin",
+      "launcher"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : "https://gitter.im/coursier/coursier",
+    "openIssues" : [
+      {
+        "number" : 2343,
+        "title" : "Add a way to tell the current version of cs",
+        "url" : "https://github.com/coursier/coursier/issues/2343"
+      },
+      {
+        "number" : 2342,
+        "title" : "Multiply repositories flag - parsing error or incorrect documentation",
+        "url" : "https://github.com/coursier/coursier/issues/2342"
+      },
+      {
+        "number" : 2341,
+        "title" : "Command `complete` not there in list of commands",
+        "url" : "https://github.com/coursier/coursier/issues/2341"
+      },
+      {
+        "number" : 2337,
+        "title" : "Rename zsh autocompletion file to `_cs`?",
+        "url" : "https://github.com/coursier/coursier/issues/2337"
+      },
+      {
+        "number" : 2335,
+        "title" : "Coursier does not run on Apple M1 Silicon",
+        "url" : "https://github.com/coursier/coursier/issues/2335"
+      },
+      {
+        "number" : 2334,
+        "title" : "Release v2.1.0 final to unlock Scala Center's SCP-026",
+        "url" : "https://github.com/coursier/coursier/issues/2334"
+      },
+      {
+        "number" : 2326,
+        "title" : "Coursier not checking for updates for all local changing artifacts",
+        "url" : "https://github.com/coursier/coursier/issues/2326"
+      },
+      {
+        "number" : 2319,
+        "title" : "Error: main method not found in class ammonite.Main",
+        "url" : "https://github.com/coursier/coursier/issues/2319"
+      },
+      {
+        "number" : 2316,
+        "title" : "StackOverflow resolving Kamon's jaeger module and exporting to JSON from the command line",
+        "url" : "https://github.com/coursier/coursier/issues/2316"
+      },
+      {
+        "number" : 2309,
+        "title" : "/bin/sh chokes on % character in PATH",
+        "url" : "https://github.com/coursier/coursier/issues/2309"
+      },
+      {
+        "number" : 2307,
+        "title" : "Warning rendered about failing to `setrlimit` on macOS",
+        "url" : "https://github.com/coursier/coursier/issues/2307"
+      },
+      {
+        "number" : 2302,
+        "title" : "coursier appears to be using log4j 1.2.17 - Upgrade to log4j to 2.16",
+        "url" : "https://github.com/coursier/coursier/issues/2302"
+      },
+      {
+        "number" : 2301,
+        "title" : "move `coursier` to homebrew/core instead of using a tap",
+        "url" : "https://github.com/coursier/coursier/issues/2301"
+      },
+      {
+        "number" : 2300,
+        "title" : "Unrecognized option: --installed",
+        "url" : "https://github.com/coursier/coursier/issues/2300"
+      },
+      {
+        "number" : 2292,
+        "title" : "Empty JAVA_HOME should be ignored by the system JVM detection stuff",
+        "url" : "https://github.com/coursier/coursier/issues/2292"
+      },
+      {
+        "number" : 2291,
+        "title" : "failed to setup in windows",
+        "url" : "https://github.com/coursier/coursier/issues/2291"
+      },
+      {
+        "number" : 2285,
+        "title" : "Feature request: add Fira Code V6's progress bar symbols.",
+        "url" : "https://github.com/coursier/coursier/issues/2285"
+      },
+      {
+        "number" : 2281,
+        "title" : "Runtime crash in dependency parsing",
+        "url" : "https://github.com/coursier/coursier/issues/2281"
+      },
+      {
+        "number" : 2280,
+        "title" : "coursier installed scala3 3.1.2-RC1",
+        "url" : "https://github.com/coursier/coursier/issues/2280"
+      },
+      {
+        "number" : 2261,
+        "title" : "There is no Java from Adoptium",
+        "url" : "https://github.com/coursier/coursier/issues/2261"
+      },
+      {
+        "number" : 2229,
+        "title" : "Http headers authentication for sbt plugin",
+        "url" : "https://github.com/coursier/coursier/issues/2229"
+      },
+      {
+        "number" : 2227,
+        "title" : "Latest release depends on utest",
+        "url" : "https://github.com/coursier/coursier/issues/2227"
+      },
+      {
+        "number" : 2225,
+        "title" : "Pre-release tags should not be published for Homebrew",
+        "url" : "https://github.com/coursier/coursier/issues/2225"
+      },
+      {
+        "number" : 2218,
+        "title" : " Negative download speeds for tensorflow-scala",
+        "url" : "https://github.com/coursier/coursier/issues/2218"
+      },
+      {
+        "number" : 2217,
+        "title" : "Transient java.net.ConnectException are not properly retried",
+        "url" : "https://github.com/coursier/coursier/issues/2217"
+      },
+      {
+        "number" : 2215,
+        "title" : "Coursier is unusable behind a proxy with an authentication",
+        "url" : "https://github.com/coursier/coursier/issues/2215"
+      },
+      {
+        "number" : 2214,
+        "title" : "Solaris is not supported",
+        "url" : "https://github.com/coursier/coursier/issues/2214"
+      },
+      {
+        "number" : 2213,
+        "title" : "Installation instructions should be simpler",
+        "url" : "https://github.com/coursier/coursier/issues/2213"
+      },
+      {
+        "number" : 2201,
+        "title" : "cs setup keeps failing",
+        "url" : "https://github.com/coursier/coursier/issues/2201"
+      },
+      {
+        "number" : 2186,
+        "title" : "URI filename encoding question",
+        "url" : "https://github.com/coursier/coursier/issues/2186"
+      },
+      {
+        "number" : 2178,
+        "title" : "cs complete doesn't seem to support sbt plugins",
+        "url" : "https://github.com/coursier/coursier/issues/2178"
+      },
+      {
+        "number" : 2175,
+        "title" : "coursier.jar fails to run on Windows Arm64",
+        "url" : "https://github.com/coursier/coursier/issues/2175"
+      },
+      {
+        "number" : 2170,
+        "title" : "NoClassDefFoundError: java/sql/Timestamp",
+        "url" : "https://github.com/coursier/coursier/issues/2170"
+      },
+      {
+        "number" : 2157,
+        "title" : "Disable Progress",
+        "url" : "https://github.com/coursier/coursier/issues/2157"
+      },
+      {
+        "number" : 2148,
+        "title" : "Coursier resolves transitive dependency lib version incorrectly",
+        "url" : "https://github.com/coursier/coursier/issues/2148"
+      },
+      {
+        "number" : 2147,
+        "title" : "Document how to add path manually on Linux",
+        "url" : "https://github.com/coursier/coursier/issues/2147"
+      },
+      {
+        "number" : 2141,
+        "title" : "Need help installing Scala 3 via Npackd",
+        "url" : "https://github.com/coursier/coursier/issues/2141"
+      },
+      {
+        "number" : 2118,
+        "title" : "Coursier installs applications under null on Windows",
+        "url" : "https://github.com/coursier/coursier/issues/2118"
+      },
+      {
+        "number" : 2071,
+        "title" : "Document how to install coursier on Windows with PowerShell",
+        "url" : "https://github.com/coursier/coursier/issues/2071"
+      },
+      {
+        "number" : 2070,
+        "title" : "Windows default installation link points not to latest version ",
+        "url" : "https://github.com/coursier/coursier/issues/2070"
+      },
+      {
+        "number" : 2069,
+        "title" : "coursier on Apple Silicon M1 macOS",
+        "url" : "https://github.com/coursier/coursier/issues/2069"
+      },
+      {
+        "number" : 2065,
+        "title" : "cs setup fails on MacOS since it defaults to a non-existing GraalVM version",
+        "url" : "https://github.com/coursier/coursier/issues/2065"
+      },
+      {
+        "number" : 2063,
+        "title" : "New Sonatype url for new accounts",
+        "url" : "https://github.com/coursier/coursier/issues/2063"
+      },
+      {
+        "number" : 2061,
+        "title" : "Cannot install seed",
+        "url" : "https://github.com/coursier/coursier/issues/2061"
+      },
+      {
+        "number" : 2059,
+        "title" : "Decide version of installed Scala to be used with scalac and scala commands",
+        "url" : "https://github.com/coursier/coursier/issues/2059"
+      },
+      {
+        "number" : 2058,
+        "title" : "cs does not install scala runner for scala 3",
+        "url" : "https://github.com/coursier/coursier/issues/2058"
+      },
+      {
+        "number" : 2057,
+        "title" : "Consider using Disco API instead of Jabba",
+        "url" : "https://github.com/coursier/coursier/issues/2057"
+      },
+      {
+        "number" : 2052,
+        "title" : "scala 3 missing dependency during `cs upgrade`",
+        "url" : "https://github.com/coursier/coursier/issues/2052"
+      },
+      {
+        "number" : 2049,
+        "title" : "Update version handling docs ",
+        "url" : "https://github.com/coursier/coursier/issues/2049"
+      },
+      {
+        "number" : 2048,
+        "title" : "JAVA_HOME variable ignored by bash script",
+        "url" : "https://github.com/coursier/coursier/issues/2048"
+      },
+      {
+        "number" : 2047,
+        "title" : "Not found for cs-x86_64-pc-win32.exe ",
+        "url" : "https://github.com/coursier/coursier/issues/2047"
+      },
+      {
+        "number" : 2046,
+        "title" : "coursier.bat does not know coursier.jar file in the same directory.",
+        "url" : "https://github.com/coursier/coursier/issues/2046"
+      },
+      {
+        "number" : 2045,
+        "title" : "Feature request: building a MSI Installer for windows?",
+        "url" : "https://github.com/coursier/coursier/issues/2045"
+      },
+      {
+        "number" : 2044,
+        "title" : "sbt updateClassifiers failed while working with sbt-lm-coursier",
+        "url" : "https://github.com/coursier/coursier/issues/2044"
+      },
+      {
+        "number" : 2042,
+        "title" : "cs java --jvm zulu:1.11.0-10 should download aarch64 on m1 mac insted of x64",
+        "url" : "https://github.com/coursier/coursier/issues/2042"
+      },
+      {
+        "number" : 2041,
+        "title" : "maven classifier requires both coord and json param",
+        "url" : "https://github.com/coursier/coursier/issues/2041"
+      },
+      {
+        "number" : 2038,
+        "title" : "Coursier-installed sbt launcher does not allow jvm debug param",
+        "url" : "https://github.com/coursier/coursier/issues/2038"
+      },
+      {
+        "number" : 2034,
+        "title" : "Exclusions under <dependencies> not applied transitively",
+        "url" : "https://github.com/coursier/coursier/issues/2034"
+      },
+      {
+        "number" : 2031,
+        "title" : "'null' directories on Windows 10",
+        "url" : "https://github.com/coursier/coursier/issues/2031"
+      },
+      {
+        "number" : 2029,
+        "title" : "Possibility to fetch pom file",
+        "url" : "https://github.com/coursier/coursier/issues/2029"
+      },
+      {
+        "number" : 2028,
+        "title" : "unable to resolve cdk 1.97.0 packages",
+        "url" : "https://github.com/coursier/coursier/issues/2028"
+      },
+      {
+        "number" : 2023,
+        "title" : "Install URLs should not use \"$(uname | tr LD ld)\"",
+        "url" : "https://github.com/coursier/coursier/issues/2023"
+      },
+      {
+        "number" : 2022,
+        "title" : "\"concurrent download\" even with a single repository",
+        "url" : "https://github.com/coursier/coursier/issues/2022"
+      },
+      {
+        "number" : 2016,
+        "title" : "Coursier cannot resolve the latest version of the netty-transport-native-epoll library for Mac and Linux",
+        "url" : "https://github.com/coursier/coursier/issues/2016"
+      },
+      {
+        "number" : 2009,
+        "title" : "Resolution contains version range",
+        "url" : "https://github.com/coursier/coursier/issues/2009"
+      },
+      {
+        "number" : 2001,
+        "title" : "Publish coursier for Scala 3",
+        "url" : "https://github.com/coursier/coursier/issues/2001"
+      },
+      {
+        "number" : 1994,
+        "title" : "Wrong version resolved for transitive dependency with version range ",
+        "url" : "https://github.com/coursier/coursier/issues/1994"
+      },
+      {
+        "number" : 1992,
+        "title" : "scala3-decompiler - why is it a special app",
+        "url" : "https://github.com/coursier/coursier/issues/1992"
+      },
+      {
+        "number" : 1989,
+        "title" : "cs setup --jvm 8,9,11,13 doesn't works ",
+        "url" : "https://github.com/coursier/coursier/issues/1989"
+      },
+      {
+        "number" : 1988,
+        "title" : "Install URL does not work with ARM64 hosts",
+        "url" : "https://github.com/coursier/coursier/issues/1988"
+      },
+      {
+        "number" : 1987,
+        "title" : "Feature Request: Google Cloud Artifact Registry",
+        "url" : "https://github.com/coursier/coursier/issues/1987"
+      },
+      {
+        "number" : 1983,
+        "title" : "cs setup: Usage of .zprofile/.bash_profile/.profile means that Linux users need to reboot to get an updated PATH",
+        "url" : "https://github.com/coursier/coursier/issues/1983"
+      },
+      {
+        "number" : 1982,
+        "title" : "Add timeout when downloading stuff",
+        "url" : "https://github.com/coursier/coursier/issues/1982"
+      },
+      {
+        "number" : 1977,
+        "title" : "SSLHandshakeException when running setup",
+        "url" : "https://github.com/coursier/coursier/issues/1977"
+      },
+      {
+        "number" : 1976,
+        "title" : "libraryDependencies += dependency from \"some url\" not working from sbt version 1.3.x onwards (tested with 1.4.5))",
+        "url" : "https://github.com/coursier/coursier/issues/1976"
+      },
+      {
+        "number" : 1973,
+        "title" : "Extend CLI with external commands",
+        "url" : "https://github.com/coursier/coursier/issues/1973"
+      },
+      {
+        "number" : 1970,
+        "title" : "Native Script Runner ",
+        "url" : "https://github.com/coursier/coursier/issues/1970"
+      },
+      {
+        "number" : 1969,
+        "title" : "Empty User-Agent header can trigger WAF blocking",
+        "url" : "https://github.com/coursier/coursier/issues/1969"
+      },
+      {
+        "number" : 1963,
+        "title" : "No logs on setup crash",
+        "url" : "https://github.com/coursier/coursier/issues/1963"
+      },
+      {
+        "number" : 1958,
+        "title" : "Can't use token based authentication for artifact resolution",
+        "url" : "https://github.com/coursier/coursier/issues/1958"
+      },
+      {
+        "number" : 1957,
+        "title" : "Unifying the sbt launcher with the original sbt launcher",
+        "url" : "https://github.com/coursier/coursier/issues/1957"
+      },
+      {
+        "number" : 1956,
+        "title" : "Error: class scala.meta.metals.Main not found",
+        "url" : "https://github.com/coursier/coursier/issues/1956"
+      },
+      {
+        "number" : 1954,
+        "title" : "Coursier doesn't seem to use maven metadata files to discover artifacts.",
+        "url" : "https://github.com/coursier/coursier/issues/1954"
+      },
+      {
+        "number" : 1953,
+        "title" : "Brew upgrade fails with 'exited with 255. Here's the output'",
+        "url" : "https://github.com/coursier/coursier/issues/1953"
+      },
+      {
+        "number" : 1951,
+        "title" : "Symlinking `~/.local/share/coursier/bin/cs` to `~/bin/cs` fails to run `cs`",
+        "url" : "https://github.com/coursier/coursier/issues/1951"
+      },
+      {
+        "number" : 1950,
+        "title" : "Depending on specific dependency scala version will bring in wrong transitive dependency",
+        "url" : "https://github.com/coursier/coursier/issues/1950"
+      },
+      {
+        "number" : 1949,
+        "title" : "need to install bash version of bloop rather than (or in addition to) bloop.bat in cygwin Windows",
+        "url" : "https://github.com/coursier/coursier/issues/1949"
+      },
+      {
+        "number" : 1932,
+        "title" : "CS finds a JVM in a folder that doesn't exit",
+        "url" : "https://github.com/coursier/coursier/issues/1932"
+      },
+      {
+        "number" : 1931,
+        "title" : "Reconciliation.SemVer cannot reconcile 2.2.0 and 2.0.0",
+        "url" : "https://github.com/coursier/coursier/issues/1931"
+      },
+      {
+        "number" : 1930,
+        "title" : "Add max tree depth for transitive dependencies  ",
+        "url" : "https://github.com/coursier/coursier/issues/1930"
+      },
+      {
+        "number" : 1925,
+        "title" : "Launching ammonite causes scala.reflect.internal.MissingRequirementError on Java != 8",
+        "url" : "https://github.com/coursier/coursier/issues/1925"
+      },
+      {
+        "number" : 1924,
+        "title" : "Incorrect updated message after `cs update`",
+        "url" : "https://github.com/coursier/coursier/issues/1924"
+      },
+      {
+        "number" : 1922,
+        "title" : "Fails to resolve package with version interval [0,)",
+        "url" : "https://github.com/coursier/coursier/issues/1922"
+      },
+      {
+        "number" : 1919,
+        "title" : "Wrong coursier cache path under WSL",
+        "url" : "https://github.com/coursier/coursier/issues/1919"
+      },
+      {
+        "number" : 1915,
+        "title" : "sbt resolves dependencies differently with/without coursier",
+        "url" : "https://github.com/coursier/coursier/issues/1915"
+      },
+      {
+        "number" : 1912,
+        "title" : "running cs update results in exception",
+        "url" : "https://github.com/coursier/coursier/issues/1912"
+      },
+      {
+        "number" : 1911,
+        "title" : "Deleting cache?",
+        "url" : "https://github.com/coursier/coursier/issues/1911"
+      },
+      {
+        "number" : 1908,
+        "title" : "Possibly misleading java.net.MalformedURLException for the URL protocol zip+https",
+        "url" : "https://github.com/coursier/coursier/issues/1908"
+      },
+      {
+        "number" : 1906,
+        "title" : "Way to delete added channels",
+        "url" : "https://github.com/coursier/coursier/issues/1906"
+      },
+      {
+        "number" : 1905,
+        "title" : "Confusing error message when trying to update a non-installed application",
+        "url" : "https://github.com/coursier/coursier/issues/1905"
+      },
+      {
+        "number" : 1898,
+        "title" : "Tries to load a dep w/o version and fails",
+        "url" : "https://github.com/coursier/coursier/issues/1898"
+      },
+      {
+        "number" : 1896,
+        "title" : "cs can't update itself on Windows",
+        "url" : "https://github.com/coursier/coursier/issues/1896"
+      },
+      {
+        "number" : 1884,
+        "title" : "jdk:1.6.65 is returned as available... but it isn't",
+        "url" : "https://github.com/coursier/coursier/issues/1884"
+      },
+      {
+        "number" : 1878,
+        "title" : "Feature request: a way to check what versions of each tool are installed",
+        "url" : "https://github.com/coursier/coursier/issues/1878"
+      },
+      {
+        "number" : 1874,
+        "title" : "[Question] - Retrieving sbt plugin versions from hosted Sonatype Nexus",
+        "url" : "https://github.com/coursier/coursier/issues/1874"
+      },
+      {
+        "number" : 1872,
+        "title" : "Not found shows incorrect path to ivy local",
+        "url" : "https://github.com/coursier/coursier/issues/1872"
+      },
+      {
+        "number" : 1867,
+        "title" : "Launching sbt Ignores .sbtopts and .jvmopts",
+        "url" : "https://github.com/coursier/coursier/issues/1867"
+      },
+      {
+        "number" : 1865,
+        "title" : "Support all features of coursier.params.ResolutionParams with lmcoursier (Rules specifically)",
+        "url" : "https://github.com/coursier/coursier/issues/1865"
+      },
+      {
+        "number" : 1863,
+        "title" : "Pipe Dream: Coursier \"Solve\"",
+        "url" : "https://github.com/coursier/coursier/issues/1863"
+      },
+      {
+        "number" : 1862,
+        "title" : "On Windows, some people don't have System32 in their PATH, so cs setup fails",
+        "url" : "https://github.com/coursier/coursier/issues/1862"
+      },
+      {
+        "number" : 1859,
+        "title" : "cs setup on mac fails to write in .bash_profile with AccessDeniedException",
+        "url" : "https://github.com/coursier/coursier/issues/1859"
+      },
+      {
+        "number" : 1858,
+        "title" : "The Avast antivirus on Windows recognizes cs.exe as a virus",
+        "url" : "https://github.com/coursier/coursier/issues/1858"
+      },
+      {
+        "number" : 1857,
+        "title" : "\"Error running powershell script\" when setting environment variable as part of cs setup",
+        "url" : "https://github.com/coursier/coursier/issues/1857"
+      },
+      {
+        "number" : 1856,
+        "title" : "cs bootstrap thing --standalone -o name_2_12:x.y.z produces a non-working artifact",
+        "url" : "https://github.com/coursier/coursier/issues/1856"
+      },
+      {
+        "number" : 1855,
+        "title" : "Windows native launcher fails to run with missing DLL msvcr100.dll",
+        "url" : "https://github.com/coursier/coursier/issues/1855"
+      },
+      {
+        "number" : 1846,
+        "title" : "Allow fetching transitive provided dependencies",
+        "url" : "https://github.com/coursier/coursier/issues/1846"
+      },
+      {
+        "number" : 1842,
+        "title" : "InvalidPathException exception during cs run on Windows 7",
+        "url" : "https://github.com/coursier/coursier/issues/1842"
+      },
+      {
+        "number" : 1841,
+        "title" : "Windows bitsadmin is a broken concept, let's discuss alternatives",
+        "url" : "https://github.com/coursier/coursier/issues/1841"
+      },
+      {
+        "number" : 1832,
+        "title" : "Coursier fails to resolve all maven dependencies",
+        "url" : "https://github.com/coursier/coursier/issues/1832"
+      },
+      {
+        "number" : 1830,
+        "title" : "COURSIER_BIN_DIR and COURSIER_INSTALL_DIR do not work for setup",
+        "url" : "https://github.com/coursier/coursier/issues/1830"
+      },
+      {
+        "number" : 1825,
+        "title" : "Coursier resolves incorrect dependency version from a parent POM",
+        "url" : "https://github.com/coursier/coursier/issues/1825"
+      },
+      {
+        "number" : 1818,
+        "title" : "Coursier fails to resolve the same dependency concurrently in several projects",
+        "url" : "https://github.com/coursier/coursier/issues/1818"
+      },
+      {
+        "number" : 1817,
+        "title" : "coursier launch causes \"assertion failed: Expected not to find classes from shapeless\" on exclusions",
+        "url" : "https://github.com/coursier/coursier/issues/1817"
+      },
+      {
+        "number" : 1816,
+        "title" : "Additional special version ordering literals",
+        "url" : "https://github.com/coursier/coursier/issues/1816"
+      },
+      {
+        "number" : 1815,
+        "title" : "Race condition while moving temporary .part files ",
+        "url" : "https://github.com/coursier/coursier/issues/1815"
+      },
+      {
+        "number" : 1809,
+        "title" : "Unexpected scala version not found error",
+        "url" : "https://github.com/coursier/coursier/issues/1809"
+      },
+      {
+        "number" : 1808,
+        "title" : "Misleading error about not finding a scala version suffix",
+        "url" : "https://github.com/coursier/coursier/issues/1808"
+      },
+      {
+        "number" : 1806,
+        "title" : "Last-modified time not set when 'Z' time zone is used",
+        "url" : "https://github.com/coursier/coursier/issues/1806"
+      },
+      {
+        "number" : 1805,
+        "title" : "Scala modules not accepted by --what-depends-on",
+        "url" : "https://github.com/coursier/coursier/issues/1805"
+      },
+      {
+        "number" : 1798,
+        "title" : "Make download information more compact",
+        "url" : "https://github.com/coursier/coursier/issues/1798"
+      },
+      {
+        "number" : 1795,
+        "title" : "http_proxy not working in native binary",
+        "url" : "https://github.com/coursier/coursier/issues/1795"
+      },
+      {
+        "number" : 1790,
+        "title" : "Update Report Using Coursier Does Not Provide License Information of Dependency Packages",
+        "url" : "https://github.com/coursier/coursier/issues/1790"
+      },
+      {
+        "number" : 1789,
+        "title" : "How to tell cs to download java 11 version instead of 8?",
+        "url" : "https://github.com/coursier/coursier/issues/1789"
+      },
+      {
+        "number" : 1787,
+        "title" : "Native CLI ignores $HOME",
+        "url" : "https://github.com/coursier/coursier/issues/1787"
+      },
+      {
+        "number" : 1786,
+        "title" : "Command to deal with channels",
+        "url" : "https://github.com/coursier/coursier/issues/1786"
+      },
+      {
+        "number" : 1785,
+        "title" : "Allow to list installed and install-able JVMs",
+        "url" : "https://github.com/coursier/coursier/issues/1785"
+      },
+      {
+        "number" : 1779,
+        "title" : "Resolution conflicts on the same version of artifact",
+        "url" : "https://github.com/coursier/coursier/issues/1779"
+      },
+      {
+        "number" : 1777,
+        "title" : "dependencyResolution via lmCoursier is aware of Scala version",
+        "url" : "https://github.com/coursier/coursier/issues/1777"
+      },
+      {
+        "number" : 1774,
+        "title" : "cs bootstrap / cs install launcher script not working with private `-r` repositories",
+        "url" : "https://github.com/coursier/coursier/issues/1774"
+      },
+      {
+        "number" : 1773,
+        "title" : "Mill installed by Courier cannot use the \"--interactive\" flag.",
+        "url" : "https://github.com/coursier/coursier/issues/1773"
+      },
+      {
+        "number" : 1761,
+        "title" : "ZipException during cs setup",
+        "url" : "https://github.com/coursier/coursier/issues/1761"
+      },
+      {
+        "number" : 1755,
+        "title" : "Allow bootstraps to read .jvmopts",
+        "url" : "https://github.com/coursier/coursier/issues/1755"
+      },
+      {
+        "number" : 1753,
+        "title" : "Nondeterministic \"twice in parallel\" error",
+        "url" : "https://github.com/coursier/coursier/issues/1753"
+      },
+      {
+        "number" : 1749,
+        "title" : "are there TTL for application descriptors which fetched from (custom) channels?",
+        "url" : "https://github.com/coursier/coursier/issues/1749"
+      },
+      {
+        "number" : 1746,
+        "title" : "coursier.ResolutionException: Encountered",
+        "url" : "https://github.com/coursier/coursier/issues/1746"
+      },
+      {
+        "number" : 1742,
+        "title" : "Can't start sbt at the root of the project with the standard sbt launcher",
+        "url" : "https://github.com/coursier/coursier/issues/1742"
+      },
+      {
+        "number" : 1741,
+        "title" : "\"--channel\" doesn't work with Windows paths",
+        "url" : "https://github.com/coursier/coursier/issues/1741"
+      },
+      {
+        "number" : 1739,
+        "title" : "Can coursier work with alpine in a docker?",
+        "url" : "https://github.com/coursier/coursier/issues/1739"
+      },
+      {
+        "number" : 1736,
+        "title" : "Remove --execve, use --fork instead",
+        "url" : "https://github.com/coursier/coursier/issues/1736"
+      },
+      {
+        "number" : 1735,
+        "title" : "Ensure application support is fine with Maven Central mirrors with no directory listing support",
+        "url" : "https://github.com/coursier/coursier/issues/1735"
+      },
+      {
+        "number" : 1733,
+        "title" : "Calling coursier cli with multiple `--reconciliation` params dont work as expected",
+        "url" : "https://github.com/coursier/coursier/issues/1733"
+      },
+      {
+        "number" : 1729,
+        "title" : "Make the bootstrap launcher aware of plexus-classworlds",
+        "url" : "https://github.com/coursier/coursier/issues/1729"
+      },
+      {
+        "number" : 1728,
+        "title" : "Add ls and cat commands",
+        "url" : "https://github.com/coursier/coursier/issues/1728"
+      },
+      {
+        "number" : 1727,
+        "title" : "Dependency has GPL License",
+        "url" : "https://github.com/coursier/coursier/issues/1727"
+      },
+      {
+        "number" : 1724,
+        "title" : "Create an API to launch apps",
+        "url" : "https://github.com/coursier/coursier/issues/1724"
+      },
+      {
+        "number" : 1720,
+        "title" : "Very slow `sbt update` on multi-module projects",
+        "url" : "https://github.com/coursier/coursier/issues/1720"
+      },
+      {
+        "number" : 1708,
+        "title" : "json_output_file issues when fetch latest.* artifact",
+        "url" : "https://github.com/coursier/coursier/issues/1708"
+      },
+      {
+        "number" : 1701,
+        "title" : "cs complete doesn't seem to honour the :: shorthand",
+        "url" : "https://github.com/coursier/coursier/issues/1701"
+      },
+      {
+        "number" : 1700,
+        "title" : "`cs complete` for snapsots not working like resolve or bootstrap",
+        "url" : "https://github.com/coursier/coursier/issues/1700"
+      },
+      {
+        "number" : 1699,
+        "title" : "sbt: UpdateOptions.latestSnapshots=false does not disable snapshot checking for built-in coursier in sbt-1.3+",
+        "url" : "https://github.com/coursier/coursier/issues/1699"
+      },
+      {
+        "number" : 1698,
+        "title" : "Relaxed VersionReconcilition rules are not applied in resolution when using a wildcard strict or semver rule.",
+        "url" : "https://github.com/coursier/coursier/issues/1698"
+      },
+      {
+        "number" : 1697,
+        "title" : "Semver versionReconciliation check appears to be wrong",
+        "url" : "https://github.com/coursier/coursier/issues/1697"
+      },
+      {
+        "number" : 1696,
+        "title" : "`sbt new` doesn't work",
+        "url" : "https://github.com/coursier/coursier/issues/1696"
+      },
+      {
+        "number" : 1692,
+        "title" : "Wrong checksum when downloading dependency",
+        "url" : "https://github.com/coursier/coursier/issues/1692"
+      },
+      {
+        "number" : 1684,
+        "title" : "/usr/libexec/java_home does not work with Java installed via coursier",
+        "url" : "https://github.com/coursier/coursier/issues/1684"
+      },
+      {
+        "number" : 1670,
+        "title" : "feature request: minimal `setup` command",
+        "url" : "https://github.com/coursier/coursier/issues/1670"
+      },
+      {
+        "number" : 1665,
+        "title" : "Wrong version of library reported",
+        "url" : "https://github.com/coursier/coursier/issues/1665"
+      },
+      {
+        "number" : 1659,
+        "title" : "Use gradle cache as the cache",
+        "url" : "https://github.com/coursier/coursier/issues/1659"
+      },
+      {
+        "number" : 1650,
+        "title" : "Improve message for trying to update something that doesn't exist",
+        "url" : "https://github.com/coursier/coursier/issues/1650"
+      },
+      {
+        "number" : 1649,
+        "title" : "Can't use Microsoft Azure DevOps Maven Repository as Resolver ",
+        "url" : "https://github.com/coursier/coursier/issues/1649"
+      },
+      {
+        "number" : 1648,
+        "title" : "Could there be a cs update summary?",
+        "url" : "https://github.com/coursier/coursier/issues/1648"
+      },
+      {
+        "number" : 1646,
+        "title" : "Support \"Transfer-Encoding: chunked\" downloads",
+        "url" : "https://github.com/coursier/coursier/issues/1646"
+      },
+      {
+        "number" : 1643,
+        "title" : "support SBT_CREDENTIALS environment variable",
+        "url" : "https://github.com/coursier/coursier/issues/1643"
+      },
+      {
+        "number" : 1642,
+        "title" : "Using -Dsbt.override.build.repos=true causes lm-coursier to not read credential files",
+        "url" : "https://github.com/coursier/coursier/issues/1642"
+      },
+      {
+        "number" : 1637,
+        "title" : "Using coursier with homebrew",
+        "url" : "https://github.com/coursier/coursier/issues/1637"
+      },
+      {
+        "number" : 1635,
+        "title" : "cs launch wipes the environment when --jvm is passed",
+        "url" : "https://github.com/coursier/coursier/issues/1635"
+      },
+      {
+        "number" : 1628,
+        "title" : "Fallback on JVM launcher if no prebuilt binaries are available",
+        "url" : "https://github.com/coursier/coursier/issues/1628"
+      },
+      {
+        "number" : 1623,
+        "title" : "Error detecting scala version when install scala-native app",
+        "url" : "https://github.com/coursier/coursier/issues/1623"
+      },
+      {
+        "number" : 1621,
+        "title" : "Authentication should use `.netrc` files",
+        "url" : "https://github.com/coursier/coursier/issues/1621"
+      },
+      {
+        "number" : 1620,
+        "title" : "Authentication should use `$HOME/.m2/settings.xml`",
+        "url" : "https://github.com/coursier/coursier/issues/1620"
+      },
+      {
+        "number" : 1617,
+        "title" : "create installers for scala-js cli",
+        "url" : "https://github.com/coursier/coursier/issues/1617"
+      },
+      {
+        "number" : 1606,
+        "title" : "ClassNotFoundException: com.oracle.svm.hosted.NativeImageSystemClassLoader when running cs bootstrap --native-image",
+        "url" : "https://github.com/coursier/coursier/issues/1606"
+      },
+      {
+        "number" : 1605,
+        "title" : "Default name of bootstrapped launchers is weird",
+        "url" : "https://github.com/coursier/coursier/issues/1605"
+      },
+      {
+        "number" : 1604,
+        "title" : "describe how to use bintray repos with the CLI, especially the install command",
+        "url" : "https://github.com/coursier/coursier/issues/1604"
+      },
+      {
+        "number" : 1603,
+        "title" : "Weird info.apiURL= in output of resolve command with sbt plugins",
+        "url" : "https://github.com/coursier/coursier/issues/1603"
+      },
+      {
+        "number" : 1598,
+        "title" : "Main class of coursier installed app does does not correspond with app name",
+        "url" : "https://github.com/coursier/coursier/issues/1598"
+      },
+      {
+        "number" : 1597,
+        "title" : "Support ivy.xml global override element",
+        "url" : "https://github.com/coursier/coursier/issues/1597"
+      },
+      {
+        "number" : 1595,
+        "title" : "Bug: (Self)Excluded dependency in ivy.xml is not excluded by coursier",
+        "url" : "https://github.com/coursier/coursier/issues/1595"
+      },
+      {
+        "number" : 1593,
+        "title" : "Windows native launcher requires Windows SDK 7",
+        "url" : "https://github.com/coursier/coursier/issues/1593"
+      },
+      {
+        "number" : 1592,
+        "title" : "'update' creates duplicate files",
+        "url" : "https://github.com/coursier/coursier/issues/1592"
+      },
+      {
+        "number" : 1591,
+        "title" : "CLI - show artifact/app version(s)",
+        "url" : "https://github.com/coursier/coursier/issues/1591"
+      },
+      {
+        "number" : 1589,
+        "title" : "Redownload artifacts in case of \"checksum failed\" error ?",
+        "url" : "https://github.com/coursier/coursier/issues/1589"
+      },
+      {
+        "number" : 1584,
+        "title" : "Incompatibility check in trees and latest.* versions",
+        "url" : "https://github.com/coursier/coursier/issues/1584"
+      },
+      {
+        "number" : 1543,
+        "title" : "getInputStream() is called twice of the same URLConnection for the same resource",
+        "url" : "https://github.com/coursier/coursier/issues/1543"
+      },
+      {
+        "number" : 1531,
+        "title" : "resolving wrong dependency?",
+        "url" : "https://github.com/coursier/coursier/issues/1531"
+      },
+      {
+        "number" : 1524,
+        "title" : "Remote snapshot versions ignored when a local one is found (sbt)",
+        "url" : "https://github.com/coursier/coursier/issues/1524"
+      },
+      {
+        "number" : 1519,
+        "title" : "-D (aka Java/system property) argument support in \"launch\" broken?",
+        "url" : "https://github.com/coursier/coursier/issues/1519"
+      },
+      {
+        "number" : 1514,
+        "title" : "Report more details when request fails",
+        "url" : "https://github.com/coursier/coursier/issues/1514"
+      },
+      {
+        "number" : 1513,
+        "title" : "coursier publish: Error uploading ... Unauthorized  ",
+        "url" : "https://github.com/coursier/coursier/issues/1513"
+      },
+      {
+        "number" : 1512,
+        "title" : "SBT with 1.3.7 coursier fails to resolve dependency from custom uri based resolver",
+        "url" : "https://github.com/coursier/coursier/issues/1512"
+      },
+      {
+        "number" : 1506,
+        "title" : "wrong checksum with spark-sql 2.4.4 (Scala 2.12)",
+        "url" : "https://github.com/coursier/coursier/issues/1506"
+      },
+      {
+        "number" : 1495,
+        "title" : "Completions flag does not work in native-image",
+        "url" : "https://github.com/coursier/coursier/issues/1495"
+      },
+      {
+        "number" : 1489,
+        "title" : "Documentation on the publish command",
+        "url" : "https://github.com/coursier/coursier/issues/1489"
+      },
+      {
+        "number" : 1488,
+        "title" : "Support resolving dependecies in private S3 buckets",
+        "url" : "https://github.com/coursier/coursier/issues/1488"
+      },
+      {
+        "number" : 1487,
+        "title" : "add ability to emit a lock file",
+        "url" : "https://github.com/coursier/coursier/issues/1487"
+      },
+      {
+        "number" : 1486,
+        "title" : "versionReconciliation not respected",
+        "url" : "https://github.com/coursier/coursier/issues/1486"
+      },
+      {
+        "number" : 1471,
+        "title" : "Add renames to fetch json output",
+        "url" : "https://github.com/coursier/coursier/issues/1471"
+      },
+      {
+        "number" : 1467,
+        "title" : "Setting versionReconciliation leads to different results in sbt-coursier and sbt-lm-coursier",
+        "url" : "https://github.com/coursier/coursier/issues/1467"
+      },
+      {
+        "number" : 1465,
+        "title" : "\":json\" suffix appended to io.quarkus:quarkus-bom-descriptor-json co-ordinate",
+        "url" : "https://github.com/coursier/coursier/issues/1465"
+      },
+      {
+        "number" : 1460,
+        "title" : "sbt-extras released/unreleased sbt version is not up to date with 1.3",
+        "url" : "https://github.com/coursier/coursier/issues/1460"
+      },
+      {
+        "number" : 1454,
+        "title" : "Couldn't load class $name ",
+        "url" : "https://github.com/coursier/coursier/issues/1454"
+      },
+      {
+        "number" : 1445,
+        "title" : "JSON report via fetch fails to report conflicting transitive dependencies",
+        "url" : "https://github.com/coursier/coursier/issues/1445"
+      },
+      {
+        "number" : 1443,
+        "title" : "Coursier Resolution Error",
+        "url" : "https://github.com/coursier/coursier/issues/1443"
+      },
+      {
+        "number" : 1436,
+        "title" : "Passing --credentials is broken in CLI",
+        "url" : "https://github.com/coursier/coursier/issues/1436"
+      },
+      {
+        "number" : 1435,
+        "title" : "Cannot download the cli",
+        "url" : "https://github.com/coursier/coursier/issues/1435"
+      },
+      {
+        "number" : 1424,
+        "title" : "Coursier on centos through yum",
+        "url" : "https://github.com/coursier/coursier/issues/1424"
+      },
+      {
+        "number" : 1399,
+        "title" : "Feature request: add support for downloading artifact from GCS",
+        "url" : "https://github.com/coursier/coursier/issues/1399"
+      },
+      {
+        "number" : 1390,
+        "title" : "Support BOMs/dependencyManagement",
+        "url" : "https://github.com/coursier/coursier/issues/1390"
+      },
+      {
+        "number" : 1369,
+        "title" : "CLI does not support authentication for usernames with @",
+        "url" : "https://github.com/coursier/coursier/issues/1369"
+      },
+      {
+        "number" : 1368,
+        "title" : "CLI ignores global credentials on unauthenticated redirect",
+        "url" : "https://github.com/coursier/coursier/issues/1368"
+      },
+      {
+        "number" : 1366,
+        "title" : "Exception trying to run coursier on Windows 10",
+        "url" : "https://github.com/coursier/coursier/issues/1366"
+      },
+      {
+        "number" : 1364,
+        "title" : "Strict rule parser doesn't accept '_' in modules",
+        "url" : "https://github.com/coursier/coursier/issues/1364"
+      },
+      {
+        "number" : 1357,
+        "title" : "Unexpected undetected 0-bound interval",
+        "url" : "https://github.com/coursier/coursier/issues/1357"
+      },
+      {
+        "number" : 1355,
+        "title" : "Error resolving version string: [2.0.0,3.0.0[ ",
+        "url" : "https://github.com/coursier/coursier/issues/1355"
+      },
+      {
+        "number" : 1351,
+        "title" : "Error resolving dependencies from custom Ivy resolver",
+        "url" : "https://github.com/coursier/coursier/issues/1351"
+      },
+      {
+        "number" : 1344,
+        "title" : "scripts/_coursier doesn't exist",
+        "url" : "https://github.com/coursier/coursier/issues/1344"
+      },
+      {
+        "number" : 1312,
+        "title" : "Should we use Relaxed by default?",
+        "url" : "https://github.com/coursier/coursier/issues/1312"
+      },
+      {
+        "number" : 1300,
+        "title" : "Let's stop resolving dependencies over HTTP and require HTTPS",
+        "url" : "https://github.com/coursier/coursier/issues/1300"
+      },
+      {
+        "number" : 1277,
+        "title" : "Allow to install shim scripts with coursier install?",
+        "url" : "https://github.com/coursier/coursier/issues/1277"
+      },
+      {
+        "number" : 1268,
+        "title" : "Error while downloading coursier-cli",
+        "url" : "https://github.com/coursier/coursier/issues/1268"
+      },
+      {
+        "number" : 1255,
+        "title" : "Getting from ivy local repo doesn't add Scala version to artifact",
+        "url" : "https://github.com/coursier/coursier/issues/1255"
+      },
+      {
+        "number" : 1249,
+        "title" : "Document latest.stable vs latest.release vs latest.integration",
+        "url" : "https://github.com/coursier/coursier/issues/1249"
+      },
+      {
+        "number" : 1231,
+        "title" : "Don't generate circular dependencies in the JSON report",
+        "url" : "https://github.com/coursier/coursier/issues/1231"
+      },
+      {
+        "number" : 1223,
+        "title" : "resolve json report ",
+        "url" : "https://github.com/coursier/coursier/issues/1223"
+      },
+      {
+        "number" : 1203,
+        "title" : "Allow custom http headers for maven repositories",
+        "url" : "https://github.com/coursier/coursier/issues/1203"
+      },
+      {
+        "number" : 1177,
+        "title" : "lmcoursier implementation in sbt 1.3.0-RC1 does not allow to take sbt settings for proxy authentication",
+        "url" : "https://github.com/coursier/coursier/issues/1177"
+      },
+      {
+        "number" : 1160,
+        "title" : "The fetch command should look for repository definitions in the Maven settings file",
+        "url" : "https://github.com/coursier/coursier/issues/1160"
+      },
+      {
+        "number" : 1156,
+        "title" : "Add coursier cache CLI command",
+        "url" : "https://github.com/coursier/coursier/issues/1156"
+      },
+      {
+        "number" : 1155,
+        "title" : "Add option to print URL list in resolve CLI command",
+        "url" : "https://github.com/coursier/coursier/issues/1155"
+      },
+      {
+        "number" : 1149,
+        "title" : "Transitive snapshot dependency resolution flaky with coursier-sbt",
+        "url" : "https://github.com/coursier/coursier/issues/1149"
+      },
+      {
+        "number" : 1135,
+        "title" : "Allow repository fallback after receiving a 503 response",
+        "url" : "https://github.com/coursier/coursier/issues/1135"
+      },
+      {
+        "number" : 1131,
+        "title" : "Support checksum verification from the CLI",
+        "url" : "https://github.com/coursier/coursier/issues/1131"
+      },
+      {
+        "number" : 1125,
+        "title" : "Circular dependency detection",
+        "url" : "https://github.com/coursier/coursier/issues/1125"
+      },
+      {
+        "number" : 1122,
+        "title" : "Root-level exclusions don't apply if the artifact is also referenced transitively",
+        "url" : "https://github.com/coursier/coursier/issues/1122"
+      },
+      {
+        "number" : 1101,
+        "title" : "Coursier fails to authorize to Artifactory when using api key",
+        "url" : "https://github.com/coursier/coursier/issues/1101"
+      },
+      {
+        "number" : 1085,
+        "title" : "Slows down incremental compilation?",
+        "url" : "https://github.com/coursier/coursier/issues/1085"
+      },
+      {
+        "number" : 1053,
+        "title" : "Coursier resolves wrong version of sbt plugin (for Play in this case)",
+        "url" : "https://github.com/coursier/coursier/issues/1053"
+      },
+      {
+        "number" : 1028,
+        "title" : "coursier cache grows indefinitely with consequent runs of sbt",
+        "url" : "https://github.com/coursier/coursier/issues/1028"
+      },
+      {
+        "number" : 973,
+        "title" : "Wrong scala-compiler version for spark dependencies",
+        "url" : "https://github.com/coursier/coursier/issues/973"
+      },
+      {
+        "number" : 955,
+        "title" : "Stale file handle when running parallel build stages",
+        "url" : "https://github.com/coursier/coursier/issues/955"
+      },
+      {
+        "number" : 924,
+        "title" : "coursier's directory naming convention may break some libraries in a very fancy manner",
+        "url" : "https://github.com/coursier/coursier/issues/924"
+      },
+      {
+        "number" : 897,
+        "title" : "Address remaining discrepancies with the Maven model, if possible / not too heavyweight",
+        "url" : "https://github.com/coursier/coursier/issues/897"
+      },
+      {
+        "number" : 879,
+        "title" : "Respect JAVA_HOME in bootstrapped scripts",
+        "url" : "https://github.com/coursier/coursier/issues/879"
+      },
+      {
+        "number" : 878,
+        "title" : "spark-submit : exclude hadoop dependencies by default",
+        "url" : "https://github.com/coursier/coursier/issues/878"
+      },
+      {
+        "number" : 853,
+        "title" : "Exclusions defined in dependencyManagement don't apply transitively",
+        "url" : "https://github.com/coursier/coursier/issues/853"
+      },
+      {
+        "number" : 842,
+        "title" : "Add gradle plugin?",
+        "url" : "https://github.com/coursier/coursier/issues/842"
+      },
+      {
+        "number" : 838,
+        "title" : "Should fetch error out when jar is missing?",
+        "url" : "https://github.com/coursier/coursier/issues/838"
+      },
+      {
+        "number" : 835,
+        "title" : "whatDependsOn could look at provided dependencies too",
+        "url" : "https://github.com/coursier/coursier/issues/835"
+      },
+      {
+        "number" : 815,
+        "title" : "Add documentation for json report 1.1.0",
+        "url" : "https://github.com/coursier/coursier/issues/815"
+      },
+      {
+        "number" : 813,
+        "title" : "Maven plugin?",
+        "url" : "https://github.com/coursier/coursier/issues/813"
+      },
+      {
+        "number" : 754,
+        "title" : "The presence of ivy.xml should be optional",
+        "url" : "https://github.com/coursier/coursier/issues/754"
+      },
+      {
+        "number" : 689,
+        "title" : "sbt-coursier 1.0.0-RC13 resolves \"it,test\" to \"compile\" scope",
+        "url" : "https://github.com/coursier/coursier/issues/689"
+      },
+      {
+        "number" : 688,
+        "title" : "Take into account offline setting",
+        "url" : "https://github.com/coursier/coursier/issues/688"
+      },
+      {
+        "number" : 673,
+        "title" : ".coursier\\cache\\v1\\.structure.lock (Access is denied)",
+        "url" : "https://github.com/coursier/coursier/issues/673"
+      },
+      {
+        "number" : 569,
+        "title" : "Support the full syntax for dependency version ranges",
+        "url" : "https://github.com/coursier/coursier/issues/569"
+      },
+      {
+        "number" : 458,
+        "title" : "Give scala-native a try",
+        "url" : "https://github.com/coursier/coursier/issues/458"
+      },
+      {
+        "number" : 453,
+        "title" : "Move property files of shaded JARs",
+        "url" : "https://github.com/coursier/coursier/issues/453"
+      },
+      {
+        "number" : 418,
+        "title" : "Coursier eviction is \"backwards\"",
+        "url" : "https://github.com/coursier/coursier/issues/418"
+      },
+      {
+        "number" : 386,
+        "title" : "Output resolver name when auth fails",
+        "url" : "https://github.com/coursier/coursier/issues/386"
+      },
+      {
+        "number" : 372,
+        "title" : "Ivy Local and Cache Dependency Artifacts",
+        "url" : "https://github.com/coursier/coursier/issues/372"
+      },
+      {
+        "number" : 295,
+        "title" : "Have coursierDependencyTree work even if the resolution failed",
+        "url" : "https://github.com/coursier/coursier/issues/295"
+      },
+      {
+        "number" : 287,
+        "title" : "Compare non-coursier resolved dependencies",
+        "url" : "https://github.com/coursier/coursier/issues/287"
+      },
+      {
+        "number" : 277,
+        "title" : "Write document about internals / design of coursier",
+        "url" : "https://github.com/coursier/coursier/issues/277"
+      },
+      {
+        "number" : 200,
+        "title" : "coursier should try all resolvers for missing classifiers",
+        "url" : "https://github.com/coursier/coursier/issues/200"
+      },
+      {
+        "number" : 91,
+        "title" : "list/search artifact",
+        "url" : "https://github.com/coursier/coursier/issues/91"
+      },
+      {
+        "number" : 67,
+        "title" : "add support for %%%",
+        "url" : "https://github.com/coursier/coursier/issues/67"
+      },
+      {
+        "number" : 60,
+        "title" : "Download and check PGP signatures",
+        "url" : "https://github.com/coursier/coursier/issues/60"
+      },
+      {
+        "number" : 34,
+        "title" : "Show intermediate results in web app, allow interrupting resolution",
+        "url" : "https://github.com/coursier/coursier/issues/34"
+      },
+      {
+        "number" : 28,
+        "title" : "Parent POM / dependency imports in web app",
+        "url" : "https://github.com/coursier/coursier/issues/28"
+      },
+      {
+        "number" : 20,
+        "title" : "Cache wide operations",
+        "url" : "https://github.com/coursier/coursier/issues/20"
+      },
+      {
+        "number" : 15,
+        "title" : "Direct links to javadoc",
+        "url" : "https://github.com/coursier/coursier/issues/15"
+      },
+      {
+        "number" : 14,
+        "title" : "Web app: descriptions of dependencies, web site links, licenses, ...",
+        "url" : "https://github.com/coursier/coursier/issues/14"
+      },
+      {
+        "number" : 11,
+        "title" : "Better graph rendering?",
+        "url" : "https://github.com/coursier/coursier/issues/11"
+      },
+      {
+        "number" : 10,
+        "title" : "Exclusions and forced versions from the web app",
+        "url" : "https://github.com/coursier/coursier/issues/10"
+      },
+      {
+        "number" : 1,
+        "title" : "nix",
+        "url" : "https://github.com/coursier/coursier/issues/1"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : false,
+    "defaultArtifact" : "sbt-launcher",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "library-dependency-management",
+    "beginnerIssuesLabel" : null
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "organization" : "dbdahl",
+  "repository" : "rscala",
+  "creationDate" : null,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643175707118
+    }
+  },
+  "githubInfo" : {
+    "homepage" : null,
+    "description" : "The Scala interpreter is embedded in R and callbacks to R from the embedded interpreter are supported. Conversely, the R interpreter is embedded in Scala.",
+    "logo" : "https://avatars.githubusercontent.com/u/2080105?v=4",
+    "stars" : 95,
+    "forks" : 17,
+    "watchers" : 15,
+    "issues" : 1,
+    "creationDate" : 1493216827000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-rscala-bridge-between-r-and-scala-with-callbacks\" class=\"anchor\" aria-hidden=\"true\" href=\"#rscala-bridge-between-r-and-scala-with-callbacks\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>rscala: Bridge Between 'R' and 'Scala' with Callbacks</h1>\n<h4 dir=\"auto\"><a id=\"user-content-by-david-b-dahl-brigham-young-university\" class=\"anchor\" aria-hidden=\"true\" href=\"#by-david-b-dahl-brigham-young-university\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>By David B. Dahl (Brigham Young University)</h4>\n<p dir=\"auto\">The rscala package provides a bridge between R and Scala, enabling a user to\nexploit each language's respective strengths in a single project. The rscala\npackage brings Scala and Java libraries into R with a simple interface.\nSpecifically, Scala classes can be instantiated and methods of Scala classes\ncan be called directly. Furthermore, arbitrary Scala code can be executed on\nthe fly from within R and callbacks to R are supported. Conversely, rscala also\nenables arbitrary R code to be embedded within a Scala application.</p>\n<h2 dir=\"auto\"><a id=\"user-content-installation\" class=\"anchor\" aria-hidden=\"true\" href=\"#installation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Installation</h2>\n<p dir=\"auto\">In R, install the package by executing:</p>\n<div class=\"highlight highlight-source-r position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"install.packages(&quot;rscala&quot;) \"><pre>install.packages(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>rscala<span class=\"pl-pds\">\"</span></span>) </pre></div>\n<p dir=\"auto\">To install --- or check the compatability of your existing installation of ---\nScala and Java, please execute:</p>\n<div class=\"highlight highlight-source-r position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"rscala::scalaConfig()\"><pre><span class=\"pl-e\">rscala</span><span class=\"pl-k\">::</span>scalaConfig()</pre></div>\n<p dir=\"auto\">Note that if only want to embed R in a Scala application, you don't need to\ninstall the package. Simply add the following line to the your SBT build.sbt\nfile:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;org.ddahl&quot; %% &quot;rscala&quot; % &quot;3.2.19&quot;\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.ddahl<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>rscala<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>3.2.19<span class=\"pl-pds\">\"</span></span></pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-usage-guides\" class=\"anchor\" aria-hidden=\"true\" href=\"#usage-guides\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Usage guides</h2>\n<p dir=\"auto\">The original paper describing the software is:</p>\n<p dir=\"auto\">D. B. Dahl (2020), Integration of R and Scala using rscala, <a href=\"https://www.jstatsoft.org\" rel=\"nofollow\"><strong>Journal of Statistical Software</strong></a>, 92:4, 1-18, <em>doi:10.18637/jss.v092.i04</em>.</p>\n<p dir=\"auto\">The citation information is available using:</p>\n<div class=\"highlight highlight-source-r position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"citation(&quot;rscala&quot;)\"><pre>citation(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>rscala<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<p dir=\"auto\">An <a href=\"https://cran.r-project.org/web/packages/rscala/vignettes/rscala.pdf\" rel=\"nofollow\">updated version of the paper</a>\nis available <a href=\"https://cran.r-project.org/web/packages/rscala/vignettes/rscala.pdf\" rel=\"nofollow\">here</a>\nor as a vignette in R (once the package is installed):</p>\n<div class=\"highlight highlight-source-r position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"vignette(&quot;rscala&quot;)\"><pre>vignette(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>rscala<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<p dir=\"auto\">The functionality of the software is also described and demonstrated in the\nhelp files:</p>\n<div class=\"highlight highlight-source-r position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"library(help=&quot;rscala&quot;)\nlibrary(rscala)\nexample(scala)\n\"><pre>library(<span class=\"pl-v\">help</span><span class=\"pl-k\">=</span><span class=\"pl-s\"><span class=\"pl-pds\">\"</span>rscala<span class=\"pl-pds\">\"</span></span>)\nlibrary(<span class=\"pl-smi\">rscala</span>)\nexample(<span class=\"pl-smi\">scala</span>)\n</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-example-packages-built-with-rscala\" class=\"anchor\" aria-hidden=\"true\" href=\"#example-packages-built-with-rscala\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Example packages built with rscala</h2>\n<p dir=\"auto\">R extensions can be written using this package, as demonstrated by these\npackages:</p>\n<ul dir=\"auto\">\n<li><a href=\"https://CRAN.R-project.org/package=aibd\" rel=\"nofollow\">aibd</a></li>\n<li><a href=\"https://CRAN.R-project.org/package=shallot\" rel=\"nofollow\">shallot</a></li>\n<li><a href=\"https://CRAN.R-project.org/package=bamboo\" rel=\"nofollow\">bamboo</a></li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-resources\" class=\"anchor\" aria-hidden=\"true\" href=\"#resources\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Resources</h2>\n<ul dir=\"auto\">\n<li><a href=\"https://cran.r-project.org/web/packages/rscala/vignettes/rscala.pdf\" rel=\"nofollow\">Vignette</a> describing the package usage.</li>\n<li><a href=\"https://github.com/dbdahl/rscala\">Git repository</a> containing source code and build &amp; test scripts.</li>\n<li><a href=\"https://dahl.byu.edu/rscala/org/ddahl/rscala/RClient.html\" rel=\"nofollow\">Scaladoc</a> for RClient class to access R from Scala.</li>\n<li><a href=\"https://CRAN.R-project.org/package=rscala\" rel=\"nofollow\">Package on CRAN</a>.</li>\n</ul>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "dbdahl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2080105?v=4",
+        "url" : "https://api.github.com/users/dbdahl",
+        "contributions" : 1211
+      },
+      {
+        "login" : "carterj4",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/28118704?v=4",
+        "url" : "https://api.github.com/users/carterj4",
+        "contributions" : 13
+      },
+      {
+        "login" : "floidgilbert",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/20666082?v=4",
+        "url" : "https://api.github.com/users/floidgilbert",
+        "contributions" : 12
+      },
+      {
+        "login" : "raggaraluz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8734346?v=4",
+        "url" : "https://api.github.com/users/raggaraluz",
+        "contributions" : 2
+      }
+    ],
+    "commits" : 1238,
+    "topics" : [
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 27,
+        "title" : "Release for Scala 3?",
+        "url" : "https://github.com/dbdahl/rscala/issues/27"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : null,
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : null,
+    "beginnerIssuesLabel" : null
+  }
+}

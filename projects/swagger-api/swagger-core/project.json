@@ -1,0 +1,4351 @@
+{
+  "organization" : "swagger-api",
+  "repository" : "swagger-core",
+  "creationDate" : 1405228356110,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643190171916
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "http://swagger.io",
+    "description" : "Examples and server integrations for generating the Swagger API Specification, which enables easy access to your REST API",
+    "logo" : "https://avatars.githubusercontent.com/u/7658037?v=4",
+    "stars" : 6927,
+    "forks" : 2074,
+    "watchers" : 322,
+    "issues" : 662,
+    "creationDate" : 1309909451000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-swagger-core-\" class=\"anchor\" aria-hidden=\"true\" href=\"#swagger-core-\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Swagger Core <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://raw.githubusercontent.com/swagger-api/swagger.io/wordpress/images/assets/SW-logo-clr.png\"><img src=\"https://raw.githubusercontent.com/swagger-api/swagger.io/wordpress/images/assets/SW-logo-clr.png\" height=\"50\" align=\"right\" style=\"max-width: 100%;\"></a></h1>\n<p dir=\"auto\"><strong>NOTE:</strong> If you're looking for Swagger Core 1.5.X and OpenAPI 2.0, please refer to <a href=\"https://github.com/swagger-api/swagger-core/tree/1.5\">1.5 branch</a>.</p>\n<p dir=\"auto\"><strong>NOTE:</strong> Since version 2.1.7, Swagger Core also supports the Jakarta namespace. There are a parallel set of artifacts with the <code>-jakarta</code> suffix, providing the same functionality as the unsuffixed (i.e.: <code>javax</code>) artifacts.\nPlease see the <a href=\"https://github.com/swagger-api/swagger-core/wiki/Swagger-2.X---Getting-started\">Wiki</a> for more details.</p>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/swagger-api/swagger-core/workflows/Build%20Test%20Deploy%20master/badge.svg?branch=master\"><img src=\"https://github.com/swagger-api/swagger-core/workflows/Build%20Test%20Deploy%20master/badge.svg?branch=master\" alt=\"Build Test Deploy\" style=\"max-width: 100%;\"></a>\n<a href=\"https://maven-badges.herokuapp.com/maven-central/io.swagger.core.v3/swagger-project\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/f0a8b7fd5f6828c3b9d694256c0732d84c1a5d986666f30690a7c74a895caf88/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f696f2e737761676765722e636f72652e76332f737761676765722d70726f6a6563742f62616467652e7376673f7374796c653d706c6173746963\" alt=\"Maven Central\" data-canonical-src=\"https://maven-badges.herokuapp.com/maven-central/io.swagger.core.v3/swagger-project/badge.svg?style=plastic\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Swagger Core is a Java implementation of the OpenAPI Specification. Current version supports <em>JAX-RS2</em> (<code>javax</code> and <code>jakarta</code> namespaces).</p>\n<h2 dir=\"auto\"><a id=\"user-content-get-started-with-swagger-core\" class=\"anchor\" aria-hidden=\"true\" href=\"#get-started-with-swagger-core\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Get started with Swagger Core!</h2>\n<p dir=\"auto\">See the guide on <a href=\"https://github.com/swagger-api/swagger-core/wiki/Swagger-2.X---Getting-started\">getting started with Swagger Core</a> to get started with adding Swagger to your API.</p>\n<h2 dir=\"auto\"><a id=\"user-content-see-the-wiki\" class=\"anchor\" aria-hidden=\"true\" href=\"#see-the-wiki\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>See the Wiki!</h2>\n<p dir=\"auto\">The <a href=\"https://github.com/swagger-api/swagger-core/wiki\">github wiki</a> contains documentation, samples, contributions, etc. Start there.</p>\n<h2 dir=\"auto\"><a id=\"user-content-compatibility\" class=\"anchor\" aria-hidden=\"true\" href=\"#compatibility\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Compatibility</h2>\n<p dir=\"auto\">The OpenAPI Specification has undergone several revisions since initial creation in 2010.  The Swagger Core project has the following compatibilities with the OpenAPI Specification:</p>\n<table>\n<thead>\n<tr>\n<th>Swagger core Version</th>\n<th>Release Date</th>\n<th>OpenAPI Spec compatibility</th>\n<th>Notes</th>\n<th>Status</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>2.1.12 (<strong>current stable</strong>)</td>\n<td>2021-12-23</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.1.12\">tag v2.1.12</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.1.11</td>\n<td>2021-09-29</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.1.11\">tag v2.1.11</a></td>\n<td>Supported**</td>\n</tr>\n<tr>\n<td>2.1.10</td>\n<td>2021-06-28</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.1.10\">tag v2.1.10</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.1.9</td>\n<td>2021-04-20</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.1.9\">tag v2.1.9</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.1.8</td>\n<td>2021-04-18</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.1.8\">tag v2.1.8</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.1.7</td>\n<td>2021-02-18</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.1.7\">tag v2.1.7</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.1.6</td>\n<td>2020-12-04</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.1.6\">tag v2.1.6</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.1.5</td>\n<td>2020-10-01</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.1.5\">tag v2.1.5</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.1.4</td>\n<td>2020-07-24</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.1.4\">tag v2.1.4</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.1.3</td>\n<td>2020-06-27</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.1.3\">tag v2.1.3</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.1.2</td>\n<td>2020-04-01</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.1.2\">tag v2.1.2</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.1.1</td>\n<td>2020-01-02</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.1.1\">tag v2.1.1</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.1.0</td>\n<td>2019-11-16</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.1.0\">tag v2.1.0</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.0.10</td>\n<td>2019-10-11</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.0.10\">tag v2.0.10</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.0.9</td>\n<td>2019-08-22</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.0.9\">tag v2.0.9</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.0.8</td>\n<td>2019-04-24</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.0.8\">tag v2.0.8</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.0.7</td>\n<td>2019-02-18</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.0.7\">tag v2.0.7</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.0.6</td>\n<td>2018-11-27</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.0.6\">tag v2.0.6</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.0.5</td>\n<td>2018-09-19</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.0.5\">tag v2.0.5</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.0.4</td>\n<td>2018-09-05</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.0.4\">tag v2.0.4</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.0.3</td>\n<td>2018-08-09</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.0.3\">tag v2.0.3</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>1.6.4 (<strong>current stable</strong>)</td>\n<td>2021-12-23</td>\n<td>2.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v1.6.4\">tag v1.6.4</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>1.6.3</td>\n<td>2021-09-29</td>\n<td>2.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v1.6.3\">tag v1.6.3</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>1.6.2</td>\n<td>2020-07-01</td>\n<td>2.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v1.6.2\">tag v1.6.2</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>1.6.1</td>\n<td>2020-04-01</td>\n<td>2.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v1.6.1\">tag v1.6.1</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>1.6.0</td>\n<td>2019-11-16</td>\n<td>2.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v1.6.0\">tag v1.6.0</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>1.5.24</td>\n<td>2019-10-11</td>\n<td>2.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v1.5.24\">tag v1.5.24</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>1.5.23</td>\n<td>2019-08-22</td>\n<td>2.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v1.5.23\">tag v1.5.23</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>1.5.22</td>\n<td>2019-02-18</td>\n<td>2.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v1.5.22\">tag v1.5.22</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>1.5.21</td>\n<td>2018-08-09</td>\n<td>2.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v1.5.21\">tag v1.5.21</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>1.5.20</td>\n<td>2018-05-23</td>\n<td>2.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v1.5.20\">tag v1.5.20</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.0.2</td>\n<td>2018-05-23</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.0.2\">tag v2.0.2</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.0.1</td>\n<td>2018-04-16</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.0.1\">tag v2.0.1</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>1.5.19</td>\n<td>2018-04-16</td>\n<td>2.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v1.5.19\">tag v1.5.19</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.0.0</td>\n<td>2018-03-20</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.0.0\">tag v2.0.0</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.0.0-rc4</td>\n<td>2018-01-22</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.0.0-rc4\">tag v2.0.0-rc4</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.0.0-rc3</td>\n<td>2017-11-21</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.0.0-rc3\">tag v2.0.0-rc3</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.0.0-rc2</td>\n<td>2017-09-29</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.0.0-rc2\">tag v2.0.0-rc2</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>2.0.0-rc1</td>\n<td>2017-08-17</td>\n<td>3.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v2.0.0-rc1\">tag v2.0.0-rc1</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>1.5.18</td>\n<td>2018-01-22</td>\n<td>2.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v1.5.18\">tag v1.5.18</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>1.5.17</td>\n<td>2017-11-21</td>\n<td>2.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v1.5.17\">tag v1.5.17</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>1.5.16</td>\n<td>2017-07-15</td>\n<td>2.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v1.5.16\">tag v1.5.16</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>1.3.12</td>\n<td>2014-12-23</td>\n<td>1.2</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v1.3.12\">tag v1.3.12</a></td>\n<td>Supported</td>\n</tr>\n<tr>\n<td>1.2.4</td>\n<td>2013-06-19</td>\n<td>1.1</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/swagger-project_2.10.0-1.2.4\">tag swagger-project_2.10.0-1.2.4</a></td>\n<td>Deprecated</td>\n</tr>\n<tr>\n<td>1.0.0</td>\n<td>2011-10-16</td>\n<td>1.0</td>\n<td><a href=\"https://github.com/swagger-api/swagger-core/tree/v1.0\">tag v1.0</a></td>\n<td>Deprecated</td>\n</tr>\n</tbody>\n</table>\n<h3 dir=\"auto\"><a id=\"user-content-change-history\" class=\"anchor\" aria-hidden=\"true\" href=\"#change-history\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Change History</h3>\n<p dir=\"auto\">If you're interested in the change history of swagger and the Swagger Core framework, see <a href=\"https://github.com/swagger-api/swagger-core/releases\">here</a>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-prerequisites\" class=\"anchor\" aria-hidden=\"true\" href=\"#prerequisites\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Prerequisites</h3>\n<p dir=\"auto\">You need the following installed and available in your $PATH:</p>\n<ul dir=\"auto\">\n<li>Java 8</li>\n<li>Apache maven 3.0.4 or greater</li>\n<li>Jackson 2.4.5 or greater</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-to-build-from-source-currently-2113-snapshot\" class=\"anchor\" aria-hidden=\"true\" href=\"#to-build-from-source-currently-2113-snapshot\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>To build from source (currently 2.1.13-SNAPSHOT)</h3>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"# first time building locally\nmvn -N\"><pre><code># first time building locally\nmvn -N\n</code></pre></div>\n<p dir=\"auto\">Subsequent builds:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"mvn install\"><pre><code>mvn install\n</code></pre></div>\n<p dir=\"auto\">This will build the modules.</p>\n<p dir=\"auto\">Of course if you don't want to build locally you can grab artifacts from maven central:</p>\n<p dir=\"auto\"><code>https://repo1.maven.org/maven2/io/swagger/core/</code></p>\n<h2 dir=\"auto\"><a id=\"user-content-sample-apps\" class=\"anchor\" aria-hidden=\"true\" href=\"#sample-apps\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Sample Apps</h2>\n<p dir=\"auto\">The samples have moved to <a href=\"https://github.com/swagger-api/swagger-samples/tree/2.0\">a new repository</a> and contain various integrations and configurations.</p>\n<h2 dir=\"auto\"><a id=\"user-content-security-contact\" class=\"anchor\" aria-hidden=\"true\" href=\"#security-contact\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Security contact</h2>\n<p dir=\"auto\">Please disclose any security-related issues or vulnerabilities by emailing <a href=\"mailto:security@swagger.io\">security@swagger.io</a>, instead of using the public issue tracker.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "fehguy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/249413?v=4",
+        "url" : "https://api.github.com/users/fehguy",
+        "contributions" : 1775
+      },
+      {
+        "login" : "frantuma",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15786658?v=4",
+        "url" : "https://api.github.com/users/frantuma",
+        "contributions" : 920
+      },
+      {
+        "login" : "webron",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/241629?v=4",
+        "url" : "https://api.github.com/users/webron",
+        "contributions" : 172
+      },
+      {
+        "login" : "lugaru1234",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11853296?v=4",
+        "url" : "https://api.github.com/users/lugaru1234",
+        "contributions" : 65
+      },
+      {
+        "login" : "Helmsdown",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1689115?v=4",
+        "url" : "https://api.github.com/users/Helmsdown",
+        "contributions" : 45
+      },
+      {
+        "login" : "rpidikiti",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/684178?v=4",
+        "url" : "https://api.github.com/users/rpidikiti",
+        "contributions" : 39
+      },
+      {
+        "login" : "tomtit",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11815484?v=4",
+        "url" : "https://api.github.com/users/tomtit",
+        "contributions" : 28
+      },
+      {
+        "login" : "ayush",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/188701?v=4",
+        "url" : "https://api.github.com/users/ayush",
+        "contributions" : 24
+      },
+      {
+        "login" : "iushankin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6032293?v=4",
+        "url" : "https://api.github.com/users/iushankin",
+        "contributions" : 17
+      },
+      {
+        "login" : "msmerc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/26070180?v=4",
+        "url" : "https://api.github.com/users/msmerc",
+        "contributions" : 10
+      },
+      {
+        "login" : "nicolashenry",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/139160?v=4",
+        "url" : "https://api.github.com/users/nicolashenry",
+        "contributions" : 10
+      },
+      {
+        "login" : "actions-user",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/65916846?v=4",
+        "url" : "https://api.github.com/users/actions-user",
+        "contributions" : 9
+      },
+      {
+        "login" : "github-actions[bot]",
+        "avatarUrl" : "https://avatars.githubusercontent.com/in/15368?v=4",
+        "url" : "https://api.github.com/users/github-actions%5Bbot%5D",
+        "contributions" : 9
+      },
+      {
+        "login" : "giljulio",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2804050?v=4",
+        "url" : "https://api.github.com/users/giljulio",
+        "contributions" : 9
+      },
+      {
+        "login" : "navidsh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2364853?v=4",
+        "url" : "https://api.github.com/users/navidsh",
+        "contributions" : 9
+      },
+      {
+        "login" : "joschi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43951?v=4",
+        "url" : "https://api.github.com/users/joschi",
+        "contributions" : 8
+      },
+      {
+        "login" : "ralphdoe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6507495?v=4",
+        "url" : "https://api.github.com/users/ralphdoe",
+        "contributions" : 8
+      },
+      {
+        "login" : "elakito",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1558648?v=4",
+        "url" : "https://api.github.com/users/elakito",
+        "contributions" : 7
+      },
+      {
+        "login" : "gaalandr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11462578?v=4",
+        "url" : "https://api.github.com/users/gaalandr",
+        "contributions" : 7
+      },
+      {
+        "login" : "JamieMagee",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1358764?v=4",
+        "url" : "https://api.github.com/users/JamieMagee",
+        "contributions" : 7
+      },
+      {
+        "login" : "bronogard",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/33424118?v=4",
+        "url" : "https://api.github.com/users/bronogard",
+        "contributions" : 7
+      },
+      {
+        "login" : "HugoMario",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3266608?v=4",
+        "url" : "https://api.github.com/users/HugoMario",
+        "contributions" : 7
+      },
+      {
+        "login" : "pjfanning",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11783444?v=4",
+        "url" : "https://api.github.com/users/pjfanning",
+        "contributions" : 7
+      },
+      {
+        "login" : "adrianbk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1910629?v=4",
+        "url" : "https://api.github.com/users/adrianbk",
+        "contributions" : 6
+      },
+      {
+        "login" : "t1",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/185260?v=4",
+        "url" : "https://api.github.com/users/t1",
+        "contributions" : 6
+      },
+      {
+        "login" : "croudet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2042338?v=4",
+        "url" : "https://api.github.com/users/croudet",
+        "contributions" : 6
+      },
+      {
+        "login" : "vandeti",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7769103?v=4",
+        "url" : "https://api.github.com/users/vandeti",
+        "contributions" : 6
+      },
+      {
+        "login" : "garydgregory",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1187639?v=4",
+        "url" : "https://api.github.com/users/garydgregory",
+        "contributions" : 6
+      },
+      {
+        "login" : "deepak-michael",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/383022?v=4",
+        "url" : "https://api.github.com/users/deepak-michael",
+        "contributions" : 5
+      },
+      {
+        "login" : "arinal",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1906936?v=4",
+        "url" : "https://api.github.com/users/arinal",
+        "contributions" : 5
+      },
+      {
+        "login" : "akkie",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/307006?v=4",
+        "url" : "https://api.github.com/users/akkie",
+        "contributions" : 4
+      },
+      {
+        "login" : "dastoikov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/21971207?v=4",
+        "url" : "https://api.github.com/users/dastoikov",
+        "contributions" : 4
+      },
+      {
+        "login" : "espenaf",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/818154?v=4",
+        "url" : "https://api.github.com/users/espenaf",
+        "contributions" : 4
+      },
+      {
+        "login" : "Gaibhne",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24731712?v=4",
+        "url" : "https://api.github.com/users/Gaibhne",
+        "contributions" : 4
+      },
+      {
+        "login" : "JonathanParrilla",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6556110?v=4",
+        "url" : "https://api.github.com/users/JonathanParrilla",
+        "contributions" : 4
+      },
+      {
+        "login" : "KangoV",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3931807?v=4",
+        "url" : "https://api.github.com/users/KangoV",
+        "contributions" : 4
+      },
+      {
+        "login" : "mkrogemann",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/143381?v=4",
+        "url" : "https://api.github.com/users/mkrogemann",
+        "contributions" : 4
+      },
+      {
+        "login" : "mihxil",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/429477?v=4",
+        "url" : "https://api.github.com/users/mihxil",
+        "contributions" : 4
+      },
+      {
+        "login" : "mbarbanson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/590604?v=4",
+        "url" : "https://api.github.com/users/mbarbanson",
+        "contributions" : 4
+      },
+      {
+        "login" : "ePaul",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/645859?v=4",
+        "url" : "https://api.github.com/users/ePaul",
+        "contributions" : 4
+      },
+      {
+        "login" : "vjousse",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/154904?v=4",
+        "url" : "https://api.github.com/users/vjousse",
+        "contributions" : 4
+      },
+      {
+        "login" : "gobolt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11614396?v=4",
+        "url" : "https://api.github.com/users/gobolt",
+        "contributions" : 4
+      },
+      {
+        "login" : "paukiatwee",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/484959?v=4",
+        "url" : "https://api.github.com/users/paukiatwee",
+        "contributions" : 4
+      },
+      {
+        "login" : "reta",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/509855?v=4",
+        "url" : "https://api.github.com/users/reta",
+        "contributions" : 4
+      },
+      {
+        "login" : "gracekarina",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4115783?v=4",
+        "url" : "https://api.github.com/users/gracekarina",
+        "contributions" : 4
+      },
+      {
+        "login" : "sullis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30938?v=4",
+        "url" : "https://api.github.com/users/sullis",
+        "contributions" : 4
+      },
+      {
+        "login" : "aharin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/583360?v=4",
+        "url" : "https://api.github.com/users/aharin",
+        "contributions" : 3
+      },
+      {
+        "login" : "azhawkes",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2328993?v=4",
+        "url" : "https://api.github.com/users/azhawkes",
+        "contributions" : 3
+      },
+      {
+        "login" : "danielwegener",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2953619?v=4",
+        "url" : "https://api.github.com/users/danielwegener",
+        "contributions" : 3
+      },
+      {
+        "login" : "datagitlies",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14877065?v=4",
+        "url" : "https://api.github.com/users/datagitlies",
+        "contributions" : 3
+      },
+      {
+        "login" : "pilhuhn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/208246?v=4",
+        "url" : "https://api.github.com/users/pilhuhn",
+        "contributions" : 3
+      },
+      {
+        "login" : "joeljons",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1818806?v=4",
+        "url" : "https://api.github.com/users/joeljons",
+        "contributions" : 3
+      },
+      {
+        "login" : "johannbarbie",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/659301?v=4",
+        "url" : "https://api.github.com/users/johannbarbie",
+        "contributions" : 3
+      },
+      {
+        "login" : "msymons",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4938718?v=4",
+        "url" : "https://api.github.com/users/msymons",
+        "contributions" : 3
+      },
+      {
+        "login" : "rajajain",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11024811?v=4",
+        "url" : "https://api.github.com/users/rajajain",
+        "contributions" : 3
+      },
+      {
+        "login" : "ritesh-garg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4777426?v=4",
+        "url" : "https://api.github.com/users/ritesh-garg",
+        "contributions" : 3
+      },
+      {
+        "login" : "scop",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/109152?v=4",
+        "url" : "https://api.github.com/users/scop",
+        "contributions" : 3
+      },
+      {
+        "login" : "daniel-schel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/41727382?v=4",
+        "url" : "https://api.github.com/users/daniel-schel",
+        "contributions" : 3
+      },
+      {
+        "login" : "ndebeiss",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/652283?v=4",
+        "url" : "https://api.github.com/users/ndebeiss",
+        "contributions" : 3
+      },
+      {
+        "login" : "patrickfav",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2980711?v=4",
+        "url" : "https://api.github.com/users/patrickfav",
+        "contributions" : 3
+      },
+      {
+        "login" : "redlab",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1025047?v=4",
+        "url" : "https://api.github.com/users/redlab",
+        "contributions" : 3
+      },
+      {
+        "login" : "bchazalet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/959961?v=4",
+        "url" : "https://api.github.com/users/bchazalet",
+        "contributions" : 3
+      },
+      {
+        "login" : "ethan92429",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8585379?v=4",
+        "url" : "https://api.github.com/users/ethan92429",
+        "contributions" : 3
+      },
+      {
+        "login" : "tminglei",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1828949?v=4",
+        "url" : "https://api.github.com/users/tminglei",
+        "contributions" : 3
+      },
+      {
+        "login" : "mtraynham",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5741321?v=4",
+        "url" : "https://api.github.com/users/mtraynham",
+        "contributions" : 3
+      },
+      {
+        "login" : "arosenber",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5505029?v=4",
+        "url" : "https://api.github.com/users/arosenber",
+        "contributions" : 2
+      },
+      {
+        "login" : "AlexElin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13061803?v=4",
+        "url" : "https://api.github.com/users/AlexElin",
+        "contributions" : 2
+      },
+      {
+        "login" : "p4ali",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7191223?v=4",
+        "url" : "https://api.github.com/users/p4ali",
+        "contributions" : 2
+      },
+      {
+        "login" : "amannm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3229134?v=4",
+        "url" : "https://api.github.com/users/amannm",
+        "contributions" : 2
+      },
+      {
+        "login" : "asosso",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1047728?v=4",
+        "url" : "https://api.github.com/users/asosso",
+        "contributions" : 2
+      },
+      {
+        "login" : "ilgrosso",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1064664?v=4",
+        "url" : "https://api.github.com/users/ilgrosso",
+        "contributions" : 2
+      },
+      {
+        "login" : "chirino",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/103255?v=4",
+        "url" : "https://api.github.com/users/chirino",
+        "contributions" : 2
+      },
+      {
+        "login" : "janhoeve",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/54371806?v=4",
+        "url" : "https://api.github.com/users/janhoeve",
+        "contributions" : 2
+      },
+      {
+        "login" : "janamano",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43358234?v=4",
+        "url" : "https://api.github.com/users/janamano",
+        "contributions" : 2
+      },
+      {
+        "login" : "whitlockjc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/98899?v=4",
+        "url" : "https://api.github.com/users/whitlockjc",
+        "contributions" : 2
+      },
+      {
+        "login" : "Jim-Zhang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4438660?v=4",
+        "url" : "https://api.github.com/users/Jim-Zhang",
+        "contributions" : 2
+      },
+      {
+        "login" : "mandragorn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/807561?v=4",
+        "url" : "https://api.github.com/users/mandragorn",
+        "contributions" : 2
+      },
+      {
+        "login" : "jorgenbraseth",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/163091?v=4",
+        "url" : "https://api.github.com/users/jorgenbraseth",
+        "contributions" : 2
+      },
+      {
+        "login" : "KeldOelykke",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6137135?v=4",
+        "url" : "https://api.github.com/users/KeldOelykke",
+        "contributions" : 2
+      },
+      {
+        "login" : "mwinkels",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/167710?v=4",
+        "url" : "https://api.github.com/users/mwinkels",
+        "contributions" : 2
+      },
+      {
+        "login" : "mobreza",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/712974?v=4",
+        "url" : "https://api.github.com/users/mobreza",
+        "contributions" : 2
+      },
+      {
+        "login" : "nitinjavakid",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1809996?v=4",
+        "url" : "https://api.github.com/users/nitinjavakid",
+        "contributions" : 2
+      },
+      {
+        "login" : "raghuraman1",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14346578?v=4",
+        "url" : "https://api.github.com/users/raghuraman1",
+        "contributions" : 2
+      },
+      {
+        "login" : "rotty3000",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/146764?v=4",
+        "url" : "https://api.github.com/users/rotty3000",
+        "contributions" : 2
+      },
+      {
+        "login" : "skyebook",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/890568?v=4",
+        "url" : "https://api.github.com/users/skyebook",
+        "contributions" : 2
+      },
+      {
+        "login" : "dylanowen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1442062?v=4",
+        "url" : "https://api.github.com/users/dylanowen",
+        "contributions" : 2
+      },
+      {
+        "login" : "eradford",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11035645?v=4",
+        "url" : "https://api.github.com/users/eradford",
+        "contributions" : 2
+      },
+      {
+        "login" : "leochr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/18424008?v=4",
+        "url" : "https://api.github.com/users/leochr",
+        "contributions" : 2
+      },
+      {
+        "login" : "msimons",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2805247?v=4",
+        "url" : "https://api.github.com/users/msimons",
+        "contributions" : 2
+      },
+      {
+        "login" : "strangelookingnerd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/49242855?v=4",
+        "url" : "https://api.github.com/users/strangelookingnerd",
+        "contributions" : 2
+      },
+      {
+        "login" : "tobilarscheid",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5900890?v=4",
+        "url" : "https://api.github.com/users/tobilarscheid",
+        "contributions" : 2
+      },
+      {
+        "login" : "tpetr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/47152?v=4",
+        "url" : "https://api.github.com/users/tpetr",
+        "contributions" : 2
+      },
+      {
+        "login" : "wing328",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/934260?v=4",
+        "url" : "https://api.github.com/users/wing328",
+        "contributions" : 2
+      },
+      {
+        "login" : "emckean",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/225433?v=4",
+        "url" : "https://api.github.com/users/emckean",
+        "contributions" : 2
+      },
+      {
+        "login" : "hiddewie",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1073881?v=4",
+        "url" : "https://api.github.com/users/hiddewie",
+        "contributions" : 2
+      },
+      {
+        "login" : "yaronyam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10505445?v=4",
+        "url" : "https://api.github.com/users/yaronyam",
+        "contributions" : 2
+      },
+      {
+        "login" : "me717",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2780508?v=4",
+        "url" : "https://api.github.com/users/me717",
+        "contributions" : 1
+      },
+      {
+        "login" : "AdrianMF",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1189227?v=4",
+        "url" : "https://api.github.com/users/AdrianMF",
+        "contributions" : 1
+      },
+      {
+        "login" : "Mikosz91",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16704119?v=4",
+        "url" : "https://api.github.com/users/Mikosz91",
+        "contributions" : 1
+      },
+      {
+        "login" : "amarkevich",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/62415?v=4",
+        "url" : "https://api.github.com/users/amarkevich",
+        "contributions" : 1
+      },
+      {
+        "login" : "andrejpetras",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/828045?v=4",
+        "url" : "https://api.github.com/users/andrejpetras",
+        "contributions" : 1
+      },
+      {
+        "login" : "q3aiml",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1438495?v=4",
+        "url" : "https://api.github.com/users/q3aiml",
+        "contributions" : 1
+      },
+      {
+        "login" : "tonyhart759456",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/21221152?v=4",
+        "url" : "https://api.github.com/users/tonyhart759456",
+        "contributions" : 1
+      },
+      {
+        "login" : "bfanger",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/207248?v=4",
+        "url" : "https://api.github.com/users/bfanger",
+        "contributions" : 1
+      },
+      {
+        "login" : "ctolkmit",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7870657?v=4",
+        "url" : "https://api.github.com/users/ctolkmit",
+        "contributions" : 1
+      },
+      {
+        "login" : "cb372",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/106760?v=4",
+        "url" : "https://api.github.com/users/cb372",
+        "contributions" : 1
+      },
+      {
+        "login" : "christopher-cudennec",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/48206222?v=4",
+        "url" : "https://api.github.com/users/christopher-cudennec",
+        "contributions" : 1
+      },
+      {
+        "login" : "conorclifford",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8246552?v=4",
+        "url" : "https://api.github.com/users/conorclifford",
+        "contributions" : 1
+      },
+      {
+        "login" : "daniel-frak",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/46451063?v=4",
+        "url" : "https://api.github.com/users/daniel-frak",
+        "contributions" : 1
+      },
+      {
+        "login" : "dilipkrish",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/73257?v=4",
+        "url" : "https://api.github.com/users/dilipkrish",
+        "contributions" : 1
+      },
+      {
+        "login" : "etyrrill",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12614146?v=4",
+        "url" : "https://api.github.com/users/etyrrill",
+        "contributions" : 1
+      },
+      {
+        "login" : "EricHetti",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/35978114?v=4",
+        "url" : "https://api.github.com/users/EricHetti",
+        "contributions" : 1
+      },
+      {
+        "login" : "francisdb",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/161305?v=4",
+        "url" : "https://api.github.com/users/francisdb",
+        "contributions" : 1
+      },
+      {
+        "login" : "giovannibotta",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2098736?v=4",
+        "url" : "https://api.github.com/users/giovannibotta",
+        "contributions" : 1
+      },
+      {
+        "login" : "gm2211",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1555460?v=4",
+        "url" : "https://api.github.com/users/gm2211",
+        "contributions" : 1
+      },
+      {
+        "login" : "hkosova",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8576823?v=4",
+        "url" : "https://api.github.com/users/hkosova",
+        "contributions" : 1
+      },
+      {
+        "login" : "iainh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/519512?v=4",
+        "url" : "https://api.github.com/users/iainh",
+        "contributions" : 1
+      },
+      {
+        "login" : "ieugen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1050920?v=4",
+        "url" : "https://api.github.com/users/ieugen",
+        "contributions" : 1
+      },
+      {
+        "login" : "casualjim",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/456109?v=4",
+        "url" : "https://api.github.com/users/casualjim",
+        "contributions" : 1
+      },
+      {
+        "login" : "jacob-meacham",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1624811?v=4",
+        "url" : "https://api.github.com/users/jacob-meacham",
+        "contributions" : 1
+      },
+      {
+        "login" : "jannispl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/838818?v=4",
+        "url" : "https://api.github.com/users/jannispl",
+        "contributions" : 1
+      },
+      {
+        "login" : "j-wrensch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/89188484?v=4",
+        "url" : "https://api.github.com/users/j-wrensch",
+        "contributions" : 1
+      },
+      {
+        "login" : "JochenHebbrecht-TomTom",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/72997890?v=4",
+        "url" : "https://api.github.com/users/JochenHebbrecht-TomTom",
+        "contributions" : 1
+      },
+      {
+        "login" : "knutz3n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/159774?v=4",
+        "url" : "https://api.github.com/users/knutz3n",
+        "contributions" : 1
+      },
+      {
+        "login" : "JonMR",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16074?v=4",
+        "url" : "https://api.github.com/users/JonMR",
+        "contributions" : 1
+      },
+      {
+        "login" : "joostfarla",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/851863?v=4",
+        "url" : "https://api.github.com/users/joostfarla",
+        "contributions" : 1
+      },
+      {
+        "login" : "jaliss",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/997114?v=4",
+        "url" : "https://api.github.com/users/jaliss",
+        "contributions" : 1
+      },
+      {
+        "login" : "benken-parasoft",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11323121?v=4",
+        "url" : "https://api.github.com/users/benken-parasoft",
+        "contributions" : 1
+      },
+      {
+        "login" : "ponelat",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8438485?v=4",
+        "url" : "https://api.github.com/users/ponelat",
+        "contributions" : 1
+      },
+      {
+        "login" : "jlopezr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/665801?v=4",
+        "url" : "https://api.github.com/users/jlopezr",
+        "contributions" : 1
+      },
+      {
+        "login" : "seratch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19658?v=4",
+        "url" : "https://api.github.com/users/seratch",
+        "contributions" : 1
+      },
+      {
+        "login" : "vanta",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2153370?v=4",
+        "url" : "https://api.github.com/users/vanta",
+        "contributions" : 1
+      },
+      {
+        "login" : "LeifWarner",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1099442?v=4",
+        "url" : "https://api.github.com/users/LeifWarner",
+        "contributions" : 1
+      },
+      {
+        "login" : "MadMartian",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2112359?v=4",
+        "url" : "https://api.github.com/users/MadMartian",
+        "contributions" : 1
+      },
+      {
+        "login" : "boillodmanuel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/621455?v=4",
+        "url" : "https://api.github.com/users/boillodmanuel",
+        "contributions" : 1
+      },
+      {
+        "login" : "maggu2810",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/204670?v=4",
+        "url" : "https://api.github.com/users/maggu2810",
+        "contributions" : 1
+      },
+      {
+        "login" : "mmatula",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1191445?v=4",
+        "url" : "https://api.github.com/users/mmatula",
+        "contributions" : 1
+      },
+      {
+        "login" : "mattburns",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1316126?v=4",
+        "url" : "https://api.github.com/users/mattburns",
+        "contributions" : 1
+      },
+      {
+        "login" : "packleader",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/28659207?v=4",
+        "url" : "https://api.github.com/users/packleader",
+        "contributions" : 1
+      },
+      {
+        "login" : "miketzian",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/686877?v=4",
+        "url" : "https://api.github.com/users/miketzian",
+        "contributions" : 1
+      },
+      {
+        "login" : "MDoumin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11868669?v=4",
+        "url" : "https://api.github.com/users/MDoumin",
+        "contributions" : 1
+      },
+      {
+        "login" : "ymohdriz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17422831?v=4",
+        "url" : "https://api.github.com/users/ymohdriz",
+        "contributions" : 1
+      },
+      {
+        "login" : "mohanraosv",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/75753984?v=4",
+        "url" : "https://api.github.com/users/mohanraosv",
+        "contributions" : 1
+      },
+      {
+        "login" : "obfischer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/735022?v=4",
+        "url" : "https://api.github.com/users/obfischer",
+        "contributions" : 1
+      },
+      {
+        "login" : "blop",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1006502?v=4",
+        "url" : "https://api.github.com/users/blop",
+        "contributions" : 1
+      },
+      {
+        "login" : "pconnelly15",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3385715?v=4",
+        "url" : "https://api.github.com/users/pconnelly15",
+        "contributions" : 1
+      },
+      {
+        "login" : "patrickpichler",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13838138?v=4",
+        "url" : "https://api.github.com/users/patrickpichler",
+        "contributions" : 1
+      },
+      {
+        "login" : "pofallon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/505519?v=4",
+        "url" : "https://api.github.com/users/pofallon",
+        "contributions" : 1
+      },
+      {
+        "login" : "pavgup",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1335171?v=4",
+        "url" : "https://api.github.com/users/pavgup",
+        "contributions" : 1
+      },
+      {
+        "login" : "padamstx",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/26463020?v=4",
+        "url" : "https://api.github.com/users/padamstx",
+        "contributions" : 1
+      },
+      {
+        "login" : "PulfordJ",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3259026?v=4",
+        "url" : "https://api.github.com/users/PulfordJ",
+        "contributions" : 1
+      },
+      {
+        "login" : "Dichotomia",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5593198?v=4",
+        "url" : "https://api.github.com/users/Dichotomia",
+        "contributions" : 1
+      },
+      {
+        "login" : "rafael-plenty",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/79674728?v=4",
+        "url" : "https://api.github.com/users/rafael-plenty",
+        "contributions" : 1
+      },
+      {
+        "login" : "gibson042",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1199584?v=4",
+        "url" : "https://api.github.com/users/gibson042",
+        "contributions" : 1
+      },
+      {
+        "login" : "rkosegi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3736012?v=4",
+        "url" : "https://api.github.com/users/rkosegi",
+        "contributions" : 1
+      },
+      {
+        "login" : "rintcius",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/888781?v=4",
+        "url" : "https://api.github.com/users/rintcius",
+        "contributions" : 1
+      },
+      {
+        "login" : "riteshmodi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3347071?v=4",
+        "url" : "https://api.github.com/users/riteshmodi",
+        "contributions" : 1
+      },
+      {
+        "login" : "rozzamozza",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9553707?v=4",
+        "url" : "https://api.github.com/users/rozzamozza",
+        "contributions" : 1
+      },
+      {
+        "login" : "rmohr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4534621?v=4",
+        "url" : "https://api.github.com/users/rmohr",
+        "contributions" : 1
+      },
+      {
+        "login" : "ryancerium",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1735570?v=4",
+        "url" : "https://api.github.com/users/ryancerium",
+        "contributions" : 1
+      },
+      {
+        "login" : "ryanrishi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5033038?v=4",
+        "url" : "https://api.github.com/users/ryanrishi",
+        "contributions" : 1
+      },
+      {
+        "login" : "ryantenney",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/124015?v=4",
+        "url" : "https://api.github.com/users/ryantenney",
+        "contributions" : 1
+      },
+      {
+        "login" : "seanadkinson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1429507?v=4",
+        "url" : "https://api.github.com/users/seanadkinson",
+        "contributions" : 1
+      },
+      {
+        "login" : "sgri",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1150728?v=4",
+        "url" : "https://api.github.com/users/sgri",
+        "contributions" : 1
+      },
+      {
+        "login" : "svella",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1933669?v=4",
+        "url" : "https://api.github.com/users/svella",
+        "contributions" : 1
+      },
+      {
+        "login" : "simonamc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10997176?v=4",
+        "url" : "https://api.github.com/users/simonamc",
+        "contributions" : 1
+      },
+      {
+        "login" : "seblm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/567637?v=4",
+        "url" : "https://api.github.com/users/seblm",
+        "contributions" : 1
+      },
+      {
+        "login" : "shouze",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/54712?v=4",
+        "url" : "https://api.github.com/users/shouze",
+        "contributions" : 1
+      },
+      {
+        "login" : "tedoc2000",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/301145?v=4",
+        "url" : "https://api.github.com/users/tedoc2000",
+        "contributions" : 1
+      },
+      {
+        "login" : "signed",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/567613?v=4",
+        "url" : "https://api.github.com/users/signed",
+        "contributions" : 1
+      },
+      {
+        "login" : "timothyjward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3882104?v=4",
+        "url" : "https://api.github.com/users/timothyjward",
+        "contributions" : 1
+      },
+      {
+        "login" : "ducin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/375027?v=4",
+        "url" : "https://api.github.com/users/ducin",
+        "contributions" : 1
+      },
+      {
+        "login" : "kendzi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/811830?v=4",
+        "url" : "https://api.github.com/users/kendzi",
+        "contributions" : 1
+      },
+      {
+        "login" : "tomaszszlek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9800429?v=4",
+        "url" : "https://api.github.com/users/tomaszszlek",
+        "contributions" : 1
+      },
+      {
+        "login" : "vilppuvuorinen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8420095?v=4",
+        "url" : "https://api.github.com/users/vilppuvuorinen",
+        "contributions" : 1
+      },
+      {
+        "login" : "vivin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/56094?v=4",
+        "url" : "https://api.github.com/users/vivin",
+        "contributions" : 1
+      },
+      {
+        "login" : "vladimirfx",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1281463?v=4",
+        "url" : "https://api.github.com/users/vladimirfx",
+        "contributions" : 1
+      },
+      {
+        "login" : "VladRassokhin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/552079?v=4",
+        "url" : "https://api.github.com/users/VladRassokhin",
+        "contributions" : 1
+      },
+      {
+        "login" : "vdab-jenkinsx",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/79504882?v=4",
+        "url" : "https://api.github.com/users/vdab-jenkinsx",
+        "contributions" : 1
+      },
+      {
+        "login" : "yinonavraham",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7008340?v=4",
+        "url" : "https://api.github.com/users/yinonavraham",
+        "contributions" : 1
+      },
+      {
+        "login" : "aspich",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7240497?v=4",
+        "url" : "https://api.github.com/users/aspich",
+        "contributions" : 1
+      },
+      {
+        "login" : "bluebossa63",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1701938?v=4",
+        "url" : "https://api.github.com/users/bluebossa63",
+        "contributions" : 1
+      },
+      {
+        "login" : "ckuhn-finicity",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/31256446?v=4",
+        "url" : "https://api.github.com/users/ckuhn-finicity",
+        "contributions" : 1
+      },
+      {
+        "login" : "clovis-guillemot",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11499838?v=4",
+        "url" : "https://api.github.com/users/clovis-guillemot",
+        "contributions" : 1
+      },
+      {
+        "login" : "ddragosd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/541933?v=4",
+        "url" : "https://api.github.com/users/ddragosd",
+        "contributions" : 1
+      },
+      {
+        "login" : "dmarmugi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13923591?v=4",
+        "url" : "https://api.github.com/users/dmarmugi",
+        "contributions" : 1
+      },
+      {
+        "login" : "jaoromi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5362009?v=4",
+        "url" : "https://api.github.com/users/jaoromi",
+        "contributions" : 1
+      },
+      {
+        "login" : "jawher",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/96384?v=4",
+        "url" : "https://api.github.com/users/jawher",
+        "contributions" : 1
+      },
+      {
+        "login" : "kongchen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1485800?v=4",
+        "url" : "https://api.github.com/users/kongchen",
+        "contributions" : 1
+      },
+      {
+        "login" : "longstone",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2110765?v=4",
+        "url" : "https://api.github.com/users/longstone",
+        "contributions" : 1
+      },
+      {
+        "login" : "magbareya",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5901089?v=4",
+        "url" : "https://api.github.com/users/magbareya",
+        "contributions" : 1
+      },
+      {
+        "login" : "mar612",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13373786?v=4",
+        "url" : "https://api.github.com/users/mar612",
+        "contributions" : 1
+      },
+      {
+        "login" : "maxime-morand",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13349550?v=4",
+        "url" : "https://api.github.com/users/maxime-morand",
+        "contributions" : 1
+      },
+      {
+        "login" : "msiemczyk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5693250?v=4",
+        "url" : "https://api.github.com/users/msiemczyk",
+        "contributions" : 1
+      },
+      {
+        "login" : "olensmar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1917063?v=4",
+        "url" : "https://api.github.com/users/olensmar",
+        "contributions" : 1
+      },
+      {
+        "login" : "pheneas42",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24731223?v=4",
+        "url" : "https://api.github.com/users/pheneas42",
+        "contributions" : 1
+      },
+      {
+        "login" : "piotrdytkowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1392114?v=4",
+        "url" : "https://api.github.com/users/piotrdytkowski",
+        "contributions" : 1
+      },
+      {
+        "login" : "radai-rosenblatt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1042632?v=4",
+        "url" : "https://api.github.com/users/radai-rosenblatt",
+        "contributions" : 1
+      },
+      {
+        "login" : "schnitzi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1409363?v=4",
+        "url" : "https://api.github.com/users/schnitzi",
+        "contributions" : 1
+      },
+      {
+        "login" : "schtephi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24293365?v=4",
+        "url" : "https://api.github.com/users/schtephi",
+        "contributions" : 1
+      },
+      {
+        "login" : "sharonsu1",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/18617012?v=4",
+        "url" : "https://api.github.com/users/sharonsu1",
+        "contributions" : 1
+      },
+      {
+        "login" : "tobi6112",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22715034?v=4",
+        "url" : "https://api.github.com/users/tobi6112",
+        "contributions" : 1
+      },
+      {
+        "login" : "vrossellotravelc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/45101500?v=4",
+        "url" : "https://api.github.com/users/vrossellotravelc",
+        "contributions" : 1
+      },
+      {
+        "login" : "whitesource-for-github-com[bot]",
+        "avatarUrl" : "https://avatars.githubusercontent.com/in/30796?v=4",
+        "url" : "https://api.github.com/users/whitesource-for-github-com%5Bbot%5D",
+        "contributions" : 1
+      },
+      {
+        "login" : "xhh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/159740?v=4",
+        "url" : "https://api.github.com/users/xhh",
+        "contributions" : 1
+      },
+      {
+        "login" : "splatch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/199488?v=4",
+        "url" : "https://api.github.com/users/splatch",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 3532,
+    "topics" : [
+      "rest",
+      "rest-api",
+      "openapi",
+      "java",
+      "swagger-api",
+      "swagger",
+      "openapi3",
+      "openapi-specification"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 4102,
+        "title" : "WS-2021-0616 (Medium) detected in jackson-core-2.11.0.jar, jackson-databind-2.11.0.jar",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4102"
+      },
+      {
+        "number" : 4101,
+        "title" : "Composite schema (Inheritance) as example",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4101"
+      },
+      {
+        "number" : 4100,
+        "title" : "@SecurityScheme requires #type when #ref is used",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4100"
+      },
+      {
+        "number" : 4098,
+        "title" : "DiscriminatorMapping on an Enum",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4098"
+      },
+      {
+        "number" : 4096,
+        "title" : "how to add swagger-models dependencies in netbeans ant web application?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4096"
+      },
+      {
+        "number" : 4094,
+        "title" : "The name attribute of the annotation @ApiModelProperty does not take effect",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4094"
+      },
+      {
+        "number" : 4093,
+        "title" : "OpenApi Spec not being generated correctly when there is one PathParam and two QueryParams",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4093"
+      },
+      {
+        "number" : 4092,
+        "title" : "Deterministic order for generated API specs in 1.x branch",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4092"
+      },
+      {
+        "number" : 4090,
+        "title" : "swagger-jaxrs2-jakarta v2.1.12 sources and javadoc jars are missing files",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4090"
+      },
+      {
+        "number" : 4086,
+        "title" : "Can't access swagger ui with https protocol",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4086"
+      },
+      {
+        "number" : 4072,
+        "title" : "Self reference not generated",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4072"
+      },
+      {
+        "number" : 4071,
+        "title" : "Jaxb @XmlValue support.",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4071"
+      },
+      {
+        "number" : 4070,
+        "title" : "Support for overloaded method in OpenApi docs generation",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4070"
+      },
+      {
+        "number" : 4065,
+        "title" : "Explode does not work correctly with query parameters",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4065"
+      },
+      {
+        "number" : 4064,
+        "title" : "Could not resolve reference: Could not resolve pointer: /components/parameters/string does not exist in document",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4064"
+      },
+      {
+        "number" : 4061,
+        "title" : "@Schema not working for boolean fields in Java",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4061"
+      },
+      {
+        "number" : 4059,
+        "title" : "Check value of @JsonIgnore in ModelResolver",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4059"
+      },
+      {
+        "number" : 4057,
+        "title" : "make @ApiResponse repeatable  ",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4057"
+      },
+      {
+        "number" : 4052,
+        "title" : "refactor ObjectMapperFactory and other util classes that deal with Jackson",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4052"
+      },
+      {
+        "number" : 4049,
+        "title" : "Pattern regex is not being picked by swagger for list of String",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4049"
+      },
+      {
+        "number" : 4048,
+        "title" : "API Spec not coming properly",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4048"
+      },
+      {
+        "number" : 4047,
+        "title" : "JaxrsOpenApiContextBuilder adds deprecated = true to most operations",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4047"
+      },
+      {
+        "number" : 4045,
+        "title" : "FQN doesn't work properly",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4045"
+      },
+      {
+        "number" : 4044,
+        "title" : "Cannot remove default 200 response code",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4044"
+      },
+      {
+        "number" : 4043,
+        "title" : "Add an option to treat parameters required by default",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4043"
+      },
+      {
+        "number" : 4042,
+        "title" : "NotBlank annotation should generate a pattern field in OpenAPI",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4042"
+      },
+      {
+        "number" : 4039,
+        "title" : "Type mismatch when using custom serializer",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4039"
+      },
+      {
+        "number" : 4036,
+        "title" : "fqdn=true oneOf invalid refs (global / not relative)",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4036"
+      },
+      {
+        "number" : 4021,
+        "title" : "Annotations not working on Interface inheritance.",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4021"
+      },
+      {
+        "number" : 4019,
+        "title" : "exampleSetFlag",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4019"
+      },
+      {
+        "number" : 4016,
+        "title" : "swagger-jaxrsV1.6.2 use @ApiImplicitParams on method will cause double same name param in swagger.json",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4016"
+      },
+      {
+        "number" : 4015,
+        "title" : "Swagger @Schema tag doesn't allow more than one example per type",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4015"
+      },
+      {
+        "number" : 4014,
+        "title" : "Support arbitrary-type schema (schema without a type)",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4014"
+      },
+      {
+        "number" : 4013,
+        "title" : "Description and summary properties support for referenceObject",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4013"
+      },
+      {
+        "number" : 4012,
+        "title" : "@ApiModelProperty 的 example 为 \"\"，会导致基础类型转换异常。",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4012"
+      },
+      {
+        "number" : 4011,
+        "title" : "[Query] - Does this plugin support plain Servlets?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4011"
+      },
+      {
+        "number" : 4010,
+        "title" : "How to do @ApiModelProperty(example = null)",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4010"
+      },
+      {
+        "number" : 4009,
+        "title" : "How do I define the defaults of \"type\": \"object\" schemas?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4009"
+      },
+      {
+        "number" : 4008,
+        "title" : "@ArraySchema in @ApiResponse: java-pojo will not be transformed into json-definition",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4008"
+      },
+      {
+        "number" : 4006,
+        "title" : "Add @Documented annotation to @Operation (@ApiOperation) and so on",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4006"
+      },
+      {
+        "number" : 4004,
+        "title" : "schema is not generated",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4004"
+      },
+      {
+        "number" : 4001,
+        "title" : "JBoss EAP 7.2.9: Swagger v2.1.10 leads to IOExceptions \"Too many open files\"",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4001"
+      },
+      {
+        "number" : 4000,
+        "title" : "How to describe a link in between a response to property within array",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/4000"
+      },
+      {
+        "number" : 3999,
+        "title" : "A property named \"aFoo\" use the method name instead of property name in specification.",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3999"
+      },
+      {
+        "number" : 3998,
+        "title" : "Jackson enum value is not used if @JsonValue is on an enum field or nonpublic method",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3998"
+      },
+      {
+        "number" : 3996,
+        "title" : "swagger-gradle-plugin: Execution failed for task  > io.swagger.v3.jaxrs2.integration.SwaggerLoader.setAlwaysResolveAppPath(java.lang.Boolean)",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3996"
+      },
+      {
+        "number" : 3994,
+        "title" : "Set tags for operations at class-level",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3994"
+      },
+      {
+        "number" : 3993,
+        "title" : "Allowablevalues-Parameter is ignored",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3993"
+      },
+      {
+        "number" : 3992,
+        "title" : "@Schema implementation and type are ignored when annotated at model-level",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3992"
+      },
+      {
+        "number" : 3991,
+        "title" : "Failing when JsonTypeInfo.As.WRAPPER_OBJECT is identified by name - swagger-jaxrs2",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3991"
+      },
+      {
+        "number" : 3990,
+        "title" : "Direct and meta-annotations are mutual exclusive, but should be merged",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3990"
+      },
+      {
+        "number" : 3989,
+        "title" : "Should Swagger Core dependencies be declared with a specific scope?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3989"
+      },
+      {
+        "number" : 3987,
+        "title" : "spring boot + Swagger loss param when param with custom annotation",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3987"
+      },
+      {
+        "number" : 3985,
+        "title" : "Swagger is applying JsonView to request and response but Spring only applies it to response",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3985"
+      },
+      {
+        "number" : 3980,
+        "title" : "Hide an implementation when using @JsonSubTypes",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3980"
+      },
+      {
+        "number" : 3973,
+        "title" : "Invalid schema for nested BeanParam (query) parameters",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3973"
+      },
+      {
+        "number" : 3971,
+        "title" : "Find the $ref to a propertie inside a schema",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3971"
+      },
+      {
+        "number" : 3967,
+        "title" : "jaxrs2 and annotations support for java packges and annotation processing",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3967"
+      },
+      {
+        "number" : 3966,
+        "title" : "@JsonUnwrapped required properties will not be copied when a prefix or suffix is used",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3966"
+      },
+      {
+        "number" : 3965,
+        "title" : "Swagger3.0版本返回泛型参数显示Object",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3965"
+      },
+      {
+        "number" : 3962,
+        "title" : "[Core][Api] Check property name as well during equality check of AnnotatedType",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3962"
+      },
+      {
+        "number" : 3961,
+        "title" : "JAXRS - No injection source found for a parameter of type public javax.ws.rs.core.Response",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3961"
+      },
+      {
+        "number" : 3960,
+        "title" : "[Platform][API] Remove JSonBackReferences from API Models",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3960"
+      },
+      {
+        "number" : 3959,
+        "title" : "don't support paradigm in response",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3959"
+      },
+      {
+        "number" : 3958,
+        "title" : "Tag specified in @ApiOperation not overriding tag specified in @Api swagger ui",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3958"
+      },
+      {
+        "number" : 3954,
+        "title" : "JSON-B annotations in generated model classes",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3954"
+      },
+      {
+        "number" : 3952,
+        "title" : "Incorrect path parameters when using JAXRS subresources",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3952"
+      },
+      {
+        "number" : 3950,
+        "title" : "OpenAPI Java POJO Does Not Support Array Parameters",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3950"
+      },
+      {
+        "number" : 3947,
+        "title" : "swagger一个实例多个分组",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3947"
+      },
+      {
+        "number" : 3946,
+        "title" : "Specifying custom \"format\" with type = \"integer\" on the @Schema annotation is not supported",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3946"
+      },
+      {
+        "number" : 3945,
+        "title" : "Java enums should include the null value unless otherwise instructed",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3945"
+      },
+      {
+        "number" : 3944,
+        "title" : "Default mapping of java byte array",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3944"
+      },
+      {
+        "number" : 3943,
+        "title" : "swagger GenericType  display",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3943"
+      },
+      {
+        "number" : 3941,
+        "title" : "Missing properties for collections of self-type",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3941"
+      },
+      {
+        "number" : 3928,
+        "title" : "How to use `$ref` to externalize description when using `@Info` annotation",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3928"
+      },
+      {
+        "number" : 3925,
+        "title" : "ApiOperation and ApiParam should support group",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3925"
+      },
+      {
+        "number" : 3916,
+        "title" : "OpenAPIExtension::decorateOperation is missing declaring class type information",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3916"
+      },
+      {
+        "number" : 3915,
+        "title" : "Do not fetch references with HTTP in $ref",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3915"
+      },
+      {
+        "number" : 3914,
+        "title" : "@JsonIdentityReference(alwaysAsId = true) does not work with collections",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3914"
+      },
+      {
+        "number" : 3913,
+        "title" : "Feature Request: OpenAPI Spec 3.1",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3913"
+      },
+      {
+        "number" : 3912,
+        "title" : "Comments convert to annotation ! And I want to contribute ~",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3912"
+      },
+      {
+        "number" : 3911,
+        "title" : "YAML errors on config files are shadowed by \"false\" JSON errors",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3911"
+      },
+      {
+        "number" : 3910,
+        "title" : "How to specify optional authentication, giving the spec for security as input ",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3910"
+      },
+      {
+        "number" : 3909,
+        "title" : "Enhancement: Allow to override required attribute when @NotNull is set",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3909"
+      },
+      {
+        "number" : 3906,
+        "title" : "OpenAPIExtension.decorateOperation() -  never get called",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3906"
+      },
+      {
+        "number" : 3905,
+        "title" : "@Schema(accessMode) doesn't work for objects that are contained by other objects",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3905"
+      },
+      {
+        "number" : 3900,
+        "title" : "Schema description of one field overrides descriptions of other fields of same class",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3900"
+      },
+      {
+        "number" : 3892,
+        "title" : "Interface level @Consumes, @Produces annotations ignored",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3892"
+      },
+      {
+        "number" : 3873,
+        "title" : "play swagger not maintained anymore ?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3873"
+      },
+      {
+        "number" : 3871,
+        "title" : "Empty BeanParam causes bad generation of requestBody",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3871"
+      },
+      {
+        "number" : 3870,
+        "title" : "When a method has one or more @ApiResponse the response schema definition is not generated",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3870"
+      },
+      {
+        "number" : 3867,
+        "title" : "Support for Java Record",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3867"
+      },
+      {
+        "number" : 3866,
+        "title" : "Polymorphic arrays are not properly documented using Swagger Annotations",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3866"
+      },
+      {
+        "number" : 3865,
+        "title" : "Shadowed properties in generated yaml when combining polymorphy with composition",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3865"
+      },
+      {
+        "number" : 3863,
+        "title" : "REOPEN #1855",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3863"
+      },
+      {
+        "number" : 3859,
+        "title" : "Default value of @ArraySchema violates OAS 3.0",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3859"
+      },
+      {
+        "number" : 3858,
+        "title" : "NullPointerException for Enum properties starting with Jackson 2.11",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3858"
+      },
+      {
+        "number" : 3857,
+        "title" : "\"subtypeModel\" is null for a complex class hierarchy (results in NPE)",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3857"
+      },
+      {
+        "number" : 3856,
+        "title" : "swagger-jersey2-jaxrs dependencies deathlock",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3856"
+      },
+      {
+        "number" : 3854,
+        "title" : "Not working with Jackson 2.12.x",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3854"
+      },
+      {
+        "number" : 3853,
+        "title" : "allOf refs are broken when using fully qualified model names",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3853"
+      },
+      {
+        "number" : 3851,
+        "title" : "type information for response schema",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3851"
+      },
+      {
+        "number" : 3846,
+        "title" : "Path parameter is resolved as a request body with @GET verb",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3846"
+      },
+      {
+        "number" : 3977,
+        "title" : "AppScan Issue - Common API Call: Validation.Required: io.swagger.v3.oas.models.Operation.setParameters",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3977"
+      },
+      {
+        "number" : 3978,
+        "title" : "Common API Call: PathTraversal: java.io.File.<init>(java.net.URI):void",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3978"
+      },
+      {
+        "number" : 3979,
+        "title" : "AppScan Issue - Common API Call: Injection.Mail: io.swagger.v3.oas.models.parameters.RequestBody.setContent",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3979"
+      },
+      {
+        "number" : 3837,
+        "title" : "Register default jackson modules",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3837"
+      },
+      {
+        "number" : 3836,
+        "title" : "Supporting jakarta namespace",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3836"
+      },
+      {
+        "number" : 3835,
+        "title" : "Programmatic and file parsing configuration ignored in openapi",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3835"
+      },
+      {
+        "number" : 3834,
+        "title" : "[ModelConverters] java.lang.Object is an arbitrary type and should be mapped to an arbitrary type",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3834"
+      },
+      {
+        "number" : 3833,
+        "title" : "How can I print generic type with square brackets? ",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3833"
+      },
+      {
+        "number" : 3829,
+        "title" : "virtual property declared as not nullable",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3829"
+      },
+      {
+        "number" : 3828,
+        "title" : "swagger-gradle-plugin with multiple configurations",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3828"
+      },
+      {
+        "number" : 3827,
+        "title" : "MediaType Example doesn't serialize Json output as expected",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3827"
+      },
+      {
+        "number" : 3818,
+        "title" : "Maps that use enums as keys don't explicitly declare them in the resulting swagger def.",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3818"
+      },
+      {
+        "number" : 3737,
+        "title" : "Tag descriptions set in @SwaggerDefinition are not working",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3737"
+      },
+      {
+        "number" : 3735,
+        "title" : "Support constraints on type argument for parametrized types",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3735"
+      },
+      {
+        "number" : 3734,
+        "title" : "Correct Specification of allOf and subTypes?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3734"
+      },
+      {
+        "number" : 3726,
+        "title" : "OpenAPIExtension's are not loaded by swagger-gradle-plugin",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3726"
+      },
+      {
+        "number" : 3725,
+        "title" : "Nested Object Model Description,  doesn't show in api descriptions",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3725"
+      },
+      {
+        "number" : 3724,
+        "title" : "ApiResponse of Map.class results in \"string\"",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3724"
+      },
+      {
+        "number" : 3723,
+        "title" : "How to specify response schema for Page (org.springframework.data.domain.Page) of objects",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3723"
+      },
+      {
+        "number" : 3722,
+        "title" : "Schema and JsonFormat annotations interaction",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3722"
+      },
+      {
+        "number" : 3721,
+        "title" : "How to set Additional Properties to boolean ",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3721"
+      },
+      {
+        "number" : 3719,
+        "title" : "Swagger annotations for AsyncAPI",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3719"
+      },
+      {
+        "number" : 3704,
+        "title" : "Setting readAllResources to false doesn't work and includes APIs not annotated with @Operation",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3704"
+      },
+      {
+        "number" : 3700,
+        "title" : "Invalid Spec generated when @PathParam is used with a parameter type of javax.ws.rs.core.PathSegment",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3700"
+      },
+      {
+        "number" : 3699,
+        "title" : "Wrapped object is not shown correctly in swagger documentation: Java",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3699"
+      },
+      {
+        "number" : 3693,
+        "title" : "Memory leak on frequent call to /openapi.json in Spring Boot",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3693"
+      },
+      {
+        "number" : 3692,
+        "title" : "\"type: object\" in schema cannot be remove or override",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3692"
+      },
+      {
+        "number" : 3691,
+        "title" : "Jackson annotations ignored on enum class",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3691"
+      },
+      {
+        "number" : 3689,
+        "title" : "@ArraySchema is ignored in model property (array of abstract class)",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3689"
+      },
+      {
+        "number" : 3688,
+        "title" : "Override inherited field's @Schema annotation in a subclass?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3688"
+      },
+      {
+        "number" : 3686,
+        "title" : "Referenced responses not working on API Auto Mocking",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3686"
+      },
+      {
+        "number" : 3685,
+        "title" : "@RequestMapping use regular expressions",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3685"
+      },
+      {
+        "number" : 3684,
+        "title" : "oneOf validations are failing for required properties",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3684"
+      },
+      {
+        "number" : 3682,
+        "title" : "Support for @JsonBackReference",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3682"
+      },
+      {
+        "number" : 3680,
+        "title" : "ModelResolver not removing properties from transitive parents (Swagger 2.1.1)",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3680"
+      },
+      {
+        "number" : 3679,
+        "title" : "Treatment of java.time.Year fields does not reflect Jackson configured to use JavaTimeModule",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3679"
+      },
+      {
+        "number" : 3677,
+        "title" : "How to prevent oneOf() on supertypes leading to recursion in subtypes?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3677"
+      },
+      {
+        "number" : 3676,
+        "title" : "Re initialize of swagger definition using BeanConfig, cause /api/swagger.json to return 404",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3676"
+      },
+      {
+        "number" : 3675,
+        "title" : "Swagger 2.1.1 ignores property referencing parent class",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3675"
+      },
+      {
+        "number" : 3666,
+        "title" : "Request for `state` option in the implicit oauth2 confiiguration",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3666"
+      },
+      {
+        "number" : 3647,
+        "title" : "Multimodule maven plugin problem",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3647"
+      },
+      {
+        "number" : 3646,
+        "title" : "Missing fields in spec",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3646"
+      },
+      {
+        "number" : 3641,
+        "title" : "ModelConvertor By Type Not Possible.",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3641"
+      },
+      {
+        "number" : 3640,
+        "title" : "Java: Add support for fluent APIs",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3640"
+      },
+      {
+        "number" : 3635,
+        "title" : "Weird YAML tag in section /components/examples when serializing OpenAPI instance into YAML",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3635"
+      },
+      {
+        "number" : 3634,
+        "title" : "kotlin field annotated by @Schema(required = false, defaultValue = \"\") recognized as required",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3634"
+      },
+      {
+        "number" : 3633,
+        "title" : "Missing \"properties\" attribute in @Schema annotation ",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3633"
+      },
+      {
+        "number" : 3625,
+        "title" : "Is it a way or any instruction to configure swagger2.0 with Jersey1.X-Spring project?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3625"
+      },
+      {
+        "number" : 3621,
+        "title" : "operationId conflict",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3621"
+      },
+      {
+        "number" : 3614,
+        "title" : "How to set description for enum members?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3614"
+      },
+      {
+        "number" : 3610,
+        "title" : "Structural error should match format \"regex\"",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3610"
+      },
+      {
+        "number" : 3606,
+        "title" : "file response",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3606"
+      },
+      {
+        "number" : 3604,
+        "title" : "Question: Is there a way to have a ComposedSchema with a discriminator part in a contract generated with springdoc-openapi-maven-plugin?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3604"
+      },
+      {
+        "number" : 3602,
+        "title" : "Setting up OAuth2 password grant authorization for swagger",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3602"
+      },
+      {
+        "number" : 3600,
+        "title" : "Equivalent paths are not allowed even API method are different.",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3600"
+      },
+      {
+        "number" : 3599,
+        "title" : "Typo in the Documentation",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3599"
+      },
+      {
+        "number" : 3595,
+        "title" : "OpenAPI ignores optional JSON parameters",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3595"
+      },
+      {
+        "number" : 3591,
+        "title" : "@Paramter does not work with Jax-rs @FormParam",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3591"
+      },
+      {
+        "number" : 3585,
+        "title" : "ApiImplicitParam dataType = \"Integer\" has some problem",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3585"
+      },
+      {
+        "number" : 3582,
+        "title" : "OpenAPISpecFilter does not handle cookies correctly",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3582"
+      },
+      {
+        "number" : 3581,
+        "title" : "Can not hide an enum value using @Hidden",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3581"
+      },
+      {
+        "number" : 3579,
+        "title" : "Swagger, OpenAPI and YAML version details",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3579"
+      },
+      {
+        "number" : 3577,
+        "title" : "[usage question] Integer enum",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3577"
+      },
+      {
+        "number" : 3575,
+        "title" : "@ArraySchema and @Schema format property",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3575"
+      },
+      {
+        "number" : 3569,
+        "title" : "Two identical @Path with different @Response not picked up",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3569"
+      },
+      {
+        "number" : 3567,
+        "title" : "Question: Is there a way to specify allowableValues dynamically?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3567"
+      },
+      {
+        "number" : 3566,
+        "title" : "allowableValues extends in stead of replaces allowed values",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3566"
+      },
+      {
+        "number" : 3565,
+        "title" : "Swagger2 with multiple Resteasy applications does not work properly",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3565"
+      },
+      {
+        "number" : 3564,
+        "title" : "[swagger-models] Unable to find Schema properties anyOf, allOf, oneOf in `io.swagger.v3.oas.models.media.Schema`",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3564"
+      },
+      {
+        "number" : 3561,
+        "title" : "Descriptions of Class with Attributes Disappearing",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3561"
+      },
+      {
+        "number" : 3559,
+        "title" : "Make OpenAPI servlet serve UTF-8 encoded content",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3559"
+      },
+      {
+        "number" : 3558,
+        "title" : "OffsetDateTime format wrong",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3558"
+      },
+      {
+        "number" : 3557,
+        "title" : "Hide field from specification but not from deserialization",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3557"
+      },
+      {
+        "number" : 3556,
+        "title" : "Multiple SecurityRequirements annotations with AND condition",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3556"
+      },
+      {
+        "number" : 3550,
+        "title" : "Swagger 2.1 without Jackson",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3550"
+      },
+      {
+        "number" : 3548,
+        "title" : "Is it possible to generate spec only by writing annotations without having method call? like go-swagger to give all method details through annotations",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3548"
+      },
+      {
+        "number" : 3547,
+        "title" : "How to use @Schema with Properties for OAS? No examples, which annotation to use?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3547"
+      },
+      {
+        "number" : 3540,
+        "title" : "Multi dimensions arrays are not supported in v3 OpenAPI via Java Annotations.",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3540"
+      },
+      {
+        "number" : 3538,
+        "title" : "@Schema does not have a definition for array item types",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3538"
+      },
+      {
+        "number" : 3536,
+        "title" : "How to set baseUrl from java config in swagger core 1.6.x",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3536"
+      },
+      {
+        "number" : 3534,
+        "title" : "Bug in swagger-core-2.1.2, @Schema(implementation = Map.class) causes NPE",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3534"
+      },
+      {
+        "number" : 3533,
+        "title" : "swagger 2.x and plain servlets",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3533"
+      },
+      {
+        "number" : 3530,
+        "title" : "Getting StackOverflowError on ModelResolver",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3530"
+      },
+      {
+        "number" : 3526,
+        "title" : "How to add OpenAPI 3.0 endpoints manually",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3526"
+      },
+      {
+        "number" : 3525,
+        "title" : "required is being ignored on @Parameter",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3525"
+      },
+      {
+        "number" : 3522,
+        "title" : "Add a setter for OpenAPISpecFilter instance",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3522"
+      },
+      {
+        "number" : 3520,
+        "title" : "Does the swagger core 1.5.20 support for Java 11? If not, any timeline or recommendation?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3520"
+      },
+      {
+        "number" : 3518,
+        "title" : "Wrong documentation when nullable property is used in a field that maps to object",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3518"
+      },
+      {
+        "number" : 3516,
+        "title" : "Getting org/apache/commons/lang/builder/ToStringStyle while using BeanConfig method setScan with parameter true",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3516"
+      },
+      {
+        "number" : 3505,
+        "title" : "Not resolving type when using @Schema(implementation = ..)",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3505"
+      },
+      {
+        "number" : 3504,
+        "title" : "Default resource scanners ignore resourcePackages when resourceClasses is populated",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3504"
+      },
+      {
+        "number" : 3496,
+        "title" : "Swagger does not serializes Generic Objects in API response completely.",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3496"
+      },
+      {
+        "number" : 3494,
+        "title" : "Does not pick up Parameter description when applied on @FormParam",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3494"
+      },
+      {
+        "number" : 3486,
+        "title" : "Map<String,List<Map<String,Object>>> type swagger-ui",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3486"
+      },
+      {
+        "number" : 3484,
+        "title" : "Missing Open API schema property of collection self type",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3484"
+      },
+      {
+        "number" : 3479,
+        "title" : "Annotations: Schema type ignored on class but honoured for fields",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3479"
+      },
+      {
+        "number" : 3472,
+        "title" : "Support data types (java.net.)URI and (java.net.)URL",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3472"
+      },
+      {
+        "number" : 3471,
+        "title" : "how to generate OpenAPI document without resource package",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3471"
+      },
+      {
+        "number" : 3469,
+        "title" : "Schemas overwrite valid composedSchemas",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3469"
+      },
+      {
+        "number" : 3461,
+        "title" : "Memory leak issue in swagger-jaxrs2 on a Wildfly app server",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3461"
+      },
+      {
+        "number" : 3460,
+        "title" : "URL Encode",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3460"
+      },
+      {
+        "number" : 3457,
+        "title" : "Enums properties with description are missing description in swagger.json ",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3457"
+      },
+      {
+        "number" : 3456,
+        "title" : "SwaggerAnnotationIntrospector breaks Jackson's JsonCreator annotation",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3456"
+      },
+      {
+        "number" : 3455,
+        "title" : "Swagger won't use an empty string as an example",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3455"
+      },
+      {
+        "number" : 3454,
+        "title" : "Redundant \"type\" property of subclass in class hierarchy",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3454"
+      },
+      {
+        "number" : 3448,
+        "title" : "swagger-jaxrs should ignore synthetic methods",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3448"
+      },
+      {
+        "number" : 3444,
+        "title" : "CVE-2017-18640 in SnakeYaml (transitive dependency)",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3444"
+      },
+      {
+        "number" : 3437,
+        "title" : "MediaType routing not observed",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3437"
+      },
+      {
+        "number" : 3436,
+        "title" : "How to restrict parameter generation only to use annotations under @Operation from method level argument",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3436"
+      },
+      {
+        "number" : 3433,
+        "title" : "@Schema does not provide a property for: `Properties[] properties` ",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3433"
+      },
+      {
+        "number" : 3421,
+        "title" : "Composed Model For swagger 2.0 needs to include field discriminator field",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3421"
+      },
+      {
+        "number" : 3420,
+        "title" : "Using Swagger Annotations to generate XML namespace information",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3420"
+      },
+      {
+        "number" : 3418,
+        "title" : "OAS3: how to exclude fields in POST operation but not in PUT operation, referencing the same implementation class",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3418"
+      },
+      {
+        "number" : 3416,
+        "title" : "JsonNode only mapped to the first encountered oneOf DTOs",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3416"
+      },
+      {
+        "number" : 3413,
+        "title" : "Question: Is there a way to ignore super class parameters?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3413"
+      },
+      {
+        "number" : 3411,
+        "title" : "Consider the @JsonSubTypes for generating the discriminator mapping",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3411"
+      },
+      {
+        "number" : 3410,
+        "title" : "Question: Is there a way to allow @JsonIgnoreProperties( allowGetters = true) to allow the variable to be present in response example values , instead of avoiding it ?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3410"
+      },
+      {
+        "number" : 3393,
+        "title" : "How to over-write the type of a property field",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3393"
+      },
+      {
+        "number" : 3404,
+        "title" : "How to fix URLs displayed in Swagger UI?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3404"
+      },
+      {
+        "number" : 3390,
+        "title" : "@JsonSerialize overrides @Schema(hidden = true)",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3390"
+      },
+      {
+        "number" : 3389,
+        "title" : "Model Substitution is not working",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3389"
+      },
+      {
+        "number" : 3388,
+        "title" : "ModelConverters does not skip groovy.lang.MetaClass",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3388"
+      },
+      {
+        "number" : 3387,
+        "title" : "Define encoding type for multipart/form-data file upload is not possible",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3387"
+      },
+      {
+        "number" : 3384,
+        "title" : "Is it possible to include hidden operations in the resolved spec?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3384"
+      },
+      {
+        "number" : 3378,
+        "title" : "Does it support springMVC requestMapping AntPathMatcher？",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3378"
+      },
+      {
+        "number" : 3376,
+        "title" : "JSR-380 validation not working with Swager 2.9.2",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3376"
+      },
+      {
+        "number" : 3373,
+        "title" : "StringSchema.maxLength doesn't honour allowed json schema maxint",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3373"
+      },
+      {
+        "number" : 3372,
+        "title" : "Strings \"yes\" and \"no\" serialized as boolean",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3372"
+      },
+      {
+        "number" : 3368,
+        "title" : "Generate multiple OAS 3.0 files using the swagger-maven-plugin",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3368"
+      },
+      {
+        "number" : 3366,
+        "title" : "How to annotate an inline response?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3366"
+      },
+      {
+        "number" : 3362,
+        "title" : "Validation error: None is not of type 'object ",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3362"
+      },
+      {
+        "number" : 3361,
+        "title" : "Enum is generated as _enum property in openapi.json",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3361"
+      },
+      {
+        "number" : 3343,
+        "title" : "Error creating bean with name 'beanConfig' defined in class path resource [swagger-config.xml]: Error setting property values; nested exception is org.springframework.beans.PropertyBatchUpdateException; nested PropertyAccessExceptions (1) are: PropertyAccessException 1: org.springframework.beans.MethodInvocationException: Property 'scan' threw exception; nested exception is java.lang.NoClassDefFoundError: io/swagger/converter/PrimitiveType",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3343"
+      },
+      {
+        "number" : 3340,
+        "title" : "need help with $ref",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3340"
+      },
+      {
+        "number" : 3339,
+        "title" : "Trivia issue cause WARNING: definition is not used anywhere",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3339"
+      },
+      {
+        "number" : 3338,
+        "title" : "Not possible to DRY @Schema annotation",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3338"
+      },
+      {
+        "number" : 3337,
+        "title" : "Method parameters in @Operation annotation produces responseBody",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3337"
+      },
+      {
+        "number" : 3333,
+        "title" : "@Schema annotation with implementation as a Map type not working as expected",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3333"
+      },
+      {
+        "number" : 3331,
+        "title" : "swagger-maven-plugin aggregates OpenAPI definition in multimodule project",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3331"
+      },
+      {
+        "number" : 3323,
+        "title" : "Generic Response Types",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3323"
+      },
+      {
+        "number" : 3322,
+        "title" : "How to add additional documentation from JSON?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3322"
+      },
+      {
+        "number" : 3312,
+        "title" : "Inherited property missing from child Dto but present on identical sibling Dto",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3312"
+      },
+      {
+        "number" : 3310,
+        "title" : "Swagger ignores @JsonTypeInfo if applied through a Mixin",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3310"
+      },
+      {
+        "number" : 3302,
+        "title" : "Multi-module Maven Regression",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3302"
+      },
+      {
+        "number" : 3291,
+        "title" : "Missing unsigned integer types",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3291"
+      },
+      {
+        "number" : 3290,
+        "title" : "Producing allOf with $ref and additional properties using @Schema annotations?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3290"
+      },
+      {
+        "number" : 3282,
+        "title" : "ParameterIn.formData / @FormParam?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3282"
+      },
+      {
+        "number" : 3279,
+        "title" : "When using custom ModelConverter no refs to global type are added",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3279"
+      },
+      {
+        "number" : 3278,
+        "title" : "Swagger overriding Jackson ObjectMapper (jacksonJaxbjsonprovider)",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3278"
+      },
+      {
+        "number" : 3269,
+        "title" : "Problem with basePath (OpenAPI) and atlassian plugin",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3269"
+      },
+      {
+        "number" : 3256,
+        "title" : "extending bean validations",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3256"
+      },
+      {
+        "number" : 3253,
+        "title" : "Swagger does not generate documentation. Missing operation with a List as a parameter.",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3253"
+      },
+      {
+        "number" : 3252,
+        "title" : "1.5.22 expose /swagger.json in the result",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3252"
+      },
+      {
+        "number" : 3251,
+        "title" : "Swagger gradle plugin error :  java.util.ServiceConfigurationError ..JaxbAnnotationModule not a subtype",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3251"
+      },
+      {
+        "number" : 3250,
+        "title" : "Swagger download file  filename padded by Underline  before and after filename",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3250"
+      },
+      {
+        "number" : 3249,
+        "title" : "Have class-level @Extensions append extensions to operations",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3249"
+      },
+      {
+        "number" : 3248,
+        "title" : "Getting 500 internal for payload validation failure",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3248"
+      },
+      {
+        "number" : 3244,
+        "title" : "Inheritance getting lost by type re-resolution",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3244"
+      },
+      {
+        "number" : 3242,
+        "title" : "Swagger ignores @JsonCreator and @JsonValue annotations",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3242"
+      },
+      {
+        "number" : 3241,
+        "title" : "How do I get Swagger JAX-RS to figure out the host without specifying it",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3241"
+      },
+      {
+        "number" : 3237,
+        "title" : "Throw exception when same class name found",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3237"
+      },
+      {
+        "number" : 3234,
+        "title" : "Schema always generates a type when OneOf is used",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3234"
+      },
+      {
+        "number" : 3233,
+        "title" : "How to represent to send on field or another",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3233"
+      },
+      {
+        "number" : 3230,
+        "title" : "swagger-jaxrs2 generates invalid Openapi 3.0 file",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3230"
+      },
+      {
+        "number" : 3229,
+        "title" : "how to recognize my url difrred by params",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3229"
+      },
+      {
+        "number" : 3227,
+        "title" : "Swagger gradle plugin: how to exclude packages based on pattern ",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3227"
+      },
+      {
+        "number" : 3226,
+        "title" : "1.5.X position parameter to @ApiModelProperty gets added to resulting swagger",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3226"
+      },
+      {
+        "number" : 3225,
+        "title" : "@ApiImplicitParam set required = true will cause some parseerrors",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3225"
+      },
+      {
+        "number" : 3224,
+        "title" : "how format date and date-time?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3224"
+      },
+      {
+        "number" : 3222,
+        "title" : "@Pathparam List<PathSegment> is converted to Array of Object which is not ideal",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3222"
+      },
+      {
+        "number" : 3221,
+        "title" : "Response Schema not showing the second object",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3221"
+      },
+      {
+        "number" : 3219,
+        "title" : "Define a response body manually",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3219"
+      },
+      {
+        "number" : 3208,
+        "title" : "Unable to add example value for body",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3208"
+      },
+      {
+        "number" : 3207,
+        "title" : "How to disable authentication requirement for select endpoints?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3207"
+      },
+      {
+        "number" : 3205,
+        "title" : "POST a Stream in Jersey",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3205"
+      },
+      {
+        "number" : 3202,
+        "title" : "List<FormDataBodyPart> supportedModelsFormData to array of string in swagger output",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3202"
+      },
+      {
+        "number" : 3201,
+        "title" : "different interfaces to share the same object",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3201"
+      },
+      {
+        "number" : 3200,
+        "title" : "Using @Parameter objects on a query string",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3200"
+      },
+      {
+        "number" : 3199,
+        "title" : "@ApiModel support for \"example\"",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3199"
+      },
+      {
+        "number" : 3198,
+        "title" : "ApiModelProperty hidden doesnot work for java objects",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3198"
+      },
+      {
+        "number" : 3185,
+        "title" : "Repeatable annotations",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3185"
+      },
+      {
+        "number" : 3184,
+        "title" : "@ApiModelPorperty does not permit setting a default value",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3184"
+      },
+      {
+        "number" : 3180,
+        "title" : "@ApiModelProperty example property does not support jsonString",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3180"
+      },
+      {
+        "number" : 3178,
+        "title" : "In 1.5.X Kotlin's @Deprecated annotation not recognized when marking an endpoint as deprecated",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3178"
+      },
+      {
+        "number" : 3172,
+        "title" : "@ApiModelProperty(hidden = true) removes response fields from the API payloads, not just Swagger",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3172"
+      },
+      {
+        "number" : 3171,
+        "title" : "Add suport to another integer types",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3171"
+      },
+      {
+        "number" : 3170,
+        "title" : "No documentation for how to get AdditionalProperties to show up with @Schema",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3170"
+      },
+      {
+        "number" : 3169,
+        "title" : "ApiResponse annotation new \"type\" field, as shorter option to provide a schema implementation",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3169"
+      },
+      {
+        "number" : 3161,
+        "title" : "Implement x-forwarded-prefix overriding of the basePath",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3161"
+      },
+      {
+        "number" : 3160,
+        "title" : "with @ApiResponses no model object is used in response section",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3160"
+      },
+      {
+        "number" : 3156,
+        "title" : "Versioning REST API through content negotiation ",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3156"
+      },
+      {
+        "number" : 3155,
+        "title" : "@ApiModelProperty value doesn't show in Swagger UI",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3155"
+      },
+      {
+        "number" : 3153,
+        "title" : "Disable processing of JAXB annotations",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3153"
+      },
+      {
+        "number" : 3147,
+        "title" : "Swagger json parsing related issues",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3147"
+      },
+      {
+        "number" : 3140,
+        "title" : "Examples not rendering",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3140"
+      },
+      {
+        "number" : 3137,
+        "title" : "swagger.json is not being correctly generated",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3137"
+      },
+      {
+        "number" : 3136,
+        "title" : "Generate query parameters from API",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3136"
+      },
+      {
+        "number" : 3135,
+        "title" : "how to use swagger with any web framework",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3135"
+      },
+      {
+        "number" : 3134,
+        "title" : "swagger-gradle-plugin: ClassCastException on Task.Resolve in multiple subproject",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3134"
+      },
+      {
+        "number" : 3132,
+        "title" : "maxProperties and minProperties not supported in Model",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3132"
+      },
+      {
+        "number" : 3131,
+        "title" : "Use Json Object as response in @ApiResponses annotation in swagger",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3131"
+      },
+      {
+        "number" : 3130,
+        "title" : "OpenApi 3.0.1",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3130"
+      },
+      {
+        "number" : 3118,
+        "title" : "multiple responseCode",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3118"
+      },
+      {
+        "number" : 3104,
+        "title" : "I am gettiing fetch error and file not found exception",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3104"
+      },
+      {
+        "number" : 3103,
+        "title" : "Custom collection type in ApiOperation",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3103"
+      },
+      {
+        "number" : 3101,
+        "title" : "Bogus definitions included for java.util.Optional return types",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3101"
+      },
+      {
+        "number" : 3099,
+        "title" : "NumberFormatException appearing in the log",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3099"
+      },
+      {
+        "number" : 3097,
+        "title" : "Deserializer not failing when data types are invalid",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3097"
+      },
+      {
+        "number" : 3095,
+        "title" : "Default value of ArraySchema should be a list",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3095"
+      },
+      {
+        "number" : 3089,
+        "title" : "Can't reference javax.ws.rs.core.Response.Status enum in @ApiResponse.responseCode",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3089"
+      },
+      {
+        "number" : 3087,
+        "title" : "Multilevel anyOf input",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3087"
+      },
+      {
+        "number" : 3086,
+        "title" : "Can't display correct example value in swagger UI",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3086"
+      },
+      {
+        "number" : 3081,
+        "title" : "Custom annoations on jax rs methods and parameters",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3081"
+      },
+      {
+        "number" : 3080,
+        "title" : "Document Hashmap with @Schema",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3080"
+      },
+      {
+        "number" : 3075,
+        "title" : "on Swagger UI,cant't display Response Body",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3075"
+      },
+      {
+        "number" : 3072,
+        "title" : "Add custom annotation",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3072"
+      },
+      {
+        "number" : 3070,
+        "title" : "Problem with discribing a multipart request body with swagger annotations (v3 OAS) ",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3070"
+      },
+      {
+        "number" : 3065,
+        "title" : "Default values in models are not set in openAPI result",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3065"
+      },
+      {
+        "number" : 3064,
+        "title" : "Polymorphic property for one of child classess not resolved",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3064"
+      },
+      {
+        "number" : 3061,
+        "title" : "Parameter.java getAccess() is jsonIgnore",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3061"
+      },
+      {
+        "number" : 3059,
+        "title" : "Migration guide missing",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3059"
+      },
+      {
+        "number" : 3054,
+        "title" : "Can't execute multipart request from UI",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3054"
+      },
+      {
+        "number" : 3050,
+        "title" : "Generating correct schema for multipart/form requests using CXF",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3050"
+      },
+      {
+        "number" : 3049,
+        "title" : "allOf is duplicating properties for inherited model",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3049"
+      },
+      {
+        "number" : 3048,
+        "title" : "JsonView annotation for request body only works when content is defined",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3048"
+      },
+      {
+        "number" : 3047,
+        "title" : "Support partial responses",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3047"
+      },
+      {
+        "number" : 3045,
+        "title" : "Unable to multiple path to the same operations",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3045"
+      },
+      {
+        "number" : 3044,
+        "title" : "Generated definitions with angle brackets",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3044"
+      },
+      {
+        "number" : 3041,
+        "title" : "Annotate a superclasses methods ",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3041"
+      },
+      {
+        "number" : 3036,
+        "title" : "$ref not generated properly inside oneOf when the referenced object has @Schema(name) defined containing \".\"",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3036"
+      },
+      {
+        "number" : 3035,
+        "title" : "Descriptions for object properties are mixed-up",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3035"
+      },
+      {
+        "number" : 3028,
+        "title" : "Swagger-maven-plugin generates first OpenAPI spec when executed twice",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3028"
+      },
+      {
+        "number" : 3027,
+        "title" : "Overriding Models example",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3027"
+      },
+      {
+        "number" : 3025,
+        "title" : "openapi.json fails to take into account servlet context path, produces bad spec file",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3025"
+      },
+      {
+        "number" : 3024,
+        "title" : "Pair of API Keys does not work",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3024"
+      },
+      {
+        "number" : 3023,
+        "title" : "Is it possible to use Swagger annotations with swagger maven plugin without jaxrs?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3023"
+      },
+      {
+        "number" : 3022,
+        "title" : "@ApiOperation annotation of wordnik jar not recognized by Swagger ",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3022"
+      },
+      {
+        "number" : 3021,
+        "title" : "Cannot generate global `parameters` node using Java annotations",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3021"
+      },
+      {
+        "number" : 3020,
+        "title" : "Add custom field for @ApiModel",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3020"
+      },
+      {
+        "number" : 3012,
+        "title" : "problem with zuul and oauth2.0",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3012"
+      },
+      {
+        "number" : 3000,
+        "title" : "How to sequence groups in a swagger spec file",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/3000"
+      },
+      {
+        "number" : 2999,
+        "title" : "How to custom format for some type?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2999"
+      },
+      {
+        "number" : 2998,
+        "title" : "ApiImplicitParam and ApiImplicitParams for Swagger 2.X",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2998"
+      },
+      {
+        "number" : 2994,
+        "title" : "Swagger's Lack of Customization",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2994"
+      },
+      {
+        "number" : 2983,
+        "title" : "OpenAPI - Setting swagger-jaxrs2 Base Path in TomEE 7.1.0 (CXF)",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2983"
+      },
+      {
+        "number" : 2982,
+        "title" : "Any solutions to filter enum values for documentation ?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2982"
+      },
+      {
+        "number" : 2981,
+        "title" : "Get rid of Guava library",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2981"
+      },
+      {
+        "number" : 2980,
+        "title" : "Change Schema of Request Body",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2980"
+      },
+      {
+        "number" : 2976,
+        "title" : "Code generations creates uncompilable code",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2976"
+      },
+      {
+        "number" : 2969,
+        "title" : "Cannot substitute a model with \"string\"",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2969"
+      },
+      {
+        "number" : 2965,
+        "title" : "@Header annotation does not parse @Schema(implementation)",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2965"
+      },
+      {
+        "number" : 2961,
+        "title" : "Field with first letter lower case not recognized",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2961"
+      },
+      {
+        "number" : 2960,
+        "title" : "Java - Keep the description outside the \".java\" in a \".yaml\" ?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2960"
+      },
+      {
+        "number" : 2955,
+        "title" : "Maven and Gradle plugins enhancements",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2955"
+      },
+      {
+        "number" : 2953,
+        "title" : "New Feature -> Add @ApiOperation notes from resources file ?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2953"
+      },
+      {
+        "number" : 2952,
+        "title" : "Datatype is different in model whereas it's expected to be the same as per spec",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2952"
+      },
+      {
+        "number" : 2951,
+        "title" : "Examples not rendered",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2951"
+      },
+      {
+        "number" : 2949,
+        "title" : "Enum field and `allowableValues` constraint",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2949"
+      },
+      {
+        "number" : 2948,
+        "title" : "`@NonEmpty` param should be `required`",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2948"
+      },
+      {
+        "number" : 2942,
+        "title" : "@JsonView with @ApiResponses produces invalid definition.",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2942"
+      },
+      {
+        "number" : 2939,
+        "title" : "Allow multiple @ApiResponses with the same HTTP code",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2939"
+      },
+      {
+        "number" : 2938,
+        "title" : "ApiResponse responseContainer accept Flux",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2938"
+      },
+      {
+        "number" : 2937,
+        "title" : "Can't use Schema generated from return type when using explicit response content schemas",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2937"
+      },
+      {
+        "number" : 2930,
+        "title" : "@XmlElement on an array-type attribute (@ArraySchema) should affect the attribute itself not its items",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2930"
+      },
+      {
+        "number" : 2929,
+        "title" : "Always print exception like this",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2929"
+      },
+      {
+        "number" : 2928,
+        "title" : "Allow @ApiModelProperty allowableValues property to be set using application properties",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2928"
+      },
+      {
+        "number" : 2927,
+        "title" : "io.swagger.models.Path cannot support one HttpMethod with different media-type",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2927"
+      },
+      {
+        "number" : 2925,
+        "title" : "Embed and shade needed dependencies to make swagger as self contained utility and not cause version conflicts.",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2925"
+      },
+      {
+        "number" : 2924,
+        "title" : "Allow external notes and descriptions",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2924"
+      },
+      {
+        "number" : 2916,
+        "title" : "Add support for generic types",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2916"
+      },
+      {
+        "number" : 2914,
+        "title" : "@Schema annotation on a property using anyOf without describing an implmentation",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2914"
+      },
+      {
+        "number" : 2912,
+        "title" : "【suggestion】In this JSON file->https://petstore.swagger.io/v2/swagger.json,Specified type",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2912"
+      },
+      {
+        "number" : 2901,
+        "title" : "Representing properties which can be of any type in v2 spec",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2901"
+      },
+      {
+        "number" : 2899,
+        "title" : "Enhance 1.5 BeanConfig docs to mention usePathBasedConfig property",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2899"
+      },
+      {
+        "number" : 2897,
+        "title" : "Swagger does not work.",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2897"
+      },
+      {
+        "number" : 2893,
+        "title" : "Generating swagger documentation in support for  Retrofit ",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2893"
+      },
+      {
+        "number" : 2892,
+        "title" : "Support for more generalized traversal of the OpenAPI object",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2892"
+      },
+      {
+        "number" : 2891,
+        "title" : "Support to add properties in @Schema",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2891"
+      },
+      {
+        "number" : 2889,
+        "title" : "Swagger Annotations not supported for request body with polymorphic fields",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2889"
+      },
+      {
+        "number" : 2888,
+        "title" : "How to configure SwaggerSpecFilter in Spring boot application",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2888"
+      },
+      {
+        "number" : 2886,
+        "title" : "Multiple Example Model View in Swagger UI in Java",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2886"
+      },
+      {
+        "number" : 2884,
+        "title" : "JSON wrapper object not mapped to proper OpenAPI model",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2884"
+      },
+      {
+        "number" : 2879,
+        "title" : "Update Jetty to address multiple CVE threats",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2879"
+      },
+      {
+        "number" : 2873,
+        "title" : "1.5.20 AbstractSerializableParameter default example print abnormal",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2873"
+      },
+      {
+        "number" : 2870,
+        "title" : "Generic type used when a more specific one is available. (2.0.2)",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2870"
+      },
+      {
+        "number" : 2869,
+        "title" : "We need a function that shows the maintainer",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2869"
+      },
+      {
+        "number" : 2868,
+        "title" : "Extending JAX-RS annotated interfaces creates duplicate operationIds in OASv3",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2868"
+      },
+      {
+        "number" : 2859,
+        "title" : "@ApiModelProperty - Field 'dataType' should be Class type",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2859"
+      },
+      {
+        "number" : 2858,
+        "title" : "How can I add additional models (models that are not in rest) to OpenAPI.json documentation?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2858"
+      },
+      {
+        "number" : 2857,
+        "title" : "Swagger Core ignores url pattern in Jersey with Dropwizard",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2857"
+      },
+      {
+        "number" : 2856,
+        "title" : "Generated Clients cannot can not serialize objects with type info from @JsonTypeInfo",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2856"
+      },
+      {
+        "number" : 2855,
+        "title" : "Generating model definitions with @JsonSubTypes takes extremely long?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2855"
+      },
+      {
+        "number" : 2853,
+        "title" : "@ApiParam(allowMultiple=true) @QueryParam(\"empNames\") @Size(max=10) List<String> empNames",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2853"
+      },
+      {
+        "number" : 2852,
+        "title" : "ApiModelProperty data type AnyValue",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2852"
+      },
+      {
+        "number" : 2851,
+        "title" : "v1.5.X ApiOperation Docs Missing Hidden Parameter",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2851"
+      },
+      {
+        "number" : 2845,
+        "title" : "Swagger does not respect Jackson @JsonIgnoreProperties annotation",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2845"
+      },
+      {
+        "number" : 2844,
+        "title" : "disable global security for particular operation",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2844"
+      },
+      {
+        "number" : 2837,
+        "title" : "Define a REST resource that returns one of the types",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2837"
+      },
+      {
+        "number" : 2836,
+        "title" : "document a HTTP header param which is only used by interceptor/filter and does not appear in the method signature",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2836"
+      },
+      {
+        "number" : 2831,
+        "title" : "can I use the Javadocs instead of?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2831"
+      },
+      {
+        "number" : 2826,
+        "title" : "Support for constraints at the schema member level in java classes",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2826"
+      },
+      {
+        "number" : 2824,
+        "title" : "\"required\" property on @Parameter annotation looks ignored",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2824"
+      },
+      {
+        "number" : 2823,
+        "title" : "Deserialization Parameter subtypes ",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2823"
+      },
+      {
+        "number" : 2811,
+        "title" : "SwaggerUI: Bean fields without setter are still shown in POST body entity",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2811"
+      },
+      {
+        "number" : 2807,
+        "title" : "Swagger ignoring \"required\" from @RequestParam when a @ApiParam is present.",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2807"
+      },
+      {
+        "number" : 2805,
+        "title" : "Unable to define request body that are applicable for all the operations described under this path",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2805"
+      },
+      {
+        "number" : 2802,
+        "title" : "Swagger Required property not working",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2802"
+      },
+      {
+        "number" : 2793,
+        "title" : "Nested type parameters for implementation type cause NullPointerException",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2793"
+      },
+      {
+        "number" : 2792,
+        "title" : "No schema generated when @JsonAnyGetter is used",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2792"
+      },
+      {
+        "number" : 2789,
+        "title" : "Support JSON-B @JsonbProperty in generated documentation",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2789"
+      },
+      {
+        "number" : 2786,
+        "title" : "Jackson support for Swagger-Core 1.5.*",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2786"
+      },
+      {
+        "number" : 2785,
+        "title" : "OpenApiResource line 106 yields NPE if no classes within listed packages have an @OpenAPIDefinition annotation",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2785"
+      },
+      {
+        "number" : 2779,
+        "title" : "JSON schema as a response type",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2779"
+      },
+      {
+        "number" : 2777,
+        "title" : "Map wrapper class could not take any <key, value> pair",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2777"
+      },
+      {
+        "number" : 2775,
+        "title" : "[1.5.18] Swagger file rendering - Elements sorted alphabetically ",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2775"
+      },
+      {
+        "number" : 2774,
+        "title" : "Resolving schema loop",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2774"
+      },
+      {
+        "number" : 2750,
+        "title" : "Property(package io.swagger.models.properties) Swagger Core v1.5.18 missing getItems method",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2750"
+      },
+      {
+        "number" : 2747,
+        "title" : "Add support for GenericEntity ",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2747"
+      },
+      {
+        "number" : 2744,
+        "title" : "[ENHANCEMENT] Require multiple security schemes (all, not some)",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2744"
+      },
+      {
+        "number" : 2743,
+        "title" : "How can I make a controller class as deprecated?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2743"
+      },
+      {
+        "number" : 2742,
+        "title" : "Swagger.json is not getting generated",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2742"
+      },
+      {
+        "number" : 2734,
+        "title" : "[BUG] Doesn't pick up @Context parameter annotations from interface",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2734"
+      },
+      {
+        "number" : 2732,
+        "title" : "ReaderListener methods called twice, second time with incomplete model",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2732"
+      },
+      {
+        "number" : 2721,
+        "title" : "Add support for Multi-value Map to OAS 3.0",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2721"
+      },
+      {
+        "number" : 2705,
+        "title" : "200 Responses Not Overwritten at the Class Level",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2705"
+      },
+      {
+        "number" : 2703,
+        "title" : "@ApiParam: Problem rendering String[] example value in Swagger Editor",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2703"
+      },
+      {
+        "number" : 2679,
+        "title" : "Swagger not displaying Java List<> for input",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2679"
+      },
+      {
+        "number" : 2676,
+        "title" : "What about the project sample-oatuh-provider ?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2676"
+      },
+      {
+        "number" : 2660,
+        "title" : "How to add multiple discriminators in swagger",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2660"
+      },
+      {
+        "number" : 2640,
+        "title" : "Deployment fails since enabling CDI in 2.0.0-SNAPSHOT.",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2640"
+      },
+      {
+        "number" : 2637,
+        "title" : "Reading type and required of ComposedModel",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2637"
+      },
+      {
+        "number" : 2631,
+        "title" : "Resource packages config does not restrict what packages and classes are scanned",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2631"
+      },
+      {
+        "number" : 2624,
+        "title" : "Nested types generate swagger doc incorrectly, Maybe.",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2624"
+      },
+      {
+        "number" : 2617,
+        "title" : "Enable CDI w/ swagger-jaxrs2",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2617"
+      },
+      {
+        "number" : 2614,
+        "title" : "'Required' property is being ignored",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2614"
+      },
+      {
+        "number" : 2611,
+        "title" : "Wrong schema generating with multiple Java methods based on one path.",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2611"
+      },
+      {
+        "number" : 2608,
+        "title" : "BUG: Long values displayed incorrectly in json response",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2608"
+      },
+      {
+        "number" : 2605,
+        "title" : "Documenting REST-calls that must be called beforehand",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2605"
+      },
+      {
+        "number" : 2603,
+        "title" : "How I can refer in @ExampleObject to local resource in my project repository?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2603"
+      },
+      {
+        "number" : 2602,
+        "title" : "allowableValues in ApiImplicitParam allows only list values, range is not supported ?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2602"
+      },
+      {
+        "number" : 2601,
+        "title" : "io.swagger.models.parameters.Parameter getType()",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2601"
+      },
+      {
+        "number" : 2600,
+        "title" : "@SwaggerDefinition ignored when annotating a subclass of Jersey's ResourceConfig",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2600"
+      },
+      {
+        "number" : 2591,
+        "title" : "Sharing `@ApiImplicitParams` across resources",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2591"
+      },
+      {
+        "number" : 2586,
+        "title" : "Parameter definition: Value of 'collectionFormat' overwritten when defined before 'type' property.",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2586"
+      },
+      {
+        "number" : 2578,
+        "title" : "Swagger core Jackson annotations with older versions of Jackson",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2578"
+      },
+      {
+        "number" : 2573,
+        "title" : "More then one content type of response",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2573"
+      },
+      {
+        "number" : 2558,
+        "title" : "Setting no host in beanconfig, results in no host in swagger.json",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2558"
+      },
+      {
+        "number" : 2554,
+        "title" : "OAuth2.0 - Flow Authorization Code with Open ID Connect (OIDC)",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2554"
+      },
+      {
+        "number" : 2551,
+        "title" : "bind param to a model map property",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2551"
+      },
+      {
+        "number" : 2550,
+        "title" : "Generating docs for no model returned?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2550"
+      },
+      {
+        "number" : 2542,
+        "title" : "long datatype issue in swagger.json",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2542"
+      },
+      {
+        "number" : 2537,
+        "title" : "Set schemes from the application.conf in play",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2537"
+      },
+      {
+        "number" : 2506,
+        "title" : "No support for \"deprecated\" on properties",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2506"
+      },
+      {
+        "number" : 2505,
+        "title" : "@SwaggerDefinition partially working and some properties are ignored",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2505"
+      },
+      {
+        "number" : 2500,
+        "title" : "Does Swagger Annotation Override JAX-RS?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2500"
+      },
+      {
+        "number" : 2496,
+        "title" : "Field 'readOnly' in parameter interface is missing in specification 2.0",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2496"
+      },
+      {
+        "number" : 2494,
+        "title" : "Custom GsonJsonProvider causing invalid swagger.json to be generated",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2494"
+      },
+      {
+        "number" : 2491,
+        "title" : "Types converted to `string` for @ApiParams",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2491"
+      },
+      {
+        "number" : 2488,
+        "title" : "@XmlRootElement(namespace=\"\") is not applied correctly",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2488"
+      },
+      {
+        "number" : 2482,
+        "title" : "Template class reference path interpreted in wrong way",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2482"
+      },
+      {
+        "number" : 2478,
+        "title" : "swagger-jaxrs ignores trailing slash in @Path annotation.",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2478"
+      },
+      {
+        "number" : 2477,
+        "title" : "Unable to do $ref on request body ",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2477"
+      },
+      {
+        "number" : 2474,
+        "title" : "Autocomplete for input values in Swagger API",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2474"
+      },
+      {
+        "number" : 2461,
+        "title" : "Add support to set additionalProperties with boolean values",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2461"
+      },
+      {
+        "number" : 2460,
+        "title" : "Path Object does not specify type of Operation",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2460"
+      },
+      {
+        "number" : 2458,
+        "title" : "@ApiParam allowableValues multiple comma separated values",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2458"
+      },
+      {
+        "number" : 2457,
+        "title" : "Cannot enumerate objects as different possible values of a parameter",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2457"
+      },
+      {
+        "number" : 2454,
+        "title" : "MapProperty doesn't return both properties and additionalProperties",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2454"
+      },
+      {
+        "number" : 2453,
+        "title" : "@NotNull @BeanParam containing optional @QueryParam",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2453"
+      },
+      {
+        "number" : 2451,
+        "title" : "securitySchemes at the operation object level",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2451"
+      },
+      {
+        "number" : 2449,
+        "title" : "A defined number type loses the enum type definition: those enums are always Text",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2449"
+      },
+      {
+        "number" : 2448,
+        "title" : "io.swagger.models.Operation does not indicate what type of operation it is",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2448"
+      },
+      {
+        "number" : 2447,
+        "title" : "Special character path",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2447"
+      },
+      {
+        "number" : 2441,
+        "title" : "Fixing minimum and maximum elements type in @Schema",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2441"
+      },
+      {
+        "number" : 2434,
+        "title" : "Provide an API to force a new scan of resources",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2434"
+      },
+      {
+        "number" : 2428,
+        "title" : "Make possible to create custom annotation that is annotated with @ApiModelProperty",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2428"
+      },
+      {
+        "number" : 2418,
+        "title" : "java.lang.NullPointerException at io.swagger.jaxrs.config.BeanConfig.classes",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2418"
+      },
+      {
+        "number" : 2414,
+        "title" : "Swagger request body required not working",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2414"
+      },
+      {
+        "number" : 2413,
+        "title" : "@ApiParam(hidden = true) on property with object as type is ignored",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2413"
+      },
+      {
+        "number" : 2408,
+        "title" : "Add support for Reflections input filtering",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2408"
+      },
+      {
+        "number" : 2400,
+        "title" : "Swagger-Models: Make definitions use a sorted Map instead of HashMap",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2400"
+      },
+      {
+        "number" : 2356,
+        "title" : "Map typing or the lack thereof",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2356"
+      },
+      {
+        "number" : 2355,
+        "title" : "swagger.json is missing paths",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2355"
+      },
+      {
+        "number" : 2354,
+        "title" : "Global definitions of error responses",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2354"
+      },
+      {
+        "number" : 2353,
+        "title" : "Add roles or permissions",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2353"
+      },
+      {
+        "number" : 2352,
+        "title" : "Incorrect/undesirable serialization of enum annotated with @ApiModel",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2352"
+      },
+      {
+        "number" : 2351,
+        "title" : "Integration with RestEasy 3.x + WildFly - 404 Could not find resource",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2351"
+      },
+      {
+        "number" : 2350,
+        "title" : "Example with sub types",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2350"
+      },
+      {
+        "number" : 2348,
+        "title" : "Static inner class ApiParamWrapper not loaded with Jersey 2.21",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2348"
+      },
+      {
+        "number" : 2347,
+        "title" : "Add support for annotation stereotypes",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2347"
+      },
+      {
+        "number" : 2344,
+        "title" : "Add javadoc to OAS3 models",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2344"
+      },
+      {
+        "number" : 2339,
+        "title" : "ApiResponse annotation missing headers",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2339"
+      },
+      {
+        "number" : 2338,
+        "title" : "[swagger-jaxrs] Set jsr311 dependency as provided or remove it",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2338"
+      },
+      {
+        "number" : 2335,
+        "title" : "Swagger annotations are not being retrieved if controller method has an aspect on it",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2335"
+      },
+      {
+        "number" : 2334,
+        "title" : "Documenting an @ApiResponse that produces a List as XML has no way to indicate the wrapper",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2334"
+      },
+      {
+        "number" : 2332,
+        "title" : "Property starting with _ yields a get_ prefix in its corresponding model/spec",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2332"
+      },
+      {
+        "number" : 2331,
+        "title" : "Swagger not working inside Jar",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2331"
+      },
+      {
+        "number" : 2330,
+        "title" : "@Info annotation is not picked up on my Swagger.json file (Scala)",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2330"
+      },
+      {
+        "number" : 2325,
+        "title" : "Contributing to swagger",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2325"
+      },
+      {
+        "number" : 2310,
+        "title" : "why there is [null]?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2310"
+      },
+      {
+        "number" : 2306,
+        "title" : "3.0 Annotations need javadoc",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2306"
+      },
+      {
+        "number" : 2302,
+        "title" : "ApiParam annotation documentation - list supported values for type and format",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2302"
+      },
+      {
+        "number" : 2301,
+        "title" : "Allow annotations to be grouped together by adding ElementType.ANNOTATION_TYPE to @Target",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2301"
+      },
+      {
+        "number" : 2298,
+        "title" : "Swagger ignores model annotations from external library",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2298"
+      },
+      {
+        "number" : 2296,
+        "title" : "Swagger 2.0 model is not able to persist in the MongoDB.",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2296"
+      },
+      {
+        "number" : 2292,
+        "title" : "YAML Serialization Improvements",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2292"
+      },
+      {
+        "number" : 2288,
+        "title" : "Endpoint with OPTIONS httpmethod not listing parameters from path",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2288"
+      },
+      {
+        "number" : 2285,
+        "title" : "Swagger for servlets",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2285"
+      },
+      {
+        "number" : 2276,
+        "title" : "Is it possible to integrate it with Vert.x using annotations, so as to generate the API Documentation dynamically ?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2276"
+      },
+      {
+        "number" : 2273,
+        "title" : "Update logback to 1.2.0 or later - Revisited",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2273"
+      },
+      {
+        "number" : 2270,
+        "title" : "ReaderListeners are not picked up",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2270"
+      },
+      {
+        "number" : 2263,
+        "title" : "@ApiResponse annotation responseCode as string is annoying",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2263"
+      },
+      {
+        "number" : 2262,
+        "title" : "ModelConverter doesn't consider the private properties of the @Schema classes",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2262"
+      },
+      {
+        "number" : 2260,
+        "title" : "Swagger does not support multiple model converter or resovlers",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2260"
+      },
+      {
+        "number" : 2259,
+        "title" : "no way to create parameter references with java annotations",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2259"
+      },
+      {
+        "number" : 2257,
+        "title" : "allowableValues in ApiImplicitParam allows only constants. How to add dynamic values to any parameter?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2257"
+      },
+      {
+        "number" : 2256,
+        "title" : "SwaggerDefinition annotation does not work",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2256"
+      },
+      {
+        "number" : 2249,
+        "title" : "polymorphism definitions not created",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2249"
+      },
+      {
+        "number" : 2243,
+        "title" : "interpret path incorrectly if there is optional path param",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2243"
+      },
+      {
+        "number" : 2239,
+        "title" : "Resteasy/Guice  Unable to find contextual data of type: javax.servlet.ServletConfig",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2239"
+      },
+      {
+        "number" : 2230,
+        "title" : "mapping for same class names not work",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2230"
+      },
+      {
+        "number" : 2227,
+        "title" : "Add deep clone to OAS 3.0 models",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2227"
+      },
+      {
+        "number" : 2226,
+        "title" : "BeanConfig is not setting up swagger instance correctly and is missing properties",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2226"
+      },
+      {
+        "number" : 2224,
+        "title" : "Scala Enum Objects do not convert in to ApiModel types",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2224"
+      },
+      {
+        "number" : 2223,
+        "title" : "JWT token authentication",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2223"
+      },
+      {
+        "number" : 2219,
+        "title" : "Method name parsing by swagger-core is case insensitive",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2219"
+      },
+      {
+        "number" : 2216,
+        "title" : "Datatype for InputStream",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2216"
+      },
+      {
+        "number" : 2210,
+        "title" : "@ ApiModelPropertity of different control based on different interfaces",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2210"
+      },
+      {
+        "number" : 2202,
+        "title" : "Swagger annotations for restful services with JSON data type and without Java Models usage",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2202"
+      },
+      {
+        "number" : 2201,
+        "title" : "PropertyBuilder.build does not apply value of REQUIRED passed in args",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2201"
+      },
+      {
+        "number" : 2199,
+        "title" : "@ApiModelProperty doesn't support setting default value",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2199"
+      },
+      {
+        "number" : 2195,
+        "title" : "rename v3 packages",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2195"
+      },
+      {
+        "number" : 2194,
+        "title" : "Swagger-Jaxrs does not recognize @API annotations with different classloader",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2194"
+      },
+      {
+        "number" : 2193,
+        "title" : "v3 programmatic interface",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2193"
+      },
+      {
+        "number" : 2192,
+        "title" : "Field name is getting generated wrongly if field type is \"Boolean\" (wrapper class for boolean) instead of primitive \"boolean\" type",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2192"
+      },
+      {
+        "number" : 2191,
+        "title" : "Parameterized type as body parameter results in incorrect generated JSON ",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2191"
+      },
+      {
+        "number" : 2190,
+        "title" : "invalid LOC header (bad signature)",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2190"
+      },
+      {
+        "number" : 2186,
+        "title" : "ApiModelProperty dosent work",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2186"
+      },
+      {
+        "number" : 2181,
+        "title" : "ModelImpl does not have attributes `pattern`, `minLength`, `maxLength` for string definition",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2181"
+      },
+      {
+        "number" : 2178,
+        "title" : "Properties of type \"number\" of \"integer\" without format lose their \"enum\" and \"defaultValue\" at import",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2178"
+      },
+      {
+        "number" : 2177,
+        "title" : "Documentation of Implementation classes for Interfaces with Generics body arguments can return the Generic class as the body argument instead of the impl class",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2177"
+      },
+      {
+        "number" : 2175,
+        "title" : "Support for response and schema examples",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2175"
+      },
+      {
+        "number" : 2165,
+        "title" : "vendorExtensions is missing from equals(Object) and hashCode() in some classes in io.swagger.models",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2165"
+      },
+      {
+        "number" : 2160,
+        "title" : "Swagger Jaxrs package multiple version of Jackson-core and Jackson-Annotations, which lead to Runtime ClassDefNotFound Error ",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2160"
+      },
+      {
+        "number" : 2159,
+        "title" : "Change jersey2-version to 2.25.1",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2159"
+      },
+      {
+        "number" : 2158,
+        "title" : "Email field generated in example value is not a valid email. It makes a schema validation fail.",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2158"
+      },
+      {
+        "number" : 2157,
+        "title" : "Overriding Models",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2157"
+      },
+      {
+        "number" : 2156,
+        "title" : "Ignoring a property in getter, and showing only in setter not working in swagger",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2156"
+      },
+      {
+        "number" : 2155,
+        "title" : "Other url-pattern on Swagger-ui to separate documentation (With Jersey)",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2155"
+      },
+      {
+        "number" : 2154,
+        "title" : "Enum values in ModelImpl are not getting cloned",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2154"
+      },
+      {
+        "number" : 2153,
+        "title" : "value property is required on ApiOperation annotation",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2153"
+      },
+      {
+        "number" : 2151,
+        "title" : "JAX-RS: add vendor extension to @Path",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2151"
+      },
+      {
+        "number" : 2148,
+        "title" : "How can I specify a title for a ApiResponse and ApiModel",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2148"
+      },
+      {
+        "number" : 2146,
+        "title" : "JAX-RS BeanParams issue with generic types",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2146"
+      },
+      {
+        "number" : 2144,
+        "title" : "Swagger with java inheritances",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2144"
+      },
+      {
+        "number" : 2143,
+        "title" : "JAX-RS: java.util.Optional is an unrecognized type",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2143"
+      },
+      {
+        "number" : 2138,
+        "title" : "swagger-core treats relative refs without leading \".\" as internal refs",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2138"
+      },
+      {
+        "number" : 2136,
+        "title" : "JAX-RS java application: Support all HTTP methods located in Sub-Resource",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2136"
+      },
+      {
+        "number" : 2132,
+        "title" : "Cannot add converters to the end of the list",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2132"
+      },
+      {
+        "number" : 2129,
+        "title" : "java.lang.RuntimeException \tat org.objectweb.asm.MethodVisitor.visitParameter error",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2129"
+      },
+      {
+        "number" : 2125,
+        "title" : "JAXBElement is not introspeced",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2125"
+      },
+      {
+        "number" : 2124,
+        "title" : "allowableValues in @ApiParam",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2124"
+      },
+      {
+        "number" : 2122,
+        "title" : "Problems with x-examples and x-example vendor extension support",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2122"
+      },
+      {
+        "number" : 2120,
+        "title" : "Can jaxb generate swagger annotations? ",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2120"
+      },
+      {
+        "number" : 2119,
+        "title" : "Resolve external references",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2119"
+      },
+      {
+        "number" : 2118,
+        "title" : "Fix typo on Annotations-1.5.X",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2118"
+      },
+      {
+        "number" : 2116,
+        "title" : "Swagger is not generated from main resource to subresource with hidden-true",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2116"
+      },
+      {
+        "number" : 2114,
+        "title" : "Play2/Scala: @ApiModelProperty doesn’t interpret nested Scala Option[] properties correctly",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2114"
+      },
+      {
+        "number" : 2111,
+        "title" : "Same swagger.json for multiple servlets",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2111"
+      },
+      {
+        "number" : 2110,
+        "title" : "Swagger without \"@Path\" annotation",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2110"
+      },
+      {
+        "number" : 2109,
+        "title" : "Generate Swagger from JAX-RS endpoint with external enum definition",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2109"
+      },
+      {
+        "number" : 2107,
+        "title" : "@BeanParam not working",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2107"
+      },
+      {
+        "number" : 2104,
+        "title" : "Why SwaggerAnnotationIntrospector doesn't implement findRootName?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2104"
+      },
+      {
+        "number" : 2103,
+        "title" : "Inheritance not working",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2103"
+      },
+      {
+        "number" : 2102,
+        "title" : "Convert Java @Pattern validation to valid Swagger patterns",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2102"
+      },
+      {
+        "number" : 2100,
+        "title" : "Bug in PropertyDeserializer when \"enum\":null",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2100"
+      },
+      {
+        "number" : 2099,
+        "title" : "Using swagger with multiple API applications, swagger.json documents get mixed up",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2099"
+      },
+      {
+        "number" : 2093,
+        "title" : "XML Date format treated as date-time format",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2093"
+      },
+      {
+        "number" : 2092,
+        "title" : "Enum value not taken over",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2092"
+      },
+      {
+        "number" : 2090,
+        "title" : "Name of complex XML Element not taken over",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2090"
+      },
+      {
+        "number" : 2087,
+        "title" : "@ApiModelProperty needs format attribute",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2087"
+      },
+      {
+        "number" : 2086,
+        "title" : "java.lang.NoSuchMethodError: io.swagger.models.properties.BaseIntegerProperty.getMinimum()Ljava/lang/Double",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2086"
+      },
+      {
+        "number" : 2083,
+        "title" : "Serious bug in ReflectionUtils.isOverriddenMethod",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2083"
+      },
+      {
+        "number" : 2074,
+        "title" : "Return tag based on tag name",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2074"
+      },
+      {
+        "number" : 2060,
+        "title" : "The 'host' and 'basePath' attributes will be overwrote when using both BeanConfig and @SwaggerDefinition",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2060"
+      },
+      {
+        "number" : 2000,
+        "title" : "Default value for list parameters",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/2000"
+      },
+      {
+        "number" : 1997,
+        "title" : "Support for inheritance in ModelConvertor",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/1997"
+      },
+      {
+        "number" : 1982,
+        "title" : "Support subTypes registered via JSON.mapper().registerSubtypes()",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/1982"
+      },
+      {
+        "number" : 1969,
+        "title" : "Extending @Api",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/1969"
+      },
+      {
+        "number" : 1961,
+        "title" : "How do I attach an Example to a SchemaObject?",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/1961"
+      },
+      {
+        "number" : 1898,
+        "title" : "@Extension(s) on @ApiModel and @ApiModelProperty",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/1898"
+      },
+      {
+        "number" : 1848,
+        "title" : "Object is not allowed for a model name (e.g. org.mip.mim.Object\")",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/1848"
+      },
+      {
+        "number" : 1841,
+        "title" : "JSON key/name being tranformed by swagger (basically gets camel cased)",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/1841"
+      },
+      {
+        "number" : 1826,
+        "title" : "Add GSON support",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/1826"
+      },
+      {
+        "number" : 1824,
+        "title" : "swagger-servlet - support use of a custom reader extension instead of ServletReaderExtension",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/1824"
+      },
+      {
+        "number" : 1823,
+        "title" : "swagger-servlet - allow path customization",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/1823"
+      },
+      {
+        "number" : 1793,
+        "title" : "Allow ModelConverter to be configured via BeanConfig",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/1793"
+      },
+      {
+        "number" : 1792,
+        "title" : "Allow ReaderListener to be configured in BeanConfig",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/1792"
+      },
+      {
+        "number" : 1740,
+        "title" : "Inherited model definition won't get generated unless used in the API or explicitly mentioned",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/1740"
+      },
+      {
+        "number" : 1737,
+        "title" : "`@ApiModel(parent = Pet.class)` seems to have no affect when `subTypes` isn't set",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/1737"
+      },
+      {
+        "number" : 1729,
+        "title" : "vendor extensions in Path map",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/1729"
+      },
+      {
+        "number" : 1725,
+        "title" : "responses object doesn't have vendorExtensions",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/1725"
+      },
+      {
+        "number" : 1724,
+        "title" : "(Base)ApiListingResource initialized field should not be static",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/1724"
+      },
+      {
+        "number" : 1686,
+        "title" : "SwaggerExtensions shouldn't fail cause it can't load an extension",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/1686"
+      },
+      {
+        "number" : 1594,
+        "title" : "title attribute in @SwaggerDefinition @Info is ignored",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/1594"
+      },
+      {
+        "number" : 1564,
+        "title" : "ApiImplicitParam should support class as parameter",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/1564"
+      },
+      {
+        "number" : 1559,
+        "title" : "ApiImplicitParam's dataType should take a class",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/1559"
+      },
+      {
+        "number" : 1179,
+        "title" : "Infer responses/response codes for operations",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/1179"
+      },
+      {
+        "number" : 1107,
+        "title" : "Example values in containers",
+        "url" : "https://github.com/swagger-api/swagger-core/issues/1107"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : null,
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "http-servers-and-clients",
+    "beginnerIssuesLabel" : null
+  }
+}

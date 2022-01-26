@@ -1,0 +1,595 @@
+{
+  "organization" : "scapegoat-scala",
+  "repository" : "scapegoat",
+  "creationDate" : 1451853022823,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643168813119
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "",
+    "description" : "Scala compiler plugin for static code analysis",
+    "logo" : "https://avatars.githubusercontent.com/u/88286146?v=4",
+    "stars" : 453,
+    "forks" : 72,
+    "watchers" : 19,
+    "issues" : 54,
+    "creationDate" : 1385055958000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-scapegoat\" class=\"anchor\" aria-hidden=\"true\" href=\"#scapegoat\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Scapegoat</h1>\n<p dir=\"auto\"><a href=\"https://codecov.io/gh/sksamuel/scapegoat\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/4e5fc3130efe9c785ae60d007d2cb7d942c20dc27f19941035709d42d88c485a/68747470733a2f2f696d672e736869656c64732e696f2f636f6465636f762f632f6769746875622f736b73616d75656c2f7363617065676f6174\" alt=\"Codecov\" data-canonical-src=\"https://img.shields.io/codecov/c/github/sksamuel/scapegoat\" style=\"max-width: 100%;\"></a>\n<a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22scalac-scapegoat-plugin_2.11.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/3fbcf6c43a1d1a0c9d4dc60251b71bdc19a99a72c74638faeba42668a6c8c3cf/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e7363617065676f61742f7363616c61632d7363617065676f61742d706c7567696e5f322e31312e31322e7376673f6c6162656c3d6c617465737425323072656c65617365253230666f72253230322e31312e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.scapegoat/scalac-scapegoat-plugin_2.11.12.svg?label=latest%20release%20for%202.11.12\" style=\"max-width: 100%;\"></a>\n<a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22scalac-scapegoat-plugin_2.12.15%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/64fef70c179f987cddbfacb3f909afc810a36f5d96cb28ccef0972289e9e8d57/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e7363617065676f61742f7363616c61632d7363617065676f61742d706c7567696e5f322e31322e31352e7376673f6c6162656c3d6c617465737425323072656c65617365253230666f72253230322e31322e3135\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.scapegoat/scalac-scapegoat-plugin_2.12.15.svg?label=latest%20release%20for%202.12.15\" style=\"max-width: 100%;\"></a>\n<a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22scalac-scapegoat-plugin_2.13.6%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/832bc68ff103b127a9be1ccf7f11f3a6054629cd8fb65b4f81beabe24ff21a71/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e7363617065676f61742f7363616c61632d7363617065676f61742d706c7567696e5f322e31332e362e7376673f6c6162656c3d6c617465737425323072656c65617365253230666f72253230322e31332e36\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.scapegoat/scalac-scapegoat-plugin_2.13.6.svg?label=latest%20release%20for%202.13.6\" style=\"max-width: 100%;\"></a>\n<a href=\"https://scala-steward.org\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/ce4631236151895bad0602b9a8b3ea84244a6b5808f2057ddd99a873defce0d5/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5363616c615f537465776172642d68656c70696e672d626c75652e7376673f7374796c653d666c6174266c6f676f3d646174613a696d6167652f706e673b6261736536342c6956424f5277304b47676f414141414e5355684555674141414134414141415143414d414141415253723449414141415646424d56455541414143486a6f6a6c4f79354e576c724b7a6359524b6a47466a496270323933597963754c6133705959324c5371716c346633704355465467536a4e6f6459526d6358557350442f4e5454626a52532b326a6f6d68676e7a4e633232336347765a53304861534430584c6a6261536a456c6849722b4141414141585253546c4d41514f62595a67414141486c4a52454655434e644e796f734f77794149685748415153315674376137372f3366637878646d763078776d636b75744152316e6b6d34676762794563672f77576d6c474c444141336f4c3530786936666b3566665a334532453351665a444363434e3259746245575a742b447263367536726c717637556b304c644b71717235726b32554352584f6b30766d514b47666339346e4f4a79516a6f754639482f774363396745434559664f4e6f41414141415355564f524b35435949493d\" alt=\"Scala Steward badge\" data-canonical-src=\"https://img.shields.io/badge/Scala_Steward-helping-blue.svg?style=flat&amp;logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAQCAMAAAARSr4IAAAAVFBMVEUAAACHjojlOy5NWlrKzcYRKjGFjIbp293YycuLa3pYY2LSqql4f3pCUFTgSjNodYRmcXUsPD/NTTbjRS+2jomhgnzNc223cGvZS0HaSD0XLjbaSjElhIr+AAAAAXRSTlMAQObYZgAAAHlJREFUCNdNyosOwyAIhWHAQS1Vt7a77/3fcxxdmv0xwmckutAR1nkm4ggbyEcg/wWmlGLDAA3oL50xi6fk5ffZ3E2E3QfZDCcCN2YtbEWZt+Drc6u6rlqv7Uk0LdKqqr5rk2UCRXOk0vmQKGfc94nOJyQjouF9H/wCc9gECEYfONoAAAAASUVORK5CYII=\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Scapegoat is a Scala static code analyzer, what is more colloquially known as a code lint tool or linter. Scapegoat works in a similar vein to Java's <a href=\"http://findbugs.sourceforge.net/\" rel=\"nofollow\">FindBugs</a> or <a href=\"http://checkstyle.sourceforge.net/\" rel=\"nofollow\">checkstyle</a>, or Scala's <a href=\"https://github.com/scalastyle/scalastyle\">Scalastyle</a>.</p>\n<p dir=\"auto\">A static code analyzer is a tool that flags suspicious language usage in code. This can include behavior likely to lead to bugs, non idiomatic usage of a language, or just code that doesn't conform to specified style guidelines.</p>\n<p dir=\"auto\"><strong>What's the difference between this project and Scalastyle (or others)?</strong></p>\n<p dir=\"auto\">Scalastyle is a similar linting tool which focuses mostly on enforcing style/code standards. There are no problems in running multiple analysis tools on the same codebase. In fact it could be beneficial as the total set of possible warnings is the union of the inspections of all the enabled tools. The worst case is that the same warnings might be generated by multiple tools.</p>\n<h2 dir=\"auto\"><a id=\"user-content-usage\" class=\"anchor\" aria-hidden=\"true\" href=\"#usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Usage</h2>\n<p dir=\"auto\">Scapegoat is developed as a scala compiler plugin, which can then be used inside your build tool.</p>\n<h3 dir=\"auto\"><a id=\"user-content-sbt\" class=\"anchor\" aria-hidden=\"true\" href=\"#sbt\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>SBT</h3>\n<p dir=\"auto\">See: <a href=\"https://github.com/sksamuel/sbt-scapegoat\">sbt-scapegoat</a> for SBT integration.</p>\n<h3 dir=\"auto\"><a id=\"user-content-maven\" class=\"anchor\" aria-hidden=\"true\" href=\"#maven\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Maven</h3>\n<p dir=\"auto\">Firstly you need to add scapegoat plugin as a dependency:</p>\n<div class=\"highlight highlight-text-xml position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&lt;dependency&gt;\n    &lt;groupId&gt;com.sksamuel.scapegoat&lt;/groupId&gt;\n    &lt;artifactId&gt;scalac-scapegoat-plugin_${scala.version}&lt;/artifactId&gt;\n    &lt;version&gt;1.3.12&lt;/version&gt;\n&lt;/dependency&gt;\"><pre>&lt;<span class=\"pl-ent\">dependency</span>&gt;\n    &lt;<span class=\"pl-ent\">groupId</span>&gt;com.sksamuel.scapegoat&lt;/<span class=\"pl-ent\">groupId</span>&gt;\n    &lt;<span class=\"pl-ent\">artifactId</span>&gt;scalac-scapegoat-plugin_${scala.version}&lt;/<span class=\"pl-ent\">artifactId</span>&gt;\n    &lt;<span class=\"pl-ent\">version</span>&gt;1.3.12&lt;/<span class=\"pl-ent\">version</span>&gt;\n&lt;/<span class=\"pl-ent\">dependency</span>&gt;</pre></div>\n<p dir=\"auto\">Then configure <code>scala-maven-plugin</code> by adding <code>compilerPlugin</code></p>\n<div class=\"highlight highlight-text-xml position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&lt;plugin&gt;\n    &lt;groupId&gt;net.alchim31.maven&lt;/groupId&gt;\n    &lt;artifactId&gt;scala-maven-plugin&lt;/artifactId&gt;\n    &lt;configuration&gt;\n        &lt;args&gt;\n            &lt;arg&gt;-P:scapegoat:dataDir:./target/scapegoat&lt;/arg&gt;\n        &lt;/args&gt;\n        &lt;compilerPlugins&gt;\n            &lt;compilerPlugin&gt;\n                &lt;groupId&gt;com.sksamuel.scapegoat&lt;/groupId&gt;\n                &lt;artifactId&gt;scalac-scapegoat-plugin_${scala.binary.version}&lt;/artifactId&gt;\n                &lt;version&gt;1.4.6&lt;/version&gt;\n            &lt;/compilerPlugin&gt;\n        &lt;/compilerPlugins&gt;\n    &lt;/configuration&gt;\n&lt;/plugin&gt;\"><pre>&lt;<span class=\"pl-ent\">plugin</span>&gt;\n    &lt;<span class=\"pl-ent\">groupId</span>&gt;net.alchim31.maven&lt;/<span class=\"pl-ent\">groupId</span>&gt;\n    &lt;<span class=\"pl-ent\">artifactId</span>&gt;scala-maven-plugin&lt;/<span class=\"pl-ent\">artifactId</span>&gt;\n    &lt;<span class=\"pl-ent\">configuration</span>&gt;\n        &lt;<span class=\"pl-ent\">args</span>&gt;\n            &lt;<span class=\"pl-ent\">arg</span>&gt;-P:scapegoat:dataDir:./target/scapegoat&lt;/<span class=\"pl-ent\">arg</span>&gt;\n        &lt;/<span class=\"pl-ent\">args</span>&gt;\n        &lt;<span class=\"pl-ent\">compilerPlugins</span>&gt;\n            &lt;<span class=\"pl-ent\">compilerPlugin</span>&gt;\n                &lt;<span class=\"pl-ent\">groupId</span>&gt;com.sksamuel.scapegoat&lt;/<span class=\"pl-ent\">groupId</span>&gt;\n                &lt;<span class=\"pl-ent\">artifactId</span>&gt;scalac-scapegoat-plugin_${scala.binary.version}&lt;/<span class=\"pl-ent\">artifactId</span>&gt;\n                &lt;<span class=\"pl-ent\">version</span>&gt;1.4.6&lt;/<span class=\"pl-ent\">version</span>&gt;\n            &lt;/<span class=\"pl-ent\">compilerPlugin</span>&gt;\n        &lt;/<span class=\"pl-ent\">compilerPlugins</span>&gt;\n    &lt;/<span class=\"pl-ent\">configuration</span>&gt;\n&lt;/<span class=\"pl-ent\">plugin</span>&gt;</pre></div>\n<p dir=\"auto\">The only required parameter is <code>dataDir</code> (where report will be generated):</p>\n<p dir=\"auto\"><code>&lt;arg&gt;-P:scapegoat:dataDir:./target/scapegoat&lt;/arg&gt;</code></p>\n<p dir=\"auto\">You can pass other configuration flags same way, e.g.</p>\n<p dir=\"auto\"><code>&lt;arg&gt;-P:scapegoat:disabledInspections:FinalModifierOnCaseClass&lt;/arg&gt;</code></p>\n<p dir=\"auto\">Note: You may use a separate maven profile, so that the dependency doesn't go to you runtime classpath.</p>\n<h3 dir=\"auto\"><a id=\"user-content-gradle-with-a-plugin\" class=\"anchor\" aria-hidden=\"true\" href=\"#gradle-with-a-plugin\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Gradle with a plugin</h3>\n<p dir=\"auto\">Use <a href=\"https://github.com/eugene-sy/gradle-scapegoat-plugin\">gradle-scapegoat-plugin by @eugene-sy</a></p>\n<h3 dir=\"auto\"><a id=\"user-content-gradle---manually\" class=\"anchor\" aria-hidden=\"true\" href=\"#gradle---manually\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Gradle - manually</h3>\n<p dir=\"auto\">Firstly you need to add scapegoat plugin as a dependency:</p>\n<div class=\"highlight highlight-source-groovy position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"dependencies {\n  compile 'com.sksamuel.scapegoat:scalac-scapegoat-plugin_2.12.14:1.4.6'\n  scalaCompilerPlugin &quot;com.sksamuel.scapegoat:scalac-scapegoat-plugin_2.12.14:1.4.6&quot;\n}\n\"><pre>dependencies {\n  compile <span class=\"pl-s\"><span class=\"pl-pds\">'</span>com.sksamuel.scapegoat:scalac-scapegoat-plugin_2.12.14:1.4.6<span class=\"pl-pds\">'</span></span>\n  scalaCompilerPlugin <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.sksamuel.scapegoat:scalac-scapegoat-plugin_2.12.14:1.4.6<span class=\"pl-pds\">\"</span></span>\n}\n</pre></div>\n<p dir=\"auto\">Then configure <code>scala-compiler-plugin</code></p>\n<div class=\"highlight highlight-source-groovy position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"configurations {\n  scalaCompilerPlugin\n}\n\ntasks.withType(ScalaCompile) {\n  scalaCompileOptions.additionalParameters = [\n    &quot;-Xplugin:&quot; + configurations.scalaCompilerPlugin.asPath,\n    &quot;-P:scapegoat:dataDir:&quot; + buildDir + &quot;/scapegoat&quot;\n  ]\n}\n\"><pre>configurations {\n  scalaCompilerPlugin\n}\n\ntasks<span class=\"pl-k\">.</span>withType(<span class=\"pl-k\">ScalaCompile</span>) {\n  scalaCompileOptions<span class=\"pl-k\">.</span>additionalParameters <span class=\"pl-k\">=</span> [\n    <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>-Xplugin:<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">+</span> configurations<span class=\"pl-k\">.</span>scalaCompilerPlugin<span class=\"pl-k\">.</span>asPath,\n    <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>-P:scapegoat:dataDir:<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">+</span> buildDir <span class=\"pl-k\">+</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>/scapegoat<span class=\"pl-pds\">\"</span></span>\n  ]\n}\n</pre></div>\n<p dir=\"auto\">The only required parameter is <code>dataDir</code> (where report will be generated):</p>\n<p dir=\"auto\"><code>\"-P:scapegoat:dataDir:\" + buildDir + \"/scapegoat\",</code></p>\n<p dir=\"auto\">You can pass other configuration flags adding it to the <code>additionalParameters</code> list, e.g.</p>\n<p dir=\"auto\"><code>\"-P:scapegoat:disabledInspections:FinalModifierOnCaseClass\"</code></p>\n<h2 dir=\"auto\"><a id=\"user-content-full-list-of-compiler-flags\" class=\"anchor\" aria-hidden=\"true\" href=\"#full-list-of-compiler-flags\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Full list of compiler flags</h2>\n<table>\n<thead>\n<tr>\n<th>Flag</th>\n<th>Parameters</th>\n<th>Required</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>-P:scapegoat:dataDir:</code></td>\n<td>Path to reports directory for the plugin.</td>\n<td>true</td>\n</tr>\n<tr>\n<td><code>-P:scapegoat:disabledInspections:</code></td>\n<td>Colon separated list of disabled inspections (defaults to none).</td>\n<td>false</td>\n</tr>\n<tr>\n<td><code>-P:scapegoat:enabledInspections:</code></td>\n<td>Colon separated list of enabled inspections (defaults to all).</td>\n<td>false</td>\n</tr>\n<tr>\n<td><code>-P:scapegoat:customInspectors:</code></td>\n<td>Colon separated list of custom inspections.</td>\n<td>false</td>\n</tr>\n<tr>\n<td><code>-P:scapegoat:ignoredFiles:</code></td>\n<td>Colon separated list of regexes to match files to ignore.</td>\n<td>false</td>\n</tr>\n<tr>\n<td><code>-P:scapegoat:verbose:</code></td>\n<td>Boolean flag that enables/disables verbose console messages.</td>\n<td>false</td>\n</tr>\n<tr>\n<td><code>-P:scapegoat:consoleOutput:</code></td>\n<td>Boolean flag that enables/disables console report output.</td>\n<td>false</td>\n</tr>\n<tr>\n<td><code>-P:scapegoat:reports:</code></td>\n<td>Colon separated list of reports to generate. Valid options are <code>none</code>, <code>xml</code>, <code>html</code>, <code>scalastyle</code>, <code>markdown</code>, or <code>all</code>.</td>\n<td>false</td>\n</tr>\n<tr>\n<td><code>-P:scapegoat:overrideLevels:</code></td>\n<td>Overrides the built in warning levels. Should be a colon separated list of <code>name=level</code> expressions.</td>\n<td>false</td>\n</tr>\n<tr>\n<td><code>-P:scapegoat:sourcePrefix:</code></td>\n<td>Overrides source prefix if it differs from <code>src/main/scala</code>, for ex. <code>app/</code> for Play applications.</td>\n<td>false</td>\n</tr>\n<tr>\n<td><code>-P:scapegoat:minimalLevel:</code></td>\n<td>Provides minimal level of inspection displayed in reports and in the console.</td>\n<td>false</td>\n</tr>\n</tbody>\n</table>\n<h2 dir=\"auto\"><a id=\"user-content-reports\" class=\"anchor\" aria-hidden=\"true\" href=\"#reports\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Reports</h2>\n<p dir=\"auto\">Here is sample output from the console during the build for a project with warnings/errors:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"[warning] [scapegoat] Unused method parameter - org.ensime.util.ClassIterator.scala:46\n[warning] [scapegoat] Unused method parameter - org.ensime.util.ClassIterator.scala:137\n[warning] [scapegoat] Use of var - org.ensime.util.ClassIterator.scala:22\n[warning] [scapegoat] Use of var - org.ensime.util.ClassIterator.scala:157\n[   info] [scapegoat]: Inspecting compilation unit [FileUtil.scala]\n[warning] [scapegoat] Empty if statement - org.ensime.util.FileUtil.scala:157\n[warning] [scapegoat] Expression as statement - org.ensime.util.FileUtil.scala:180\n\"><pre><code>[warning] [scapegoat] Unused method parameter - org.ensime.util.ClassIterator.scala:46\n[warning] [scapegoat] Unused method parameter - org.ensime.util.ClassIterator.scala:137\n[warning] [scapegoat] Use of var - org.ensime.util.ClassIterator.scala:22\n[warning] [scapegoat] Use of var - org.ensime.util.ClassIterator.scala:157\n[   info] [scapegoat]: Inspecting compilation unit [FileUtil.scala]\n[warning] [scapegoat] Empty if statement - org.ensime.util.FileUtil.scala:157\n[warning] [scapegoat] Expression as statement - org.ensime.util.FileUtil.scala:180\n\n</code></pre></div>\n<p dir=\"auto\">And if you prefer a prettier report, here is a screen shot of the type of HTML report scapegoat generates:</p>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://raw.githubusercontent.com/sksamuel/scapegoat/master/screenshot1.png\"><img src=\"https://raw.githubusercontent.com/sksamuel/scapegoat/master/screenshot1.png\" alt=\"screenshot\" style=\"max-width: 100%;\"></a></p>\n<h2 dir=\"auto\"><a id=\"user-content-configuration\" class=\"anchor\" aria-hidden=\"true\" href=\"#configuration\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Configuration</h2>\n<p dir=\"auto\">For instructions on suppressing warnings by file, by inspection or by line see <a href=\"https://github.com/sksamuel/sbt-scapegoat\">the sbt-scapegoat README</a>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-inspections\" class=\"anchor\" aria-hidden=\"true\" href=\"#inspections\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Inspections</h3>\n<p dir=\"auto\">There are currently 118 inspections. An overview list is given, followed by a more detailed description of each inspection after the list (todo: finish rest of detailed descriptions)</p>\n<table>\n<thead>\n<tr>\n<th>Name</th>\n<th>Brief Description</th>\n<th>Default Level</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>ArrayEquals</td>\n<td>Checks for comparison of arrays using <code>==</code> which will always return false</td>\n<td>Info</td>\n</tr>\n<tr>\n<td>ArraysInFormat</td>\n<td>Checks for arrays passed to String.format</td>\n<td>Error</td>\n</tr>\n<tr>\n<td>ArraysToString</td>\n<td>Checks for explicit toString calls on arrays</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>AsInstanceOf</td>\n<td>Checks for use of <code>asInstanceOf</code></td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>AvoidOperatorOverload</td>\n<td>Checks for mental symbolic method names</td>\n<td>Info</td>\n</tr>\n<tr>\n<td>AvoidSizeEqualsZero</td>\n<td>Traversable.size can be slow for some data structure, prefer .isEmpty</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>AvoidSizeNotEqualsZero</td>\n<td>Traversable.size can be slow for some data structure, prefer .nonEmpty</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>AvoidToMinusOne</td>\n<td>Checks for loops that use <code>x to n-1</code> instead of <code>x until n</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>BigDecimalDoubleConstructor</td>\n<td>Checks for use of <code>BigDecimal(double)</code> which can be unsafe</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>BigDecimalScaleWithoutRoundingMode</td>\n<td><code>setScale()</code> on a <code>BigDecimal</code> without setting the rounding mode can throw an exception</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>BoundedByFinalType</td>\n<td>Looks for types with upper bounds of a final type</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>BrokenOddness</td>\n<td>checks for a % 2 == 1 for oddness because this fails on negative numbers</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>CatchException</td>\n<td>Checks for try blocks that catch Exception</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>CatchFatal</td>\n<td>Checks for try blocks that catch fatal exceptions: VirtualMachineError, ThreadDeath, InterruptedException, LinkageError, ControlThrowable</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>CatchNpe</td>\n<td>Checks for try blocks that catch null pointer exceptions</td>\n<td>Error</td>\n</tr>\n<tr>\n<td>CatchThrowable</td>\n<td>Checks for try blocks that catch Throwable</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>ClassNames</td>\n<td>Ensures class names adhere to the style guidelines</td>\n<td>Info</td>\n</tr>\n<tr>\n<td>CollectionIndexOnNonIndexedSeq</td>\n<td>Checks for indexing on a Seq which is not an IndexedSeq</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>CollectionNamingConfusion</td>\n<td>Checks for variables that are confusingly named</td>\n<td>Info</td>\n</tr>\n<tr>\n<td>CollectionNegativeIndex</td>\n<td>Checks for negative access on a sequence eg <code>list.get(-1)</code></td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>CollectionPromotionToAny</td>\n<td>Checks for collection operations that promote the collection to <code>Any</code></td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>ComparingFloatingPointTypes</td>\n<td>Checks for equality checks on floating point types</td>\n<td>Error</td>\n</tr>\n<tr>\n<td>ComparingUnrelatedTypes</td>\n<td>Checks for equality comparisons that cannot succeed</td>\n<td>Error</td>\n</tr>\n<tr>\n<td>ComparisonToEmptyList</td>\n<td>Checks for code like <code>a == List()</code> or <code>a == Nil</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>ComparisonToEmptySet</td>\n<td>Checks for code like <code>a == Set()</code> or <code>a == Set.empty</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>ComparisonWithSelf</td>\n<td>Checks for equality checks with itself</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>ConstantIf</td>\n<td>Checks for code where the if condition compiles to a constant</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>DivideByOne</td>\n<td>Checks for divide by one, which always returns the original value</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>DoubleNegation</td>\n<td>Checks for code like <code>!(!b)</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>DuplicateImport</td>\n<td>Checks for import statements that import the same selector</td>\n<td>Info</td>\n</tr>\n<tr>\n<td>DuplicateMapKey</td>\n<td>Checks for duplicate key names in Map literals</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>DuplicateSetValue</td>\n<td>Checks for duplicate values in set literals</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>EitherGet</td>\n<td>Checks for use of .get on Left or Right</td>\n<td>Error</td>\n</tr>\n<tr>\n<td>EmptyCaseClass</td>\n<td>Checks for case classes like <code>case class Faceman()</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>EmptyFor</td>\n<td>Checks for empty <code>for</code> loops</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>EmptyIfBlock</td>\n<td>Checks for empty <code>if</code> blocks</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>EmptyInterpolatedString</td>\n<td>Looks for interpolated strings that have no arguments</td>\n<td>Error</td>\n</tr>\n<tr>\n<td>EmptyMethod</td>\n<td>Looks for empty methods</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>EmptySynchronizedBlock</td>\n<td>Looks for empty synchronized blocks</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>EmptyTryBlock</td>\n<td>Looks for empty try blocks</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>EmptyWhileBlock</td>\n<td>Looks for empty while loops</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>ExistsSimplifiableToContains</td>\n<td><code>exists(x =&gt; x == b)</code> replaceable with <code>contains(b)</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>FilterDotHead</td>\n<td><code>.filter(x =&gt; ).head</code> can be replaced with <code>find(x =&gt; ) match { .. } </code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>FilterDotHeadOption</td>\n<td><code>.filter(x =&gt;).headOption</code> can be replaced with <code>find(x =&gt; )</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>FilterDotIsEmpty</td>\n<td><code>.filter(x =&gt; ).isEmpty</code> can be replaced with <code>!exists(x =&gt; )</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>FilterDotSize</td>\n<td><code>.filter(x =&gt; ).size</code> can be replaced more concisely with with <code>count(x =&gt; )</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>FilterOptionAndGet</td>\n<td><code>.filter(_.isDefined).map(_.get)</code> can be replaced with <code>flatten</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>FinalModifierOnCaseClass</td>\n<td>Using Case classes without <code>final</code> modifier can lead to surprising breakage</td>\n<td>Info</td>\n</tr>\n<tr>\n<td>FinalizerWithoutSuper</td>\n<td>Checks for overridden finalizers that do not call super</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>FindAndNotEqualsNoneReplaceWithExists</td>\n<td><code>.find(x =&gt; ) != None</code> can be replaced with <code>exist(x =&gt; )</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>FindDotIsDefined</td>\n<td><code>find(x =&gt; ).isDefined</code> can be replaced with <code>exist(x =&gt; )</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>IllegalFormatString</td>\n<td>Looks for invalid format strings</td>\n<td>Error</td>\n</tr>\n<tr>\n<td>ImpossibleOptionSizeCondition</td>\n<td>Checks for code like <code>option.size &gt; 2</code> which can never be true</td>\n<td>Error</td>\n</tr>\n<tr>\n<td>IncorrectNumberOfArgsToFormat</td>\n<td>Checks for wrong number of arguments to <code>String.format</code></td>\n<td>Error</td>\n</tr>\n<tr>\n<td>IncorrectlyNamedExceptions</td>\n<td>Checks for exceptions that are not called *Exception and vice versa</td>\n<td>Error</td>\n</tr>\n<tr>\n<td>InvalidRegex</td>\n<td>Checks for invalid regex literals</td>\n<td>Info</td>\n</tr>\n<tr>\n<td>IsInstanceOf</td>\n<td>Checks for use of <code>isInstanceOf</code></td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>JavaConversionsUse</td>\n<td>Checks for use of implicit Java conversions</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>ListAppend</td>\n<td>Checks for List :+ which is O(n)</td>\n<td>Info</td>\n</tr>\n<tr>\n<td>ListSize</td>\n<td>Checks for <code>List.size</code> which is O(n).</td>\n<td>Info</td>\n</tr>\n<tr>\n<td>LonelySealedTrait</td>\n<td>Checks for sealed traits which have no implementation</td>\n<td>Error</td>\n</tr>\n<tr>\n<td>LooksLikeInterpolatedString</td>\n<td>Finds strings that look like they should be interpolated but are not</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>MapGetAndGetOrElse</td>\n<td><code>Map.get(key).getOrElse(value)</code> can be replaced with <code>Map.getOrElse(key, value)</code></td>\n<td>Error</td>\n</tr>\n<tr>\n<td>MaxParameters</td>\n<td>Checks for methods that have over 10 parameters</td>\n<td>Info</td>\n</tr>\n<tr>\n<td>MethodNames</td>\n<td>Warns on method names that don't adhere to the Scala style guidelines</td>\n<td>Info</td>\n</tr>\n<tr>\n<td>MethodReturningAny</td>\n<td>Checks for defs that are defined or inferred to return <code>Any</code></td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>ModOne</td>\n<td>Checks for <code>x % 1</code> which will always return <code>0</code></td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>NanComparison</td>\n<td>Checks for <code>x == Double.NaN</code> which will always fail</td>\n<td>Error</td>\n</tr>\n<tr>\n<td>NegationIsEmpty</td>\n<td><code>!Traversable.isEmpty</code> can be replaced with <code>Traversable.nonEmpty</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>NegationNonEmpty</td>\n<td><code>!Traversable.nonEmpty</code> can be replaced with <code>Traversable.isEmpty</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>NoOpOverride</td>\n<td>Checks for code that overrides parent method but simply calls super</td>\n<td>Info</td>\n</tr>\n<tr>\n<td>NullAssignment</td>\n<td>Checks for use of <code>null</code> in assignments</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>NullParameter</td>\n<td>Checks for use of <code>null</code> in method invocation</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>ObjectNames</td>\n<td>Ensures object names adhere to the Scala style guidelines</td>\n<td>Info</td>\n</tr>\n<tr>\n<td>OptionGet</td>\n<td>Checks for <code>Option.get</code></td>\n<td>Error</td>\n</tr>\n<tr>\n<td>OptionSize</td>\n<td>Checks for <code>Option.size</code></td>\n<td>Error</td>\n</tr>\n<tr>\n<td>ParameterlessMethodReturnsUnit</td>\n<td>Checks for <code>def foo : Unit</code></td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>PartialFunctionInsteadOfMatch</td>\n<td>Warns when you could use a partial function directly instead of a match block</td>\n<td>Info</td>\n</tr>\n<tr>\n<td>PointlessTypeBounds</td>\n<td>Finds type bounds of the form <code>[A &lt;: Any]</code> or <code>[A &gt;: Nothing]</code></td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>PreferMapEmpty</td>\n<td>Checks for Map() when could use Map.empty</td>\n<td>Info</td>\n</tr>\n<tr>\n<td>PreferSeqEmpty</td>\n<td>Checks for Seq() when could use Seq.empty</td>\n<td>Info</td>\n</tr>\n<tr>\n<td>PreferSetEmpty</td>\n<td>Checks for Set() when could use Set.empty</td>\n<td>Info</td>\n</tr>\n<tr>\n<td>ProductWithSerializableInferred</td>\n<td>Checks for vals that have <code>Product with Serializable</code> as their inferred type</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>PublicFinalizer</td>\n<td>Checks for overridden finalizes that are public</td>\n<td>Info</td>\n</tr>\n<tr>\n<td>RedundantFinalModifierOnMethod</td>\n<td>Redundant <code>final</code> modifier on method that cannot be overridden</td>\n<td>Info</td>\n</tr>\n<tr>\n<td>RedundantFinalModifierOnVar</td>\n<td>Redundant <code>final</code> modifier on var that cannot be overridden</td>\n<td>Info</td>\n</tr>\n<tr>\n<td>RedundantFinalizer</td>\n<td>Checks for empty finalizers.</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>RepeatedCaseBody</td>\n<td>Checks for case statements which have the same body</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>RepeatedIfElseBody</td>\n<td>Checks for the main branch and the else branch of an <code>if</code> being the same</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>ReverseFunc</td>\n<td><code>reverse</code> followed by <code>head</code>, <code>headOption</code>, <code>iterator</code>, or<code>map</code> can be replaced, respectively, with <code>last</code>, <code>lastOption</code>, <code>reverseIterator</code>, or <code>reverseMap</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>ReverseTailReverse</td>\n<td><code>.reverse.tail.reverse</code> can be replaced with <code>init</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>ReverseTakeReverse</td>\n<td><code>.reverse.take(...).reverse</code> can be replaced with <code>takeRight</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>SimplifyBooleanExpression</td>\n<td><code>b == false</code> can be simplified to <code>!b</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>StripMarginOnRegex</td>\n<td>Checks for .stripMargin on regex strings that contain a pipe</td>\n<td>Error</td>\n</tr>\n<tr>\n<td>SubstringZero</td>\n<td>Checks for <code>String.substring(0)</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>SuspiciousMatchOnClassObject</td>\n<td>Finds code where matching is taking place on class literals</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>SwallowedException</td>\n<td>Finds catch blocks that don't handle caught exceptions</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>SwapSortFilter</td>\n<td><code>sort.filter</code> can be replaced with <code>filter.sort</code> for performance</td>\n<td>Info</td>\n</tr>\n<tr>\n<td>TryGet</td>\n<td>Checks for use of <code>Try.get</code></td>\n<td>Error</td>\n</tr>\n<tr>\n<td>TypeShadowing</td>\n<td>Checks for shadowed type parameters in methods</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>UnnecessaryConversion</td>\n<td>Checks for unnecessary <code>toInt</code> on instances of Int or <code>toString</code> on Strings, etc.</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>UnnecessaryIf</td>\n<td>Checks for code like <code>if (expr) true else false</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>UnnecessaryReturnUse</td>\n<td>Checks for use of <code>return</code> keyword in blocks</td>\n<td>Info</td>\n</tr>\n<tr>\n<td>UnreachableCatch</td>\n<td>Checks for catch clauses that cannot be reached</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>UnsafeContains</td>\n<td>Checks for <code>List.contains(value)</code> for invalid types</td>\n<td>Error</td>\n</tr>\n<tr>\n<td>UnsafeStringContains</td>\n<td>Checks for <code>String.contains(value)</code> for invalid types</td>\n<td>Error</td>\n</tr>\n<tr>\n<td>UnsafeTraversableMethods</td>\n<td>Check unsafe traversable method usages (head, tail, init, last, reduce, reduceLeft, reduceRight, max, maxBy, min, minBy)</td>\n<td>Error</td>\n</tr>\n<tr>\n<td>UnusedMethodParameter</td>\n<td>Checks for unused method parameters</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>UseCbrt</td>\n<td>Checks for use of <code>math.pow</code> for calculating <code>math.cbrt</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>UseExpM1</td>\n<td>Checks for use of <code>math.exp(x) - 1</code> instead of <code>math.expm1(x)</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>UseLog10</td>\n<td>Checks for use of <code>math.log(x)/math.log(10)</code> instead of <code>math.log10(x)</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>UseLog1P</td>\n<td>Checks for use of <code>math.log(x + 1)</code> instead of <code>math.log1p(x)</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>UseSqrt</td>\n<td>Checks for use of <code>math.pow</code> for calculating <code>math.sqrt</code></td>\n<td>Info</td>\n</tr>\n<tr>\n<td>VarClosure</td>\n<td>Finds closures that reference var</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>VarCouldBeVal</td>\n<td>Checks for <code>var</code>s that could be declared as <code>val</code>s</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>VariableShadowing</td>\n<td>Checks for multiple uses of the variable name in nested scopes</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>WhileTrue</td>\n<td>Checks for code that uses a <code>while(true)</code> or <code>do { } while(true)</code> block.</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>ZeroNumerator</td>\n<td>Checks for dividing by 0 by a number, eg <code>0 / x</code> which will always return <code>0</code></td>\n<td>Warning</td>\n</tr>\n</tbody>\n</table>\n<h5 dir=\"auto\"><a id=\"user-content-arrays-to-string\" class=\"anchor\" aria-hidden=\"true\" href=\"#arrays-to-string\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Arrays to string</h5>\n<p dir=\"auto\">Checks for explicit toString calls on arrays. Since toString on an array does not perform a deep toString, like say scala's List, this is usually a mistake.</p>\n<h5 dir=\"auto\"><a id=\"user-content-collectionindexonnonindexedseq\" class=\"anchor\" aria-hidden=\"true\" href=\"#collectionindexonnonindexedseq\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>CollectionIndexOnNonIndexedSeq</h5>\n<p dir=\"auto\">Checks for calls of <code>.apply(idx)</code> on a <code>Seq</code> where the index is not a literal and the <code>Seq</code> is not an <code>IndexedSeq</code>.</p>\n<p dir=\"auto\"><em>Rationale</em> If code which expects O(1) positional access to a Seq is given a non-IndexedSeq (such as a List, where indexing is O(n)) then this may cause poor performance.</p>\n<h5 dir=\"auto\"><a id=\"user-content-comparingunrelatedtypes\" class=\"anchor\" aria-hidden=\"true\" href=\"#comparingunrelatedtypes\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>ComparingUnrelatedTypes</h5>\n<p dir=\"auto\">Checks for equality comparisons that cannot succeed because the types are unrelated. Eg <code>\"string\" == BigDecimal(1.0)</code>. The scala compiler has a less strict version of this inspection.</p>\n<h5 dir=\"auto\"><a id=\"user-content-constantif\" class=\"anchor\" aria-hidden=\"true\" href=\"#constantif\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>ConstantIf</h5>\n<p dir=\"auto\">Checks for if statements where the condition is always true or false. Not only checks for the boolean literals, but also any expression that the compiler is able to turn into a constant value. Eg, <code>if (0 &lt; 1) then else that</code></p>\n<h5 dir=\"auto\"><a id=\"user-content-illegalformatstring\" class=\"anchor\" aria-hidden=\"true\" href=\"#illegalformatstring\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>IllegalFormatString</h5>\n<p dir=\"auto\">Checks for a format string that is not invalid, such as invalid conversions, invalid flags, etc. Eg, <code>\"% s\"</code>, <code>\"%qs\"</code>, <code>%.-4f\"</code></p>\n<h5 dir=\"auto\"><a id=\"user-content-incorrectnumberofargstoformat\" class=\"anchor\" aria-hidden=\"true\" href=\"#incorrectnumberofargstoformat\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>IncorrectNumberOfArgsToFormat</h5>\n<p dir=\"auto\">Checks for an incorrect number of arguments to String.format. Eg, <code>\"%s %s %f\".format(\"need\", \"three\")</code> flags an error because the format string specifies 3 parameters but the call only provides 2.</p>\n<h5 dir=\"auto\"><a id=\"user-content-invalidregex\" class=\"anchor\" aria-hidden=\"true\" href=\"#invalidregex\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>InvalidRegex</h5>\n<p dir=\"auto\">Checks for invalid regex literals that would fail at compile time. Either dangling metacharacters, or unclosed escape characters, etc that kind of thing.</p>\n<h5 dir=\"auto\"><a id=\"user-content-list-size\" class=\"anchor\" aria-hidden=\"true\" href=\"#list-size\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>List size</h5>\n<p dir=\"auto\">Checks for .size on an instance of List. Eg, <code>val a = List(1,2,3); a.size</code></p>\n<p dir=\"auto\"><em>Rationale</em>: List.size is O(n) so for performance reasons if .size is needed on a list that could be large, consider using an alternative with O(1), eg Array, Vector or ListBuffer.</p>\n<h5 dir=\"auto\"><a id=\"user-content-redundant-finalizer\" class=\"anchor\" aria-hidden=\"true\" href=\"#redundant-finalizer\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Redundant finalizer</h5>\n<p dir=\"auto\">Checks for empty finalizers. This is redundant code and should be removed. Eg, <code>override def finalize : Unit = { }</code></p>\n<h5 dir=\"auto\"><a id=\"user-content-prefersetempty\" class=\"anchor\" aria-hidden=\"true\" href=\"#prefersetempty\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>PreferSetEmpty</h5>\n<p dir=\"auto\">Indicates where code using Set() could be replaced with Set.empty. Set() instantiates a new instance each time it is invoked, whereas Set.empty returns a pre-instantiated instance.</p>\n<h5 dir=\"auto\"><a id=\"user-content-unnecessaryreturnuse\" class=\"anchor\" aria-hidden=\"true\" href=\"#unnecessaryreturnuse\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>UnnecessaryReturnUse</h5>\n<p dir=\"auto\">Checks for use of return in a function or method. Since the final expression of a block is always the return value, using return is unnecessary. Eg, <code>def foo = { println(\"hello\"); return 12; }</code></p>\n<h5 dir=\"auto\"><a id=\"user-content-unreachablecatch\" class=\"anchor\" aria-hidden=\"true\" href=\"#unreachablecatch\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>UnreachableCatch</h5>\n<p dir=\"auto\">Checks for catch clauses that cannot be reached. This means the exception is dead and if you want that exception to take precedence you should move up further up the case list.</p>\n<h5 dir=\"auto\"><a id=\"user-content-unsafecontains\" class=\"anchor\" aria-hidden=\"true\" href=\"#unsafecontains\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>UnsafeContains</h5>\n<p dir=\"auto\">Checks for <code>List.contains(value)</code> for invalid types. The method for contains accepts any types. This inspection finds situations when you have a list of type A and you are checking for contains on type B which cannot hold.</p>\n<h5 dir=\"auto\"><a id=\"user-content-while-true\" class=\"anchor\" aria-hidden=\"true\" href=\"#while-true\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>While true</h5>\n<p dir=\"auto\">Checks for code that uses a <code>while(true)</code> or <code>do { } while(true)</code> block.</p>\n<p dir=\"auto\"><em>Rationale</em>: This type of code is usually not meant for production as it will not return normally. If you need to loop until interrupted then consider using a flag.</p>\n<h3 dir=\"auto\"><a id=\"user-content-suppressing-warnings-by-method-or-class\" class=\"anchor\" aria-hidden=\"true\" href=\"#suppressing-warnings-by-method-or-class\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Suppressing Warnings by Method or Class</h3>\n<p dir=\"auto\">You can suppress a specific warning by method or by class using the java.lang.SuppressWarnings anotation.</p>\n<p dir=\"auto\">Use the simple name of the inspection to be ignored as the argument, or use \"all\" to suppress all scapegoat warnings in the specified scope.</p>\n<p dir=\"auto\">Some examples:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"@SuppressWarnings(Array(&quot;all&quot;))\nclass Test {\n  def hello : Unit = {\n    val s : Any = &quot;sammy&quot;\n    println(s.asInstanceOf[String])\n  }\n} \n\nclass Test2 {\n  @SuppressWarnings(Array(&quot;AsInstanceOf&quot;))\n  def hello : Unit = {\n    val s : Any = &quot;sammy&quot;\n    println(s.asInstanceOf[String])\n  }\n}\"><pre><span class=\"pl-k\">@</span><span class=\"pl-en\">SuppressWarnings</span>(<span class=\"pl-en\">Array</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>all<span class=\"pl-pds\">\"</span></span>))\n<span class=\"pl-k\">class</span> <span class=\"pl-en\">Test</span> {\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">hello</span> <span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> {\n    <span class=\"pl-k\">val</span> <span class=\"pl-smi\">s</span> <span class=\"pl-k\">:</span> <span class=\"pl-en\">Any</span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sammy<span class=\"pl-pds\">\"</span></span>\n    println(s.<span class=\"pl-c1\">asInstanceOf</span>[<span class=\"pl-en\">String</span>])\n  }\n} \n\n<span class=\"pl-k\">class</span> <span class=\"pl-en\">Test2</span> {\n  <span class=\"pl-k\">@</span><span class=\"pl-en\">SuppressWarnings</span>(<span class=\"pl-en\">Array</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>AsInstanceOf<span class=\"pl-pds\">\"</span></span>))\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">hello</span> <span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> {\n    <span class=\"pl-k\">val</span> <span class=\"pl-smi\">s</span> <span class=\"pl-k\">:</span> <span class=\"pl-en\">Any</span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sammy<span class=\"pl-pds\">\"</span></span>\n    println(s.<span class=\"pl-c1\">asInstanceOf</span>[<span class=\"pl-en\">String</span>])\n  }\n}</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-other-static-analysis-tools\" class=\"anchor\" aria-hidden=\"true\" href=\"#other-static-analysis-tools\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Other static analysis tools:</h2>\n<ul dir=\"auto\">\n<li>ScalaStyle (Scala) - <a href=\"https://github.com/scalastyle/scalastyle/wiki\">https://github.com/scalastyle/scalastyle/wiki</a></li>\n<li>Linter (Scala) - <a href=\"https://github.com/HairyFotr/linter\">https://github.com/HairyFotr/linter</a></li>\n<li>WartRemover (Scala) - <a href=\"https://github.com/puffnfresh/wartremover\">https://github.com/puffnfresh/wartremover</a></li>\n<li>Findbugs (JVM) - <a href=\"http://findbugs.sourceforge.net/bugDescriptions.html\" rel=\"nofollow\">http://findbugs.sourceforge.net/bugDescriptions.html</a></li>\n<li>Fb-contrib (JVM) - <a href=\"http://fb-contrib.sourceforge.net/\" rel=\"nofollow\">http://fb-contrib.sourceforge.net/</a></li>\n<li>CheckStyle (Java) - <a href=\"http://checkstyle.sourceforge.net/availablechecks.html\" rel=\"nofollow\">http://checkstyle.sourceforge.net/availablechecks.html</a></li>\n<li>PMD (Java) - <a href=\"http://pmd.sourceforge.net/pmd-5.0.3/rules/index.html\" rel=\"nofollow\">http://pmd.sourceforge.net/pmd-5.0.3/rules/index.html</a></li>\n<li>Error-prone (Java) - <a href=\"https://github.com/google/error-prone\">https://github.com/google/error-prone</a></li>\n<li>CodeNarc (Groovy) - <a href=\"http://codenarc.sourceforge.net/codenarc-rule-index.html\" rel=\"nofollow\">http://codenarc.sourceforge.net/codenarc-rule-index.html</a></li>\n<li>PVS-Studio (C++) - <a href=\"http://www.viva64.com/en/d/\" rel=\"nofollow\">http://www.viva64.com/en/d/</a></li>\n<li>Coverity (C++) - <a href=\"http://www.slideshare.net/Coverity/static-analysis-primer-22874326\" rel=\"nofollow\">http://www.slideshare.net/Coverity/static-analysis-primer-22874326</a> (6,7)</li>\n<li>CppCheck (C++) - <a href=\"http://cppcheck.sourceforge.net/\" rel=\"nofollow\">http://cppcheck.sourceforge.net/</a></li>\n<li>OCLint (C++/ObjC) - <a href=\"http://docs.oclint.org/en/dev/rules/index.html\" rel=\"nofollow\">http://docs.oclint.org/en/dev/rules/index.html</a></li>\n<li>JSHint (Javascript) - <a href=\"http://jshint.com/\" rel=\"nofollow\">http://jshint.com/</a></li>\n<li>JavascriptLint (Javascript) - <a href=\"http://www.javascriptlint.com/\" rel=\"nofollow\">http://www.javascriptlint.com/</a></li>\n<li>ClosureLinter (Javascript) - <a href=\"https://developers.google.com/closure/utilities/\" rel=\"nofollow\">https://developers.google.com/closure/utilities/</a></li>\n</ul>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "sksamuel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/743706?v=4",
+        "url" : "https://api.github.com/users/sksamuel",
+        "contributions" : 708
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 160
+      },
+      {
+        "login" : "mccartney",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/762437?v=4",
+        "url" : "https://api.github.com/users/mccartney",
+        "contributions" : 139
+      },
+      {
+        "login" : "mwz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1190768?v=4",
+        "url" : "https://api.github.com/users/mwz",
+        "contributions" : 28
+      },
+      {
+        "login" : "avdv",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3471749?v=4",
+        "url" : "https://api.github.com/users/avdv",
+        "contributions" : 24
+      },
+      {
+        "login" : "eugene-sy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/771978?v=4",
+        "url" : "https://api.github.com/users/eugene-sy",
+        "contributions" : 13
+      },
+      {
+        "login" : "lespea",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/99605?v=4",
+        "url" : "https://api.github.com/users/lespea",
+        "contributions" : 12
+      },
+      {
+        "login" : "HairyFotr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/566245?v=4",
+        "url" : "https://api.github.com/users/HairyFotr",
+        "contributions" : 11
+      },
+      {
+        "login" : "ssanj",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/366640?v=4",
+        "url" : "https://api.github.com/users/ssanj",
+        "contributions" : 6
+      },
+      {
+        "login" : "devkat",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1734637?v=4",
+        "url" : "https://api.github.com/users/devkat",
+        "contributions" : 5
+      },
+      {
+        "login" : "jozic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/124249?v=4",
+        "url" : "https://api.github.com/users/jozic",
+        "contributions" : 5
+      },
+      {
+        "login" : "RichardBradley",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1265780?v=4",
+        "url" : "https://api.github.com/users/RichardBradley",
+        "contributions" : 5
+      },
+      {
+        "login" : "gregsymons",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/222217?v=4",
+        "url" : "https://api.github.com/users/gregsymons",
+        "contributions" : 4
+      },
+      {
+        "login" : "hugocodacy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/40496606?v=4",
+        "url" : "https://api.github.com/users/hugocodacy",
+        "contributions" : 4
+      },
+      {
+        "login" : "vdichev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/108991?v=4",
+        "url" : "https://api.github.com/users/vdichev",
+        "contributions" : 4
+      },
+      {
+        "login" : "zgrannan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1141948?v=4",
+        "url" : "https://api.github.com/users/zgrannan",
+        "contributions" : 4
+      },
+      {
+        "login" : "erdeszt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1301484?v=4",
+        "url" : "https://api.github.com/users/erdeszt",
+        "contributions" : 4
+      },
+      {
+        "login" : "saeltz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3619633?v=4",
+        "url" : "https://api.github.com/users/saeltz",
+        "contributions" : 3
+      },
+      {
+        "login" : "dbronecki",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/25744491?v=4",
+        "url" : "https://api.github.com/users/dbronecki",
+        "contributions" : 3
+      },
+      {
+        "login" : "fabianschmitthenner",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/66772097?v=4",
+        "url" : "https://api.github.com/users/fabianschmitthenner",
+        "contributions" : 3
+      },
+      {
+        "login" : "rtfpessoa",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/902384?v=4",
+        "url" : "https://api.github.com/users/rtfpessoa",
+        "contributions" : 3
+      },
+      {
+        "login" : "marconilanna",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/363009?v=4",
+        "url" : "https://api.github.com/users/marconilanna",
+        "contributions" : 3
+      },
+      {
+        "login" : "xplosunn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7125555?v=4",
+        "url" : "https://api.github.com/users/xplosunn",
+        "contributions" : 2
+      },
+      {
+        "login" : "ikr0m",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6130308?v=4",
+        "url" : "https://api.github.com/users/ikr0m",
+        "contributions" : 2
+      },
+      {
+        "login" : "JoshRosen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/50748?v=4",
+        "url" : "https://api.github.com/users/JoshRosen",
+        "contributions" : 2
+      },
+      {
+        "login" : "joshrosen-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/48632449?v=4",
+        "url" : "https://api.github.com/users/joshrosen-stripe",
+        "contributions" : 2
+      },
+      {
+        "login" : "paulp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9135?v=4",
+        "url" : "https://api.github.com/users/paulp",
+        "contributions" : 2
+      },
+      {
+        "login" : "tafit3",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1242852?v=4",
+        "url" : "https://api.github.com/users/tafit3",
+        "contributions" : 2
+      },
+      {
+        "login" : "ashleymercer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13454082?v=4",
+        "url" : "https://api.github.com/users/ashleymercer",
+        "contributions" : 1
+      },
+      {
+        "login" : "Azard",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3364650?v=4",
+        "url" : "https://api.github.com/users/Azard",
+        "contributions" : 1
+      },
+      {
+        "login" : "ChrisCanCompute",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3234691?v=4",
+        "url" : "https://api.github.com/users/ChrisCanCompute",
+        "contributions" : 1
+      },
+      {
+        "login" : "ckchow",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3922740?v=4",
+        "url" : "https://api.github.com/users/ckchow",
+        "contributions" : 1
+      },
+      {
+        "login" : "nepcore",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12681731?v=4",
+        "url" : "https://api.github.com/users/nepcore",
+        "contributions" : 1
+      },
+      {
+        "login" : "fkz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/354463?v=4",
+        "url" : "https://api.github.com/users/fkz",
+        "contributions" : 1
+      },
+      {
+        "login" : "gshakhn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/943509?v=4",
+        "url" : "https://api.github.com/users/gshakhn",
+        "contributions" : 1
+      },
+      {
+        "login" : "joroKr21",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2218841?v=4",
+        "url" : "https://api.github.com/users/joroKr21",
+        "contributions" : 1
+      },
+      {
+        "login" : "henrymai",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/136857?v=4",
+        "url" : "https://api.github.com/users/henrymai",
+        "contributions" : 1
+      },
+      {
+        "login" : "ingarabr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2236693?v=4",
+        "url" : "https://api.github.com/users/ingarabr",
+        "contributions" : 1
+      },
+      {
+        "login" : "TAndronicus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17414614?v=4",
+        "url" : "https://api.github.com/users/TAndronicus",
+        "contributions" : 1
+      },
+      {
+        "login" : "kentfrazier",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/417848?v=4",
+        "url" : "https://api.github.com/users/kentfrazier",
+        "contributions" : 1
+      },
+      {
+        "login" : "migesok",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2026954?v=4",
+        "url" : "https://api.github.com/users/migesok",
+        "contributions" : 1
+      },
+      {
+        "login" : "mpurins",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5012944?v=4",
+        "url" : "https://api.github.com/users/mpurins",
+        "contributions" : 1
+      },
+      {
+        "login" : "nmeln",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/18567467?v=4",
+        "url" : "https://api.github.com/users/nmeln",
+        "contributions" : 1
+      },
+      {
+        "login" : "ReadmeCritic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15367484?v=4",
+        "url" : "https://api.github.com/users/ReadmeCritic",
+        "contributions" : 1
+      },
+      {
+        "login" : "srenatus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/870638?v=4",
+        "url" : "https://api.github.com/users/srenatus",
+        "contributions" : 1
+      },
+      {
+        "login" : "gitter-badger",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8518239?v=4",
+        "url" : "https://api.github.com/users/gitter-badger",
+        "contributions" : 1
+      },
+      {
+        "login" : "tjarvstrand",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/394280?v=4",
+        "url" : "https://api.github.com/users/tjarvstrand",
+        "contributions" : 1
+      },
+      {
+        "login" : "telser",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/36592?v=4",
+        "url" : "https://api.github.com/users/telser",
+        "contributions" : 1
+      },
+      {
+        "login" : "valdisxp1",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2277076?v=4",
+        "url" : "https://api.github.com/users/valdisxp1",
+        "contributions" : 1
+      },
+      {
+        "login" : "xuwei-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/389787?v=4",
+        "url" : "https://api.github.com/users/xuwei-k",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 1185,
+    "topics" : [
+      "inspection",
+      "scala",
+      "scala-compiler"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 573,
+        "title" : "false positive VariableShadowing when use copy in map",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/573"
+      },
+      {
+        "number" : 567,
+        "title" : "Looking for new maintainer",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/567"
+      },
+      {
+        "number" : 554,
+        "title" : "False positive: Looks like interpolated String detects triple quote strings",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/554"
+      },
+      {
+        "number" : 521,
+        "title" : "Please compile support for Scala 3.0.0",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/521"
+      },
+      {
+        "number" : 481,
+        "title" : "PreferSetEmpty,etc. seem misleading",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/481"
+      },
+      {
+        "number" : 466,
+        "title" : "False-positive warnings for checks: Unused parameter, Null assignment, Variable shadowing, While true loop, Empty if expression",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/466"
+      },
+      {
+        "number" : 439,
+        "title" : "Configuration file",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/439"
+      },
+      {
+        "number" : 415,
+        "title" : "PointlessTypeBounds fires on MyClass[T <: AnyRef, S]",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/415"
+      },
+      {
+        "number" : 402,
+        "title" : "Strip backticks from console output and HTML reports",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/402"
+      },
+      {
+        "number" : 378,
+        "title" : "GADTs cause false positive `asInstanceOf` reports",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/378"
+      },
+      {
+        "number" : 373,
+        "title" : "Suggested rule: require override ",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/373"
+      },
+      {
+        "number" : 353,
+        "title" : "Fail Scapegoat on warnings",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/353"
+      },
+      {
+        "number" : 337,
+        "title" : "Generate documentation from the inspections",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/337"
+      },
+      {
+        "number" : 312,
+        "title" : "Idea - Scapegoat as a bot?",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/312"
+      },
+      {
+        "number" : 305,
+        "title" : "Results of running Scapegoat against Scapegoat",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/305"
+      },
+      {
+        "number" : 302,
+        "title" : "Potential new inspections (based on old ideas)",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/302"
+      },
+      {
+        "number" : 294,
+        "title" : "PredefTraversableIsMutable doesn't apply to Scala 2.13",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/294"
+      },
+      {
+        "number" : 289,
+        "title" : "PredefIterableIsMutable and PredefSeqIsMutable don't apply to Scala 2.13.",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/289"
+      },
+      {
+        "number" : 282,
+        "title" : "Enhancement: for-yield with Future Monad is a common concurrency bug",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/282"
+      },
+      {
+        "number" : 277,
+        "title" : " \"-P: scapegoat: overrideLevels\" parameter is invalid in maven",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/277"
+      },
+      {
+        "number" : 254,
+        "title" : "The scapegoat Gradle plugin should not overwrite the source with the test analysis",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/254"
+      },
+      {
+        "number" : 239,
+        "title" : "False Positive: PartialFunctionInsteadOfMatch when using yield",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/239"
+      },
+      {
+        "number" : 232,
+        "title" : "False positive: VarCouldBeVal",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/232"
+      },
+      {
+        "number" : 229,
+        "title" : "False positive \"Empty if statement\"",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/229"
+      },
+      {
+        "number" : 225,
+        "title" : "Use local path to bootstrap.min.css",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/225"
+      },
+      {
+        "number" : 218,
+        "title" : "IntelliJ build fails with java.lang.NoClassDefFoundError: scala/xml/NamespaceBinding",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/218"
+      },
+      {
+        "number" : 207,
+        "title" : "Equivalent of SonarJava's \"@Deprecated code should not be used\" rule",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/207"
+      },
+      {
+        "number" : 195,
+        "title" : "Integration with Gradle",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/195"
+      },
+      {
+        "number" : 193,
+        "title" : "Use full path to file in XML report",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/193"
+      },
+      {
+        "number" : 187,
+        "title" : "Rules suppression ",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/187"
+      },
+      {
+        "number" : 186,
+        "title" : "JUnit-format report",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/186"
+      },
+      {
+        "number" : 157,
+        "title" : "Structurized output",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/157"
+      },
+      {
+        "number" : 156,
+        "title" : "False positive for object names generated by macros",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/156"
+      },
+      {
+        "number" : 147,
+        "title" : "False positive null parameter using default namespace in Scala XML",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/147"
+      },
+      {
+        "number" : 139,
+        "title" : "False positives in most async macro branches",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/139"
+      },
+      {
+        "number" : 126,
+        "title" : "How to disable individual rules as scalac compiler plugin",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/126"
+      },
+      {
+        "number" : 123,
+        "title" : "False Positive: EmptyMethod",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/123"
+      },
+      {
+        "number" : 122,
+        "title" : "False Positive: ExistsSimplifableToContains",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/122"
+      },
+      {
+        "number" : 120,
+        "title" : "False Positive: NoOpOverride",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/120"
+      },
+      {
+        "number" : 110,
+        "title" : "\"Error\" v.s. \"Warning\": Traversable.head ",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/110"
+      },
+      {
+        "number" : 107,
+        "title" : "Generate checkstyle-like XML report",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/107"
+      },
+      {
+        "number" : 105,
+        "title" : "False positive: Unused method parameter \"args: Array[String]\" on \"main\"",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/105"
+      },
+      {
+        "number" : 103,
+        "title" : "\"Catch throwable\" warning duplicates scalac built in warning",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/103"
+      },
+      {
+        "number" : 97,
+        "title" : "Custom Inspectors",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/97"
+      },
+      {
+        "number" : 96,
+        "title" : "Feature request: Check for classes extending AnyVal that allocate",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/96"
+      },
+      {
+        "number" : 93,
+        "title" : "False Positive: Bad format specifier for BigInteger",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/93"
+      },
+      {
+        "number" : 61,
+        "title" : "Feature request: Inspection breakdown by package/type",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/61"
+      },
+      {
+        "number" : 45,
+        "title" : "idea for case some/none",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/45"
+      },
+      {
+        "number" : 41,
+        "title" : "Enhancement: unused public methods",
+        "url" : "https://github.com/scapegoat-scala/scapegoat/issues/41"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : "scalac-scapegoat-plugin",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "linting-and-refactoring",
+    "beginnerIssuesLabel" : null
+  }
+}

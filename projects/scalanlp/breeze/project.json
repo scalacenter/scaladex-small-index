@@ -1,0 +1,1103 @@
+{
+  "organization" : "scalanlp",
+  "repository" : "breeze",
+  "creationDate" : 1456140243749,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643169173128
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "www.scalanlp.org",
+    "description" : "Breeze is a numerical processing library for Scala.",
+    "logo" : "https://avatars.githubusercontent.com/u/103090?v=4",
+    "stars" : 3302,
+    "forks" : 700,
+    "watchers" : 212,
+    "issues" : 87,
+    "creationDate" : 1247095372000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-breeze-\" class=\"anchor\" aria-hidden=\"true\" href=\"#breeze-\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Breeze <a href=\"https://travis-ci.org/scalanlp/breeze\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/37a6cbb979c0131bbf61b5c11b1e3b3155b3246bf52f007bd065b865e295c543/68747470733a2f2f7472617669732d63692e6f72672f7363616c616e6c702f627265657a652e7376673f6272616e63683d6d6173746572\" alt=\"Build Status\" data-canonical-src=\"https://travis-ci.org/scalanlp/breeze.svg?branch=master\" style=\"max-width: 100%;\"></a></h1>\n<p dir=\"auto\">Breeze is a library for numerical processing. It aims to be generic, clean, and powerful without sacrificing (much) efficiency.</p>\n<p dir=\"auto\">This is the 2.x branch. The 1.x branch is <code>1.x</code>.</p>\n<p dir=\"auto\">The latest release is 2.0.1-RC1, which is cross-built against Scala 3.0, 2.12, and 2.13.</p>\n<h2 dir=\"auto\"><a id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Documentation</h2>\n<ul dir=\"auto\">\n<li><a href=\"https://github.com/scalanlp/breeze/wiki/Quickstart\">https://github.com/scalanlp/breeze/wiki/Quickstart</a></li>\n<li><a href=\"https://github.com/scalanlp/breeze/wiki/Linear-Algebra-Cheat-Sheet\">https://github.com/scalanlp/breeze/wiki/Linear-Algebra-Cheat-Sheet</a></li>\n<li><a href=\"http://www.scalanlp.org/api/breeze/\" rel=\"nofollow\">Scaladoc</a> (Scaladoc is typically horribly out of date, and not a good way to learn Breeze.)</li>\n<li>There is also the <a href=\"https://groups.google.com/forum/#!forum/scala-breeze\" rel=\"nofollow\">scala-breeze google group</a> for general questions and discussion.</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-using-breeze\" class=\"anchor\" aria-hidden=\"true\" href=\"#using-breeze\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Using Breeze</h2>\n<h3 dir=\"auto\"><a id=\"user-content-building-it-yourself\" class=\"anchor\" aria-hidden=\"true\" href=\"#building-it-yourself\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Building it yourself</h3>\n<p dir=\"auto\">This project can be built with SBT 1.2+</p>\n<h3 dir=\"auto\"><a id=\"user-content-sbt\" class=\"anchor\" aria-hidden=\"true\" href=\"#sbt\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>SBT</h3>\n<p dir=\"auto\">For SBT, add these lines to your SBT project definition:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies  ++= Seq(\n  // Last stable release\n  &quot;org.scalanlp&quot; %% &quot;breeze&quot; % &quot;2.0.1-RC1&quot;,\n  \n  // The visualization library is distributed separately as well.\n  // It depends on LGPL code\n  &quot;org.scalanlp&quot; %% &quot;breeze-viz&quot; % &quot;2.0.1-RC1&quot;\n)\n\n\"><pre>libraryDependencies  <span class=\"pl-k\">++</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Seq</span>(\n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> Last stable release</span>\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.scalanlp<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>breeze<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>2.0.1-RC1<span class=\"pl-pds\">\"</span></span>,\n  \n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> The visualization library is distributed separately as well.</span>\n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> It depends on LGPL code</span>\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.scalanlp<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>breeze-viz<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>2.0.1-RC1<span class=\"pl-pds\">\"</span></span>\n)\n\n</pre></div>\n<p dir=\"auto\">Previous versions of Breeze included a \"breeze-natives\" artifact that bundled various native libraries. As of Breeze 1.3, we now use a faster, more friendly-licensed library from @luhenry called simply \"<a href=\"https://github.com/luhenry/netlib\">netlib</a>\". This library is now bundled by default.</p>\n<h3 dir=\"auto\"><a id=\"user-content-maven\" class=\"anchor\" aria-hidden=\"true\" href=\"#maven\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Maven</h3>\n<p dir=\"auto\">Maven looks like this:</p>\n<div class=\"highlight highlight-text-xml position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&lt;dependency&gt;\n  &lt;groupId&gt;org.scalanlp&lt;/groupId&gt;\n  &lt;artifactId&gt;breeze_2.13&lt;/artifactId&gt;\n  &lt;version&gt;2.0.1-RC1&lt;/version&gt;\n&lt;/dependency&gt;\"><pre>&lt;<span class=\"pl-ent\">dependency</span>&gt;\n  &lt;<span class=\"pl-ent\">groupId</span>&gt;org.scalanlp&lt;/<span class=\"pl-ent\">groupId</span>&gt;\n  &lt;<span class=\"pl-ent\">artifactId</span>&gt;breeze_2.13&lt;/<span class=\"pl-ent\">artifactId</span>&gt;\n  &lt;<span class=\"pl-ent\">version</span>&gt;2.0.1-RC1&lt;/<span class=\"pl-ent\">version</span>&gt;\n&lt;/<span class=\"pl-ent\">dependency</span>&gt;</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-other-build-tools\" class=\"anchor\" aria-hidden=\"true\" href=\"#other-build-tools\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Other build tools</h3>\n<p dir=\"auto\">[<a href=\"http://mvnrepository.com/artifact/org.scalanlp/breeze_2.12/2.0.1-RC1\" rel=\"nofollow\">http://mvnrepository.com/artifact/org.scalanlp/breeze_2.12/2.0.1-RC1</a>] (as an example) is a great resource for finding other configuration examples for other build tools.</p>\n<p dir=\"auto\">See documentation (linked above!) for more information on using Breeze.</p>\n<h2 dir=\"auto\"><a id=\"user-content-history\" class=\"anchor\" aria-hidden=\"true\" href=\"#history\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>History</h2>\n<p dir=\"auto\">Breeze is the merger of the ScalaNLP and Scalala projects, because one of the original maintainers is unable to continue development. The Scalala parts are largely rewritten.</p>\n<p dir=\"auto\">(c) David Hall, 2009 -</p>\n<p dir=\"auto\">Portions (c) Daniel Ramage, 2009 - 2011</p>\n<p dir=\"auto\">Contributions from:</p>\n<ul dir=\"auto\">\n<li>Jason Zaugg (@retronym)</li>\n<li>Alexander Lehmann (@afwlehmann)</li>\n<li>Jonathan Merritt (@lancelet)</li>\n<li>Keith Stevens (@fozziethebeat)</li>\n<li>Jason Baldridge (@jasonbaldridge)</li>\n<li>Timothy Hunter (@tjhunter)</li>\n<li>Dave DeCaprio (@DaveDeCaprio)</li>\n<li>Daniel Duckworth (@duckworthd)</li>\n<li>Eric Christiansen (@emchristiansen)</li>\n<li>Marc Millstone (@splittingfield)</li>\n<li>Mérő László (@laci37)</li>\n<li>Alexey Noskov (@alno)</li>\n<li>Devon Bryant (@devonbryant)</li>\n<li>Kentaroh Takagaki (@ktakagaki)</li>\n<li>Sam Halliday (@fommil)</li>\n<li>Chris Stucchio (@stucchio)</li>\n<li>Xiangrui Meng (@mengxr)</li>\n<li>Gabriel Schubiner (@gabeos)</li>\n<li>Debasish Das (@debasish83)</li>\n<li>Julien Dumazert (@DumazertJulien)</li>\n<li>Matthias Langer (@bashimao)</li>\n<li>Mohamed Kafsi (@mou7)</li>\n<li>Max Thomas (@maxthomas)</li>\n<li>@qilab</li>\n<li>Weichen Xu (@WeichenXu123)</li>\n<li>Sergei Lebedev (@superbobry)</li>\n<li>Zac Blanco (@ZacBlanco)</li>\n</ul>\n<p dir=\"auto\">Corporate (Code) Contributors:</p>\n<ul dir=\"auto\">\n<li><a href=\"http://www.semanticmachines.com/\" rel=\"nofollow\">Semantic Machines</a> (@semanticmachines)</li>\n<li><a href=\"http://www.contentsquare.com/en/\" rel=\"nofollow\">ContentSquare</a></li>\n<li>Big Data Analytics, Verizon Lab, Palo Alto</li>\n<li><a href=\"https://crealytics.com/\" rel=\"nofollow\">crealytics GmbH, Berlin/Passau, Germany</a></li>\n</ul>\n<p dir=\"auto\">And others (contact David Hall if you've contributed and aren't listed).</p>\n<h2 dir=\"auto\"><a id=\"user-content-common-issues\" class=\"anchor\" aria-hidden=\"true\" href=\"#common-issues\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Common Issues</h2>\n<h3 dir=\"auto\"><a id=\"user-content-segmentation-fault-or-other-crashes-on-linux\" class=\"anchor\" aria-hidden=\"true\" href=\"#segmentation-fault-or-other-crashes-on-linux\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Segmentation Fault or Other Crashes on Linux</h3>\n<p dir=\"auto\">Netlib, the new low level BLAS library Breeze uses, in turn uses OpenBLAS by default on Linux, which has some quirky behavior w.r.t. threading. (Please see <a href=\"https://github.com/luhenry/netlib/issues/2\">https://github.com/luhenry/netlib/issues/2</a>).\nAs work arounds:</p>\n<ul dir=\"auto\">\n<li>Use MKL, if possible</li>\n<li>Increase the size of the stack of Java threads with <code>-Xss10M</code> (set the Java threads' stack size to 10 Mbytes)</li>\n<li>Make sure OpenBLAS doesn't use the parallel implementation by defining the environment variable <code>OPENBLAS_NUM_THREADS=1</code></li>\n<li>Compile a custom version of OpenBLAS that unconditionally define <code>USE_ALLOC_HEAP</code> at <a href=\"https://github.com/xianyi/OpenBLAS/blob/develop/lapack/getrf/getrf_parallel.c#L49\">https://github.com/xianyi/OpenBLAS/blob/develop/lapack/getrf/getrf_parallel.c#L49</a></li>\n</ul>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "dlwh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9633?v=4",
+        "url" : "https://api.github.com/users/dlwh",
+        "contributions" : 2365
+      },
+      {
+        "login" : "ktakagaki",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4279323?v=4",
+        "url" : "https://api.github.com/users/ktakagaki",
+        "contributions" : 301
+      },
+      {
+        "login" : "dramage",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/62510?v=4",
+        "url" : "https://api.github.com/users/dramage",
+        "contributions" : 152
+      },
+      {
+        "login" : "gabeos",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/751112?v=4",
+        "url" : "https://api.github.com/users/gabeos",
+        "contributions" : 86
+      },
+      {
+        "login" : "nikdon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4712507?v=4",
+        "url" : "https://api.github.com/users/nikdon",
+        "contributions" : 25
+      },
+      {
+        "login" : "superbobry",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/185856?v=4",
+        "url" : "https://api.github.com/users/superbobry",
+        "contributions" : 22
+      },
+      {
+        "login" : "jaketimothy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2130930?v=4",
+        "url" : "https://api.github.com/users/jaketimothy",
+        "contributions" : 21
+      },
+      {
+        "login" : "jasonbaldridge",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1072897?v=4",
+        "url" : "https://api.github.com/users/jasonbaldridge",
+        "contributions" : 21
+      },
+      {
+        "login" : "dreamquster",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4962716?v=4",
+        "url" : "https://api.github.com/users/dreamquster",
+        "contributions" : 15
+      },
+      {
+        "login" : "jrj-d",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7548106?v=4",
+        "url" : "https://api.github.com/users/jrj-d",
+        "contributions" : 13
+      },
+      {
+        "login" : "devonbryant",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/919687?v=4",
+        "url" : "https://api.github.com/users/devonbryant",
+        "contributions" : 10
+      },
+      {
+        "login" : "mengxr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/829644?v=4",
+        "url" : "https://api.github.com/users/mengxr",
+        "contributions" : 10
+      },
+      {
+        "login" : "bashimao",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7855770?v=4",
+        "url" : "https://api.github.com/users/bashimao",
+        "contributions" : 9
+      },
+      {
+        "login" : "DaveDeCaprio",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/841146?v=4",
+        "url" : "https://api.github.com/users/DaveDeCaprio",
+        "contributions" : 8
+      },
+      {
+        "login" : "ZacBlanco",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3464508?v=4",
+        "url" : "https://api.github.com/users/ZacBlanco",
+        "contributions" : 8
+      },
+      {
+        "login" : "rahulpalamuttam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5025939?v=4",
+        "url" : "https://api.github.com/users/rahulpalamuttam",
+        "contributions" : 8
+      },
+      {
+        "login" : "jacobandreas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/236111?v=4",
+        "url" : "https://api.github.com/users/jacobandreas",
+        "contributions" : 8
+      },
+      {
+        "login" : "fozziethebeat",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/398211?v=4",
+        "url" : "https://api.github.com/users/fozziethebeat",
+        "contributions" : 7
+      },
+      {
+        "login" : "rakeshchalasani",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11985942?v=4",
+        "url" : "https://api.github.com/users/rakeshchalasani",
+        "contributions" : 7
+      },
+      {
+        "login" : "laci37",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1523132?v=4",
+        "url" : "https://api.github.com/users/laci37",
+        "contributions" : 6
+      },
+      {
+        "login" : "darrenjw",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1235734?v=4",
+        "url" : "https://api.github.com/users/darrenjw",
+        "contributions" : 5
+      },
+      {
+        "login" : "knavely",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2858978?v=4",
+        "url" : "https://api.github.com/users/knavely",
+        "contributions" : 5
+      },
+      {
+        "login" : "BenFradet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1737211?v=4",
+        "url" : "https://api.github.com/users/BenFradet",
+        "contributions" : 5
+      },
+      {
+        "login" : "rtreffer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/61306?v=4",
+        "url" : "https://api.github.com/users/rtreffer",
+        "contributions" : 5
+      },
+      {
+        "login" : "WeichenXu123",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19235986?v=4",
+        "url" : "https://api.github.com/users/WeichenXu123",
+        "contributions" : 5
+      },
+      {
+        "login" : "declerambaul",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/114801?v=4",
+        "url" : "https://api.github.com/users/declerambaul",
+        "contributions" : 4
+      },
+      {
+        "login" : "hl475",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8340746?v=4",
+        "url" : "https://api.github.com/users/hl475",
+        "contributions" : 4
+      },
+      {
+        "login" : "fommil",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1914041?v=4",
+        "url" : "https://api.github.com/users/fommil",
+        "contributions" : 4
+      },
+      {
+        "login" : "adampauls",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1243668?v=4",
+        "url" : "https://api.github.com/users/adampauls",
+        "contributions" : 4
+      },
+      {
+        "login" : "adgaudio",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/860369?v=4",
+        "url" : "https://api.github.com/users/adgaudio",
+        "contributions" : 3
+      },
+      {
+        "login" : "bamattsson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10145139?v=4",
+        "url" : "https://api.github.com/users/bamattsson",
+        "contributions" : 3
+      },
+      {
+        "login" : "BoleynSu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3103016?v=4",
+        "url" : "https://api.github.com/users/BoleynSu",
+        "contributions" : 3
+      },
+      {
+        "login" : "darabos",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1268018?v=4",
+        "url" : "https://api.github.com/users/darabos",
+        "contributions" : 3
+      },
+      {
+        "login" : "duckworthd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/626236?v=4",
+        "url" : "https://api.github.com/users/duckworthd",
+        "contributions" : 3
+      },
+      {
+        "login" : "koertkuipers",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/821284?v=4",
+        "url" : "https://api.github.com/users/koertkuipers",
+        "contributions" : 3
+      },
+      {
+        "login" : "nightscape",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/35170?v=4",
+        "url" : "https://api.github.com/users/nightscape",
+        "contributions" : 3
+      },
+      {
+        "login" : "SethTisue",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
+        "url" : "https://api.github.com/users/SethTisue",
+        "contributions" : 3
+      },
+      {
+        "login" : "yu-iskw",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1523515?v=4",
+        "url" : "https://api.github.com/users/yu-iskw",
+        "contributions" : 3
+      },
+      {
+        "login" : "vincent-grosbois",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6704932?v=4",
+        "url" : "https://api.github.com/users/vincent-grosbois",
+        "contributions" : 3
+      },
+      {
+        "login" : "YuMuuu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/26830741?v=4",
+        "url" : "https://api.github.com/users/YuMuuu",
+        "contributions" : 3
+      },
+      {
+        "login" : "alno",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30774?v=4",
+        "url" : "https://api.github.com/users/alno",
+        "contributions" : 2
+      },
+      {
+        "login" : "Antti-Paladin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16463842?v=4",
+        "url" : "https://api.github.com/users/Antti-Paladin",
+        "contributions" : 2
+      },
+      {
+        "login" : "cdcarroll",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6123974?v=4",
+        "url" : "https://api.github.com/users/cdcarroll",
+        "contributions" : 2
+      },
+      {
+        "login" : "Fokko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1134248?v=4",
+        "url" : "https://api.github.com/users/Fokko",
+        "contributions" : 2
+      },
+      {
+        "login" : "retronym",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/65551?v=4",
+        "url" : "https://api.github.com/users/retronym",
+        "contributions" : 2
+      },
+      {
+        "login" : "jklukas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/691060?v=4",
+        "url" : "https://api.github.com/users/jklukas",
+        "contributions" : 2
+      },
+      {
+        "login" : "jvns",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/817739?v=4",
+        "url" : "https://api.github.com/users/jvns",
+        "contributions" : 2
+      },
+      {
+        "login" : "bluesheeptoken",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17785017?v=4",
+        "url" : "https://api.github.com/users/bluesheeptoken",
+        "contributions" : 2
+      },
+      {
+        "login" : "kelebra",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2006595?v=4",
+        "url" : "https://api.github.com/users/kelebra",
+        "contributions" : 2
+      },
+      {
+        "login" : "mrkm4ntr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6421289?v=4",
+        "url" : "https://api.github.com/users/mrkm4ntr",
+        "contributions" : 2
+      },
+      {
+        "login" : "vishalkuo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7549938?v=4",
+        "url" : "https://api.github.com/users/vishalkuo",
+        "contributions" : 2
+      },
+      {
+        "login" : "yanboliang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1962026?v=4",
+        "url" : "https://api.github.com/users/yanboliang",
+        "contributions" : 2
+      },
+      {
+        "login" : "joshuaar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/765116?v=4",
+        "url" : "https://api.github.com/users/joshuaar",
+        "contributions" : 2
+      },
+      {
+        "login" : "leepei",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5428875?v=4",
+        "url" : "https://api.github.com/users/leepei",
+        "contributions" : 2
+      },
+      {
+        "login" : "mou7",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4304837?v=4",
+        "url" : "https://api.github.com/users/mou7",
+        "contributions" : 2
+      },
+      {
+        "login" : "skavulya",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6307926?v=4",
+        "url" : "https://api.github.com/users/skavulya",
+        "contributions" : 2
+      },
+      {
+        "login" : "jeremie1112",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23257599?v=4",
+        "url" : "https://api.github.com/users/jeremie1112",
+        "contributions" : 2
+      },
+      {
+        "login" : "rpiotrow",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/355631?v=4",
+        "url" : "https://api.github.com/users/rpiotrow",
+        "contributions" : 2
+      },
+      {
+        "login" : "Vaishaal",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1361040?v=4",
+        "url" : "https://api.github.com/users/Vaishaal",
+        "contributions" : 2
+      },
+      {
+        "login" : "3tty0n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8289812?v=4",
+        "url" : "https://api.github.com/users/3tty0n",
+        "contributions" : 2
+      },
+      {
+        "login" : "eiennohito",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1021694?v=4",
+        "url" : "https://api.github.com/users/eiennohito",
+        "contributions" : 1
+      },
+      {
+        "login" : "evolutics",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8361681?v=4",
+        "url" : "https://api.github.com/users/evolutics",
+        "contributions" : 1
+      },
+      {
+        "login" : "dbtsai",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1134574?v=4",
+        "url" : "https://api.github.com/users/dbtsai",
+        "contributions" : 1
+      },
+      {
+        "login" : "dhgarrette",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/484190?v=4",
+        "url" : "https://api.github.com/users/dhgarrette",
+        "contributions" : 1
+      },
+      {
+        "login" : "debasish83",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/510896?v=4",
+        "url" : "https://api.github.com/users/debasish83",
+        "contributions" : 1
+      },
+      {
+        "login" : "slothspot",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/760295?v=4",
+        "url" : "https://api.github.com/users/slothspot",
+        "contributions" : 1
+      },
+      {
+        "login" : "espears4sq",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/41591810?v=4",
+        "url" : "https://api.github.com/users/espears4sq",
+        "contributions" : 1
+      },
+      {
+        "login" : "emchristiansen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/225668?v=4",
+        "url" : "https://api.github.com/users/emchristiansen",
+        "contributions" : 1
+      },
+      {
+        "login" : "GratefulTony",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1322828?v=4",
+        "url" : "https://api.github.com/users/GratefulTony",
+        "contributions" : 1
+      },
+      {
+        "login" : "tavoaqp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/90560714?v=4",
+        "url" : "https://api.github.com/users/tavoaqp",
+        "contributions" : 1
+      },
+      {
+        "login" : "darkjh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/802343?v=4",
+        "url" : "https://api.github.com/users/darkjh",
+        "contributions" : 1
+      },
+      {
+        "login" : "JeremM",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7859425?v=4",
+        "url" : "https://api.github.com/users/JeremM",
+        "contributions" : 1
+      },
+      {
+        "login" : "numberten",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/905727?v=4",
+        "url" : "https://api.github.com/users/numberten",
+        "contributions" : 1
+      },
+      {
+        "login" : "joearasin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3767?v=4",
+        "url" : "https://api.github.com/users/joearasin",
+        "contributions" : 1
+      },
+      {
+        "login" : "lucasbrunialti",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4307121?v=4",
+        "url" : "https://api.github.com/users/lucasbrunialti",
+        "contributions" : 1
+      },
+      {
+        "login" : "luhenry",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/660779?v=4",
+        "url" : "https://api.github.com/users/luhenry",
+        "contributions" : 1
+      },
+      {
+        "login" : "martijnhoekstra",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/882449?v=4",
+        "url" : "https://api.github.com/users/martijnhoekstra",
+        "contributions" : 1
+      },
+      {
+        "login" : "MartinSenne",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1352336?v=4",
+        "url" : "https://api.github.com/users/MartinSenne",
+        "contributions" : 1
+      },
+      {
+        "login" : "fenixcitizen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3210100?v=4",
+        "url" : "https://api.github.com/users/fenixcitizen",
+        "contributions" : 1
+      },
+      {
+        "login" : "schmmd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/954798?v=4",
+        "url" : "https://api.github.com/users/schmmd",
+        "contributions" : 1
+      },
+      {
+        "login" : "michaJlS",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4112992?v=4",
+        "url" : "https://api.github.com/users/michaJlS",
+        "contributions" : 1
+      },
+      {
+        "login" : "schmidmt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/227339?v=4",
+        "url" : "https://api.github.com/users/schmidmt",
+        "contributions" : 1
+      },
+      {
+        "login" : "nevillelyh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/468514?v=4",
+        "url" : "https://api.github.com/users/nevillelyh",
+        "contributions" : 1
+      },
+      {
+        "login" : "MLnick",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1036807?v=4",
+        "url" : "https://api.github.com/users/MLnick",
+        "contributions" : 1
+      },
+      {
+        "login" : "renaud",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/75369?v=4",
+        "url" : "https://api.github.com/users/renaud",
+        "contributions" : 1
+      },
+      {
+        "login" : "rkmathi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/404167?v=4",
+        "url" : "https://api.github.com/users/rkmathi",
+        "contributions" : 1
+      },
+      {
+        "login" : "kokorins",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1243015?v=4",
+        "url" : "https://api.github.com/users/kokorins",
+        "contributions" : 1
+      },
+      {
+        "login" : "coderxiang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2350872?v=4",
+        "url" : "https://api.github.com/users/coderxiang",
+        "contributions" : 1
+      },
+      {
+        "login" : "Quafadas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24899792?v=4",
+        "url" : "https://api.github.com/users/Quafadas",
+        "contributions" : 1
+      },
+      {
+        "login" : "stijndehaes",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5019818?v=4",
+        "url" : "https://api.github.com/users/stijndehaes",
+        "contributions" : 1
+      },
+      {
+        "login" : "suhailshergill",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/862886?v=4",
+        "url" : "https://api.github.com/users/suhailshergill",
+        "contributions" : 1
+      },
+      {
+        "login" : "tillrohrmann",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5756858?v=4",
+        "url" : "https://api.github.com/users/tillrohrmann",
+        "contributions" : 1
+      },
+      {
+        "login" : "tsobieszek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6423820?v=4",
+        "url" : "https://api.github.com/users/tsobieszek",
+        "contributions" : 1
+      },
+      {
+        "login" : "zasdfgbnm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1032377?v=4",
+        "url" : "https://api.github.com/users/zasdfgbnm",
+        "contributions" : 1
+      },
+      {
+        "login" : "zakpatterson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1987109?v=4",
+        "url" : "https://api.github.com/users/zakpatterson",
+        "contributions" : 1
+      },
+      {
+        "login" : "alois-bissuel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/41194547?v=4",
+        "url" : "https://api.github.com/users/alois-bissuel",
+        "contributions" : 1
+      },
+      {
+        "login" : "brendon-",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6272982?v=4",
+        "url" : "https://api.github.com/users/brendon-",
+        "contributions" : 1
+      },
+      {
+        "login" : "danoliv",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7841405?v=4",
+        "url" : "https://api.github.com/users/danoliv",
+        "contributions" : 1
+      },
+      {
+        "login" : "DonBeo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4463692?v=4",
+        "url" : "https://api.github.com/users/DonBeo",
+        "contributions" : 1
+      },
+      {
+        "login" : "invkrh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5421623?v=4",
+        "url" : "https://api.github.com/users/invkrh",
+        "contributions" : 1
+      },
+      {
+        "login" : "maxthomas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1263915?v=4",
+        "url" : "https://api.github.com/users/maxthomas",
+        "contributions" : 1
+      },
+      {
+        "login" : "piyo7",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6973087?v=4",
+        "url" : "https://api.github.com/users/piyo7",
+        "contributions" : 1
+      },
+      {
+        "login" : "ryanlecompte",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/637158?v=4",
+        "url" : "https://api.github.com/users/ryanlecompte",
+        "contributions" : 1
+      },
+      {
+        "login" : "tek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2632?v=4",
+        "url" : "https://api.github.com/users/tek",
+        "contributions" : 1
+      },
+      {
+        "login" : "xuwei-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/389787?v=4",
+        "url" : "https://api.github.com/users/xuwei-k",
+        "contributions" : 1
+      },
+      {
+        "login" : "Atry",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/601530?v=4",
+        "url" : "https://api.github.com/users/Atry",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 3262,
+    "topics" : [
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 838,
+        "title" : "InvWishart df required to be Int",
+        "url" : "https://github.com/scalanlp/breeze/issues/838"
+      },
+      {
+        "number" : 837,
+        "title" : "How to plot a weight histogram ",
+        "url" : "https://github.com/scalanlp/breeze/issues/837"
+      },
+      {
+        "number" : 836,
+        "title" : "Feature request: Add `digitize`, `geomspace`, `logspace` functions from numpy.",
+        "url" : "https://github.com/scalanlp/breeze/issues/836"
+      },
+      {
+        "number" : 835,
+        "title" : "Can't use breeze is Scala 3.1.0",
+        "url" : "https://github.com/scalanlp/breeze/issues/835"
+      },
+      {
+        "number" : 834,
+        "title" : "A trivial bug in breeze.stats.distributions.Uniform.scala",
+        "url" : "https://github.com/scalanlp/breeze/issues/834"
+      },
+      {
+        "number" : 825,
+        "title" : "Deadlock on concurrent tests while initializing DenseVector",
+        "url" : "https://github.com/scalanlp/breeze/issues/825"
+      },
+      {
+        "number" : 814,
+        "title" : "Basic question on matrix calculation",
+        "url" : "https://github.com/scalanlp/breeze/issues/814"
+      },
+      {
+        "number" : 813,
+        "title" : "KuhnMunkresTest Testr",
+        "url" : "https://github.com/scalanlp/breeze/issues/813"
+      },
+      {
+        "number" : 812,
+        "title" : "lasso regression results do not match with scikit-learn or R when lambda is bigger",
+        "url" : "https://github.com/scalanlp/breeze/issues/812"
+      },
+      {
+        "number" : 810,
+        "title" : "diverging implicit expansion on squaredDistance",
+        "url" : "https://github.com/scalanlp/breeze/issues/810"
+      },
+      {
+        "number" : 808,
+        "title" : "convergence criteria ",
+        "url" : "https://github.com/scalanlp/breeze/issues/808"
+      },
+      {
+        "number" : 803,
+        "title" : "how to find the norm of a matrix",
+        "url" : "https://github.com/scalanlp/breeze/issues/803"
+      },
+      {
+        "number" : 783,
+        "title" : "Unnecessary evaluation when line search is determined to have failed ",
+        "url" : "https://github.com/scalanlp/breeze/issues/783"
+      },
+      {
+        "number" : 770,
+        "title" : "Breeze \"sortrows\" function - first implementation below - help wanted?",
+        "url" : "https://github.com/scalanlp/breeze/issues/770"
+      },
+      {
+        "number" : 767,
+        "title" : "CSCMatrix OpMulMatrix uses O(numRows) memory, which is too much for some applications",
+        "url" : "https://github.com/scalanlp/breeze/issues/767"
+      },
+      {
+        "number" : 760,
+        "title" : "Would be nice to have shorter, more pythonic array sliciing syntax.",
+        "url" : "https://github.com/scalanlp/breeze/issues/760"
+      },
+      {
+        "number" : 752,
+        "title" : "L-BFGS-B is stuck",
+        "url" : "https://github.com/scalanlp/breeze/issues/752"
+      },
+      {
+        "number" : 746,
+        "title" : "BacktrackingLineSearch is likely to select a sub-optimal step size",
+        "url" : "https://github.com/scalanlp/breeze/issues/746"
+      },
+      {
+        "number" : 743,
+        "title" : "SVD threading issue (lapack.dgesdd)",
+        "url" : "https://github.com/scalanlp/breeze/issues/743"
+      },
+      {
+        "number" : 729,
+        "title" : "Band sparse matrices",
+        "url" : "https://github.com/scalanlp/breeze/issues/729"
+      },
+      {
+        "number" : 719,
+        "title" : "Inconsistency of dimensions in QR decomposition",
+        "url" : "https://github.com/scalanlp/breeze/issues/719"
+      },
+      {
+        "number" : 717,
+        "title" : "Bitvector slicing does not work with negative integer",
+        "url" : "https://github.com/scalanlp/breeze/issues/717"
+      },
+      {
+        "number" : 715,
+        "title" : "Missing Transpose(DenseVector)*CSC operation?",
+        "url" : "https://github.com/scalanlp/breeze/issues/715"
+      },
+      {
+        "number" : 713,
+        "title" : "Incorrect convergence check in LBFGSB (bounded) algorithm",
+        "url" : "https://github.com/scalanlp/breeze/issues/713"
+      },
+      {
+        "number" : 707,
+        "title" : "Separate logging for algorithms",
+        "url" : "https://github.com/scalanlp/breeze/issues/707"
+      },
+      {
+        "number" : 706,
+        "title" : "Enhancement: avoid iterations over NaNs in StrongWolfeLineSearch",
+        "url" : "https://github.com/scalanlp/breeze/issues/706"
+      },
+      {
+        "number" : 705,
+        "title" : "Please add elementwise pow to documentation",
+        "url" : "https://github.com/scalanlp/breeze/issues/705"
+      },
+      {
+        "number" : 701,
+        "title" : "breeze.viz : plot two objects in same color",
+        "url" : "https://github.com/scalanlp/breeze/issues/701"
+      },
+      {
+        "number" : 697,
+        "title" : "potential bug in usage of BacktrackingLineSearch",
+        "url" : "https://github.com/scalanlp/breeze/issues/697"
+      },
+      {
+        "number" : 662,
+        "title" : "Integrating vegas with breeze?",
+        "url" : "https://github.com/scalanlp/breeze/issues/662"
+      },
+      {
+        "number" : 652,
+        "title" : "[INVESTIGATION] Continuous Integration Tests Not Reliably Passing",
+        "url" : "https://github.com/scalanlp/breeze/issues/652"
+      },
+      {
+        "number" : 645,
+        "title" : "Support for BigDecimals",
+        "url" : "https://github.com/scalanlp/breeze/issues/645"
+      },
+      {
+        "number" : 626,
+        "title" : "Cannot calculate a norm from a transposed vector",
+        "url" : "https://github.com/scalanlp/breeze/issues/626"
+      },
+      {
+        "number" : 600,
+        "title" : "Mixed-integer solver",
+        "url" : "https://github.com/scalanlp/breeze/issues/600"
+      },
+      {
+        "number" : 599,
+        "title" : "More support for Multivariate distributions",
+        "url" : "https://github.com/scalanlp/breeze/issues/599"
+      },
+      {
+        "number" : 590,
+        "title" : "DenseTensor?",
+        "url" : "https://github.com/scalanlp/breeze/issues/590"
+      },
+      {
+        "number" : 586,
+        "title" : "Windowed Time Series Data in Matrices",
+        "url" : "https://github.com/scalanlp/breeze/issues/586"
+      },
+      {
+        "number" : 551,
+        "title" : "Partition index",
+        "url" : "https://github.com/scalanlp/breeze/issues/551"
+      },
+      {
+        "number" : 550,
+        "title" : "Matrix constructor for column vector literals.",
+        "url" : "https://github.com/scalanlp/breeze/issues/550"
+      },
+      {
+        "number" : 542,
+        "title" : "Read image to matrix",
+        "url" : "https://github.com/scalanlp/breeze/issues/542"
+      },
+      {
+        "number" : 526,
+        "title" : "Optionally Encode Dimension in Types",
+        "url" : "https://github.com/scalanlp/breeze/issues/526"
+      },
+      {
+        "number" : 511,
+        "title" : "Fix / tidy / consolidate MCMC code",
+        "url" : "https://github.com/scalanlp/breeze/issues/511"
+      },
+      {
+        "number" : 507,
+        "title" : "Add degrees of freedom to variance and stddev UFunc functions",
+        "url" : "https://github.com/scalanlp/breeze/issues/507"
+      },
+      {
+        "number" : 506,
+        "title" : "Filtering matrix with a bit vector doesn't work",
+        "url" : "https://github.com/scalanlp/breeze/issues/506"
+      },
+      {
+        "number" : 502,
+        "title" : "norm(), svd(), eig(), pinv(), etc for complex matrices",
+        "url" : "https://github.com/scalanlp/breeze/issues/502"
+      },
+      {
+        "number" : 488,
+        "title" : "horzcat with a DenseMatrix with 0 columns (horzcat does not have a \"unit\")",
+        "url" : "https://github.com/scalanlp/breeze/issues/488"
+      },
+      {
+        "number" : 474,
+        "title" : "partial scalajs support",
+        "url" : "https://github.com/scalanlp/breeze/issues/474"
+      },
+      {
+        "number" : 473,
+        "title" : "fourierTr.dvDouble1DFFT main thread takes to long time to stop if the size of input is 2**n + 1",
+        "url" : "https://github.com/scalanlp/breeze/issues/473"
+      },
+      {
+        "number" : 470,
+        "title" : "Question: What about Spark-like DataFrames?",
+        "url" : "https://github.com/scalanlp/breeze/issues/470"
+      },
+      {
+        "number" : 458,
+        "title" : "parallel broadcasting",
+        "url" : "https://github.com/scalanlp/breeze/issues/458"
+      },
+      {
+        "number" : 450,
+        "title" : "row-broadcasting and transposed vectors",
+        "url" : "https://github.com/scalanlp/breeze/issues/450"
+      },
+      {
+        "number" : 448,
+        "title" : "vector in-place operations don't check for overlap",
+        "url" : "https://github.com/scalanlp/breeze/issues/448"
+      },
+      {
+        "number" : 445,
+        "title" : "filtering rows on vector/matrix",
+        "url" : "https://github.com/scalanlp/breeze/issues/445"
+      },
+      {
+        "number" : 444,
+        "title" : "a < b (gives matrix of 1/0 instead of true/false)",
+        "url" : "https://github.com/scalanlp/breeze/issues/444"
+      },
+      {
+        "number" : 441,
+        "title" : "simpler syntax for csvread",
+        "url" : "https://github.com/scalanlp/breeze/issues/441"
+      },
+      {
+        "number" : 436,
+        "title" : "Add nice operators for concatenating vectors.",
+        "url" : "https://github.com/scalanlp/breeze/issues/436"
+      },
+      {
+        "number" : 434,
+        "title" : "Feature Request: Plot Error Bars",
+        "url" : "https://github.com/scalanlp/breeze/issues/434"
+      },
+      {
+        "number" : 422,
+        "title" : "SparseArray/SparseVector.compact should be split into 2-3 functions",
+        "url" : "https://github.com/scalanlp/breeze/issues/422"
+      },
+      {
+        "number" : 404,
+        "title" : "Diverging Implicits with MutableOptimizationSpace Context Bound",
+        "url" : "https://github.com/scalanlp/breeze/issues/404"
+      },
+      {
+        "number" : 389,
+        "title" : "Add Sink Trait for BLAS/LAPACK operations that mutates incoming memory",
+        "url" : "https://github.com/scalanlp/breeze/issues/389"
+      },
+      {
+        "number" : 365,
+        "title" : "Contour plots",
+        "url" : "https://github.com/scalanlp/breeze/issues/365"
+      },
+      {
+        "number" : 357,
+        "title" : "csvread/csvwrite separator",
+        "url" : "https://github.com/scalanlp/breeze/issues/357"
+      },
+      {
+        "number" : 329,
+        "title" : "CSR matrix",
+        "url" : "https://github.com/scalanlp/breeze/issues/329"
+      },
+      {
+        "number" : 327,
+        "title" : "again on broadcasting with mutate operator",
+        "url" : "https://github.com/scalanlp/breeze/issues/327"
+      },
+      {
+        "number" : 315,
+        "title" : "Matrix Market input/output",
+        "url" : "https://github.com/scalanlp/breeze/issues/315"
+      },
+      {
+        "number" : 310,
+        "title" : "Lazy Matrix/Vector implementations",
+        "url" : "https://github.com/scalanlp/breeze/issues/310"
+      },
+      {
+        "number" : 309,
+        "title" : "Add weighted distance functions between two vectors",
+        "url" : "https://github.com/scalanlp/breeze/issues/309"
+      },
+      {
+        "number" : 307,
+        "title" : "ZippedValues should have a way to deal with zero values",
+        "url" : "https://github.com/scalanlp/breeze/issues/307"
+      },
+      {
+        "number" : 271,
+        "title" : "Breeze LBFGS Preconditionner",
+        "url" : "https://github.com/scalanlp/breeze/issues/271"
+      },
+      {
+        "number" : 266,
+        "title" : "LinearProgram DSL should provide a VectorSpace for variables",
+        "url" : "https://github.com/scalanlp/breeze/issues/266"
+      },
+      {
+        "number" : 260,
+        "title" : "CVX style DSL",
+        "url" : "https://github.com/scalanlp/breeze/issues/260"
+      },
+      {
+        "number" : 255,
+        "title" : "[breeze.signal] IIR filter, Biquad filter",
+        "url" : "https://github.com/scalanlp/breeze/issues/255"
+      },
+      {
+        "number" : 244,
+        "title" : "DenseTensor3",
+        "url" : "https://github.com/scalanlp/breeze/issues/244"
+      },
+      {
+        "number" : 233,
+        "title" : "Figure out _.t for DenseVector[Complex] (transpose vs. conjugate transpose)",
+        "url" : "https://github.com/scalanlp/breeze/issues/233"
+      },
+      {
+        "number" : 226,
+        "title" : "Supports for outer product of vectors?",
+        "url" : "https://github.com/scalanlp/breeze/issues/226"
+      },
+      {
+        "number" : 217,
+        "title" : "Numpy parity: statistics fitting",
+        "url" : "https://github.com/scalanlp/breeze/issues/217"
+      },
+      {
+        "number" : 211,
+        "title" : "Add a Jackson serialization module ",
+        "url" : "https://github.com/scalanlp/breeze/issues/211"
+      },
+      {
+        "number" : 207,
+        "title" : "Type class for derivation of functions",
+        "url" : "https://github.com/scalanlp/breeze/issues/207"
+      },
+      {
+        "number" : 196,
+        "title" : "Units of Measure",
+        "url" : "https://github.com/scalanlp/breeze/issues/196"
+      },
+      {
+        "number" : 114,
+        "title" : "Stronger functional approach for LinAlg",
+        "url" : "https://github.com/scalanlp/breeze/issues/114"
+      },
+      {
+        "number" : 96,
+        "title" : "SparseVector should support configurable defaults",
+        "url" : "https://github.com/scalanlp/breeze/issues/96"
+      },
+      {
+        "number" : 65,
+        "title" : "Compilation fails with SBT when using DenseVector(index) inside for expression and using toSet",
+        "url" : "https://github.com/scalanlp/breeze/issues/65"
+      },
+      {
+        "number" : 42,
+        "title" : "support hdf4/5 input/output",
+        "url" : "https://github.com/scalanlp/breeze/issues/42"
+      },
+      {
+        "number" : 21,
+        "title" : "Spire integration",
+        "url" : "https://github.com/scalanlp/breeze/issues/21"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : "breeze",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "numerical-and-symbolic-computing",
+    "beginnerIssuesLabel" : null
+  }
+}

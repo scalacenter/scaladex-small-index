@@ -1,0 +1,1397 @@
+{
+  "organization" : "scalameta",
+  "repository" : "metals",
+  "creationDate" : 1511323423468,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643164133126
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "https://scalameta.org/metals/",
+    "description" : "Scala language server with rich IDE features 🚀 ",
+    "logo" : "https://avatars.githubusercontent.com/u/7526438?v=4",
+    "stars" : 1637,
+    "forks" : 224,
+    "watchers" : 58,
+    "issues" : 153,
+    "creationDate" : 1509718733000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-metals\" class=\"anchor\" aria-hidden=\"true\" href=\"#metals\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Metals</h1>\n<a href=\"https://discord.gg/FaVDrJegEh\" rel=\"nofollow\">\n<img alt=\"Chat with us on discord\" src=\"https://camo.githubusercontent.com/6160cd818a2a51cce838362150067f7ef119b5640279171f8c470fe410f92dca/68747470733a2f2f696d672e736869656c64732e696f2f646973636f72642f363332363432393831323238333134363533\" data-canonical-src=\"https://img.shields.io/discord/632642981228314653\" style=\"max-width: 100%;\">\n</a>\n<a href=\"https://twitter.com/scalameta\" rel=\"nofollow\">\n<img alt=\"Follow scalameta on Twitter\" src=\"https://camo.githubusercontent.com/b3b9662a15d82daa73170017229087952f26eb07c210561223b8255e0feb65d8/68747470733a2f2f696d672e736869656c64732e696f2f747769747465722f666f6c6c6f772f7363616c616d6574612e7376673f6c6f676f3d7477697474657226636f6c6f723d626c7565\" data-canonical-src=\"https://img.shields.io/twitter/follow/scalameta.svg?logo=twitter&amp;color=blue\" style=\"max-width: 100%;\">\n</a>\n<a href=\"https://index.scala-lang.org/scalameta/metals/metals\" rel=\"nofollow\">\n<img alt=\"Find us on scaladex\" src=\"https://camo.githubusercontent.com/f6267e662278bc278e35af2c14d6dc720fef87b72cb0afe44180e7799c151cf4/68747470733a2f2f696e6465782e7363616c612d6c616e672e6f72672f7363616c616d6574612f6d6574616c732f6d6574616c732f6c61746573742e737667\" data-canonical-src=\"https://index.scala-lang.org/scalameta/metals/metals/latest.svg\" style=\"max-width: 100%;\">\n</a>\n<h2 dir=\"auto\"><a id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Documentation</h2>\n<p dir=\"auto\">See the website: <a href=\"https://scalameta.org/metals/\" rel=\"nofollow\">https://scalameta.org/metals/</a></p>\n<h2 dir=\"auto\"><a id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Contributing</h2>\n<p dir=\"auto\">See the contributing guide:\n<a href=\"https://scalameta.org/metals/docs/contributors/getting-started.html\" rel=\"nofollow\">https://scalameta.org/metals/docs/contributors/getting-started.html</a></p>\n<h3 dir=\"auto\"><a id=\"user-content-team\" class=\"anchor\" aria-hidden=\"true\" href=\"#team\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Team</h3>\n<p dir=\"auto\">The current maintainers (people who can merge pull requests) are:</p>\n<ul dir=\"auto\">\n<li>Adrien Piquerez - <a href=\"https://github.com/adpi2\"><code>@adpi2</code></a></li>\n<li>Arthur McGibbon - <a href=\"https://github.com/Arthurm1\"><code>@Arthurm1</code></a></li>\n<li>Chris Kipp - <a href=\"https://github.com/ckipp01\"><code>@ckipp01</code></a></li>\n<li>Gabriele Petronella - <a href=\"https://github.com/gabro\"><code>@gabro</code></a></li>\n<li>Kamil Podsiadło - <a href=\"https://github.com/kpodsiad\"><code>@kpodsiad</code></a></li>\n<li>Ólafur Páll Geirsson - <a href=\"https://github.com/olafurpg\"><code>@olafurpg</code></a></li>\n<li>Tomasz Godzik - <a href=\"https://github.com/tgodzik\"><code>@tgodzik</code></a></li>\n<li>Vadim Chelyshov - <a href=\"https://github.com/dos65\"><code>@dos65</code></a></li>\n</ul>\n<p dir=\"auto\">Past maintainers:</p>\n<ul dir=\"auto\">\n<li>Alexey Alekhin - <a href=\"https://github.com/laughedelic\"><code>@laughedelic</code></a></li>\n<li>Johan Mudsam - <a href=\"https://github.com/mudsam\"><code>@mudsam</code></a></li>\n<li>Krzysztof Bochenek - <a href=\"https://github.com/kpbochenek\"><code>@kpbochenek</code></a></li>\n<li>Jorge Vicente Cantero - <a href=\"https://github.com/jvican\"><code>@jvican</code></a></li>\n<li>Marek Żarnowski - <a href=\"https://github.com/marek1840\"><code>@marek1840</code></a></li>\n<li>Shane Delmore - <a href=\"https://github.com/ShaneDelmore\"><code>@ShaneDelmore</code></a></li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-acknowledgement\" class=\"anchor\" aria-hidden=\"true\" href=\"#acknowledgement\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Acknowledgement</h2>\n<p dir=\"auto\">Huge thanks to <a href=\"https://github.com/dragos\"><code>@dragos</code></a> for his work on a Scala\nimplementation of the LSP (see: <a href=\"https://github.com/dragos/dragos-vscode-scala\">https://github.com/dragos/dragos-vscode-scala</a>).\nThis project helped us get quickly started with LSP. Since then, we have\nrefactored the project's original sources to the point where only a few simple\ncase classes remain.</p>\n<h2 dir=\"auto\"><a id=\"user-content-alternatives\" class=\"anchor\" aria-hidden=\"true\" href=\"#alternatives\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Alternatives</h2>\n<ul dir=\"auto\">\n<li><a href=\"https://www.jetbrains.com/help/idea/discover-intellij-idea-for-scala.html\" rel=\"nofollow\">IntelliJ IDEA</a>:\nthe most widely used IDE for Scala using a re-implementation of the Scala\ntypechecker.</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-why-metals\" class=\"anchor\" aria-hidden=\"true\" href=\"#why-metals\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Why Metals?</h2>\n<p dir=\"auto\">Metals = Meta (from Scalameta) + LS (from Language Server)</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "tgodzik",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3807253?v=4",
+        "url" : "https://api.github.com/users/tgodzik",
+        "contributions" : 1411
+      },
+      {
+        "login" : "olafurpg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1408093?v=4",
+        "url" : "https://api.github.com/users/olafurpg",
+        "contributions" : 1270
+      },
+      {
+        "login" : "ckipp01",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13974112?v=4",
+        "url" : "https://api.github.com/users/ckipp01",
+        "contributions" : 852
+      },
+      {
+        "login" : "gabro",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/691940?v=4",
+        "url" : "https://api.github.com/users/gabro",
+        "contributions" : 574
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 460
+      },
+      {
+        "login" : "laughedelic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/766656?v=4",
+        "url" : "https://api.github.com/users/laughedelic",
+        "contributions" : 175
+      },
+      {
+        "login" : "dos65",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5816952?v=4",
+        "url" : "https://api.github.com/users/dos65",
+        "contributions" : 167
+      },
+      {
+        "login" : "mzarnowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3709537?v=4",
+        "url" : "https://api.github.com/users/mzarnowski",
+        "contributions" : 129
+      },
+      {
+        "login" : "tanishiking",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9353584?v=4",
+        "url" : "https://api.github.com/users/tanishiking",
+        "contributions" : 54
+      },
+      {
+        "login" : "kpbochenek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10478402?v=4",
+        "url" : "https://api.github.com/users/kpbochenek",
+        "contributions" : 50
+      },
+      {
+        "login" : "kpodsiad",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/37124721?v=4",
+        "url" : "https://api.github.com/users/kpodsiad",
+        "contributions" : 47
+      },
+      {
+        "login" : "alexarchambault",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7063723?v=4",
+        "url" : "https://api.github.com/users/alexarchambault",
+        "contributions" : 39
+      },
+      {
+        "login" : "ayoub-benali",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1632384?v=4",
+        "url" : "https://api.github.com/users/ayoub-benali",
+        "contributions" : 39
+      },
+      {
+        "login" : "alekseiAlefirov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10850363?v=4",
+        "url" : "https://api.github.com/users/alekseiAlefirov",
+        "contributions" : 31
+      },
+      {
+        "login" : "adpi2",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13123162?v=4",
+        "url" : "https://api.github.com/users/adpi2",
+        "contributions" : 26
+      },
+      {
+        "login" : "Giggiux",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9947659?v=4",
+        "url" : "https://api.github.com/users/Giggiux",
+        "contributions" : 26
+      },
+      {
+        "login" : "Arthurm1",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5612295?v=4",
+        "url" : "https://api.github.com/users/Arthurm1",
+        "contributions" : 23
+      },
+      {
+        "login" : "mlachkar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7843237?v=4",
+        "url" : "https://api.github.com/users/mlachkar",
+        "contributions" : 18
+      },
+      {
+        "login" : "isomarcte",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6734045?v=4",
+        "url" : "https://api.github.com/users/isomarcte",
+        "contributions" : 17
+      },
+      {
+        "login" : "JesusMtnez",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8639179?v=4",
+        "url" : "https://api.github.com/users/JesusMtnez",
+        "contributions" : 17
+      },
+      {
+        "login" : "mudsam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10428653?v=4",
+        "url" : "https://api.github.com/users/mudsam",
+        "contributions" : 17
+      },
+      {
+        "login" : "dragos",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/133742?v=4",
+        "url" : "https://api.github.com/users/dragos",
+        "contributions" : 16
+      },
+      {
+        "login" : "colineto",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11595083?v=4",
+        "url" : "https://api.github.com/users/colineto",
+        "contributions" : 15
+      },
+      {
+        "login" : "Z1kkurat",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7479593?v=4",
+        "url" : "https://api.github.com/users/Z1kkurat",
+        "contributions" : 14
+      },
+      {
+        "login" : "kubukoz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/894884?v=4",
+        "url" : "https://api.github.com/users/kubukoz",
+        "contributions" : 13
+      },
+      {
+        "login" : "mwz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1190768?v=4",
+        "url" : "https://api.github.com/users/mwz",
+        "contributions" : 12
+      },
+      {
+        "login" : "sswistun-vl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/56023683?v=4",
+        "url" : "https://api.github.com/users/sswistun-vl",
+        "contributions" : 12
+      },
+      {
+        "login" : "wiwa",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1862202?v=4",
+        "url" : "https://api.github.com/users/wiwa",
+        "contributions" : 10
+      },
+      {
+        "login" : "ShaneDelmore",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4604933?v=4",
+        "url" : "https://api.github.com/users/ShaneDelmore",
+        "contributions" : 9
+      },
+      {
+        "login" : "lukaszwawrzyk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10235198?v=4",
+        "url" : "https://api.github.com/users/lukaszwawrzyk",
+        "contributions" : 8
+      },
+      {
+        "login" : "Duhemm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1765926?v=4",
+        "url" : "https://api.github.com/users/Duhemm",
+        "contributions" : 8
+      },
+      {
+        "login" : "cb372",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/106760?v=4",
+        "url" : "https://api.github.com/users/cb372",
+        "contributions" : 7
+      },
+      {
+        "login" : "tpasternak",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1066003?v=4",
+        "url" : "https://api.github.com/users/tpasternak",
+        "contributions" : 7
+      },
+      {
+        "login" : "VictorMikhaylov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6746645?v=4",
+        "url" : "https://api.github.com/users/VictorMikhaylov",
+        "contributions" : 7
+      },
+      {
+        "login" : "agajek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12413667?v=4",
+        "url" : "https://api.github.com/users/agajek",
+        "contributions" : 6
+      },
+      {
+        "login" : "benhutchison",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/95460?v=4",
+        "url" : "https://api.github.com/users/benhutchison",
+        "contributions" : 6
+      },
+      {
+        "login" : "er1c",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/64685?v=4",
+        "url" : "https://api.github.com/users/er1c",
+        "contributions" : 6
+      },
+      {
+        "login" : "dependabot[bot]",
+        "avatarUrl" : "https://avatars.githubusercontent.com/in/29110?v=4",
+        "url" : "https://api.github.com/users/dependabot%5Bbot%5D",
+        "contributions" : 6
+      },
+      {
+        "login" : "kurnevsky",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2943605?v=4",
+        "url" : "https://api.github.com/users/kurnevsky",
+        "contributions" : 5
+      },
+      {
+        "login" : "eddiemundo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/929157?v=4",
+        "url" : "https://api.github.com/users/eddiemundo",
+        "contributions" : 5
+      },
+      {
+        "login" : "jvican",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2462974?v=4",
+        "url" : "https://api.github.com/users/jvican",
+        "contributions" : 5
+      },
+      {
+        "login" : "pvid",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/32688476?v=4",
+        "url" : "https://api.github.com/users/pvid",
+        "contributions" : 5
+      },
+      {
+        "login" : "PanAeon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/686076?v=4",
+        "url" : "https://api.github.com/users/PanAeon",
+        "contributions" : 4
+      },
+      {
+        "login" : "eilite",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15162353?v=4",
+        "url" : "https://api.github.com/users/eilite",
+        "contributions" : 3
+      },
+      {
+        "login" : "gvolpe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/443978?v=4",
+        "url" : "https://api.github.com/users/gvolpe",
+        "contributions" : 3
+      },
+      {
+        "login" : "GavinRay97",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/26604994?v=4",
+        "url" : "https://api.github.com/users/GavinRay97",
+        "contributions" : 3
+      },
+      {
+        "login" : "lolgab",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5793054?v=4",
+        "url" : "https://api.github.com/users/lolgab",
+        "contributions" : 3
+      },
+      {
+        "login" : "takezoe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1094760?v=4",
+        "url" : "https://api.github.com/users/takezoe",
+        "contributions" : 3
+      },
+      {
+        "login" : "ag91",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6580039?v=4",
+        "url" : "https://api.github.com/users/ag91",
+        "contributions" : 3
+      },
+      {
+        "login" : "meshake",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1951111?v=4",
+        "url" : "https://api.github.com/users/meshake",
+        "contributions" : 3
+      },
+      {
+        "login" : "liancheng",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/230655?v=4",
+        "url" : "https://api.github.com/users/liancheng",
+        "contributions" : 3
+      },
+      {
+        "login" : "ashwinbhaskar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6818365?v=4",
+        "url" : "https://api.github.com/users/ashwinbhaskar",
+        "contributions" : 2
+      },
+      {
+        "login" : "ceedubs",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/977929?v=4",
+        "url" : "https://api.github.com/users/ceedubs",
+        "contributions" : 2
+      },
+      {
+        "login" : "coreyoconnor",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/34317?v=4",
+        "url" : "https://api.github.com/users/coreyoconnor",
+        "contributions" : 2
+      },
+      {
+        "login" : "danking",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/106194?v=4",
+        "url" : "https://api.github.com/users/danking",
+        "contributions" : 2
+      },
+      {
+        "login" : "durban",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1568978?v=4",
+        "url" : "https://api.github.com/users/durban",
+        "contributions" : 2
+      },
+      {
+        "login" : "danilbykov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14955343?v=4",
+        "url" : "https://api.github.com/users/danilbykov",
+        "contributions" : 2
+      },
+      {
+        "login" : "mundacho",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4747697?v=4",
+        "url" : "https://api.github.com/users/mundacho",
+        "contributions" : 2
+      },
+      {
+        "login" : "eatkins",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2658825?v=4",
+        "url" : "https://api.github.com/users/eatkins",
+        "contributions" : 2
+      },
+      {
+        "login" : "melekhove",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7640495?v=4",
+        "url" : "https://api.github.com/users/melekhove",
+        "contributions" : 2
+      },
+      {
+        "login" : "satabin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2537737?v=4",
+        "url" : "https://api.github.com/users/satabin",
+        "contributions" : 2
+      },
+      {
+        "login" : "LukaszByczynski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/139674?v=4",
+        "url" : "https://api.github.com/users/LukaszByczynski",
+        "contributions" : 2
+      },
+      {
+        "login" : "oschrenk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/52898?v=4",
+        "url" : "https://api.github.com/users/oschrenk",
+        "contributions" : 2
+      },
+      {
+        "login" : "rberenguel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2410938?v=4",
+        "url" : "https://api.github.com/users/rberenguel",
+        "contributions" : 2
+      },
+      {
+        "login" : "tdudzik",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6402694?v=4",
+        "url" : "https://api.github.com/users/tdudzik",
+        "contributions" : 2
+      },
+      {
+        "login" : "bjornregnell",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3601817?v=4",
+        "url" : "https://api.github.com/users/bjornregnell",
+        "contributions" : 2
+      },
+      {
+        "login" : "xeno-by",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/609152?v=4",
+        "url" : "https://api.github.com/users/xeno-by",
+        "contributions" : 2
+      },
+      {
+        "login" : "strobe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/169881?v=4",
+        "url" : "https://api.github.com/users/strobe",
+        "contributions" : 2
+      },
+      {
+        "login" : "joriscode",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2750485?v=4",
+        "url" : "https://api.github.com/users/joriscode",
+        "contributions" : 2
+      },
+      {
+        "login" : "ajzawawi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3940792?v=4",
+        "url" : "https://api.github.com/users/ajzawawi",
+        "contributions" : 1
+      },
+      {
+        "login" : "amaalali",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9220299?v=4",
+        "url" : "https://api.github.com/users/amaalali",
+        "contributions" : 1
+      },
+      {
+        "login" : "andyczerwonka",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/138898?v=4",
+        "url" : "https://api.github.com/users/andyczerwonka",
+        "contributions" : 1
+      },
+      {
+        "login" : "raboof",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/131856?v=4",
+        "url" : "https://api.github.com/users/raboof",
+        "contributions" : 1
+      },
+      {
+        "login" : "sellophane",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10901154?v=4",
+        "url" : "https://api.github.com/users/sellophane",
+        "contributions" : 1
+      },
+      {
+        "login" : "cquiroz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3615303?v=4",
+        "url" : "https://api.github.com/users/cquiroz",
+        "contributions" : 1
+      },
+      {
+        "login" : "carlosrogue",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1106560?v=4",
+        "url" : "https://api.github.com/users/carlosrogue",
+        "contributions" : 1
+      },
+      {
+        "login" : "avdv",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3471749?v=4",
+        "url" : "https://api.github.com/users/avdv",
+        "contributions" : 1
+      },
+      {
+        "login" : "Compro-Prasad",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11143962?v=4",
+        "url" : "https://api.github.com/users/Compro-Prasad",
+        "contributions" : 1
+      },
+      {
+        "login" : "ekrich",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/933058?v=4",
+        "url" : "https://api.github.com/users/ekrich",
+        "contributions" : 1
+      },
+      {
+        "login" : "driangle",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/292845?v=4",
+        "url" : "https://api.github.com/users/driangle",
+        "contributions" : 1
+      },
+      {
+        "login" : "greg-a-atkinson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11074540?v=4",
+        "url" : "https://api.github.com/users/greg-a-atkinson",
+        "contributions" : 1
+      },
+      {
+        "login" : "smarter",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/63430?v=4",
+        "url" : "https://api.github.com/users/smarter",
+        "contributions" : 1
+      },
+      {
+        "login" : "jodersky",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1007012?v=4",
+        "url" : "https://api.github.com/users/jodersky",
+        "contributions" : 1
+      },
+      {
+        "login" : "zoonfafer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9203?v=4",
+        "url" : "https://api.github.com/users/zoonfafer",
+        "contributions" : 1
+      },
+      {
+        "login" : "jferris",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7591?v=4",
+        "url" : "https://api.github.com/users/jferris",
+        "contributions" : 1
+      },
+      {
+        "login" : "joprice",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2175555?v=4",
+        "url" : "https://api.github.com/users/joprice",
+        "contributions" : 1
+      },
+      {
+        "login" : "jozanek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10034393?v=4",
+        "url" : "https://api.github.com/users/jozanek",
+        "contributions" : 1
+      },
+      {
+        "login" : "KacperFKorban",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/39772805?v=4",
+        "url" : "https://api.github.com/users/KacperFKorban",
+        "contributions" : 1
+      },
+      {
+        "login" : "Karolina-Bogacka",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23015369?v=4",
+        "url" : "https://api.github.com/users/Karolina-Bogacka",
+        "contributions" : 1
+      },
+      {
+        "login" : "markus1189",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/591567?v=4",
+        "url" : "https://api.github.com/users/markus1189",
+        "contributions" : 1
+      },
+      {
+        "login" : "mpollmeier",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/506752?v=4",
+        "url" : "https://api.github.com/users/mpollmeier",
+        "contributions" : 1
+      },
+      {
+        "login" : "nrktkt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3280689?v=4",
+        "url" : "https://api.github.com/users/nrktkt",
+        "contributions" : 1
+      },
+      {
+        "login" : "greenrd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/164965?v=4",
+        "url" : "https://api.github.com/users/greenrd",
+        "contributions" : 1
+      },
+      {
+        "login" : "robinraju",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8011082?v=4",
+        "url" : "https://api.github.com/users/robinraju",
+        "contributions" : 1
+      },
+      {
+        "login" : "rorygraves",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2352078?v=4",
+        "url" : "https://api.github.com/users/rorygraves",
+        "contributions" : 1
+      },
+      {
+        "login" : "rossabaker",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/142698?v=4",
+        "url" : "https://api.github.com/users/rossabaker",
+        "contributions" : 1
+      },
+      {
+        "login" : "rtar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/49794769?v=4",
+        "url" : "https://api.github.com/users/rtar",
+        "contributions" : 1
+      },
+      {
+        "login" : "fommil",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1914041?v=4",
+        "url" : "https://api.github.com/users/fommil",
+        "contributions" : 1
+      },
+      {
+        "login" : "uncle-betty",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3210857?v=4",
+        "url" : "https://api.github.com/users/uncle-betty",
+        "contributions" : 1
+      },
+      {
+        "login" : "tindzk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/196819?v=4",
+        "url" : "https://api.github.com/users/tindzk",
+        "contributions" : 1
+      },
+      {
+        "login" : "tototoshi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/264469?v=4",
+        "url" : "https://api.github.com/users/tototoshi",
+        "contributions" : 1
+      },
+      {
+        "login" : "chikei",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/84867?v=4",
+        "url" : "https://api.github.com/users/chikei",
+        "contributions" : 1
+      },
+      {
+        "login" : "darl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/423802?v=4",
+        "url" : "https://api.github.com/users/darl",
+        "contributions" : 1
+      },
+      {
+        "login" : "yyadavalli",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5590207?v=4",
+        "url" : "https://api.github.com/users/yyadavalli",
+        "contributions" : 1
+      },
+      {
+        "login" : "duianto",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13420573?v=4",
+        "url" : "https://api.github.com/users/duianto",
+        "contributions" : 1
+      },
+      {
+        "login" : "faizk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1107648?v=4",
+        "url" : "https://api.github.com/users/faizk",
+        "contributions" : 1
+      },
+      {
+        "login" : "keiSunagawa",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24284641?v=4",
+        "url" : "https://api.github.com/users/keiSunagawa",
+        "contributions" : 1
+      },
+      {
+        "login" : "kostafey",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1282079?v=4",
+        "url" : "https://api.github.com/users/kostafey",
+        "contributions" : 1
+      },
+      {
+        "login" : "zainab-ali",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12057118?v=4",
+        "url" : "https://api.github.com/users/zainab-ali",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 5728,
+    "topics" : [
+      "hacktoberfest",
+      "lsp",
+      "language-server",
+      "scalameta",
+      "ide",
+      "scala"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : "https://gitter.im/scalameta/metals",
+    "openIssues" : [
+      {
+        "number" : 3566,
+        "title" : "Scala 3 mouseover type hints crush singleton types",
+        "url" : "https://github.com/scalameta/metals/issues/3566"
+      },
+      {
+        "number" : 3565,
+        "title" : "'Show decompiled with javap/CFR' doesn't work with dependency classes",
+        "url" : "https://github.com/scalameta/metals/issues/3565"
+      },
+      {
+        "number" : 3561,
+        "title" : "insert type annotation doesn't conform to type hints",
+        "url" : "https://github.com/scalameta/metals/issues/3561"
+      },
+      {
+        "number" : 3559,
+        "title" : "Scala 3 underscore completions",
+        "url" : "https://github.com/scalameta/metals/issues/3559"
+      },
+      {
+        "number" : 3556,
+        "title" : "Debug Server resources are never being cancelled",
+        "url" : "https://github.com/scalameta/metals/issues/3556"
+      },
+      {
+        "number" : 3542,
+        "title" : "Failed to connect to build server (Metals 0.11.1)",
+        "url" : "https://github.com/scalameta/metals/issues/3542"
+      },
+      {
+        "number" : 3536,
+        "title" : "JavaInteractiveSemanticDb - jdk version inferring issue",
+        "url" : "https://github.com/scalameta/metals/issues/3536"
+      },
+      {
+        "number" : 3532,
+        "title" : "`java.lang.AssertionError: NoDenotation.owner` again",
+        "url" : "https://github.com/scalameta/metals/issues/3532"
+      },
+      {
+        "number" : 3531,
+        "title" : "Metals chokes on path dependent types",
+        "url" : "https://github.com/scalameta/metals/issues/3531"
+      },
+      {
+        "number" : 3527,
+        "title" : "improvement: Don't partition test into shards manually",
+        "url" : "https://github.com/scalameta/metals/issues/3527"
+      },
+      {
+        "number" : 3526,
+        "title" : "Parsing error",
+        "url" : "https://github.com/scalameta/metals/issues/3526"
+      },
+      {
+        "number" : 3503,
+        "title" : "Inconsistent test detection with project matrices",
+        "url" : "https://github.com/scalameta/metals/issues/3503"
+      },
+      {
+        "number" : 3479,
+        "title" : "Jdk sources selected incorrectly",
+        "url" : "https://github.com/scalameta/metals/issues/3479"
+      },
+      {
+        "number" : 3477,
+        "title" : "Metals won't run/debug main after X successful runs",
+        "url" : "https://github.com/scalameta/metals/issues/3477"
+      },
+      {
+        "number" : 3473,
+        "title" : "Missing `provided`/ `optional` dependencies",
+        "url" : "https://github.com/scalameta/metals/issues/3473"
+      },
+      {
+        "number" : 3464,
+        "title" : "Compiling status never stops",
+        "url" : "https://github.com/scalameta/metals/issues/3464"
+      },
+      {
+        "number" : 3462,
+        "title" : "Go to defition on errored symbol in for-comprhension doesn't work",
+        "url" : "https://github.com/scalameta/metals/issues/3462"
+      },
+      {
+        "number" : 3455,
+        "title" : "Ammonite >= 2.5.0 not supported",
+        "url" : "https://github.com/scalameta/metals/issues/3455"
+      },
+      {
+        "number" : 3398,
+        "title" : "Java support status placeholder",
+        "url" : "https://github.com/scalameta/metals/issues/3398"
+      },
+      {
+        "number" : 3387,
+        "title" : "Metals fails to index not existing file",
+        "url" : "https://github.com/scalameta/metals/issues/3387"
+      },
+      {
+        "number" : 3386,
+        "title" : "Discover Changes To A Type Hierarchy ",
+        "url" : "https://github.com/scalameta/metals/issues/3386"
+      },
+      {
+        "number" : 3383,
+        "title" : "Invalid scaladoc links in hover response",
+        "url" : "https://github.com/scalameta/metals/issues/3383"
+      },
+      {
+        "number" : 3381,
+        "title" : "Incorrect (but correct in some sense) completions in expression evaluation",
+        "url" : "https://github.com/scalameta/metals/issues/3381"
+      },
+      {
+        "number" : 3358,
+        "title" : "Unable to \"Step In\" to a Java Source",
+        "url" : "https://github.com/scalameta/metals/issues/3358"
+      },
+      {
+        "number" : 3347,
+        "title" : "Worksheet mode in VSCode stops working and perhaps causes metals to stop as well",
+        "url" : "https://github.com/scalameta/metals/issues/3347"
+      },
+      {
+        "number" : 3333,
+        "title" : "[Worksheet] Issues with using coursier",
+        "url" : "https://github.com/scalameta/metals/issues/3333"
+      },
+      {
+        "number" : 3305,
+        "title" : "Doctor show false warnings on ammonite scripts",
+        "url" : "https://github.com/scalameta/metals/issues/3305"
+      },
+      {
+        "number" : 3296,
+        "title" : "Wrong code lenses show on standalone file",
+        "url" : "https://github.com/scalameta/metals/issues/3296"
+      },
+      {
+        "number" : 3272,
+        "title" : "Align the documentation of how to do debugging with official docs, help beginners to get started with debugging",
+        "url" : "https://github.com/scalameta/metals/issues/3272"
+      },
+      {
+        "number" : 3266,
+        "title" : "FileSytemNotFound for src.zip when debugging on windows",
+        "url" : "https://github.com/scalameta/metals/issues/3266"
+      },
+      {
+        "number" : 3260,
+        "title" : "textDocument/definition returns only dependency results instead of local",
+        "url" : "https://github.com/scalameta/metals/issues/3260"
+      },
+      {
+        "number" : 3244,
+        "title" : "import $exec in Ammonite scripts is not supported",
+        "url" : "https://github.com/scalameta/metals/issues/3244"
+      },
+      {
+        "number" : 3243,
+        "title" : "[Scala3] Option for generating code using optional-braces",
+        "url" : "https://github.com/scalameta/metals/issues/3243"
+      },
+      {
+        "number" : 3234,
+        "title" : "FindTextInJars - implement search rules to support all fields from `TextSearchQuery`",
+        "url" : "https://github.com/scalameta/metals/issues/3234"
+      },
+      {
+        "number" : 3214,
+        "title" : "[Scala3] Regression: Multiple error inlines are not shown starting 3.0.1",
+        "url" : "https://github.com/scalameta/metals/issues/3214"
+      },
+      {
+        "number" : 3197,
+        "title" : "textDocument/documentHighlight highlights unrelated symbols in build.sbt",
+        "url" : "https://github.com/scalameta/metals/issues/3197"
+      },
+      {
+        "number" : 3193,
+        "title" : "Cascade compile command failed",
+        "url" : "https://github.com/scalameta/metals/issues/3193"
+      },
+      {
+        "number" : 3153,
+        "title" : "Metals extension in VSCode fails to open giter8 templates behind http proxy",
+        "url" : "https://github.com/scalameta/metals/issues/3153"
+      },
+      {
+        "number" : 3147,
+        "title" : "Distinguish actions that require no range selection",
+        "url" : "https://github.com/scalameta/metals/issues/3147"
+      },
+      {
+        "number" : 3146,
+        "title" : "Restart Bloop via console when unable to connect via launcher",
+        "url" : "https://github.com/scalameta/metals/issues/3146"
+      },
+      {
+        "number" : 3140,
+        "title" : "[Scala3] Completions with empty query have wrong scope",
+        "url" : "https://github.com/scalameta/metals/issues/3140"
+      },
+      {
+        "number" : 3133,
+        "title" : "[Scala 3] Rename extension parameter does not work",
+        "url" : "https://github.com/scalameta/metals/issues/3133"
+      },
+      {
+        "number" : 3118,
+        "title" : "[Scala3] Incremental compilation in Bloop ignores class deletion",
+        "url" : "https://github.com/scalameta/metals/issues/3118"
+      },
+      {
+        "number" : 3113,
+        "title" : "I have to restart server and re-import project every 30 minutes or so",
+        "url" : "https://github.com/scalameta/metals/issues/3113"
+      },
+      {
+        "number" : 3081,
+        "title" : "Wrong activeSignature in `signatureHelp` for overloaded method ",
+        "url" : "https://github.com/scalameta/metals/issues/3081"
+      },
+      {
+        "number" : 3071,
+        "title" : "Don't run Ammonite with Scala 3",
+        "url" : "https://github.com/scalameta/metals/issues/3071"
+      },
+      {
+        "number" : 3064,
+        "title" : "Cannot instantiate local class whose name shadows outer class in other source file without using new (Scala 3)",
+        "url" : "https://github.com/scalameta/metals/issues/3064"
+      },
+      {
+        "number" : 3057,
+        "title" : "`*` is not the first suggestion in import autocompletion",
+        "url" : "https://github.com/scalameta/metals/issues/3057"
+      },
+      {
+        "number" : 3056,
+        "title" : "[Scala3] Using `???` in worksheet may result in spurious postfixOps errors",
+        "url" : "https://github.com/scalameta/metals/issues/3056"
+      },
+      {
+        "number" : 3053,
+        "title" : "[Scala3] Weird document highlighting in particular function in dotty repo",
+        "url" : "https://github.com/scalameta/metals/issues/3053"
+      },
+      {
+        "number" : 3048,
+        "title" : "Completion with default parameters doesn't work correctly",
+        "url" : "https://github.com/scalameta/metals/issues/3048"
+      },
+      {
+        "number" : 3044,
+        "title" : "[Scala3] Interactive semanticdb might fail internally in compiler",
+        "url" : "https://github.com/scalameta/metals/issues/3044"
+      },
+      {
+        "number" : 3030,
+        "title" : "[Scala 3] PrettyPrinter cannot always print short type.",
+        "url" : "https://github.com/scalameta/metals/issues/3030"
+      },
+      {
+        "number" : 3024,
+        "title" : "The extension for vscode doesn't work for a project which doesn't have build.sbt file",
+        "url" : "https://github.com/scalameta/metals/issues/3024"
+      },
+      {
+        "number" : 3023,
+        "title" : "Incosistent bahavior with exhaustive pattern match completion",
+        "url" : "https://github.com/scalameta/metals/issues/3023"
+      },
+      {
+        "number" : 3020,
+        "title" : ".bloop folder grows without boundaries (bloop-bsp-clients-classes)",
+        "url" : "https://github.com/scalameta/metals/issues/3020"
+      },
+      {
+        "number" : 2997,
+        "title" : "ERROR bad option: -P:wartremover with bloop but not with simple sbt",
+        "url" : "https://github.com/scalameta/metals/issues/2997"
+      },
+      {
+        "number" : 2960,
+        "title" : "IdentifierComparator will fail with long numbers",
+        "url" : "https://github.com/scalameta/metals/issues/2960"
+      },
+      {
+        "number" : 2954,
+        "title" : "Unexpected error when opening a gatling project",
+        "url" : "https://github.com/scalameta/metals/issues/2954"
+      },
+      {
+        "number" : 2946,
+        "title" : "Metals Doctor + `not yet supported` warning for Scala 3",
+        "url" : "https://github.com/scalameta/metals/issues/2946"
+      },
+      {
+        "number" : 2934,
+        "title" : "Failed to download Metals (Powershell)",
+        "url" : "https://github.com/scalameta/metals/issues/2934"
+      },
+      {
+        "number" : 2918,
+        "title" : "[Scala3] Go to definition - handle `stdLibPatches`",
+        "url" : "https://github.com/scalameta/metals/issues/2918"
+      },
+      {
+        "number" : 2904,
+        "title" : "Implicit parameter hints don't appear in top-level generator positions",
+        "url" : "https://github.com/scalameta/metals/issues/2904"
+      },
+      {
+        "number" : 2888,
+        "title" : "user.dir system property should not be specified if it user defined in the launch config",
+        "url" : "https://github.com/scalameta/metals/issues/2888"
+      },
+      {
+        "number" : 2869,
+        "title" : "\"save as\" duplicates packages",
+        "url" : "https://github.com/scalameta/metals/issues/2869"
+      },
+      {
+        "number" : 2859,
+        "title" : "Support project view in TVP panel for Scala 3",
+        "url" : "https://github.com/scalameta/metals/issues/2859"
+      },
+      {
+        "number" : 2810,
+        "title" : "Completions, higher-kinded types and match types",
+        "url" : "https://github.com/scalameta/metals/issues/2810"
+      },
+      {
+        "number" : 2795,
+        "title" : "Do not backtick soft keywords always",
+        "url" : "https://github.com/scalameta/metals/issues/2795"
+      },
+      {
+        "number" : 2778,
+        "title" : "[Scala3] PC - implement `completionItemResolve`",
+        "url" : "https://github.com/scalameta/metals/issues/2778"
+      },
+      {
+        "number" : 2764,
+        "title" : "Value class inside an object gives error: \"value classes may not be a member of another class - mdoc\"",
+        "url" : "https://github.com/scalameta/metals/issues/2764"
+      },
+      {
+        "number" : 2700,
+        "title" : "Default behavior of adding imports changed",
+        "url" : "https://github.com/scalameta/metals/issues/2700"
+      },
+      {
+        "number" : 2697,
+        "title" : "Make it easier for users to change build server's memory requirements",
+        "url" : "https://github.com/scalameta/metals/issues/2697"
+      },
+      {
+        "number" : 2681,
+        "title" : "Rename doesn't work for classOf",
+        "url" : "https://github.com/scalameta/metals/issues/2681"
+      },
+      {
+        "number" : 2679,
+        "title" : "Rename doesn't work in for-comprehension when it contains \"=\" operator",
+        "url" : "https://github.com/scalameta/metals/issues/2679"
+      },
+      {
+        "number" : 2675,
+        "title" : "VSCode plugin shows \"Failed to connect with build server, no functionality will work\", cannot retrieve the reason why the connection failed",
+        "url" : "https://github.com/scalameta/metals/issues/2675"
+      },
+      {
+        "number" : 2670,
+        "title" : "Stale diagnostic in downstream targets ",
+        "url" : "https://github.com/scalameta/metals/issues/2670"
+      },
+      {
+        "number" : 2665,
+        "title" : "Worksheet gives no output nor an error message if toString throws an exception",
+        "url" : "https://github.com/scalameta/metals/issues/2665"
+      },
+      {
+        "number" : 2634,
+        "title" : "No completions on fs2.Stream.ToPull",
+        "url" : "https://github.com/scalameta/metals/issues/2634"
+      },
+      {
+        "number" : 2627,
+        "title" : "[Scala3] No definition for extension parameter symbol",
+        "url" : "https://github.com/scalameta/metals/issues/2627"
+      },
+      {
+        "number" : 2621,
+        "title" : "Unstripped Ansi Color Codes in Metals Output",
+        "url" : "https://github.com/scalameta/metals/issues/2621"
+      },
+      {
+        "number" : 2595,
+        "title" : "Invalid syntax error in ammonite multi-stage scripts",
+        "url" : "https://github.com/scalameta/metals/issues/2595"
+      },
+      {
+        "number" : 2583,
+        "title" : "Look in package objects for import suggestions",
+        "url" : "https://github.com/scalameta/metals/issues/2583"
+      },
+      {
+        "number" : 2563,
+        "title" : "BSP connection being attempted isn't halted when `bsp-switch` happens.",
+        "url" : "https://github.com/scalameta/metals/issues/2563"
+      },
+      {
+        "number" : 2561,
+        "title" : "Scala 3 - hover prints full path to package for toplevel symbol",
+        "url" : "https://github.com/scalameta/metals/issues/2561"
+      },
+      {
+        "number" : 2559,
+        "title" : "Inferred type lens doesn't match hover",
+        "url" : "https://github.com/scalameta/metals/issues/2559"
+      },
+      {
+        "number" : 2555,
+        "title" : "Invalid implicit parameter lens",
+        "url" : "https://github.com/scalameta/metals/issues/2555"
+      },
+      {
+        "number" : 2554,
+        "title" : "Invalid override completions when dealing with recursive \"raw types\"",
+        "url" : "https://github.com/scalameta/metals/issues/2554"
+      },
+      {
+        "number" : 2547,
+        "title" : "Build import is not re-tried if VSCode is restarted while build import prompt was open",
+        "url" : "https://github.com/scalameta/metals/issues/2547"
+      },
+      {
+        "number" : 2546,
+        "title" : "[2.13.5] Imports show results that are already in scope",
+        "url" : "https://github.com/scalameta/metals/issues/2546"
+      },
+      {
+        "number" : 2535,
+        "title" : "VS Code, gradle - init script repositories cannot be overriden",
+        "url" : "https://github.com/scalameta/metals/issues/2535"
+      },
+      {
+        "number" : 2496,
+        "title" : "InferredTypeAction does not work with backticked types",
+        "url" : "https://github.com/scalameta/metals/issues/2496"
+      },
+      {
+        "number" : 2494,
+        "title" : "Duplicate references being returned",
+        "url" : "https://github.com/scalameta/metals/issues/2494"
+      },
+      {
+        "number" : 2485,
+        "title" : "Improve handling of proxies and mirrors",
+        "url" : "https://github.com/scalameta/metals/issues/2485"
+      },
+      {
+        "number" : 2471,
+        "title" : "Show hover in VS code is not shown at the end of a val",
+        "url" : "https://github.com/scalameta/metals/issues/2471"
+      },
+      {
+        "number" : 2413,
+        "title" : "Ammonite script compilation ignores predefScript.sc",
+        "url" : "https://github.com/scalameta/metals/issues/2413"
+      },
+      {
+        "number" : 2400,
+        "title" : "Autocompletion for named method arguments not working for args contains $",
+        "url" : "https://github.com/scalameta/metals/issues/2400"
+      },
+      {
+        "number" : 2376,
+        "title" : "Go to definition not working because of semantic db issue",
+        "url" : "https://github.com/scalameta/metals/issues/2376"
+      },
+      {
+        "number" : 2363,
+        "title" : "Worksheet does not recognize stuff in the default package at top level",
+        "url" : "https://github.com/scalameta/metals/issues/2363"
+      },
+      {
+        "number" : 2348,
+        "title" : "metals occasionally hangs and reports stale errors though sbt compiles fine",
+        "url" : "https://github.com/scalameta/metals/issues/2348"
+      },
+      {
+        "number" : 2328,
+        "title" : "Doctor not correctly refreshed after `workspace/reload` when using sbt BSP",
+        "url" : "https://github.com/scalameta/metals/issues/2328"
+      },
+      {
+        "number" : 2296,
+        "title" : "Add a section to the docs that show all code actions",
+        "url" : "https://github.com/scalameta/metals/issues/2296"
+      },
+      {
+        "number" : 2289,
+        "title" : "No hover info / completion / type inference in specific scenario",
+        "url" : "https://github.com/scalameta/metals/issues/2289"
+      },
+      {
+        "number" : 2287,
+        "title" : "Allow multiple build targets for cross built project",
+        "url" : "https://github.com/scalameta/metals/issues/2287"
+      },
+      {
+        "number" : 2235,
+        "title" : "Project fails to import, because \"sbt server is already booting\"",
+        "url" : "https://github.com/scalameta/metals/issues/2235"
+      },
+      {
+        "number" : 2188,
+        "title" : "[Task] - Migrate all BSP connection related methods to `BspConnector`",
+        "url" : "https://github.com/scalameta/metals/issues/2188"
+      },
+      {
+        "number" : 2183,
+        "title" : "Avoid continuous compilation of generated sources when using sbt BSP",
+        "url" : "https://github.com/scalameta/metals/issues/2183"
+      },
+      {
+        "number" : 2151,
+        "title" : "Limit the concurrent running `import build`",
+        "url" : "https://github.com/scalameta/metals/issues/2151"
+      },
+      {
+        "number" : 2127,
+        "title" : "Incorrect color highlighting of package-private modified symbol hover",
+        "url" : "https://github.com/scalameta/metals/issues/2127"
+      },
+      {
+        "number" : 2117,
+        "title" : "@main annotation not working under certain conditions",
+        "url" : "https://github.com/scalameta/metals/issues/2117"
+      },
+      {
+        "number" : 2105,
+        "title" : "No auto import completions inside a string",
+        "url" : "https://github.com/scalameta/metals/issues/2105"
+      },
+      {
+        "number" : 2093,
+        "title" : "Build import is not reliable",
+        "url" : "https://github.com/scalameta/metals/issues/2093"
+      },
+      {
+        "number" : 2043,
+        "title" : "Output generated just before JVM shutdown is not printed in the console",
+        "url" : "https://github.com/scalameta/metals/issues/2043"
+      },
+      {
+        "number" : 2011,
+        "title" : "Error when debugging a static method in a Java class",
+        "url" : "https://github.com/scalameta/metals/issues/2011"
+      },
+      {
+        "number" : 2006,
+        "title" : "Incorrect edit supplied by code action for missing symbol.",
+        "url" : "https://github.com/scalameta/metals/issues/2006"
+      },
+      {
+        "number" : 1974,
+        "title" : "Migrate codebase to 2.13",
+        "url" : "https://github.com/scalameta/metals/issues/1974"
+      },
+      {
+        "number" : 1923,
+        "title" : "MAVEN_OPTS/JAVA_OPTS/.jvmopts/Server Properties has no effect on mvn run",
+        "url" : "https://github.com/scalameta/metals/issues/1923"
+      },
+      {
+        "number" : 1809,
+        "title" : "'find-definition' finds companion object instead of case class",
+        "url" : "https://github.com/scalameta/metals/issues/1809"
+      },
+      {
+        "number" : 1801,
+        "title" : "Flaky Ammonite test on windows",
+        "url" : "https://github.com/scalameta/metals/issues/1801"
+      },
+      {
+        "number" : 1707,
+        "title" : "Go to definition / hover revert to enclosing tree if cursor is not on a symbol",
+        "url" : "https://github.com/scalameta/metals/issues/1707"
+      },
+      {
+        "number" : 1705,
+        "title" : "[Scala 3] Debugging doesn't work on windows",
+        "url" : "https://github.com/scalameta/metals/issues/1705"
+      },
+      {
+        "number" : 1693,
+        "title" : "annotations do not show correct tooltip in Dotty",
+        "url" : "https://github.com/scalameta/metals/issues/1693"
+      },
+      {
+        "number" : 1692,
+        "title" : "Action “Implement all members” does not work on Scala 3",
+        "url" : "https://github.com/scalameta/metals/issues/1692"
+      },
+      {
+        "number" : 1691,
+        "title" : "Weird format of scala.Left on hover",
+        "url" : "https://github.com/scalameta/metals/issues/1691"
+      },
+      {
+        "number" : 1687,
+        "title" : "No signature help inside pattern match for Scala 3",
+        "url" : "https://github.com/scalameta/metals/issues/1687"
+      },
+      {
+        "number" : 1683,
+        "title" : "Warnings are not cleaned out for Scala 3",
+        "url" : "https://github.com/scalameta/metals/issues/1683"
+      },
+      {
+        "number" : 2495,
+        "title" : "Better names for types in hover/completions in Scala 3",
+        "url" : "https://github.com/scalameta/metals/issues/2495"
+      },
+      {
+        "number" : 1665,
+        "title" : "`VersionedTextDocumentIdentifier` version is always `null`",
+        "url" : "https://github.com/scalameta/metals/issues/1665"
+      },
+      {
+        "number" : 1635,
+        "title" : "[MS Code - Metals View] When updating dependencies, project view does not expad",
+        "url" : "https://github.com/scalameta/metals/issues/1635"
+      },
+      {
+        "number" : 1634,
+        "title" : "Hover not working on Scala 3 enums",
+        "url" : "https://github.com/scalameta/metals/issues/1634"
+      },
+      {
+        "number" : 1539,
+        "title" : "Renaming class hierarchy inside a method produces incorrect results.",
+        "url" : "https://github.com/scalameta/metals/issues/1539"
+      },
+      {
+        "number" : 1448,
+        "title" : "Presentation compiler does not see protobuf classes when generated",
+        "url" : "https://github.com/scalameta/metals/issues/1448"
+      },
+      {
+        "number" : 1381,
+        "title" : "\"Find symbol\" doesn't find type aliases",
+        "url" : "https://github.com/scalameta/metals/issues/1381"
+      },
+      {
+        "number" : 1304,
+        "title" : "Exception on a \"strange\" source jar",
+        "url" : "https://github.com/scalameta/metals/issues/1304"
+      },
+      {
+        "number" : 1287,
+        "title" : "Improve efficiency of go to implementation for non workspace symbols",
+        "url" : "https://github.com/scalameta/metals/issues/1287"
+      },
+      {
+        "number" : 1189,
+        "title" : "Fetch main and test classes as soon as possible",
+        "url" : "https://github.com/scalameta/metals/issues/1189"
+      },
+      {
+        "number" : 917,
+        "title" : "Don't autocomplete symbols that have been renamed/removed",
+        "url" : "https://github.com/scalameta/metals/issues/917"
+      },
+      {
+        "number" : 707,
+        "title" : "Feature requests",
+        "url" : "https://github.com/scalameta/metals/issues/707"
+      },
+      {
+        "number" : 672,
+        "title" : "Codebase cleanup",
+        "url" : "https://github.com/scalameta/metals/issues/672"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : null,
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "code-editors-and-notebooks",
+    "beginnerIssuesLabel" : null
+  }
+}

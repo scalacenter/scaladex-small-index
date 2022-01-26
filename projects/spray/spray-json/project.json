@@ -1,0 +1,685 @@
+{
+  "organization" : "spray",
+  "repository" : "spray-json",
+  "creationDate" : null,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643183252005
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "",
+    "description" : "A lightweight, clean and simple JSON implementation in Scala",
+    "logo" : "https://avatars.githubusercontent.com/u/688516?v=4",
+    "stars" : 947,
+    "forks" : 194,
+    "watchers" : 41,
+    "issues" : 98,
+    "creationDate" : 1304717498000,
+    "readme" : "<div id=\"readme\" class=\"markdown\" data-path=\"README.markdown\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><p dir=\"auto\"><em>spray-json</em> is a lightweight, clean and efficient <a href=\"http://json.org\" rel=\"nofollow\">JSON</a> implementation in Scala.</p>\n<p dir=\"auto\">It supports the following features:</p>\n<ul dir=\"auto\">\n<li>A simple immutable model of the JSON language elements</li>\n<li>An efficient JSON parser</li>\n<li>Choice of either compact or pretty JSON-to-string printing</li>\n<li>Type-class based (de)serialization of custom objects (no reflection, no intrusion)</li>\n<li>No external dependencies</li>\n</ul>\n<p dir=\"auto\"><em>spray-json</em> allows you to convert between</p>\n<ul dir=\"auto\">\n<li>String JSON documents</li>\n<li>JSON Abstract Syntax Trees (ASTs) with base type JsValue</li>\n<li>instances of arbitrary Scala types</li>\n</ul>\n<p dir=\"auto\">as depicted in this diagram:</p>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"images/Conversions.png\"><img src=\"images/Conversions.png\" alt=\"Spray-JSON conversions\" title=\"Conversions possible with Spray-JSON\" style=\"max-width: 100%;\"></a></p>\n<h3 dir=\"auto\"><a id=\"user-content-installation\" class=\"anchor\" aria-hidden=\"true\" href=\"#installation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Installation</h3>\n<p dir=\"auto\"><em>spray-json</em> is available from maven central.</p>\n<p dir=\"auto\">Latest release: <a href=\"https://maven-badges.herokuapp.com/maven-central/io.spray/spray-json_2.12\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/73fcaa2f66a9a1a3570a598631779f19dbd71cb464b26eee47e5344a46b44efb/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f696f2e73707261792f73707261792d6a736f6e5f322e31322f62616467652e737667\" alt=\"Maven Central\" data-canonical-src=\"https://maven-badges.herokuapp.com/maven-central/io.spray/spray-json_2.12/badge.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">If you use SBT you can include <em>spray-json</em> in your project with</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;io.spray&quot; %%  &quot;spray-json&quot; % &quot;1.3.6&quot;\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>io.spray<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span>  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>spray-json<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.3.6<span class=\"pl-pds\">\"</span></span></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-usage\" class=\"anchor\" aria-hidden=\"true\" href=\"#usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Usage</h3>\n<p dir=\"auto\"><em>spray-json</em> is really easy to use.\nJust bring all relevant elements in scope with</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import spray.json._\nimport DefaultJsonProtocol._ // if you don't supply your own Protocol (see below)\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">spray</span>.<span class=\"pl-en\">json</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">DefaultJsonProtocol</span>.<span class=\"pl-en\">_</span> <span class=\"pl-c\"><span class=\"pl-c\">//</span> if you don't supply your own Protocol (see below)</span></pre></div>\n<p dir=\"auto\">and do one or more of the following:</p>\n<ol dir=\"auto\">\n<li>\n<p dir=\"auto\">Parse a JSON string into its Abstract Syntax Tree (AST) representation</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val source = &quot;&quot;&quot;{ &quot;some&quot;: &quot;JSON source&quot; }&quot;&quot;&quot;\nval jsonAst = source.parseJson // or JsonParser(source)\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">source</span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"\"\"</span>{ \"some\": \"JSON source\" }<span class=\"pl-pds\">\"\"\"</span></span>\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">jsonAst</span> <span class=\"pl-k\">=</span> source.parseJson <span class=\"pl-c\"><span class=\"pl-c\">//</span> or JsonParser(source)</span></pre></div>\n</li>\n<li>\n<p dir=\"auto\">Print a JSON AST back to a String using either the <code>CompactPrinter</code> or the <code>PrettyPrinter</code></p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val json = jsonAst.prettyPrint // or .compactPrint\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">json</span> <span class=\"pl-k\">=</span> jsonAst.prettyPrint <span class=\"pl-c\"><span class=\"pl-c\">//</span> or .compactPrint</span></pre></div>\n</li>\n<li>\n<p dir=\"auto\">Convert any Scala object to a JSON AST using the <code>toJson</code> extension method</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val jsonAst = List(1, 2, 3).toJson\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">jsonAst</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">List</span>(<span class=\"pl-c1\">1</span>, <span class=\"pl-c1\">2</span>, <span class=\"pl-c1\">3</span>).toJson</pre></div>\n</li>\n<li>\n<p dir=\"auto\">Convert a JSON AST to a Scala object with the <code>convertTo</code> method</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val myObject = jsonAst.convertTo[MyObjectType]\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">myObject</span> <span class=\"pl-k\">=</span> jsonAst.convertTo[<span class=\"pl-en\">MyObjectType</span>]</pre></div>\n</li>\n</ol>\n<p dir=\"auto\">In order to make steps 3 and 4 work for an object of type <code>T</code> you need to bring implicit values in scope that\nprovide <code>JsonFormat[T]</code> instances for <code>T</code> and all types used by <code>T</code> (directly or indirectly).\nThe way you normally do this is via a \"JsonProtocol\".</p>\n<h3 dir=\"auto\"><a id=\"user-content-jsonprotocol\" class=\"anchor\" aria-hidden=\"true\" href=\"#jsonprotocol\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>JsonProtocol</h3>\n<p dir=\"auto\"><em>spray-json</em> uses <a href=\"https://github.com/debasishg/sjson\">SJSON</a>s Scala-idiomatic type-class-based approach to connect an existing type <code>T</code> with the logic how\nto (de)serialize its instances to and from JSON. (In fact <em>spray-json</em> even reuses some of <a href=\"https://github.com/debasishg/sjson\">SJSON</a>s code, see the\n'Credits' section below).</p>\n<p dir=\"auto\">This approach has the advantage of not requiring any change (or even access) to <code>T</code>s source code. All (de)serialization\nlogic is attached 'from the outside'. There is no reflection involved, so the resulting conversions are fast. Scalas\nexcellent type inference reduces verbosity and boilerplate to a minimum, while the Scala compiler will make sure at\ncompile time that you provided all required (de)serialization logic.</p>\n<p dir=\"auto\">In <em>spray-jsons</em> terminology a 'JsonProtocol' is nothing but a bunch of implicit values of type <code>JsonFormat[T]</code>, whereby\neach <code>JsonFormat[T]</code> contains the logic of how to convert instance of <code>T</code> to and from JSON. All <code>JsonFormat[T]</code>s of a\nprotocol need to be \"mece\" (mutually exclusive, collectively exhaustive), i.e. they are not allowed to overlap and\ntogether need to span all types required by the application.</p>\n<p dir=\"auto\">This may sound more complicated than it is.\n<em>spray-json</em> comes with a <code>DefaultJsonProtocol</code>, which already covers all of Scala's value types as well as the most\nimportant reference and collection types. As long as your code uses nothing more than these you only need the\n<code>DefaultJsonProtocol</code>. Here are the types already taken care of by the <code>DefaultJsonProtocol</code>:</p>\n<ul dir=\"auto\">\n<li>Byte, Short, Int, Long, Float, Double, Char, Unit, Boolean</li>\n<li>String, Symbol</li>\n<li>BigInt, BigDecimal</li>\n<li>Option, Either, Tuple1 - Tuple7</li>\n<li>List, Array</li>\n<li>immutable.{Map, Iterable, Seq, IndexedSeq, LinearSeq, Set, Vector}</li>\n<li>collection.{Iterable, Seq, IndexedSeq, LinearSeq, Set}</li>\n<li>JsValue</li>\n</ul>\n<p dir=\"auto\">In most cases however you'll also want to convert types not covered by the <code>DefaultJsonProtocol</code>. In these cases you\nneed to provide <code>JsonFormat[T]</code>s for your custom types. This is not hard at all.</p>\n<h3 dir=\"auto\"><a id=\"user-content-providing-jsonformats-for-case-classes\" class=\"anchor\" aria-hidden=\"true\" href=\"#providing-jsonformats-for-case-classes\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Providing JsonFormats for Case Classes</h3>\n<p dir=\"auto\">If your custom type <code>T</code> is a case class then augmenting the <code>DefaultJsonProtocol</code> with a <code>JsonFormat[T]</code> is really easy:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"case class Color(name: String, red: Int, green: Int, blue: Int)\n\nobject MyJsonProtocol extends DefaultJsonProtocol {\n  implicit val colorFormat = jsonFormat4(Color)\n}\n\nimport MyJsonProtocol._\nimport spray.json._\n\nval json = Color(&quot;CadetBlue&quot;, 95, 158, 160).toJson\nval color = json.convertTo[Color]\"><pre><span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">Color</span>(<span class=\"pl-v\">name</span>: <span class=\"pl-en\">String</span>, <span class=\"pl-v\">red</span>: <span class=\"pl-en\">Int</span>, <span class=\"pl-v\">green</span>: <span class=\"pl-en\">Int</span>, <span class=\"pl-v\">blue</span>: <span class=\"pl-en\">Int</span>)\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">MyJsonProtocol</span> <span class=\"pl-k\">extends</span> <span class=\"pl-e\">DefaultJsonProtocol</span> {\n  <span class=\"pl-k\">implicit</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">colorFormat</span> <span class=\"pl-k\">=</span> jsonFormat4(<span class=\"pl-en\">Color</span>)\n}\n\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">MyJsonProtocol</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">spray</span>.<span class=\"pl-en\">json</span>.<span class=\"pl-en\">_</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">json</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Color</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>CadetBlue<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-c1\">95</span>, <span class=\"pl-c1\">158</span>, <span class=\"pl-c1\">160</span>).toJson\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">color</span> <span class=\"pl-k\">=</span> json.convertTo[<span class=\"pl-en\">Color</span>]</pre></div>\n<p dir=\"auto\">The <code>jsonFormatX</code> methods reduce the boilerplate to a minimum, just pass the right one the companion object of your\ncase class and it will return a ready-to-use <code>JsonFormat</code> for your type (the right one is the one matching the number\nof arguments to your case class constructor, e.g. if your case class has 13 fields you need to use the <code>jsonFormat13</code>\nmethod). The <code>jsonFormatX</code> methods try to extract the field names of your case class before calling the more general\n<code>jsonFormat</code> overloads, which let you specify the field name manually. So, if spray-json has trouble determining the\nfield names or if your JSON objects use member names that differ from the case class fields you can also use\n<code>jsonFormat</code> directly.</p>\n<p dir=\"auto\">There is one additional quirk: If you explicitly declare the companion object for your case class the notation above will\nstop working. You'll have to explicitly refer to the companion objects <code>apply</code> method to fix this:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"case class Color(name: String, red: Int, green: Int, blue: Int)\nobject Color\n\nobject MyJsonProtocol extends DefaultJsonProtocol {\n  implicit val colorFormat = jsonFormat4(Color.apply)\n}\"><pre><span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">Color</span>(<span class=\"pl-v\">name</span>: <span class=\"pl-en\">String</span>, <span class=\"pl-v\">red</span>: <span class=\"pl-en\">Int</span>, <span class=\"pl-v\">green</span>: <span class=\"pl-en\">Int</span>, <span class=\"pl-v\">blue</span>: <span class=\"pl-en\">Int</span>)\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Color</span>\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">MyJsonProtocol</span> <span class=\"pl-k\">extends</span> <span class=\"pl-e\">DefaultJsonProtocol</span> {\n  <span class=\"pl-k\">implicit</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">colorFormat</span> <span class=\"pl-k\">=</span> jsonFormat4(<span class=\"pl-en\">Color</span>.apply)\n}</pre></div>\n<p dir=\"auto\">If your case class is generic in that it takes type parameters itself the <code>jsonFormat</code> methods can also help you.\nHowever, there is a little more boilerplate required as you need to add context bounds for all type parameters\nand explicitly refer to the case classes <code>apply</code> method as in this example:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"case class NamedList[A](name: String, items: List[A])\n\nobject MyJsonProtocol extends DefaultJsonProtocol {\n  implicit def namedListFormat[A :JsonFormat] = jsonFormat2(NamedList.apply[A])\n}\"><pre><span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">NamedList</span>[<span class=\"pl-en\">A</span>](<span class=\"pl-v\">name</span>: <span class=\"pl-en\">String</span>, <span class=\"pl-v\">items</span>: <span class=\"pl-en\">List</span>[<span class=\"pl-en\">A</span>])\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">MyJsonProtocol</span> <span class=\"pl-k\">extends</span> <span class=\"pl-e\">DefaultJsonProtocol</span> {\n  <span class=\"pl-k\">implicit</span> <span class=\"pl-k\">def</span> <span class=\"pl-en\">namedListFormat</span>[<span class=\"pl-en\">A</span> <span class=\"pl-k\">:</span><span class=\"pl-en\">JsonFormat</span>] <span class=\"pl-k\">=</span> jsonFormat2(<span class=\"pl-en\">NamedList</span>.apply[<span class=\"pl-en\">A</span>])\n}</pre></div>\n<h4 dir=\"auto\"><a id=\"user-content-nulloptions\" class=\"anchor\" aria-hidden=\"true\" href=\"#nulloptions\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>NullOptions</h4>\n<p dir=\"auto\">The <code>NullOptions</code> trait supplies an alternative rendering mode for optional case class members. Normally optional\nmembers that are undefined (<code>None</code>) are not rendered at all. By mixing in this trait into your custom JsonProtocol you\ncan enforce the rendering of undefined members as <code>null</code>.\n(Note that this only affect JSON writing, spray-json will always read missing optional members as well as <code>null</code>\noptional members as <code>None</code>.)</p>\n<h3 dir=\"auto\"><a id=\"user-content-providing-jsonformats-for-other-types\" class=\"anchor\" aria-hidden=\"true\" href=\"#providing-jsonformats-for-other-types\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Providing JsonFormats for other Types</h3>\n<p dir=\"auto\">Of course you can also supply (de)serialization logic for types that aren't case classes.\nHere is one way to do it:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"class Color(val name: String, val red: Int, val green: Int, val blue: Int)\n\nobject MyJsonProtocol extends DefaultJsonProtocol {\n  implicit object ColorJsonFormat extends RootJsonFormat[Color] {\n    def write(c: Color) =\n      JsArray(JsString(c.name), JsNumber(c.red), JsNumber(c.green), JsNumber(c.blue))\n\n    def read(value: JsValue) = value match {\n      case JsArray(Vector(JsString(name), JsNumber(red), JsNumber(green), JsNumber(blue))) =&gt;\n        new Color(name, red.toInt, green.toInt, blue.toInt)\n      case _ =&gt; deserializationError(&quot;Color expected&quot;)\n    }\n  }\n}\n\nimport MyJsonProtocol._\n\nval json = new Color(&quot;CadetBlue&quot;, 95, 158, 160).toJson\nval color = json.convertTo[Color]\"><pre><span class=\"pl-k\">class</span> <span class=\"pl-en\">Color</span>(<span class=\"pl-k\">val</span> <span class=\"pl-smi\">name</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">String</span>, <span class=\"pl-k\">val</span> <span class=\"pl-smi\">red</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">Int</span>, <span class=\"pl-k\">val</span> <span class=\"pl-smi\">green</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">Int</span>, <span class=\"pl-k\">val</span> <span class=\"pl-smi\">blue</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">Int</span>)\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">MyJsonProtocol</span> <span class=\"pl-k\">extends</span> <span class=\"pl-e\">DefaultJsonProtocol</span> {\n  <span class=\"pl-k\">implicit</span> <span class=\"pl-k\">object</span> <span class=\"pl-en\">ColorJsonFormat</span> <span class=\"pl-k\">extends</span> <span class=\"pl-e\">RootJsonFormat</span>[<span class=\"pl-en\">Color</span>] {\n    <span class=\"pl-k\">def</span> <span class=\"pl-en\">write</span>(<span class=\"pl-v\">c</span>: <span class=\"pl-en\">Color</span>) <span class=\"pl-k\">=</span>\n      <span class=\"pl-en\">JsArray</span>(<span class=\"pl-en\">JsString</span>(c.name), <span class=\"pl-en\">JsNumber</span>(c.red), <span class=\"pl-en\">JsNumber</span>(c.green), <span class=\"pl-en\">JsNumber</span>(c.blue))\n\n    <span class=\"pl-k\">def</span> <span class=\"pl-en\">read</span>(<span class=\"pl-v\">value</span>: <span class=\"pl-en\">JsValue</span>) <span class=\"pl-k\">=</span> value <span class=\"pl-k\">match</span> {\n      <span class=\"pl-k\">case</span> <span class=\"pl-en\">JsArray</span>(<span class=\"pl-en\">Vector</span>(<span class=\"pl-en\">JsString</span>(name), <span class=\"pl-en\">JsNumber</span>(red), <span class=\"pl-en\">JsNumber</span>(green), <span class=\"pl-en\">JsNumber</span>(blue))) <span class=\"pl-k\">=&gt;</span>\n        <span class=\"pl-k\">new</span> <span class=\"pl-en\">Color</span>(name, red.toInt, green.toInt, blue.toInt)\n      <span class=\"pl-k\">case</span> _ <span class=\"pl-k\">=&gt;</span> deserializationError(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Color expected<span class=\"pl-pds\">\"</span></span>)\n    }\n  }\n}\n\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">MyJsonProtocol</span>.<span class=\"pl-en\">_</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">json</span> <span class=\"pl-k\">=</span> <span class=\"pl-k\">new</span> <span class=\"pl-en\">Color</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>CadetBlue<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-c1\">95</span>, <span class=\"pl-c1\">158</span>, <span class=\"pl-c1\">160</span>).toJson\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">color</span> <span class=\"pl-k\">=</span> json.convertTo[<span class=\"pl-en\">Color</span>]</pre></div>\n<p dir=\"auto\">This serializes <code>Color</code> instances as a JSON array, which is compact but does not make the elements semantics explicit.\nYou need to know that the color components are ordered \"red, green, blue\".</p>\n<p dir=\"auto\">Another way would be to serialize <code>Color</code>s as JSON objects:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"object MyJsonProtocol extends DefaultJsonProtocol {\n  implicit object ColorJsonFormat extends RootJsonFormat[Color] {\n    def write(c: Color) = JsObject(\n      &quot;name&quot; -&gt; JsString(c.name),\n      &quot;red&quot; -&gt; JsNumber(c.red),\n      &quot;green&quot; -&gt; JsNumber(c.green),\n      &quot;blue&quot; -&gt; JsNumber(c.blue)\n    )\n    def read(value: JsValue) = {\n      value.asJsObject.getFields(&quot;name&quot;, &quot;red&quot;, &quot;green&quot;, &quot;blue&quot;) match {\n        case Seq(JsString(name), JsNumber(red), JsNumber(green), JsNumber(blue)) =&gt;\n          new Color(name, red.toInt, green.toInt, blue.toInt)\n        case _ =&gt; throw new DeserializationException(&quot;Color expected&quot;)\n      }\n    }\n  }\n}\"><pre><span class=\"pl-k\">object</span> <span class=\"pl-en\">MyJsonProtocol</span> <span class=\"pl-k\">extends</span> <span class=\"pl-e\">DefaultJsonProtocol</span> {\n  <span class=\"pl-k\">implicit</span> <span class=\"pl-k\">object</span> <span class=\"pl-en\">ColorJsonFormat</span> <span class=\"pl-k\">extends</span> <span class=\"pl-e\">RootJsonFormat</span>[<span class=\"pl-en\">Color</span>] {\n    <span class=\"pl-k\">def</span> <span class=\"pl-en\">write</span>(<span class=\"pl-v\">c</span>: <span class=\"pl-en\">Color</span>) <span class=\"pl-k\">=</span> <span class=\"pl-en\">JsObject</span>(\n      <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>name<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-en\">JsString</span>(c.name),\n      <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>red<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-en\">JsNumber</span>(c.red),\n      <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>green<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-en\">JsNumber</span>(c.green),\n      <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>blue<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-en\">JsNumber</span>(c.blue)\n    )\n    <span class=\"pl-k\">def</span> <span class=\"pl-en\">read</span>(<span class=\"pl-v\">value</span>: <span class=\"pl-en\">JsValue</span>) <span class=\"pl-k\">=</span> {\n      value.asJsObject.getFields(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>name<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>red<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>green<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>blue<span class=\"pl-pds\">\"</span></span>) <span class=\"pl-k\">match</span> {\n        <span class=\"pl-k\">case</span> <span class=\"pl-en\">Seq</span>(<span class=\"pl-en\">JsString</span>(name), <span class=\"pl-en\">JsNumber</span>(red), <span class=\"pl-en\">JsNumber</span>(green), <span class=\"pl-en\">JsNumber</span>(blue)) <span class=\"pl-k\">=&gt;</span>\n          <span class=\"pl-k\">new</span> <span class=\"pl-en\">Color</span>(name, red.toInt, green.toInt, blue.toInt)\n        <span class=\"pl-k\">case</span> _ <span class=\"pl-k\">=&gt;</span> <span class=\"pl-k\">throw</span> <span class=\"pl-k\">new</span> <span class=\"pl-en\">DeserializationException</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Color expected<span class=\"pl-pds\">\"</span></span>)\n      }\n    }\n  }\n}</pre></div>\n<p dir=\"auto\">This is a bit more verbose in its definition and the resulting JSON but transports the field semantics over to the\nJSON side. Note that this is the approach <em>spray-json</em> uses for case classes.</p>\n<h3 dir=\"auto\"><a id=\"user-content-providing-jsonformats-for-unboxed-types\" class=\"anchor\" aria-hidden=\"true\" href=\"#providing-jsonformats-for-unboxed-types\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Providing JsonFormats for unboxed types</h3>\n<p dir=\"auto\">A value class</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"case class PhoneNumber(value: String) extends AnyVal\nval num = PhoneNumber(&quot;+1 212 555 1111&quot;)\"><pre><span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">PhoneNumber</span>(<span class=\"pl-v\">value</span>: <span class=\"pl-en\">String</span>) <span class=\"pl-k\">extends</span> <span class=\"pl-e\">AnyVal</span>\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">num</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">PhoneNumber</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>+1 212 555 1111<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<p dir=\"auto\">or a class with multiple members</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"case class Money(currency: String, amount: BigDecimal)\nval bal = Money(&quot;USD&quot;, 100)\"><pre><span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">Money</span>(<span class=\"pl-v\">currency</span>: <span class=\"pl-en\">String</span>, <span class=\"pl-v\">amount</span>: <span class=\"pl-en\">BigDecimal</span>)\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">bal</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Money</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>USD<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-c1\">100</span>)</pre></div>\n<p dir=\"auto\">can be handled as above with <code>jsonFormatX</code>, etc.\nIt may be preferable, however, to serialize such instances without object boxing:\nas <code>\"USD 100\"</code> instead of <code>{\"currency\":\"USD\",\"amount\":100}</code>.\nThis requires explicit (de)serialization logic:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"implicit object MoneyFormat extends JsonFormat[Money] {\n  val fmt = &quot;&quot;&quot;([A-Z]{3}) ([0-9.]+)&quot;&quot;&quot;.r\n  def write(m: Money) = JsString(s&quot;${m.currency} ${m.amount}&quot;)\n  def read(json: JsValue) = json match {\n    case JsString(fmt(c, a)) =&gt; Money(c, BigDecimal(a))\n    case _ =&gt; deserializationError(&quot;String expected&quot;)\n  }\n}\"><pre><span class=\"pl-k\">implicit</span> <span class=\"pl-k\">object</span> <span class=\"pl-en\">MoneyFormat</span> <span class=\"pl-k\">extends</span> <span class=\"pl-e\">JsonFormat</span>[<span class=\"pl-en\">Money</span>] {\n  <span class=\"pl-k\">val</span> <span class=\"pl-smi\">fmt</span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"\"\"</span>([A-Z]{3}) ([0-9.]+)<span class=\"pl-pds\">\"\"\"</span></span>.r\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">write</span>(<span class=\"pl-v\">m</span>: <span class=\"pl-en\">Money</span>) <span class=\"pl-k\">=</span> <span class=\"pl-en\">JsString</span>(<span class=\"pl-k\">s</span><span class=\"pl-s\">\"</span>${m.currency}<span class=\"pl-s\"> </span>${m.amount}<span class=\"pl-s\">\"</span>)\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">read</span>(<span class=\"pl-v\">json</span>: <span class=\"pl-en\">JsValue</span>) <span class=\"pl-k\">=</span> json <span class=\"pl-k\">match</span> {\n    <span class=\"pl-k\">case</span> <span class=\"pl-en\">JsString</span>(fmt(c, a)) <span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">Money</span>(c, <span class=\"pl-en\">BigDecimal</span>(a))\n    <span class=\"pl-k\">case</span> _ <span class=\"pl-k\">=&gt;</span> deserializationError(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>String expected<span class=\"pl-pds\">\"</span></span>)\n  }\n}</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-jsonformat-vs-rootjsonformat\" class=\"anchor\" aria-hidden=\"true\" href=\"#jsonformat-vs-rootjsonformat\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>JsonFormat vs. RootJsonFormat</h3>\n<p dir=\"auto\">According to the JSON specification not all of the defined JSON value types are allowed at the root level of a JSON\ndocument. A JSON string for example (like <code>\"foo\"</code>) does not constitute a legal JSON document by itself.\nOnly JSON objects or JSON arrays are allowed as JSON document roots.</p>\n<p dir=\"auto\">In order to distinguish, on the type-level, \"regular\" JsonFormats from the ones producing root-level JSON objects or\narrays <em>spray-json</em> defines the <a href=\"http://spray.github.com/spray/api/spray-json/cc/spray/json/RootJsonFormat.html\"><code>RootJsonFormat</code></a> type, which is nothing but a marker specialization of <code>JsonFormat</code>.\nLibraries supporting <em>spray-json</em> as a means of document serialization might choose to depend on a <code>RootJsonFormat[T]</code>\nfor a custom type <code>T</code> (rather than a \"plain\" <code>JsonFormat[T]</code>), so as to not allow the rendering of illegal document\nroots. E.g., the <code>SprayJsonSupport</code> trait of <em>spray-routing</em> is one notable example of such a case.</p>\n<p dir=\"auto\">All default converters in the <code>DefaultJsonProtocol</code> producing JSON objects or arrays are actually implemented as\n<code>RootJsonFormat</code>. When \"manually\" implementing a <code>JsonFormat</code> for a custom type <code>T</code> (rather than relying on case class\nsupport) you should think about whether you'd like to use instances of <code>T</code> as JSON document roots and choose between\na \"plain\" <code>JsonFormat</code> and a <code>RootJsonFormat</code> accordingly.</p>\n<h3 dir=\"auto\"><a id=\"user-content-jsonformats-for-recursive-types\" class=\"anchor\" aria-hidden=\"true\" href=\"#jsonformats-for-recursive-types\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>JsonFormats for recursive Types</h3>\n<p dir=\"auto\">If your type is recursive such as</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"case class Foo(i: Int, foo: Foo)\"><pre><span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">Foo</span>(<span class=\"pl-v\">i</span>: <span class=\"pl-en\">Int</span>, <span class=\"pl-v\">foo</span>: <span class=\"pl-en\">Foo</span>)</pre></div>\n<p dir=\"auto\">you need to wrap your format constructor with <code>lazyFormat</code> and supply an explicit type annotation:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"implicit val fooFormat: JsonFormat[Foo] = lazyFormat(jsonFormat(Foo, &quot;i&quot;, &quot;foo&quot;))\"><pre><span class=\"pl-k\">implicit</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">fooFormat</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">JsonFormat</span>[<span class=\"pl-en\">Foo</span>] <span class=\"pl-k\">=</span> lazyFormat(jsonFormat(<span class=\"pl-en\">Foo</span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>i<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>foo<span class=\"pl-pds\">\"</span></span>))</pre></div>\n<p dir=\"auto\">Otherwise your code will either not compile (no explicit type annotation) or throw an NPE at runtime (no <code>lazyFormat</code>\nwrapper). Note, that <code>lazyFormat</code> returns a <code>JsonFormat</code> even if it was given a <code>RootJsonFormat</code> which means it isn't\npicked up by <code>SprayJsonSupport</code>. To get back a <code>RootJsonFormat</code> just wrap the complete <code>lazyFormat</code> call with another\ncall to <code>rootFormat</code>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-customizing-parser-settings\" class=\"anchor\" aria-hidden=\"true\" href=\"#customizing-parser-settings\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Customizing Parser Settings</h3>\n<p dir=\"auto\">The parser can be customized by providing a custom instance of <code>JsonParserSettings</code> to <code>JsonParser.apply</code> or\n<code>String.parseJson</code>:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val customSettings =\n  JsonParserSettings.default\n     .withMaxDepth(100)\n     .withMaxNumberCharacters(20)\nval jsValue = JsonParser(jsonString, customSettings)\n// or\nval jsValue = jsonString.parseJson(customSettings)\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">customSettings</span> <span class=\"pl-k\">=</span>\n  <span class=\"pl-en\">JsonParserSettings</span>.default\n     .withMaxDepth(<span class=\"pl-c1\">100</span>)\n     .withMaxNumberCharacters(<span class=\"pl-c1\">20</span>)\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">jsValue</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">JsonParser</span>(jsonString, customSettings)\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> or</span>\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">jsValue</span> <span class=\"pl-k\">=</span> jsonString.parseJson(customSettings)</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-credits\" class=\"anchor\" aria-hidden=\"true\" href=\"#credits\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Credits</h3>\n<p dir=\"auto\">Most of type-class (de)serialization code is nothing but a polished copy of what <strong>Debasish Ghosh</strong> made available\nwith his <a href=\"https://github.com/debasishg/sjson\">SJSON</a> library. These code parts therefore bear his copyright.\nAdditionally the JSON AST model is heavily inspired by the one contributed by <strong>Jorge Ortiz</strong> to <a href=\"https://github.com/dispatch/classic\">Databinder-Dispatch</a>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>License</h3>\n<p dir=\"auto\"><em>spray-json</em> is licensed under <a href=\"http://www.apache.org/licenses/LICENSE-2.0\" rel=\"nofollow\">APL 2.0</a>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-mailing-list\" class=\"anchor\" aria-hidden=\"true\" href=\"#mailing-list\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Mailing list</h3>\n<p dir=\"auto\">Spray-json is in primarily \"maintanance mode\", as it contains the basic functionality it is meant to deliver.\nIf you have any questions about it though, please open issues on this repository.</p>\n<h3 dir=\"auto\"><a id=\"user-content-maintanance-mode\" class=\"anchor\" aria-hidden=\"true\" href=\"#maintanance-mode\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Maintanance mode</h3>\n<p dir=\"auto\"><em>spray-json</em> is largely considered feature-complete for the basic functionality it provides.\nIt is currently maintained by the Akka team at Lightbend.</p>\n<p dir=\"auto\">Feedback and contributions to the project, no matter what kind, are always very welcome.</p>\n<p dir=\"auto\">Along with any patches, please state that the patch is your original work and that you license the work to the\n<em>spray-json</em> project under the project’s open source license.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "sirthias",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/135347?v=4",
+        "url" : "https://api.github.com/users/sirthias",
+        "contributions" : 150
+      },
+      {
+        "login" : "jrudolph",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9868?v=4",
+        "url" : "https://api.github.com/users/jrudolph",
+        "contributions" : 77
+      },
+      {
+        "login" : "ktoso",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/120979?v=4",
+        "url" : "https://api.github.com/users/ktoso",
+        "contributions" : 26
+      },
+      {
+        "login" : "xuwei-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/389787?v=4",
+        "url" : "https://api.github.com/users/xuwei-k",
+        "contributions" : 13
+      },
+      {
+        "login" : "magnolia-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1701138?v=4",
+        "url" : "https://api.github.com/users/magnolia-k",
+        "contributions" : 4
+      },
+      {
+        "login" : "jdanbrown",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/627486?v=4",
+        "url" : "https://api.github.com/users/jdanbrown",
+        "contributions" : 3
+      },
+      {
+        "login" : "performantdata",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6363453?v=4",
+        "url" : "https://api.github.com/users/performantdata",
+        "contributions" : 3
+      },
+      {
+        "login" : "raboof",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/131856?v=4",
+        "url" : "https://api.github.com/users/raboof",
+        "contributions" : 2
+      },
+      {
+        "login" : "gkossakowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4217?v=4",
+        "url" : "https://api.github.com/users/gkossakowski",
+        "contributions" : 2
+      },
+      {
+        "login" : "earldouglas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/424946?v=4",
+        "url" : "https://api.github.com/users/earldouglas",
+        "contributions" : 2
+      },
+      {
+        "login" : "fractaloop",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/223073?v=4",
+        "url" : "https://api.github.com/users/fractaloop",
+        "contributions" : 2
+      },
+      {
+        "login" : "pasieronen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/991932?v=4",
+        "url" : "https://api.github.com/users/pasieronen",
+        "contributions" : 2
+      },
+      {
+        "login" : "fommil",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1914041?v=4",
+        "url" : "https://api.github.com/users/fommil",
+        "contributions" : 2
+      },
+      {
+        "login" : "SethTisue",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
+        "url" : "https://api.github.com/users/SethTisue",
+        "contributions" : 2
+      },
+      {
+        "login" : "shankarshastri",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10391044?v=4",
+        "url" : "https://api.github.com/users/shankarshastri",
+        "contributions" : 2
+      },
+      {
+        "login" : "aloiscochard",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/215476?v=4",
+        "url" : "https://api.github.com/users/aloiscochard",
+        "contributions" : 1
+      },
+      {
+        "login" : "anishathalye",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3526486?v=4",
+        "url" : "https://api.github.com/users/anishathalye",
+        "contributions" : 1
+      },
+      {
+        "login" : "chris-martin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/399718?v=4",
+        "url" : "https://api.github.com/users/chris-martin",
+        "contributions" : 1
+      },
+      {
+        "login" : "dcheckoway",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/281311?v=4",
+        "url" : "https://api.github.com/users/dcheckoway",
+        "contributions" : 1
+      },
+      {
+        "login" : "eranation",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/775349?v=4",
+        "url" : "https://api.github.com/users/eranation",
+        "contributions" : 1
+      },
+      {
+        "login" : "ejc123",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/139435?v=4",
+        "url" : "https://api.github.com/users/ejc123",
+        "contributions" : 1
+      },
+      {
+        "login" : "ancane",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1254706?v=4",
+        "url" : "https://api.github.com/users/ancane",
+        "contributions" : 1
+      },
+      {
+        "login" : "titsuki",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6792051?v=4",
+        "url" : "https://api.github.com/users/titsuki",
+        "contributions" : 1
+      },
+      {
+        "login" : "jroper",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/105833?v=4",
+        "url" : "https://api.github.com/users/jroper",
+        "contributions" : 1
+      },
+      {
+        "login" : "jlprat",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3337739?v=4",
+        "url" : "https://api.github.com/users/jlprat",
+        "contributions" : 1
+      },
+      {
+        "login" : "marcospereira",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4576?v=4",
+        "url" : "https://api.github.com/users/marcospereira",
+        "contributions" : 1
+      },
+      {
+        "login" : "markvandertol",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2835719?v=4",
+        "url" : "https://api.github.com/users/markvandertol",
+        "contributions" : 1
+      },
+      {
+        "login" : "martijnhoekstra",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/882449?v=4",
+        "url" : "https://api.github.com/users/martijnhoekstra",
+        "contributions" : 1
+      },
+      {
+        "login" : "samskivert",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/196340?v=4",
+        "url" : "https://api.github.com/users/samskivert",
+        "contributions" : 1
+      },
+      {
+        "login" : "mpilquist",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/118078?v=4",
+        "url" : "https://api.github.com/users/mpilquist",
+        "contributions" : 1
+      },
+      {
+        "login" : "nikhilpatil",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1115876?v=4",
+        "url" : "https://api.github.com/users/nikhilpatil",
+        "contributions" : 1
+      },
+      {
+        "login" : "aka-bash0r",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8432827?v=4",
+        "url" : "https://api.github.com/users/aka-bash0r",
+        "contributions" : 1
+      },
+      {
+        "login" : "rafael",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24160?v=4",
+        "url" : "https://api.github.com/users/rafael",
+        "contributions" : 1
+      },
+      {
+        "login" : "lunaryorn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/224922?v=4",
+        "url" : "https://api.github.com/users/lunaryorn",
+        "contributions" : 1
+      },
+      {
+        "login" : "twillouer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2970220?v=4",
+        "url" : "https://api.github.com/users/twillouer",
+        "contributions" : 1
+      },
+      {
+        "login" : "guersam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/969120?v=4",
+        "url" : "https://api.github.com/users/guersam",
+        "contributions" : 1
+      },
+      {
+        "login" : "lars-n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5624567?v=4",
+        "url" : "https://api.github.com/users/lars-n",
+        "contributions" : 1
+      },
+      {
+        "login" : "lihaoyi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/934140?v=4",
+        "url" : "https://api.github.com/users/lihaoyi",
+        "contributions" : 1
+      },
+      {
+        "login" : "mihirk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1229649?v=4",
+        "url" : "https://api.github.com/users/mihirk",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 316,
+    "topics" : [
+      "json",
+      "json-parser",
+      "json-serialization",
+      "scala"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 344,
+        "title" : "Introduce an optional Scala 3 macro module, with full pickling support.",
+        "url" : "https://github.com/spray/spray-json/issues/344"
+      },
+      {
+        "number" : 341,
+        "title" : "Cross-compile for scala 3?",
+        "url" : "https://github.com/spray/spray-json/issues/341"
+      },
+      {
+        "number" : 340,
+        "title" : "Generated jsonFormatN has unexpectedly large sizeHint ",
+        "url" : "https://github.com/spray/spray-json/issues/340"
+      },
+      {
+        "number" : 337,
+        "title" : "Default JsonWriter for collections",
+        "url" : "https://github.com/spray/spray-json/issues/337"
+      },
+      {
+        "number" : 332,
+        "title" : "Is JsonParser thread safe?",
+        "url" : "https://github.com/spray/spray-json/issues/332"
+      },
+      {
+        "number" : 328,
+        "title" : "Scaladoc",
+        "url" : "https://github.com/spray/spray-json/issues/328"
+      },
+      {
+        "number" : 327,
+        "title" : "Publish 1.3.6 release (including Scala.js)",
+        "url" : "https://github.com/spray/spray-json/issues/327"
+      },
+      {
+        "number" : 326,
+        "title" : "Not able to parse the Json file with its relation_tree and split into multiple Json file for each child without any hard coding of Node/Tag (As structure of Json is not always same also very lengthy json). Input and Output is pasted below :",
+        "url" : "https://github.com/spray/spray-json/issues/326"
+      },
+      {
+        "number" : 323,
+        "title" : "How to debug \"Cannot find JsonWriter or JsonFormatter type class\" errors",
+        "url" : "https://github.com/spray/spray-json/issues/323"
+      },
+      {
+        "number" : 321,
+        "title" : "Documentation review and migration guide for 1.5.0 release",
+        "url" : "https://github.com/spray/spray-json/issues/321"
+      },
+      {
+        "number" : 293,
+        "title" : "Flaky performance test",
+        "url" : "https://github.com/spray/spray-json/issues/293"
+      },
+      {
+        "number" : 292,
+        "title" : "Cannot find JsonWriter or JsonFormat type class for scala.collection.immutable.Map[String,Object]",
+        "url" : "https://github.com/spray/spray-json/issues/292"
+      },
+      {
+        "number" : 287,
+        "title" : "BigDecimal should not be created without sensible values for scale and precision",
+        "url" : "https://github.com/spray/spray-json/issues/287"
+      },
+      {
+        "number" : 267,
+        "title" : "JsonReader for List[T]",
+        "url" : "https://github.com/spray/spray-json/issues/267"
+      },
+      {
+        "number" : 257,
+        "title" : "How To Provide DefaultValues For Fields In JSON While Marshalling Or Unmarshalling?",
+        "url" : "https://github.com/spray/spray-json/issues/257"
+      },
+      {
+        "number" : 256,
+        "title" : "Scientific notation numbers potentially break when not converted to the right type",
+        "url" : "https://github.com/spray/spray-json/issues/256"
+      },
+      {
+        "number" : 254,
+        "title" : "ParsingException on unicode U+FFFF character",
+        "url" : "https://github.com/spray/spray-json/issues/254"
+      },
+      {
+        "number" : 253,
+        "title" : "could not find implicit value for evidence parameter of type entity.request.DateFilter.JF[org.joda.time.DateTime]",
+        "url" : "https://github.com/spray/spray-json/issues/253"
+      },
+      {
+        "number" : 243,
+        "title" : "Json Format for java.util.UUID",
+        "url" : "https://github.com/spray/spray-json/issues/243"
+      },
+      {
+        "number" : 232,
+        "title" : "Integrate with, the one and only, ScalaJSON",
+        "url" : "https://github.com/spray/spray-json/issues/232"
+      },
+      {
+        "number" : 228,
+        "title" : "Document example of streaming JSON",
+        "url" : "https://github.com/spray/spray-json/issues/228"
+      },
+      {
+        "number" : 227,
+        "title" : "NullPointerException: null",
+        "url" : "https://github.com/spray/spray-json/issues/227"
+      },
+      {
+        "number" : 217,
+        "title" : "Error : spray.json.SerializationException: Map key must be formatted as JsString, not '[\"A\",\"b\"]'",
+        "url" : "https://github.com/spray/spray-json/issues/217"
+      },
+      {
+        "number" : 203,
+        "title" : "Spary Json cannot handle Infinity",
+        "url" : "https://github.com/spray/spray-json/issues/203"
+      },
+      {
+        "number" : 200,
+        "title" : "Standard format for Enumeration",
+        "url" : "https://github.com/spray/spray-json/issues/200"
+      },
+      {
+        "number" : 198,
+        "title" : "overcome limitation of serializing maps: 'key type K must always write JsStrings'",
+        "url" : "https://github.com/spray/spray-json/issues/198"
+      },
+      {
+        "number" : 194,
+        "title" : "jsonp fails on \\u2028 and \\2029",
+        "url" : "https://github.com/spray/spray-json/issues/194"
+      },
+      {
+        "number" : 193,
+        "title" : "Companion object with jsonFormat not working as in example",
+        "url" : "https://github.com/spray/spray-json/issues/193"
+      },
+      {
+        "number" : 192,
+        "title" : "Custom error message while Deserialization Exception",
+        "url" : "https://github.com/spray/spray-json/issues/192"
+      },
+      {
+        "number" : 191,
+        "title" : "java serialization for JsonFormat",
+        "url" : "https://github.com/spray/spray-json/issues/191"
+      },
+      {
+        "number" : 189,
+        "title" : "Handle Array[Any]",
+        "url" : "https://github.com/spray/spray-json/issues/189"
+      },
+      {
+        "number" : 187,
+        "title" : "Can't use CollectionFormats with types which has only JsonWriter, not entire JsonFormat",
+        "url" : "https://github.com/spray/spray-json/issues/187"
+      },
+      {
+        "number" : 186,
+        "title" : "Add case object format helper to SprayJsonSupport",
+        "url" : "https://github.com/spray/spray-json/issues/186"
+      },
+      {
+        "number" : 185,
+        "title" : "Error building a codec for a value class",
+        "url" : "https://github.com/spray/spray-json/issues/185"
+      },
+      {
+        "number" : 184,
+        "title" : "Exception while trying to use jsonFormatxxx with a case class",
+        "url" : "https://github.com/spray/spray-json/issues/184"
+      },
+      {
+        "number" : 181,
+        "title" : "Scala Spray Json implicit error for nested classes:",
+        "url" : "https://github.com/spray/spray-json/issues/181"
+      },
+      {
+        "number" : 180,
+        "title" : "Deserialization of abstract class ",
+        "url" : "https://github.com/spray/spray-json/issues/180"
+      },
+      {
+        "number" : 178,
+        "title" : "Fail to parse when the string contains end-of-input symbol",
+        "url" : "https://github.com/spray/spray-json/issues/178"
+      },
+      {
+        "number" : 176,
+        "title" : "implicit diverge for nested parametrized case classes",
+        "url" : "https://github.com/spray/spray-json/issues/176"
+      },
+      {
+        "number" : 175,
+        "title" : "Crash due to Unicode U+FFFD replacement character",
+        "url" : "https://github.com/spray/spray-json/issues/175"
+      },
+      {
+        "number" : 171,
+        "title" : "\"no reflection\" white lie on the README front page",
+        "url" : "https://github.com/spray/spray-json/issues/171"
+      },
+      {
+        "number" : 170,
+        "title" : "Please support snake case",
+        "url" : "https://github.com/spray/spray-json/issues/170"
+      },
+      {
+        "number" : 165,
+        "title" : "Add way of rejecting input with extra keys",
+        "url" : "https://github.com/spray/spray-json/issues/165"
+      },
+      {
+        "number" : 163,
+        "title" : "Add a validator to JsonParser",
+        "url" : "https://github.com/spray/spray-json/issues/163"
+      },
+      {
+        "number" : 161,
+        "title" : "Field Name Custom RootJsonFormat",
+        "url" : "https://github.com/spray/spray-json/issues/161"
+      },
+      {
+        "number" : 159,
+        "title" : "Option[Int] cannot convert to java.lang.Integer",
+        "url" : "https://github.com/spray/spray-json/issues/159"
+      },
+      {
+        "number" : 158,
+        "title" : "optionFormat in v1.3.2 not compatible with optionFormat in v1.3.1",
+        "url" : "https://github.com/spray/spray-json/issues/158"
+      },
+      {
+        "number" : 155,
+        "title" : "Generic default collection format / No way to keep declaration order when reading JSON object",
+        "url" : "https://github.com/spray/spray-json/issues/155"
+      },
+      {
+        "number" : 140,
+        "title" : "feature request: strict mode: do not ignore unspecified fields ",
+        "url" : "https://github.com/spray/spray-json/issues/140"
+      },
+      {
+        "number" : 139,
+        "title" : "case class with dashes incorrectly deserialized",
+        "url" : "https://github.com/spray/spray-json/issues/139"
+      },
+      {
+        "number" : 134,
+        "title" : "ByteArrayBasedParserInput does not currently support surrogate pairs",
+        "url" : "https://github.com/spray/spray-json/issues/134"
+      },
+      {
+        "number" : 131,
+        "title" : "Update README with more examples",
+        "url" : "https://github.com/spray/spray-json/issues/131"
+      },
+      {
+        "number" : 128,
+        "title" : "Add default (de)serialization of Java8 java.time API types ",
+        "url" : "https://github.com/spray/spray-json/issues/128"
+      },
+      {
+        "number" : 127,
+        "title" : "Constructing JsArray from Seq[JsValue]",
+        "url" : "https://github.com/spray/spray-json/issues/127"
+      },
+      {
+        "number" : 126,
+        "title" : "add convertToOption to jsValue",
+        "url" : "https://github.com/spray/spray-json/issues/126"
+      },
+      {
+        "number" : 125,
+        "title" : "A default Map[Int,X] format is available at compile time, but fails at runtime",
+        "url" : "https://github.com/spray/spray-json/issues/125"
+      },
+      {
+        "number" : 119,
+        "title" : "Preserving order of ctor args",
+        "url" : "https://github.com/spray/spray-json/issues/119"
+      },
+      {
+        "number" : 116,
+        "title" : "Can't convertTo[Seq[Foo]] with a RootJsonReader[Foo]",
+        "url" : "https://github.com/spray/spray-json/issues/116"
+      },
+      {
+        "number" : 114,
+        "title" : "Minor dead code in JsonPrinter",
+        "url" : "https://github.com/spray/spray-json/issues/114"
+      },
+      {
+        "number" : 109,
+        "title" : "Float JSON serialization outputs approxiamte value",
+        "url" : "https://github.com/spray/spray-json/issues/109"
+      },
+      {
+        "number" : 108,
+        "title" : "Json parsing (Deserialization into objects) is quite slow on Android",
+        "url" : "https://github.com/spray/spray-json/issues/108"
+      },
+      {
+        "number" : 106,
+        "title" : "Check types of reflectively determined case class parameters against inferred ones",
+        "url" : "https://github.com/spray/spray-json/issues/106"
+      },
+      {
+        "number" : 103,
+        "title" : "Validation/Either support for failures",
+        "url" : "https://github.com/spray/spray-json/issues/103"
+      },
+      {
+        "number" : 98,
+        "title" : "Upgrade `toJson` pimp to a value class",
+        "url" : "https://github.com/spray/spray-json/issues/98"
+      },
+      {
+        "number" : 85,
+        "title" : "Stream JSON / newline delimited JSON",
+        "url" : "https://github.com/spray/spray-json/issues/85"
+      },
+      {
+        "number" : 72,
+        "title" : "JsObjects do not merge",
+        "url" : "https://github.com/spray/spray-json/issues/72"
+      },
+      {
+        "number" : 71,
+        "title" : "Check if it would make sense to let lazyFormat only work on RootJsonFormat",
+        "url" : "https://github.com/spray/spray-json/issues/71"
+      },
+      {
+        "number" : 68,
+        "title" : "Generic tuple formats to support all possible arities and remove boilerplate (maybe shapeless?)",
+        "url" : "https://github.com/spray/spray-json/issues/68"
+      },
+      {
+        "number" : 65,
+        "title" : "cannot convert ListMap to json string",
+        "url" : "https://github.com/spray/spray-json/issues/65"
+      },
+      {
+        "number" : 60,
+        "title" : "JsonFormat error messages provide too little context to be helpful",
+        "url" : "https://github.com/spray/spray-json/issues/60"
+      },
+      {
+        "number" : 59,
+        "title" : "Boilerplate free case class serialization with implicit macros",
+        "url" : "https://github.com/spray/spray-json/issues/59"
+      },
+      {
+        "number" : 53,
+        "title" : "jsonFormatN not working with Android",
+        "url" : "https://github.com/spray/spray-json/issues/53"
+      },
+      {
+        "number" : 51,
+        "title" : "Lift JsonReader/JsonWriter through derived formats",
+        "url" : "https://github.com/spray/spray-json/issues/51"
+      },
+      {
+        "number" : 50,
+        "title" : "Inconsistent behavior when deserializing null",
+        "url" : "https://github.com/spray/spray-json/issues/50"
+      },
+      {
+        "number" : 43,
+        "title" : "Support for the Number type",
+        "url" : "https://github.com/spray/spray-json/issues/43"
+      },
+      {
+        "number" : 38,
+        "title" : "Support unboxed (de)serialization of single-member types",
+        "url" : "https://github.com/spray/spray-json/issues/38"
+      },
+      {
+        "number" : 36,
+        "title" : "Add default protocol support for Seq[Any] and Map[String, Any]",
+        "url" : "https://github.com/spray/spray-json/issues/36"
+      },
+      {
+        "number" : 34,
+        "title" : "ProductFormats.jsonFormatN does not work with parameterized classes",
+        "url" : "https://github.com/spray/spray-json/issues/34"
+      },
+      {
+        "number" : 33,
+        "title" : "Cannot convert nested Maps into json",
+        "url" : "https://github.com/spray/spray-json/issues/33"
+      },
+      {
+        "number" : 21,
+        "title" : "Allow to add additional fields to JsonFormat for objects",
+        "url" : "https://github.com/spray/spray-json/issues/21"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : "spray-json",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "json",
+    "beginnerIssuesLabel" : null
+  }
+}

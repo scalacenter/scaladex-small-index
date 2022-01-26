@@ -1,0 +1,988 @@
+{
+  "organization" : "scalatra",
+  "repository" : "scalatra",
+  "creationDate" : 1405671923113,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643195247206
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "http://scalatra.org",
+    "description" : "Tiny Scala high-performance, async web framework, inspired by Sinatra",
+    "logo" : "https://avatars.githubusercontent.com/u/322549?v=4",
+    "stars" : 2536,
+    "forks" : 333,
+    "watchers" : 83,
+    "issues" : 72,
+    "creationDate" : 1243761632000,
+    "readme" : "<div id=\"readme\" class=\"markdown\" data-path=\"README.markdown\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h2 dir=\"auto\"><a id=\"user-content-scalatra-\" class=\"anchor\" aria-hidden=\"true\" href=\"#scalatra-\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Scalatra <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/scalatra/scalatra/workflows/build/badge.svg?branch=2.7.x\"><img src=\"https://github.com/scalatra/scalatra/workflows/build/badge.svg?branch=2.7.x\" alt=\"Scala CI\" style=\"max-width: 100%;\"></a></h2>\n<p dir=\"auto\"><a href=\"https://gitter.im/scalatra/scalatra?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/5dbac0213da25c445bd11f168587c11a200ba153ef3014e8408e462e410169b3/68747470733a2f2f6261646765732e6769747465722e696d2f4a6f696e253230436861742e737667\" alt=\"Join the chat at https://gitter.im/scalatra/scalatra\" data-canonical-src=\"https://badges.gitter.im/Join%20Chat.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Scalatra is a tiny, <a href=\"http://www.sinatrarb.com/\" rel=\"nofollow\">Sinatra</a>-like web framework for\n<a href=\"http://www.scala-lang.org/\" rel=\"nofollow\">Scala</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-example\" class=\"anchor\" aria-hidden=\"true\" href=\"#example\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Example</h2>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import org.scalatra._\n\nclass ScalatraExample extends ScalatraServlet {\n  get(&quot;/&quot;) {\n    &lt;h1&gt;Hello, world!&lt;/h1&gt;\n  }\n}\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">org</span>.<span class=\"pl-en\">scalatra</span>.<span class=\"pl-en\">_</span>\n\n<span class=\"pl-k\">class</span> <span class=\"pl-en\">ScalatraExample</span> <span class=\"pl-k\">extends</span> <span class=\"pl-e\">ScalatraServlet</span> {\n  get(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>/<span class=\"pl-pds\">\"</span></span>) {\n    &lt;<span class=\"pl-ent\">h1</span>&gt;<span class=\"pl-en\">Hello</span>, world!&lt;/<span class=\"pl-ent\">h1</span>&gt;\n  }\n}</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Documentation</h2>\n<p dir=\"auto\">If you're just starting out, see the <a href=\"http://scalatra.org/getting-started/installation.html\" rel=\"nofollow\">installation</a> and <a href=\"http://scalatra.org/getting-started/first-project.html\" rel=\"nofollow\">first project</a> sections of our website.</p>\n<p dir=\"auto\">Once you've done that, take a look at the <a href=\"http://scalatra.org/guides/\" rel=\"nofollow\">Scalatra Guides</a> for documentation on all aspects of the framework, code examples, and more. We also have an extensive selection of <a href=\"https://github.com/scalatra/scalatra-website-examples\">Example Applications</a> which accompany the tutorials in the Scalatra Guides.</p>\n<h2 dir=\"auto\"><a id=\"user-content-latest-version\" class=\"anchor\" aria-hidden=\"true\" href=\"#latest-version\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Latest version</h2>\n<p dir=\"auto\">The latest version of Scalatra is <code>2.8.+</code>, and is published to <a href=\"http://repo1.maven.org/maven2/org/scalatra\" rel=\"nofollow\">Maven Central</a>.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;org.scalatra&quot; %% &quot;scalatra&quot; % &quot;2.8.+&quot;\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.scalatra<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>scalatra<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>2.8.+<span class=\"pl-pds\">\"</span></span></pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-community\" class=\"anchor\" aria-hidden=\"true\" href=\"#community\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Community</h2>\n<ul dir=\"auto\">\n<li>Gitter: <a href=\"https://gitter.im/scalatra/scalatra\" rel=\"nofollow\">Scalatra/Scalatra</a></li>\n<li>Mailing list: <a href=\"http://groups.google.com/group/scalatra-user\" rel=\"nofollow\">scalatra-user</a></li>\n<li>IRC: #scalatra on irc.freenode.org</li>\n<li><a href=\"CONTRIBUTING.markdown\">Guidelines for contributing</a></li>\n</ul>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "rossabaker",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/142698?v=4",
+        "url" : "https://api.github.com/users/rossabaker",
+        "contributions" : 1129
+      },
+      {
+        "login" : "casualjim",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/456109?v=4",
+        "url" : "https://api.github.com/users/casualjim",
+        "contributions" : 855
+      },
+      {
+        "login" : "magnolia-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1701138?v=4",
+        "url" : "https://api.github.com/users/magnolia-k",
+        "contributions" : 327
+      },
+      {
+        "login" : "takezoe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1094760?v=4",
+        "url" : "https://api.github.com/users/takezoe",
+        "contributions" : 277
+      },
+      {
+        "login" : "xuwei-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/389787?v=4",
+        "url" : "https://api.github.com/users/xuwei-k",
+        "contributions" : 181
+      },
+      {
+        "login" : "scala-steward-bot",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2517319?v=4",
+        "url" : "https://api.github.com/users/scala-steward-bot",
+        "contributions" : 172
+      },
+      {
+        "login" : "seratch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19658?v=4",
+        "url" : "https://api.github.com/users/seratch",
+        "contributions" : 147
+      },
+      {
+        "login" : "mnylen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/49331?v=4",
+        "url" : "https://api.github.com/users/mnylen",
+        "contributions" : 88
+      },
+      {
+        "login" : "dozed",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/239058?v=4",
+        "url" : "https://api.github.com/users/dozed",
+        "contributions" : 61
+      },
+      {
+        "login" : "ornicar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/140370?v=4",
+        "url" : "https://api.github.com/users/ornicar",
+        "contributions" : 47
+      },
+      {
+        "login" : "japhar81",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1619545?v=4",
+        "url" : "https://api.github.com/users/japhar81",
+        "contributions" : 27
+      },
+      {
+        "login" : "mumoshu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22009?v=4",
+        "url" : "https://api.github.com/users/mumoshu",
+        "contributions" : 22
+      },
+      {
+        "login" : "jlarmstrong",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/112237?v=4",
+        "url" : "https://api.github.com/users/jlarmstrong",
+        "contributions" : 19
+      },
+      {
+        "login" : "riffraff",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/37493?v=4",
+        "url" : "https://api.github.com/users/riffraff",
+        "contributions" : 17
+      },
+      {
+        "login" : "jgrowl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/90719?v=4",
+        "url" : "https://api.github.com/users/jgrowl",
+        "contributions" : 11
+      },
+      {
+        "login" : "lloydmeta",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/914805?v=4",
+        "url" : "https://api.github.com/users/lloydmeta",
+        "contributions" : 9
+      },
+      {
+        "login" : "jfarcand",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/51285?v=4",
+        "url" : "https://api.github.com/users/jfarcand",
+        "contributions" : 8
+      },
+      {
+        "login" : "acote-coveo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/54333869?v=4",
+        "url" : "https://api.github.com/users/acote-coveo",
+        "contributions" : 8
+      },
+      {
+        "login" : "alandipert",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/26024?v=4",
+        "url" : "https://api.github.com/users/alandipert",
+        "contributions" : 7
+      },
+      {
+        "login" : "ceedubs",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/977929?v=4",
+        "url" : "https://api.github.com/users/ceedubs",
+        "contributions" : 7
+      },
+      {
+        "login" : "mwing",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/96297?v=4",
+        "url" : "https://api.github.com/users/mwing",
+        "contributions" : 7
+      },
+      {
+        "login" : "igstan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/49002?v=4",
+        "url" : "https://api.github.com/users/igstan",
+        "contributions" : 6
+      },
+      {
+        "login" : "shanielh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/746471?v=4",
+        "url" : "https://api.github.com/users/shanielh",
+        "contributions" : 6
+      },
+      {
+        "login" : "sdb",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/231675?v=4",
+        "url" : "https://api.github.com/users/sdb",
+        "contributions" : 6
+      },
+      {
+        "login" : "tiagniuk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/72321?v=4",
+        "url" : "https://api.github.com/users/tiagniuk",
+        "contributions" : 6
+      },
+      {
+        "login" : "JanxSpirit",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/517408?v=4",
+        "url" : "https://api.github.com/users/JanxSpirit",
+        "contributions" : 5
+      },
+      {
+        "login" : "kstigen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/387343?v=4",
+        "url" : "https://api.github.com/users/kstigen",
+        "contributions" : 5
+      },
+      {
+        "login" : "stew",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/66772?v=4",
+        "url" : "https://api.github.com/users/stew",
+        "contributions" : 5
+      },
+      {
+        "login" : "chirino",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/103255?v=4",
+        "url" : "https://api.github.com/users/chirino",
+        "contributions" : 4
+      },
+      {
+        "login" : "kelseyq",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/950664?v=4",
+        "url" : "https://api.github.com/users/kelseyq",
+        "contributions" : 4
+      },
+      {
+        "login" : "m20o",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/261852?v=4",
+        "url" : "https://api.github.com/users/m20o",
+        "contributions" : 4
+      },
+      {
+        "login" : "nicl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/858402?v=4",
+        "url" : "https://api.github.com/users/nicl",
+        "contributions" : 4
+      },
+      {
+        "login" : "srirangan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/195419?v=4",
+        "url" : "https://api.github.com/users/srirangan",
+        "contributions" : 4
+      },
+      {
+        "login" : "tkareine",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/38920?v=4",
+        "url" : "https://api.github.com/users/tkareine",
+        "contributions" : 4
+      },
+      {
+        "login" : "tgregory",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4579245?v=4",
+        "url" : "https://api.github.com/users/tgregory",
+        "contributions" : 4
+      },
+      {
+        "login" : "adamretter",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1264057?v=4",
+        "url" : "https://api.github.com/users/adamretter",
+        "contributions" : 3
+      },
+      {
+        "login" : "backuitist",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1017537?v=4",
+        "url" : "https://api.github.com/users/backuitist",
+        "contributions" : 3
+      },
+      {
+        "login" : "BowlingX",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/215671?v=4",
+        "url" : "https://api.github.com/users/BowlingX",
+        "contributions" : 3
+      },
+      {
+        "login" : "erikrozendaal",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/159416?v=4",
+        "url" : "https://api.github.com/users/erikrozendaal",
+        "contributions" : 3
+      },
+      {
+        "login" : "JJ",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/500?v=4",
+        "url" : "https://api.github.com/users/JJ",
+        "contributions" : 3
+      },
+      {
+        "login" : "LeifW",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/28711?v=4",
+        "url" : "https://api.github.com/users/LeifW",
+        "contributions" : 3
+      },
+      {
+        "login" : "ymasory",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/237542?v=4",
+        "url" : "https://api.github.com/users/ymasory",
+        "contributions" : 3
+      },
+      {
+        "login" : "nrinaudo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/836994?v=4",
+        "url" : "https://api.github.com/users/nrinaudo",
+        "contributions" : 3
+      },
+      {
+        "login" : "sksamuel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/743706?v=4",
+        "url" : "https://api.github.com/users/sksamuel",
+        "contributions" : 3
+      },
+      {
+        "login" : "popojargo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9197078?v=4",
+        "url" : "https://api.github.com/users/popojargo",
+        "contributions" : 2
+      },
+      {
+        "login" : "aharbunou",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24441613?v=4",
+        "url" : "https://api.github.com/users/aharbunou",
+        "contributions" : 2
+      },
+      {
+        "login" : "andrewjackman",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/427903?v=4",
+        "url" : "https://api.github.com/users/andrewjackman",
+        "contributions" : 2
+      },
+      {
+        "login" : "caoilte",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1500358?v=4",
+        "url" : "https://api.github.com/users/caoilte",
+        "contributions" : 2
+      },
+      {
+        "login" : "momania",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/66616?v=4",
+        "url" : "https://api.github.com/users/momania",
+        "contributions" : 2
+      },
+      {
+        "login" : "j1mr10rd4n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/946427?v=4",
+        "url" : "https://api.github.com/users/j1mr10rd4n",
+        "contributions" : 2
+      },
+      {
+        "login" : "lucastorri",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/347716?v=4",
+        "url" : "https://api.github.com/users/lucastorri",
+        "contributions" : 2
+      },
+      {
+        "login" : "lamdor",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1580?v=4",
+        "url" : "https://api.github.com/users/lamdor",
+        "contributions" : 2
+      },
+      {
+        "login" : "mdedetrich",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2337269?v=4",
+        "url" : "https://api.github.com/users/mdedetrich",
+        "contributions" : 2
+      },
+      {
+        "login" : "paulitex",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/97649?v=4",
+        "url" : "https://api.github.com/users/paulitex",
+        "contributions" : 2
+      },
+      {
+        "login" : "philwills",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/68329?v=4",
+        "url" : "https://api.github.com/users/philwills",
+        "contributions" : 2
+      },
+      {
+        "login" : "robb1e",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/55859?v=4",
+        "url" : "https://api.github.com/users/robb1e",
+        "contributions" : 2
+      },
+      {
+        "login" : "tnm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/126905?v=4",
+        "url" : "https://api.github.com/users/tnm",
+        "contributions" : 2
+      },
+      {
+        "login" : "Marza",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/625807?v=4",
+        "url" : "https://api.github.com/users/Marza",
+        "contributions" : 2
+      },
+      {
+        "login" : "fehguy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/249413?v=4",
+        "url" : "https://api.github.com/users/fehguy",
+        "contributions" : 2
+      },
+      {
+        "login" : "mergeconflict",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/921312?v=4",
+        "url" : "https://api.github.com/users/mergeconflict",
+        "contributions" : 2
+      },
+      {
+        "login" : "shimamoto",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1875052?v=4",
+        "url" : "https://api.github.com/users/shimamoto",
+        "contributions" : 2
+      },
+      {
+        "login" : "seraphr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1075056?v=4",
+        "url" : "https://api.github.com/users/seraphr",
+        "contributions" : 2
+      },
+      {
+        "login" : "AndersonChoi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9148605?v=4",
+        "url" : "https://api.github.com/users/AndersonChoi",
+        "contributions" : 1
+      },
+      {
+        "login" : "abhalla-atl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1697218?v=4",
+        "url" : "https://api.github.com/users/abhalla-atl",
+        "contributions" : 1
+      },
+      {
+        "login" : "Athelionas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7241355?v=4",
+        "url" : "https://api.github.com/users/Athelionas",
+        "contributions" : 1
+      },
+      {
+        "login" : "ayush",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/188701?v=4",
+        "url" : "https://api.github.com/users/ayush",
+        "contributions" : 1
+      },
+      {
+        "login" : "VEINHORN",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3595400?v=4",
+        "url" : "https://api.github.com/users/VEINHORN",
+        "contributions" : 1
+      },
+      {
+        "login" : "offner",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/175220?v=4",
+        "url" : "https://api.github.com/users/offner",
+        "contributions" : 1
+      },
+      {
+        "login" : "daggerrz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/295988?v=4",
+        "url" : "https://api.github.com/users/daggerrz",
+        "contributions" : 1
+      },
+      {
+        "login" : "daniel0611",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30466471?v=4",
+        "url" : "https://api.github.com/users/daniel0611",
+        "contributions" : 1
+      },
+      {
+        "login" : "duncan-at-hiveit",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12444316?v=4",
+        "url" : "https://api.github.com/users/duncan-at-hiveit",
+        "contributions" : 1
+      },
+      {
+        "login" : "etorreborre",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10988?v=4",
+        "url" : "https://api.github.com/users/etorreborre",
+        "contributions" : 1
+      },
+      {
+        "login" : "felipehummel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/21449?v=4",
+        "url" : "https://api.github.com/users/felipehummel",
+        "contributions" : 1
+      },
+      {
+        "login" : "regadas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/163899?v=4",
+        "url" : "https://api.github.com/users/regadas",
+        "contributions" : 1
+      },
+      {
+        "login" : "SvenssonWeb",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3864700?v=4",
+        "url" : "https://api.github.com/users/SvenssonWeb",
+        "contributions" : 1
+      },
+      {
+        "login" : "GoranSchumacher",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2300965?v=4",
+        "url" : "https://api.github.com/users/GoranSchumacher",
+        "contributions" : 1
+      },
+      {
+        "login" : "HendraWijaya",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/554889?v=4",
+        "url" : "https://api.github.com/users/HendraWijaya",
+        "contributions" : 1
+      },
+      {
+        "login" : "treaz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/316523?v=4",
+        "url" : "https://api.github.com/users/treaz",
+        "contributions" : 1
+      },
+      {
+        "login" : "jenshaase",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/176220?v=4",
+        "url" : "https://api.github.com/users/jenshaase",
+        "contributions" : 1
+      },
+      {
+        "login" : "jnatten",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7853824?v=4",
+        "url" : "https://api.github.com/users/jnatten",
+        "contributions" : 1
+      },
+      {
+        "login" : "glorat",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4155772?v=4",
+        "url" : "https://api.github.com/users/glorat",
+        "contributions" : 1
+      },
+      {
+        "login" : "smeagol74",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/345673?v=4",
+        "url" : "https://api.github.com/users/smeagol74",
+        "contributions" : 1
+      },
+      {
+        "login" : "malaporte",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1826047?v=4",
+        "url" : "https://api.github.com/users/malaporte",
+        "contributions" : 1
+      },
+      {
+        "login" : "mrdziuban",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4718399?v=4",
+        "url" : "https://api.github.com/users/mrdziuban",
+        "contributions" : 1
+      },
+      {
+        "login" : "mmorearty",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/207671?v=4",
+        "url" : "https://api.github.com/users/mmorearty",
+        "contributions" : 1
+      },
+      {
+        "login" : "mikko-apo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1687516?v=4",
+        "url" : "https://api.github.com/users/mikko-apo",
+        "contributions" : 1
+      },
+      {
+        "login" : "aoiroaoino",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2589034?v=4",
+        "url" : "https://api.github.com/users/aoiroaoino",
+        "contributions" : 1
+      },
+      {
+        "login" : "DrDub",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/315403?v=4",
+        "url" : "https://api.github.com/users/DrDub",
+        "contributions" : 1
+      },
+      {
+        "login" : "pmcq",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/272898?v=4",
+        "url" : "https://api.github.com/users/pmcq",
+        "contributions" : 1
+      },
+      {
+        "login" : "ryanlecompte",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/637158?v=4",
+        "url" : "https://api.github.com/users/ryanlecompte",
+        "contributions" : 1
+      },
+      {
+        "login" : "ElPicador",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16667?v=4",
+        "url" : "https://api.github.com/users/ElPicador",
+        "contributions" : 1
+      },
+      {
+        "login" : "shintasmith",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3640870?v=4",
+        "url" : "https://api.github.com/users/shintasmith",
+        "contributions" : 1
+      },
+      {
+        "login" : "gitter-badger",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8518239?v=4",
+        "url" : "https://api.github.com/users/gitter-badger",
+        "contributions" : 1
+      },
+      {
+        "login" : "yoshinorin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11273093?v=4",
+        "url" : "https://api.github.com/users/yoshinorin",
+        "contributions" : 1
+      },
+      {
+        "login" : "john-roj",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4062524?v=4",
+        "url" : "https://api.github.com/users/john-roj",
+        "contributions" : 1
+      },
+      {
+        "login" : "jpsanchez91",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/18665706?v=4",
+        "url" : "https://api.github.com/users/jpsanchez91",
+        "contributions" : 1
+      },
+      {
+        "login" : "maiha",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12258?v=4",
+        "url" : "https://api.github.com/users/maiha",
+        "contributions" : 1
+      },
+      {
+        "login" : "pgingras",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6376490?v=4",
+        "url" : "https://api.github.com/users/pgingras",
+        "contributions" : 1
+      },
+      {
+        "login" : "mironal",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/537587?v=4",
+        "url" : "https://api.github.com/users/mironal",
+        "contributions" : 1
+      },
+      {
+        "login" : "nilskp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/74843?v=4",
+        "url" : "https://api.github.com/users/nilskp",
+        "contributions" : 1
+      },
+      {
+        "login" : "ledyba",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/391964?v=4",
+        "url" : "https://api.github.com/users/ledyba",
+        "contributions" : 1
+      },
+      {
+        "login" : "sivapalan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5470233?v=4",
+        "url" : "https://api.github.com/users/sivapalan",
+        "contributions" : 1
+      },
+      {
+        "login" : "wlingxiao",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5276935?v=4",
+        "url" : "https://api.github.com/users/wlingxiao",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 3597,
+    "topics" : [
+      "json",
+      "atmosphere",
+      "web-framework",
+      "sinatra",
+      "scala",
+      "swagger",
+      "jetty",
+      "scalate"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : "https://gitter.im/scalatra/scalatra",
+    "openIssues" : [
+      {
+        "number" : 1268,
+        "title" : "object json4s is not a member of package org",
+        "url" : "https://github.com/scalatra/scalatra/issues/1268"
+      },
+      {
+        "number" : 1211,
+        "title" : "Scala 3",
+        "url" : "https://github.com/scalatra/scalatra/issues/1211"
+      },
+      {
+        "number" : 1068,
+        "title" : "Issue with mongoDB example on website",
+        "url" : "https://github.com/scalatra/scalatra/issues/1068"
+      },
+      {
+        "number" : 1033,
+        "title" : "Please add support for plain standard websocket!!!",
+        "url" : "https://github.com/scalatra/scalatra/issues/1033"
+      },
+      {
+        "number" : 922,
+        "title" : "Atmosphere websocket is closed when disconnecting from network",
+        "url" : "https://github.com/scalatra/scalatra/issues/922"
+      },
+      {
+        "number" : 898,
+        "title" : "There is no document for apiModel",
+        "url" : "https://github.com/scalatra/scalatra/issues/898"
+      },
+      {
+        "number" : 878,
+        "title" : "Default servlet does not work with routing ",
+        "url" : "https://github.com/scalatra/scalatra/issues/878"
+      },
+      {
+        "number" : 874,
+        "title" : "controllers for functionality ",
+        "url" : "https://github.com/scalatra/scalatra/issues/874"
+      },
+      {
+        "number" : 863,
+        "title" : "Improve error handling in JsonSupport when unable to parse JSON",
+        "url" : "https://github.com/scalatra/scalatra/issues/863"
+      },
+      {
+        "number" : 846,
+        "title" : "Support for various JSON libraries",
+        "url" : "https://github.com/scalatra/scalatra/issues/846"
+      },
+      {
+        "number" : 808,
+        "title" : "Error starting handlers - DynamicScope issue",
+        "url" : "https://github.com/scalatra/scalatra/issues/808"
+      },
+      {
+        "number" : 803,
+        "title" : "Swagger plugin does not allow to add headers in response",
+        "url" : "https://github.com/scalatra/scalatra/issues/803"
+      },
+      {
+        "number" : 800,
+        "title" : "Default for cors.allowCredentials should be false, current defaults broken",
+        "url" : "https://github.com/scalatra/scalatra/issues/800"
+      },
+      {
+        "number" : 789,
+        "title" : "Swagger request body Content-Type",
+        "url" : "https://github.com/scalatra/scalatra/issues/789"
+      },
+      {
+        "number" : 757,
+        "title" : "Servlet 4.0 and HTTP/2 support",
+        "url" : "https://github.com/scalatra/scalatra/issues/757"
+      },
+      {
+        "number" : 756,
+        "title" : "Functionality to composite controllers",
+        "url" : "https://github.com/scalatra/scalatra/issues/756"
+      },
+      {
+        "number" : 749,
+        "title" : "Swagger 3.0 support",
+        "url" : "https://github.com/scalatra/scalatra/issues/749"
+      },
+      {
+        "number" : 745,
+        "title" : "Error during installation on WINDOWS!",
+        "url" : "https://github.com/scalatra/scalatra/issues/745"
+      },
+      {
+        "number" : 722,
+        "title" : "scalatra-atmosphere and RichRequest conflicts getReader/getInputStream and RichRequest.cachedBody problem",
+        "url" : "https://github.com/scalatra/scalatra/issues/722"
+      },
+      {
+        "number" : 698,
+        "title" : "Feature request: Ability to publish/export swagger.json to a file so that it can be validated in build",
+        "url" : "https://github.com/scalatra/scalatra/issues/698"
+      },
+      {
+        "number" : 694,
+        "title" : "Multiple errors on startup when attempting to integrate Atmosphere",
+        "url" : "https://github.com/scalatra/scalatra/issues/694"
+      },
+      {
+        "number" : 689,
+        "title" : "@JsonIgnore or @JsonPropertyIgnore are ignored",
+        "url" : "https://github.com/scalatra/scalatra/issues/689"
+      },
+      {
+        "number" : 664,
+        "title" : "Atmosphere: Connected is called before handshake(?) and send() doesn't work in that phase",
+        "url" : "https://github.com/scalatra/scalatra/issues/664"
+      },
+      {
+        "number" : 657,
+        "title" : "update swagger-example documentation",
+        "url" : "https://github.com/scalatra/scalatra/issues/657"
+      },
+      {
+        "number" : 651,
+        "title" : "Warnings when using AtmosphereSupport in multiple ScalatraServlets",
+        "url" : "https://github.com/scalatra/scalatra/issues/651"
+      },
+      {
+        "number" : 644,
+        "title" : "No logging for particular Json parsing failures in render pipeline",
+        "url" : "https://github.com/scalatra/scalatra/issues/644"
+      },
+      {
+        "number" : 633,
+        "title" : "can't set org.atmosphere.useNative?",
+        "url" : "https://github.com/scalatra/scalatra/issues/633"
+      },
+      {
+        "number" : 627,
+        "title" : "Swagger support for operations with no response body",
+        "url" : "https://github.com/scalatra/scalatra/issues/627"
+      },
+      {
+        "number" : 585,
+        "title" : "Infinite loop when registering model with type alias",
+        "url" : "https://github.com/scalatra/scalatra/issues/585"
+      },
+      {
+        "number" : 561,
+        "title" : "after hook prints response status 200 instead of 500",
+        "url" : "https://github.com/scalatra/scalatra/issues/561"
+      },
+      {
+        "number" : 555,
+        "title" : "Translation of Java future to Scala future logic in Atmosphere integration when broadcasting leads to hung threads in 2.3.x and 2.4.x",
+        "url" : "https://github.com/scalatra/scalatra/issues/555"
+      },
+      {
+        "number" : 543,
+        "title" : "illegal inheritance; self-type com.kute.scalatra.MyServelt does not conform to org.scalatra.ScalatraServlet's selftype org.scalatra.ScalatraServlet",
+        "url" : "https://github.com/scalatra/scalatra/issues/543"
+      },
+      {
+        "number" : 542,
+        "title" : "Atmosphere buggy with multiple tabs and/or page refreshing",
+        "url" : "https://github.com/scalatra/scalatra/issues/542"
+      },
+      {
+        "number" : 540,
+        "title" : "Timer metrics function looks like that we need to invoke it with call()",
+        "url" : "https://github.com/scalatra/scalatra/issues/540"
+      },
+      {
+        "number" : 538,
+        "title" : "Support for Atmosphere-SockJS",
+        "url" : "https://github.com/scalatra/scalatra/issues/538"
+      },
+      {
+        "number" : 537,
+        "title" : "Scalate runtime exception",
+        "url" : "https://github.com/scalatra/scalatra/issues/537"
+      },
+      {
+        "number" : 534,
+        "title" : "Separating CoreDsl from ScalatraBase",
+        "url" : "https://github.com/scalatra/scalatra/issues/534"
+      },
+      {
+        "number" : 507,
+        "title" : "Scalatra not generating the correct Swagger authorizations type",
+        "url" : "https://github.com/scalatra/scalatra/issues/507"
+      },
+      {
+        "number" : 501,
+        "title" : "CORS recommended behaviour breaks 404s",
+        "url" : "https://github.com/scalatra/scalatra/issues/501"
+      },
+      {
+        "number" : 469,
+        "title" : "A Future does not have support for ControlThrowable",
+        "url" : "https://github.com/scalatra/scalatra/issues/469"
+      },
+      {
+        "number" : 429,
+        "title" : "AtmosphereHandler.onDisconnect needs some rework",
+        "url" : "https://github.com/scalatra/scalatra/issues/429"
+      },
+      {
+        "number" : 413,
+        "title" : "Disable parameter decoding",
+        "url" : "https://github.com/scalatra/scalatra/issues/413"
+      },
+      {
+        "number" : 412,
+        "title" : "file upload in async requests",
+        "url" : "https://github.com/scalatra/scalatra/issues/412"
+      },
+      {
+        "number" : 411,
+        "title" : "Can't register other response messages than string response messages",
+        "url" : "https://github.com/scalatra/scalatra/issues/411"
+      },
+      {
+        "number" : 407,
+        "title" : "[BUG] Swagger StackOverFlow error when there are three layer of objects in the model",
+        "url" : "https://github.com/scalatra/scalatra/issues/407"
+      },
+      {
+        "number" : 401,
+        "title" : "Scalatra Commands ValueSource implemented incorrectly?",
+        "url" : "https://github.com/scalatra/scalatra/issues/401"
+      },
+      {
+        "number" : 396,
+        "title" : "SwaggerSupport doesn't allow for api's to be mounted at /",
+        "url" : "https://github.com/scalatra/scalatra/issues/396"
+      },
+      {
+        "number" : 393,
+        "title" : "Content type should not be inferred for action results with no content",
+        "url" : "https://github.com/scalatra/scalatra/issues/393"
+      },
+      {
+        "number" : 392,
+        "title" : "Routing does not work with default servlet",
+        "url" : "https://github.com/scalatra/scalatra/issues/392"
+      },
+      {
+        "number" : 387,
+        "title" : "ScalatraBroadcaster.broadcast() blows up with IllegalStateException when corresponding Jetty HttpSession is invalidated",
+        "url" : "https://github.com/scalatra/scalatra/issues/387"
+      },
+      {
+        "number" : 379,
+        "title" : "Swagger model retrospection logic blows up with NPE when scala.Enumeration type encountered in model case class 2.3.0.RC1",
+        "url" : "https://github.com/scalatra/scalatra/issues/379"
+      },
+      {
+        "number" : 375,
+        "title" : "RicherString.urlEncode doesn't works as expected",
+        "url" : "https://github.com/scalatra/scalatra/issues/375"
+      },
+      {
+        "number" : 372,
+        "title" : "File upload breaks params decoding in v.2.2.2",
+        "url" : "https://github.com/scalatra/scalatra/issues/372"
+      },
+      {
+        "number" : 368,
+        "title" : "When running Scalatra tests, NPE is thrown due to url method in layout templates",
+        "url" : "https://github.com/scalatra/scalatra/issues/368"
+      },
+      {
+        "number" : 367,
+        "title" : "RedisScalatraBroadcaster's broadcast method blocks AtmosphereClient receive",
+        "url" : "https://github.com/scalatra/scalatra/issues/367"
+      },
+      {
+        "number" : 363,
+        "title" : "json4s FieldSerializer ignored in ScalatraServlet",
+        "url" : "https://github.com/scalatra/scalatra/issues/363"
+      },
+      {
+        "number" : 343,
+        "title" : "swagger NullPointerException",
+        "url" : "https://github.com/scalatra/scalatra/issues/343"
+      },
+      {
+        "number" : 338,
+        "title" : "Redirect without cookie support",
+        "url" : "https://github.com/scalatra/scalatra/issues/338"
+      },
+      {
+        "number" : 324,
+        "title" : "Atmosphere Connected, cannot send to client",
+        "url" : "https://github.com/scalatra/scalatra/issues/324"
+      },
+      {
+        "number" : 309,
+        "title" : "Atmosphere Long-polling does not work",
+        "url" : "https://github.com/scalatra/scalatra/issues/309"
+      },
+      {
+        "number" : 305,
+        "title" : "Issue with render pipeline",
+        "url" : "https://github.com/scalatra/scalatra/issues/305"
+      },
+      {
+        "number" : 287,
+        "title" : "Forwarding broken after change from 2.0 to 2.2",
+        "url" : "https://github.com/scalatra/scalatra/issues/287"
+      },
+      {
+        "number" : 286,
+        "title" : "cast error after switch from 2.0.0 to 2.2.0",
+        "url" : "https://github.com/scalatra/scalatra/issues/286"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : "scalatra",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "http-servers-and-clients",
+    "beginnerIssuesLabel" : null
+  }
+}

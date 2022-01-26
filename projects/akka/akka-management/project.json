@@ -1,0 +1,1067 @@
+{
+  "organization" : "akka",
+  "repository" : "akka-management",
+  "creationDate" : 1492179779637,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643163821366
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "https://doc.akka.io/docs/akka-management/",
+    "description" : "Akka Management is a suite of tools for operating Akka Clusters.",
+    "logo" : "https://avatars.githubusercontent.com/u/1496237?v=4",
+    "stars" : 242,
+    "forks" : 149,
+    "watchers" : 26,
+    "issues" : 119,
+    "creationDate" : 1478683992000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-akka-cluster-management\" class=\"anchor\" aria-hidden=\"true\" href=\"#akka-cluster-management\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Akka (Cluster) Management</h1>\n<p dir=\"auto\">This repository contains interfaces to inspect, interact and manage various Parts of Akka, primarily Akka Cluster.\nFuture additions may extend these concepts to other parts of Akka.</p>\n<h2 dir=\"auto\"><a id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Documentation</h2>\n<p dir=\"auto\">See <a href=\"https://doc.akka.io/docs/akka-management/current/\" rel=\"nofollow\">reference</a> and <a href=\"https://doc.akka.io/api/akka-management/current/akka/management/index.html\" rel=\"nofollow\">API</a></p>\n<h2 dir=\"auto\"><a id=\"user-content-contributions--maintainers\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributions--maintainers\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Contributions &amp; Maintainers</h2>\n<p dir=\"auto\"><em>This project does not have contributors, it only has maintainers—frequent and infrequent—and everyone helps out.</em>\nWe love new maintainers as well as old maintainers. :-)\nThe Akka core team keeps an eye on the project to assure its overall coherence but does not fully support these modules.</p>\n<p dir=\"auto\">Contributions are very welcome, see <a href=\"https://github.com/akka/akka-management/blob/master/CONTRIBUTING.md\">CONTRIBUTING.md</a> or skim <a href=\"https://github.com/akka/akka-management/issues\">existing tickets</a> to see where you could help out.</p>\n<h2 dir=\"auto\"><a id=\"user-content-project-status\" class=\"anchor\" aria-hidden=\"true\" href=\"#project-status\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Project Status</h2>\n<p dir=\"auto\">With the exception of the community maintained modules listed below version 1.0.0 or later of this library\nis ready to be used in production, APIs are stable, and the Lightbend subscription covers support for these modules.</p>\n<p dir=\"auto\">The following modules are maintained by the community and does not have to obey the rule of staying binary compatible\nbetween releases. Breaking API changes may be introduced without notice as we refine and simplify based on feedback.\nA module may be dropped in any release without prior deprecation. The Lightbend subscription does not cover support\nfor the following modules.</p>\n<ul dir=\"auto\">\n<li>akka-discovery-marathon-api</li>\n<li>akka-discovery-aws-api</li>\n<li>akka-discovery-aws-api-async</li>\n<li>akka-discovery-consul</li>\n</ul>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "raboof",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/131856?v=4",
+        "url" : "https://api.github.com/users/raboof",
+        "contributions" : 94
+      },
+      {
+        "login" : "chbatey",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1866779?v=4",
+        "url" : "https://api.github.com/users/chbatey",
+        "contributions" : 71
+      },
+      {
+        "login" : "patriknw",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/336161?v=4",
+        "url" : "https://api.github.com/users/patriknw",
+        "contributions" : 57
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 56
+      },
+      {
+        "login" : "ignasi35",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/762126?v=4",
+        "url" : "https://api.github.com/users/ignasi35",
+        "contributions" : 46
+      },
+      {
+        "login" : "ennru",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/458526?v=4",
+        "url" : "https://api.github.com/users/ennru",
+        "contributions" : 34
+      },
+      {
+        "login" : "ktoso",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/120979?v=4",
+        "url" : "https://api.github.com/users/ktoso",
+        "contributions" : 27
+      },
+      {
+        "login" : "johanandren",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/666915?v=4",
+        "url" : "https://api.github.com/users/johanandren",
+        "contributions" : 26
+      },
+      {
+        "login" : "2m",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/422086?v=4",
+        "url" : "https://api.github.com/users/2m",
+        "contributions" : 22
+      },
+      {
+        "login" : "longshorej",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/515201?v=4",
+        "url" : "https://api.github.com/users/longshorej",
+        "contributions" : 21
+      },
+      {
+        "login" : "octonato",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/502982?v=4",
+        "url" : "https://api.github.com/users/octonato",
+        "contributions" : 16
+      },
+      {
+        "login" : "jrudolph",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9868?v=4",
+        "url" : "https://api.github.com/users/jrudolph",
+        "contributions" : 11
+      },
+      {
+        "login" : "dwijnand",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/344610?v=4",
+        "url" : "https://api.github.com/users/dwijnand",
+        "contributions" : 8
+      },
+      {
+        "login" : "ygree",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4147346?v=4",
+        "url" : "https://api.github.com/users/ygree",
+        "contributions" : 7
+      },
+      {
+        "login" : "jroper",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/105833?v=4",
+        "url" : "https://api.github.com/users/jroper",
+        "contributions" : 6
+      },
+      {
+        "login" : "vikasuy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/860631?v=4",
+        "url" : "https://api.github.com/users/vikasuy",
+        "contributions" : 6
+      },
+      {
+        "login" : "dhpiggott",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6965859?v=4",
+        "url" : "https://api.github.com/users/dhpiggott",
+        "contributions" : 5
+      },
+      {
+        "login" : "eed3si9n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/184683?v=4",
+        "url" : "https://api.github.com/users/eed3si9n",
+        "contributions" : 5
+      },
+      {
+        "login" : "andreaTP",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5792097?v=4",
+        "url" : "https://api.github.com/users/andreaTP",
+        "contributions" : 4
+      },
+      {
+        "login" : "fredfp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3804696?v=4",
+        "url" : "https://api.github.com/users/fredfp",
+        "contributions" : 4
+      },
+      {
+        "login" : "YikSanChan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17229109?v=4",
+        "url" : "https://api.github.com/users/YikSanChan",
+        "contributions" : 4
+      },
+      {
+        "login" : "helena",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/406103?v=4",
+        "url" : "https://api.github.com/users/helena",
+        "contributions" : 3
+      },
+      {
+        "login" : "jonas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8417?v=4",
+        "url" : "https://api.github.com/users/jonas",
+        "contributions" : 3
+      },
+      {
+        "login" : "milanvdm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5628925?v=4",
+        "url" : "https://api.github.com/users/milanvdm",
+        "contributions" : 3
+      },
+      {
+        "login" : "DennisVDB",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2470993?v=4",
+        "url" : "https://api.github.com/users/DennisVDB",
+        "contributions" : 2
+      },
+      {
+        "login" : "teroxik",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1678716?v=4",
+        "url" : "https://api.github.com/users/teroxik",
+        "contributions" : 2
+      },
+      {
+        "login" : "shkoder",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2048638?v=4",
+        "url" : "https://api.github.com/users/shkoder",
+        "contributions" : 2
+      },
+      {
+        "login" : "sebastian-alfers",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/546816?v=4",
+        "url" : "https://api.github.com/users/sebastian-alfers",
+        "contributions" : 2
+      },
+      {
+        "login" : "StephenKing",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/277561?v=4",
+        "url" : "https://api.github.com/users/StephenKing",
+        "contributions" : 2
+      },
+      {
+        "login" : "zackman0010",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9540563?v=4",
+        "url" : "https://api.github.com/users/zackman0010",
+        "contributions" : 2
+      },
+      {
+        "login" : "agadek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6850173?v=4",
+        "url" : "https://api.github.com/users/agadek",
+        "contributions" : 2
+      },
+      {
+        "login" : "sullis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30938?v=4",
+        "url" : "https://api.github.com/users/sullis",
+        "contributions" : 2
+      },
+      {
+        "login" : "thomschke",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9845811?v=4",
+        "url" : "https://api.github.com/users/thomschke",
+        "contributions" : 2
+      },
+      {
+        "login" : "WayneWang12",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6812513?v=4",
+        "url" : "https://api.github.com/users/WayneWang12",
+        "contributions" : 2
+      },
+      {
+        "login" : "aldenml",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/143813?v=4",
+        "url" : "https://api.github.com/users/aldenml",
+        "contributions" : 1
+      },
+      {
+        "login" : "amrfaisal",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9844932?v=4",
+        "url" : "https://api.github.com/users/amrfaisal",
+        "contributions" : 1
+      },
+      {
+        "login" : "apavlovics",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7983483?v=4",
+        "url" : "https://api.github.com/users/apavlovics",
+        "contributions" : 1
+      },
+      {
+        "login" : "coreyauger",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1414300?v=4",
+        "url" : "https://api.github.com/users/coreyauger",
+        "contributions" : 1
+      },
+      {
+        "login" : "cjtraverso",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10958486?v=4",
+        "url" : "https://api.github.com/users/cjtraverso",
+        "contributions" : 1
+      },
+      {
+        "login" : "dirkjonker",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11753054?v=4",
+        "url" : "https://api.github.com/users/dirkjonker",
+        "contributions" : 1
+      },
+      {
+        "login" : "ptrdom",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5850190?v=4",
+        "url" : "https://api.github.com/users/ptrdom",
+        "contributions" : 1
+      },
+      {
+        "login" : "djm1329",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5845249?v=4",
+        "url" : "https://api.github.com/users/djm1329",
+        "contributions" : 1
+      },
+      {
+        "login" : "easel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/94159?v=4",
+        "url" : "https://api.github.com/users/easel",
+        "contributions" : 1
+      },
+      {
+        "login" : "fabienrenaud",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3112233?v=4",
+        "url" : "https://api.github.com/users/fabienrenaud",
+        "contributions" : 1
+      },
+      {
+        "login" : "khujo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/819488?v=4",
+        "url" : "https://api.github.com/users/khujo",
+        "contributions" : 1
+      },
+      {
+        "login" : "glammers1",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13570903?v=4",
+        "url" : "https://api.github.com/users/glammers1",
+        "contributions" : 1
+      },
+      {
+        "login" : "ignacioPL",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2867821?v=4",
+        "url" : "https://api.github.com/users/ignacioPL",
+        "contributions" : 1
+      },
+      {
+        "login" : "grimlor",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/123320?v=4",
+        "url" : "https://api.github.com/users/grimlor",
+        "contributions" : 1
+      },
+      {
+        "login" : "hythloday",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/933087?v=4",
+        "url" : "https://api.github.com/users/hythloday",
+        "contributions" : 1
+      },
+      {
+        "login" : "jypma",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/483519?v=4",
+        "url" : "https://api.github.com/users/jypma",
+        "contributions" : 1
+      },
+      {
+        "login" : "guersam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/969120?v=4",
+        "url" : "https://api.github.com/users/guersam",
+        "contributions" : 1
+      },
+      {
+        "login" : "jlprat",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3337739?v=4",
+        "url" : "https://api.github.com/users/jlprat",
+        "contributions" : 1
+      },
+      {
+        "login" : "JustinPihony",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1621855?v=4",
+        "url" : "https://api.github.com/users/JustinPihony",
+        "contributions" : 1
+      },
+      {
+        "login" : "kevinchabreck",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3843728?v=4",
+        "url" : "https://api.github.com/users/kevinchabreck",
+        "contributions" : 1
+      },
+      {
+        "login" : "catap",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/37775?v=4",
+        "url" : "https://api.github.com/users/catap",
+        "contributions" : 1
+      },
+      {
+        "login" : "kciesielski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1413553?v=4",
+        "url" : "https://api.github.com/users/kciesielski",
+        "contributions" : 1
+      },
+      {
+        "login" : "lustefaniak",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/177043?v=4",
+        "url" : "https://api.github.com/users/lustefaniak",
+        "contributions" : 1
+      },
+      {
+        "login" : "markon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/90461?v=4",
+        "url" : "https://api.github.com/users/markon",
+        "contributions" : 1
+      },
+      {
+        "login" : "speedcom",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1591212?v=4",
+        "url" : "https://api.github.com/users/speedcom",
+        "contributions" : 1
+      },
+      {
+        "login" : "mjcramer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3793335?v=4",
+        "url" : "https://api.github.com/users/mjcramer",
+        "contributions" : 1
+      },
+      {
+        "login" : "mlosiewicz-pl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13271593?v=4",
+        "url" : "https://api.github.com/users/mlosiewicz-pl",
+        "contributions" : 1
+      },
+      {
+        "login" : "nathanleyton",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/637276?v=4",
+        "url" : "https://api.github.com/users/nathanleyton",
+        "contributions" : 1
+      },
+      {
+        "login" : "ollyw",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/632442?v=4",
+        "url" : "https://api.github.com/users/ollyw",
+        "contributions" : 1
+      },
+      {
+        "login" : "orhanbalci",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13239303?v=4",
+        "url" : "https://api.github.com/users/orhanbalci",
+        "contributions" : 1
+      },
+      {
+        "login" : "jupeter",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/674766?v=4",
+        "url" : "https://api.github.com/users/jupeter",
+        "contributions" : 1
+      },
+      {
+        "login" : "RAtioNAn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/72982136?v=4",
+        "url" : "https://api.github.com/users/RAtioNAn",
+        "contributions" : 1
+      },
+      {
+        "login" : "giftig",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2862039?v=4",
+        "url" : "https://api.github.com/users/giftig",
+        "contributions" : 1
+      },
+      {
+        "login" : "ihostage",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/817328?v=4",
+        "url" : "https://api.github.com/users/ihostage",
+        "contributions" : 1
+      },
+      {
+        "login" : "SethTisue",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
+        "url" : "https://api.github.com/users/SethTisue",
+        "contributions" : 1
+      },
+      {
+        "login" : "sjoerdmulder",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/235745?v=4",
+        "url" : "https://api.github.com/users/sjoerdmulder",
+        "contributions" : 1
+      },
+      {
+        "login" : "novoslavik",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/95589115?v=4",
+        "url" : "https://api.github.com/users/novoslavik",
+        "contributions" : 1
+      },
+      {
+        "login" : "t5kaji",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9458203?v=4",
+        "url" : "https://api.github.com/users/t5kaji",
+        "contributions" : 1
+      },
+      {
+        "login" : "archeuclid",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10335643?v=4",
+        "url" : "https://api.github.com/users/archeuclid",
+        "contributions" : 1
+      },
+      {
+        "login" : "dietervb",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/59325?v=4",
+        "url" : "https://api.github.com/users/dietervb",
+        "contributions" : 1
+      },
+      {
+        "login" : "dna0ff",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/20377386?v=4",
+        "url" : "https://api.github.com/users/dna0ff",
+        "contributions" : 1
+      },
+      {
+        "login" : "mahendrapk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24970817?v=4",
+        "url" : "https://api.github.com/users/mahendrapk",
+        "contributions" : 1
+      },
+      {
+        "login" : "otto-dev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/44302748?v=4",
+        "url" : "https://api.github.com/users/otto-dev",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 602,
+    "topics" : [
+      "operations",
+      "akka",
+      "cloud-native",
+      "ops",
+      "akka-http",
+      "akka-cluster",
+      "microservice",
+      "management"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 975,
+        "title" : "Unable to use akka-discovery-aws-api-async with multiple AWS SDK async http clients on the classpath",
+        "url" : "https://github.com/akka/akka-management/issues/975"
+      },
+      {
+        "number" : 967,
+        "title" : "readConfigVarFromFilesystem returning None on error hides the root cause",
+        "url" : "https://github.com/akka/akka-management/issues/967"
+      },
+      {
+        "number" : 966,
+        "title" : "@Scala and @Java tags don't seem to work in the documentation",
+        "url" : "https://github.com/akka/akka-management/issues/966"
+      },
+      {
+        "number" : 947,
+        "title" : "SunCertPathBuilderException when using Kubernetes api discovery in OpenShift",
+        "url" : "https://github.com/akka/akka-management/issues/947"
+      },
+      {
+        "number" : 943,
+        "title" : "Check Kuberenetes Lease creation is possible",
+        "url" : "https://github.com/akka/akka-management/issues/943"
+      },
+      {
+        "number" : 942,
+        "title" : "Can't join when port = 0",
+        "url" : "https://github.com/akka/akka-management/issues/942"
+      },
+      {
+        "number" : 910,
+        "title" : "Kubernetes lease name truncation can lead to non-unique lease names",
+        "url" : "https://github.com/akka/akka-management/issues/910"
+      },
+      {
+        "number" : 909,
+        "title" : "Multi DC bootstrap support",
+        "url" : "https://github.com/akka/akka-management/issues/909"
+      },
+      {
+        "number" : 907,
+        "title" : "Recover from sonatype 'close stage' timeout",
+        "url" : "https://github.com/akka/akka-management/issues/907"
+      },
+      {
+        "number" : 898,
+        "title" : "k8s-api and lease settings convergence",
+        "url" : "https://github.com/akka/akka-management/issues/898"
+      },
+      {
+        "number" : 896,
+        "title" : "Enable MiMa for akka-management-pki",
+        "url" : "https://github.com/akka/akka-management/issues/896"
+      },
+      {
+        "number" : 895,
+        "title" : "Tests don't work on jdk16",
+        "url" : "https://github.com/akka/akka-management/issues/895"
+      },
+      {
+        "number" : 887,
+        "title" : "Improve error messages when a cluster fails to boot",
+        "url" : "https://github.com/akka/akka-management/issues/887"
+      },
+      {
+        "number" : 886,
+        "title" : "When Health check written in Java fails, log information is unclear",
+        "url" : "https://github.com/akka/akka-management/issues/886"
+      },
+      {
+        "number" : 885,
+        "title" : "Waiting for app.kubernetes.io/name=ingress-nginx pods: timed out",
+        "url" : "https://github.com/akka/akka-management/issues/885"
+      },
+      {
+        "number" : 876,
+        "title" : "Deadline config for bootstrap",
+        "url" : "https://github.com/akka/akka-management/issues/876"
+      },
+      {
+        "number" : 858,
+        "title" : "Failed: ClusterBootstrapAutostartIntegrationSpec",
+        "url" : "https://github.com/akka/akka-management/issues/858"
+      },
+      {
+        "number" : 848,
+        "title" : "[Failed] ClusterHttpManagementRoutesSpec",
+        "url" : "https://github.com/akka/akka-management/issues/848"
+      },
+      {
+        "number" : 828,
+        "title" : "Failed: Timed out removing lease ",
+        "url" : "https://github.com/akka/akka-management/issues/828"
+      },
+      {
+        "number" : 826,
+        "title" : "Failed: toomanyrequests docker pull rate limit",
+        "url" : "https://github.com/akka/akka-management/issues/826"
+      },
+      {
+        "number" : 810,
+        "title" : "Add missing dependency hint in log message akka.discovery.kubernetes-api.class must point to a FQN",
+        "url" : "https://github.com/akka/akka-management/issues/810"
+      },
+      {
+        "number" : 773,
+        "title" : "Kubernetes deploy guide missing kubernetes dependency",
+        "url" : "https://github.com/akka/akka-management/issues/773"
+      },
+      {
+        "number" : 771,
+        "title" : "[Failed] LocalBootstrapTest",
+        "url" : "https://github.com/akka/akka-management/issues/771"
+      },
+      {
+        "number" : 761,
+        "title" : "Change version.number recommendation for maven",
+        "url" : "https://github.com/akka/akka-management/issues/761"
+      },
+      {
+        "number" : 751,
+        "title" : "Akka cluster bootstrapping with Istio",
+        "url" : "https://github.com/akka/akka-management/issues/751"
+      },
+      {
+        "number" : 698,
+        "title" : "newClusterEnabled should be dynamically configurable",
+        "url" : "https://github.com/akka/akka-management/issues/698"
+      },
+      {
+        "number" : 696,
+        "title" : "doc: replace all classic remoting with Artery",
+        "url" : "https://github.com/akka/akka-management/issues/696"
+      },
+      {
+        "number" : 691,
+        "title" : "Cluster Formation, Contact Points, and new-cluster-enabled",
+        "url" : "https://github.com/akka/akka-management/issues/691"
+      },
+      {
+        "number" : 680,
+        "title" : "Share K8s API clients between leases",
+        "url" : "https://github.com/akka/akka-management/issues/680"
+      },
+      {
+        "number" : 646,
+        "title" : "Akka Bootstrap grammar issue",
+        "url" : "https://github.com/akka/akka-management/issues/646"
+      },
+      {
+        "number" : 643,
+        "title" : "kubernetes - clarify remoting port is informational",
+        "url" : "https://github.com/akka/akka-management/issues/643"
+      },
+      {
+        "number" : 642,
+        "title" : "Emit structured log event containing the Management http endpoint",
+        "url" : "https://github.com/akka/akka-management/issues/642"
+      },
+      {
+        "number" : 625,
+        "title" : "akka-cluster kubernetes discovery should consider each node's label selector",
+        "url" : "https://github.com/akka/akka-management/issues/625"
+      },
+      {
+        "number" : 624,
+        "title" : "allow kubernetes-api discovery when 'pods disabled' is set in the K8s DNS config",
+        "url" : "https://github.com/akka/akka-management/issues/624"
+      },
+      {
+        "number" : 613,
+        "title" : "Invite new maintainers for discovery implementations",
+        "url" : "https://github.com/akka/akka-management/issues/613"
+      },
+      {
+        "number" : 611,
+        "title" : "Bootstrap: Handle multiple akka nodes on the same host with different ports",
+        "url" : "https://github.com/akka/akka-management/issues/611"
+      },
+      {
+        "number" : 605,
+        "title" : "Allow embedding just health checks in an existing HTTP server",
+        "url" : "https://github.com/akka/akka-management/issues/605"
+      },
+      {
+        "number" : 602,
+        "title" : "Update documentation to point out `akka.tcp` vs `akka`",
+        "url" : "https://github.com/akka/akka-management/issues/602"
+      },
+      {
+        "number" : 599,
+        "title" : "Hosting the Health Check routes in an existing Akka HTTP server",
+        "url" : "https://github.com/akka/akka-management/issues/599"
+      },
+      {
+        "number" : 597,
+        "title" : "Provide some textual information about which health check of all configured has failed",
+        "url" : "https://github.com/akka/akka-management/issues/597"
+      },
+      {
+        "number" : 593,
+        "title" : "Publish documentation snapshots",
+        "url" : "https://github.com/akka/akka-management/issues/593"
+      },
+      {
+        "number" : 591,
+        "title" : "Add  CoordinatedShutdown task (or document how) automatically in AkkaManagement.stop()",
+        "url" : "https://github.com/akka/akka-management/issues/591"
+      },
+      {
+        "number" : 590,
+        "title" : "Java API docs",
+        "url" : "https://github.com/akka/akka-management/issues/590"
+      },
+      {
+        "number" : 587,
+        "title" : "Publish snapshots or publish straight to sonatype",
+        "url" : "https://github.com/akka/akka-management/issues/587"
+      },
+      {
+        "number" : 582,
+        "title" : "Add version compatibility matrix",
+        "url" : "https://github.com/akka/akka-management/issues/582"
+      },
+      {
+        "number" : 580,
+        "title" : "Set up scmInfo",
+        "url" : "https://github.com/akka/akka-management/issues/580"
+      },
+      {
+        "number" : 577,
+        "title" : "Enrich ClusterShardingStats and CurrentShardRegionState query responses with any failures as well as the ones that responded",
+        "url" : "https://github.com/akka/akka-management/issues/577"
+      },
+      {
+        "number" : 574,
+        "title" : "Clarify documentation for Kubenetes Service configuration",
+        "url" : "https://github.com/akka/akka-management/issues/574"
+      },
+      {
+        "number" : 571,
+        "title" : "Support No Check X509TrustManager in KubernetesApiServiceDiscovery",
+        "url" : "https://github.com/akka/akka-management/issues/571"
+      },
+      {
+        "number" : 570,
+        "title" : "Improve Kubernetes bootstrap resilience",
+        "url" : "https://github.com/akka/akka-management/issues/570"
+      },
+      {
+        "number" : 545,
+        "title" : "Run scalafmt on travis",
+        "url" : "https://github.com/akka/akka-management/issues/545"
+      },
+      {
+        "number" : 542,
+        "title" : "Cluster bootstrap failed to start when there are multiple container in a ECS task",
+        "url" : "https://github.com/akka/akka-management/issues/542"
+      },
+      {
+        "number" : 540,
+        "title" : "SSE (Server-Sent-Events) endpoint for cluster events",
+        "url" : "https://github.com/akka/akka-management/issues/540"
+      },
+      {
+        "number" : 535,
+        "title" : "ConsulDiscoverySpec: not start Consul process in 30 seconds",
+        "url" : "https://github.com/akka/akka-management/issues/535"
+      },
+      {
+        "number" : 530,
+        "title" : "Make HTTPS Configurable for k8s discovery",
+        "url" : "https://github.com/akka/akka-management/issues/530"
+      },
+      {
+        "number" : 518,
+        "title" : "Clarify discovery.method config is needed",
+        "url" : "https://github.com/akka/akka-management/issues/518"
+      },
+      {
+        "number" : 512,
+        "title" : "Link to more information in RBAC errors",
+        "url" : "https://github.com/akka/akka-management/issues/512"
+      },
+      {
+        "number" : 506,
+        "title" : "default akka.management.http.hostname",
+        "url" : "https://github.com/akka/akka-management/issues/506"
+      },
+      {
+        "number" : 495,
+        "title" : "Consider removing the public service from the kubernetes-dns integration test",
+        "url" : "https://github.com/akka/akka-management/issues/495"
+      },
+      {
+        "number" : 483,
+        "title" : "using consul discovery",
+        "url" : "https://github.com/akka/akka-management/issues/483"
+      },
+      {
+        "number" : 467,
+        "title" : "Tuning/recommendations for bootstrap for large clusters ",
+        "url" : "https://github.com/akka/akka-management/issues/467"
+      },
+      {
+        "number" : 453,
+        "title" : "Akka remoting bootstrap probing",
+        "url" : "https://github.com/akka/akka-management/issues/453"
+      },
+      {
+        "number" : 450,
+        "title" : "Remove Kubernetes-api-java integration test",
+        "url" : "https://github.com/akka/akka-management/issues/450"
+      },
+      {
+        "number" : 445,
+        "title" : "Remove or promote standalone projects in integration-tests (previously bootstrap-demos)",
+        "url" : "https://github.com/akka/akka-management/issues/445"
+      },
+      {
+        "number" : 429,
+        "title" : "Security support for Akka Discovery Marathon API",
+        "url" : "https://github.com/akka/akka-management/issues/429"
+      },
+      {
+        "number" : 400,
+        "title" : "Provide advice on Kubernetes resource limits",
+        "url" : "https://github.com/akka/akka-management/issues/400"
+      },
+      {
+        "number" : 392,
+        "title" : "Revisit discovery-consul",
+        "url" : "https://github.com/akka/akka-management/issues/392"
+      },
+      {
+        "number" : 384,
+        "title" : "ClusterBootstap with akka-dns defaults to SRV records without falling back to A records",
+        "url" : "https://github.com/akka/akka-management/issues/384"
+      },
+      {
+        "number" : 374,
+        "title" : "Troubleshooting section for bootstrap",
+        "url" : "https://github.com/akka/akka-management/issues/374"
+      },
+      {
+        "number" : 370,
+        "title" : "Marathon Api port name",
+        "url" : "https://github.com/akka/akka-management/issues/370"
+      },
+      {
+        "number" : 363,
+        "title" : "Convert kubernetes demo projects to quickstarts",
+        "url" : "https://github.com/akka/akka-management/issues/363"
+      },
+      {
+        "number" : 361,
+        "title" : "Investigate how Kubernetes API can be used more for bootstrap/downing decisions",
+        "url" : "https://github.com/akka/akka-management/issues/361"
+      },
+      {
+        "number" : 360,
+        "title" : "Document bootstrap with SBR",
+        "url" : "https://github.com/akka/akka-management/issues/360"
+      },
+      {
+        "number" : 346,
+        "title" : "Improve IPv6 support",
+        "url" : "https://github.com/akka/akka-management/issues/346"
+      },
+      {
+        "number" : 328,
+        "title" : "Document the downsides of using Statefulsets in K8s",
+        "url" : "https://github.com/akka/akka-management/issues/328"
+      },
+      {
+        "number" : 323,
+        "title" : "Bootstrap for large clusters",
+        "url" : "https://github.com/akka/akka-management/issues/323"
+      },
+      {
+        "number" : 322,
+        "title" : "Upgrade AWS SDK to 2.0",
+        "url" : "https://github.com/akka/akka-management/issues/322"
+      },
+      {
+        "number" : 307,
+        "title" : "Add redirects for moved pages",
+        "url" : "https://github.com/akka/akka-management/issues/307"
+      },
+      {
+        "number" : 305,
+        "title" : "document cluster bootstrap dependency on akka version",
+        "url" : "https://github.com/akka/akka-management/issues/305"
+      },
+      {
+        "number" : 302,
+        "title" : "java examples in bootstrap recipes not available",
+        "url" : "https://github.com/akka/akka-management/issues/302"
+      },
+      {
+        "number" : 300,
+        "title" : "Upgrade to latest sbt",
+        "url" : "https://github.com/akka/akka-management/issues/300"
+      },
+      {
+        "number" : 299,
+        "title" : "Update paradox",
+        "url" : "https://github.com/akka/akka-management/issues/299"
+      },
+      {
+        "number" : 295,
+        "title" : "Cluster bootstrap: Make isConfirmedCommunicationWithAllContactPointsRequired configurable",
+        "url" : "https://github.com/akka/akka-management/issues/295"
+      },
+      {
+        "number" : 291,
+        "title" : "Clarify when to shut down Akka management ",
+        "url" : "https://github.com/akka/akka-management/issues/291"
+      },
+      {
+        "number" : 290,
+        "title" : "The inconsistent behaviour of the get cluster shards endpoint behind the proxy",
+        "url" : "https://github.com/akka/akka-management/issues/290"
+      },
+      {
+        "number" : 279,
+        "title" : "Test / document example how to use bootstrap with DNS",
+        "url" : "https://github.com/akka/akka-management/issues/279"
+      },
+      {
+        "number" : 277,
+        "title" : "Add warning if akka.management.http.hostname is set to 0.0.0.0.",
+        "url" : "https://github.com/akka/akka-management/issues/277"
+      },
+      {
+        "number" : 251,
+        "title" : "Perhaps log warning if host is localhost when bootstrap is used?",
+        "url" : "https://github.com/akka/akka-management/issues/251"
+      },
+      {
+        "number" : 232,
+        "title" : "better documentation of how to use/enable Cluster Http Management",
+        "url" : "https://github.com/akka/akka-management/issues/232"
+      },
+      {
+        "number" : 219,
+        "title" : "Simple format for config based service discovery",
+        "url" : "https://github.com/akka/akka-management/issues/219"
+      },
+      {
+        "number" : 212,
+        "title" : "Improve visibility of API documentation",
+        "url" : "https://github.com/akka/akka-management/issues/212"
+      },
+      {
+        "number" : 207,
+        "title" : "Routes Inspection endpoint provider",
+        "url" : "https://github.com/akka/akka-management/issues/207"
+      },
+      {
+        "number" : 206,
+        "title" : "Issues with Kubernetes Service Discovery after upgrading to 0.13.1",
+        "url" : "https://github.com/akka/akka-management/issues/206"
+      },
+      {
+        "number" : 181,
+        "title" : "EC2 Tag Based - Test more complicated scenarios",
+        "url" : "https://github.com/akka/akka-management/issues/181"
+      },
+      {
+        "number" : 163,
+        "title" : "Value 'kubernetes-api' or incompatible class",
+        "url" : "https://github.com/akka/akka-management/issues/163"
+      },
+      {
+        "number" : 161,
+        "title" : "Add tests to check if formNewCluster = false is respected",
+        "url" : "https://github.com/akka/akka-management/issues/161"
+      },
+      {
+        "number" : 158,
+        "title" : "Update Google Cloud deploy guide to use bootstrap",
+        "url" : "https://github.com/akka/akka-management/issues/158"
+      },
+      {
+        "number" : 157,
+        "title" : "\"Localhost\" (file?) discovery",
+        "url" : "https://github.com/akka/akka-management/issues/157"
+      },
+      {
+        "number" : 156,
+        "title" : "Possible split-brain of Akka Cluster using K8s Deployment",
+        "url" : "https://github.com/akka/akka-management/issues/156"
+      },
+      {
+        "number" : 155,
+        "title" : "missing graceful shutdown examples in bootstrap-joining-demo ",
+        "url" : "https://github.com/akka/akka-management/issues/155"
+      },
+      {
+        "number" : 146,
+        "title" : "Docs should allow “I use this cloud” guide model",
+        "url" : "https://github.com/akka/akka-management/issues/146"
+      },
+      {
+        "number" : 145,
+        "title" : "Test paging results in ECS integration `listTaskArns`",
+        "url" : "https://github.com/akka/akka-management/issues/145"
+      },
+      {
+        "number" : 143,
+        "title" : "Investigate Amazon ECS discovery API",
+        "url" : "https://github.com/akka/akka-management/issues/143"
+      },
+      {
+        "number" : 141,
+        "title" : "Check for stable-margin before going to onSufficientContactPointsDiscovered ? ",
+        "url" : "https://github.com/akka/akka-management/issues/141"
+      },
+      {
+        "number" : 63,
+        "title" : "Verify Boostrap on Amazon's k8s",
+        "url" : "https://github.com/akka/akka-management/issues/63"
+      },
+      {
+        "number" : 62,
+        "title" : "Verify Boostrap on GCloud k8s",
+        "url" : "https://github.com/akka/akka-management/issues/62"
+      },
+      {
+        "number" : 57,
+        "title" : "Bootstrap: Support SRV records via akka-dns with a full Lookup",
+        "url" : "https://github.com/akka/akka-management/issues/57"
+      },
+      {
+        "number" : 56,
+        "title" : "bootstrap: make sure we don't probe ourselfs for the seeds",
+        "url" : "https://github.com/akka/akka-management/issues/56"
+      },
+      {
+        "number" : 47,
+        "title" : "Log a warning trying to gracefully leave unreachable node",
+        "url" : "https://github.com/akka/akka-management/issues/47"
+      },
+      {
+        "number" : 46,
+        "title" : "Akka Multi-DCs API",
+        "url" : "https://github.com/akka/akka-management/issues/46"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : null,
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "deployment-and-cloud",
+    "beginnerIssuesLabel" : null
+  }
+}

@@ -1,0 +1,3079 @@
+{
+  "organization" : "raster-foundry",
+  "repository" : "raster-foundry",
+  "creationDate" : 1608137754000,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643175623950
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "https://www.rasterfoundry.com",
+    "description" : "The Raster Foundry web application.",
+    "logo" : "https://avatars.githubusercontent.com/u/30530043?v=4",
+    "stars" : 136,
+    "forks" : 43,
+    "watchers" : 29,
+    "issues" : 577,
+    "creationDate" : 1432844745000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-raster-foundry\" class=\"anchor\" aria-hidden=\"true\" href=\"#raster-foundry\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Raster Foundry</h1>\n<h2 dir=\"auto\"><a id=\"user-content-getting-started\" class=\"anchor\" aria-hidden=\"true\" href=\"#getting-started\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Getting Started</h2>\n<h3 dir=\"auto\"><a id=\"user-content-requirements\" class=\"anchor\" aria-hidden=\"true\" href=\"#requirements\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Requirements</h3>\n<ul dir=\"auto\">\n<li>AWS CLI 1.10+</li>\n<li>AWS Account (to store artifacts, secrets)</li>\n<li><a href=\"https://github.com/shyiko/jabba\">jabba</a> for managing Java versions</li>\n<li><a href=\"https://rollbar.com/\" rel=\"nofollow\">Rollbar Account</a> (error reporting -- optional)</li>\n</ul>\n<p dir=\"auto\"><em>tl;dr</em>:</p>\n<ul dir=\"auto\">\n<li><code>export AWS_PROFILE=raster-foundry</code></li>\n<li><code>export RF_SETTINGS_BUCKET=...</code></li>\n<li><code>jabba use</code> -- if you don't have that version available, also <code>jabba install</code> the version from <code>.jabbarc</code></li>\n<li><code>./scripts/bootstrap</code></li>\n<li><code>./scripts/update</code></li>\n<li><code>./scripts/server</code></li>\n</ul>\n<h4 dir=\"auto\"><a id=\"user-content-setting-up-aws-account\" class=\"anchor\" aria-hidden=\"true\" href=\"#setting-up-aws-account\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Setting Up AWS Account</h4>\n<p dir=\"auto\">There are a set of tasks necessary before starting development in order to provision Raster Foundry. Raster Foundry depends heavily on AWS resources and using AWS resources to manage secrets/containers/artifacts in development. If only local development is being done, the primary resource that will be used are S3 buckets to store secrets.</p>\n<p dir=\"auto\">In the AWS account you need to create a few buckets for the following:</p>\n<ul dir=\"auto\">\n<li>A bucket to house raw data (e.g. geotiffs, JPEG2000, ingest definitions, etc.)</li>\n<li>A config bucket that will store secrets for development and or other environments, an exported database for development data</li>\n<li>A bucket to house processed data (e.g. thumbnails, processed raster RDDs)</li>\n</ul>\n<p dir=\"auto\">The names of the buckets are not important, but they should be memorable and easy to parse for your own sake. On your host machine you need to set up an AWS profile for the account with the S3 buckets. For instance, to set up an AWS profile called <code>raster-foundry</code> with the AWS cli the following command would be used:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ aws configure --profile raster-foundry\"><pre><code>$ aws configure --profile raster-foundry\n</code></pre></div>\n<p dir=\"auto\">You will be prompted for an access key and secret key.</p>\n<h4 dir=\"auto\"><a id=\"user-content-setting-development-environment-variables\" class=\"anchor\" aria-hidden=\"true\" href=\"#setting-development-environment-variables\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Setting Development Environment Variables</h4>\n<p dir=\"auto\">The <code>.env.template</code> file is a template file with environment variables that get injected into running containers during development. This file should be copied into the AWS config bucket created after filling in sensitive information (replacing all <code>PLACEHOLDER</code> values with appropriate values for your AWS setup). When provisioning this file is copied to the development environment and injected into containers with <code>docker-compose</code>.</p>\n<p dir=\"auto\">In addition to setting up an AWS account, you must register for an Auth0 account to produce secrets to use in the <code>.env</code> file. You need to go through setting up an application and copying over the client IDs, domain, and secret.</p>\n<p dir=\"auto\">Additionally, if you want to exercise token management in the application, you need to generate a management API app to handle managing the generation of <a href=\"https://auth0.com/docs/api/management/v2/tokens\" rel=\"nofollow\">refresh tokens for users via the management API</a>. This is not necessary for most functionality in the application and can be deferred until later if you desire.</p>\n<p dir=\"auto\">The last thing to set up with Auth0 are the allowed callback URLs and logout URLs. These need to be edited to allow interaction for local development from <code>localhost:9091</code> and <code>localhost:9100</code>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-development\" class=\"anchor\" aria-hidden=\"true\" href=\"#development\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Development</h3>\n<p dir=\"auto\">Raster Foundry follows the approach outlined <a href=\"https://githubengineering.com/scripts-to-rule-them-all/\" rel=\"nofollow\">here</a> (\"Scripts to Rule Them All\") to have a  mostly consistent development experience. We deviate in a few specific ways:</p>\n<ul dir=\"auto\">\n<li>We don't pin / require a specific Java version. The application will eventually run in a jdk8 container, and for reproduction it's helpful to have <code>jabba</code> to be able to describe issues that occur on some Java versions but not others, but largely this does not make a difference at this point.</li>\n<li>We expect the user to install <code>jabba</code> on their host, instead of running everything in containers. Users <em>can</em> choose to run everything in containers, but that's not how the development environment is organized by default.</li>\n</ul>\n<p dir=\"auto\">Almost all interaction with consoles and servers can be managed via calls to a script located in <code>./scripts</code>. Default values for the S3 config and data buckets in addition to AWS profile will be used if they are not set with an environment variable. Before running <code>scripts/bootstrap</code>, these should be injected into your shell environment:</p>\n<div class=\"highlight highlight-source-shell position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"export RF_AWS_PROFILE=raster-foundry\nexport RF_SETTINGS_BUCKET=rasterfoundry-development-config-us-east-1\"><pre><span class=\"pl-k\">export</span> RF_AWS_PROFILE=raster-foundry\n<span class=\"pl-k\">export</span> RF_SETTINGS_BUCKET=rasterfoundry-development-config-us-east-1</pre></div>\n<p dir=\"auto\">After exporting your environment settings, you are ready to get started:</p>\n<div class=\"highlight highlight-source-shell position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ./scripts/bootstrap\n$ ./scripts/update\n$ ./scripts/server\"><pre>$ ./scripts/bootstrap\n$ ./scripts/update\n$ ./scripts/server</pre></div>\n<p dir=\"auto\">The servers should come up successfully.</p>\n<p dir=\"auto\">Then, kill your servers. To get the database loaded with sample data, you can run <code>./scripts/load_development_data --download</code>.\nThis will fetch a database dump from S3 and some development images. You can use these data for consistent testing instructions\nwith other developers. This script will also apply any outstanding migrations not present in the dev database.</p>\n<h3 dir=\"auto\"><a id=\"user-content-migrations\" class=\"anchor\" aria-hidden=\"true\" href=\"#migrations\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Migrations</h3>\n<p dir=\"auto\">Database migrations are managed using <a href=\"flyway\">flyway</a>. You can run <code>flyway</code> commands with <code>scripts/migrate</code>. Some commands you\ncan run are:</p>\n<ul dir=\"auto\">\n<li><code>scripts/migrate migrate</code>: apply outtanding migrations</li>\n<li><code>scripts/migrate repair</code>: reconcile the checksums of applied migrations in the database with what's present on disk</li>\n</ul>\n<p dir=\"auto\">There is no command to revert migrations.</p>\n<p dir=\"auto\">The workflow for creating a new migration is:</p>\n<ul dir=\"auto\">\n<li>Write a migration in <code>db/src/main/resources/Vxx__migration_name.sql</code></li>\n<li><code>./scripts/migrate migrate</code></li>\n<li>Verify the schema changes in PostgreSQL with <code>./scripts/psql</code></li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-ports\" class=\"anchor\" aria-hidden=\"true\" href=\"#ports\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Ports</h2>\n<p dir=\"auto\">The Vagrant configuration maps the following host ports to services running in the virtual machines. Ports can be overridden for individual developers using environment variables</p>\n<table>\n<thead>\n<tr>\n<th>Service</th>\n<th>Port</th>\n<th>Environment Variable</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Nginx (api)</td>\n<td><a href=\"http://localhost:9100\" rel=\"nofollow\"><code>9100</code></a></td>\n<td><code>RF_PORT_9100</code></td>\n</tr>\n<tr>\n<td>Application Server (akka)</td>\n<td><a href=\"http://localhost:9000\" rel=\"nofollow\"><code>9000</code></a></td>\n<td><code>RF_PORT_9000</code></td>\n</tr>\n<tr>\n<td>Tile Server (http4s)</td>\n<td><a href=\"http://localhost:8081\" rel=\"nofollow\"><code>8081</code></a></td>\n<td><code>RF_PORT_8081</code></td>\n</tr>\n<tr>\n<td>Application Server (JMX)</td>\n<td><code>9010</code></td>\n<td><code>RF_PORT_9010</code></td>\n</tr>\n<tr>\n<td>Tile Server (JMX)</td>\n<td><code>9030</code></td>\n<td><code>RF_PORT_9030</code></td>\n</tr>\n</tbody>\n</table>\n<h2 dir=\"auto\"><a id=\"user-content-scripts\" class=\"anchor\" aria-hidden=\"true\" href=\"#scripts\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Scripts</h2>\n<p dir=\"auto\">Helper and development scripts are located in the <code>./scripts</code> directory at the root of this project. These scripts are designed to encapsulate and perform commonly used actions such as starting a development server, accessing a development console, or running tests.</p>\n<table>\n<thead>\n<tr>\n<th>Script Name</th>\n<th>Purpose</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>bootstrap</code></td>\n<td>Pulls/builds necessary containers</td>\n</tr>\n<tr>\n<td><code>update</code></td>\n<td>Runs migrations, installs dependencies, etc.</td>\n</tr>\n<tr>\n<td><code>server</code></td>\n<td>Starts a development server</td>\n</tr>\n<tr>\n<td><code>console</code></td>\n<td>Gives access to a running container via <code>docker-compose run</code></td>\n</tr>\n<tr>\n<td><code>psql</code></td>\n<td>Drops you into a <code>psql</code> console.</td>\n</tr>\n<tr>\n<td><code>test</code></td>\n<td>Runs tests and linters for project</td>\n</tr>\n<tr>\n<td><code>cibuild</code></td>\n<td>Invoked by CI server and makes use of <code>test</code>.</td>\n</tr>\n<tr>\n<td><code>cipublish</code></td>\n<td>Publish container images to container image repositories.</td>\n</tr>\n<tr>\n<td><code>load_development_data</code></td>\n<td>Load data for development purposes from S3</td>\n</tr>\n<tr>\n<td><code>rsync-back</code></td>\n<td>Perform a one-way <code>rsync</code> from the VM to the host.</td>\n</tr>\n<tr>\n<td><code>process-upload</code></td>\n<td>Process an upload in development</td>\n</tr>\n</tbody>\n</table>\n<h2 dir=\"auto\"><a id=\"user-content-testing\" class=\"anchor\" aria-hidden=\"true\" href=\"#testing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Testing</h2>\n<p dir=\"auto\">Run all the tests:</p>\n<div class=\"highlight highlight-source-shell position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ./scripts/test\"><pre>$ ./scripts/test</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-processing-imagery\" class=\"anchor\" aria-hidden=\"true\" href=\"#processing-imagery\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Processing Imagery</h2>\n<p dir=\"auto\">In staging and production, a batch job will automatically be kicked off for processing after a\nsuccessful upload. In development, you need to process the upload manually which you can do like so:</p>\n<div class=\"highlight highlight-source-shell position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ./scripts/process-upload &lt;upload_id&gt;\"><pre>$ ./scripts/process-upload <span class=\"pl-k\">&lt;</span>upload_id<span class=\"pl-k\">&gt;</span></pre></div>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "jisantuc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5702984?v=4",
+        "url" : "https://api.github.com/users/jisantuc",
+        "contributions" : 789
+      },
+      {
+        "login" : "notthatbreezy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/898060?v=4",
+        "url" : "https://api.github.com/users/notthatbreezy",
+        "contributions" : 701
+      },
+      {
+        "login" : "Lknechtli",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4392704?v=4",
+        "url" : "https://api.github.com/users/Lknechtli",
+        "contributions" : 345
+      },
+      {
+        "login" : "aaronxsu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16109558?v=4",
+        "url" : "https://api.github.com/users/aaronxsu",
+        "contributions" : 247
+      },
+      {
+        "login" : "alkamin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2442245?v=4",
+        "url" : "https://api.github.com/users/alkamin",
+        "contributions" : 155
+      },
+      {
+        "login" : "moradology",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1977405?v=4",
+        "url" : "https://api.github.com/users/moradology",
+        "contributions" : 140
+      },
+      {
+        "login" : "fosskers",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/229679?v=4",
+        "url" : "https://api.github.com/users/fosskers",
+        "contributions" : 104
+      },
+      {
+        "login" : "hectcastro",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43639?v=4",
+        "url" : "https://api.github.com/users/hectcastro",
+        "contributions" : 104
+      },
+      {
+        "login" : "lewfish",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1896461?v=4",
+        "url" : "https://api.github.com/users/lewfish",
+        "contributions" : 98
+      },
+      {
+        "login" : "designmatty",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1928955?v=4",
+        "url" : "https://api.github.com/users/designmatty",
+        "contributions" : 76
+      },
+      {
+        "login" : "rajadain",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1430060?v=4",
+        "url" : "https://api.github.com/users/rajadain",
+        "contributions" : 71
+      },
+      {
+        "login" : "echeipesh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1158084?v=4",
+        "url" : "https://api.github.com/users/echeipesh",
+        "contributions" : 69
+      },
+      {
+        "login" : "ddohler",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/447977?v=4",
+        "url" : "https://api.github.com/users/ddohler",
+        "contributions" : 67
+      },
+      {
+        "login" : "kdeloach",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43062?v=4",
+        "url" : "https://api.github.com/users/kdeloach",
+        "contributions" : 52
+      },
+      {
+        "login" : "pomadchin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4929546?v=4",
+        "url" : "https://api.github.com/users/pomadchin",
+        "contributions" : 52
+      },
+      {
+        "login" : "rbreslow",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1774125?v=4",
+        "url" : "https://api.github.com/users/rbreslow",
+        "contributions" : 43
+      },
+      {
+        "login" : "tnation14",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2507188?v=4",
+        "url" : "https://api.github.com/users/tnation14",
+        "contributions" : 35
+      },
+      {
+        "login" : "lliss",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/903219?v=4",
+        "url" : "https://api.github.com/users/lliss",
+        "contributions" : 31
+      },
+      {
+        "login" : "kshepard",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6386?v=4",
+        "url" : "https://api.github.com/users/kshepard",
+        "contributions" : 26
+      },
+      {
+        "login" : "jfrankl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1809908?v=4",
+        "url" : "https://api.github.com/users/jfrankl",
+        "contributions" : 7
+      },
+      {
+        "login" : "jtarricone",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/18290666?v=4",
+        "url" : "https://api.github.com/users/jtarricone",
+        "contributions" : 6
+      },
+      {
+        "login" : "pcaisse",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2926237?v=4",
+        "url" : "https://api.github.com/users/pcaisse",
+        "contributions" : 5
+      },
+      {
+        "login" : "jeancochrane",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14170650?v=4",
+        "url" : "https://api.github.com/users/jeancochrane",
+        "contributions" : 3
+      },
+      {
+        "login" : "jmorrison1847",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12401491?v=4",
+        "url" : "https://api.github.com/users/jmorrison1847",
+        "contributions" : 3
+      },
+      {
+        "login" : "lossyrob",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2320142?v=4",
+        "url" : "https://api.github.com/users/lossyrob",
+        "contributions" : 3
+      },
+      {
+        "login" : "simonkassel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/20233324?v=4",
+        "url" : "https://api.github.com/users/simonkassel",
+        "contributions" : 3
+      },
+      {
+        "login" : "dependabot[bot]",
+        "avatarUrl" : "https://avatars.githubusercontent.com/in/29110?v=4",
+        "url" : "https://api.github.com/users/dependabot%5Bbot%5D",
+        "contributions" : 3
+      }
+    ],
+    "commits" : 3238,
+    "topics" : [
+      "raster",
+      "geotrellis",
+      "earth-observation",
+      "geospatial",
+      "geospatial-processing"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 5636,
+        "title" : "Scope test failed in CI",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5636"
+      },
+      {
+        "number" : 5633,
+        "title" : "Support Tile Layer CRUD",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5633"
+      },
+      {
+        "number" : 5631,
+        "title" : "Add support for setting org role separate from platform role",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5631"
+      },
+      {
+        "number" : 5630,
+        "title" : "Add data attribution column to annotation projects",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5630"
+      },
+      {
+        "number" : 5603,
+        "title" : "Delete defunct endpoints supporting frontend",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5603"
+      },
+      {
+        "number" : 5601,
+        "title" : "Scala 2.13 and Scala 3 Support",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5601"
+      },
+      {
+        "number" : 5600,
+        "title" : "Expired JWTs throw so server returns 501 instead of 401",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5600"
+      },
+      {
+        "number" : 5592,
+        "title" : "Upgrade to versions available in maven central",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5592"
+      },
+      {
+        "number" : 5562,
+        "title" : "Async tasks -- move start to the end of the blocking call",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5562"
+      },
+      {
+        "number" : 5543,
+        "title" : "async cog processing is _really_ quiet when it fails",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5543"
+      },
+      {
+        "number" : 5521,
+        "title" : "String index out of range when requesting Backsplash /",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5521"
+      },
+      {
+        "number" : 5493,
+        "title" : "Asynchronicity breaks upload modal for COGs",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5493"
+      },
+      {
+        "number" : 5484,
+        "title" : "Vector Tiles are Buffered to Disk by nginx",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5484"
+      },
+      {
+        "number" : 5471,
+        "title" : "Rendered Resolution Seems Off",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5471"
+      },
+      {
+        "number" : 5467,
+        "title" : "Audit trace annotations",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5467"
+      },
+      {
+        "number" : 5457,
+        "title" : "Just use the whole tif for histograms if it's smaller than the overview size requirement",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5457"
+      },
+      {
+        "number" : 5430,
+        "title" : "Restrict Default Number of Scenes in Project",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5430"
+      },
+      {
+        "number" : 5421,
+        "title" : "Address proj warning in app-tasks container",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5421"
+      },
+      {
+        "number" : 5398,
+        "title" : "Use typesafe equality operator in tests",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5398"
+      },
+      {
+        "number" : 5384,
+        "title" : "Port over bloop setup from newer projects",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5384"
+      },
+      {
+        "number" : 5369,
+        "title" : "Dao[Model] should not extend Filterables",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5369"
+      },
+      {
+        "number" : 5360,
+        "title" : "On First Login via GroundWork, Send Verification Email",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5360"
+      },
+      {
+        "number" : 5348,
+        "title" : "Canned policies aren't tested in scopes it",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5348"
+      },
+      {
+        "number" : 5345,
+        "title" : "Find deep `.toNel` calls, try to move parsing to boundary",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5345"
+      },
+      {
+        "number" : 5341,
+        "title" : "Preserve user filters within a project when browsing public scenes",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5341"
+      },
+      {
+        "number" : 5340,
+        "title" : "Unable to remove a scene from project",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5340"
+      },
+      {
+        "number" : 5331,
+        "title" : "Async processing -- choose a side!",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5331"
+      },
+      {
+        "number" : 5317,
+        "title" : "Clean up RF datamodels",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5317"
+      },
+      {
+        "number" : 5313,
+        "title" : "Improve config for api startup",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5313"
+      },
+      {
+        "number" : 5311,
+        "title" : "Scopes integration test errors aren't helpful",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5311"
+      },
+      {
+        "number" : 5309,
+        "title" : "Improve CI Isolation/Switch to Circle CI",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5309"
+      },
+      {
+        "number" : 5285,
+        "title" : "The upload UI is unresponsive for files above ~2.5GBs",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5285"
+      },
+      {
+        "number" : 5263,
+        "title" : "Batch subproject -- use decline",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5263"
+      },
+      {
+        "number" : 5250,
+        "title" : "Fix swagger spec warnings",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5250"
+      },
+      {
+        "number" : 5234,
+        "title" : "Restrict MODIS and Historic Landsat to Further in Time",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5234"
+      },
+      {
+        "number" : 5233,
+        "title" : "sentinel scene thumbnails appear to be trimmed incorrectly",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5233"
+      },
+      {
+        "number" : 5229,
+        "title" : "Set up tfvars, make any required fixes to hook up geojson upload batch jobs",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5229"
+      },
+      {
+        "number" : 5217,
+        "title" : "Use pureconfig for batch subproject",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5217"
+      },
+      {
+        "number" : 5210,
+        "title" : "Use log4cats for logging in `batch`",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5210"
+      },
+      {
+        "number" : 5207,
+        "title" : "Add Honeycomb.io Support for Tracing",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5207"
+      },
+      {
+        "number" : 5204,
+        "title" : "Upgrade scala-opentracing",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5204"
+      },
+      {
+        "number" : 5194,
+        "title" : "Add a QP to scene list endpoint for percentage of overlap with AOI filter",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5194"
+      },
+      {
+        "number" : 5184,
+        "title" : "Upgrade Cats Ecosystem + Other Things",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5184"
+      },
+      {
+        "number" : 5182,
+        "title" : "Load Test MultiTiff Images in Staging",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5182"
+      },
+      {
+        "number" : 5180,
+        "title" : "Update Sentinel-2 / Landsat historical image processing to create tifs with separate bands",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5180"
+      },
+      {
+        "number" : 5153,
+        "title" : "Validate Band Count During Upload",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5153"
+      },
+      {
+        "number" : 5152,
+        "title" : "Tile cache keys collide for overlapping imagery (we think) ",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5152"
+      },
+      {
+        "number" : 5151,
+        "title" : "Copying Tile URL includes API _and_ Map Token",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5151"
+      },
+      {
+        "number" : 5146,
+        "title" : "Upgrade Yarn",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5146"
+      },
+      {
+        "number" : 5142,
+        "title" : "WMS requests get map extents wrong",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5142"
+      },
+      {
+        "number" : 5141,
+        "title" : "Investigate WMS Memory Performance",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5141"
+      },
+      {
+        "number" : 5126,
+        "title" : "Fix nodata handling for single band data",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5126"
+      },
+      {
+        "number" : 5114,
+        "title" : "Remove project_layer_id from annotations table",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5114"
+      },
+      {
+        "number" : 5109,
+        "title" : "Add Scala Steward for Keeping Libraries Up To Date",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5109"
+      },
+      {
+        "number" : 5108,
+        "title" : "No Way to Indicate Missing/Moved/Inaccessible COGs/Scenes",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5108"
+      },
+      {
+        "number" : 5107,
+        "title" : "Histogram Backfill Command always Reports Success",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5107"
+      },
+      {
+        "number" : 5105,
+        "title" : "Set nodata values correctly when ingesting scenes",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5105"
+      },
+      {
+        "number" : 5097,
+        "title" : "AOIs drawn over anti-meridian are truncated",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5097"
+      },
+      {
+        "number" : 5092,
+        "title" : "`getTemplateOwner` does not handle when `PLATFORM_USERS` is `null`",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5092"
+      },
+      {
+        "number" : 5090,
+        "title" : "Invalid UUID string: PLACEHOLDER",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5090"
+      },
+      {
+        "number" : 5083,
+        "title" : "Dump all service configuration parameters upon service start",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5083"
+      },
+      {
+        "number" : 5080,
+        "title" : "Use nonHikariTransactor in batch jobs",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5080"
+      },
+      {
+        "number" : 5079,
+        "title" : "Auth0 Universal Login",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5079"
+      },
+      {
+        "number" : 5071,
+        "title" : "WMS renders as single band when selecting JPEG image encoding",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5071"
+      },
+      {
+        "number" : 5067,
+        "title" : "Cannot upload files called cog.tif",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5067"
+      },
+      {
+        "number" : 5064,
+        "title" : "Ingested Landsat 8 scenes kill tile server on overzoom",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5064"
+      },
+      {
+        "number" : 5049,
+        "title" : "Tileserver Behaves Inconsistently Across Instances",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5049"
+      },
+      {
+        "number" : 5047,
+        "title" : "Add empty state UI to shapes list",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5047"
+      },
+      {
+        "number" : 5040,
+        "title" : "Use visual vm to further debug empty project tile requests",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5040"
+      },
+      {
+        "number" : 5039,
+        "title" : "Combining two datasources in the same project kills tile server performance",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5039"
+      },
+      {
+        "number" : 5037,
+        "title" : "Revisit json decoders to make them friendlier",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5037"
+      },
+      {
+        "number" : 5029,
+        "title" : "Disable Automated Overview Generation for Large Layers",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5029"
+      },
+      {
+        "number" : 5025,
+        "title" : "Can't page through raster data",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5025"
+      },
+      {
+        "number" : 5023,
+        "title" : "Handle loam/gdal errors on the frontend",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5023"
+      },
+      {
+        "number" : 5014,
+        "title" : "Bump Axios Version",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5014"
+      },
+      {
+        "number" : 5012,
+        "title" : "Combined datasources offend gdal tile server",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5012"
+      },
+      {
+        "number" : 5011,
+        "title" : "(v2) Viewport search behavior confusing / out-of-sync with UI",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5011"
+      },
+      {
+        "number" : 5010,
+        "title" : "Deleting AOI on project layer doesn't delete AOI ",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5010"
+      },
+      {
+        "number" : 5007,
+        "title" : "Add Support for Uploading Non-Geospatial Imagery in Uploads",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5007"
+      },
+      {
+        "number" : 5004,
+        "title" : "Break non-RF filterables into separately importable package",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/5004"
+      },
+      {
+        "number" : 4995,
+        "title" : "Add search parameter to project layers endpoint",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4995"
+      },
+      {
+        "number" : 4994,
+        "title" : "Determine if we can drop the `access_control_rules` table",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4994"
+      },
+      {
+        "number" : 4990,
+        "title" : "Investigate broken histogams for analyses on production",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4990"
+      },
+      {
+        "number" : 4989,
+        "title" : "`/api/tool-runs?projectId` fails to authenticate for public projects",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4989"
+      },
+      {
+        "number" : 4986,
+        "title" : "Tile size causes strange viz artifacts",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4986"
+      },
+      {
+        "number" : 4971,
+        "title" : "Analysis name gets cut off",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4971"
+      },
+      {
+        "number" : 4963,
+        "title" : "Listing Split Layers from Get Capabilities Endpoint Broken",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4963"
+      },
+      {
+        "number" : 4962,
+        "title" : "Styling is Off on Analysis Visualization Page",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4962"
+      },
+      {
+        "number" : 4961,
+        "title" : "Typo and Design off on Create Analysis Modal",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4961"
+      },
+      {
+        "number" : 4960,
+        "title" : "Not Possible to Edit Project Layer Names in UI",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4960"
+      },
+      {
+        "number" : 4959,
+        "title" : "Only Show a Single Date when the Time Period is 24 Hours",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4959"
+      },
+      {
+        "number" : 4958,
+        "title" : "Do Not Call Split Layers Smart Layers",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4958"
+      },
+      {
+        "number" : 4957,
+        "title" : "Show AOI Boundary when Adding Imagery",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4957"
+      },
+      {
+        "number" : 4954,
+        "title" : "Project list view search misses inputs",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4954"
+      },
+      {
+        "number" : 4953,
+        "title" : "Always refresh datasource list view after new one is created",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4953"
+      },
+      {
+        "number" : 4949,
+        "title" : "Add Optional Start/End Date Range Fields to Tool Runs/Analyses",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4949"
+      },
+      {
+        "number" : 4944,
+        "title" : "GDALRasterSource Issue Tracking",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4944"
+      },
+      {
+        "number" : 4938,
+        "title" : "Text search in datasources clears after submission",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4938"
+      },
+      {
+        "number" : 4927,
+        "title" : "Replace CogUtils with RasterSource + Library Functionality",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4927"
+      },
+      {
+        "number" : 4920,
+        "title" : "Add User Create Endpoint for Platform Administrators",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4920"
+      },
+      {
+        "number" : 4915,
+        "title" : "Permissions don't show when launching permissions modal",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4915"
+      },
+      {
+        "number" : 4914,
+        "title" : "Make metrics queryable with Scala",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4914"
+      },
+      {
+        "number" : 4908,
+        "title" : "After refresh, analysis creation for project layers fails",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4908"
+      },
+      {
+        "number" : 4905,
+        "title" : "Bug with filtering by location for a Landsat 8 scene ",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4905"
+      },
+      {
+        "number" : 4899,
+        "title" : "Uploads difficult to navigate if you have a lot of them",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4899"
+      },
+      {
+        "number" : 4898,
+        "title" : "Cannot tell which scenes (list items) have been shared",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4898"
+      },
+      {
+        "number" : 4892,
+        "title" : "NASA CMR thumbnails in v2 scene browse UI broken",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4892"
+      },
+      {
+        "number" : 4887,
+        "title" : "OGC layers ignore project layer mask",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4887"
+      },
+      {
+        "number" : 4880,
+        "title" : "Update MODIS processing to upload separate tifs",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4880"
+      },
+      {
+        "number" : 4872,
+        "title" : "Refresh Development Environment",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4872"
+      },
+      {
+        "number" : 4866,
+        "title" : "Styling in firefox a bit off, analysis reports page edition",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4866"
+      },
+      {
+        "number" : 4862,
+        "title" : "Add OGC URLs to Share UI for Layers",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4862"
+      },
+      {
+        "number" : 4856,
+        "title" : "Project permissions page error has animated rotation like loading icon",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4856"
+      },
+      {
+        "number" : 4849,
+        "title" : "Visualization page -- analysis item boxes still clickable",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4849"
+      },
+      {
+        "number" : 4846,
+        "title" : "Update Bootstrap-Sass",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4846"
+      },
+      {
+        "number" : 4842,
+        "title" : "Add Ability for Enhanced Permissions on Annotations",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4842"
+      },
+      {
+        "number" : 4841,
+        "title" : "Profile lambda performance for different zoom levels and numbers of scenes",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4841"
+      },
+      {
+        "number" : 4834,
+        "title" : "Tell users when they're uploading imagery outside their AOI",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4834"
+      },
+      {
+        "number" : 4824,
+        "title" : "Improve error responses for COG upload errors",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4824"
+      },
+      {
+        "number" : 4817,
+        "title" : "Make list interaction in the app more consistent",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4817"
+      },
+      {
+        "number" : 4815,
+        "title" : "Better UX for analysis masks",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4815"
+      },
+      {
+        "number" : 4807,
+        "title" : "Can't visualize project layers with spaces in their name with WCS",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4807"
+      },
+      {
+        "number" : 4806,
+        "title" : "i18n for RF",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4806"
+      },
+      {
+        "number" : 4805,
+        "title" : "Make testing code less verbose with specs2",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4805"
+      },
+      {
+        "number" : 4799,
+        "title" : "New Project button on Profile page not functioning",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4799"
+      },
+      {
+        "number" : 4798,
+        "title" : "Remove stale references to Amazon EMR",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4798"
+      },
+      {
+        "number" : 4796,
+        "title" : "Project layers can't contain spaces for OGC visualization",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4796"
+      },
+      {
+        "number" : 4794,
+        "title" : "Make BacksplashImage a RasterSource",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4794"
+      },
+      {
+        "number" : 4788,
+        "title" : "Sentinel image displayed with red/green pixels",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4788"
+      },
+      {
+        "number" : 4787,
+        "title" : "Scene filter date format is unforgiving",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4787"
+      },
+      {
+        "number" : 4786,
+        "title" : "Date format in error message does not match actual required date format",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4786"
+      },
+      {
+        "number" : 4781,
+        "title" : "Better handle histogram errors",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4781"
+      },
+      {
+        "number" : 4780,
+        "title" : "Experiment with different scales for histogram y axis and add toggle",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4780"
+      },
+      {
+        "number" : 4776,
+        "title" : "Clean up project layer dropdown",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4776"
+      },
+      {
+        "number" : 4769,
+        "title" : "Investigate usage of lodash optimizing plugins",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4769"
+      },
+      {
+        "number" : 4758,
+        "title" : "Create generic project/layer selection modal and selection item",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4758"
+      },
+      {
+        "number" : 4757,
+        "title" : "Remove Storage + Updating of Export Status in S3",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4757"
+      },
+      {
+        "number" : 4750,
+        "title" : "Enabling Some Combinations of Color Corrections Causes No Data Issues",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4750"
+      },
+      {
+        "number" : 4741,
+        "title" : "Delete \"smartLayerId\" from project layers",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4741"
+      },
+      {
+        "number" : 4735,
+        "title" : "No way to grant other entities download permissions for scenes",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4735"
+      },
+      {
+        "number" : 4713,
+        "title" : "Add API tests to backsplash",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4713"
+      },
+      {
+        "number" : 4710,
+        "title" : "Possible firefox + angular routing bug",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4710"
+      },
+      {
+        "number" : 4708,
+        "title" : "Scenes go missing after multi-COG upload",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4708"
+      },
+      {
+        "number" : 4700,
+        "title" : "Remove Web Mercator Reprojection and provide CRS in MAML mask",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4700"
+      },
+      {
+        "number" : 4697,
+        "title" : "Disable unused warnings in console",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4697"
+      },
+      {
+        "number" : 4688,
+        "title" : "Determine what parts of our API have poor test coverage",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4688"
+      },
+      {
+        "number" : 4683,
+        "title" : "Merge collections of scenes on upload",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4683"
+      },
+      {
+        "number" : 4680,
+        "title" : "Project layer annotation hotkeys not working",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4680"
+      },
+      {
+        "number" : 4679,
+        "title" : "Project layer annotation import/export UI",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4679"
+      },
+      {
+        "number" : 4673,
+        "title" : "Include annotation count on project layer stats response",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4673"
+      },
+      {
+        "number" : 4671,
+        "title" : "Add spatial filter to project layer scene query parameters",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4671"
+      },
+      {
+        "number" : 4667,
+        "title" : "Support importing shapefile to layer AOI",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4667"
+      },
+      {
+        "number" : 4664,
+        "title" : "Delete s3 artifacts of user uploads and exports when items are deleted",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4664"
+      },
+      {
+        "number" : 4662,
+        "title" : "Add export name column to exports table and frontend",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4662"
+      },
+      {
+        "number" : 4661,
+        "title" : "Add an endpoint to enable kicking off a failed export again",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4661"
+      },
+      {
+        "number" : 4650,
+        "title" : "Decode a single UUID as a list of UUIDs in add scenes to projects / layers endpoints",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4650"
+      },
+      {
+        "number" : 4647,
+        "title" : "Do not throw server error if trying to add duplicate permissions",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4647"
+      },
+      {
+        "number" : 4642,
+        "title" : "Investigate removing sbt installation from backsplash-server/Dockerfile",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4642"
+      },
+      {
+        "number" : 4640,
+        "title" : "Improve handling of failed feature-flag requests",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4640"
+      },
+      {
+        "number" : 4638,
+        "title" : "Blank page after logging in on Safari",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4638"
+      },
+      {
+        "number" : 4634,
+        "title" : "Add Validation for Export Creation in API",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4634"
+      },
+      {
+        "number" : 4632,
+        "title" : "[Layers] Show scene thumbnail when clicking eye icon as well as bounding box",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4632"
+      },
+      {
+        "number" : 4631,
+        "title" : "MODIS, Landsat 8, and possibly other datasources can't be previewed",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4631"
+      },
+      {
+        "number" : 4629,
+        "title" : "Figure out why the error message in the browse view sometimes shows on init",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4629"
+      },
+      {
+        "number" : 4624,
+        "title" : "Handle large lists of scenes better",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4624"
+      },
+      {
+        "number" : 4623,
+        "title" : "Scene preview modal should show scene boundaries",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4623"
+      },
+      {
+        "number" : 4608,
+        "title" : "Multi-datasource analysis depends on argument order",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4608"
+      },
+      {
+        "number" : 4606,
+        "title" : "Move components from index.components direct imports",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4606"
+      },
+      {
+        "number" : 4604,
+        "title" : "Test optimal image characteristics for COGs",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4604"
+      },
+      {
+        "number" : 4601,
+        "title" : "Lab layers picker broken",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4601"
+      },
+      {
+        "number" : 4599,
+        "title" : "\"Add dropbox credential\" button broken",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4599"
+      },
+      {
+        "number" : 4597,
+        "title" : "Move intercom button up slightly",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4597"
+      },
+      {
+        "number" : 4596,
+        "title" : "Specify nodata value when creating exports",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4596"
+      },
+      {
+        "number" : 4595,
+        "title" : "Specify bands when creating exports from frontend",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4595"
+      },
+      {
+        "number" : 4583,
+        "title" : "UI artificially limits scene results to 100",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4583"
+      },
+      {
+        "number" : 4582,
+        "title" : "When a project is shared, make sure scenes inherit project permissions",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4582"
+      },
+      {
+        "number" : 4566,
+        "title" : "Deduplicate cache clients",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4566"
+      },
+      {
+        "number" : 4563,
+        "title" : "Discuss possibility of adding listAll QP to project related endpoints",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4563"
+      },
+      {
+        "number" : 4554,
+        "title" : "Cul de sac -- adding permissions to an org that already has permissions",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4554"
+      },
+      {
+        "number" : 4522,
+        "title" : "Give more feedback in the upload process",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4522"
+      },
+      {
+        "number" : 4511,
+        "title" : "Add ability for users to remove/disable all of their own permissions from a shared object",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4511"
+      },
+      {
+        "number" : 4499,
+        "title" : "Deleting a scene reorders remaining scenes in a project",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4499"
+      },
+      {
+        "number" : 4495,
+        "title" : "Update frontend to support enhanced object sharing filters",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4495"
+      },
+      {
+        "number" : 4494,
+        "title" : "Enhance object sharing filters on API",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4494"
+      },
+      {
+        "number" : 4492,
+        "title" : "ProjectDao replaceScenesInProject doesn't work",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4492"
+      },
+      {
+        "number" : 4480,
+        "title" : "\"The last week\" (and possibly others) date filters give surprising results",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4480"
+      },
+      {
+        "number" : 4473,
+        "title" : "\"Start an import\" doesn't respond to adding bands to datasource",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4473"
+      },
+      {
+        "number" : 4472,
+        "title" : "Invalid Cols with GDALRasterSource",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4472"
+      },
+      {
+        "number" : 4465,
+        "title" : "Support quick export of projects and analyses from frontend",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4465"
+      },
+      {
+        "number" : 4457,
+        "title" : "Create a New Subproject for http4s API",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4457"
+      },
+      {
+        "number" : 4449,
+        "title" : "Update Frontend to Use MAML Correctly",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4449"
+      },
+      {
+        "number" : 4447,
+        "title" : "Write `batch` subproject job to rewrite MAML in database",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4447"
+      },
+      {
+        "number" : 4446,
+        "title" : "Remove MAMLAdapter",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4446"
+      },
+      {
+        "number" : 4445,
+        "title" : "Add analyses to gatling load test",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4445"
+      },
+      {
+        "number" : 4442,
+        "title" : "Fix Inconsistent Data Types + Coloring Between GDAL Raster Source and GeoTiff Raster Source",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4442"
+      },
+      {
+        "number" : 4436,
+        "title" : "Strange lab state issues",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4436"
+      },
+      {
+        "number" : 4430,
+        "title" : "Handle invalid histogram api responses better instead of erroring out",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4430"
+      },
+      {
+        "number" : 4405,
+        "title" : "Project names cut off even though we have tons of extra space",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4405"
+      },
+      {
+        "number" : 4393,
+        "title" : "Remove sbt helper script",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4393"
+      },
+      {
+        "number" : 4386,
+        "title" : "Fix export status styling",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4386"
+      },
+      {
+        "number" : 4385,
+        "title" : "Project items with ingest failures collapse",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4385"
+      },
+      {
+        "number" : 4384,
+        "title" : "Consider prefilling email for password change on frontend",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4384"
+      },
+      {
+        "number" : 4371,
+        "title" : "Add Test Email UX",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4371"
+      },
+      {
+        "number" : 4370,
+        "title" : "Search component should debounce by default",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4370"
+      },
+      {
+        "number" : 4369,
+        "title" : "User organizations UI should only list organizations in the platform as the user",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4369"
+      },
+      {
+        "number" : 4366,
+        "title" : "Upload notifier and group notifier should make better decision on user email",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4366"
+      },
+      {
+        "number" : 4363,
+        "title" : "Audit status enums for exports, imports, etc",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4363"
+      },
+      {
+        "number" : 4356,
+        "title" : "Consider including permissions on API objects",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4356"
+      },
+      {
+        "number" : 4354,
+        "title" : "Test if backsplash can render large (25GB+) COGs efficiently",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4354"
+      },
+      {
+        "number" : 4351,
+        "title" : "Allow users to fetch own permissions for shared projects",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4351"
+      },
+      {
+        "number" : 4348,
+        "title" : "Searches should probably ignore whitespace",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4348"
+      },
+      {
+        "number" : 4347,
+        "title" : "Make Reset Password from User Settings Configurable for Platform",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4347"
+      },
+      {
+        "number" : 4337,
+        "title" : "Optimize our use of Lodash",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4337"
+      },
+      {
+        "number" : 4328,
+        "title" : "Deleting default annotation group throws 501",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4328"
+      },
+      {
+        "number" : 4317,
+        "title" : "Opening color map modal while histograms are loading breaks things",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4317"
+      },
+      {
+        "number" : 4316,
+        "title" : "Closing lab preview then making changes to nodes causes it to re-open",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4316"
+      },
+      {
+        "number" : 4310,
+        "title" : "Renaming lab nodes seems to break state, especially previews",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4310"
+      },
+      {
+        "number" : 4309,
+        "title" : "Node histogram range design enhancements",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4309"
+      },
+      {
+        "number" : 4308,
+        "title" : "Custom color map modal enhancements",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4308"
+      },
+      {
+        "number" : 4307,
+        "title" : "Polish reclassify node modal",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4307"
+      },
+      {
+        "number" : 4306,
+        "title" : "Document how color maps work / are used",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4306"
+      },
+      {
+        "number" : 4305,
+        "title" : "Add better MAML documentation to the frontend",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4305"
+      },
+      {
+        "number" : 4296,
+        "title" : "Make export configuration recoverable in export UI",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4296"
+      },
+      {
+        "number" : 4278,
+        "title" : "Impact of adding different datasources to project not obvious",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4278"
+      },
+      {
+        "number" : 4266,
+        "title" : "Node histogram breakpoints are sometimes put out of order",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4266"
+      },
+      {
+        "number" : 4259,
+        "title" : "Cannot reach last page of scenes in project",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4259"
+      },
+      {
+        "number" : 4257,
+        "title" : "/api/maptokens project param filter doesn't work",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4257"
+      },
+      {
+        "number" : 4256,
+        "title" : "Scene endpoint filtering broken",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4256"
+      },
+      {
+        "number" : 4254,
+        "title" : "Shapes need a detail view",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4254"
+      },
+      {
+        "number" : 4253,
+        "title" : "[Tracking issue] Go through all endpoints and verify that they are documented thoroughly and correctly in the spec",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4253"
+      },
+      {
+        "number" : 4244,
+        "title" : "Lab preview close button invisible",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4244"
+      },
+      {
+        "number" : 4239,
+        "title" : "Scene import modal bug when importing planet scenes",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4239"
+      },
+      {
+        "number" : 4229,
+        "title" : "Write ADR for a new `SHARE` permission",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4229"
+      },
+      {
+        "number" : 4228,
+        "title" : "Enable owners to transfer ownership in the UI",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4228"
+      },
+      {
+        "number" : 4227,
+        "title" : "Enable Owners to Transfer Ownership to another User (API)",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4227"
+      },
+      {
+        "number" : 4225,
+        "title" : "Make sure getBounds in layerService is not used anywhere",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4225"
+      },
+      {
+        "number" : 4220,
+        "title" : "Auto-mask high end of histogram in lab",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4220"
+      },
+      {
+        "number" : 4216,
+        "title" : "Add a CONTRIBUTING.md",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4216"
+      },
+      {
+        "number" : 4211,
+        "title" : "Trim trailing slashes in export destinations",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4211"
+      },
+      {
+        "number" : 4210,
+        "title" : "Add teams/:id/members endpoint",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4210"
+      },
+      {
+        "number" : 4207,
+        "title" : "[Webpack 4.x] Clean up webpack config",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4207"
+      },
+      {
+        "number" : 4206,
+        "title" : "Switch to component based routes",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4206"
+      },
+      {
+        "number" : 4193,
+        "title" : "paginated response `hasNext` is true on last page",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4193"
+      },
+      {
+        "number" : 4189,
+        "title" : "Adding users to orgs/teams modal is weird",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4189"
+      },
+      {
+        "number" : 4187,
+        "title" : "Stack Overflow Error when Running AOI Project Update",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4187"
+      },
+      {
+        "number" : 4185,
+        "title" : "Add Frontend Support for Specifying Planet Asset Type",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4185"
+      },
+      {
+        "number" : 4182,
+        "title" : "Include user info in the return of shared object",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4182"
+      },
+      {
+        "number" : 4167,
+        "title" : "Include project if present in upload emails",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4167"
+      },
+      {
+        "number" : 4157,
+        "title" : "Feature flag visibility icon for categorical single band until backsplash",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4157"
+      },
+      {
+        "number" : 4154,
+        "title" : "Allow setting NODATA value for scenes / datasource / in lab",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4154"
+      },
+      {
+        "number" : 4146,
+        "title" : "Restore instrumentation",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4146"
+      },
+      {
+        "number" : 4145,
+        "title" : "Create WCS single-/multi-band mosaic service",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4145"
+      },
+      {
+        "number" : 4143,
+        "title" : "Add field to organizations to indicate annotate app access",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4143"
+      },
+      {
+        "number" : 4136,
+        "title" : "Single band scenes don't render tiles for non-single band color modes",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4136"
+      },
+      {
+        "number" : 4127,
+        "title" : "Split Upload Processing into Two Jobs",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4127"
+      },
+      {
+        "number" : 4099,
+        "title" : "Categorical color scheme ergonomics hurt",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4099"
+      },
+      {
+        "number" : 4098,
+        "title" : "Too many new datasource buttons",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4098"
+      },
+      {
+        "number" : 4092,
+        "title" : "Ingested COGs do not preview on map when AOI shape is used as filter",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4092"
+      },
+      {
+        "number" : 4090,
+        "title" : "Adjust Log Level for GeoTrellis Server",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4090"
+      },
+      {
+        "number" : 4079,
+        "title" : "Do not kick off ingests for pending AOI scenes",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4079"
+      },
+      {
+        "number" : 4077,
+        "title" : "Write ADR for limiting Scenes in Projects",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4077"
+      },
+      {
+        "number" : 4069,
+        "title" : "Projects with multiple datasources cannot be exported",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4069"
+      },
+      {
+        "number" : 4065,
+        "title" : "Handle annotation geojson file errors with a message instead of failing silently",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4065"
+      },
+      {
+        "number" : 4064,
+        "title" : "Geojson and Shapefile annotation imports / export fields are not consistent",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4064"
+      },
+      {
+        "number" : 4063,
+        "title" : "Failed annotation shapefile uploads are not handled with an error message and just hang",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4063"
+      },
+      {
+        "number" : 4061,
+        "title" : "Uploading scene under generic datasource fails",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4061"
+      },
+      {
+        "number" : 4058,
+        "title" : "AOI Shapefile upload fails to show in the list after first upload attempt fails",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4058"
+      },
+      {
+        "number" : 4051,
+        "title" : "Show mamlscript somewhere in lab in template view",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4051"
+      },
+      {
+        "number" : 4050,
+        "title" : "PUT to projects/{uuid}/scenes throws SQL syntax error",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4050"
+      },
+      {
+        "number" : 4046,
+        "title" : "Investigate error when bringing up server locally",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4046"
+      },
+      {
+        "number" : 4043,
+        "title" : "Some bands imported/ingested bizarrely for some scenes in MODIS/S2",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4043"
+      },
+      {
+        "number" : 4042,
+        "title" : "Remove UserRole enum",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4042"
+      },
+      {
+        "number" : 4040,
+        "title" : "Create batch job to move all landsat 8 scenes to new datasources",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4040"
+      },
+      {
+        "number" : 4039,
+        "title" : "Update landsat 8 ingest batch jobs to use recognize the 3 new datasources",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4039"
+      },
+      {
+        "number" : 4038,
+        "title" : "Create new datasources for each Landsat 8 catalog",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4038"
+      },
+      {
+        "number" : 4037,
+        "title" : "Update indexing batch jobs to use new landsat 8 datasources",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4037"
+      },
+      {
+        "number" : 4036,
+        "title" : "Split Landsat 8 datasource to reflect RT, T1, and T2 catalogues",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4036"
+      },
+      {
+        "number" : 4034,
+        "title" : "Default to color correction unless instructed otherwise",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4034"
+      },
+      {
+        "number" : 4025,
+        "title" : "Filtering annotations by \"Unlabeled\" does not work",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4025"
+      },
+      {
+        "number" : 4024,
+        "title" : "Add back highlighting of clicked annotation",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4024"
+      },
+      {
+        "number" : 4021,
+        "title" : "Devise Better Way to Identify if Bands Incorrect",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4021"
+      },
+      {
+        "number" : 4020,
+        "title" : "Investigate solution to ACR text array when delete/deactivate teams",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4020"
+      },
+      {
+        "number" : 4019,
+        "title" : "Support advanced color correction on large projects",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4019"
+      },
+      {
+        "number" : 4018,
+        "title" : "Support re-ordering project scenes without sending the entire list",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4018"
+      },
+      {
+        "number" : 4016,
+        "title" : "Reconsider UX around ingesting scenes",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4016"
+      },
+      {
+        "number" : 4004,
+        "title" : "Not Properly Cleaning up Directories with Landsat Ingest",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/4004"
+      },
+      {
+        "number" : 3998,
+        "title" : "[Staging] Certain bands in Sentinel and Landsat can't be visualized",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3998"
+      },
+      {
+        "number" : 3995,
+        "title" : "Figure out why the standard logger shuts down during export",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3995"
+      },
+      {
+        "number" : 3991,
+        "title" : "Refactor failed import copy",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3991"
+      },
+      {
+        "number" : 3986,
+        "title" : "Add ExportDao property tests",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3986"
+      },
+      {
+        "number" : 3983,
+        "title" : "Refactor map token and aoi list authorization",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3983"
+      },
+      {
+        "number" : 3978,
+        "title" : "Don't require a page refresh to see results of changed datasource settings",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3978"
+      },
+      {
+        "number" : 3977,
+        "title" : "Templates and Analyses don't appear in UI when viewed in Safari",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3977"
+      },
+      {
+        "number" : 3976,
+        "title" : "Project selection modal has weird hover focus effect on project names",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3976"
+      },
+      {
+        "number" : 3975,
+        "title" : "[Staging] API performance and timeouts",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3975"
+      },
+      {
+        "number" : 3966,
+        "title" : "Handle 403's on resource pages better",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3966"
+      },
+      {
+        "number" : 3963,
+        "title" : "[Staging] 504s on export downloads",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3963"
+      },
+      {
+        "number" : 3944,
+        "title" : "Include Scene ID in Scene Detail Modal",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3944"
+      },
+      {
+        "number" : 3941,
+        "title" : "Fix styling on some pagination messages",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3941"
+      },
+      {
+        "number" : 3937,
+        "title" : "Show project name edit button only for owners",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3937"
+      },
+      {
+        "number" : 3932,
+        "title" : "Clean up auth handling / app init",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3932"
+      },
+      {
+        "number" : 3929,
+        "title" : "Default color composite index order for new datasources should be 2-1-0 (instead of 0-1-2)",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3929"
+      },
+      {
+        "number" : 3928,
+        "title" : "Proxy Sentinel-2 image downloads",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3928"
+      },
+      {
+        "number" : 3927,
+        "title" : "The \"New datasource\" and \"Clear Annotations\" buttons need a buffer",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3927"
+      },
+      {
+        "number" : 3915,
+        "title" : "Getting project annotations return 501",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3915"
+      },
+      {
+        "number" : 3913,
+        "title" : "Error when browsing scenes",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3913"
+      },
+      {
+        "number" : 3911,
+        "title" : "Deleting Scene from Project Does not Remove it From Array",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3911"
+      },
+      {
+        "number" : 3909,
+        "title" : "Investigate intermittent LayerAttribute property test failure",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3909"
+      },
+      {
+        "number" : 3908,
+        "title" : "Disable AWS SDK debug logs when executing test suite",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3908"
+      },
+      {
+        "number" : 3889,
+        "title" : "Add S3 Client Tests",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3889"
+      },
+      {
+        "number" : 3875,
+        "title" : "Output processing pane text not wrapping",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3875"
+      },
+      {
+        "number" : 3857,
+        "title" : "Import modal hangs on user error",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3857"
+      },
+      {
+        "number" : 3847,
+        "title" : "Filter project scene list to current bounding box",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3847"
+      },
+      {
+        "number" : 3843,
+        "title" : "Modal closing action has inconsistent location and display",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3843"
+      },
+      {
+        "number" : 3839,
+        "title" : "Unable to `POST` Scene URI when Creating Landsat 5 Scene",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3839"
+      },
+      {
+        "number" : 3837,
+        "title" : "Alternative to `.env` for environment variables",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3837"
+      },
+      {
+        "number" : 3834,
+        "title" : "Update Lab Export modal UX",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3834"
+      },
+      {
+        "number" : 3833,
+        "title" : "Improve readability of cache keys for COG related items",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3833"
+      },
+      {
+        "number" : 3830,
+        "title" : "Buffer Underflow Exception in GeoTrellis when Reading GeoTiffs",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3830"
+      },
+      {
+        "number" : 3819,
+        "title" : "Deal with Super Sampled Exports",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3819"
+      },
+      {
+        "number" : 3805,
+        "title" : "Poor contrast on location search items",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3805"
+      },
+      {
+        "number" : 3803,
+        "title" : "Batch subproject debugging process hurts",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3803"
+      },
+      {
+        "number" : 3776,
+        "title" : "Add Bulk Download for Annotation GeoJSON",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3776"
+      },
+      {
+        "number" : 3768,
+        "title" : "Make linking between resources more consistent",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3768"
+      },
+      {
+        "number" : 3728,
+        "title" : "Add option to split scenes during upload if they cross the anti-meridian",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3728"
+      },
+      {
+        "number" : 3716,
+        "title" : "Error when creating COG with User Created Datasource",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3716"
+      },
+      {
+        "number" : 3709,
+        "title" : "Enable org only search in nav-bar",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3709"
+      },
+      {
+        "number" : 3708,
+        "title" : "Give users ability to request for an organization to be added to a platform",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3708"
+      },
+      {
+        "number" : 3707,
+        "title" : "Give users ability to see public organizations for non-admins",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3707"
+      },
+      {
+        "number" : 3700,
+        "title" : "User Test Platform/Org/Team & Refactor UX",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3700"
+      },
+      {
+        "number" : 3696,
+        "title" : "AOI approval frontend UX",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3696"
+      },
+      {
+        "number" : 3689,
+        "title" : "Add checks for `/export/` endpoints",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3689"
+      },
+      {
+        "number" : 3687,
+        "title" : "Opening a project with many scenes (like a large AOI project) degrades tile server performance",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3687"
+      },
+      {
+        "number" : 3685,
+        "title" : "Disable debug level logging when sending email",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3685"
+      },
+      {
+        "number" : 3679,
+        "title" : "Model Lab for mixed Sentinel/Landsat project produces unexpected UI workflow",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3679"
+      },
+      {
+        "number" : 3678,
+        "title" : "Fix port association with email notification encryption method",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3678"
+      },
+      {
+        "number" : 3660,
+        "title" : "Issue loading MODIS data in projects page",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3660"
+      },
+      {
+        "number" : 3659,
+        "title" : "Write an ADR for long-term fix for scene query performance",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3659"
+      },
+      {
+        "number" : 3645,
+        "title" : "Band 6 of MODIS is weird",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3645"
+      },
+      {
+        "number" : 3637,
+        "title" : "Clean up annotation group return codes and content",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3637"
+      },
+      {
+        "number" : 3634,
+        "title" : "Project list on route 'user.projects' incorrect",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3634"
+      },
+      {
+        "number" : 3622,
+        "title" : "Add JPEG Compression Support for GeoTrellis GeoTiff Reader",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3622"
+      },
+      {
+        "number" : 3609,
+        "title" : "[QUEST] Add sharing and listing of remaining first-class objects",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3609"
+      },
+      {
+        "number" : 3587,
+        "title" : "Add Test Email Functionality to API",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3587"
+      },
+      {
+        "number" : 3560,
+        "title" : "Email Settings Enhancements",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3560"
+      },
+      {
+        "number" : 3555,
+        "title" : "Replace CMR as source of truth for Landsat 4/5/7 scenes",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3555"
+      },
+      {
+        "number" : 3553,
+        "title" : "CMR thumbnail placeholders aren't in detail modal",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3553"
+      },
+      {
+        "number" : 3533,
+        "title" : "Add filtering for platform member listing based on organization membership [Frontend]",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3533"
+      },
+      {
+        "number" : 3532,
+        "title" : "Add filtering for platform member listing based on organization membership [Backend]",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3532"
+      },
+      {
+        "number" : 3527,
+        "title" : "Verify a URL is a COG when someone tries to import remotely hosted data",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3527"
+      },
+      {
+        "number" : 3524,
+        "title" : "Support ACR Filtering in Frontend UI for Data",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3524"
+      },
+      {
+        "number" : 3499,
+        "title" : "Simplify user table",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3499"
+      },
+      {
+        "number" : 3498,
+        "title" : "Fix searching polygons that cross the anti-meridian",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3498"
+      },
+      {
+        "number" : 3497,
+        "title" : "Fix display of thumbnails over the anti-meridian",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3497"
+      },
+      {
+        "number" : 3478,
+        "title" : "Delete ACR's when target objects are deleted",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3478"
+      },
+      {
+        "number" : 3460,
+        "title" : "Use platform name instead of BUILDCONFIG.APP_NAME in app copy",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3460"
+      },
+      {
+        "number" : 3455,
+        "title" : "Calculate Project Extent on Requests",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3455"
+      },
+      {
+        "number" : 3453,
+        "title" : "Profile subproject compilation times and find areas for improvement ",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3453"
+      },
+      {
+        "number" : 3436,
+        "title" : "Remove unneeded category routes (all except GET)",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3436"
+      },
+      {
+        "number" : 3435,
+        "title" : "Promote uploads to first class auth objects",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3435"
+      },
+      {
+        "number" : 3434,
+        "title" : "Promote tags to first class auth object",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3434"
+      },
+      {
+        "number" : 3416,
+        "title" : "Invalid Refresh Tokens return 501",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3416"
+      },
+      {
+        "number" : 3382,
+        "title" : "Add custom akka-http RejectionHandler for URL validation",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3382"
+      },
+      {
+        "number" : 3377,
+        "title" : "Implement front-end logic for allowed analysis actions",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3377"
+      },
+      {
+        "number" : 3376,
+        "title" : "Implement front-end logic for allowed template actions",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3376"
+      },
+      {
+        "number" : 3375,
+        "title" : "Implement front-end logic for allowed shape actions",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3375"
+      },
+      {
+        "number" : 3374,
+        "title" : "Implement front-end logic for allowed datasource actions",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3374"
+      },
+      {
+        "number" : 3373,
+        "title" : "Implement front-end logic for allowed scene actions",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3373"
+      },
+      {
+        "number" : 3372,
+        "title" : "Implement front-end logic for allowed project actions",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3372"
+      },
+      {
+        "number" : 3369,
+        "title" : "Move to nested route structure to improve authorization flow",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3369"
+      },
+      {
+        "number" : 3356,
+        "title" : "Add CanMatch typeclass to faciliate testing",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3356"
+      },
+      {
+        "number" : 3355,
+        "title" : "Shift all `unsafeToFuture`s off of the main thread",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3355"
+      },
+      {
+        "number" : 3304,
+        "title" : "Use geotrellis to build simple features when exporting shapefiles",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3304"
+      },
+      {
+        "number" : 3303,
+        "title" : "Export fails for single band tifs",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3303"
+      },
+      {
+        "number" : 3273,
+        "title" : "Remove use of S3 Status Updates for Asynchronous Jobs",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3273"
+      },
+      {
+        "number" : 3218,
+        "title" : "Frontend: Support marketplace enhancements",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3218"
+      },
+      {
+        "number" : 3215,
+        "title" : "Post-upload empty state of Imports page does not have placeholder",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3215"
+      },
+      {
+        "number" : 3214,
+        "title" : "[Workspaces] TemplateWithRelated property tests",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3214"
+      },
+      {
+        "number" : 3213,
+        "title" : "[Workspaces] WorkspaceWithRelated property tests",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3213"
+      },
+      {
+        "number" : 3212,
+        "title" : "[Workspaces] Various tag + category related tests",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3212"
+      },
+      {
+        "number" : 3211,
+        "title" : "[Workspaces] WorkspaceAnalysis property tests",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3211"
+      },
+      {
+        "number" : 3210,
+        "title" : "[Workspaces] TemplateVersion property tests",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3210"
+      },
+      {
+        "number" : 3209,
+        "title" : "[Workspaces] Export property tests",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3209"
+      },
+      {
+        "number" : 3208,
+        "title" : "[Workspaces] Tag + Category property tests",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3208"
+      },
+      {
+        "number" : 3206,
+        "title" : "[Workspaces] Analysis property tests",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3206"
+      },
+      {
+        "number" : 3205,
+        "title" : "[Workspaces] Template property tests",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3205"
+      },
+      {
+        "number" : 3195,
+        "title" : "[Workspaces] Update api spec to reflect new endpoints",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3195"
+      },
+      {
+        "number" : 3192,
+        "title" : "Workspaces: Allow publishing a template from a workspace node",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3192"
+      },
+      {
+        "number" : 3189,
+        "title" : "On the workspace canvas, the six dots denoting you can pull the slider are not centered",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3189"
+      },
+      {
+        "number" : 3179,
+        "title" : "Give people the ability to rename shapes",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3179"
+      },
+      {
+        "number" : 3175,
+        "title" : "[Workspaces] Fix Workspace list page",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3175"
+      },
+      {
+        "number" : 3170,
+        "title" : "Make adding scenes to projects have a more reasonable return type",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3170"
+      },
+      {
+        "number" : 3169,
+        "title" : "[Workspaces] Allow previewing nodes which should be previewable",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3169"
+      },
+      {
+        "number" : 3168,
+        "title" : "[Workspaces] Zoom to fit is inconsistent / buggy",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3168"
+      },
+      {
+        "number" : 3166,
+        "title" : "[Workspaces] Fix node histograms in the lab",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3166"
+      },
+      {
+        "number" : 3163,
+        "title" : "Fix doobie meta for json from empty lists",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3163"
+      },
+      {
+        "number" : 3160,
+        "title" : "Inspect pixel value by clicking on it",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3160"
+      },
+      {
+        "number" : 3159,
+        "title" : "Allow shapes to be used in an analysis",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3159"
+      },
+      {
+        "number" : 3157,
+        "title" : "Allow users to restrict inputs by datasource and band",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3157"
+      },
+      {
+        "number" : 3155,
+        "title" : "Add support for printing maps using Leaflet",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3155"
+      },
+      {
+        "number" : 3141,
+        "title" : "Scenes with no acquisition date are not browsable in the UI",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3141"
+      },
+      {
+        "number" : 3140,
+        "title" : "When uploading multiple images, you can only assign a an acquisition date in bulk",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3140"
+      },
+      {
+        "number" : 3136,
+        "title" : "Add API validation to prevent attempting to create images without bands",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3136"
+      },
+      {
+        "number" : 3133,
+        "title" : "Throw a more helpful exception if we can't connect to the database",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3133"
+      },
+      {
+        "number" : 3131,
+        "title" : "Ensure all routes are wrapped in Kamon traces",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3131"
+      },
+      {
+        "number" : 3121,
+        "title" : "Handle upload POST 400s in the UI better.",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3121"
+      },
+      {
+        "number" : 3120,
+        "title" : "Allow S3 uploads to include files in child prefixes",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3120"
+      },
+      {
+        "number" : 3119,
+        "title" : "Add requirements and notes to analyses metadata",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3119"
+      },
+      {
+        "number" : 3109,
+        "title" : "No easy way to retry an ingest after it fails in the UI",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3109"
+      },
+      {
+        "number" : 3104,
+        "title" : "Single band rasters have strange opaque NoData once loaded",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3104"
+      },
+      {
+        "number" : 3102,
+        "title" : "Hover on nav icons while editing a project should reveal their names",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3102"
+      },
+      {
+        "number" : 3099,
+        "title" : "Upload text not padded enough",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3099"
+      },
+      {
+        "number" : 3097,
+        "title" : "Lab zoom level indicator does not respond mouse events",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3097"
+      },
+      {
+        "number" : 3069,
+        "title" : "Sharing page sometimes tries to make a share token multiple times",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3069"
+      },
+      {
+        "number" : 3059,
+        "title" : "Thumbnails still selected when exiting browse are not removed",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3059"
+      },
+      {
+        "number" : 3045,
+        "title" : "Update node design to new style",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3045"
+      },
+      {
+        "number" : 3043,
+        "title" : "Add fancy tooltips to lab UI elements ",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3043"
+      },
+      {
+        "number" : 3042,
+        "title" : "Support Drag and Drop nodes workflow",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3042"
+      },
+      {
+        "number" : 3041,
+        "title" : "Make `scenes_to_projects.mosaic_definition` not nullable",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3041"
+      },
+      {
+        "number" : 3040,
+        "title" : "Add comment nodes",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3040"
+      },
+      {
+        "number" : 3039,
+        "title" : "Support History, Undo/Redo in lab",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3039"
+      },
+      {
+        "number" : 3037,
+        "title" : "Add support to allow referencing other templates, with expanding / collapsing",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3037"
+      },
+      {
+        "number" : 3032,
+        "title" : "[Checklist] Template / Analysis creation and editing workflow",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3032"
+      },
+      {
+        "number" : 3031,
+        "title" : "Analysis Marketplace enhancements",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3031"
+      },
+      {
+        "number" : 3029,
+        "title" : "Support surface reflectance algorithm for L8",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3029"
+      },
+      {
+        "number" : 3025,
+        "title" : "Provide ruler tool in projects",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3025"
+      },
+      {
+        "number" : 3024,
+        "title" : "No way to toggle a scene on/off on the map without deleting it",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3024"
+      },
+      {
+        "number" : 3023,
+        "title" : "Can't select scene in a project in the map context, only the side bar",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3023"
+      },
+      {
+        "number" : 3022,
+        "title" : "Thumbnail sidecar file to preview export",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3022"
+      },
+      {
+        "number" : 3017,
+        "title" : "Email notifications should provide aggregate summaries",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3017"
+      },
+      {
+        "number" : 3016,
+        "title" : "Ingestion progress tracking for users",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3016"
+      },
+      {
+        "number" : 3015,
+        "title" : "Group Sinergise Sentinel tiles by scene when searching",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3015"
+      },
+      {
+        "number" : 3014,
+        "title" : "Allow users to upload files for more than an hour",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3014"
+      },
+      {
+        "number" : 3013,
+        "title" : "Make filter fields collapsible",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3013"
+      },
+      {
+        "number" : 3009,
+        "title" : "You can’t select multiple data sources simultaneously ",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3009"
+      },
+      {
+        "number" : 3008,
+        "title" : "Data Sources dropdown is cluttered with options that have no data",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3008"
+      },
+      {
+        "number" : 3007,
+        "title" : "No source selected by default when searching for scenes",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3007"
+      },
+      {
+        "number" : 3004,
+        "title" : "Rethink GeoJSON serialization strategy",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/3004"
+      },
+      {
+        "number" : 2942,
+        "title" : "Templates should have default color palettes",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2942"
+      },
+      {
+        "number" : 2936,
+        "title" : "Add loading indicator for project status/thumbnail rendering on project list view",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2936"
+      },
+      {
+        "number" : 2930,
+        "title" : "Add ability to clone datasources",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2930"
+      },
+      {
+        "number" : 2924,
+        "title" : "Support external repositories for AOI updates",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2924"
+      },
+      {
+        "number" : 2918,
+        "title" : "Add 'repository' entity to API",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2918"
+      },
+      {
+        "number" : 2911,
+        "title" : "Replace UI elements with select boxes where appropriate",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2911"
+      },
+      {
+        "number" : 2910,
+        "title" : "Standardize modal layouts",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2910"
+      },
+      {
+        "number" : 2896,
+        "title" : "Annotation Description should offer text auto-fill like the label does",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2896"
+      },
+      {
+        "number" : 2885,
+        "title" : "Node histogram breakpoints on top of each other break things",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2885"
+      },
+      {
+        "number" : 2883,
+        "title" : "Text hidden on login",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2883"
+      },
+      {
+        "number" : 2877,
+        "title" : "Search icon offset in firefox until re-render",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2877"
+      },
+      {
+        "number" : 2874,
+        "title" : "Pressing enter when creating a token submits form instead of activating function",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2874"
+      },
+      {
+        "number" : 2872,
+        "title" : "URL should include bbox for all map views",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2872"
+      },
+      {
+        "number" : 2869,
+        "title" : "Document API for tile server",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2869"
+      },
+      {
+        "number" : 2868,
+        "title" : "Blue button appears when hovering to preview scenes",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2868"
+      },
+      {
+        "number" : 2845,
+        "title" : "Color mode should be applicable to individual scenes in a project, not just the whole project",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2845"
+      },
+      {
+        "number" : 2844,
+        "title" : "Allow users to select specific scenes from within a project when instrumenting an analysis with inputs",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2844"
+      },
+      {
+        "number" : 2843,
+        "title" : "For single band tiffs, Color mode should automatically be set to Single band",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2843"
+      },
+      {
+        "number" : 2841,
+        "title" : "Hitting backspace to delete a number in a color category deletes the whole category",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2841"
+      },
+      {
+        "number" : 2840,
+        "title" : "Switching between a categorical color map and another type of color map (e.g. sequential) erases your settings",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2840"
+      },
+      {
+        "number" : 2837,
+        "title" : "When someone chooses a categorical color scheme, smartly guess color breaks",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2837"
+      },
+      {
+        "number" : 2836,
+        "title" : "Single Band rasters aren't automatically visualized",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2836"
+      },
+      {
+        "number" : 2834,
+        "title" : "Map legend widget on share page",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2834"
+      },
+      {
+        "number" : 2823,
+        "title" : "Long analysis names break lab styling",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2823"
+      },
+      {
+        "number" : 2810,
+        "title" : "Generic datasources are listed in map attributions",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2810"
+      },
+      {
+        "number" : 2809,
+        "title" : "Show scene uuid in scene detail view",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2809"
+      },
+      {
+        "number" : 2805,
+        "title" : "Move to Auth0 Java SDK",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2805"
+      },
+      {
+        "number" : 2797,
+        "title" : "Refactor fitting map to a project",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2797"
+      },
+      {
+        "number" : 2775,
+        "title" : "Add sorting / filters to imports view",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2775"
+      },
+      {
+        "number" : 2756,
+        "title" : "Change \"Approximate resolution\" option on exports to native resolution by default",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2756"
+      },
+      {
+        "number" : 2753,
+        "title" : "Jump straight into polygon drawing when defining area to export",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2753"
+      },
+      {
+        "number" : 2752,
+        "title" : "Clip cells instead of tiles on export",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2752"
+      },
+      {
+        "number" : 2743,
+        "title" : "Allow for data source creation as part of project creation/upload workflow",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2743"
+      },
+      {
+        "number" : 2739,
+        "title" : "Fix firefox styles",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2739"
+      },
+      {
+        "number" : 2738,
+        "title" : "Export order appears to group by submission time within status",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2738"
+      },
+      {
+        "number" : 2733,
+        "title" : "Return better annotation endpoint errors",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2733"
+      },
+      {
+        "number" : 2731,
+        "title" : "Allow scene metadata values to be used as inputs to an analysis",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2731"
+      },
+      {
+        "number" : 2729,
+        "title" : "Refactor Authentication Dependency Injection",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2729"
+      },
+      {
+        "number" : 2727,
+        "title" : "Project export area can't be edited after saving",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2727"
+      },
+      {
+        "number" : 2689,
+        "title" : "Figure out a way to keep js libraries updated",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2689"
+      },
+      {
+        "number" : 2635,
+        "title" : "Only possible to clip _or_ change intensity in color ramps in lab",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2635"
+      },
+      {
+        "number" : 2627,
+        "title" : "Benchmark Tile IO for Tools",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2627"
+      },
+      {
+        "number" : 2616,
+        "title" : "Small Annotation UX Changes",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2616"
+      },
+      {
+        "number" : 2612,
+        "title" : "Decide on usage of 'title' vs 'name'",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2612"
+      },
+      {
+        "number" : 2592,
+        "title" : "Organizing Projects (with tags?)",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2592"
+      },
+      {
+        "number" : 2585,
+        "title" : "Toolrun parsing does not handle NODATA values in classifications",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2585"
+      },
+      {
+        "number" : 2571,
+        "title" : "Default color ramp being used when render definition provided",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2571"
+      },
+      {
+        "number" : 2569,
+        "title" : "Add ability to set min/max of node histogram",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2569"
+      },
+      {
+        "number" : 2539,
+        "title" : "Better support for multiple function node parameters",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2539"
+      },
+      {
+        "number" : 2533,
+        "title" : "Thumbnails don't handle projects with multiple scenes correctly",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2533"
+      },
+      {
+        "number" : 2502,
+        "title" : "Discuss / make ADR for handling integer overflow in map operations",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2502"
+      },
+      {
+        "number" : 2501,
+        "title" : "Use tool style color ramps in single band projects",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2501"
+      },
+      {
+        "number" : 2500,
+        "title" : "Can't seem to export + some suggestions about export",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2500"
+      },
+      {
+        "number" : 2490,
+        "title" : "PUTs to /scene/id/ can fail while returning success codes [Timebox]",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2490"
+      },
+      {
+        "number" : 2480,
+        "title" : "New Circe derivation usage",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2480"
+      },
+      {
+        "number" : 2472,
+        "title" : "SAR data upload from Sentinel-1 fails",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2472"
+      },
+      {
+        "number" : 2470,
+        "title" : "Correctly Bail out if Uploaded Tiff is not Georeferenced",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2470"
+      },
+      {
+        "number" : 2464,
+        "title" : "Class Summary Tool/Endpoint",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2464"
+      },
+      {
+        "number" : 2463,
+        "title" : "Rasterization Tool",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2463"
+      },
+      {
+        "number" : 2459,
+        "title" : "Implement continuous color variation between user-defined breaks",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2459"
+      },
+      {
+        "number" : 2457,
+        "title" : "Vectorization Tool/Endpoint",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2457"
+      },
+      {
+        "number" : 2454,
+        "title" : "Move to Intercom Access Tokens",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2454"
+      },
+      {
+        "number" : 2453,
+        "title" : "New Project ingest bug - not ingesting some scenes",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2453"
+      },
+      {
+        "number" : 2433,
+        "title" : "Color Ramp Broken for non-8 bit imagery",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2433"
+      },
+      {
+        "number" : 2425,
+        "title" : "S3 Import should support full path, and support bucket CNAMEs",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2425"
+      },
+      {
+        "number" : 2390,
+        "title" : "Implement copy/paste of node output-styles",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2390"
+      },
+      {
+        "number" : 2383,
+        "title" : "Color correction varies across tiles in a single scene for some band combinations",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2383"
+      },
+      {
+        "number" : 2382,
+        "title" : "Projects list paginator misaligned if only one project on page",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2382"
+      },
+      {
+        "number" : 2372,
+        "title" : "Tokens stored on User should not be sent to client",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2372"
+      },
+      {
+        "number" : 2370,
+        "title" : "Color correction \"Reset changes\" doesn't refresh histogram",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2370"
+      },
+      {
+        "number" : 2363,
+        "title" : "Rethink Advanced Color Correction",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2363"
+      },
+      {
+        "number" : 2346,
+        "title" : "Help Matt with Style Guide Implementation",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2346"
+      },
+      {
+        "number" : 2341,
+        "title" : "Evaluate use of Execution Context's in API Server",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2341"
+      },
+      {
+        "number" : 2330,
+        "title" : "Implement legends and project min/max",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2330"
+      },
+      {
+        "number" : 2297,
+        "title" : "Make entire explore page a drag/drop interface",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2297"
+      },
+      {
+        "number" : 2253,
+        "title" : "Handle failure cases for project exports",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2253"
+      },
+      {
+        "number" : 2187,
+        "title" : "Transition app from using old toggle component to new one",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2187"
+      },
+      {
+        "number" : 2154,
+        "title" : "Make build.sbt structure consistent",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2154"
+      },
+      {
+        "number" : 2130,
+        "title" : "Move from abstract routes to default routes where possible",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2130"
+      },
+      {
+        "number" : 2115,
+        "title" : "Filter parameters are not saved if you exit a project and return to it",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2115"
+      },
+      {
+        "number" : 2113,
+        "title" : "Sigmoidal Contrast Seems Off",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2113"
+      },
+      {
+        "number" : 2111,
+        "title" : "Save User Preferences for Basemap",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2111"
+      },
+      {
+        "number" : 2097,
+        "title" : "Auth0 discrepancy between prompted re-login account and subsequent account",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2097"
+      },
+      {
+        "number" : 2082,
+        "title" : "After uploading a file through the \"Imports\" page, you have to refresh the page to see it",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2082"
+      },
+      {
+        "number" : 2076,
+        "title" : "Failed Ingested Scene Causes 404 on GET for Successfully Ingested Scenes",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2076"
+      },
+      {
+        "number" : 2069,
+        "title" : "color correct on thumbnails of user uploaded data",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2069"
+      },
+      {
+        "number" : 2066,
+        "title" : "Disambiguate types of raster retrieval error...",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2066"
+      },
+      {
+        "number" : 2061,
+        "title" : "Automatically zoom to the extent of a node output in the map view after inputs have changed",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2061"
+      },
+      {
+        "number" : 2058,
+        "title" : "Private Datasources are not Filtered Properly",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2058"
+      },
+      {
+        "number" : 2049,
+        "title" : "Document how feature flags work",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2049"
+      },
+      {
+        "number" : 2042,
+        "title" : "Project data limitations",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2042"
+      },
+      {
+        "number" : 2041,
+        "title" : "[Prod] Previously set filter parameters in monitoring projects revert to default when going back to adjust them",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2041"
+      },
+      {
+        "number" : 2040,
+        "title" : "Backdating a monitoring project should automatically add all relevant imagery to it",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2040"
+      },
+      {
+        "number" : 2038,
+        "title" : "TypeError: this.aoiProjectParameters.aoisLastChecked.format is not a function",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2038"
+      },
+      {
+        "number" : 2032,
+        "title" : "[Staging] Monitoring project cloud cover filter always resets to 10%",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/2032"
+      },
+      {
+        "number" : 1996,
+        "title" : "Create Plan for Tracking User Storage",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1996"
+      },
+      {
+        "number" : 1990,
+        "title" : "Embeddable slider ",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1990"
+      },
+      {
+        "number" : 1980,
+        "title" : "Datasource views don't initialize properly",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1980"
+      },
+      {
+        "number" : 1973,
+        "title" : "Set nodata value of thumbnails to transparent",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1973"
+      },
+      {
+        "number" : 1960,
+        "title" : "Save route state when logged out",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1960"
+      },
+      {
+        "number" : 1952,
+        "title" : "Use Tools Runs as AST Node Source",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1952"
+      },
+      {
+        "number" : 1950,
+        "title" : "Multi-source project handling in the Lab interface",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1950"
+      },
+      {
+        "number" : 1948,
+        "title" : "Accommodating time series projects in the Lab",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1948"
+      },
+      {
+        "number" : 1947,
+        "title" : "Failed auth to dropbox should delete the user's stored credential",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1947"
+      },
+      {
+        "number" : 1933,
+        "title" : "Application and vendor production bundles are 1.8MB each",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1933"
+      },
+      {
+        "number" : 1904,
+        "title" : "Uploads should show project name, not just date of upload",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1904"
+      },
+      {
+        "number" : 1819,
+        "title" : "Add info tooltips wherever we have the icon",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1819"
+      },
+      {
+        "number" : 1796,
+        "title" : "Error Reading BigTiff from S3 during Ingest",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1796"
+      },
+      {
+        "number" : 1789,
+        "title" : "Profile performance of TMS from ASTs",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1789"
+      },
+      {
+        "number" : 1782,
+        "title" : "Finalize Intercom setup guide",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1782"
+      },
+      {
+        "number" : 1751,
+        "title" : "Adjust opacity of data",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1751"
+      },
+      {
+        "number" : 1692,
+        "title" : "Add Tooltips for Navigation Buttons",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1692"
+      },
+      {
+        "number" : 1691,
+        "title" : "Add generic data sources",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1691"
+      },
+      {
+        "number" : 1680,
+        "title" : "Consider approach of introducing API versions",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1680"
+      },
+      {
+        "number" : 1591,
+        "title" : "Add an Authorization Exception to use in UserErrorHandler",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1591"
+      },
+      {
+        "number" : 1583,
+        "title" : "Client error should not show up in rollbar: Refresh token not recognized",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1583"
+      },
+      {
+        "number" : 1557,
+        "title" : "A(n incomplete and growing) list of Map Algebra operations that would be nice to support",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1557"
+      },
+      {
+        "number" : 1554,
+        "title" : "Backend feature flags cleanup",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1554"
+      },
+      {
+        "number" : 1551,
+        "title" : "Frontend feature flags cleanup",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1551"
+      },
+      {
+        "number" : 1549,
+        "title" : "Reorganize and cleanup imports in all files",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1549"
+      },
+      {
+        "number" : 1513,
+        "title" : "Implement Standard Map Algebra Tools in ModelLab",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1513"
+      },
+      {
+        "number" : 1469,
+        "title" : "Project preview attributions",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1469"
+      },
+      {
+        "number" : 1468,
+        "title" : "Refactor components for selectable / actionable lists and list item components",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1468"
+      },
+      {
+        "number" : 1428,
+        "title" : "Migrations should have names (timebox)",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1428"
+      },
+      {
+        "number" : 1420,
+        "title" : "Implement standard tools",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1420"
+      },
+      {
+        "number" : 1345,
+        "title" : "Enable acceleration for support for data upload S3 bucket",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1345"
+      },
+      {
+        "number" : 1326,
+        "title" : "Move all codecs to com.azavea.rf.api.Codec",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1326"
+      },
+      {
+        "number" : 1048,
+        "title" : "Importers should be tested using the swagger spec",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/1048"
+      },
+      {
+        "number" : 929,
+        "title" : "Add clone option to projects",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/929"
+      },
+      {
+        "number" : 897,
+        "title" : "Fix Width/Height for Thumbnails",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/897"
+      },
+      {
+        "number" : 645,
+        "title" : "Update to Angular UI-Router 1.0.0",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/645"
+      },
+      {
+        "number" : 612,
+        "title" : "Remove `boundaryStatus` from Scenes Table",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/612"
+      },
+      {
+        "number" : 482,
+        "title" : "Name foreign key columns consistently",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/482"
+      },
+      {
+        "number" : 417,
+        "title" : "Investigate using swagger spec for test automation",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/417"
+      },
+      {
+        "number" : 403,
+        "title" : "Angular loading twice",
+        "url" : "https://github.com/raster-foundry/raster-foundry/issues/403"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : null,
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : null,
+    "beginnerIssuesLabel" : null
+  }
+}

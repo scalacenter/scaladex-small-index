@@ -1,0 +1,752 @@
+{
+  "organization" : "stripe",
+  "repository" : "stripe-android",
+  "creationDate" : 1610053526000,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643165685441
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "https://stripe.com/docs/mobile/android",
+    "description" : "Stripe Android SDK    ",
+    "logo" : "https://avatars.githubusercontent.com/u/856813?v=4",
+    "stars" : 892,
+    "forks" : 511,
+    "watchers" : 57,
+    "issues" : 55,
+    "creationDate" : 1354212690000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><p dir=\"auto\"><a href=\"https://stripe.com/docs/mobile/android\" rel=\"nofollow\"><img width=\"250\" height=\"119\" src=\"https://raw.githubusercontent.com/stripe/stripe-android/master/assets/stripe_logo_slate_small.png\" style=\"max-width: 100%;\"></a></p>\n<h1 dir=\"auto\"><a id=\"user-content-stripe-android-sdk\" class=\"anchor\" aria-hidden=\"true\" href=\"#stripe-android-sdk\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Stripe Android SDK</h1>\n<p dir=\"auto\"><a href=\"https://github.com/stripe/stripe-android/actions?query=workflow%3ACI\"><img src=\"https://github.com/stripe/stripe-android/workflows/CI/badge.svg\" alt=\"CI\" style=\"max-width: 100%;\"></a>\n<a href=\"https://github.com/stripe/stripe-android/releases\"><img src=\"https://camo.githubusercontent.com/6b7f8ddfa23cf0cdd3e605f7cc5a6ff9a052292ba1b41aed9f09975e391518cd/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f72656c656173652f7374726970652f7374726970652d616e64726f69642e7376673f6d61784167653d3630\" alt=\"GitHub release\" data-canonical-src=\"https://img.shields.io/github/release/stripe/stripe-android.svg?maxAge=60\" style=\"max-width: 100%;\"></a>\n<a href=\"https://github.com/stripe/stripe-android/blob/master/LICENSE\"><img src=\"https://camo.githubusercontent.com/fa9d37ffc813e21be7eaa395a06a5cc90e6ad27aa678597ee6469d7c618ad4cd/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f7374726970652f7374726970652d616e64726f6964\" alt=\"License\" data-canonical-src=\"https://img.shields.io/github/license/stripe/stripe-android\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">The Stripe Android SDK makes it quick and easy to build an excellent payment experience in your Android app. We provide powerful and customizable UI elements that can be used out-of-the-box to collect your users' payment details. We also expose the low-level APIs that power those UIs so that you can build fully custom experiences.</p>\n<p dir=\"auto\">Get started with our <a href=\"https://stripe.com/docs/payments/accept-a-payment?platform=android\" rel=\"nofollow\"><g-emoji class=\"g-emoji\" alias=\"books\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f4da.png\">📚</g-emoji> integration guides</a> and <a href=\"#examples\">example projects</a>, or <a href=\"https://stripe.dev/stripe-android/\" rel=\"nofollow\"><g-emoji class=\"g-emoji\" alias=\"blue_book\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f4d8.png\">📘</g-emoji> browse the SDK reference</a>.</p>\n<blockquote>\n<p dir=\"auto\">Updating to a newer version of the SDK? See our <a href=\"https://github.com/stripe/stripe-android/blob/master/MIGRATING.md\">migration guide</a> and <a href=\"https://github.com/stripe/stripe-android/blob/master/CHANGELOG.md\">changelog</a>.</p>\n</blockquote>\n<h1 dir=\"auto\"><a id=\"user-content-table-of-contents\" class=\"anchor\" aria-hidden=\"true\" href=\"#table-of-contents\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Table of contents</h1>\n\n<ul dir=\"auto\">\n<li><a href=\"#features\">Features</a></li>\n<li><a href=\"#releases\">Releases</a></li>\n<li><a href=\"#installation\">Installation</a>\n<ul dir=\"auto\">\n<li><a href=\"#requirements\">Requirements</a></li>\n<li><a href=\"#configuration\">Configuration</a></li>\n</ul>\n</li>\n<li><a href=\"#getting-started\">Getting Started</a></li>\n<li><a href=\"#examples\">Examples</a></li>\n</ul>\n\n<h2 dir=\"auto\"><a id=\"user-content-features\" class=\"anchor\" aria-hidden=\"true\" href=\"#features\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Features</h2>\n<p dir=\"auto\"><strong>Simplified Security</strong>: Use the SDK to collect credit card numbers and remain <a href=\"https://stripe.com/docs/security#pci-dss-guidelines\" rel=\"nofollow\">PCI compliant</a>. This means sensitive data is sent directly to Stripe instead of passing through your server. For more information, see our <a href=\"https://stripe.com/docs/security\" rel=\"nofollow\">Integration Security Guide</a>.</p>\n<p dir=\"auto\"><strong>SCA-Ready</strong>: The SDK automatically performs native <a href=\"https://stripe.com/docs/payments/3d-secure\" rel=\"nofollow\">3D Secure authentication</a> to comply with <a href=\"https://stripe.com/docs/strong-customer-authentication\" rel=\"nofollow\">Strong Customer Authentication</a> regulation in Europe.</p>\n<p dir=\"auto\"><strong>Native UI</strong>: We provide native screens and elements to collect payment. For example, <a href=\"https://stripe.com/docs/payments/accept-a-payment?platform=android\" rel=\"nofollow\">PaymentSheet</a> is a prebuilt UI that combines all the steps required to pay - collecting payment details, and confirming the payment  - into a single sheet that displays on top of your app.</p>\n<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://raw.githubusercontent.com/stripe/stripe-android/master/assets/payment_sheet_complete.png\"><img src=\"https://raw.githubusercontent.com/stripe/stripe-android/master/assets/payment_sheet_complete.png\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\"><strong>Google Pay</strong>: Stripe is fully compatible with <a href=\"https://stripe.com/docs/google-pay\" rel=\"nofollow\">Google Pay</a>.</p>\n<p dir=\"auto\"><strong>Stripe API</strong>: We provide <a href=\"https://stripe.dev/stripe-android/payments-core/com.stripe.android/-stripe/index.html\" rel=\"nofollow\">low-level APIs</a> that correspond to objects and methods in the Stripe API. You can build a custom UI on top of this layer.</p>\n<p dir=\"auto\"><strong>Localized</strong>: We support the following localizations: Bulgarian, Catalan, Chinese (Hong Kong), Chinese (Simplified), Chinese (Traditional), Croatian, Czech, Danish, Dutch, English (US), English (United Kingdom), Estonian, Filipino, Finnish, French, French (Canada), German, Greek, Hungarian, Indonesian, Italian, Japanese, Korean, Latvian, Lithuanian, Malay, Maltese, Norwegian Bokmål, Norwegian Nynorsk (Norway), Polish, Portuguese, Portuguese (Brazil), Romanian, Russian, Slovak, Slovenian, Spanish, Spanish (Latin America), Swedish, Turkish, Thai and Vietnamese.</p>\n<p dir=\"auto\"><strong>Recommended usage</strong>\nIf you're selling digital products or services that will be consumed within your app, (e.g. subscriptions, in-game currencies, game levels, access to premium content, or unlocking a full version), and you plan to distribute it through the Google Play Store, you must use Googles's in-app purchase APIs. See the <a href=\"https://developer.android.com/distribute/play-billing\" rel=\"nofollow\">Google Play Billing</a> for more information. For all other scenarios you can use this SDK to process payments via Stripe.</p>\n<h2 dir=\"auto\"><a id=\"user-content-releases\" class=\"anchor\" aria-hidden=\"true\" href=\"#releases\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Releases</h2>\n<ul dir=\"auto\">\n<li>The <a href=\"CHANGELOG.md\">changelog</a> provides a summary of changes in each release.</li>\n<li>The <a href=\"MIGRATING.md\">migration guide</a> provides instructions on upgrading from older versions.</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-installation\" class=\"anchor\" aria-hidden=\"true\" href=\"#installation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Installation</h2>\n<h3 dir=\"auto\"><a id=\"user-content-requirements\" class=\"anchor\" aria-hidden=\"true\" href=\"#requirements\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Requirements</h3>\n<ul dir=\"auto\">\n<li>Android 5.0 (API level 21) and above</li>\n<li><a href=\"https://developer.android.com/studio/releases/gradle-plugin\" rel=\"nofollow\">Android Gradle Plugin</a> 3.5.1</li>\n<li><a href=\"https://gradle.org/releases/\" rel=\"nofollow\">Gradle</a> 5.4.1+</li>\n<li><a href=\"https://developer.android.com/jetpack/androidx/\" rel=\"nofollow\">AndroidX</a> (as of v11.0.0)</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-configuration\" class=\"anchor\" aria-hidden=\"true\" href=\"#configuration\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Configuration</h3>\n<p dir=\"auto\">Add <code>stripe-android</code> to your <code>build.gradle</code> dependencies.</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"dependencies {\n    implementation 'com.stripe:stripe-android:19.1.0'\n}\"><pre><code>dependencies {\n    implementation 'com.stripe:stripe-android:19.1.0'\n}\n</code></pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-getting-started\" class=\"anchor\" aria-hidden=\"true\" href=\"#getting-started\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Getting Started</h2>\n<h3 dir=\"auto\"><a id=\"user-content-integration\" class=\"anchor\" aria-hidden=\"true\" href=\"#integration\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Integration</h3>\n<p dir=\"auto\">Get started with our <a href=\"https://stripe.com/docs/payments/accept-a-payment?platform=android\" rel=\"nofollow\"><g-emoji class=\"g-emoji\" alias=\"books\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f4da.png\">📚</g-emoji> integration guides</a> and <a href=\"#examples\">example projects</a>, or <a href=\"https://stripe.dev/stripe-android/\" rel=\"nofollow\"><g-emoji class=\"g-emoji\" alias=\"blue_book\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f4d8.png\">📘</g-emoji> browse the SDK reference</a>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-examples\" class=\"anchor\" aria-hidden=\"true\" href=\"#examples\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Examples</h3>\n<ul dir=\"auto\">\n<li>The <a href=\"https://github.com/stripe/stripe-android/tree/master/paymentsheet-example\">PaymentSheet example project</a> demonstrates how to integrate and use our prebuilt ui (single-step and multi-step).</li>\n<li>The <a href=\"https://github.com/stripe/stripe-android/tree/master/example\">example project</a> demonstrates other integrations, that give you more control over the user experience:\n<ul dir=\"auto\">\n<li>how to use the Stripe class's synchronous and asynchronous methods</li>\n<li>how to use the CardFormView.</li>\n</ul>\n</li>\n</ul>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "mshafrir-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/45020849?v=4",
+        "url" : "https://api.github.com/users/mshafrir-stripe",
+        "contributions" : 2381
+      },
+      {
+        "login" : "mrmcduff-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23323692?v=4",
+        "url" : "https://api.github.com/users/mrmcduff-stripe",
+        "contributions" : 635
+      },
+      {
+        "login" : "michelleb-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/77996191?v=4",
+        "url" : "https://api.github.com/users/michelleb-stripe",
+        "contributions" : 186
+      },
+      {
+        "login" : "brnunes-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/77990083?v=4",
+        "url" : "https://api.github.com/users/brnunes-stripe",
+        "contributions" : 151
+      },
+      {
+        "login" : "dependabot[bot]",
+        "avatarUrl" : "https://avatars.githubusercontent.com/in/29110?v=4",
+        "url" : "https://api.github.com/users/dependabot%5Bbot%5D",
+        "contributions" : 125
+      },
+      {
+        "login" : "ccen-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/79880926?v=4",
+        "url" : "https://api.github.com/users/ccen-stripe",
+        "contributions" : 123
+      },
+      {
+        "login" : "smaskell-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/47332718?v=4",
+        "url" : "https://api.github.com/users/smaskell-stripe",
+        "contributions" : 121
+      },
+      {
+        "login" : "ksun2-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/45376460?v=4",
+        "url" : "https://api.github.com/users/ksun2-stripe",
+        "contributions" : 91
+      },
+      {
+        "login" : "skyler-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/89166418?v=4",
+        "url" : "https://api.github.com/users/skyler-stripe",
+        "contributions" : 50
+      },
+      {
+        "login" : "jemerick-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/48026502?v=4",
+        "url" : "https://api.github.com/users/jemerick-stripe",
+        "contributions" : 35
+      },
+      {
+        "login" : "joeydong-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/28276156?v=4",
+        "url" : "https://api.github.com/users/joeydong-stripe",
+        "contributions" : 24
+      },
+      {
+        "login" : "chiuki",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/354458?v=4",
+        "url" : "https://api.github.com/users/chiuki",
+        "contributions" : 20
+      },
+      {
+        "login" : "acavailhez-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/26235673?v=4",
+        "url" : "https://api.github.com/users/acavailhez-stripe",
+        "contributions" : 20
+      },
+      {
+        "login" : "awush-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/84421010?v=4",
+        "url" : "https://api.github.com/users/awush-stripe",
+        "contributions" : 19
+      },
+      {
+        "login" : "bg-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23086960?v=4",
+        "url" : "https://api.github.com/users/bg-stripe",
+        "contributions" : 19
+      },
+      {
+        "login" : "ob-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23086931?v=4",
+        "url" : "https://api.github.com/users/ob-stripe",
+        "contributions" : 10
+      },
+      {
+        "login" : "stephen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2320890?v=4",
+        "url" : "https://api.github.com/users/stephen",
+        "contributions" : 9
+      },
+      {
+        "login" : "brandur",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/96890?v=4",
+        "url" : "https://api.github.com/users/brandur",
+        "contributions" : 8
+      },
+      {
+        "login" : "bryan-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23063285?v=4",
+        "url" : "https://api.github.com/users/bryan-stripe",
+        "contributions" : 7
+      },
+      {
+        "login" : "dawn-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23104864?v=4",
+        "url" : "https://api.github.com/users/dawn-stripe",
+        "contributions" : 7
+      },
+      {
+        "login" : "joel-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/35507875?v=4",
+        "url" : "https://api.github.com/users/joel-stripe",
+        "contributions" : 6
+      },
+      {
+        "login" : "berg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/136931?v=4",
+        "url" : "https://api.github.com/users/berg",
+        "contributions" : 5
+      },
+      {
+        "login" : "yuki-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/47796191?v=4",
+        "url" : "https://api.github.com/users/yuki-stripe",
+        "contributions" : 4
+      },
+      {
+        "login" : "anirudh-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/60690025?v=4",
+        "url" : "https://api.github.com/users/anirudh-stripe",
+        "contributions" : 4
+      },
+      {
+        "login" : "csabol-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/36750494?v=4",
+        "url" : "https://api.github.com/users/csabol-stripe",
+        "contributions" : 4
+      },
+      {
+        "login" : "freszu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12448300?v=4",
+        "url" : "https://api.github.com/users/freszu",
+        "contributions" : 3
+      },
+      {
+        "login" : "westy92",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/290167?v=4",
+        "url" : "https://api.github.com/users/westy92",
+        "contributions" : 3
+      },
+      {
+        "login" : "msternow",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5232223?v=4",
+        "url" : "https://api.github.com/users/msternow",
+        "contributions" : 3
+      },
+      {
+        "login" : "chander-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/52174212?v=4",
+        "url" : "https://api.github.com/users/chander-stripe",
+        "contributions" : 3
+      },
+      {
+        "login" : "alex-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23127099?v=4",
+        "url" : "https://api.github.com/users/alex-stripe",
+        "contributions" : 2
+      },
+      {
+        "login" : "anelder-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23085885?v=4",
+        "url" : "https://api.github.com/users/anelder-stripe",
+        "contributions" : 2
+      },
+      {
+        "login" : "FrancoisBlavoet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1502975?v=4",
+        "url" : "https://api.github.com/users/FrancoisBlavoet",
+        "contributions" : 2
+      },
+      {
+        "login" : "kjc-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23085380?v=4",
+        "url" : "https://api.github.com/users/kjc-stripe",
+        "contributions" : 2
+      },
+      {
+        "login" : "kyleconroy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/34893?v=4",
+        "url" : "https://api.github.com/users/kyleconroy",
+        "contributions" : 2
+      },
+      {
+        "login" : "olivierbellone",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14116796?v=4",
+        "url" : "https://api.github.com/users/olivierbellone",
+        "contributions" : 2
+      },
+      {
+        "login" : "paulm212",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7472709?v=4",
+        "url" : "https://api.github.com/users/paulm212",
+        "contributions" : 2
+      },
+      {
+        "login" : "aliriaz-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/42750433?v=4",
+        "url" : "https://api.github.com/users/aliriaz-stripe",
+        "contributions" : 2
+      },
+      {
+        "login" : "danwaters-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/37308241?v=4",
+        "url" : "https://api.github.com/users/danwaters-stripe",
+        "contributions" : 2
+      },
+      {
+        "login" : "shengwei-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43145538?v=4",
+        "url" : "https://api.github.com/users/shengwei-stripe",
+        "contributions" : 2
+      },
+      {
+        "login" : "zwick-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23101551?v=4",
+        "url" : "https://api.github.com/users/zwick-stripe",
+        "contributions" : 2
+      },
+      {
+        "login" : "karlr-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/38090489?v=4",
+        "url" : "https://api.github.com/users/karlr-stripe",
+        "contributions" : 2
+      },
+      {
+        "login" : "maccman",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2142?v=4",
+        "url" : "https://api.github.com/users/maccman",
+        "contributions" : 1
+      },
+      {
+        "login" : "andrewpthorp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/139962?v=4",
+        "url" : "https://api.github.com/users/andrewpthorp",
+        "contributions" : 1
+      },
+      {
+        "login" : "ming13",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/65019240?v=4",
+        "url" : "https://api.github.com/users/ming13",
+        "contributions" : 1
+      },
+      {
+        "login" : "bdorfman-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23109640?v=4",
+        "url" : "https://api.github.com/users/bdorfman-stripe",
+        "contributions" : 1
+      },
+      {
+        "login" : "ChristianBecker",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1763815?v=4",
+        "url" : "https://api.github.com/users/ChristianBecker",
+        "contributions" : 1
+      },
+      {
+        "login" : "danj-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30532866?v=4",
+        "url" : "https://api.github.com/users/danj-stripe",
+        "contributions" : 1
+      },
+      {
+        "login" : "0xdfgp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4620097?v=4",
+        "url" : "https://api.github.com/users/0xdfgp",
+        "contributions" : 1
+      },
+      {
+        "login" : "dmuzi-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/89988962?v=4",
+        "url" : "https://api.github.com/users/dmuzi-stripe",
+        "contributions" : 1
+      },
+      {
+        "login" : "bachhuberdesign",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11774390?v=4",
+        "url" : "https://api.github.com/users/bachhuberdesign",
+        "contributions" : 1
+      },
+      {
+        "login" : "eholtrop",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3769718?v=4",
+        "url" : "https://api.github.com/users/eholtrop",
+        "contributions" : 1
+      },
+      {
+        "login" : "guillaumewrobel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/20317297?v=4",
+        "url" : "https://api.github.com/users/guillaumewrobel",
+        "contributions" : 1
+      },
+      {
+        "login" : "itaispector",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11595942?v=4",
+        "url" : "https://api.github.com/users/itaispector",
+        "contributions" : 1
+      },
+      {
+        "login" : "mrjameshamilton",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6151131?v=4",
+        "url" : "https://api.github.com/users/mrjameshamilton",
+        "contributions" : 1
+      },
+      {
+        "login" : "Numan1617",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3454441?v=4",
+        "url" : "https://api.github.com/users/Numan1617",
+        "contributions" : 1
+      },
+      {
+        "login" : "jim-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23090551?v=4",
+        "url" : "https://api.github.com/users/jim-stripe",
+        "contributions" : 1
+      },
+      {
+        "login" : "josepoq",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/29890013?v=4",
+        "url" : "https://api.github.com/users/josepoq",
+        "contributions" : 1
+      },
+      {
+        "login" : "kirilsokolov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/265210?v=4",
+        "url" : "https://api.github.com/users/kirilsokolov",
+        "contributions" : 1
+      },
+      {
+        "login" : "luoldrigues",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8206076?v=4",
+        "url" : "https://api.github.com/users/luoldrigues",
+        "contributions" : 1
+      },
+      {
+        "login" : "MarkoKurkinen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/45856352?v=4",
+        "url" : "https://api.github.com/users/MarkoKurkinen",
+        "contributions" : 1
+      },
+      {
+        "login" : "mshafrir",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17740?v=4",
+        "url" : "https://api.github.com/users/mshafrir",
+        "contributions" : 1
+      },
+      {
+        "login" : "m-revetria",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4791678?v=4",
+        "url" : "https://api.github.com/users/m-revetria",
+        "contributions" : 1
+      },
+      {
+        "login" : "minhazur-piash",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11093179?v=4",
+        "url" : "https://api.github.com/users/minhazur-piash",
+        "contributions" : 1
+      },
+      {
+        "login" : "niallkennedy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1100?v=4",
+        "url" : "https://api.github.com/users/niallkennedy",
+        "contributions" : 1
+      },
+      {
+        "login" : "ncapdevi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/933088?v=4",
+        "url" : "https://api.github.com/users/ncapdevi",
+        "contributions" : 1
+      },
+      {
+        "login" : "PGMacDesign",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6592650?v=4",
+        "url" : "https://api.github.com/users/PGMacDesign",
+        "contributions" : 1
+      },
+      {
+        "login" : "premnirmal",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1255689?v=4",
+        "url" : "https://api.github.com/users/premnirmal",
+        "contributions" : 1
+      },
+      {
+        "login" : "rrbrambley",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/186585?v=4",
+        "url" : "https://api.github.com/users/rrbrambley",
+        "contributions" : 1
+      },
+      {
+        "login" : "remi-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9683352?v=4",
+        "url" : "https://api.github.com/users/remi-stripe",
+        "contributions" : 1
+      },
+      {
+        "login" : "samson-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23086625?v=4",
+        "url" : "https://api.github.com/users/samson-stripe",
+        "contributions" : 1
+      },
+      {
+        "login" : "sgallese",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/140911?v=4",
+        "url" : "https://api.github.com/users/sgallese",
+        "contributions" : 1
+      },
+      {
+        "login" : "ened",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/269860?v=4",
+        "url" : "https://api.github.com/users/ened",
+        "contributions" : 1
+      },
+      {
+        "login" : "stevewilber",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/478101?v=4",
+        "url" : "https://api.github.com/users/stevewilber",
+        "contributions" : 1
+      },
+      {
+        "login" : "NotWoods",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1782266?v=4",
+        "url" : "https://api.github.com/users/NotWoods",
+        "contributions" : 1
+      },
+      {
+        "login" : "umarhussain15",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14268893?v=4",
+        "url" : "https://api.github.com/users/umarhussain15",
+        "contributions" : 1
+      },
+      {
+        "login" : "cbliu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/270127?v=4",
+        "url" : "https://api.github.com/users/cbliu",
+        "contributions" : 1
+      },
+      {
+        "login" : "davidme-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/52758633?v=4",
+        "url" : "https://api.github.com/users/davidme-stripe",
+        "contributions" : 1
+      },
+      {
+        "login" : "dlambeth",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1276026?v=4",
+        "url" : "https://api.github.com/users/dlambeth",
+        "contributions" : 1
+      },
+      {
+        "login" : "epan-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/97629502?v=4",
+        "url" : "https://api.github.com/users/epan-stripe",
+        "contributions" : 1
+      },
+      {
+        "login" : "galkahana",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/271847?v=4",
+        "url" : "https://api.github.com/users/galkahana",
+        "contributions" : 1
+      },
+      {
+        "login" : "krithix-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23087180?v=4",
+        "url" : "https://api.github.com/users/krithix-stripe",
+        "contributions" : 1
+      },
+      {
+        "login" : "lng-stripe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/91862945?v=4",
+        "url" : "https://api.github.com/users/lng-stripe",
+        "contributions" : 1
+      },
+      {
+        "login" : "vlad-roid",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/26101312?v=4",
+        "url" : "https://api.github.com/users/vlad-roid",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 4142,
+    "topics" : [
+      "stripe",
+      "stripe-sdk"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 4516,
+        "title" : "[BUG] CardMultilineWidget is not showing PlaceHolder or hint",
+        "url" : "https://github.com/stripe/stripe-android/issues/4516"
+      },
+      {
+        "number" : 4513,
+        "title" : "[Feature] Expose an interface to prevent CardInputView from showing the soft keyboard when child views are focused",
+        "url" : "https://github.com/stripe/stripe-android/issues/4513"
+      },
+      {
+        "number" : 4509,
+        "title" : "[BUG] UnionPay fail",
+        "url" : "https://github.com/stripe/stripe-android/issues/4509"
+      },
+      {
+        "number" : 4488,
+        "title" : "[BUG] CardException and APIException do not return valid error codes and decline codes",
+        "url" : "https://github.com/stripe/stripe-android/issues/4488"
+      },
+      {
+        "number" : 4487,
+        "title" : "Issue when i run the app",
+        "url" : "https://github.com/stripe/stripe-android/issues/4487"
+      },
+      {
+        "number" : 4479,
+        "title" : "[BUG] ChallengeResult.RuntimeError has non-parcelable fields",
+        "url" : "https://github.com/stripe/stripe-android/issues/4479"
+      },
+      {
+        "number" : 4457,
+        "title" : "[BUG] Payment sheet errors out if activity is killed in 3ds flows",
+        "url" : "https://github.com/stripe/stripe-android/issues/4457"
+      },
+      {
+        "number" : 4449,
+        "title" : "[BUG] Payment gets stuck when you switch between the apps and the stripe activity gets killed",
+        "url" : "https://github.com/stripe/stripe-android/issues/4449"
+      },
+      {
+        "number" : 4423,
+        "title" : "[BUG] Memory leaks when closing and opening CardDataCollectionFragment",
+        "url" : "https://github.com/stripe/stripe-android/issues/4423"
+      },
+      {
+        "number" : 4386,
+        "title" : "Style more views in 3DS screen",
+        "url" : "https://github.com/stripe/stripe-android/issues/4386"
+      },
+      {
+        "number" : 4376,
+        "title" : "[BUG] 3d secure activity webview always is in portrait",
+        "url" : "https://github.com/stripe/stripe-android/issues/4376"
+      },
+      {
+        "number" : 4371,
+        "title" : "[Feature]  Update presentPaymentMethodSelection to  handle `ActivityResultCallback`",
+        "url" : "https://github.com/stripe/stripe-android/issues/4371"
+      },
+      {
+        "number" : 4336,
+        "title" : "[Feature] Allow falling back to webview in 3d secure 2 flow",
+        "url" : "https://github.com/stripe/stripe-android/issues/4336"
+      },
+      {
+        "number" : 4327,
+        "title" : "[BUG] `PaymentSheet.presentWithPaymentIntent` fails with reflection exception",
+        "url" : "https://github.com/stripe/stripe-android/issues/4327"
+      },
+      {
+        "number" : 4267,
+        "title" : "[BUG] Nvidia Shield / Android TV Payment Sheet does not get focused",
+        "url" : "https://github.com/stripe/stripe-android/issues/4267"
+      },
+      {
+        "number" : 4255,
+        "title" : "Capture the GooglePay billing details in the PaymentIntent",
+        "url" : "https://github.com/stripe/stripe-android/issues/4255"
+      },
+      {
+        "number" : 4229,
+        "title" : "[Feature] Apply specific PaymentBottomSheet theme like on iOS SDK (light | dark)",
+        "url" : "https://github.com/stripe/stripe-android/issues/4229"
+      },
+      {
+        "number" : 4226,
+        "title" : "Adding a card / payment method in Android Compose",
+        "url" : "https://github.com/stripe/stripe-android/issues/4226"
+      },
+      {
+        "number" : 4222,
+        "title" : "Create PaymentSheet.FlowController in compose",
+        "url" : "https://github.com/stripe/stripe-android/issues/4222"
+      },
+      {
+        "number" : 4209,
+        "title" : "[Feature] Modifying Payment Sheet",
+        "url" : "https://github.com/stripe/stripe-android/issues/4209"
+      },
+      {
+        "number" : 4195,
+        "title" : "Fragments must call registerForActivityResult() before they are created",
+        "url" : "https://github.com/stripe/stripe-android/issues/4195"
+      },
+      {
+        "number" : 4111,
+        "title" : "[BUG] Progress bar color is not set correctly with 16.10.2 version",
+        "url" : "https://github.com/stripe/stripe-android/issues/4111"
+      },
+      {
+        "number" : 4109,
+        "title" : "How can we Limit List of countries while adding card information in prebuild android/ IOS UI.",
+        "url" : "https://github.com/stripe/stripe-android/issues/4109"
+      },
+      {
+        "number" : 4102,
+        "title" : "Google pay integration using GooglePayLauncher",
+        "url" : "https://github.com/stripe/stripe-android/issues/4102"
+      },
+      {
+        "number" : 3973,
+        "title" : "[BUG] Black background when launching PaymentSheet",
+        "url" : "https://github.com/stripe/stripe-android/issues/3973"
+      },
+      {
+        "number" : 3860,
+        "title" : "[BUG] PaymentMethodOptionsParams ignored on Android",
+        "url" : "https://github.com/stripe/stripe-android/issues/3860"
+      },
+      {
+        "number" : 3818,
+        "title" : "[Feature] Change access for updateBrand method from internal to public",
+        "url" : "https://github.com/stripe/stripe-android/issues/3818"
+      },
+      {
+        "number" : 3716,
+        "title" : "[Feature] Provide a `PaymentIntentResult` (or equivalent) in the `PaymentSheetResultCallback` callback",
+        "url" : "https://github.com/stripe/stripe-android/issues/3716"
+      },
+      {
+        "number" : 3714,
+        "title" : "[Feature] Make the postal code and country/region optional for credit card entry, in new payment sheet ui",
+        "url" : "https://github.com/stripe/stripe-android/issues/3714"
+      },
+      {
+        "number" : 3642,
+        "title" : "3D Secure broken for ING Di-Ba",
+        "url" : "https://github.com/stripe/stripe-android/issues/3642"
+      },
+      {
+        "number" : 3629,
+        "title" : "[Feature] make 'setPostalCode' on 'CardInputWidget' public",
+        "url" : "https://github.com/stripe/stripe-android/issues/3629"
+      },
+      {
+        "number" : 3581,
+        "title" : "Android: CardInputWidget misses right paddings when font size of the phone is large",
+        "url" : "https://github.com/stripe/stripe-android/issues/3581"
+      },
+      {
+        "number" : 3539,
+        "title" : "3ds rejected due to missing card holder name",
+        "url" : "https://github.com/stripe/stripe-android/issues/3539"
+      },
+      {
+        "number" : 3516,
+        "title" : "Background missing in delete card dialog",
+        "url" : "https://github.com/stripe/stripe-android/issues/3516"
+      },
+      {
+        "number" : 3489,
+        "title" : "Zip code not working in a dynamic way for CardInputWidget",
+        "url" : "https://github.com/stripe/stripe-android/issues/3489"
+      },
+      {
+        "number" : 3423,
+        "title" : "Postal Code accepts Emojis and symbols",
+        "url" : "https://github.com/stripe/stripe-android/issues/3423"
+      },
+      {
+        "number" : 2958,
+        "title" : "Support for OutlinedBox",
+        "url" : "https://github.com/stripe/stripe-android/issues/2958"
+      },
+      {
+        "number" : 2915,
+        "title" : "Wrong localization for non es-ES spanish locale",
+        "url" : "https://github.com/stripe/stripe-android/issues/2915"
+      },
+      {
+        "number" : 2871,
+        "title" : "Add Arabic support",
+        "url" : "https://github.com/stripe/stripe-android/issues/2871"
+      },
+      {
+        "number" : 2037,
+        "title" : "Use Stripe callback for extreme customization of card number filling",
+        "url" : "https://github.com/stripe/stripe-android/issues/2037"
+      },
+      {
+        "number" : 486,
+        "title" : "Adding card using NFC and/or card.io",
+        "url" : "https://github.com/stripe/stripe-android/issues/486"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : null,
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : null,
+    "beginnerIssuesLabel" : null
+  }
+}

@@ -1,0 +1,1911 @@
+{
+  "organization" : "sksamuel",
+  "repository" : "elastic4s",
+  "creationDate" : 1406253230325,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643165123846
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "",
+    "description" : "Elasticsearch Scala Client - Reactive, Non Blocking, Type Safe, HTTP Client",
+    "logo" : "https://avatars.githubusercontent.com/u/743706?v=4",
+    "stars" : 1577,
+    "forks" : 670,
+    "watchers" : 73,
+    "issues" : 23,
+    "creationDate" : 1370895837000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-elastic4s---elasticsearch-scala-client\" class=\"anchor\" aria-hidden=\"true\" href=\"#elastic4s---elasticsearch-scala-client\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>elastic4s - Elasticsearch Scala Client</h1>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/sksamuel/elastic4s/workflows/master/badge.svg\"><img src=\"https://github.com/sksamuel/elastic4s/workflows/master/badge.svg\" alt=\"master\" style=\"max-width: 100%;\"></a>\n<a href=\"https://index.scala-lang.org/sksamuel/elastic4s/elastic4s-core\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/09eb942527abecf37d590fceffc252b0bda77167f4aaebd193e1faadfb550ca0/68747470733a2f2f696e6465782e7363616c612d6c616e672e6f72672f736b73616d75656c2f656c617374696334732f656c617374696334732d636f72652f6c61746573742d62792d7363616c612d76657273696f6e2e737667\" alt=\"elastic4s-core Scala version support\" data-canonical-src=\"https://index.scala-lang.org/sksamuel/elastic4s/elastic4s-core/latest-by-scala-version.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://oss.sonatype.org/content/repositories/snapshots/com/sksamuel/elastic4s/\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/a668e94af23d58d32cc0944904f7d2d401d73d815cada0672d5c4c78027e0797/68747470733a2f2f696d672e736869656c64732e696f2f6e657875732f732f68747470732f6f73732e736f6e61747970652e6f72672f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31332e7376673f6c6162656c3d6c6174657374253230736e617073686f74267374796c653d706c6173746963\" data-canonical-src=\"https://img.shields.io/nexus/s/https/oss.sonatype.org/com.sksamuel.elastic4s/elastic4s-core_2.13.svg?label=latest%20snapshot&amp;style=plastic\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Elastic4s is a concise, idiomatic, reactive, type safe Scala client for Elasticsearch. The official Elasticsearch Java client can of course be used in Scala, but due to Java's syntax it is more verbose and it naturally doesn't support classes in the core Scala core library nor Scala idioms such as typeclass support.</p>\n<p dir=\"auto\">Elastic4s's DSL allows you to construct your requests programatically, with syntactic and semantic errors manifested at compile time, and uses standard Scala futures to enable you to easily integrate into an asynchronous workflow. The aim of the DSL is that requests are written in a builder-like way, while staying broadly similar to the Java API or Rest API. Each request is an immutable object, so you can create requests and safely reuse them, or further copy them for derived requests. Because each request is strongly typed your IDE or editor can use the type information to show you what operations are available for any request type.</p>\n<p dir=\"auto\">Elastic4s supports Scala collections so you don't have to do tedious conversions from your Scala domain classes into Java collections. It also allows you to index and read classes directly using typeclasses so you don't have to set fields or json documents manually. These typeclasses are generated using your favourite json library - modules exist for Jackson, Circe, Json4s, PlayJson and Spray Json. The client also uses standard Scala durations to avoid the use of strings or primitives for duration lengths.</p>\n<h4 dir=\"auto\"><a id=\"user-content-key-points\" class=\"anchor\" aria-hidden=\"true\" href=\"#key-points\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Key points</h4>\n<ul dir=\"auto\">\n<li>Type safe concise DSL</li>\n<li>Integrates with standard Scala futures or other effects libraries</li>\n<li>Uses Scala collections library over Java collections</li>\n<li>Returns <code>Option</code> where the java methods would return null</li>\n<li>Uses Scala <code>Duration</code>s instead of strings/longs for time values</li>\n<li>Supports typeclasses for indexing, updating, and search backed by Jackson, Circe, Json4s, PlayJson and Spray Json implementations</li>\n<li>Supports Java and Scala HTTP clients such as Akka-Http</li>\n<li>Provides <a href=\"#elastic-reactive-streams\">reactive-streams</a> implementation</li>\n<li>Provides a testkit subproject ideal for your tests</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-release\" class=\"anchor\" aria-hidden=\"true\" href=\"#release\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Release</h3>\n<p dir=\"auto\">Current Elastic4s versions support Scala 2.12 and 2.13. Scala 2.10 support has been dropped starting with 5.0.x and Scala 2.11 has been dropped starting with 7.2.0. For releases that are compatible with earlier versions of Elasticsearch,\n<a href=\"http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.sksamuel.elastic4s%22\" rel=\"nofollow\">search maven central</a>.</p>\n<table>\n<thead>\n<tr>\n<th>Elastic Version</th>\n<th>Scala 2.11</th>\n<th>Scala 2.12</th>\n<th>Scala 2.13</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>7.16.x</td>\n<td></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/5cf4cf634d64aff4171d42cb111bef35372c9eeaf2b81f0f461daeb655277954/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f372e31362e7376673f6c6162656c3d6c6174657374253230372e313625323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/7.16.svg?label=latest%207.16%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.13%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/beb7c500a5c9d6ea93e6e58c5f742ab313e7ab862a89e46cf3401429ae7d851e/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31332f372e31362e7376673f6c6162656c3d6c6174657374253230372e313625323072656c65617365253230666f72253230322e3133\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.13/7.16.svg?label=latest%207.16%20release%20for%202.13\" style=\"max-width: 100%;\"></a></td>\n</tr>\n<tr>\n<td>7.15.x</td>\n<td></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/2de7a9070ec3b2d93ff4dc9388e75c080229f632c05fbd049c9bd9da557eb3ac/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f372e31352e7376673f6c6162656c3d6c6174657374253230372e313525323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/7.15.svg?label=latest%207.15%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.13%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/7362283d8adacf953e0890e78762fc4c29250f139ed322a9fdaae0a59165e3f0/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31332f372e31352e7376673f6c6162656c3d6c6174657374253230372e313525323072656c65617365253230666f72253230322e3133\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.13/7.15.svg?label=latest%207.15%20release%20for%202.13\" style=\"max-width: 100%;\"></a></td>\n</tr>\n<tr>\n<td>7.14.x</td>\n<td></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/0f3d34c7076dbeac952ba414ae26b92a80141c5097b1ea88c9ddcafdff7d3144/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f372e31342e7376673f6c6162656c3d6c6174657374253230372e313425323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/7.14.svg?label=latest%207.14%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.13%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/0e2bceb8f826dee47a6aa8a34be74b3d3394e03009d6157ce95daa0d797d6cc1/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31332f372e31342e7376673f6c6162656c3d6c6174657374253230372e313425323072656c65617365253230666f72253230322e3133\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.13/7.14.svg?label=latest%207.14%20release%20for%202.13\" style=\"max-width: 100%;\"></a></td>\n</tr>\n<tr>\n<td>7.13.x</td>\n<td></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/5f52d949b2162ba6b6602d22eb7a77b06158767fea2f41716c99a83217aadbc4/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f372e31332e7376673f6c6162656c3d6c6174657374253230372e313325323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/7.13.svg?label=latest%207.13%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.13%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/ec284f526bcd5bc79e610d868a123278df9e315bda8e16d67a64de474acc0b21/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31332f372e31332e7376673f6c6162656c3d6c6174657374253230372e313325323072656c65617365253230666f72253230322e3133\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.13/7.13.svg?label=latest%207.13%20release%20for%202.13\" style=\"max-width: 100%;\"></a></td>\n</tr>\n<tr>\n<td>7.12.x</td>\n<td></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/53ff9b7abcfb5c0ae6492874d7ce1587c88d17a15b03e7d6d61d3ffcb7d999f7/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f372e31322e7376673f6c6162656c3d6c6174657374253230372e313225323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/7.12.svg?label=latest%207.12%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.13%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/2260b84a9a141eccf55a3f6cd28daefd83ca8dec6f9276207a185292e4d4e07b/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31332f372e31322e7376673f6c6162656c3d6c6174657374253230372e313225323072656c65617365253230666f72253230322e3133\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.13/7.12.svg?label=latest%207.12%20release%20for%202.13\" style=\"max-width: 100%;\"></a></td>\n</tr>\n<tr>\n<td>7.11.x</td>\n<td></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/067fb80fd706b603624267eeb1f5b70535df6418982695bf13565610766e816c/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f372e31312e7376673f6c6162656c3d6c6174657374253230372e313125323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/7.11.svg?label=latest%207.11%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.13%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/49773317b784c568ffbfbc51b14903dbdee4c5dbc36527100a804bf35eca2769/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31332f372e31312e7376673f6c6162656c3d6c6174657374253230372e313125323072656c65617365253230666f72253230322e3133\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.13/7.11.svg?label=latest%207.11%20release%20for%202.13\" style=\"max-width: 100%;\"></a></td>\n</tr>\n<tr>\n<td>7.10.x</td>\n<td></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/58c048e456e041c59b6d536f4e84af4fa70c6fbf8f5d67ffa90169f43a33abfd/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f372e31302e7376673f6c6162656c3d6c6174657374253230372e313025323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/7.10.svg?label=latest%207.10%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.13%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/14ff38f38decde8c36fabdcbf39ef19a7e803bbfc317b4058d774ed2b6a744a9/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31332f372e31302e7376673f6c6162656c3d6c6174657374253230372e313025323072656c65617365253230666f72253230322e3133\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.13/7.10.svg?label=latest%207.10%20release%20for%202.13\" style=\"max-width: 100%;\"></a></td>\n</tr>\n<tr>\n<td>7.9.x</td>\n<td></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/201dc297765931b74824a4e8b4854df2670538de28e62662122313e5b4b3a92a/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f372e392e7376673f6c6162656c3d6c6174657374253230372e3925323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/7.9.svg?label=latest%207.9%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.13%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/257010f4f667233616cff54f5a2ee5eefa7700b2b8c3a326ccd56e40a0a5ab7a/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31332f372e392e7376673f6c6162656c3d6c6174657374253230372e3925323072656c65617365253230666f72253230322e3133\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.13/7.9.svg?label=latest%207.9%20release%20for%202.13\" style=\"max-width: 100%;\"></a></td>\n</tr>\n<tr>\n<td>7.8.x</td>\n<td></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/eaf537c3b2b0c5f7675e3e5c89cdabb13dd37c81c2f44fe71dd3a750f001d961/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f372e382e7376673f6c6162656c3d6c6174657374253230372e3825323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/7.8.svg?label=latest%207.8%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.13%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/3376d813e8f2724a00cc803f53b0507f06051fecd40e4882989171b0d991e034/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31332f372e382e7376673f6c6162656c3d6c6174657374253230372e3825323072656c65617365253230666f72253230322e3133\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.13/7.8.svg?label=latest%207.8%20release%20for%202.13\" style=\"max-width: 100%;\"></a></td>\n</tr>\n<tr>\n<td>7.7.x</td>\n<td></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/680d102686289935b4d68c6687f8c50d4ed3ec6eeb8146f793fde49bd25a2c9d/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f372e372e7376673f6c6162656c3d6c6174657374253230372e3725323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/7.7.svg?label=latest%207.7%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.13%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/89dd20fbfd70840166787695d224905a054cfda1f92e4a5ef7442c436facb2b1/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31332f372e372e7376673f6c6162656c3d6c6174657374253230372e3725323072656c65617365253230666f72253230322e3133\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.13/7.7.svg?label=latest%207.7%20release%20for%202.13\" style=\"max-width: 100%;\"></a></td>\n</tr>\n<tr>\n<td>7.6.x</td>\n<td></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/4f3332a4733355d270cc0e515bac36bff44e6baf3e4ba6a5c803a4be40c36500/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f372e362e7376673f6c6162656c3d6c6174657374253230372e3625323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/7.6.svg?label=latest%207.6%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.13%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/adb1958f896b68672ace75f7dae210872ef2cf8f03e46f3033f833956d894a17/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31332f372e362e7376673f6c6162656c3d6c6174657374253230372e3625323072656c65617365253230666f72253230322e3133\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.13/7.6.svg?label=latest%207.6%20release%20for%202.13\" style=\"max-width: 100%;\"></a></td>\n</tr>\n<tr>\n<td>7.5.x</td>\n<td></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/03f2b97cc6cb50e00cfb6365d7c0842d3a3399ab975012727e737ddf98d20d13/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f372e352e7376673f6c6162656c3d6c6174657374253230372e3525323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/7.5.svg?label=latest%207.5%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.13%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/0cca8934ad9ebdd9f2fcf2117077bab426e30bb1f8aa14bd20a850d2b059edba/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31332f372e352e7376673f6c6162656c3d6c6174657374253230372e3525323072656c65617365253230666f72253230322e3133\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.13/7.5.svg?label=latest%207.5%20release%20for%202.13\" style=\"max-width: 100%;\"></a></td>\n</tr>\n<tr>\n<td>7.4.x</td>\n<td></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/2e87012662178adad6ac813f8cc9699fb8be3f2282a23df0cd5e97fc437d5ef7/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f372e342e7376673f6c6162656c3d6c6174657374253230372e3425323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/7.4.svg?label=latest%207.4%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.13%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/3a9f02754510492befbae117e880339899041a02a1796bc8a33bc6d77843935f/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31332f372e342e7376673f6c6162656c3d6c6174657374253230372e3425323072656c65617365253230666f72253230322e3133\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.13/7.4.svg?label=latest%207.4%20release%20for%202.13\" style=\"max-width: 100%;\"></a></td>\n</tr>\n<tr>\n<td>7.3.x</td>\n<td></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/79c93e4df98c0c41c636effcbf2d3120d4463c7241079fb77cd8d28e50e47671/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f372e332e7376673f6c6162656c3d6c6174657374253230372e3325323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/7.3.svg?label=latest%207.3%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.13%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/b81d331ae6900cd86183c3a012f3262a5f2c748751f27343aebc570a8f2a0bcf/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31332f372e332e7376673f6c6162656c3d6c6174657374253230372e3325323072656c65617365253230666f72253230322e3133\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.13/7.3.svg?label=latest%207.3%20release%20for%202.13\" style=\"max-width: 100%;\"></a></td>\n</tr>\n<tr>\n<td>7.2.x</td>\n<td></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/c3588312ea830832f63c325aa90704a9c64c52bd7fb9a1442c39a97612ee3ceb/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f372e322e7376673f6c6162656c3d6c6174657374253230372e3225323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/7.2.svg?label=latest%207.2%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.13%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/e99778806e12b92874205d5ccb75b84e4504b4011a0d845c7c3086c05a47a4fc/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31332f372e322e7376673f6c6162656c3d6c6174657374253230372e3225323072656c65617365253230666f72253230322e3133\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.13/7.2.svg?label=latest%207.2%20release%20for%202.13\" style=\"max-width: 100%;\"></a></td>\n</tr>\n<tr>\n<td>7.1.x</td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.11%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/c0c1445776d2ecd6081eb7da445b45042d04fa2ab0030e184d7f6ff61404d811/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31312f372e312e7376673f6c6162656c3d6c6174657374253230372e3125323072656c65617365253230666f72253230322e3131\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.11/7.1.svg?label=latest%207.1%20release%20for%202.11\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/a4cfab1beddc67778883b7b8373d141b9872d5bfce5ace5fec93adefa41346c1/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f372e312e7376673f6c6162656c3d6c6174657374253230372e3125323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/7.1.svg?label=latest%207.1%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.13%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/008b409c2e03aec700b779a9e5015acd8951fe708022a51470014e69f9cad8dd/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31332f372e312e7376673f6c6162656c3d6c6174657374253230372e3125323072656c65617365253230666f72253230322e3133\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.13/7.1.svg?label=latest%207.1%20release%20for%202.13\" style=\"max-width: 100%;\"></a></td>\n</tr>\n<tr>\n<td>7.0.x</td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.11%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/b4c4b96ea67c3c136d904d9ff4275edc516c7fff207278b82810fccca593686f/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31312f372e302e7376673f6c6162656c3d6c6174657374253230372e3025323072656c65617365253230666f72253230322e3131\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.11/7.0.svg?label=latest%207.0%20release%20for%202.11\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/2d97e52d2a729ccdcb2f10f4e470dc2c7181d53536fe7d75fa907664936de947/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f372e302e7376673f6c6162656c3d6c6174657374253230372e3025323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/7.0.svg?label=latest%207.0%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.13%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/152dc1a547babce5fca80e8223cc4c796284288dd56d92c573a111ee50487d59/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31332f372e302e7376673f6c6162656c3d6c6174657374253230372e3025323072656c65617365253230666f72253230322e3133\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.13/7.0.svg?label=latest%207.0%20release%20for%202.13\" style=\"max-width: 100%;\"></a></td>\n</tr>\n<tr>\n<td>6.7.x</td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.11%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/fa92f8ed1943337107056369cbee10a3360e2f00aaecb2fc2fcce963cdab013f/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31312f362e372e7376673f6c6162656c3d6c6174657374253230362e3725323072656c65617365253230666f72253230322e3131\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.11/6.7.svg?label=latest%206.7%20release%20for%202.11\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/c52276c746ad04763628b41694a3405f67e297997c2b666c947293135eeeb92e/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f362e372e7376673f6c6162656c3d6c6174657374253230362e3725323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/6.7.svg?label=latest%206.7%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.13%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/fb83b64d99a391eb75dc87ec7c635ecc02cb73fe347916092f95dd5cc627d283/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31332f362e372e7376673f6c6162656c3d6c6174657374253230362e3725323072656c65617365253230666f72253230322e3133\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.13/6.7.svg?label=latest%206.7%20release%20for%202.13\" style=\"max-width: 100%;\"></a></td>\n</tr>\n<tr>\n<td>6.6.x</td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.11%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/d0dbf1f5a1ab032965a744638444bcb6676c00a2cd2be82dba7721fafcc446f8/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31312f362e362e7376673f6c6162656c3d6c6174657374253230362e3625323072656c65617365253230666f72253230322e3131\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.11/6.6.svg?label=latest%206.6%20release%20for%202.11\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/25c46a09bb987af53c5ba3502c8f6543b4b9ffc3a5e36e2a15a0c2d7c88238af/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f362e362e7376673f6c6162656c3d6c6174657374253230362e3625323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/6.6.svg?label=latest%206.6%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.13%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/6ef0e32580597727407584757f2ed98df32e7ee26b3101613a9c236682900eb0/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31332f362e362e7376673f6c6162656c3d6c6174657374253230362e3625323072656c65617365253230666f72253230322e3133\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.13/6.6.svg?label=latest%206.6%20release%20for%202.13\" style=\"max-width: 100%;\"></a></td>\n</tr>\n<tr>\n<td>6.5.x</td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.11%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/333a992d1cdaf0971b06093ba2bc5cf0f68704c641bce5cf75be53bc69abe400/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31312f362e352e7376673f6c6162656c3d6c6174657374253230362e3525323072656c65617365253230666f72253230322e3131\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.11/6.5.svg?label=latest%206.5%20release%20for%202.11\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/a8076529506b824672318469f5330063316f6e54c48669c3a0172c6e5196b890/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f362e352e7376673f6c6162656c3d6c6174657374253230362e3525323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/6.5.svg?label=latest%206.5%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.13%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/dc10e1d51721e3adaec72d276077e507dd4e37c6ef2a7737d009c8dc0b6bb007/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31332f362e352e7376673f6c6162656c3d6c6174657374253230362e3525323072656c65617365253230666f72253230322e3133\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.13/6.5.svg?label=latest%206.5%20release%20for%202.13\" style=\"max-width: 100%;\"></a></td>\n</tr>\n<tr>\n<td>6.4.x</td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.11%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/b1a656181548a487285efa8b0c5616566706e453d05e8467269617c8f2cb8c52/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31312f362e342e7376673f6c6162656c3d6c6174657374253230362e3425323072656c65617365253230666f72253230322e3131\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.11/6.4.svg?label=latest%206.4%20release%20for%202.11\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/d42388bf2a6ca4978d4f1f06827cd85f0b628f868ec0e188e75607137d67df3a/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f362e342e7376673f6c6162656c3d6c6174657374253230362e3425323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/6.4.svg?label=latest%206.4%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td></td>\n</tr>\n<tr>\n<td>6.3.x</td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.11%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/da3b4d4e02dd90c13dd7931831d2926fdc8143334e93db4ac0b3a6f914d56ab5/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31312f362e332e7376673f6c6162656c3d6c6174657374253230362e3325323072656c65617365253230666f72253230322e3131\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.11/6.3.svg?label=latest%206.3%20release%20for%202.11\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/5d62547a9bde3b647ebe8561d77c752729702e593f32bac581de69c847ca5f5d/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f362e332e7376673f6c6162656c3d6c6174657374253230362e3325323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/6.3.svg?label=latest%206.3%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td></td>\n</tr>\n<tr>\n<td>6.2.x</td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.11%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/03b61c832ea25dcc14b2cb596a0dd597559c1ea3f263bb3af8fa5daf129a8044/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31312f362e322e7376673f6c6162656c3d6c6174657374253230362e3225323072656c65617365253230666f72253230322e3131\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.11/6.2.svg?label=latest%206.2%20release%20for%202.11\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/77f849f8f218aa6429bfe249082e75bf95a5a3fe8325228b8b43755fd795d4c3/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f362e322e7376673f6c6162656c3d6c6174657374253230362e3225323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/6.2.svg?label=latest%206.2%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td></td>\n</tr>\n<tr>\n<td>6.1.x</td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.11%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/82365c3049be64fdb3491d59b2ebeebfeea354a7f090efca406012c2785d10f2/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31312f362e312e7376673f6c6162656c3d6c6174657374253230362e3125323072656c65617365253230666f72253230322e3131\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.11/6.1.svg?label=latest%206.1%20release%20for%202.11\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/0e38ab2d8d7e94c77c719b130188fa8890fa27356f8896da5c73ca0a95158f61/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f362e312e7376673f6c6162656c3d6c6174657374253230362e3125323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/6.1.svg?label=latest%206.1%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td></td>\n</tr>\n<tr>\n<td>6.0.x</td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.11%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/776a933b55c76971a18e48fbaece4d074353f26f31882920961ff37ad8aacf0b/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31312f362e302e7376673f6c6162656c3d6c6174657374253230362e3025323072656c65617365253230666f72253230322e3131\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.11/6.0.svg?label=latest%206.0%20release%20for%202.11\" style=\"max-width: 100%;\"></a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22elastic4s-core_2.12%22\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/27032a3261c09b74fcf16af35a84508284638868f3869728697285fc9701120f/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e736b73616d75656c2e656c617374696334732f656c617374696334732d636f72655f322e31322f362e302e7376673f6c6162656c3d6c6174657374253230362e3025323072656c65617365253230666f72253230322e3132\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.sksamuel.elastic4s/elastic4s-core_2.12/6.0.svg?label=latest%206.0%20release%20for%202.12\" style=\"max-width: 100%;\"></a></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<p dir=\"auto\">For release prior to 6.0 search maven central directly.</p>\n<h2 dir=\"auto\"><a id=\"user-content-quick-start\" class=\"anchor\" aria-hidden=\"true\" href=\"#quick-start\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Quick Start</h2>\n<p dir=\"auto\">We have created sample projects in both sbt, maven and gradle. Check them out here:\n<a href=\"https://github.com/sksamuel/elastic4s/tree/master/samples\">https://github.com/sksamuel/elastic4s/tree/master/samples</a></p>\n<p dir=\"auto\">To get started you will need to add a dependency:</p>\n<ul dir=\"auto\">\n<li><a href=\"https://mvnrepository.com/artifact/com.sksamuel.elastic4s/a:elastic4s-client-esjava\" rel=\"nofollow\">elastic4s-client-esjava</a></li>\n</ul>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"// major.minor are in sync with the elasticsearch releases\nval elastic4sVersion = &quot;x.x.x&quot;\nlibraryDependencies ++= Seq(\n  // recommended client for beginners\n  &quot;com.sksamuel.elastic4s&quot; %% &quot;elastic4s-client-esjava&quot; % elastic4sVersion,\n  // test kit\n  &quot;com.sksamuel.elastic4s&quot; %% &quot;elastic4s-testkit&quot; % elastic4sVersion % &quot;test&quot;\n)\"><pre><span class=\"pl-c\"><span class=\"pl-c\">//</span> major.minor are in sync with the elasticsearch releases</span>\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">elastic4sVersion</span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>x.x.x<span class=\"pl-pds\">\"</span></span>\nlibraryDependencies <span class=\"pl-k\">++</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Seq</span>(\n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> recommended client for beginners</span>\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.sksamuel.elastic4s<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>elastic4s-client-esjava<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> elastic4sVersion,\n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> test kit</span>\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.sksamuel.elastic4s<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>elastic4s-testkit<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> elastic4sVersion <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>test<span class=\"pl-pds\">\"</span></span>\n)</pre></div>\n<p dir=\"auto\">The basic usage is that you create an instance of a client and then invoke the <code>execute</code> method with the requests you\nwant to perform. The execute method is asynchronous and will return a standard Scala <code>Future[T]</code>\n(or use one of the <a href=\"#alternative-executors\">Alternative executors</a>) where T is the response\ntype appropriate for your request type. For example a <em>search</em> request will return a response of type <code>SearchResponse</code>\nwhich contains the results of the search.</p>\n<p dir=\"auto\">To create an instance of the HTTP client, use the <code>ElasticClient</code> companion object methods.\nRequests are created using the elastic4s DSL. For example to create a search request, you would do:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"search(&quot;index&quot;).query(&quot;findthistext&quot;)\"><pre>search(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>index<span class=\"pl-pds\">\"</span></span>).query(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>findthistext<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<p dir=\"auto\">The DSL methods are located in the <code>ElasticDsl</code> trait which needs to be imported or extended.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import com.sksamuel.elastic4s.ElasticDsl._\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">sksamuel</span>.<span class=\"pl-en\">elastic4s</span>.<span class=\"pl-en\">ElasticDsl</span>.<span class=\"pl-en\">_</span></pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-creating-a-client\" class=\"anchor\" aria-hidden=\"true\" href=\"#creating-a-client\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Creating a Client</h2>\n<p dir=\"auto\">The entry point in elastic4s is an instance of <code>ElasticClient</code>.\nThis class is used to execute requests, such as <code>SearchRequest</code>, against an Elasticsearch cluster and returns a response type such as <code>SearchResponse</code>.</p>\n<p dir=\"auto\"><code>ElasticClient</code> takes care of transforming the requests and responses, and handling success and failure, but the actual HTTP functions are delegated to a HTTP library.\nOne such library is <code>JavaClient</code> which uses the http client provided by the offical Java elasticsearch library.</p>\n<p dir=\"auto\">So, to connect to an ElasticSearch cluster, pass an instance of <code>JavaClient</code> to an <code>ElasticClient</code>.\n<code>JavaClient</code> is configured using <code>ElasticProperties</code> in which you can specify protocol, host, and port in a single string.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val props = ElasticProperties(&quot;http://host1:9200&quot;)\nval client = ElasticClient(JavaClient(props))\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">props</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ElasticProperties</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>http://host1:9200<span class=\"pl-pds\">\"</span></span>)\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">client</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ElasticClient</span>(<span class=\"pl-en\">JavaClient</span>(props))</pre></div>\n<p dir=\"auto\">For multiple nodes you can pass a comma-separated list of endpoints in a single string:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val nodes = ElasticProperties(&quot;http://host1:9200,host2:9200,host3:9200&quot;)\nval client = ElasticClient(JavaClient(nodes))\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">nodes</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ElasticProperties</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>http://host1:9200,host2:9200,host3:9200<span class=\"pl-pds\">\"</span></span>)\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">client</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ElasticClient</span>(<span class=\"pl-en\">JavaClient</span>(nodes))</pre></div>\n<p dir=\"auto\">There are several http libraries to choose from, or you can wrap any HTTP library you wish. For further details, and information\non how to specify credentials and other options, see <a href=\"docs/clients.md\">the full client documentation</a></p>\n<h2 dir=\"auto\"><a id=\"user-content-example-application\" class=\"anchor\" aria-hidden=\"true\" href=\"#example-application\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Example Application</h2>\n<p dir=\"auto\">An example is worth 1000 characters so here is a quick example of how to connect to a node with a client, create an\nindex and index a one field document. Then we will search for that document using a simple text query.</p>\n<p dir=\"auto\"><strong>Note:</strong> As of version <code>0.7.x</code> the <code>LocalNode</code> functionality has been removed. It is recommended that you stand up\na local ElasticSearch Docker container for development. This is the same strategy used in the <a href=\"https://github.com/sksamuel/elastic4s/blob/master/elastic4s-testkit/src/main/scala/com/sksamuel/elastic4s/testkit/DockerTests.scala\">tests</a>.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import com.sksamuel.elastic4s.fields.TextField\nimport com.sksamuel.elastic4s.http.JavaClient\nimport com.sksamuel.elastic4s.requests.common.RefreshPolicy\nimport com.sksamuel.elastic4s.requests.searches.SearchResponse\n\nobject ArtistIndex extends App {\n\n  // in this example we create a client to a local Docker container at localhost:9200\n  val client = ElasticClient(JavaClient(ElasticProperties(s&quot;http://${sys.env.getOrElse(&quot;ES_HOST&quot;, &quot;127.0.0.1&quot;)}:${sys.env.getOrElse(&quot;ES_PORT&quot;, &quot;9200&quot;)}&quot;)))\n\n  // we must import the dsl\n  import com.sksamuel.elastic4s.ElasticDsl._\n\n  // Next we create an index in advance ready to receive documents.\n  // await is a helper method to make this operation synchronous instead of async\n  // You would normally avoid doing this in a real program as it will block\n  // the calling thread but is useful when testing\n  client.execute {\n    createIndex(&quot;artists&quot;).mapping(\n      properties(\n        TextField(&quot;name&quot;)\n      )\n    )\n  }.await\n\n  // Next we index a single document which is just the name of an Artist.\n  // The RefreshPolicy.Immediate means that we want this document to flush to the disk immediately.\n  // see the section on Eventual Consistency.\n  client.execute {\n    indexInto(&quot;artists&quot;).fields(&quot;name&quot; -&gt; &quot;L.S. Lowry&quot;).refresh(RefreshPolicy.Immediate)\n  }.await\n\n  // now we can search for the document we just indexed\n  val resp = client.execute {\n    search(&quot;artists&quot;).query(&quot;lowry&quot;)\n  }.await\n\n  // resp is a Response[+U] ADT consisting of either a RequestFailure containing the\n  // Elasticsearch error details, or a RequestSuccess[U] that depends on the type of request.\n  // In this case it is a RequestSuccess[SearchResponse]\n\n  println(&quot;---- Search Results ----&quot;)\n  resp match {\n    case failure: RequestFailure =&gt; println(&quot;We failed &quot; + failure.error)\n    case results: RequestSuccess[SearchResponse] =&gt; println(results.result.hits.hits.toList)\n    case results: RequestSuccess[_] =&gt; println(results.result)\n  }\n\n  // Response also supports familiar combinators like map / flatMap / foreach:\n  resp foreach (search =&gt; println(s&quot;There were ${search.totalHits} total hits&quot;))\n\n  client.close()\n}\n\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">sksamuel</span>.<span class=\"pl-en\">elastic4s</span>.<span class=\"pl-en\">fields</span>.<span class=\"pl-en\">TextField</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">sksamuel</span>.<span class=\"pl-en\">elastic4s</span>.<span class=\"pl-en\">http</span>.<span class=\"pl-en\">JavaClient</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">sksamuel</span>.<span class=\"pl-en\">elastic4s</span>.<span class=\"pl-en\">requests</span>.<span class=\"pl-en\">common</span>.<span class=\"pl-en\">RefreshPolicy</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">sksamuel</span>.<span class=\"pl-en\">elastic4s</span>.<span class=\"pl-en\">requests</span>.<span class=\"pl-en\">searches</span>.<span class=\"pl-en\">SearchResponse</span>\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">ArtistIndex</span> <span class=\"pl-k\">extends</span> <span class=\"pl-e\">App</span> {\n\n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> in this example we create a client to a local Docker container at localhost:9200</span>\n  <span class=\"pl-k\">val</span> <span class=\"pl-smi\">client</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ElasticClient</span>(<span class=\"pl-en\">JavaClient</span>(<span class=\"pl-en\">ElasticProperties</span>(<span class=\"pl-k\">s</span><span class=\"pl-s\">\"</span><span class=\"pl-s\">http://</span>${sys.env.getOrElse(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>ES_HOST<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>127.0.0.1<span class=\"pl-pds\">\"</span></span>)}<span class=\"pl-s\">:</span>${sys.env.getOrElse(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>ES_PORT<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>9200<span class=\"pl-pds\">\"</span></span>)}<span class=\"pl-s\">\"</span>)))\n\n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> we must import the dsl</span>\n  <span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">sksamuel</span>.<span class=\"pl-en\">elastic4s</span>.<span class=\"pl-en\">ElasticDsl</span>.<span class=\"pl-en\">_</span>\n\n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> Next we create an index in advance ready to receive documents.</span>\n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> await is a helper method to make this operation synchronous instead of async</span>\n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> You would normally avoid doing this in a real program as it will block</span>\n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> the calling thread but is useful when testing</span>\n  client.execute {\n    createIndex(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>artists<span class=\"pl-pds\">\"</span></span>).mapping(\n      properties(\n        <span class=\"pl-en\">TextField</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>name<span class=\"pl-pds\">\"</span></span>)\n      )\n    )\n  }.await\n\n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> Next we index a single document which is just the name of an Artist.</span>\n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> The RefreshPolicy.Immediate means that we want this document to flush to the disk immediately.</span>\n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> see the section on Eventual Consistency.</span>\n  client.execute {\n    indexInto(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>artists<span class=\"pl-pds\">\"</span></span>).fields(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>name<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>L.S. Lowry<span class=\"pl-pds\">\"</span></span>).refresh(<span class=\"pl-en\">RefreshPolicy</span>.<span class=\"pl-en\">Immediate</span>)\n  }.await\n\n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> now we can search for the document we just indexed</span>\n  <span class=\"pl-k\">val</span> <span class=\"pl-smi\">resp</span> <span class=\"pl-k\">=</span> client.execute {\n    search(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>artists<span class=\"pl-pds\">\"</span></span>).query(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>lowry<span class=\"pl-pds\">\"</span></span>)\n  }.await\n\n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> resp is a Response[+U] ADT consisting of either a RequestFailure containing the</span>\n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> Elasticsearch error details, or a RequestSuccess[U] that depends on the type of request.</span>\n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> In this case it is a RequestSuccess[SearchResponse]</span>\n\n  println(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>---- Search Results ----<span class=\"pl-pds\">\"</span></span>)\n  resp <span class=\"pl-k\">match</span> {\n    <span class=\"pl-k\">case</span> <span class=\"pl-v\">failure</span>: <span class=\"pl-en\">RequestFailure</span> <span class=\"pl-k\">=&gt;</span> println(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>We failed <span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">+</span> failure.error)\n    <span class=\"pl-k\">case</span> <span class=\"pl-v\">results</span>: <span class=\"pl-en\">RequestSuccess</span>[<span class=\"pl-en\">SearchResponse</span>] <span class=\"pl-k\">=&gt;</span> println(results.result.hits.hits.toList)\n    <span class=\"pl-k\">case</span> <span class=\"pl-v\">results</span>: <span class=\"pl-en\">RequestSuccess</span>[_] <span class=\"pl-k\">=&gt;</span> println(results.result)\n  }\n\n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> Response also supports familiar combinators like map / flatMap / foreach:</span>\n  resp foreach (search <span class=\"pl-k\">=&gt;</span> println(<span class=\"pl-k\">s</span><span class=\"pl-s\">\"</span><span class=\"pl-s\">There were </span>${search.totalHits}<span class=\"pl-s\"> total hits</span><span class=\"pl-s\">\"</span>))\n\n  client.close()\n}\n</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-alternative-executors\" class=\"anchor\" aria-hidden=\"true\" href=\"#alternative-executors\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Alternative Executors</h2>\n<p dir=\"auto\">By default, elastic4s uses scala <code>Future</code>s when returning responses, but any effect type can be supported.</p>\n<p dir=\"auto\">If you wish to use ZIO, Cats-Effect, Monix or Scalaz, then read this page on <a href=\"docs/effects.md\">alternative effects</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-index-refreshing\" class=\"anchor\" aria-hidden=\"true\" href=\"#index-refreshing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Index Refreshing</h2>\n<p dir=\"auto\">When you index a document in Elasticsearch, usually it is not immediately available to be searched, as a <em>refresh</em> has to happen to make it visible to the search API.</p>\n<p dir=\"auto\">By default a refresh occurs every second but this can be changed if needed.\nNote that this only impacts the visibility of newly indexed documents and has nothing\nto do with data consistency and durability.</p>\n<p dir=\"auto\">This setting can be <a href=\"docs/refresh.md\">controlled</a> when creating an index or when indexed documents.</p>\n<h2 dir=\"auto\"><a id=\"user-content-create-index\" class=\"anchor\" aria-hidden=\"true\" href=\"#create-index\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Create Index</h2>\n<p dir=\"auto\">All documents in Elasticsearch are stored in an index. We do not need to tell Elasticsearch in advance what an index\nwill look like (eg what fields it will contain) as Elasticsearch will adapt the index dynamically as more documents are added, but we must at least create the index first.</p>\n<p dir=\"auto\">To create an index called \"places\" that is fully dynamic we can simply use:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"client.execute {\n  createIndex(&quot;places&quot;)\n}\"><pre>client.execute {\n  createIndex(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>places<span class=\"pl-pds\">\"</span></span>)\n}</pre></div>\n<p dir=\"auto\">We can optionally set the number of shards and/or replicas</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"client.execute {\n  createIndex(&quot;places&quot;).shards(3).replicas(2)\n}\"><pre>client.execute {\n  createIndex(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>places<span class=\"pl-pds\">\"</span></span>).shards(<span class=\"pl-c1\">3</span>).replicas(<span class=\"pl-c1\">2</span>)\n}</pre></div>\n<p dir=\"auto\">Sometimes we want to specify the properties of the fields in the index in advance.\nThis allows us to manually set the type of the field (where Elasticsearch might infer something else) or set the analyzer used,\nor multiple other options</p>\n<p dir=\"auto\">To do this we add mappings:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"client.execute {\n    createIndex(&quot;cities&quot;).mapping(\n        properties(\n            keywordField(&quot;id&quot;),\n            textField(&quot;name&quot;).boost(4),\n            textField(&quot;content&quot;),\n            keywordField(&quot;country&quot;),\n            keywordField(&quot;continent&quot;)\n        )\n    )\n}\"><pre>client.execute {\n    createIndex(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>cities<span class=\"pl-pds\">\"</span></span>).mapping(\n        properties(\n            keywordField(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>id<span class=\"pl-pds\">\"</span></span>),\n            textField(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>name<span class=\"pl-pds\">\"</span></span>).boost(<span class=\"pl-c1\">4</span>),\n            textField(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>content<span class=\"pl-pds\">\"</span></span>),\n            keywordField(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>country<span class=\"pl-pds\">\"</span></span>),\n            keywordField(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>continent<span class=\"pl-pds\">\"</span></span>)\n        )\n    )\n}</pre></div>\n<p dir=\"auto\">Then Elasticsearch is preconfigured with those mappings for those fields.\nIt is still fully dynamic and other fields will be created as needed with default options. Only the fields specified will have their type preset.</p>\n<p dir=\"auto\">More examples on the create index syntax can be <a href=\"https://sksamuel.github.io/elastic4s/docs/indices/createindex.html\" rel=\"nofollow\">found here</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-analyzers\" class=\"anchor\" aria-hidden=\"true\" href=\"#analyzers\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Analyzers</h2>\n<p dir=\"auto\">Analyzers control how Elasticsearch parses the fields for indexing. For example, you might decide that you want\nwhitespace to be important, so that \"band of brothers\" is indexed as a single \"word\" rather than the default which is\nto split on whitespace. There are many advanced options available in analayzers. Elasticsearch also allows us to create\ncustom analyzers. For more details <a href=\"docs/analysis.md\">see the documentation on analyzers</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-indexing\" class=\"anchor\" aria-hidden=\"true\" href=\"#indexing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Indexing</h2>\n<p dir=\"auto\">To index a document we need to specify the index and type and optionally we can set an id.\nIf we don't include an id then elasticsearch will generate one for us.\nWe must also include at least one field. Fields are specified as standard tuples.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"client.execute {\n  indexInto(&quot;cities&quot;).id(&quot;123&quot;).fields(\n    &quot;name&quot; -&gt; &quot;London&quot;,\n    &quot;country&quot; -&gt; &quot;United Kingdom&quot;,\n    &quot;continent&quot; -&gt; &quot;Europe&quot;,\n    &quot;status&quot; -&gt; &quot;Awesome&quot;\n  )\n}\"><pre>client.execute {\n  indexInto(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>cities<span class=\"pl-pds\">\"</span></span>).id(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>123<span class=\"pl-pds\">\"</span></span>).fields(\n    <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>name<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>London<span class=\"pl-pds\">\"</span></span>,\n    <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>country<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>United Kingdom<span class=\"pl-pds\">\"</span></span>,\n    <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>continent<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Europe<span class=\"pl-pds\">\"</span></span>,\n    <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>status<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Awesome<span class=\"pl-pds\">\"</span></span>\n  )\n}</pre></div>\n<p dir=\"auto\">There are many additional options we can set such as routing, version, parent, timestamp and op type.\nSee <a href=\"http://www.elasticsearch.org/guide/reference/api/index_/\" rel=\"nofollow\">official documentation</a> for additional options, all of\nwhich exist in the DSL as keywords that reflect their name in the official API.</p>\n<h2 dir=\"auto\"><a id=\"user-content-indexable-typeclass\" class=\"anchor\" aria-hidden=\"true\" href=\"#indexable-typeclass\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Indexable Typeclass</h2>\n<p dir=\"auto\">Sometimes it is useful to create documents directly from your domain model instead of manually creating maps of fields.\nTo achieve this, elastic4s provides the <code>Indexable</code> typeclass.</p>\n<p dir=\"auto\">If you provide an implicit instance of <code>Indexable[T]</code> in scope for any\nclass T that you wish to index, and then you can invoke <code>doc(t)</code> on the <code>IndexRequest</code>.</p>\n<p dir=\"auto\">For example:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"// a simple example of a domain model\ncase class Character(name: String, location: String)\n\n// turn instances of characters into json\nimplicit object CharacterIndexable extends Indexable[Character] {\n  override def json(t: Character): String = s&quot;&quot;&quot; { &quot;name&quot; : &quot;${t.name}&quot;, &quot;location&quot; : &quot;${t.location}&quot; } &quot;&quot;&quot;\n}\n\n// now index requests can directly use characters as docs\nval jonsnow = Character(&quot;jon snow&quot;, &quot;the wall&quot;)\nclient.execute {\n  indexInto(&quot;gameofthrones&quot;).doc(jonsnow)\n}\"><pre><span class=\"pl-c\"><span class=\"pl-c\">//</span> a simple example of a domain model</span>\n<span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">Character</span>(<span class=\"pl-v\">name</span>: <span class=\"pl-en\">String</span>, <span class=\"pl-v\">location</span>: <span class=\"pl-en\">String</span>)\n\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> turn instances of characters into json</span>\n<span class=\"pl-k\">implicit</span> <span class=\"pl-k\">object</span> <span class=\"pl-en\">CharacterIndexable</span> <span class=\"pl-k\">extends</span> <span class=\"pl-e\">Indexable</span>[<span class=\"pl-en\">Character</span>] {\n  <span class=\"pl-k\">override</span> <span class=\"pl-k\">def</span> <span class=\"pl-en\">json</span>(<span class=\"pl-v\">t</span>: <span class=\"pl-en\">Character</span>)<span class=\"pl-k\">:</span> <span class=\"pl-en\">String</span> <span class=\"pl-k\">=</span> <span class=\"pl-k\">s</span><span class=\"pl-s\">\"\"\"</span><span class=\"pl-s\"> { \"name\" : \"</span>${t.name}<span class=\"pl-s\">\", \"location\" : \"</span>${t.location}<span class=\"pl-s\">\" } </span><span class=\"pl-s\">\"\"\"</span>\n}\n\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> now index requests can directly use characters as docs</span>\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">jonsnow</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Character</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>jon snow<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>the wall<span class=\"pl-pds\">\"</span></span>)\nclient.execute {\n  indexInto(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>gameofthrones<span class=\"pl-pds\">\"</span></span>).doc(jonsnow)\n}</pre></div>\n<p dir=\"auto\">Some people prefer to write typeclasses manually for the types they need to support. Other people like to just have\nit done automagically. For the latter, elastic4s provides extensions for the well known Scala Json libraries that\ncan be used to generate Json generically.</p>\n<p dir=\"auto\">To use this, add the import for your chosen library below and bring the implicits into scope. Then you can pass any case class\ninstance to <code>doc</code> and an <code>Indexable</code> will be derived automatically.</p>\n<table>\n<thead>\n<tr>\n<th>Library</th>\n<th>Elastic4s Module</th>\n<th>Import</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><a href=\"https://github.com/FasterXML/jackson-module-scala\">Jackson</a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Celastic4s-json-jackson\" rel=\"nofollow\">elastic4s-json-jackson</a></td>\n<td>import ElasticJackson.Implicits._</td>\n</tr>\n<tr>\n<td><a href=\"http://json4s.org/\" rel=\"nofollow\">Json4s</a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Celastic4s-json-json4s\" rel=\"nofollow\">elastic4s-json-json4s</a></td>\n<td>import ElasticJson4s.Implicits._</td>\n</tr>\n<tr>\n<td><a href=\"https://github.com/travisbrown/circe\">Circe</a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Celastic4s-json-circe\" rel=\"nofollow\">elastic4s-json-circe</a></td>\n<td>import io.circe.generic.auto._ <br>import com.sksamuel.elastic4s.circe._</td>\n</tr>\n<tr>\n<td><a href=\"https://github.com/playframework/play-json\">PlayJson</a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Celastic4s-json-play\" rel=\"nofollow\">elastic4s-json-play</a></td>\n<td>import com.sksamuel.elastic4s.playjson._</td>\n</tr>\n<tr>\n<td><a href=\"https://github.com/spray/spray-json\">Spray Json</a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Celastic4s-json-spray\" rel=\"nofollow\">elastic4s-json-spray</a></td>\n<td>import com.sksamuel.elastic4s.sprayjson._</td>\n</tr>\n<tr>\n<td><a href=\"https://github.com/zio/zio-json\">ZIO Json</a></td>\n<td><a href=\"http://search.maven.org/#search%7Cga%7C1%7Celastic4s-json-spray\" rel=\"nofollow\">elastic4s-json-zio</a></td>\n<td>import com.sksamuel.elastic4s.ziojson._</td>\n</tr>\n</tbody>\n</table>\n<h2 dir=\"auto\"><a id=\"user-content-searching\" class=\"anchor\" aria-hidden=\"true\" href=\"#searching\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Searching</h2>\n<p dir=\"auto\">To execute a <a href=\"http://www.elasticsearch.org/guide/reference/api/search/\" rel=\"nofollow\">search</a> in elastic4s, we need to pass an instance of <code>SearchRequest</code> to our client.</p>\n<p dir=\"auto\">One way to do this is to invoke <code>search</code> and pass in the index name. From there, you can call\n<code>query</code> and pass in the type of query you want to perform.</p>\n<p dir=\"auto\">For example, to perform a simple text search, where the query is parsed from a single string we can do:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"client.execute {\n  search(&quot;cities&quot;).query(&quot;London&quot;)\n}\"><pre>client.execute {\n  search(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>cities<span class=\"pl-pds\">\"</span></span>).query(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>London<span class=\"pl-pds\">\"</span></span>)\n}</pre></div>\n<p dir=\"auto\">For full details on creating queries and other search capabilities such source filtering and aggregations, please read <a href=\"docs/search.md\">this</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-multisearch\" class=\"anchor\" aria-hidden=\"true\" href=\"#multisearch\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Multisearch</h2>\n<p dir=\"auto\">Multiple search requests can be executed in a single call using the <a href=\"docs/multisearch.md\">multisearch</a> request type. This is the search equivilent of the bulk request.</p>\n<h2 dir=\"auto\"><a id=\"user-content-hitreader-typeclass\" class=\"anchor\" aria-hidden=\"true\" href=\"#hitreader-typeclass\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>HitReader Typeclass</h2>\n<p dir=\"auto\">By default Elasticsearch search responses contain an array of <code>SearchHit</code> instances which contain things like the id,\nindex, type, version, etc as well as the document source as a string or map. Elastic4s provides a means to convert these\nback to meaningful domain types quite easily using the <code>HitReader[T]</code> typeclass.</p>\n<p dir=\"auto\">Provide an implementation of this typeclass, as an in scope implicit, for whatever type you wish to marshall search responses into, and then you can call <code>to[T]</code> or <code>safeTo[T]</code> on the response.\nThe difference between <code>to</code> and <code>safeTo</code> is that <code>to</code> will drop any errors and just return successful conversions, whereas safeTo returns\na sequence of <code>Either[Throwable, T]</code>.</p>\n<p dir=\"auto\">A full example:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"case class Character(name: String, location: String)\n\nimplicit object CharacterHitReader extends HitReader[Character] {\n  override def read(hit: Hit): Either[Throwable, Character] = {\n    val source = hit.sourceAsMap\n    Right(Character(source(&quot;name&quot;).toString, source(&quot;location&quot;).toString))\n  }\n}\n\nval resp = client.execute {\n  search(&quot;gameofthrones&quot;).query(&quot;kings landing&quot;)\n}.await // don't block in real code\n\n// .to[Character] will look for an implicit HitReader[Character] in scope\n// and then convert all the hits into Characters for us.\nval characters: Seq[Character] = resp.result.to[Character]\"><pre><span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">Character</span>(<span class=\"pl-v\">name</span>: <span class=\"pl-en\">String</span>, <span class=\"pl-v\">location</span>: <span class=\"pl-en\">String</span>)\n\n<span class=\"pl-k\">implicit</span> <span class=\"pl-k\">object</span> <span class=\"pl-en\">CharacterHitReader</span> <span class=\"pl-k\">extends</span> <span class=\"pl-e\">HitReader</span>[<span class=\"pl-en\">Character</span>] {\n  <span class=\"pl-k\">override</span> <span class=\"pl-k\">def</span> <span class=\"pl-en\">read</span>(<span class=\"pl-v\">hit</span>: <span class=\"pl-en\">Hit</span>)<span class=\"pl-k\">:</span> <span class=\"pl-en\">Either</span>[<span class=\"pl-en\">Throwable</span>, <span class=\"pl-en\">Character</span>] <span class=\"pl-k\">=</span> {\n    <span class=\"pl-k\">val</span> <span class=\"pl-smi\">source</span> <span class=\"pl-k\">=</span> hit.sourceAsMap\n    <span class=\"pl-en\">Right</span>(<span class=\"pl-en\">Character</span>(source(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>name<span class=\"pl-pds\">\"</span></span>).toString, source(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>location<span class=\"pl-pds\">\"</span></span>).toString))\n  }\n}\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">resp</span> <span class=\"pl-k\">=</span> client.execute {\n  search(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>gameofthrones<span class=\"pl-pds\">\"</span></span>).query(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>kings landing<span class=\"pl-pds\">\"</span></span>)\n}.await <span class=\"pl-c\"><span class=\"pl-c\">//</span> don't block in real code</span>\n\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> .to[Character] will look for an implicit HitReader[Character] in scope</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> and then convert all the hits into Characters for us.</span>\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">characters</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">Seq</span>[<span class=\"pl-en\">Character</span>] <span class=\"pl-k\">=</span> resp.result.to[<span class=\"pl-en\">Character</span>]</pre></div>\n<p dir=\"auto\">This is basically the inverse of the <code>Indexable</code> typeclass. And just like Indexable, the json modules provide implementations\nout of the box for any types. The imports are the same as for the Indexable typeclasses.</p>\n<p dir=\"auto\">As a bonus feature of the Jackson implementation, if your domain object has fields called <code>_timestamp</code>, <code>_id</code>, <code>_type</code>, <code>_index</code>, or\n<code>_version</code> then those special fields will be automatically populated as well.</p>\n<h2 dir=\"auto\"><a id=\"user-content-highlighting\" class=\"anchor\" aria-hidden=\"true\" href=\"#highlighting\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Highlighting</h2>\n<p dir=\"auto\">Elasticsearch can annotate results to show which part of the results matched the queries by using highlighting.\nJust think when you're in google and you see the snippets underneath your results - that's what highlighting does.</p>\n<p dir=\"auto\">We can use this very easily, just add a highlighting definition to your search request, where you set the field or fields to be highlighted. Viz:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"search(&quot;music&quot;).query(&quot;kate bush&quot;).highlighting (\n  highlight(&quot;body&quot;).fragmentSize(20)\n)\"><pre>search(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>music<span class=\"pl-pds\">\"</span></span>).query(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>kate bush<span class=\"pl-pds\">\"</span></span>).highlighting (\n  highlight(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>body<span class=\"pl-pds\">\"</span></span>).fragmentSize(<span class=\"pl-c1\">20</span>)\n)</pre></div>\n<p dir=\"auto\">All very straightforward. There are many options you can use to tweak the results. In the example above I have\nsimply set the snippets to be taken from the field called \"body\" and to have max length 20. You can set the number of fragments to return, seperate queries to generate them and other things. See the elasticsearch page on <a href=\"http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-request-highlighting.html\" rel=\"nofollow\">highlighting</a> for more info.</p>\n<h2 dir=\"auto\"><a id=\"user-content-get--multiget\" class=\"anchor\" aria-hidden=\"true\" href=\"#get--multiget\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Get / Multiget</h2>\n<p dir=\"auto\">A <a href=\"docs/get.md\">get</a> request allows us to retrieve a document directly by id.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"client.execute {\n  get(&quot;bands&quot;, &quot;coldplay&quot;)\n}\"><pre>client.execute {\n  get(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>bands<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>coldplay<span class=\"pl-pds\">\"</span></span>)\n}</pre></div>\n<p dir=\"auto\">We can fetch multiple documents at once using the <a href=\"docs/multiget.md\">multiget</a> request.</p>\n<h2 dir=\"auto\"><a id=\"user-content-deleting\" class=\"anchor\" aria-hidden=\"true\" href=\"#deleting\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Deleting</h2>\n<p dir=\"auto\">In elasticsearch we can delete based on an id, or based on a query (which can match multiple documents).</p>\n<p dir=\"auto\">See more about <a href=\"docs/delete.md\">delete</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-updates\" class=\"anchor\" aria-hidden=\"true\" href=\"#updates\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Updates</h2>\n<p dir=\"auto\">We can update existing documents without having to do a full index, by updating a partial set of fields.\nWe can <em>update-by-id</em> or <em>update-by-query</em>.</p>\n<p dir=\"auto\">For more details see the <a href=\"docs/update.md\">update</a> page.</p>\n<h2 dir=\"auto\"><a id=\"user-content-more-like-this\" class=\"anchor\" aria-hidden=\"true\" href=\"#more-like-this\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>More like this</h2>\n<p dir=\"auto\">If you want to return documents that are \"similar\" to  a current document we can do that very easily with the more like this query.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"client.execute {\n  search(&quot;drinks&quot;).query {\n    moreLikeThisQuery(&quot;name&quot;).likeTexts(&quot;coors&quot;, &quot;beer&quot;, &quot;molson&quot;).minTermFreq(1).minDocFreq(1)\n  }\n}\"><pre>client.execute {\n  search(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>drinks<span class=\"pl-pds\">\"</span></span>).query {\n    moreLikeThisQuery(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>name<span class=\"pl-pds\">\"</span></span>).likeTexts(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>coors<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>beer<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>molson<span class=\"pl-pds\">\"</span></span>).minTermFreq(<span class=\"pl-c1\">1</span>).minDocFreq(<span class=\"pl-c1\">1</span>)\n  }\n}</pre></div>\n<p dir=\"auto\">For all the options see <a href=\"http://www.elasticsearch.org/guide/reference/query-dsl/mlt-query/\" rel=\"nofollow\">here</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-count\" class=\"anchor\" aria-hidden=\"true\" href=\"#count\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Count</h2>\n<p dir=\"auto\">A <a href=\"docs/count.md\">count request</a> executes a query and returns a count of the number of matching documents for that query.</p>\n<h2 dir=\"auto\"><a id=\"user-content-bulk-operations\" class=\"anchor\" aria-hidden=\"true\" href=\"#bulk-operations\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Bulk Operations</h2>\n<p dir=\"auto\">Elasticsearch is fast. Roundtrips are not. Sometimes we want to wrestle every last inch of performance and a useful way\nto do this is to batch up requests. We can do this in elasticsearch via the bulk API. A bulk request wraps index,\ndelete and update requests in a single request.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"client.execute {\n  bulk(\n    indexInto(&quot;bands&quot;).fields(&quot;name&quot; -&gt; &quot;coldplay&quot;), // one index request\n    deleteById(&quot;bands&quot;, &quot;123&quot;), // a delete by id request\n    indexInto(&quot;bands&quot;).fields( // second index request\n      &quot;name&quot; -&gt; &quot;elton john&quot;,\n      &quot;best_album&quot; -&gt; &quot;tumbleweed connection&quot;\n    )\n  )\n}\"><pre>client.execute {\n  bulk(\n    indexInto(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>bands<span class=\"pl-pds\">\"</span></span>).fields(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>name<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>coldplay<span class=\"pl-pds\">\"</span></span>), <span class=\"pl-c\"><span class=\"pl-c\">//</span> one index request</span>\n    deleteById(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>bands<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>123<span class=\"pl-pds\">\"</span></span>), <span class=\"pl-c\"><span class=\"pl-c\">//</span> a delete by id request</span>\n    indexInto(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>bands<span class=\"pl-pds\">\"</span></span>).fields( <span class=\"pl-c\"><span class=\"pl-c\">//</span> second index request</span>\n      <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>name<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>elton john<span class=\"pl-pds\">\"</span></span>,\n      <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>best_album<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>tumbleweed connection<span class=\"pl-pds\">\"</span></span>\n    )\n  )\n}</pre></div>\n<p dir=\"auto\">A single HTTP request is now needed for 3 operations. In addition Elasticsearch can now optimize the requests,\nby combining inserts or using aggressive caching.</p>\n<p dir=\"auto\">For full details see the <a href=\"docs/bulk.md\">docs on bulk operations</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-show-query-json\" class=\"anchor\" aria-hidden=\"true\" href=\"#show-query-json\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Show Query JSON</h2>\n<p dir=\"auto\">It can be useful to see the json output of requests in case you wish to tinker with the request in a REST client or your browser. It can be much easier to tweak a complicated query when you have the instant feedback of the HTTP interface.</p>\n<p dir=\"auto\">Elastic4s makes it easy to get this json where possible. Simply invoke the <code>show</code> method on the client with a request to get back a json string. Eg:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val json = client.show {\n  search(&quot;music&quot;).query(&quot;coldplay&quot;)\n}\nprintln(json)\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">json</span> <span class=\"pl-k\">=</span> client.show {\n  search(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>music<span class=\"pl-pds\">\"</span></span>).query(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>coldplay<span class=\"pl-pds\">\"</span></span>)\n}\nprintln(json)</pre></div>\n<p dir=\"auto\">Not all requests have a json body. For example <em>get-by-id</em> is modelled purely by http query parameters, there is no json body to output. And some requests aren't supported by the show method - you will get an implicit not found error during compliation if that is the case</p>\n<h2 dir=\"auto\"><a id=\"user-content-aliases\" class=\"anchor\" aria-hidden=\"true\" href=\"#aliases\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Aliases</h2>\n<p dir=\"auto\">An <a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-aliases.html\" rel=\"nofollow\">index alias</a> is a logical name used to reference one or more indices. Most Elasticsearch APIs accept an index alias in place of an index name.</p>\n<p dir=\"auto\">For elastic4s syntax for aliases <a href=\"docs/alias.md\">click here</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-explain\" class=\"anchor\" aria-hidden=\"true\" href=\"#explain\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Explain</h2>\n<p dir=\"auto\">An <a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/current/search-explain.html\" rel=\"nofollow\">explain request</a> computes a score explanation for a query and a specific document. This can give useful feedback whether a document matches or didn’t match a specific query.</p>\n<p dir=\"auto\">For elastic4s syntax for explain <a href=\"docs/explain.md\">click here</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-validate-query\" class=\"anchor\" aria-hidden=\"true\" href=\"#validate-query\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Validate Query</h2>\n<p dir=\"auto\">The validate query request type allows you to check a query is valid before executing it.</p>\n<p dir=\"auto\">See the syntax <a href=\"docs/validate.md\">here</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-force-merge\" class=\"anchor\" aria-hidden=\"true\" href=\"#force-merge\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Force Merge</h2>\n<p dir=\"auto\">Merging reduces the number of segments in each shard by merging some of them together, and also frees up the space used by deleted documents. Merging normally happens automatically, but sometimes it is useful to trigger a merge manually.</p>\n<p dir=\"auto\">See the syntax <a href=\"docs/force_merge.md\">here</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-cluster-apis\" class=\"anchor\" aria-hidden=\"true\" href=\"#cluster-apis\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Cluster APIs</h2>\n<p dir=\"auto\">Elasticsearch supports querying the state of the cluster itself, to find out information on nodes, shards, indices, tasks and so on. See the range of cluster APIs <a href=\"docs/cluster.md\">here</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-search-iterator\" class=\"anchor\" aria-hidden=\"true\" href=\"#search-iterator\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Search Iterator</h2>\n<p dir=\"auto\">Sometimes you may wish to iterate over all the results in a search, without worrying too much about handling futures, and re-requesting\nvia a scroll. The <code>SearchIterator</code> will do this for you, although it will block between requests. A search iterator is just an implementation\nof <code>scala.collection.Iterator</code> backed by elasticsearch queries.</p>\n<p dir=\"auto\">To create one, use the iterate method on the companion object, passing in the http client, and a search request to execute. The\nsearch request must specify a keep alive value (which is used by elasticsearch for scrolling).</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"implicit val reader : HitReader[MyType] =  ...\nval iterator = SearchIterator.iterate[MyType](client, search(index).matchAllQuery.keepAlive(&quot;1m&quot;).size(50))\niterator.foreach(println)\"><pre><span class=\"pl-k\">implicit</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">reader</span> <span class=\"pl-k\">:</span> <span class=\"pl-en\">HitReader</span>[<span class=\"pl-en\">MyType</span>] <span class=\"pl-k\">=</span>  ...\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">iterator</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">SearchIterator</span>.iterate[<span class=\"pl-en\">MyType</span>](client, search(index).matchAllQuery.keepAlive(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1m<span class=\"pl-pds\">\"</span></span>).size(<span class=\"pl-c1\">50</span>))\niterator.foreach(println)</pre></div>\n<p dir=\"auto\">For instance, in the above we are bringing back all documents in the index, 50 results at a time, marshalled into\ninstances of <code>MyType</code> using the implicit <code>HitReader</code> (see the section on HitReaders). If you want just the raw\nelasticsearch <code>Hit</code> object, then use <code>SearchIterator.hits</code></p>\n<p dir=\"auto\">Note: Whenever the results in a particular\nbatch have been iterated on, the <code>SearchIterator</code> will then execute another query for the next batch and block waiting on that query.\nSo if you are looking for a pure non blocking solution, consider the reactive streams implementation. However, if you just want a\nquick and simple way to iterate over some data without bringing back all the results at once <code>SearchIterator</code> is perfect.</p>\n<h2 dir=\"auto\"><a id=\"user-content-elastic-reactive-streams\" class=\"anchor\" aria-hidden=\"true\" href=\"#elastic-reactive-streams\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Elastic Reactive Streams</h2>\n<p dir=\"auto\">Elastic4s has an implementation of the <a href=\"http://www.reactive-streams.org\" rel=\"nofollow\">reactive streams</a> api for both publishing and subscribing that is built\nusing Akka. To use this, you need to add a dependency on the elastic4s-streams module.</p>\n<p dir=\"auto\">There are two things you can do with the reactive streams implementation. You can create an elastic subscriber, and have that\nstream data from some publisher into elasticsearch. Or you can create an elastic publisher and have documents streamed out to subscribers.</p>\n<p dir=\"auto\">For full details read the <a href=\"docs/streams.md\">streams documentation</a></p>\n<h2 dir=\"auto\"><a id=\"user-content-using-elastic4s-in-your-project\" class=\"anchor\" aria-hidden=\"true\" href=\"#using-elastic4s-in-your-project\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Using Elastic4s in your project</h2>\n<p dir=\"auto\">For gradle users, add (replace 2.12 with 2.13 for Scala 2.13):</p>\n<div class=\"highlight highlight-source-groovy position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"compile 'com.sksamuel.elastic4s:elastic4s-core_2.12:x.x.x'\"><pre>compile <span class=\"pl-s\"><span class=\"pl-pds\">'</span>com.sksamuel.elastic4s:elastic4s-core_2.12:x.x.x<span class=\"pl-pds\">'</span></span></pre></div>\n<p dir=\"auto\">For SBT users simply add:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;com.sksamuel.elastic4s&quot; %% &quot;elastic4s-core&quot; % &quot;x.x.x&quot;\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.sksamuel.elastic4s<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>elastic4s-core<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>x.x.x<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">For Maven users simply add (replace 2.12 with 2.13 for Scala 2.13):</p>\n<div class=\"highlight highlight-text-xml position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&lt;dependency&gt;\n    &lt;groupId&gt;com.sksamuel.elastic4s&lt;/groupId&gt;\n    &lt;artifactId&gt;elastic4s-core_2.12&lt;/artifactId&gt;\n    &lt;version&gt;x.x.x&lt;/version&gt;\n&lt;/dependency&gt;\"><pre>&lt;<span class=\"pl-ent\">dependency</span>&gt;\n    &lt;<span class=\"pl-ent\">groupId</span>&gt;com.sksamuel.elastic4s&lt;/<span class=\"pl-ent\">groupId</span>&gt;\n    &lt;<span class=\"pl-ent\">artifactId</span>&gt;elastic4s-core_2.12&lt;/<span class=\"pl-ent\">artifactId</span>&gt;\n    &lt;<span class=\"pl-ent\">version</span>&gt;x.x.x&lt;/<span class=\"pl-ent\">version</span>&gt;\n&lt;/<span class=\"pl-ent\">dependency</span>&gt;</pre></div>\n<p dir=\"auto\">Check for the latest released versions on <a href=\"http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.sksamuel.elastic4s%22\" rel=\"nofollow\">maven central</a></p>\n<h2 dir=\"auto\"><a id=\"user-content-building-and-testing\" class=\"anchor\" aria-hidden=\"true\" href=\"#building-and-testing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Building and Testing</h2>\n<p dir=\"auto\">This project is built with SBT. So to build with:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"sbt compile\"><pre>sbt compile</pre></div>\n<p dir=\"auto\">And to test:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"sbt test\"><pre>sbt test</pre></div>\n<p dir=\"auto\">The project is currently <a href=\"https://www.scala-sbt.org/1.x/docs/Cross-Build.html\" rel=\"nofollow\">cross-built</a> against Scala 2.12 and\n2.13, when preparing a pull request the above commands should be run with the <code>sbt</code> <code>+</code> modifier to compile and test\nagainst both versions. For example: <code>sbt +compile</code>.</p>\n<p dir=\"auto\">For the tests to work you will need to run a local elastic instance on port 39227, <em>with security enabled</em>. One easy way of doing this is to use docker (via docker-compose):\n<code>docker-compose up</code></p>\n<h2 dir=\"auto\"><a id=\"user-content-used-by\" class=\"anchor\" aria-hidden=\"true\" href=\"#used-by\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Used By</h2>\n<ul dir=\"auto\">\n<li>Barclays Bank</li>\n<li>HSBC</li>\n<li>Shazaam</li>\n<li>Lenses</li>\n<li>Iterable</li>\n<li>Graphflow</li>\n<li>Hotel Urbano</li>\n<li>Immobilien Scout</li>\n<li>Deutsche Bank</li>\n<li>Goldman Sachs</li>\n<li>HMRC</li>\n<li>Canal+</li>\n<li>AOE</li>\n<li>Starmind</li>\n<li>ShopRunner</li>\n<li>Soundcloud</li>\n<li>Rostelecom-Solar</li>\n<li>Shoprunner</li>\n<li>Twitter</li>\n<li>bluerootlabs.io</li>\n<li>mapp.com</li>\n</ul>\n<p dir=\"auto\"><em>Raise a PR to add your company here</em></p>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/81cebad9a613009454b2b36f2d410e5ccc2c8e27b6736f9c7074df8cdf6ebd2a/68747470733a2f2f7777772e796f75726b69742e636f6d2f696d616765732f796b6c6f676f2e706e67\"><img src=\"https://camo.githubusercontent.com/81cebad9a613009454b2b36f2d410e5ccc2c8e27b6736f9c7074df8cdf6ebd2a/68747470733a2f2f7777772e796f75726b69742e636f6d2f696d616765732f796b6c6f676f2e706e67\" alt=\"youkit logo\" data-canonical-src=\"https://www.yourkit.com/images/yklogo.png\" style=\"max-width: 100%;\"></a> YourKit supports open source projects with its full-featured Java Profiler.\nYourKit, LLC is the creator of <a href=\"https://www.yourkit.com/java/profiler/index.jsp\" rel=\"nofollow\">YourKit Java Profiler</a>\nand <a href=\"https://www.yourkit.com/.net/profiler/index.jsp\" rel=\"nofollow\">YourKit .NET Profiler</a>,\ninnovative and intelligent tools for profiling Java and .NET applications.</p>\n<h2 dir=\"auto\"><a id=\"user-content-contributions\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributions\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Contributions</h2>\n<p dir=\"auto\">Contributions to elastic4s are always welcome. Good ways to contribute include:</p>\n<ul dir=\"auto\">\n<li>Raising bugs and feature requests</li>\n<li>Fixing bugs and enhancing the DSL</li>\n<li>Improving the performance of elastic4s</li>\n<li>Adding to the documentation</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>License</h2>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"This software is licensed under the Apache 2 license, quoted below.\n\nCopyright 2013-2016 Stephen Samuel\n\nLicensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not\nuse this file except in compliance with the License. You may obtain a copy of\nthe License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT\nWARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the\nLicense for the specific language governing permissions and limitations under\nthe License.\"><pre><code>This software is licensed under the Apache 2 license, quoted below.\n\nCopyright 2013-2016 Stephen Samuel\n\nLicensed under the Apache License, Version 2.0 (the \"License\"); you may not\nuse this file except in compliance with the License. You may obtain a copy of\nthe License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT\nWARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the\nLicense for the specific language governing permissions and limitations under\nthe License.\n</code></pre></div>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "sksamuel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/743706?v=4",
+        "url" : "https://api.github.com/users/sksamuel",
+        "contributions" : 3139
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 346
+      },
+      {
+        "login" : "solicode",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7761921?v=4",
+        "url" : "https://api.github.com/users/solicode",
+        "contributions" : 41
+      },
+      {
+        "login" : "fehmicansaglam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/446202?v=4",
+        "url" : "https://api.github.com/users/fehmicansaglam",
+        "contributions" : 39
+      },
+      {
+        "login" : "stringbean",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/486181?v=4",
+        "url" : "https://api.github.com/users/stringbean",
+        "contributions" : 38
+      },
+      {
+        "login" : "lmafonso",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/27732639?v=4",
+        "url" : "https://api.github.com/users/lmafonso",
+        "contributions" : 21
+      },
+      {
+        "login" : "Philippus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1923596?v=4",
+        "url" : "https://api.github.com/users/Philippus",
+        "contributions" : 20
+      },
+      {
+        "login" : "muuki88",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/647727?v=4",
+        "url" : "https://api.github.com/users/muuki88",
+        "contributions" : 18
+      },
+      {
+        "login" : "vbehar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6251?v=4",
+        "url" : "https://api.github.com/users/vbehar",
+        "contributions" : 17
+      },
+      {
+        "login" : "kimxogus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11684628?v=4",
+        "url" : "https://api.github.com/users/kimxogus",
+        "contributions" : 16
+      },
+      {
+        "login" : "hura",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/671872?v=4",
+        "url" : "https://api.github.com/users/hura",
+        "contributions" : 15
+      },
+      {
+        "login" : "sullis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30938?v=4",
+        "url" : "https://api.github.com/users/sullis",
+        "contributions" : 14
+      },
+      {
+        "login" : "andrestc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2944739?v=4",
+        "url" : "https://api.github.com/users/andrestc",
+        "contributions" : 13
+      },
+      {
+        "login" : "alex1712",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/408460?v=4",
+        "url" : "https://api.github.com/users/alex1712",
+        "contributions" : 12
+      },
+      {
+        "login" : "kharnt0x",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1256577?v=4",
+        "url" : "https://api.github.com/users/kharnt0x",
+        "contributions" : 11
+      },
+      {
+        "login" : "jadlr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/696999?v=4",
+        "url" : "https://api.github.com/users/jadlr",
+        "contributions" : 11
+      },
+      {
+        "login" : "ppat",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1630635?v=4",
+        "url" : "https://api.github.com/users/ppat",
+        "contributions" : 10
+      },
+      {
+        "login" : "joan38",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1200478?v=4",
+        "url" : "https://api.github.com/users/joan38",
+        "contributions" : 10
+      },
+      {
+        "login" : "MatteCarra",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11074527?v=4",
+        "url" : "https://api.github.com/users/MatteCarra",
+        "contributions" : 10
+      },
+      {
+        "login" : "alexshadow007",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/647552?v=4",
+        "url" : "https://api.github.com/users/alexshadow007",
+        "contributions" : 9
+      },
+      {
+        "login" : "TrustNoOne",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1575319?v=4",
+        "url" : "https://api.github.com/users/TrustNoOne",
+        "contributions" : 9
+      },
+      {
+        "login" : "pgorin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6355060?v=4",
+        "url" : "https://api.github.com/users/pgorin",
+        "contributions" : 9
+      },
+      {
+        "login" : "touchdown",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4781075?v=4",
+        "url" : "https://api.github.com/users/touchdown",
+        "contributions" : 8
+      },
+      {
+        "login" : "saraiva132",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9886953?v=4",
+        "url" : "https://api.github.com/users/saraiva132",
+        "contributions" : 8
+      },
+      {
+        "login" : "alexklibisz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8015228?v=4",
+        "url" : "https://api.github.com/users/alexklibisz",
+        "contributions" : 7
+      },
+      {
+        "login" : "douglaz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/163706?v=4",
+        "url" : "https://api.github.com/users/douglaz",
+        "contributions" : 7
+      },
+      {
+        "login" : "Dbzman",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/482264?v=4",
+        "url" : "https://api.github.com/users/Dbzman",
+        "contributions" : 7
+      },
+      {
+        "login" : "tarangbhalodia",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/20901400?v=4",
+        "url" : "https://api.github.com/users/tarangbhalodia",
+        "contributions" : 7
+      },
+      {
+        "login" : "danslapman",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1708325?v=4",
+        "url" : "https://api.github.com/users/danslapman",
+        "contributions" : 7
+      },
+      {
+        "login" : "hamnis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/75431?v=4",
+        "url" : "https://api.github.com/users/hamnis",
+        "contributions" : 6
+      },
+      {
+        "login" : "rkrzewski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/671159?v=4",
+        "url" : "https://api.github.com/users/rkrzewski",
+        "contributions" : 6
+      },
+      {
+        "login" : "yanns",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/51669?v=4",
+        "url" : "https://api.github.com/users/yanns",
+        "contributions" : 6
+      },
+      {
+        "login" : "maxcom",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/69385?v=4",
+        "url" : "https://api.github.com/users/maxcom",
+        "contributions" : 6
+      },
+      {
+        "login" : "aparo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/28075?v=4",
+        "url" : "https://api.github.com/users/aparo",
+        "contributions" : 5
+      },
+      {
+        "login" : "catalin-ursachi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11335549?v=4",
+        "url" : "https://api.github.com/users/catalin-ursachi",
+        "contributions" : 5
+      },
+      {
+        "login" : "MVJosh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/46718985?v=4",
+        "url" : "https://api.github.com/users/MVJosh",
+        "contributions" : 5
+      },
+      {
+        "login" : "k4200",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/539941?v=4",
+        "url" : "https://api.github.com/users/k4200",
+        "contributions" : 5
+      },
+      {
+        "login" : "kbedel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7980302?v=4",
+        "url" : "https://api.github.com/users/kbedel",
+        "contributions" : 5
+      },
+      {
+        "login" : "martin-g",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/232002?v=4",
+        "url" : "https://api.github.com/users/martin-g",
+        "contributions" : 5
+      },
+      {
+        "login" : "tovbinm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/629845?v=4",
+        "url" : "https://api.github.com/users/tovbinm",
+        "contributions" : 5
+      },
+      {
+        "login" : "apanimesh061",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3243029?v=4",
+        "url" : "https://api.github.com/users/apanimesh061",
+        "contributions" : 5
+      },
+      {
+        "login" : "nicoo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/538341?v=4",
+        "url" : "https://api.github.com/users/nicoo",
+        "contributions" : 5
+      },
+      {
+        "login" : "grillorafael",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1812267?v=4",
+        "url" : "https://api.github.com/users/grillorafael",
+        "contributions" : 5
+      },
+      {
+        "login" : "brunoballekens",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30588687?v=4",
+        "url" : "https://api.github.com/users/brunoballekens",
+        "contributions" : 5
+      },
+      {
+        "login" : "fabriziofortino",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1469849?v=4",
+        "url" : "https://api.github.com/users/fabriziofortino",
+        "contributions" : 4
+      },
+      {
+        "login" : "dontgitit",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4284884?v=4",
+        "url" : "https://api.github.com/users/dontgitit",
+        "contributions" : 4
+      },
+      {
+        "login" : "JD557",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1187242?v=4",
+        "url" : "https://api.github.com/users/JD557",
+        "contributions" : 4
+      },
+      {
+        "login" : "leonardehrenfried",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/151346?v=4",
+        "url" : "https://api.github.com/users/leonardehrenfried",
+        "contributions" : 4
+      },
+      {
+        "login" : "lustefaniak",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/177043?v=4",
+        "url" : "https://api.github.com/users/lustefaniak",
+        "contributions" : 4
+      },
+      {
+        "login" : "rb3ckers",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/41439596?v=4",
+        "url" : "https://api.github.com/users/rb3ckers",
+        "contributions" : 4
+      },
+      {
+        "login" : "stijn-starmind",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4601409?v=4",
+        "url" : "https://api.github.com/users/stijn-starmind",
+        "contributions" : 4
+      },
+      {
+        "login" : "tyth",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2362012?v=4",
+        "url" : "https://api.github.com/users/tyth",
+        "contributions" : 4
+      },
+      {
+        "login" : "zlumyo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3881330?v=4",
+        "url" : "https://api.github.com/users/zlumyo",
+        "contributions" : 4
+      },
+      {
+        "login" : "fvlankvelt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/210935?v=4",
+        "url" : "https://api.github.com/users/fvlankvelt",
+        "contributions" : 4
+      },
+      {
+        "login" : "leo-dur",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8612474?v=4",
+        "url" : "https://api.github.com/users/leo-dur",
+        "contributions" : 4
+      },
+      {
+        "login" : "zaneli",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/379820?v=4",
+        "url" : "https://api.github.com/users/zaneli",
+        "contributions" : 4
+      },
+      {
+        "login" : "an-tex",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1380580?v=4",
+        "url" : "https://api.github.com/users/an-tex",
+        "contributions" : 4
+      },
+      {
+        "login" : "guersam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/969120?v=4",
+        "url" : "https://api.github.com/users/guersam",
+        "contributions" : 4
+      },
+      {
+        "login" : "chikei",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/84867?v=4",
+        "url" : "https://api.github.com/users/chikei",
+        "contributions" : 4
+      },
+      {
+        "login" : "zarucki",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1859063?v=4",
+        "url" : "https://api.github.com/users/zarucki",
+        "contributions" : 4
+      },
+      {
+        "login" : "telser",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/36592?v=4",
+        "url" : "https://api.github.com/users/telser",
+        "contributions" : 4
+      },
+      {
+        "login" : "FabienPennequin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/176389?v=4",
+        "url" : "https://api.github.com/users/FabienPennequin",
+        "contributions" : 4
+      },
+      {
+        "login" : "TactiC",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/689097?v=4",
+        "url" : "https://api.github.com/users/TactiC",
+        "contributions" : 4
+      },
+      {
+        "login" : "bensymonds",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/52046?v=4",
+        "url" : "https://api.github.com/users/bensymonds",
+        "contributions" : 3
+      },
+      {
+        "login" : "aeons",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1432894?v=4",
+        "url" : "https://api.github.com/users/aeons",
+        "contributions" : 3
+      },
+      {
+        "login" : "bfritz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/70307?v=4",
+        "url" : "https://api.github.com/users/bfritz",
+        "contributions" : 3
+      },
+      {
+        "login" : "deepakmohanakrishnan1984",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16842213?v=4",
+        "url" : "https://api.github.com/users/deepakmohanakrishnan1984",
+        "contributions" : 3
+      },
+      {
+        "login" : "DGolubets",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3066288?v=4",
+        "url" : "https://api.github.com/users/DGolubets",
+        "contributions" : 3
+      },
+      {
+        "login" : "ingarabr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2236693?v=4",
+        "url" : "https://api.github.com/users/ingarabr",
+        "contributions" : 3
+      },
+      {
+        "login" : "jdutton",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2054211?v=4",
+        "url" : "https://api.github.com/users/jdutton",
+        "contributions" : 3
+      },
+      {
+        "login" : "kraanerk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7107994?v=4",
+        "url" : "https://api.github.com/users/kraanerk",
+        "contributions" : 3
+      },
+      {
+        "login" : "Selsynn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7371599?v=4",
+        "url" : "https://api.github.com/users/Selsynn",
+        "contributions" : 3
+      },
+      {
+        "login" : "mresposito",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1311832?v=4",
+        "url" : "https://api.github.com/users/mresposito",
+        "contributions" : 3
+      },
+      {
+        "login" : "nelusnegur",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5675102?v=4",
+        "url" : "https://api.github.com/users/nelusnegur",
+        "contributions" : 3
+      },
+      {
+        "login" : "runebarikmo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1779016?v=4",
+        "url" : "https://api.github.com/users/runebarikmo",
+        "contributions" : 3
+      },
+      {
+        "login" : "timothyklim",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/387270?v=4",
+        "url" : "https://api.github.com/users/timothyklim",
+        "contributions" : 3
+      },
+      {
+        "login" : "stogo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10044566?v=4",
+        "url" : "https://api.github.com/users/stogo",
+        "contributions" : 3
+      },
+      {
+        "login" : "alepro",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12006698?v=4",
+        "url" : "https://api.github.com/users/alepro",
+        "contributions" : 3
+      },
+      {
+        "login" : "benburton",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/168757?v=4",
+        "url" : "https://api.github.com/users/benburton",
+        "contributions" : 3
+      },
+      {
+        "login" : "bitsofinfo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1743646?v=4",
+        "url" : "https://api.github.com/users/bitsofinfo",
+        "contributions" : 3
+      },
+      {
+        "login" : "justinian336",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12584257?v=4",
+        "url" : "https://api.github.com/users/justinian336",
+        "contributions" : 3
+      },
+      {
+        "login" : "djx314",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3401242?v=4",
+        "url" : "https://api.github.com/users/djx314",
+        "contributions" : 3
+      },
+      {
+        "login" : "polymorpher",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/913871?v=4",
+        "url" : "https://api.github.com/users/polymorpher",
+        "contributions" : 3
+      },
+      {
+        "login" : "t83714",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/674387?v=4",
+        "url" : "https://api.github.com/users/t83714",
+        "contributions" : 3
+      },
+      {
+        "login" : "hughsimpson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2494489?v=4",
+        "url" : "https://api.github.com/users/hughsimpson",
+        "contributions" : 3
+      },
+      {
+        "login" : "hekaldama",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17173?v=4",
+        "url" : "https://api.github.com/users/hekaldama",
+        "contributions" : 2
+      },
+      {
+        "login" : "AlexandreBP",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8638620?v=4",
+        "url" : "https://api.github.com/users/AlexandreBP",
+        "contributions" : 2
+      },
+      {
+        "login" : "alfonsovng",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7441041?v=4",
+        "url" : "https://api.github.com/users/alfonsovng",
+        "contributions" : 2
+      },
+      {
+        "login" : "kurochenko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/352668?v=4",
+        "url" : "https://api.github.com/users/kurochenko",
+        "contributions" : 2
+      },
+      {
+        "login" : "benusher",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/931004?v=4",
+        "url" : "https://api.github.com/users/benusher",
+        "contributions" : 2
+      },
+      {
+        "login" : "cchantep",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/166062?v=4",
+        "url" : "https://api.github.com/users/cchantep",
+        "contributions" : 2
+      },
+      {
+        "login" : "goldlil",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11392379?v=4",
+        "url" : "https://api.github.com/users/goldlil",
+        "contributions" : 2
+      },
+      {
+        "login" : "duartepinto",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7612420?v=4",
+        "url" : "https://api.github.com/users/duartepinto",
+        "contributions" : 2
+      },
+      {
+        "login" : "emret",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/195440?v=4",
+        "url" : "https://api.github.com/users/emret",
+        "contributions" : 2
+      },
+      {
+        "login" : "easel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/94159?v=4",
+        "url" : "https://api.github.com/users/easel",
+        "contributions" : 2
+      },
+      {
+        "login" : "fernandomora",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3585704?v=4",
+        "url" : "https://api.github.com/users/fernandomora",
+        "contributions" : 2
+      },
+      {
+        "login" : "francisdb",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/161305?v=4",
+        "url" : "https://api.github.com/users/francisdb",
+        "contributions" : 2
+      },
+      {
+        "login" : "larochef",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1265730?v=4",
+        "url" : "https://api.github.com/users/larochef",
+        "contributions" : 2
+      },
+      {
+        "login" : "hayssams",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2473992?v=4",
+        "url" : "https://api.github.com/users/hayssams",
+        "contributions" : 2
+      },
+      {
+        "login" : "yurique",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/919230?v=4",
+        "url" : "https://api.github.com/users/yurique",
+        "contributions" : 2
+      },
+      {
+        "login" : "izzyreal",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3707432?v=4",
+        "url" : "https://api.github.com/users/izzyreal",
+        "contributions" : 2
+      },
+      {
+        "login" : "jacool",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6452116?v=4",
+        "url" : "https://api.github.com/users/jacool",
+        "contributions" : 2
+      },
+      {
+        "login" : "jasperdenkers",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2210857?v=4",
+        "url" : "https://api.github.com/users/jasperdenkers",
+        "contributions" : 2
+      },
+      {
+        "login" : "kenichiro22",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/247250?v=4",
+        "url" : "https://api.github.com/users/kenichiro22",
+        "contributions" : 2
+      },
+      {
+        "login" : "landlockedsurfer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3172001?v=4",
+        "url" : "https://api.github.com/users/landlockedsurfer",
+        "contributions" : 2
+      },
+      {
+        "login" : "KadekM",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4306279?v=4",
+        "url" : "https://api.github.com/users/KadekM",
+        "contributions" : 2
+      },
+      {
+        "login" : "thesamet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/307373?v=4",
+        "url" : "https://api.github.com/users/thesamet",
+        "contributions" : 2
+      },
+      {
+        "login" : "pjfanning",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11783444?v=4",
+        "url" : "https://api.github.com/users/pjfanning",
+        "contributions" : 2
+      },
+      {
+        "login" : "petro-rudenko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1121987?v=4",
+        "url" : "https://api.github.com/users/petro-rudenko",
+        "contributions" : 2
+      },
+      {
+        "login" : "peterschrott",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3984741?v=4",
+        "url" : "https://api.github.com/users/peterschrott",
+        "contributions" : 2
+      },
+      {
+        "login" : "reeselevine",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7638101?v=4",
+        "url" : "https://api.github.com/users/reeselevine",
+        "contributions" : 2
+      },
+      {
+        "login" : "rohanshah",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1816611?v=4",
+        "url" : "https://api.github.com/users/rohanshah",
+        "contributions" : 2
+      },
+      {
+        "login" : "ryan-martin-axiell",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/25150573?v=4",
+        "url" : "https://api.github.com/users/ryan-martin-axiell",
+        "contributions" : 2
+      },
+      {
+        "login" : "Dinduks",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/504977?v=4",
+        "url" : "https://api.github.com/users/Dinduks",
+        "contributions" : 2
+      },
+      {
+        "login" : "sjoerdmulder",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/235745?v=4",
+        "url" : "https://api.github.com/users/sjoerdmulder",
+        "contributions" : 2
+      },
+      {
+        "login" : "To-om",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23172576?v=4",
+        "url" : "https://api.github.com/users/To-om",
+        "contributions" : 2
+      },
+      {
+        "login" : "tcdevoe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2350949?v=4",
+        "url" : "https://api.github.com/users/tcdevoe",
+        "contributions" : 2
+      },
+      {
+        "login" : "Tom-ReaQta",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/76524757?v=4",
+        "url" : "https://api.github.com/users/Tom-ReaQta",
+        "contributions" : 2
+      },
+      {
+        "login" : "kretes",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1224887?v=4",
+        "url" : "https://api.github.com/users/kretes",
+        "contributions" : 2
+      },
+      {
+        "login" : "tototoshi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/264469?v=4",
+        "url" : "https://api.github.com/users/tototoshi",
+        "contributions" : 2
+      },
+      {
+        "login" : "yannick-cw",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2485755?v=4",
+        "url" : "https://api.github.com/users/yannick-cw",
+        "contributions" : 2
+      },
+      {
+        "login" : "nespera",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/737190?v=4",
+        "url" : "https://api.github.com/users/nespera",
+        "contributions" : 2
+      },
+      {
+        "login" : "dgilling",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9476006?v=4",
+        "url" : "https://api.github.com/users/dgilling",
+        "contributions" : 2
+      },
+      {
+        "login" : "docteurZ",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1250892?v=4",
+        "url" : "https://api.github.com/users/docteurZ",
+        "contributions" : 2
+      },
+      {
+        "login" : "livelxw",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7655451?v=4",
+        "url" : "https://api.github.com/users/livelxw",
+        "contributions" : 2
+      },
+      {
+        "login" : "lwronski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/46607934?v=4",
+        "url" : "https://api.github.com/users/lwronski",
+        "contributions" : 2
+      },
+      {
+        "login" : "patwhite",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5015863?v=4",
+        "url" : "https://api.github.com/users/patwhite",
+        "contributions" : 2
+      },
+      {
+        "login" : "unkarjedy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3989292?v=4",
+        "url" : "https://api.github.com/users/unkarjedy",
+        "contributions" : 2
+      },
+      {
+        "login" : "x1a0",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/205756?v=4",
+        "url" : "https://api.github.com/users/x1a0",
+        "contributions" : 2
+      },
+      {
+        "login" : "avdv",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3471749?v=4",
+        "url" : "https://api.github.com/users/avdv",
+        "contributions" : 2
+      },
+      {
+        "login" : "eramonk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22403151?v=4",
+        "url" : "https://api.github.com/users/eramonk",
+        "contributions" : 2
+      },
+      {
+        "login" : "samzilverberg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/229485?v=4",
+        "url" : "https://api.github.com/users/samzilverberg",
+        "contributions" : 2
+      },
+      {
+        "login" : "shanielh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/746471?v=4",
+        "url" : "https://api.github.com/users/shanielh",
+        "contributions" : 2
+      },
+      {
+        "login" : "vdamery",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11387988?v=4",
+        "url" : "https://api.github.com/users/vdamery",
+        "contributions" : 2
+      },
+      {
+        "login" : "Fraer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/976420?v=4",
+        "url" : "https://api.github.com/users/Fraer",
+        "contributions" : 2
+      },
+      {
+        "login" : "Tasssadar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/120108?v=4",
+        "url" : "https://api.github.com/users/Tasssadar",
+        "contributions" : 2
+      },
+      {
+        "login" : "bigwheel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/826646?v=4",
+        "url" : "https://api.github.com/users/bigwheel",
+        "contributions" : 2
+      },
+      {
+        "login" : "14sxlin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13958137?v=4",
+        "url" : "https://api.github.com/users/14sxlin",
+        "contributions" : 1
+      },
+      {
+        "login" : "adamtrousdale",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3841973?v=4",
+        "url" : "https://api.github.com/users/adamtrousdale",
+        "contributions" : 1
+      },
+      {
+        "login" : "Astrac",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/766007?v=4",
+        "url" : "https://api.github.com/users/Astrac",
+        "contributions" : 1
+      },
+      {
+        "login" : "alenegro81",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2557275?v=4",
+        "url" : "https://api.github.com/users/alenegro81",
+        "contributions" : 1
+      },
+      {
+        "login" : "alexwlchan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/301220?v=4",
+        "url" : "https://api.github.com/users/alexwlchan",
+        "contributions" : 1
+      },
+      {
+        "login" : "alexander-svendsen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2320398?v=4",
+        "url" : "https://api.github.com/users/alexander-svendsen",
+        "contributions" : 1
+      },
+      {
+        "login" : "AlexITC",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4218436?v=4",
+        "url" : "https://api.github.com/users/AlexITC",
+        "contributions" : 1
+      },
+      {
+        "login" : "sentenza",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2479647?v=4",
+        "url" : "https://api.github.com/users/sentenza",
+        "contributions" : 1
+      },
+      {
+        "login" : "ali-h",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/34513931?v=4",
+        "url" : "https://api.github.com/users/ali-h",
+        "contributions" : 1
+      },
+      {
+        "login" : "alicefuzier",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/26736746?v=4",
+        "url" : "https://api.github.com/users/alicefuzier",
+        "contributions" : 1
+      },
+      {
+        "login" : "aloiscochard",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/215476?v=4",
+        "url" : "https://api.github.com/users/aloiscochard",
+        "contributions" : 1
+      },
+      {
+        "login" : "agebhar1",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2443866?v=4",
+        "url" : "https://api.github.com/users/agebhar1",
+        "contributions" : 1
+      },
+      {
+        "login" : "andrei-micu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2885616?v=4",
+        "url" : "https://api.github.com/users/andrei-micu",
+        "contributions" : 1
+      },
+      {
+        "login" : "agustafson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/628811?v=4",
+        "url" : "https://api.github.com/users/agustafson",
+        "contributions" : 1
+      },
+      {
+        "login" : "andrew-nowak",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10963046?v=4",
+        "url" : "https://api.github.com/users/andrew-nowak",
+        "contributions" : 1
+      },
+      {
+        "login" : "andrew-teirney",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1411835?v=4",
+        "url" : "https://api.github.com/users/andrew-teirney",
+        "contributions" : 1
+      },
+      {
+        "login" : "generall",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1935623?v=4",
+        "url" : "https://api.github.com/users/generall",
+        "contributions" : 1
+      },
+      {
+        "login" : "yangzai",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2064190?v=4",
+        "url" : "https://api.github.com/users/yangzai",
+        "contributions" : 1
+      },
+      {
+        "login" : "Ashalynd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/108577?v=4",
+        "url" : "https://api.github.com/users/Ashalynd",
+        "contributions" : 1
+      },
+      {
+        "login" : "BlackYoup",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6098160?v=4",
+        "url" : "https://api.github.com/users/BlackYoup",
+        "contributions" : 1
+      },
+      {
+        "login" : "ahirata",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/254966?v=4",
+        "url" : "https://api.github.com/users/ahirata",
+        "contributions" : 1
+      },
+      {
+        "login" : "nelsonblaha",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1343167?v=4",
+        "url" : "https://api.github.com/users/nelsonblaha",
+        "contributions" : 1
+      },
+      {
+        "login" : "bpiper",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12616466?v=4",
+        "url" : "https://api.github.com/users/bpiper",
+        "contributions" : 1
+      },
+      {
+        "login" : "briantopping",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/158115?v=4",
+        "url" : "https://api.github.com/users/briantopping",
+        "contributions" : 1
+      },
+      {
+        "login" : "bleporini",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1412771?v=4",
+        "url" : "https://api.github.com/users/bleporini",
+        "contributions" : 1
+      },
+      {
+        "login" : "charlescd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/449464?v=4",
+        "url" : "https://api.github.com/users/charlescd",
+        "contributions" : 1
+      },
+      {
+        "login" : "ches",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13277?v=4",
+        "url" : "https://api.github.com/users/ches",
+        "contributions" : 1
+      },
+      {
+        "login" : "chiappone",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/48027?v=4",
+        "url" : "https://api.github.com/users/chiappone",
+        "contributions" : 1
+      },
+      {
+        "login" : "chriso",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/364903?v=4",
+        "url" : "https://api.github.com/users/chriso",
+        "contributions" : 1
+      },
+      {
+        "login" : "longliveenduro",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/599308?v=4",
+        "url" : "https://api.github.com/users/longliveenduro",
+        "contributions" : 1
+      },
+      {
+        "login" : "christienlomax",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4041058?v=4",
+        "url" : "https://api.github.com/users/christienlomax",
+        "contributions" : 1
+      },
+      {
+        "login" : "nolledge",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/18087177?v=4",
+        "url" : "https://api.github.com/users/nolledge",
+        "contributions" : 1
+      },
+      {
+        "login" : "cristinaluengoagullo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8060310?v=4",
+        "url" : "https://api.github.com/users/cristinaluengoagullo",
+        "contributions" : 1
+      },
+      {
+        "login" : "DapengAtIterable",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/60159286?v=4",
+        "url" : "https://api.github.com/users/DapengAtIterable",
+        "contributions" : 1
+      },
+      {
+        "login" : "SirMullich",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3740275?v=4",
+        "url" : "https://api.github.com/users/SirMullich",
+        "contributions" : 1
+      },
+      {
+        "login" : "akashihi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/672643?v=4",
+        "url" : "https://api.github.com/users/akashihi",
+        "contributions" : 1
+      },
+      {
+        "login" : "DenisNovac",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22966999?v=4",
+        "url" : "https://api.github.com/users/DenisNovac",
+        "contributions" : 1
+      },
+      {
+        "login" : "dmjb",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6866093?v=4",
+        "url" : "https://api.github.com/users/dmjb",
+        "contributions" : 1
+      },
+      {
+        "login" : "dragisak",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/800802?v=4",
+        "url" : "https://api.github.com/users/dragisak",
+        "contributions" : 1
+      },
+      {
+        "login" : "kutchar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/905435?v=4",
+        "url" : "https://api.github.com/users/kutchar",
+        "contributions" : 1
+      },
+      {
+        "login" : "edubrovski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5853654?v=4",
+        "url" : "https://api.github.com/users/edubrovski",
+        "contributions" : 1
+      },
+      {
+        "login" : "epeden",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12178081?v=4",
+        "url" : "https://api.github.com/users/epeden",
+        "contributions" : 1
+      },
+      {
+        "login" : "ErikWallin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/748516?v=4",
+        "url" : "https://api.github.com/users/ErikWallin",
+        "contributions" : 1
+      },
+      {
+        "login" : "EugeneChung",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3361146?v=4",
+        "url" : "https://api.github.com/users/EugeneChung",
+        "contributions" : 1
+      },
+      {
+        "login" : "fayvor",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/682308?v=4",
+        "url" : "https://api.github.com/users/fayvor",
+        "contributions" : 1
+      },
+      {
+        "login" : "gertv",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/173214?v=4",
+        "url" : "https://api.github.com/users/gertv",
+        "contributions" : 1
+      },
+      {
+        "login" : "giuscri",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4048120?v=4",
+        "url" : "https://api.github.com/users/giuscri",
+        "contributions" : 1
+      },
+      {
+        "login" : "HilariGomezAgilogy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/62426197?v=4",
+        "url" : "https://api.github.com/users/HilariGomezAgilogy",
+        "contributions" : 1
+      },
+      {
+        "login" : "hfgiii",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/123418?v=4",
+        "url" : "https://api.github.com/users/hfgiii",
+        "contributions" : 1
+      },
+      {
+        "login" : "tarao",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/132569?v=4",
+        "url" : "https://api.github.com/users/tarao",
+        "contributions" : 1
+      },
+      {
+        "login" : "imre-kerr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1585156?v=4",
+        "url" : "https://api.github.com/users/imre-kerr",
+        "contributions" : 1
+      },
+      {
+        "login" : "jackpf",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3601989?v=4",
+        "url" : "https://api.github.com/users/jackpf",
+        "contributions" : 1
+      },
+      {
+        "login" : "l15k4",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/518855?v=4",
+        "url" : "https://api.github.com/users/l15k4",
+        "contributions" : 1
+      },
+      {
+        "login" : "jamieparkinson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4429247?v=4",
+        "url" : "https://api.github.com/users/jamieparkinson",
+        "contributions" : 1
+      },
+      {
+        "login" : "JarrodBaker",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43906063?v=4",
+        "url" : "https://api.github.com/users/JarrodBaker",
+        "contributions" : 1
+      },
+      {
+        "login" : "jdcohen220",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/33329717?v=4",
+        "url" : "https://api.github.com/users/jdcohen220",
+        "contributions" : 1
+      },
+      {
+        "login" : "jeantil",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22979?v=4",
+        "url" : "https://api.github.com/users/jeantil",
+        "contributions" : 1
+      },
+      {
+        "login" : "jiminoc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/211825?v=4",
+        "url" : "https://api.github.com/users/jiminoc",
+        "contributions" : 1
+      },
+      {
+        "login" : "jkugiya",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/531865?v=4",
+        "url" : "https://api.github.com/users/jkugiya",
+        "contributions" : 1
+      },
+      {
+        "login" : "jcazevedo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/143188?v=4",
+        "url" : "https://api.github.com/users/jcazevedo",
+        "contributions" : 1
+      },
+      {
+        "login" : "jgiunti-coatue",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/72472520?v=4",
+        "url" : "https://api.github.com/users/jgiunti-coatue",
+        "contributions" : 1
+      },
+      {
+        "login" : "brodin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2271316?v=4",
+        "url" : "https://api.github.com/users/brodin",
+        "contributions" : 1
+      },
+      {
+        "login" : "jmaasing",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/871057?v=4",
+        "url" : "https://api.github.com/users/jmaasing",
+        "contributions" : 1
+      },
+      {
+        "login" : "conley",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/856127?v=4",
+        "url" : "https://api.github.com/users/conley",
+        "contributions" : 1
+      },
+      {
+        "login" : "wuservices",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/190434?v=4",
+        "url" : "https://api.github.com/users/wuservices",
+        "contributions" : 1
+      },
+      {
+        "login" : "jonaslan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7376172?v=4",
+        "url" : "https://api.github.com/users/jonaslan",
+        "contributions" : 1
+      },
+      {
+        "login" : "razem-io",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2088773?v=4",
+        "url" : "https://api.github.com/users/razem-io",
+        "contributions" : 1
+      },
+      {
+        "login" : "crockpotveggies",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1445295?v=4",
+        "url" : "https://api.github.com/users/crockpotveggies",
+        "contributions" : 1
+      },
+      {
+        "login" : "Kamill0",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/18557447?v=4",
+        "url" : "https://api.github.com/users/Kamill0",
+        "contributions" : 1
+      },
+      {
+        "login" : "kgston",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5691799?v=4",
+        "url" : "https://api.github.com/users/kgston",
+        "contributions" : 1
+      },
+      {
+        "login" : "kirilyuro",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13638485?v=4",
+        "url" : "https://api.github.com/users/kirilyuro",
+        "contributions" : 1
+      },
+      {
+        "login" : "kpmeen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3736963?v=4",
+        "url" : "https://api.github.com/users/kpmeen",
+        "contributions" : 1
+      },
+      {
+        "login" : "beiske",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/98256?v=4",
+        "url" : "https://api.github.com/users/beiske",
+        "contributions" : 1
+      },
+      {
+        "login" : "michivi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8192869?v=4",
+        "url" : "https://api.github.com/users/michivi",
+        "contributions" : 1
+      },
+      {
+        "login" : "tuleism",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6073387?v=4",
+        "url" : "https://api.github.com/users/tuleism",
+        "contributions" : 1
+      },
+      {
+        "login" : "liorhar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/821044?v=4",
+        "url" : "https://api.github.com/users/liorhar",
+        "contributions" : 1
+      },
+      {
+        "login" : "javanna",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/832460?v=4",
+        "url" : "https://api.github.com/users/javanna",
+        "contributions" : 1
+      },
+      {
+        "login" : "MLnick",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1036807?v=4",
+        "url" : "https://api.github.com/users/MLnick",
+        "contributions" : 1
+      },
+      {
+        "login" : "fuwaneko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/34433?v=4",
+        "url" : "https://api.github.com/users/fuwaneko",
+        "contributions" : 1
+      },
+      {
+        "login" : "mmilewski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/408583?v=4",
+        "url" : "https://api.github.com/users/mmilewski",
+        "contributions" : 1
+      },
+      {
+        "login" : "marcovzla",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/792775?v=4",
+        "url" : "https://api.github.com/users/marcovzla",
+        "contributions" : 1
+      },
+      {
+        "login" : "mariussoutier",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/248811?v=4",
+        "url" : "https://api.github.com/users/mariussoutier",
+        "contributions" : 1
+      },
+      {
+        "login" : "markuspeters",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/767165?v=4",
+        "url" : "https://api.github.com/users/markuspeters",
+        "contributions" : 1
+      },
+      {
+        "login" : "rengawm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1919137?v=4",
+        "url" : "https://api.github.com/users/rengawm",
+        "contributions" : 1
+      },
+      {
+        "login" : "hellhoundmipt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14931587?v=4",
+        "url" : "https://api.github.com/users/hellhoundmipt",
+        "contributions" : 1
+      },
+      {
+        "login" : "maksim07",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1187186?v=4",
+        "url" : "https://api.github.com/users/maksim07",
+        "contributions" : 1
+      },
+      {
+        "login" : "mprihoda",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/279221?v=4",
+        "url" : "https://api.github.com/users/mprihoda",
+        "contributions" : 1
+      },
+      {
+        "login" : "jrouly",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5198476?v=4",
+        "url" : "https://api.github.com/users/jrouly",
+        "contributions" : 1
+      },
+      {
+        "login" : "nadavsr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7609150?v=4",
+        "url" : "https://api.github.com/users/nadavsr",
+        "contributions" : 1
+      },
+      {
+        "login" : "odubynskiy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/52788609?v=4",
+        "url" : "https://api.github.com/users/odubynskiy",
+        "contributions" : 1
+      },
+      {
+        "login" : "ollik1",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19903912?v=4",
+        "url" : "https://api.github.com/users/ollik1",
+        "contributions" : 1
+      },
+      {
+        "login" : "oande",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2979571?v=4",
+        "url" : "https://api.github.com/users/oande",
+        "contributions" : 1
+      },
+      {
+        "login" : "paulpearcy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/54323960?v=4",
+        "url" : "https://api.github.com/users/paulpearcy",
+        "contributions" : 1
+      },
+      {
+        "login" : "ptrlaszlo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7847269?v=4",
+        "url" : "https://api.github.com/users/ptrlaszlo",
+        "contributions" : 1
+      },
+      {
+        "login" : "pt2121",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/616399?v=4",
+        "url" : "https://api.github.com/users/pt2121",
+        "contributions" : 1
+      },
+      {
+        "login" : "rauanmayemir",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9691?v=4",
+        "url" : "https://api.github.com/users/rauanmayemir",
+        "contributions" : 1
+      },
+      {
+        "login" : "remiguittaut",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4837297?v=4",
+        "url" : "https://api.github.com/users/remiguittaut",
+        "contributions" : 1
+      },
+      {
+        "login" : "rethab",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2222044?v=4",
+        "url" : "https://api.github.com/users/rethab",
+        "contributions" : 1
+      },
+      {
+        "login" : "Richard-Belcinski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5541835?v=4",
+        "url" : "https://api.github.com/users/Richard-Belcinski",
+        "contributions" : 1
+      },
+      {
+        "login" : "rwiskerke",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10156008?v=4",
+        "url" : "https://api.github.com/users/rwiskerke",
+        "contributions" : 1
+      },
+      {
+        "login" : "giftig",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2862039?v=4",
+        "url" : "https://api.github.com/users/giftig",
+        "contributions" : 1
+      },
+      {
+        "login" : "wrwills",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/254064?v=4",
+        "url" : "https://api.github.com/users/wrwills",
+        "contributions" : 1
+      },
+      {
+        "login" : "roberttaylor426",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/535032?v=4",
+        "url" : "https://api.github.com/users/roberttaylor426",
+        "contributions" : 1
+      },
+      {
+        "login" : "rtyley",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/52038?v=4",
+        "url" : "https://api.github.com/users/rtyley",
+        "contributions" : 1
+      },
+      {
+        "login" : "therockstorm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1085683?v=4",
+        "url" : "https://api.github.com/users/therockstorm",
+        "contributions" : 1
+      },
+      {
+        "login" : "roy-tc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/46396634?v=4",
+        "url" : "https://api.github.com/users/roy-tc",
+        "contributions" : 1
+      },
+      {
+        "login" : "rd11490",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7672094?v=4",
+        "url" : "https://api.github.com/users/rd11490",
+        "contributions" : 1
+      },
+      {
+        "login" : "samspills",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4977741?v=4",
+        "url" : "https://api.github.com/users/samspills",
+        "contributions" : 1
+      },
+      {
+        "login" : "aeroith",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16615869?v=4",
+        "url" : "https://api.github.com/users/aeroith",
+        "contributions" : 1
+      },
+      {
+        "login" : "letusfly85",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1466545?v=4",
+        "url" : "https://api.github.com/users/letusfly85",
+        "contributions" : 1
+      },
+      {
+        "login" : "simone-smith",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/23078809?v=4",
+        "url" : "https://api.github.com/users/simone-smith",
+        "contributions" : 1
+      },
+      {
+        "login" : "ExNexu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1172032?v=4",
+        "url" : "https://api.github.com/users/ExNexu",
+        "contributions" : 1
+      },
+      {
+        "login" : "sgrzeska",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12200121?v=4",
+        "url" : "https://api.github.com/users/sgrzeska",
+        "contributions" : 1
+      },
+      {
+        "login" : "destrim",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/60274110?v=4",
+        "url" : "https://api.github.com/users/destrim",
+        "contributions" : 1
+      },
+      {
+        "login" : "WangTaoTheTonic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5276001?v=4",
+        "url" : "https://api.github.com/users/WangTaoTheTonic",
+        "contributions" : 1
+      },
+      {
+        "login" : "gitter-badger",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8518239?v=4",
+        "url" : "https://api.github.com/users/gitter-badger",
+        "contributions" : 1
+      },
+      {
+        "login" : "Nypias",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/550597?v=4",
+        "url" : "https://api.github.com/users/Nypias",
+        "contributions" : 1
+      },
+      {
+        "login" : "thomastoye",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3396772?v=4",
+        "url" : "https://api.github.com/users/thomastoye",
+        "contributions" : 1
+      },
+      {
+        "login" : "ItsMeijers",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4912941?v=4",
+        "url" : "https://api.github.com/users/ItsMeijers",
+        "contributions" : 1
+      },
+      {
+        "login" : "Tomassino",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4801309?v=4",
+        "url" : "https://api.github.com/users/Tomassino",
+        "contributions" : 1
+      },
+      {
+        "login" : "tonytw1",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/150238?v=4",
+        "url" : "https://api.github.com/users/tonytw1",
+        "contributions" : 1
+      },
+      {
+        "login" : "Tyruiop",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/51426?v=4",
+        "url" : "https://api.github.com/users/Tyruiop",
+        "contributions" : 1
+      },
+      {
+        "login" : "ilyshav",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8280649?v=4",
+        "url" : "https://api.github.com/users/ilyshav",
+        "contributions" : 1
+      },
+      {
+        "login" : "Sobolvitya",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5682684?v=4",
+        "url" : "https://api.github.com/users/Sobolvitya",
+        "contributions" : 1
+      },
+      {
+        "login" : "vmorarian",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/328763?v=4",
+        "url" : "https://api.github.com/users/vmorarian",
+        "contributions" : 1
+      },
+      {
+        "login" : "CarterWilliam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7325691?v=4",
+        "url" : "https://api.github.com/users/CarterWilliam",
+        "contributions" : 1
+      },
+      {
+        "login" : "WojciechMazur",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19353690?v=4",
+        "url" : "https://api.github.com/users/WojciechMazur",
+        "contributions" : 1
+      },
+      {
+        "login" : "YannMoisan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/681743?v=4",
+        "url" : "https://api.github.com/users/YannMoisan",
+        "contributions" : 1
+      },
+      {
+        "login" : "yohannj",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10663802?v=4",
+        "url" : "https://api.github.com/users/yohannj",
+        "contributions" : 1
+      },
+      {
+        "login" : "zafarella",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/660742?v=4",
+        "url" : "https://api.github.com/users/zafarella",
+        "contributions" : 1
+      },
+      {
+        "login" : "Zhen-hao",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10957195?v=4",
+        "url" : "https://api.github.com/users/Zhen-hao",
+        "contributions" : 1
+      },
+      {
+        "login" : "alex-exabeam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/31403408?v=4",
+        "url" : "https://api.github.com/users/alex-exabeam",
+        "contributions" : 1
+      },
+      {
+        "login" : "alex-voigt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10030355?v=4",
+        "url" : "https://api.github.com/users/alex-voigt",
+        "contributions" : 1
+      },
+      {
+        "login" : "ariskk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4972825?v=4",
+        "url" : "https://api.github.com/users/ariskk",
+        "contributions" : 1
+      },
+      {
+        "login" : "artyomsol",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2406155?v=4",
+        "url" : "https://api.github.com/users/artyomsol",
+        "contributions" : 1
+      },
+      {
+        "login" : "asedghi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8195993?v=4",
+        "url" : "https://api.github.com/users/asedghi",
+        "contributions" : 1
+      },
+      {
+        "login" : "cpestour",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7039231?v=4",
+        "url" : "https://api.github.com/users/cpestour",
+        "contributions" : 1
+      },
+      {
+        "login" : "csalmonl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/40667298?v=4",
+        "url" : "https://api.github.com/users/csalmonl",
+        "contributions" : 1
+      },
+      {
+        "login" : "cwgroppe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/25517025?v=4",
+        "url" : "https://api.github.com/users/cwgroppe",
+        "contributions" : 1
+      },
+      {
+        "login" : "dpblh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8198859?v=4",
+        "url" : "https://api.github.com/users/dpblh",
+        "contributions" : 1
+      },
+      {
+        "login" : "dspasojevic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/358318?v=4",
+        "url" : "https://api.github.com/users/dspasojevic",
+        "contributions" : 1
+      },
+      {
+        "login" : "eltherion",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16329114?v=4",
+        "url" : "https://api.github.com/users/eltherion",
+        "contributions" : 1
+      },
+      {
+        "login" : "Fangrou",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7931256?v=4",
+        "url" : "https://api.github.com/users/Fangrou",
+        "contributions" : 1
+      },
+      {
+        "login" : "fidesachates",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2189515?v=4",
+        "url" : "https://api.github.com/users/fidesachates",
+        "contributions" : 1
+      },
+      {
+        "login" : "gtyagi-ean",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19665769?v=4",
+        "url" : "https://api.github.com/users/gtyagi-ean",
+        "contributions" : 1
+      },
+      {
+        "login" : "gurkankaymak",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7164005?v=4",
+        "url" : "https://api.github.com/users/gurkankaymak",
+        "contributions" : 1
+      },
+      {
+        "login" : "hoffbeam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/28238724?v=4",
+        "url" : "https://api.github.com/users/hoffbeam",
+        "contributions" : 1
+      },
+      {
+        "login" : "ievalu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/47562353?v=4",
+        "url" : "https://api.github.com/users/ievalu",
+        "contributions" : 1
+      },
+      {
+        "login" : "kyrsideris",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8484516?v=4",
+        "url" : "https://api.github.com/users/kyrsideris",
+        "contributions" : 1
+      },
+      {
+        "login" : "lucaagostini",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6951485?v=4",
+        "url" : "https://api.github.com/users/lucaagostini",
+        "contributions" : 1
+      },
+      {
+        "login" : "luismcl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3907677?v=4",
+        "url" : "https://api.github.com/users/luismcl",
+        "contributions" : 1
+      },
+      {
+        "login" : "meitemarkymark",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/963149?v=4",
+        "url" : "https://api.github.com/users/meitemarkymark",
+        "contributions" : 1
+      },
+      {
+        "login" : "mongolyy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10972787?v=4",
+        "url" : "https://api.github.com/users/mongolyy",
+        "contributions" : 1
+      },
+      {
+        "login" : "mpichette-apple",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/95452742?v=4",
+        "url" : "https://api.github.com/users/mpichette-apple",
+        "contributions" : 1
+      },
+      {
+        "login" : "perlagjoka",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/63548088?v=4",
+        "url" : "https://api.github.com/users/perlagjoka",
+        "contributions" : 1
+      },
+      {
+        "login" : "rmat0n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/229441?v=4",
+        "url" : "https://api.github.com/users/rmat0n",
+        "contributions" : 1
+      },
+      {
+        "login" : "rmckeown",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5710278?v=4",
+        "url" : "https://api.github.com/users/rmckeown",
+        "contributions" : 1
+      },
+      {
+        "login" : "MadeInChina",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1201118?v=4",
+        "url" : "https://api.github.com/users/MadeInChina",
+        "contributions" : 1
+      },
+      {
+        "login" : "unoexperto",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1280853?v=4",
+        "url" : "https://api.github.com/users/unoexperto",
+        "contributions" : 1
+      },
+      {
+        "login" : "algd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7620427?v=4",
+        "url" : "https://api.github.com/users/algd",
+        "contributions" : 1
+      },
+      {
+        "login" : "lxycomeon",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/32415545?v=4",
+        "url" : "https://api.github.com/users/lxycomeon",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 4365,
+    "topics" : [
+      "elasticsearch",
+      "http",
+      "reactive-streams",
+      "rest-api",
+      "scala",
+      "circe"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : "https://gitter.im/sksamuel/elastic4s",
+    "openIssues" : [
+      {
+        "number" : 2599,
+        "title" : "Addition of `ioExecutor` in 7.14.x shadows `F[_]` executor requiring shadowing of `IO` version to compile",
+        "url" : "https://github.com/sksamuel/elastic4s/issues/2599"
+      },
+      {
+        "number" : 2445,
+        "title" : "Cats Effect 2 executor doesn't shift back to the compute pool",
+        "url" : "https://github.com/sksamuel/elastic4s/issues/2445"
+      },
+      {
+        "number" : 2427,
+        "title" : "Support Field Capabilities API ",
+        "url" : "https://github.com/sksamuel/elastic4s/issues/2427"
+      },
+      {
+        "number" : 2379,
+        "title" : "May I propose a more pure FP design for `ElasticClient`, `HttpClient` and `Executor`?",
+        "url" : "https://github.com/sksamuel/elastic4s/issues/2379"
+      },
+      {
+        "number" : 2374,
+        "title" : "HitReader supplies Hit trait not SearchHit",
+        "url" : "https://github.com/sksamuel/elastic4s/issues/2374"
+      },
+      {
+        "number" : 2368,
+        "title" : "Add more tests for dynamic template",
+        "url" : "https://github.com/sksamuel/elastic4s/issues/2368"
+      },
+      {
+        "number" : 2366,
+        "title" : "Add flattened field type",
+        "url" : "https://github.com/sksamuel/elastic4s/issues/2366"
+      },
+      {
+        "number" : 2365,
+        "title" : "Add constant keyword field type",
+        "url" : "https://github.com/sksamuel/elastic4s/issues/2365"
+      },
+      {
+        "number" : 2359,
+        "title" : "Support Scala 3",
+        "url" : "https://github.com/sksamuel/elastic4s/issues/2359"
+      },
+      {
+        "number" : 2354,
+        "title" : "Log warn does not print error message argument",
+        "url" : "https://github.com/sksamuel/elastic4s/issues/2354"
+      },
+      {
+        "number" : 2335,
+        "title" : "NoopQuery elements result in invalid query bodies",
+        "url" : "https://github.com/sksamuel/elastic4s/issues/2335"
+      },
+      {
+        "number" : 2316,
+        "title" : "ODFE support and path forward with fork",
+        "url" : "https://github.com/sksamuel/elastic4s/issues/2316"
+      },
+      {
+        "number" : 2309,
+        "title" : "Codecs not 100% pluggable, hard dependency on Jackson",
+        "url" : "https://github.com/sksamuel/elastic4s/issues/2309"
+      },
+      {
+        "number" : 2220,
+        "title" : "Json4sHitReader should get _id from hit.",
+        "url" : "https://github.com/sksamuel/elastic4s/issues/2220"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : "elastic4s-core",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "indexing-and-searching",
+    "beginnerIssuesLabel" : null
+  }
+}

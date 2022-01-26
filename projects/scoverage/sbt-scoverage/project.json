@@ -1,0 +1,471 @@
+{
+  "organization" : "scoverage",
+  "repository" : "sbt-scoverage",
+  "creationDate" : 1396333238000,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643172846562
+    }
+  },
+  "githubInfo" : {
+    "homepage" : null,
+    "description" : "sbt plugin for scoverage",
+    "logo" : "https://avatars.githubusercontent.com/u/5998302?v=4",
+    "stars" : 569,
+    "forks" : 140,
+    "watchers" : 28,
+    "issues" : 27,
+    "creationDate" : 1400201901000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-sbt-scoverage\" class=\"anchor\" aria-hidden=\"true\" href=\"#sbt-scoverage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>sbt-scoverage</h1>\n<p dir=\"auto\"><a href=\"https://gitter.im/scoverage/scoverage\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/1b17e238418d2e6b25d26319db6b5f05736ce8a9a495d82cf0a67f2b38b42193/68747470733a2f2f696d672e736869656c64732e696f2f6769747465722f726f6f6d2f73636f7665726167652f73636f7665726167652e737667\" alt=\"Gitter\" data-canonical-src=\"https://img.shields.io/gitter/room/scoverage/scoverage.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://search.maven.org/artifact/org.scoverage/sbt-scoverage/\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/1a2c78a248c90b3e7ad06ba6cb7e8d3e1258631c7d1097637b136114f1158483/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f6f72672e73636f7665726167652f7362742d73636f7665726167652f62616467652e7376673f6b696c6c5f63616368653d31\" alt=\"Maven Central\" data-canonical-src=\"https://maven-badges.herokuapp.com/maven-central/org.scoverage/sbt-scoverage/badge.svg?kill_cache=1\" style=\"max-width: 100%;\"></a>\n<a href=\"http://www.apache.org/licenses/LICENSE-2.0.txt\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/928d7b8c53c11c3b6724082b12ecd45b5cfac8194346b03d757bf8548a7a581e/687474703a2f2f696d672e736869656c64732e696f2f3a6c6963656e73652d417061636865253230322d7265642e737667\" alt=\"License\" data-canonical-src=\"http://img.shields.io/:license-Apache%202-red.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">sbt-scoverage is a plugin for sbt that integrates the scoverage code coverage\nlibrary. Find out more about\n<a href=\"https://github.com/scoverage/scalac-scoverage-plugin\">scoverage here</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-setup\" class=\"anchor\" aria-hidden=\"true\" href=\"#setup\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Setup</h2>\n<p dir=\"auto\"><strong>Requirements</strong>: Requires sbt 1.2.8 or above</p>\n<p dir=\"auto\">In <code>project/plugins.sbt</code>:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"addSbtPlugin(&quot;org.scoverage&quot; % &quot;sbt-scoverage&quot; % &quot;x.x.x&quot;)\"><pre>addSbtPlugin(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.scoverage<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sbt-scoverage<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>x.x.x<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-usage\" class=\"anchor\" aria-hidden=\"true\" href=\"#usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Usage</h2>\n<p dir=\"auto\">Run the tests with enabled coverage:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ sbt clean coverage test\"><pre><code>$ sbt clean coverage test\n</code></pre></div>\n<p dir=\"auto\">or if you have integration tests as well</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ sbt clean coverage it:test\"><pre><code>$ sbt clean coverage it:test\n</code></pre></div>\n<p dir=\"auto\">To enable coverage directly in your build, use:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"coverageEnabled := true\"><pre>coverageEnabled <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-c1\">true</span></pre></div>\n<p dir=\"auto\">To generate the coverage reports run</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ sbt coverageReport\"><pre><code>$ sbt coverageReport\n</code></pre></div>\n<p dir=\"auto\">Coverage reports will be in your <code>target/scala-&lt;scala-version&gt;/scoverage-report</code>\ndirectory.  There are HTML and XML reports. The XML is useful if you need to\nprogramatically use the results, or if you're writing a tool.</p>\n<p dir=\"auto\"><strong>NOTE</strong>: If you're running the coverage reports from within an sbt console\nsession (as opposed to one command per sbt launch), then the <code>coverage</code> command\nis sticky.  To turn it back off when you're done running reports, use the\n<code>coverageOff</code> command or reset <code>coverageEnabled</code> with <code>set coverageEnabled := false</code>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-multi-project-reports\" class=\"anchor\" aria-hidden=\"true\" href=\"#multi-project-reports\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Multi project reports</h3>\n<p dir=\"auto\">By default, scoverage will generate reports for each project separately. You can\nmerge them into an aggregated report by using the following:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ sbt coverageAggregate\"><pre><code>$ sbt coverageAggregate\n</code></pre></div>\n<p dir=\"auto\"><strong>NOTE</strong>: You do not need to run <code>coverageReport</code> before <code>coverageAggregate</code>; it\naggregates over the sub-projects' coverage data directly, not the report xml.</p>\n<h3 dir=\"auto\"><a id=\"user-content-exclude-classes-and-packages\" class=\"anchor\" aria-hidden=\"true\" href=\"#exclude-classes-and-packages\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Exclude classes and packages</h3>\n<p dir=\"auto\">You can exclude classes from being considered for coverage measurement by\nproviding semicolon-separated list of regular expressions.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"coverageExcludedPackages := &quot;&lt;empty&gt;;Reverse.*;.*AuthService.*;models\\\\.data\\\\..*&quot;\"><pre>coverageExcludedPackages <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>&lt;empty&gt;;Reverse.*;.*AuthService.*;models<span class=\"pl-cce\">\\\\</span>.data<span class=\"pl-cce\">\\\\</span>..*<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">The regular expressions are matched against the fully qualified class name, and\nmust match the entire string to take effect.  Any matched classes will not be\ninstrumented or included in the coverage report.</p>\n<p dir=\"auto\">You can also mark sections of code with comments like:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"  // $COVERAGE-OFF$Disabling highlighting by default until a workaround for https://issues.scala-lang.org/browse/SI-8596 is found\n  ...\n  // $COVERAGE-ON$\"><pre>  <span class=\"pl-c\"><span class=\"pl-c\">//</span> $COVERAGE-OFF$Disabling highlighting by default until a workaround for https://issues.scala-lang.org/browse/SI-8596 is found</span>\n  ...\n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> $COVERAGE-ON$</span></pre></div>\n<p dir=\"auto\">Any code between two such comments will not be instrumented or included in the\ncoverage report.</p>\n<h3 dir=\"auto\"><a id=\"user-content-minimum-coverage\" class=\"anchor\" aria-hidden=\"true\" href=\"#minimum-coverage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Minimum coverage</h3>\n<p dir=\"auto\">Based on minimum coverage, you can fail the build with the following keys:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"coverageFailOnMinimum := true\ncoverageMinimumStmtTotal := 90\ncoverageMinimumBranchTotal := 90\ncoverageMinimumStmtPerPackage := 90\ncoverageMinimumBranchPerPackage := 85\ncoverageMinimumStmtPerFile := 85\ncoverageMinimumBranchPerFile := 80\"><pre>coverageFailOnMinimum <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-c1\">true</span>\ncoverageMinimumStmtTotal <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-c1\">90</span>\ncoverageMinimumBranchTotal <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-c1\">90</span>\ncoverageMinimumStmtPerPackage <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-c1\">90</span>\ncoverageMinimumBranchPerPackage <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-c1\">85</span>\ncoverageMinimumStmtPerFile <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-c1\">85</span>\ncoverageMinimumBranchPerFile <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-c1\">80</span></pre></div>\n<p dir=\"auto\">These settings will be enforced when the reports are generated.  If you generate\nan aggregate report using <code>coverageAggregate</code> then these settings will apply to\nthat report.</p>\n<h3 dir=\"auto\"><a id=\"user-content-override-location-for-coverage-data-and-report\" class=\"anchor\" aria-hidden=\"true\" href=\"#override-location-for-coverage-data-and-report\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Override Location for Coverage Data And Report</h3>\n<p dir=\"auto\">If desired, one could override the default location for generating the sbt report and data through setting <code>coverageDataDir</code>:</p>\n<p dir=\"auto\">Example in data-dir test:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"coverageDataDir := target.value / &quot;custom-test&quot;\"><pre>coverageDataDir <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> target.value <span class=\"pl-k\">/</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>custom-test<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">Can also be set through the sbt set directive</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"set coverageDataDir := file(&quot;/tmp&quot;)\"><pre>set coverageDataDir <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> file(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>/tmp<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-trouble-shooting-failing-tests\" class=\"anchor\" aria-hidden=\"true\" href=\"#trouble-shooting-failing-tests\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Trouble-shooting failing tests</h2>\n<p dir=\"auto\">scoverage does a lot of file writing behind the scenes in order to track which\nstatements have been executed.  If you are running into a scenario where your\ntests normally pass, but fail when scoverage is enabled, then the culprit can be\none of the following:</p>\n<ul dir=\"auto\">\n<li>timing issues on futures and other async operations, try upping the timeouts by an order of magnitude.</li>\n<li>tests are run in a sandbox mode (such as with <code>java.security.PrivilegedAction&lt;T&gt;</code>), try running the tests outside of the sandbox.</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-example-project\" class=\"anchor\" aria-hidden=\"true\" href=\"#example-project\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Example project</h2>\n<p dir=\"auto\"><a href=\"https://github.com/scoverage/sbt-scoverage-samples\">the scoverage samples project</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-integrations\" class=\"anchor\" aria-hidden=\"true\" href=\"#integrations\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Integrations</h2>\n<h3 dir=\"auto\"><a id=\"user-content-codacy\" class=\"anchor\" aria-hidden=\"true\" href=\"#codacy\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Codacy</h3>\n<p dir=\"auto\"><a href=\"https://www.codacy.com\" rel=\"nofollow\">Codacy</a> integrates with your favorite coverage tool to\nprovide an in-depth overlook of your project status. scoverage information can\nbe integrated into Codacy through the\n<a href=\"https://github.com/codacy/codacy-coverage-reporter\">codacy-coverage-reporter</a>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-coveralls\" class=\"anchor\" aria-hidden=\"true\" href=\"#coveralls\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Coveralls</h3>\n<p dir=\"auto\">If you have an open source project then you can add code coverage metrics with\nthe <a href=\"https://coveralls.io/\" rel=\"nofollow\">Coveralls</a>. scoverage will integrate with coveralls\nusing the <a href=\"https://github.com/scoverage/sbt-coveralls\">sbt-coveralls</a> plugin.</p>\n<h3 dir=\"auto\"><a id=\"user-content-codecov\" class=\"anchor\" aria-hidden=\"true\" href=\"#codecov\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Codecov</h3>\n<p dir=\"auto\">You can integrate with <a href=\"https://about.codecov.io/\" rel=\"nofollow\">Codecov</a> easily sending your\nreports there via your CI. You can see an example of this here in\n<a href=\"https://github.com/codecov/example-scala\">codecov/example-scala</a>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-plugin-for-sonarqube\" class=\"anchor\" aria-hidden=\"true\" href=\"#plugin-for-sonarqube\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Plugin for SonarQube</h3>\n<p dir=\"auto\">If you want to visually browse statement coverage reports then use this <a href=\"https://github.com/RadoBuransky/sonar-scoverage-plugin\">plugin\nfor SonarQube</a>.  It\nallows you to review overall project statement coverage as well as dig deeper\ninto sub-modules, directories and source code files to see uncovered statements.\nStatement coverage measurement can become an integral part of your team's\ncontinuous integration process and a required quality standard.</p>\n<h2 dir=\"auto\"><a id=\"user-content-release-notes\" class=\"anchor\" aria-hidden=\"true\" href=\"#release-notes\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Release Notes</h2>\n<p dir=\"auto\">For any information on releases and upgrading, please refer to the <a href=\"https://github.com/scoverage/sbt-scoverage/releases\">release\npage</a>.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "sksamuel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/743706?v=4",
+        "url" : "https://api.github.com/users/sksamuel",
+        "contributions" : 278
+      },
+      {
+        "login" : "gslowikowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/219863?v=4",
+        "url" : "https://api.github.com/users/gslowikowski",
+        "contributions" : 97
+      },
+      {
+        "login" : "ckipp01",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13974112?v=4",
+        "url" : "https://api.github.com/users/ckipp01",
+        "contributions" : 77
+      },
+      {
+        "login" : "D-Roch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/183001?v=4",
+        "url" : "https://api.github.com/users/D-Roch",
+        "contributions" : 44
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 21
+      },
+      {
+        "login" : "RichardBradley",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1265780?v=4",
+        "url" : "https://api.github.com/users/RichardBradley",
+        "contributions" : 11
+      },
+      {
+        "login" : "pdalpra",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1514127?v=4",
+        "url" : "https://api.github.com/users/pdalpra",
+        "contributions" : 8
+      },
+      {
+        "login" : "gregsymons",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/222217?v=4",
+        "url" : "https://api.github.com/users/gregsymons",
+        "contributions" : 7
+      },
+      {
+        "login" : "RadoBuransky",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3110877?v=4",
+        "url" : "https://api.github.com/users/RadoBuransky",
+        "contributions" : 7
+      },
+      {
+        "login" : "lustefaniak",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/177043?v=4",
+        "url" : "https://api.github.com/users/lustefaniak",
+        "contributions" : 5
+      },
+      {
+        "login" : "mtkopone",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/285399?v=4",
+        "url" : "https://api.github.com/users/mtkopone",
+        "contributions" : 4
+      },
+      {
+        "login" : "pzhong-livongo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/86325287?v=4",
+        "url" : "https://api.github.com/users/pzhong-livongo",
+        "contributions" : 4
+      },
+      {
+        "login" : "ezh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/118212?v=4",
+        "url" : "https://api.github.com/users/ezh",
+        "contributions" : 3
+      },
+      {
+        "login" : "migmruiz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1760721?v=4",
+        "url" : "https://api.github.com/users/migmruiz",
+        "contributions" : 3
+      },
+      {
+        "login" : "yanns",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/51669?v=4",
+        "url" : "https://api.github.com/users/yanns",
+        "contributions" : 3
+      },
+      {
+        "login" : "tbarker9comcast",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6641239?v=4",
+        "url" : "https://api.github.com/users/tbarker9comcast",
+        "contributions" : 3
+      },
+      {
+        "login" : "Alistair-Johnson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/44881886?v=4",
+        "url" : "https://api.github.com/users/Alistair-Johnson",
+        "contributions" : 2
+      },
+      {
+        "login" : "domizei385",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/947485?v=4",
+        "url" : "https://api.github.com/users/domizei385",
+        "contributions" : 2
+      },
+      {
+        "login" : "a-ono",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/203075?v=4",
+        "url" : "https://api.github.com/users/a-ono",
+        "contributions" : 1
+      },
+      {
+        "login" : "raboof",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/131856?v=4",
+        "url" : "https://api.github.com/users/raboof",
+        "contributions" : 1
+      },
+      {
+        "login" : "bardl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/537705?v=4",
+        "url" : "https://api.github.com/users/bardl",
+        "contributions" : 1
+      },
+      {
+        "login" : "etorreborre",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10988?v=4",
+        "url" : "https://api.github.com/users/etorreborre",
+        "contributions" : 1
+      },
+      {
+        "login" : "fwbrasil",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/831175?v=4",
+        "url" : "https://api.github.com/users/fwbrasil",
+        "contributions" : 1
+      },
+      {
+        "login" : "saurfang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4317392?v=4",
+        "url" : "https://api.github.com/users/saurfang",
+        "contributions" : 1
+      },
+      {
+        "login" : "cranst0n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1173143?v=4",
+        "url" : "https://api.github.com/users/cranst0n",
+        "contributions" : 1
+      },
+      {
+        "login" : "jimschubert",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/109659?v=4",
+        "url" : "https://api.github.com/users/jimschubert",
+        "contributions" : 1
+      },
+      {
+        "login" : "seratch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19658?v=4",
+        "url" : "https://api.github.com/users/seratch",
+        "contributions" : 1
+      },
+      {
+        "login" : "bancek",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/367440?v=4",
+        "url" : "https://api.github.com/users/bancek",
+        "contributions" : 1
+      },
+      {
+        "login" : "marconilanna",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/363009?v=4",
+        "url" : "https://api.github.com/users/marconilanna",
+        "contributions" : 1
+      },
+      {
+        "login" : "m-sp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3969000?v=4",
+        "url" : "https://api.github.com/users/m-sp",
+        "contributions" : 1
+      },
+      {
+        "login" : "mkokho",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10990119?v=4",
+        "url" : "https://api.github.com/users/mkokho",
+        "contributions" : 1
+      },
+      {
+        "login" : "rockjam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1951244?v=4",
+        "url" : "https://api.github.com/users/rockjam",
+        "contributions" : 1
+      },
+      {
+        "login" : "alexnikitchuk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8694829?v=4",
+        "url" : "https://api.github.com/users/alexnikitchuk",
+        "contributions" : 1
+      },
+      {
+        "login" : "Philippus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1923596?v=4",
+        "url" : "https://api.github.com/users/Philippus",
+        "contributions" : 1
+      },
+      {
+        "login" : "ReadmeCritic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15367484?v=4",
+        "url" : "https://api.github.com/users/ReadmeCritic",
+        "contributions" : 1
+      },
+      {
+        "login" : "rorygraves",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2352078?v=4",
+        "url" : "https://api.github.com/users/rorygraves",
+        "contributions" : 1
+      },
+      {
+        "login" : "samupra",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24209940?v=4",
+        "url" : "https://api.github.com/users/samupra",
+        "contributions" : 1
+      },
+      {
+        "login" : "stacycurl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/80608?v=4",
+        "url" : "https://api.github.com/users/stacycurl",
+        "contributions" : 1
+      },
+      {
+        "login" : "exoego",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/127635?v=4",
+        "url" : "https://api.github.com/users/exoego",
+        "contributions" : 1
+      },
+      {
+        "login" : "travisbrown",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/316049?v=4",
+        "url" : "https://api.github.com/users/travisbrown",
+        "contributions" : 1
+      },
+      {
+        "login" : "vincentdehaan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/55680?v=4",
+        "url" : "https://api.github.com/users/vincentdehaan",
+        "contributions" : 1
+      },
+      {
+        "login" : "YannMoisan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/681743?v=4",
+        "url" : "https://api.github.com/users/YannMoisan",
+        "contributions" : 1
+      },
+      {
+        "login" : "ytask",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4542317?v=4",
+        "url" : "https://api.github.com/users/ytask",
+        "contributions" : 1
+      },
+      {
+        "login" : "zafarella",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/660742?v=4",
+        "url" : "https://api.github.com/users/zafarella",
+        "contributions" : 1
+      },
+      {
+        "login" : "pedrorijo91",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1999050?v=4",
+        "url" : "https://api.github.com/users/pedrorijo91",
+        "contributions" : 1
+      },
+      {
+        "login" : "shardings",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/25155220?v=4",
+        "url" : "https://api.github.com/users/shardings",
+        "contributions" : 1
+      },
+      {
+        "login" : "sullis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30938?v=4",
+        "url" : "https://api.github.com/users/sullis",
+        "contributions" : 1
+      },
+      {
+        "login" : "olafurpg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1408093?v=4",
+        "url" : "https://api.github.com/users/olafurpg",
+        "contributions" : 1
+      },
+      {
+        "login" : "nashid",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6440104?v=4",
+        "url" : "https://api.github.com/users/nashid",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 610,
+    "topics" : [
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 405,
+        "title" : "is it possible to return true if the minimum coverage is equal to or greater?",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/405"
+      },
+      {
+        "number" : 403,
+        "title" : "ScalaJs: Found a dangling UndefinedParam at Position",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/403"
+      },
+      {
+        "number" : 393,
+        "title" : "Run coverageAggregate  with parameter",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/393"
+      },
+      {
+        "number" : 386,
+        "title" : "Scoverage plugin for jenkins shows 404 error file not found for some of the scala files but works on some",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/386"
+      },
+      {
+        "number" : 382,
+        "title" : "Why statement coverage is not 100% in this class?",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/382"
+      },
+      {
+        "number" : 362,
+        "title" : "sbt-scoverage fails",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/362"
+      },
+      {
+        "number" : 358,
+        "title" : "Coverage on runMain task?",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/358"
+      },
+      {
+        "number" : 333,
+        "title" : "Look into changing the way we include the compiler plugin",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/333"
+      },
+      {
+        "number" : 315,
+        "title" : "coverageAggregate does not working properly with Cross-building",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/315"
+      },
+      {
+        "number" : 314,
+        "title" : "Per-test coverage report?",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/314"
+      },
+      {
+        "number" : 309,
+        "title" : "Scoverage targets invalidate incremental compilation",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/309"
+      },
+      {
+        "number" : 307,
+        "title" : "ClassNotFoundException when changing scoverage settings",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/307"
+      },
+      {
+        "number" : 306,
+        "title" : "FileNotFoundException when using a library published with scoverage enabled",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/306"
+      },
+      {
+        "number" : 303,
+        "title" : "Coverage report aggregate to fail when a single project's coverage is below coverageMinimum",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/303"
+      },
+      {
+        "number" : 276,
+        "title" : "Huge performance issue and timeouts",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/276"
+      },
+      {
+        "number" : 267,
+        "title" : "How to evaluate the coverage of specific packages",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/267"
+      },
+      {
+        "number" : 260,
+        "title" : "How do you impose scala code coverage specifically for integration tests?",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/260"
+      },
+      {
+        "number" : 231,
+        "title" : "does not seem to work with scala native",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/231"
+      },
+      {
+        "number" : 221,
+        "title" : "how to switch between statement or branch coverage as default",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/221"
+      },
+      {
+        "number" : 211,
+        "title" : "Make Report Output Path Configurable",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/211"
+      },
+      {
+        "number" : 173,
+        "title" : "scoverage doesn't work with simlink",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/173"
+      },
+      {
+        "number" : 151,
+        "title" : "scoverage fails for multi-jvm tests",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/151"
+      },
+      {
+        "number" : 141,
+        "title" : "Support user defined test configs",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/141"
+      },
+      {
+        "number" : 128,
+        "title" : "coverageEnabled should respect configurations",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/128"
+      },
+      {
+        "number" : 87,
+        "title" : "multiproject reports using coverageAggregate are incomplete",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/87"
+      },
+      {
+        "number" : 12,
+        "title" : "add class level threshold checks",
+        "url" : "https://github.com/scoverage/sbt-scoverage/issues/12"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : null,
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "code-analysis",
+    "beginnerIssuesLabel" : null
+  }
+}

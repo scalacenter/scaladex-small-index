@@ -1,0 +1,960 @@
+{
+  "organization" : "monix",
+  "repository" : "monix",
+  "creationDate" : 1405195247623,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643174169203
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "https://monix.io",
+    "description" : "Asynchronous, Reactive Programming for Scala and Scala.js.",
+    "logo" : "https://avatars.githubusercontent.com/u/16490874?v=4",
+    "stars" : 1827,
+    "forks" : 237,
+    "watchers" : 69,
+    "issues" : 94,
+    "creationDate" : 1389012967000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-monix\" class=\"anchor\" aria-hidden=\"true\" href=\"#monix\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Monix</h1>\n<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/b08f0f3f2c8c5eac2781eef45acb9e7659a42d1c253471850d3258e03b99f281/68747470733a2f2f6d6f6e69782e696f2f7075626c69632f696d616765732f6d6f6e69782d6c6f676f2e706e673f74733d3230313631303234\"><img src=\"https://camo.githubusercontent.com/b08f0f3f2c8c5eac2781eef45acb9e7659a42d1c253471850d3258e03b99f281/68747470733a2f2f6d6f6e69782e696f2f7075626c69632f696d616765732f6d6f6e69782d6c6f676f2e706e673f74733d3230313631303234\" align=\"right\" width=\"280\" data-canonical-src=\"https://monix.io/public/images/monix-logo.png?ts=20161024\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Asynchronous, Reactive Programming for Scala and <a href=\"http://www.scala-js.org/\" rel=\"nofollow\">Scala.js</a>.</p>\n<p dir=\"auto\"><a href=\"https://index.scala-lang.org/monix/monix/monix\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/cca9d8b10cd999577a6016be00f291d3930ba8afd2f4fb49981d8c5c76924697/68747470733a2f2f696e6465782e7363616c612d6c616e672e6f72672f6d6f6e69782f6d6f6e69782f6d6f6e69782f6c61746573742d62792d7363616c612d76657273696f6e2e737667\" alt=\"monix Scala version support\" data-canonical-src=\"https://index.scala-lang.org/monix/monix/monix/latest-by-scala-version.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\"><a href=\"https://github.com/monix/monix/actions?query=branch%3Aseries%2F4.x+workflow%3Abuild\"><img src=\"https://github.com/monix/monix/workflows/build/badge.svg?branch=series/4.x\" alt=\"Build\" style=\"max-width: 100%;\"></a> <a href=\"https://gitter.im/monix/monix\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/5dbac0213da25c445bd11f168587c11a200ba153ef3014e8408e462e410169b3/68747470733a2f2f6261646765732e6769747465722e696d2f4a6f696e253230436861742e737667\" alt=\"Gitter\" data-canonical-src=\"https://badges.gitter.im/Join%20Chat.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://discord.gg/wsVZSEx4Nw\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/ab28a7bb180b98ce9130264a9312d7e82068a74ae51eecec98a3179dc570ee22/68747470733a2f2f696d672e736869656c64732e696f2f646973636f72642f3633323237373839363733393934363531372e7376673f6c6162656c3d266c6f676f3d646973636f7264266c6f676f436f6c6f723d66666666666626636f6c6f723d343034323434266c6162656c436f6c6f723d364137454332\" alt=\"Discord\" data-canonical-src=\"https://img.shields.io/discord/632277896739946517.svg?label=&amp;logo=discord&amp;logoColor=ffffff&amp;color=404244&amp;labelColor=6A7EC2\" style=\"max-width: 100%;\"></a></p>\n<ul dir=\"auto\">\n<li><a href=\"#overview\">Overview</a></li>\n<li><a href=\"#usage\">Usage</a>\n<ul dir=\"auto\">\n<li><a href=\"#library-dependency-sbt\">Library dependency (sbt)</a></li>\n<li><a href=\"#sub-projects\">Sub-projects</a></li>\n</ul>\n</li>\n<li><a href=\"#documentation\">Documentation</a></li>\n<li><a href=\"#contributing\">Contributing</a></li>\n<li><a href=\"#adopters\">Adopters</a></li>\n<li><a href=\"#license\">License</a></li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-overview\" class=\"anchor\" aria-hidden=\"true\" href=\"#overview\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Overview</h2>\n<p dir=\"auto\">Monix is a high-performance Scala / Scala.js library for composing asynchronous,\nevent-based programs.</p>\n<p dir=\"auto\">It started as a proper implementation of <a href=\"http://reactivex.io/\" rel=\"nofollow\">ReactiveX</a>,\nwith stronger functional programming influences and designed from the ground up\nfor  back-pressure and made to interact cleanly with Scala's standard library,\ncompatible out-of-the-box with the <a href=\"http://www.reactive-streams.org/\" rel=\"nofollow\">Reactive Streams</a>\nprotocol. It then expanded to include abstractions for suspending side effects\nand for resource handling, and is one of the parents and implementors of\n<a href=\"https://typelevel.org/cats-effect/\" rel=\"nofollow\">Cats Effect</a>.</p>\n<p dir=\"auto\"><a href=\"https://typelevel.org/\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/448d7c8ef72833584165a865152f655dc6dc708be2361eb260c44dbd7e705bd8/68747470733a2f2f6d6f6e69782e696f2f7075626c69632f696d616765732f747970656c6576656c2e706e67\" width=\"150\" align=\"right\" data-canonical-src=\"https://monix.io/public/images/typelevel.png\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">A <a href=\"http://typelevel.org/projects/\" rel=\"nofollow\">Typelevel project</a>, Monix proudly\nexemplifies pure, typeful, functional programming in Scala, while being pragmatic,\nand making no compromise on performance.</p>\n<p dir=\"auto\">Highlights:</p>\n<ul dir=\"auto\">\n<li>exposes the kick-ass <a href=\"https://monix.io/docs/current/reactive/observable.html\" rel=\"nofollow\">Observable</a>,\n<a href=\"https://monix.io/api/current/monix/tail/Iterant.html\" rel=\"nofollow\">Iterant</a>,\n<a href=\"https://monix.io/docs/current/eval/task.html\" rel=\"nofollow\">Task</a>,\n<a href=\"https://bio.monix.io/docs/introduction\" rel=\"nofollow\">IO[E, A]</a>, and\n<a href=\"https://monix.io/docs/current/eval/coeval.html\" rel=\"nofollow\">Coeval</a> data types,\nalong with all the support they need</li>\n<li><em>modular</em>, split into multiple sub-projects, only use what you need</li>\n<li>designed for true asynchronicity, running on both the\nJVM and <a href=\"http://scala-js.org\" rel=\"nofollow\">Scala.js</a></li>\n<li>excellent test coverage, code quality, and API documentation\nas a primary project policy</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-usage\" class=\"anchor\" aria-hidden=\"true\" href=\"#usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Usage</h2>\n<ul dir=\"auto\">\n<li>Use <strong><a href=\"https://github.com/monix/monix-jvm-app-template.g8\">monix-jvm-app-template.g8</a></strong>\nfor quickly getting started with a Monix-driven app</li>\n<li>See <strong><a href=\"https://github.com/monix/monix-sample\">monix-sample</a></strong> for\na project exemplifying Monix used both on the server and on the client.</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-library-dependency-sbt\" class=\"anchor\" aria-hidden=\"true\" href=\"#library-dependency-sbt\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Library dependency (sbt)</h3>\n<p dir=\"auto\">For the stable release (compatible with Cats, and Cats-Effect 2.x):</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;io.monix&quot; %% &quot;monix&quot; % &quot;3.4.0&quot;\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>io.monix<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>monix<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>3.4.0<span class=\"pl-pds\">\"</span></span></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-sub-projects\" class=\"anchor\" aria-hidden=\"true\" href=\"#sub-projects\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Sub-projects</h3>\n<p dir=\"auto\">Monix 3.x is modular by design. See the <a href=\"https://monix.io/docs/current/intro/usage.html#sub-modules--dependencies-graph\" rel=\"nofollow\">sub-modules graph</a>:</p>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/da18b26cc3c5a18806ff3313d23b453f38df31306d0fa7d9992a161c44a5cd97/68747470733a2f2f6d6f6e69782e696f2f7075626c69632f6d6973632f646570656e64656e636965732e737667\"><img src=\"https://camo.githubusercontent.com/da18b26cc3c5a18806ff3313d23b453f38df31306d0fa7d9992a161c44a5cd97/68747470733a2f2f6d6f6e69782e696f2f7075626c69632f6d6973632f646570656e64656e636965732e737667\" alt=\"Sub-modules graph\" data-canonical-src=\"https://monix.io/public/misc/dependencies.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">You can pick and choose:</p>\n<ul dir=\"auto\">\n<li><code>monix-execution</code> exposes the low-level execution environment, or\nmore precisely <code>Scheduler</code>, <code>Cancelable</code>, <code>Atomic</code>, <code>Local</code>, <code>CancelableFuture</code>\nand <code>Future</code> based abstractions from <code>monix-catnap</code>.</li>\n<li><code>monix-catnap</code> exposes pure abstractions built on top of\nthe <a href=\"https://typelevel.org/cats-effect/\" rel=\"nofollow\">Cats-Effect</a> type classes;\ndepends on <code>monix-execution</code>, Cats 1.x and Cats-Effect</li>\n<li><code>monix-eval</code> exposes <code>Task</code>, <code>Coeval</code>;\ndepends on <code>monix-execution</code></li>\n<li><code>monix-reactive</code> exposes <code>Observable</code> for modeling reactive,\npush-based streams with back-pressure; depends on <code>monix-eval</code></li>\n<li><code>monix-tail</code> exposes <code>Iterant</code> streams for purely functional pull\nbased streaming; depends on <code>monix-eval</code> and makes heavy use of\nCats-Effect</li>\n<li><code>monix</code> provides all of the above</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Documentation</h2>\n<p dir=\"auto\">See:</p>\n<ul dir=\"auto\">\n<li>Website: <a href=\"https://monix.io/\" rel=\"nofollow\">Monix.io</a></li>\n<li><a href=\"https://monix.io/docs/current/\" rel=\"nofollow\">Documentation (current)</a> (<a href=\"https://monix.io/docs/3x/\" rel=\"nofollow\">3.x</a>)</li>\n<li><a href=\"https://monix.io/docs/2x/\" rel=\"nofollow\">Documentation for 2.x (old)</a></li>\n<li><a href=\"https://monix.io/presentations/\" rel=\"nofollow\">Presentations</a></li>\n</ul>\n<p dir=\"auto\">API Documentation:</p>\n<ul dir=\"auto\">\n<li><a href=\"https://monix.io/api/current/\" rel=\"nofollow\">Current</a></li>\n<li><a href=\"https://monix.io/api/3.4/\" rel=\"nofollow\">3.4</a></li>\n<li><a href=\"https://monix.io/api/2.3/\" rel=\"nofollow\">2.3</a></li>\n<li><a href=\"https://monix.io/api/1.2/\" rel=\"nofollow\">1.2</a></li>\n</ul>\n<p dir=\"auto\">(<a href=\"https://github.com/monix/monix.io\">contributions are welcome</a>)</p>\n<p dir=\"auto\">Related:</p>\n<ul dir=\"auto\">\n<li><a href=\"https://typelevel.org/cats/\" rel=\"nofollow\">Typelevel Cats</a></li>\n<li><a href=\"https://typelevel.org/cats-effect/\" rel=\"nofollow\">Typelevel Cats-Effect</a></li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Contributing</h2>\n<p dir=\"auto\">The Monix project welcomes contributions from anybody wishing to\nparticipate. You must license all code or documentation provided\nwith the Apache License 2.0, see <a href=\"./LICENSE.txt\">LICENSE.txt</a>.</p>\n<p dir=\"auto\">You must follow the <a href=\"./CODE_OF_CONDUCT.md\">Scala Code of Conduct</a> when\ndiscussing Monix on GitHub, Gitter channel, or other venues.</p>\n<p dir=\"auto\">Feel free to open an issue if you notice a bug, have an idea for a\nfeature, or have a question about the code. Pull requests are also\ngladly accepted. For more information, check out the\n<a href=\"CONTRIBUTING.md\">contributor guide</a>.</p>\n<p dir=\"auto\">If you'd like to donate in order to help with ongoing maintenance:</p>\n<p dir=\"auto\"><a href=\"https://www.patreon.com/bePatron?u=6102596\" rel=\"nofollow\"><img label=\"Become a Patron!\" src=\"https://camo.githubusercontent.com/ca317983c1ee436cd8c1157c5d2769c641372ee441af705dc0a32e3654fcbc9f/68747470733a2f2f63352e70617472656f6e2e636f6d2f65787465726e616c2f6c6f676f2f6265636f6d655f615f706174726f6e5f627574746f6e4032782e706e67\" height=\"40\" data-canonical-src=\"https://c5.patreon.com/external/logo/become_a_patron_button@2x.png\" style=\"max-width: 100%;\"></a></p>\n<h2 dir=\"auto\"><a id=\"user-content-adopters\" class=\"anchor\" aria-hidden=\"true\" href=\"#adopters\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Adopters</h2>\n<p dir=\"auto\">Here's a (non-exhaustive) list of companies that use Monix in production. Don't see yours?\nSubmit a PR <g-emoji class=\"g-emoji\" alias=\"heart\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/2764.png\">❤️</g-emoji></p>\n<ul dir=\"auto\">\n<li><a href=\"https://abacusfi.com\" rel=\"nofollow\">Abacus</a></li>\n<li><a href=\"https://www.agoda.com\" rel=\"nofollow\">Agoda</a></li>\n<li><a href=\"https://www.avsystem.com\" rel=\"nofollow\">AVSystem</a></li>\n<li><a href=\"https://commercetools.com\" rel=\"nofollow\">commercetools</a></li>\n<li><a href=\"https://www.coya.com/\" rel=\"nofollow\">Coya</a></li>\n<li><a href=\"https://www.eon.com/\" rel=\"nofollow\">E.ON Connecting Energies</a></li>\n<li><a href=\"https://www.ebay.com\" rel=\"nofollow\">eBay Inc.</a></li>\n<li><a href=\"http://eloquentix.com/\" rel=\"nofollow\">Eloquentix</a></li>\n<li><a href=\"https://www.hypefactors.com\" rel=\"nofollow\">Hypefactors</a></li>\n<li><a href=\"https://www.iteratorshq.com\" rel=\"nofollow\">Iterators</a></li>\n<li><a href=\"https://netflix.com\" rel=\"nofollow\">Netflix</a></li>\n<li><a href=\"https://www.sony.com\" rel=\"nofollow\">Sony Electronics</a></li>\n<li><a href=\"https://tinkoff.ru\" rel=\"nofollow\">Tinkoff</a></li>\n<li><a href=\"https://www.zalando.com\" rel=\"nofollow\">Zalando</a></li>\n<li><a href=\"https://www.zendesk.com\" rel=\"nofollow\">Zendesk</a></li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>License</h2>\n<p dir=\"auto\">All code in this repository is licensed under the Apache License,\nVersion 2.0.  See <a href=\"./LICENSE.txt\">LICENCE.txt</a>.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "alexandru",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11753?v=4",
+        "url" : "https://api.github.com/users/alexandru",
+        "contributions" : 1121
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 175
+      },
+      {
+        "login" : "Avasil",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12383899?v=4",
+        "url" : "https://api.github.com/users/Avasil",
+        "contributions" : 115
+      },
+      {
+        "login" : "oleg-py",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4143670?v=4",
+        "url" : "https://api.github.com/users/oleg-py",
+        "contributions" : 52
+      },
+      {
+        "login" : "larsrh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/923079?v=4",
+        "url" : "https://api.github.com/users/larsrh",
+        "contributions" : 12
+      },
+      {
+        "login" : "allantl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14335852?v=4",
+        "url" : "https://api.github.com/users/allantl",
+        "contributions" : 7
+      },
+      {
+        "login" : "xuwei-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/389787?v=4",
+        "url" : "https://api.github.com/users/xuwei-k",
+        "contributions" : 7
+      },
+      {
+        "login" : "lukestephenson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/395523?v=4",
+        "url" : "https://api.github.com/users/lukestephenson",
+        "contributions" : 7
+      },
+      {
+        "login" : "pk044",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/27566245?v=4",
+        "url" : "https://api.github.com/users/pk044",
+        "contributions" : 7
+      },
+      {
+        "login" : "paualarco",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/33580722?v=4",
+        "url" : "https://api.github.com/users/paualarco",
+        "contributions" : 6
+      },
+      {
+        "login" : "jozic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/124249?v=4",
+        "url" : "https://api.github.com/users/jozic",
+        "contributions" : 5
+      },
+      {
+        "login" : "n4to4",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/21071230?v=4",
+        "url" : "https://api.github.com/users/n4to4",
+        "contributions" : 5
+      },
+      {
+        "login" : "omainegra",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7846263?v=4",
+        "url" : "https://api.github.com/users/omainegra",
+        "contributions" : 5
+      },
+      {
+        "login" : "guizmaii",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1193670?v=4",
+        "url" : "https://api.github.com/users/guizmaii",
+        "contributions" : 4
+      },
+      {
+        "login" : "lorandszakacs",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/843135?v=4",
+        "url" : "https://api.github.com/users/lorandszakacs",
+        "contributions" : 4
+      },
+      {
+        "login" : "rfkm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/857162?v=4",
+        "url" : "https://api.github.com/users/rfkm",
+        "contributions" : 4
+      },
+      {
+        "login" : "SethTisue",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
+        "url" : "https://api.github.com/users/SethTisue",
+        "contributions" : 4
+      },
+      {
+        "login" : "TapanVaishnav",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/50604343?v=4",
+        "url" : "https://api.github.com/users/TapanVaishnav",
+        "contributions" : 4
+      },
+      {
+        "login" : "aoprisan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/99908?v=4",
+        "url" : "https://api.github.com/users/aoprisan",
+        "contributions" : 3
+      },
+      {
+        "login" : "greenhat",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/180349?v=4",
+        "url" : "https://api.github.com/users/greenhat",
+        "contributions" : 3
+      },
+      {
+        "login" : "ghostbuster91",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5662622?v=4",
+        "url" : "https://api.github.com/users/ghostbuster91",
+        "contributions" : 3
+      },
+      {
+        "login" : "leandrob13",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5148173?v=4",
+        "url" : "https://api.github.com/users/leandrob13",
+        "contributions" : 3
+      },
+      {
+        "login" : "RaasAhsan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2617549?v=4",
+        "url" : "https://api.github.com/users/RaasAhsan",
+        "contributions" : 3
+      },
+      {
+        "login" : "valenterry",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1632588?v=4",
+        "url" : "https://api.github.com/users/valenterry",
+        "contributions" : 3
+      },
+      {
+        "login" : "wogan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/89056?v=4",
+        "url" : "https://api.github.com/users/wogan",
+        "contributions" : 3
+      },
+      {
+        "login" : "golem131",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2429587?v=4",
+        "url" : "https://api.github.com/users/golem131",
+        "contributions" : 3
+      },
+      {
+        "login" : "ddworak",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6950688?v=4",
+        "url" : "https://api.github.com/users/ddworak",
+        "contributions" : 2
+      },
+      {
+        "login" : "ilya-murzinov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3704363?v=4",
+        "url" : "https://api.github.com/users/ilya-murzinov",
+        "contributions" : 2
+      },
+      {
+        "login" : "kubukoz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/894884?v=4",
+        "url" : "https://api.github.com/users/kubukoz",
+        "contributions" : 2
+      },
+      {
+        "login" : "jyoo980",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24359440?v=4",
+        "url" : "https://api.github.com/users/jyoo980",
+        "contributions" : 2
+      },
+      {
+        "login" : "guersam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/969120?v=4",
+        "url" : "https://api.github.com/users/guersam",
+        "contributions" : 2
+      },
+      {
+        "login" : "jvican",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2462974?v=4",
+        "url" : "https://api.github.com/users/jvican",
+        "contributions" : 2
+      },
+      {
+        "login" : "Wosin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7119802?v=4",
+        "url" : "https://api.github.com/users/Wosin",
+        "contributions" : 2
+      },
+      {
+        "login" : "ctoomey",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2244924?v=4",
+        "url" : "https://api.github.com/users/ctoomey",
+        "contributions" : 2
+      },
+      {
+        "login" : "github-actions[bot]",
+        "avatarUrl" : "https://avatars.githubusercontent.com/in/15368?v=4",
+        "url" : "https://api.github.com/users/github-actions%5Bbot%5D",
+        "contributions" : 2
+      },
+      {
+        "login" : "creyer2",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6089473?v=4",
+        "url" : "https://api.github.com/users/creyer2",
+        "contributions" : 2
+      },
+      {
+        "login" : "adrian-salajan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1502731?v=4",
+        "url" : "https://api.github.com/users/adrian-salajan",
+        "contributions" : 1
+      },
+      {
+        "login" : "flashingpumpkin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/76110?v=4",
+        "url" : "https://api.github.com/users/flashingpumpkin",
+        "contributions" : 1
+      },
+      {
+        "login" : "ppressives",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9866186?v=4",
+        "url" : "https://api.github.com/users/ppressives",
+        "contributions" : 1
+      },
+      {
+        "login" : "BambooTuna",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/39406526?v=4",
+        "url" : "https://api.github.com/users/BambooTuna",
+        "contributions" : 1
+      },
+      {
+        "login" : "ngbinh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/211327?v=4",
+        "url" : "https://api.github.com/users/ngbinh",
+        "contributions" : 1
+      },
+      {
+        "login" : "REDNBLACK",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1498939?v=4",
+        "url" : "https://api.github.com/users/REDNBLACK",
+        "contributions" : 1
+      },
+      {
+        "login" : "entangled90",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1188147?v=4",
+        "url" : "https://api.github.com/users/entangled90",
+        "contributions" : 1
+      },
+      {
+        "login" : "Danny02",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/722582?v=4",
+        "url" : "https://api.github.com/users/Danny02",
+        "contributions" : 1
+      },
+      {
+        "login" : "djneades",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4183286?v=4",
+        "url" : "https://api.github.com/users/djneades",
+        "contributions" : 1
+      },
+      {
+        "login" : "dabd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/167463?v=4",
+        "url" : "https://api.github.com/users/dabd",
+        "contributions" : 1
+      },
+      {
+        "login" : "pchpsky",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15748018?v=4",
+        "url" : "https://api.github.com/users/pchpsky",
+        "contributions" : 1
+      },
+      {
+        "login" : "kdoomsday",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3481928?v=4",
+        "url" : "https://api.github.com/users/kdoomsday",
+        "contributions" : 1
+      },
+      {
+        "login" : "fchaillou",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/515348?v=4",
+        "url" : "https://api.github.com/users/fchaillou",
+        "contributions" : 1
+      },
+      {
+        "login" : "GKhotyan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19427382?v=4",
+        "url" : "https://api.github.com/users/GKhotyan",
+        "contributions" : 1
+      },
+      {
+        "login" : "gclaramunt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/41450?v=4",
+        "url" : "https://api.github.com/users/gclaramunt",
+        "contributions" : 1
+      },
+      {
+        "login" : "iravid",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/283332?v=4",
+        "url" : "https://api.github.com/users/iravid",
+        "contributions" : 1
+      },
+      {
+        "login" : "jfwilson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7857916?v=4",
+        "url" : "https://api.github.com/users/jfwilson",
+        "contributions" : 1
+      },
+      {
+        "login" : "jbracker",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2422298?v=4",
+        "url" : "https://api.github.com/users/jbracker",
+        "contributions" : 1
+      },
+      {
+        "login" : "jferris",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7591?v=4",
+        "url" : "https://api.github.com/users/jferris",
+        "contributions" : 1
+      },
+      {
+        "login" : "jorgedfbranco",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/677887?v=4",
+        "url" : "https://api.github.com/users/jorgedfbranco",
+        "contributions" : 1
+      },
+      {
+        "login" : "cakper",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1022346?v=4",
+        "url" : "https://api.github.com/users/cakper",
+        "contributions" : 1
+      },
+      {
+        "login" : "kamilkloch",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/807154?v=4",
+        "url" : "https://api.github.com/users/kamilkloch",
+        "contributions" : 1
+      },
+      {
+        "login" : "kpodsiad",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/37124721?v=4",
+        "url" : "https://api.github.com/users/kpodsiad",
+        "contributions" : 1
+      },
+      {
+        "login" : "mantasindrasius",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2762334?v=4",
+        "url" : "https://api.github.com/users/mantasindrasius",
+        "contributions" : 1
+      },
+      {
+        "login" : "ms-ati",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/592892?v=4",
+        "url" : "https://api.github.com/users/ms-ati",
+        "contributions" : 1
+      },
+      {
+        "login" : "mdedetrich",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2337269?v=4",
+        "url" : "https://api.github.com/users/mdedetrich",
+        "contributions" : 1
+      },
+      {
+        "login" : "poslegm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4687050?v=4",
+        "url" : "https://api.github.com/users/poslegm",
+        "contributions" : 1
+      },
+      {
+        "login" : "naferx",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11840846?v=4",
+        "url" : "https://api.github.com/users/naferx",
+        "contributions" : 1
+      },
+      {
+        "login" : "taig",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/567857?v=4",
+        "url" : "https://api.github.com/users/taig",
+        "contributions" : 1
+      },
+      {
+        "login" : "Otah",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1818974?v=4",
+        "url" : "https://api.github.com/users/Otah",
+        "contributions" : 1
+      },
+      {
+        "login" : "pjurczenko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12970160?v=4",
+        "url" : "https://api.github.com/users/pjurczenko",
+        "contributions" : 1
+      },
+      {
+        "login" : "peterneyens",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6407606?v=4",
+        "url" : "https://api.github.com/users/peterneyens",
+        "contributions" : 1
+      },
+      {
+        "login" : "rahilb",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3636251?v=4",
+        "url" : "https://api.github.com/users/rahilb",
+        "contributions" : 1
+      },
+      {
+        "login" : "arlequin-nyc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1648533?v=4",
+        "url" : "https://api.github.com/users/arlequin-nyc",
+        "contributions" : 1
+      },
+      {
+        "login" : "luthfianto",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1331389?v=4",
+        "url" : "https://api.github.com/users/luthfianto",
+        "contributions" : 1
+      },
+      {
+        "login" : "rtyley",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/52038?v=4",
+        "url" : "https://api.github.com/users/rtyley",
+        "contributions" : 1
+      },
+      {
+        "login" : "ghik",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1022675?v=4",
+        "url" : "https://api.github.com/users/ghik",
+        "contributions" : 1
+      },
+      {
+        "login" : "tkroman",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1114784?v=4",
+        "url" : "https://api.github.com/users/tkroman",
+        "contributions" : 1
+      },
+      {
+        "login" : "rossabaker",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/142698?v=4",
+        "url" : "https://api.github.com/users/rossabaker",
+        "contributions" : 1
+      },
+      {
+        "login" : "guymers",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1100841?v=4",
+        "url" : "https://api.github.com/users/guymers",
+        "contributions" : 1
+      },
+      {
+        "login" : "sandeepkota",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12103147?v=4",
+        "url" : "https://api.github.com/users/sandeepkota",
+        "contributions" : 1
+      },
+      {
+        "login" : "gitter-badger",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8518239?v=4",
+        "url" : "https://api.github.com/users/gitter-badger",
+        "contributions" : 1
+      },
+      {
+        "login" : "vasily-kirichenko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/873919?v=4",
+        "url" : "https://api.github.com/users/vasily-kirichenko",
+        "contributions" : 1
+      },
+      {
+        "login" : "nguyenvietyen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11893244?v=4",
+        "url" : "https://api.github.com/users/nguyenvietyen",
+        "contributions" : 1
+      },
+      {
+        "login" : "dychko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8727902?v=4",
+        "url" : "https://api.github.com/users/dychko",
+        "contributions" : 1
+      },
+      {
+        "login" : "vlovgr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1163201?v=4",
+        "url" : "https://api.github.com/users/vlovgr",
+        "contributions" : 1
+      },
+      {
+        "login" : "VladPodilnyk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12114216?v=4",
+        "url" : "https://api.github.com/users/VladPodilnyk",
+        "contributions" : 1
+      },
+      {
+        "login" : "yanns",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/51669?v=4",
+        "url" : "https://api.github.com/users/yanns",
+        "contributions" : 1
+      },
+      {
+        "login" : "ybr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1468867?v=4",
+        "url" : "https://api.github.com/users/ybr",
+        "contributions" : 1
+      },
+      {
+        "login" : "LMnet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2826500?v=4",
+        "url" : "https://api.github.com/users/LMnet",
+        "contributions" : 1
+      },
+      {
+        "login" : "cranst0n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1173143?v=4",
+        "url" : "https://api.github.com/users/cranst0n",
+        "contributions" : 1
+      },
+      {
+        "login" : "fdilg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/49585194?v=4",
+        "url" : "https://api.github.com/users/fdilg",
+        "contributions" : 1
+      },
+      {
+        "login" : "fnqista",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6524867?v=4",
+        "url" : "https://api.github.com/users/fnqista",
+        "contributions" : 1
+      },
+      {
+        "login" : "jendakol",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1770097?v=4",
+        "url" : "https://api.github.com/users/jendakol",
+        "contributions" : 1
+      },
+      {
+        "login" : "leakyabstraction",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19578052?v=4",
+        "url" : "https://api.github.com/users/leakyabstraction",
+        "contributions" : 1
+      },
+      {
+        "login" : "busti",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3575167?v=4",
+        "url" : "https://api.github.com/users/busti",
+        "contributions" : 1
+      },
+      {
+        "login" : "mudsam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10428653?v=4",
+        "url" : "https://api.github.com/users/mudsam",
+        "contributions" : 1
+      },
+      {
+        "login" : "mutantmell",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4701080?v=4",
+        "url" : "https://api.github.com/users/mutantmell",
+        "contributions" : 1
+      },
+      {
+        "login" : "najder-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13331852?v=4",
+        "url" : "https://api.github.com/users/najder-k",
+        "contributions" : 1
+      },
+      {
+        "login" : "takayahilton",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12049838?v=4",
+        "url" : "https://api.github.com/users/takayahilton",
+        "contributions" : 1
+      },
+      {
+        "login" : "tafit3",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1242852?v=4",
+        "url" : "https://api.github.com/users/tafit3",
+        "contributions" : 1
+      },
+      {
+        "login" : "olafurpg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1408093?v=4",
+        "url" : "https://api.github.com/users/olafurpg",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 1650,
+    "topics" : [
+      "functional-programming",
+      "cats-effect",
+      "reactive-streams",
+      "fp",
+      "reactivex",
+      "scala",
+      "monix",
+      "cats",
+      "reactive-programming",
+      "typelevel"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : "https://gitter.im/monix/monix",
+    "openIssues" : [
+      {
+        "number" : 1531,
+        "title" : "Pre-bundled scala.collection.compat classes conflicts with scala-collection-compat library",
+        "url" : "https://github.com/monix/monix/issues/1531"
+      },
+      {
+        "number" : 1529,
+        "title" : "operator request: groupByOrdered",
+        "url" : "https://github.com/monix/monix/issues/1529"
+      },
+      {
+        "number" : 1527,
+        "title" : "TestContext.tick() doesn't run tasks to completion when invoked from a monix-managed thread",
+        "url" : "https://github.com/monix/monix/issues/1527"
+      },
+      {
+        "number" : 1519,
+        "title" : "Use macrotask executor for scala.js",
+        "url" : "https://github.com/monix/monix/issues/1519"
+      },
+      {
+        "number" : 1510,
+        "title" : "runtime failure on cats.effect.Clock dependency",
+        "url" : "https://github.com/monix/monix/issues/1510"
+      },
+      {
+        "number" : 1505,
+        "title" : "Cancelable should back-pressure and be () => Future[A]",
+        "url" : "https://github.com/monix/monix/issues/1505"
+      },
+      {
+        "number" : 1502,
+        "title" : "When is CE3 (cats-effect 3) going to be supported? ",
+        "url" : "https://github.com/monix/monix/issues/1502"
+      },
+      {
+        "number" : 1492,
+        "title" : "Memory issue with MapParallelOrdered when moving from java8 to java11",
+        "url" : "https://github.com/monix/monix/issues/1492"
+      },
+      {
+        "number" : 1479,
+        "title" : "Observable.fromInputStream doesn't work as expected",
+        "url" : "https://github.com/monix/monix/issues/1479"
+      },
+      {
+        "number" : 1474,
+        "title" : "Timeouts don't work with Task.bracket acquire",
+        "url" : "https://github.com/monix/monix/issues/1474"
+      },
+      {
+        "number" : 1438,
+        "title" : "(Maybe, proposal) monix-execution should depend on org.slf4j.Logger (JVM only)",
+        "url" : "https://github.com/monix/monix/issues/1438"
+      },
+      {
+        "number" : 1432,
+        "title" : "[Dev] Implement the work-stealing logic from CE 3 in Scheduler",
+        "url" : "https://github.com/monix/monix/issues/1432"
+      },
+      {
+        "number" : 1430,
+        "title" : "Fix Observable leaks related to tailRecM",
+        "url" : "https://github.com/monix/monix/issues/1430"
+      },
+      {
+        "number" : 1429,
+        "title" : "(Maybe) Make Iterant covariant",
+        "url" : "https://github.com/monix/monix/issues/1429"
+      },
+      {
+        "number" : 1428,
+        "title" : "Iterant should drop the hard requirements on Sync",
+        "url" : "https://github.com/monix/monix/issues/1428"
+      },
+      {
+        "number" : 1427,
+        "title" : "Observable and Reactive Streams (e.g. Akka Streams) are incompatible with Resource or bracket",
+        "url" : "https://github.com/monix/monix/issues/1427"
+      },
+      {
+        "number" : 1426,
+        "title" : "Document the integration possible with Akka Streams",
+        "url" : "https://github.com/monix/monix/issues/1426"
+      },
+      {
+        "number" : 1425,
+        "title" : "[4.x] OverflowStrategy in Observable should stop being an implicit parameter",
+        "url" : "https://github.com/monix/monix/issues/1425"
+      },
+      {
+        "number" : 1387,
+        "title" : "TaskApp will block when throw fatal errors",
+        "url" : "https://github.com/monix/monix/issues/1387"
+      },
+      {
+        "number" : 1377,
+        "title" : "[4.x Design] Add blocking method to Scheduler",
+        "url" : "https://github.com/monix/monix/issues/1377"
+      },
+      {
+        "number" : 1366,
+        "title" : "FlatMap over null value with guarantee hangs execution indefinitely",
+        "url" : "https://github.com/monix/monix/issues/1366"
+      },
+      {
+        "number" : 1364,
+        "title" : "ConcurrentChannel with bounded buffer can deadlock with short-lived consumers",
+        "url" : "https://github.com/monix/monix/issues/1364"
+      },
+      {
+        "number" : 1363,
+        "title" : "Add `.memoizeFor` method to the Task and Observable API",
+        "url" : "https://github.com/monix/monix/issues/1363"
+      },
+      {
+        "number" : 1342,
+        "title" : "Force async boundary if `executeOn` scheduler doesn't match current thread",
+        "url" : "https://github.com/monix/monix/issues/1342"
+      },
+      {
+        "number" : 1303,
+        "title" : "Implement Coeval.trace",
+        "url" : "https://github.com/monix/monix/issues/1303"
+      },
+      {
+        "number" : 1302,
+        "title" : "Auto-isolate Local during \"forking\" operations (start, race, parXXX)",
+        "url" : "https://github.com/monix/monix/issues/1302"
+      },
+      {
+        "number" : 1292,
+        "title" : "Corrupted concatenation after Observable.publishSelector",
+        "url" : "https://github.com/monix/monix/issues/1292"
+      },
+      {
+        "number" : 1288,
+        "title" : "Consider tracing more operators",
+        "url" : "https://github.com/monix/monix/issues/1288"
+      },
+      {
+        "number" : 1274,
+        "title" : "Optimize Observable#bufferSliding",
+        "url" : "https://github.com/monix/monix/issues/1274"
+      },
+      {
+        "number" : 1261,
+        "title" : "Support Observable buffers of size 1",
+        "url" : "https://github.com/monix/monix/issues/1261"
+      },
+      {
+        "number" : 1242,
+        "title" : "Reading stdin as an Observable (and responding to ctrl+c)",
+        "url" : "https://github.com/monix/monix/issues/1242"
+      },
+      {
+        "number" : 1227,
+        "title" : "Support merging observables with parameterized OverflowStrategy",
+        "url" : "https://github.com/monix/monix/issues/1227"
+      },
+      {
+        "number" : 1215,
+        "title" : "Add SchedulerService.lift",
+        "url" : "https://github.com/monix/monix/issues/1215"
+      },
+      {
+        "number" : 1214,
+        "title" : "GroupBy with concatMap duplicates items",
+        "url" : "https://github.com/monix/monix/issues/1214"
+      },
+      {
+        "number" : 1201,
+        "title" : "Dead lock with Task.runSyncUnsafe()",
+        "url" : "https://github.com/monix/monix/issues/1201"
+      },
+      {
+        "number" : 1192,
+        "title" : "Iterant Scope uncons hangs on `headOptionL`",
+        "url" : "https://github.com/monix/monix/issues/1192"
+      },
+      {
+        "number" : 1174,
+        "title" : "monix-catnap: [Feature Proposal] Add a conversion to Java's CompletableFuture",
+        "url" : "https://github.com/monix/monix/issues/1174"
+      },
+      {
+        "number" : 1147,
+        "title" : "Cannot re-connect to a hot observable?",
+        "url" : "https://github.com/monix/monix/issues/1147"
+      },
+      {
+        "number" : 1139,
+        "title" : "Observable#mergeMap with limited parallelism",
+        "url" : "https://github.com/monix/monix/issues/1139"
+      },
+      {
+        "number" : 1114,
+        "title" : "Task#timeout won't work with Scheduler.singleThread(..)",
+        "url" : "https://github.com/monix/monix/issues/1114"
+      },
+      {
+        "number" : 1090,
+        "title" : "Future is not started",
+        "url" : "https://github.com/monix/monix/issues/1090"
+      },
+      {
+        "number" : 1079,
+        "title" : "Fix scala doc for benchmarks",
+        "url" : "https://github.com/monix/monix/issues/1079"
+      },
+      {
+        "number" : 1067,
+        "title" : "Add method onProtect to CircuitBreaker",
+        "url" : "https://github.com/monix/monix/issues/1067"
+      },
+      {
+        "number" : 1040,
+        "title" : "Observable.debounce is not consistent with ReactiveX",
+        "url" : "https://github.com/monix/monix/issues/1040"
+      },
+      {
+        "number" : 1024,
+        "title" : "Monix vNext — future plans",
+        "url" : "https://github.com/monix/monix/issues/1024"
+      },
+      {
+        "number" : 1009,
+        "title" : "Locals lost when using akka http client",
+        "url" : "https://github.com/monix/monix/issues/1009"
+      },
+      {
+        "number" : 1001,
+        "title" : "Published stream freezes during websocket connect/disconnect",
+        "url" : "https://github.com/monix/monix/issues/1001"
+      },
+      {
+        "number" : 999,
+        "title" : "InterceptRunnable should not be used by default in most Scheduler builders",
+        "url" : "https://github.com/monix/monix/issues/999"
+      },
+      {
+        "number" : 983,
+        "title" : "Support Thread.interrupt for generic F[_]",
+        "url" : "https://github.com/monix/monix/issues/983"
+      },
+      {
+        "number" : 927,
+        "title" : "Revise Observable.mapParallelOrdered",
+        "url" : "https://github.com/monix/monix/issues/927"
+      },
+      {
+        "number" : 924,
+        "title" : "Fatal exceptions can get swallowed in async operations",
+        "url" : "https://github.com/monix/monix/issues/924"
+      },
+      {
+        "number" : 920,
+        "title" : "IllegalStateException in Task.mapBoth",
+        "url" : "https://github.com/monix/monix/issues/920"
+      },
+      {
+        "number" : 908,
+        "title" : "Sporadic scala.MatchError inside Task.timeoutTo",
+        "url" : "https://github.com/monix/monix/issues/908"
+      },
+      {
+        "number" : 884,
+        "title" : "Duplicate Iterant constructors: `suspend` and `suspendS`",
+        "url" : "https://github.com/monix/monix/issues/884"
+      },
+      {
+        "number" : 882,
+        "title" : "Add Cron-based Observable",
+        "url" : "https://github.com/monix/monix/issues/882"
+      },
+      {
+        "number" : 876,
+        "title" : "More detailed documenation about interop with Future",
+        "url" : "https://github.com/monix/monix/issues/876"
+      },
+      {
+        "number" : 860,
+        "title" : "CancelableFuture.cancel corrupts internal task state",
+        "url" : "https://github.com/monix/monix/issues/860"
+      },
+      {
+        "number" : 858,
+        "title" : "Buffering via `bufferTimed` might never process events",
+        "url" : "https://github.com/monix/monix/issues/858"
+      },
+      {
+        "number" : 830,
+        "title" : "Version of refCount that reconnects",
+        "url" : "https://github.com/monix/monix/issues/830"
+      },
+      {
+        "number" : 804,
+        "title" : "Observable.toInputStream",
+        "url" : "https://github.com/monix/monix/issues/804"
+      },
+      {
+        "number" : 791,
+        "title" : "Observable.tailRecM leaks memory when inner loop attaches callbacks to `onNext`",
+        "url" : "https://github.com/monix/monix/issues/791"
+      },
+      {
+        "number" : 727,
+        "title" : "Work towards zero issues and PRs",
+        "url" : "https://github.com/monix/monix/issues/727"
+      },
+      {
+        "number" : 376,
+        "title" : "Elastic BackPressuredBufferSubscriber",
+        "url" : "https://github.com/monix/monix/issues/376"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : null,
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "asynchronous-and-reactive-programming",
+    "beginnerIssuesLabel" : null
+  }
+}

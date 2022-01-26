@@ -1,0 +1,1370 @@
+{
+  "organization" : "kamon-io",
+  "repository" : "kamon",
+  "creationDate" : 1405983529197,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643167615039
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "https://kamon.io",
+    "description" : "Distributed Tracing, Metrics and Context Propagation for application running on the JVM",
+    "logo" : "https://avatars.githubusercontent.com/u/5789105?v=4",
+    "stars" : 1309,
+    "forks" : 288,
+    "watchers" : 70,
+    "issues" : 132,
+    "creationDate" : 1367611365000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-kamon\" class=\"anchor\" aria-hidden=\"true\" href=\"#kamon\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Kamon<a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://raw.githubusercontent.com/kamon-io/kamon.io/279f4d3a658437a5182e10d75aa3d55b811b2836/assets/img/kamon/kamon-icon-light.svg\"><img align=\"right\" src=\"https://raw.githubusercontent.com/kamon-io/kamon.io/279f4d3a658437a5182e10d75aa3d55b811b2836/assets/img/kamon/kamon-icon-light.svg\" height=\"150px\" style=\"max-width: 100%;\"></a></h1>\n<p dir=\"auto\"><a href=\"https://discord.gg/5JuYsDJ7au\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/5801613dd6c5d24940bdb8782372a8f6f5a1045bc5806fe901913eff4e136fb8/68747470733a2f2f696d672e736869656c64732e696f2f646973636f72642f3836363330313939343037343234333133323f6c6162656c3d4a6f696e253230746865253230436f6d756e6974792532306f6e253230446973636f7264\" alt=\"Discord\" data-canonical-src=\"https://img.shields.io/discord/866301994074243132?label=Join%20the%20Comunity%20on%20Discord\" style=\"max-width: 100%;\"></a>\n<a href=\"https://maven-badges.herokuapp.com/maven-central/io.kamon/kamon-core_2.13\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/edf0b774deb8bc54f295ec5726497cd1822b0ce279e8af3cfdb51688e62e165a/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f696f2e6b616d6f6e2f6b616d6f6e2d636f72655f322e31332f62616467652e737667\" alt=\"Maven Central\" data-canonical-src=\"https://maven-badges.herokuapp.com/maven-central/io.kamon/kamon-core_2.13/badge.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Kamon is a set of tools for instrumenting applications running on the JVM. The best way to get started is to go to our\nofficial <a href=\"https://kamon.io/get-started/\" rel=\"nofollow\">Get Started Page</a> and start instrumenting your applications right away! There\nyou will also find guides and reference documentation for the core APIs, instrumentation and reporting modules.</p>\n<h1 dir=\"auto\"><a id=\"user-content-importing-the-project-into-intellij-idea\" class=\"anchor\" aria-hidden=\"true\" href=\"#importing-the-project-into-intellij-idea\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Importing the project into Intellij IDEA</h1>\n<p dir=\"auto\">This project has a library dependency on a subproject of itself (<code>kamon-tapir</code>).\nAs a result of that, if you just clone this project and open it in IDEA, it will fail to import it.\nFirst, run <code>sbt +kamon-tapir/publishLocal</code> from the console, and then IDEA will be able to import the project.</p>\n<h2 dir=\"auto\"><a id=\"user-content-why-is-this-necessary\" class=\"anchor\" aria-hidden=\"true\" href=\"#why-is-this-necessary\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Why is this necessary?</h2>\n<p dir=\"auto\">Among our instrumented libraries is <code>Tapir</code>, which is also the only library we instrument that does not have a scala 2.11 version.\nIn order to be able to cross publish <code>kamon-bundle</code> to all scala versions, while excluding <code>kamon-tapir</code> from the 2.11 bundle,\nwe had to define <code>kamon-tapir</code> as a library dependency of <code>kamon-bundle</code> (instead of as a subproject).</p>\n<h2 dir=\"auto\"><a id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>License</h2>\n<p dir=\"auto\">This software is licensed under the Apache 2 license, quoted below.</p>\n<p dir=\"auto\">Copyright © 2013-2019 the kamon project <a href=\"https://kamon.io/\" rel=\"nofollow\">https://kamon.io/</a></p>\n<p dir=\"auto\">Licensed under the Apache License, Version 2.0 (the \"License\"); you may not\nuse this file except in compliance with the License. You may obtain a copy of\nthe License at</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"[http://www.apache.org/licenses/LICENSE-2.0]\"><pre><code>[http://www.apache.org/licenses/LICENSE-2.0]\n</code></pre></div>\n<p dir=\"auto\">Unless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT\nWARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the\nLicense for the specific language governing permissions and limitations under\nthe License.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "ivantopo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1302854?v=4",
+        "url" : "https://api.github.com/users/ivantopo",
+        "contributions" : 1730
+      },
+      {
+        "login" : "dpsoft",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2567525?v=4",
+        "url" : "https://api.github.com/users/dpsoft",
+        "contributions" : 718
+      },
+      {
+        "login" : "SimunKaracic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13893057?v=4",
+        "url" : "https://api.github.com/users/SimunKaracic",
+        "contributions" : 203
+      },
+      {
+        "login" : "mladens",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3115094?v=4",
+        "url" : "https://api.github.com/users/mladens",
+        "contributions" : 77
+      },
+      {
+        "login" : "danischroeter",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6125533?v=4",
+        "url" : "https://api.github.com/users/danischroeter",
+        "contributions" : 35
+      },
+      {
+        "login" : "jtjeferreira",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/943051?v=4",
+        "url" : "https://api.github.com/users/jtjeferreira",
+        "contributions" : 18
+      },
+      {
+        "login" : "hughsimpson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2494489?v=4",
+        "url" : "https://api.github.com/users/hughsimpson",
+        "contributions" : 13
+      },
+      {
+        "login" : "alessandrosimi-sa",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22742838?v=4",
+        "url" : "https://api.github.com/users/alessandrosimi-sa",
+        "contributions" : 12
+      },
+      {
+        "login" : "tferega",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1233614?v=4",
+        "url" : "https://api.github.com/users/tferega",
+        "contributions" : 12
+      },
+      {
+        "login" : "lustefaniak",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/177043?v=4",
+        "url" : "https://api.github.com/users/lustefaniak",
+        "contributions" : 11
+      },
+      {
+        "login" : "jozic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/124249?v=4",
+        "url" : "https://api.github.com/users/jozic",
+        "contributions" : 10
+      },
+      {
+        "login" : "the-overengineer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4933827?v=4",
+        "url" : "https://api.github.com/users/the-overengineer",
+        "contributions" : 9
+      },
+      {
+        "login" : "pnerg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11574031?v=4",
+        "url" : "https://api.github.com/users/pnerg",
+        "contributions" : 8
+      },
+      {
+        "login" : "Falmarri",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/463948?v=4",
+        "url" : "https://api.github.com/users/Falmarri",
+        "contributions" : 8
+      },
+      {
+        "login" : "dvgica",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/947530?v=4",
+        "url" : "https://api.github.com/users/dvgica",
+        "contributions" : 7
+      },
+      {
+        "login" : "cspinetta",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3776757?v=4",
+        "url" : "https://api.github.com/users/cspinetta",
+        "contributions" : 7
+      },
+      {
+        "login" : "matwojcik",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5006875?v=4",
+        "url" : "https://api.github.com/users/matwojcik",
+        "contributions" : 6
+      },
+      {
+        "login" : "agarbutt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/734757?v=4",
+        "url" : "https://api.github.com/users/agarbutt",
+        "contributions" : 5
+      },
+      {
+        "login" : "arjun-1",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8102654?v=4",
+        "url" : "https://api.github.com/users/arjun-1",
+        "contributions" : 5
+      },
+      {
+        "login" : "stoiev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6618757?v=4",
+        "url" : "https://api.github.com/users/stoiev",
+        "contributions" : 5
+      },
+      {
+        "login" : "klvmungai",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3446766?v=4",
+        "url" : "https://api.github.com/users/klvmungai",
+        "contributions" : 5
+      },
+      {
+        "login" : "saeltz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3619633?v=4",
+        "url" : "https://api.github.com/users/saeltz",
+        "contributions" : 5
+      },
+      {
+        "login" : "leon-daniel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/47820294?v=4",
+        "url" : "https://api.github.com/users/leon-daniel",
+        "contributions" : 4
+      },
+      {
+        "login" : "kubukoz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/894884?v=4",
+        "url" : "https://api.github.com/users/kubukoz",
+        "contributions" : 4
+      },
+      {
+        "login" : "TjarkoG",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14216750?v=4",
+        "url" : "https://api.github.com/users/TjarkoG",
+        "contributions" : 4
+      },
+      {
+        "login" : "Philippus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1923596?v=4",
+        "url" : "https://api.github.com/users/Philippus",
+        "contributions" : 4
+      },
+      {
+        "login" : "rb3ckers",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/41439596?v=4",
+        "url" : "https://api.github.com/users/rb3ckers",
+        "contributions" : 4
+      },
+      {
+        "login" : "Andrei-Pozolotin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1622151?v=4",
+        "url" : "https://api.github.com/users/Andrei-Pozolotin",
+        "contributions" : 3
+      },
+      {
+        "login" : "dragisak",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/800802?v=4",
+        "url" : "https://api.github.com/users/dragisak",
+        "contributions" : 3
+      },
+      {
+        "login" : "jatcwang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4957161?v=4",
+        "url" : "https://api.github.com/users/jatcwang",
+        "contributions" : 3
+      },
+      {
+        "login" : "pjfanning",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11783444?v=4",
+        "url" : "https://api.github.com/users/pjfanning",
+        "contributions" : 3
+      },
+      {
+        "login" : "ptrlaszlo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7847269?v=4",
+        "url" : "https://api.github.com/users/ptrlaszlo",
+        "contributions" : 3
+      },
+      {
+        "login" : "sjoerdmulder",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/235745?v=4",
+        "url" : "https://api.github.com/users/sjoerdmulder",
+        "contributions" : 3
+      },
+      {
+        "login" : "ornicar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/140370?v=4",
+        "url" : "https://api.github.com/users/ornicar",
+        "contributions" : 3
+      },
+      {
+        "login" : "yarosman",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2370255?v=4",
+        "url" : "https://api.github.com/users/yarosman",
+        "contributions" : 3
+      },
+      {
+        "login" : "dspasojevic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/358318?v=4",
+        "url" : "https://api.github.com/users/dspasojevic",
+        "contributions" : 3
+      },
+      {
+        "login" : "crypticmind",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6013514?v=4",
+        "url" : "https://api.github.com/users/crypticmind",
+        "contributions" : 2
+      },
+      {
+        "login" : "carstenlenz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/158765?v=4",
+        "url" : "https://api.github.com/users/carstenlenz",
+        "contributions" : 2
+      },
+      {
+        "login" : "cwegrzyn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/81462?v=4",
+        "url" : "https://api.github.com/users/cwegrzyn",
+        "contributions" : 2
+      },
+      {
+        "login" : "cheekychops",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/733960?v=4",
+        "url" : "https://api.github.com/users/cheekychops",
+        "contributions" : 2
+      },
+      {
+        "login" : "dsrkoc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/735437?v=4",
+        "url" : "https://api.github.com/users/dsrkoc",
+        "contributions" : 2
+      },
+      {
+        "login" : "MrBagheera",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/954015?v=4",
+        "url" : "https://api.github.com/users/MrBagheera",
+        "contributions" : 2
+      },
+      {
+        "login" : "fchiron",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1218773?v=4",
+        "url" : "https://api.github.com/users/fchiron",
+        "contributions" : 2
+      },
+      {
+        "login" : "DieBauer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2719894?v=4",
+        "url" : "https://api.github.com/users/DieBauer",
+        "contributions" : 2
+      },
+      {
+        "login" : "jcazevedo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/143188?v=4",
+        "url" : "https://api.github.com/users/jcazevedo",
+        "contributions" : 2
+      },
+      {
+        "login" : "milenkovicm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/956287?v=4",
+        "url" : "https://api.github.com/users/milenkovicm",
+        "contributions" : 2
+      },
+      {
+        "login" : "liff",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/124475?v=4",
+        "url" : "https://api.github.com/users/liff",
+        "contributions" : 2
+      },
+      {
+        "login" : "shkoder",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2048638?v=4",
+        "url" : "https://api.github.com/users/shkoder",
+        "contributions" : 2
+      },
+      {
+        "login" : "rubendg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/439057?v=4",
+        "url" : "https://api.github.com/users/rubendg",
+        "contributions" : 2
+      },
+      {
+        "login" : "seglo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1148412?v=4",
+        "url" : "https://api.github.com/users/seglo",
+        "contributions" : 2
+      },
+      {
+        "login" : "ihostage",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/817328?v=4",
+        "url" : "https://api.github.com/users/ihostage",
+        "contributions" : 2
+      },
+      {
+        "login" : "schrepfler",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3553?v=4",
+        "url" : "https://api.github.com/users/schrepfler",
+        "contributions" : 2
+      },
+      {
+        "login" : "sderosiaux",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3936459?v=4",
+        "url" : "https://api.github.com/users/sderosiaux",
+        "contributions" : 2
+      },
+      {
+        "login" : "fggarcia",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1306596?v=4",
+        "url" : "https://api.github.com/users/fggarcia",
+        "contributions" : 2
+      },
+      {
+        "login" : "benwaffle",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1713819?v=4",
+        "url" : "https://api.github.com/users/benwaffle",
+        "contributions" : 2
+      },
+      {
+        "login" : "briantopping",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/158115?v=4",
+        "url" : "https://api.github.com/users/briantopping",
+        "contributions" : 2
+      },
+      {
+        "login" : "jypma",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/483519?v=4",
+        "url" : "https://api.github.com/users/jypma",
+        "contributions" : 2
+      },
+      {
+        "login" : "jasonmartens",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1844931?v=4",
+        "url" : "https://api.github.com/users/jasonmartens",
+        "contributions" : 2
+      },
+      {
+        "login" : "breedx-nr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/54085190?v=4",
+        "url" : "https://api.github.com/users/breedx-nr",
+        "contributions" : 2
+      },
+      {
+        "login" : "ryandbair",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/349575?v=4",
+        "url" : "https://api.github.com/users/ryandbair",
+        "contributions" : 2
+      },
+      {
+        "login" : "slavaschmidt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/322297?v=4",
+        "url" : "https://api.github.com/users/slavaschmidt",
+        "contributions" : 2
+      },
+      {
+        "login" : "duxet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/821707?v=4",
+        "url" : "https://api.github.com/users/duxet",
+        "contributions" : 2
+      },
+      {
+        "login" : "adriancole",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/93678691?v=4",
+        "url" : "https://api.github.com/users/adriancole",
+        "contributions" : 1
+      },
+      {
+        "login" : "acjay",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1256382?v=4",
+        "url" : "https://api.github.com/users/acjay",
+        "contributions" : 1
+      },
+      {
+        "login" : "amelnikov-mylivn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/20863850?v=4",
+        "url" : "https://api.github.com/users/amelnikov-mylivn",
+        "contributions" : 1
+      },
+      {
+        "login" : "alno",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30774?v=4",
+        "url" : "https://api.github.com/users/alno",
+        "contributions" : 1
+      },
+      {
+        "login" : "alvaroc1",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/107395?v=4",
+        "url" : "https://api.github.com/users/alvaroc1",
+        "contributions" : 1
+      },
+      {
+        "login" : "andreas-schroeder",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6724788?v=4",
+        "url" : "https://api.github.com/users/andreas-schroeder",
+        "contributions" : 1
+      },
+      {
+        "login" : "raboof",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/131856?v=4",
+        "url" : "https://api.github.com/users/raboof",
+        "contributions" : 1
+      },
+      {
+        "login" : "getArtemUsername",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4179630?v=4",
+        "url" : "https://api.github.com/users/getArtemUsername",
+        "contributions" : 1
+      },
+      {
+        "login" : "Sabbasth",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5691241?v=4",
+        "url" : "https://api.github.com/users/Sabbasth",
+        "contributions" : 1
+      },
+      {
+        "login" : "bplommer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8990749?v=4",
+        "url" : "https://api.github.com/users/bplommer",
+        "contributions" : 1
+      },
+      {
+        "login" : "bfil",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/660513?v=4",
+        "url" : "https://api.github.com/users/bfil",
+        "contributions" : 1
+      },
+      {
+        "login" : "CasperKoning",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8633389?v=4",
+        "url" : "https://api.github.com/users/CasperKoning",
+        "contributions" : 1
+      },
+      {
+        "login" : "danbim",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/300638?v=4",
+        "url" : "https://api.github.com/users/danbim",
+        "contributions" : 1
+      },
+      {
+        "login" : "sattvik",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/152491?v=4",
+        "url" : "https://api.github.com/users/sattvik",
+        "contributions" : 1
+      },
+      {
+        "login" : "dsolonenko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/287734?v=4",
+        "url" : "https://api.github.com/users/dsolonenko",
+        "contributions" : 1
+      },
+      {
+        "login" : "eugenemiretsky",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1828811?v=4",
+        "url" : "https://api.github.com/users/eugenemiretsky",
+        "contributions" : 1
+      },
+      {
+        "login" : "Evnsan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5175637?v=4",
+        "url" : "https://api.github.com/users/Evnsan",
+        "contributions" : 1
+      },
+      {
+        "login" : "Jarlakxen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/184751?v=4",
+        "url" : "https://api.github.com/users/Jarlakxen",
+        "contributions" : 1
+      },
+      {
+        "login" : "Fokko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1134248?v=4",
+        "url" : "https://api.github.com/users/Fokko",
+        "contributions" : 1
+      },
+      {
+        "login" : "fmonniot",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1322995?v=4",
+        "url" : "https://api.github.com/users/fmonniot",
+        "contributions" : 1
+      },
+      {
+        "login" : "gjsduarte",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/288812?v=4",
+        "url" : "https://api.github.com/users/gjsduarte",
+        "contributions" : 1
+      },
+      {
+        "login" : "hauke-d",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15606289?v=4",
+        "url" : "https://api.github.com/users/hauke-d",
+        "contributions" : 1
+      },
+      {
+        "login" : "jalaziz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/247849?v=4",
+        "url" : "https://api.github.com/users/jalaziz",
+        "contributions" : 1
+      },
+      {
+        "login" : "jarimatti",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4236301?v=4",
+        "url" : "https://api.github.com/users/jarimatti",
+        "contributions" : 1
+      },
+      {
+        "login" : "steinybot",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4659562?v=4",
+        "url" : "https://api.github.com/users/steinybot",
+        "contributions" : 1
+      },
+      {
+        "login" : "zettelmj",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10538209?v=4",
+        "url" : "https://api.github.com/users/zettelmj",
+        "contributions" : 1
+      },
+      {
+        "login" : "jeroenwijdemans",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/754239?v=4",
+        "url" : "https://api.github.com/users/jeroenwijdemans",
+        "contributions" : 1
+      },
+      {
+        "login" : "jkwatson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/858731?v=4",
+        "url" : "https://api.github.com/users/jkwatson",
+        "contributions" : 1
+      },
+      {
+        "login" : "lacarvalho91",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6567012?v=4",
+        "url" : "https://api.github.com/users/lacarvalho91",
+        "contributions" : 1
+      },
+      {
+        "login" : "amnesiac",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/98327?v=4",
+        "url" : "https://api.github.com/users/amnesiac",
+        "contributions" : 1
+      },
+      {
+        "login" : "markvandertol",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2835719?v=4",
+        "url" : "https://api.github.com/users/markvandertol",
+        "contributions" : 1
+      },
+      {
+        "login" : "melezov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/551485?v=4",
+        "url" : "https://api.github.com/users/melezov",
+        "contributions" : 1
+      },
+      {
+        "login" : "markus1189",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/591567?v=4",
+        "url" : "https://api.github.com/users/markus1189",
+        "contributions" : 1
+      },
+      {
+        "login" : "magro",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/64285?v=4",
+        "url" : "https://api.github.com/users/magro",
+        "contributions" : 1
+      },
+      {
+        "login" : "ElfoLiNk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1236551?v=4",
+        "url" : "https://api.github.com/users/ElfoLiNk",
+        "contributions" : 1
+      },
+      {
+        "login" : "lmmworkv",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8393380?v=4",
+        "url" : "https://api.github.com/users/lmmworkv",
+        "contributions" : 1
+      },
+      {
+        "login" : "michaelmoss",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1246228?v=4",
+        "url" : "https://api.github.com/users/michaelmoss",
+        "contributions" : 1
+      },
+      {
+        "login" : "zuluecho9",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9435570?v=4",
+        "url" : "https://api.github.com/users/zuluecho9",
+        "contributions" : 1
+      },
+      {
+        "login" : "ecyshor",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4565569?v=4",
+        "url" : "https://api.github.com/users/ecyshor",
+        "contributions" : 1
+      },
+      {
+        "login" : "chamakits",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/274557?v=4",
+        "url" : "https://api.github.com/users/chamakits",
+        "contributions" : 1
+      },
+      {
+        "login" : "oridag",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/21357329?v=4",
+        "url" : "https://api.github.com/users/oridag",
+        "contributions" : 1
+      },
+      {
+        "login" : "piotrkosecki",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2283610?v=4",
+        "url" : "https://api.github.com/users/piotrkosecki",
+        "contributions" : 1
+      },
+      {
+        "login" : "sebigavril",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1503224?v=4",
+        "url" : "https://api.github.com/users/sebigavril",
+        "contributions" : 1
+      },
+      {
+        "login" : "yanana",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/377712?v=4",
+        "url" : "https://api.github.com/users/yanana",
+        "contributions" : 1
+      },
+      {
+        "login" : "Skyr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/60021?v=4",
+        "url" : "https://api.github.com/users/Skyr",
+        "contributions" : 1
+      },
+      {
+        "login" : "StephenKing",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/277561?v=4",
+        "url" : "https://api.github.com/users/StephenKing",
+        "contributions" : 1
+      },
+      {
+        "login" : "trobert",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/504580?v=4",
+        "url" : "https://api.github.com/users/trobert",
+        "contributions" : 1
+      },
+      {
+        "login" : "timcharper",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/183?v=4",
+        "url" : "https://api.github.com/users/timcharper",
+        "contributions" : 1
+      },
+      {
+        "login" : "Elyrixia",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6387457?v=4",
+        "url" : "https://api.github.com/users/Elyrixia",
+        "contributions" : 1
+      },
+      {
+        "login" : "ilyshav",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8280649?v=4",
+        "url" : "https://api.github.com/users/ilyshav",
+        "contributions" : 1
+      },
+      {
+        "login" : "vsuharnikov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2654820?v=4",
+        "url" : "https://api.github.com/users/vsuharnikov",
+        "contributions" : 1
+      },
+      {
+        "login" : "invzhi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19483698?v=4",
+        "url" : "https://api.github.com/users/invzhi",
+        "contributions" : 1
+      },
+      {
+        "login" : "moznion",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1422834?v=4",
+        "url" : "https://api.github.com/users/moznion",
+        "contributions" : 1
+      },
+      {
+        "login" : "petitviolet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1291783?v=4",
+        "url" : "https://api.github.com/users/petitviolet",
+        "contributions" : 1
+      },
+      {
+        "login" : "pjan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/98241?v=4",
+        "url" : "https://api.github.com/users/pjan",
+        "contributions" : 1
+      },
+      {
+        "login" : "rabzu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6705064?v=4",
+        "url" : "https://api.github.com/users/rabzu",
+        "contributions" : 1
+      },
+      {
+        "login" : "reibitto",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6395394?v=4",
+        "url" : "https://api.github.com/users/reibitto",
+        "contributions" : 1
+      },
+      {
+        "login" : "ryota0624",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11390724?v=4",
+        "url" : "https://api.github.com/users/ryota0624",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 3066,
+    "topics" : [
+      "monitoring",
+      "distributed-tracing",
+      "java",
+      "scala",
+      "kamon",
+      "metrics",
+      "time",
+      "tracing"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 1098,
+        "title" : "Add appropriate span.type tags on the Datadog Spans reporter",
+        "url" : "https://github.com/kamon-io/Kamon/issues/1098"
+      },
+      {
+        "number" : 1093,
+        "title" : "Akka Scheduler doesn't propage Kamon context",
+        "url" : "https://github.com/kamon-io/Kamon/issues/1093"
+      },
+      {
+        "number" : 1090,
+        "title" : "OpenTelemetry reporter is spawning grpc/netty threads",
+        "url" : "https://github.com/kamon-io/Kamon/issues/1090"
+      },
+      {
+        "number" : 1089,
+        "title" : "WARN about failed syctl call on BigSur 11.6",
+        "url" : "https://github.com/kamon-io/Kamon/issues/1089"
+      },
+      {
+        "number" : 1082,
+        "title" : "The Jedis instrumentation is not accounting for the entire round trip to Redis",
+        "url" : "https://github.com/kamon-io/Kamon/issues/1082"
+      },
+      {
+        "number" : 1072,
+        "title" : "kamon-redis: kamon.instrumentation.akka.filters.actors.trace.excludes is not picked",
+        "url" : "https://github.com/kamon-io/Kamon/issues/1072"
+      },
+      {
+        "number" : 1070,
+        "title" : "Error java.lang.ClassNotFoundException: kamon.log.LogbackFilter for kamon 2.3.1 with play and prometheus",
+        "url" : "https://github.com/kamon-io/Kamon/issues/1070"
+      },
+      {
+        "number" : 1068,
+        "title" : "Cannot register module warnings",
+        "url" : "https://github.com/kamon-io/Kamon/issues/1068"
+      },
+      {
+        "number" : 1064,
+        "title" : "Publish instrumentation artifacts for Scala 3",
+        "url" : "https://github.com/kamon-io/Kamon/issues/1064"
+      },
+      {
+        "number" : 1060,
+        "title" : "kamon-akka: java.lang.reflect.InaccessibleObjectException when using java 17",
+        "url" : "https://github.com/kamon-io/Kamon/issues/1060"
+      },
+      {
+        "number" : 1059,
+        "title" : "Kamon broadcast Context is not reading HTTP headers",
+        "url" : "https://github.com/kamon-io/Kamon/issues/1059"
+      },
+      {
+        "number" : 1050,
+        "title" : "Kamon-Jdbc doesn't support multiple hosts in connection url",
+        "url" : "https://github.com/kamon-io/Kamon/issues/1050"
+      },
+      {
+        "number" : 1049,
+        "title" : "Investigate initializing metrics before using them with Prometheus",
+        "url" : "https://github.com/kamon-io/Kamon/issues/1049"
+      },
+      {
+        "number" : 1046,
+        "title" : "Update kafka clients instrumentation. ",
+        "url" : "https://github.com/kamon-io/Kamon/issues/1046"
+      },
+      {
+        "number" : 1044,
+        "title" : "Losing context when using akka dispatchers",
+        "url" : "https://github.com/kamon-io/Kamon/issues/1044"
+      },
+      {
+        "number" : 1043,
+        "title" : "Can't run the Prometheus reporter on OpenJ9 1.8",
+        "url" : "https://github.com/kamon-io/Kamon/issues/1043"
+      },
+      {
+        "number" : 1025,
+        "title" : "HikariCP metrics not reported",
+        "url" : "https://github.com/kamon-io/Kamon/issues/1025"
+      },
+      {
+        "number" : 1024,
+        "title" : "Leaky context with Akka HTTP, Actors and Akka Streams",
+        "url" : "https://github.com/kamon-io/Kamon/issues/1024"
+      },
+      {
+        "number" : 1020,
+        "title" : "Add support for `connectionSource` in Akka HTTP 10.2",
+        "url" : "https://github.com/kamon-io/Kamon/issues/1020"
+      },
+      {
+        "number" : 1012,
+        "title" : "kamon-datadog and kamon-logback report trace id's differently, not configurable",
+        "url" : "https://github.com/kamon-io/Kamon/issues/1012"
+      },
+      {
+        "number" : 1010,
+        "title" : "Add instrumentation for the play java WsClient interface",
+        "url" : "https://github.com/kamon-io/Kamon/issues/1010"
+      },
+      {
+        "number" : 998,
+        "title" : "Mongo runCommand is not being instrumented",
+        "url" : "https://github.com/kamon-io/Kamon/issues/998"
+      },
+      {
+        "number" : 992,
+        "title" : "Akka-HTTP instrumentation does not always call responseSent",
+        "url" : "https://github.com/kamon-io/Kamon/issues/992"
+      },
+      {
+        "number" : 991,
+        "title" : "Spring HttpServerInstrumentation compliance",
+        "url" : "https://github.com/kamon-io/Kamon/issues/991"
+      },
+      {
+        "number" : 990,
+        "title" : "Kamon-bundle source JAR in Maven Central is missing almost everything",
+        "url" : "https://github.com/kamon-io/Kamon/issues/990"
+      },
+      {
+        "number" : 967,
+        "title" : "Updating play 2.8 version breaks tests",
+        "url" : "https://github.com/kamon-io/Kamon/issues/967"
+      },
+      {
+        "number" : 963,
+        "title" : "Handle w3 trace-context tracestate header",
+        "url" : "https://github.com/kamon-io/Kamon/issues/963"
+      },
+      {
+        "number" : 958,
+        "title" : "kamon-prometheus uses invalid escapce sequence",
+        "url" : "https://github.com/kamon-io/Kamon/issues/958"
+      },
+      {
+        "number" : 957,
+        "title" : "still scala.util.Success cannot be cast to kamon.instrumentation.context.HasContext with kamon 2.1.12",
+        "url" : "https://github.com/kamon-io/Kamon/issues/957"
+      },
+      {
+        "number" : 940,
+        "title" : "play/akka-http-server instrumentation not working if PlayAkkaHttp2Support enabled",
+        "url" : "https://github.com/kamon-io/Kamon/issues/940"
+      },
+      {
+        "number" : 937,
+        "title" : "A negative delta was encountered while trying to update a counter",
+        "url" : "https://github.com/kamon-io/Kamon/issues/937"
+      },
+      {
+        "number" : 933,
+        "title" : "Class Not Found on Akka Instrumentation issue with Kanela embedded in Kamon-Bundle (2_11 2.1.6)",
+        "url" : "https://github.com/kamon-io/Kamon/issues/933"
+      },
+      {
+        "number" : 925,
+        "title" : "Kamon Akka-Http PathMatcher issue",
+        "url" : "https://github.com/kamon-io/Kamon/issues/925"
+      },
+      {
+        "number" : 920,
+        "title" : "Kamon filter's configuration key requires full path",
+        "url" : "https://github.com/kamon-io/Kamon/issues/920"
+      },
+      {
+        "number" : 913,
+        "title" : "Warning immensely helpful when operating on finished spans",
+        "url" : "https://github.com/kamon-io/Kamon/issues/913"
+      },
+      {
+        "number" : 906,
+        "title" : "Host and Process Metrics not working with 2.18",
+        "url" : "https://github.com/kamon-io/Kamon/issues/906"
+      },
+      {
+        "number" : 903,
+        "title" : "Idea: allow auto-attaching agent without bundle dependency",
+        "url" : "https://github.com/kamon-io/Kamon/issues/903"
+      },
+      {
+        "number" : 895,
+        "title" : "The adaptive sampler might not always sample the first few requests",
+        "url" : "https://github.com/kamon-io/Kamon/issues/895"
+      },
+      {
+        "number" : 891,
+        "title" : "Issues with executor service instrumentation",
+        "url" : "https://github.com/kamon-io/Kamon/issues/891"
+      },
+      {
+        "number" : 890,
+        "title" : "Illegal reflective access by kamon.instrumentation.executor.ExecutorInstrumentation",
+        "url" : "https://github.com/kamon-io/Kamon/issues/890"
+      },
+      {
+        "number" : 866,
+        "title" : "Bug: Prometheus reporter summary mode messes up _sum metrics",
+        "url" : "https://github.com/kamon-io/Kamon/issues/866"
+      },
+      {
+        "number" : 861,
+        "title" : "kamon.influxdb.InfluxDBReporter - invalid tag format",
+        "url" : "https://github.com/kamon-io/Kamon/issues/861"
+      },
+      {
+        "number" : 853,
+        "title" : "kamon-akka: java.lang.ClassCastException for ResizablePoolCell",
+        "url" : "https://github.com/kamon-io/Kamon/issues/853"
+      },
+      {
+        "number" : 850,
+        "title" : "kamon-play: custom configuration of operation names does not work",
+        "url" : "https://github.com/kamon-io/Kamon/issues/850"
+      },
+      {
+        "number" : 834,
+        "title" : "system-metrics: `jvm.gc.promotion` does not yield data",
+        "url" : "https://github.com/kamon-io/Kamon/issues/834"
+      },
+      {
+        "number" : 831,
+        "title" : "Akka htttp 1.12.0 - new server start",
+        "url" : "https://github.com/kamon-io/Kamon/issues/831"
+      },
+      {
+        "number" : 830,
+        "title" : "Logging, Tracing and Context Propagation issue",
+        "url" : "https://github.com/kamon-io/Kamon/issues/830"
+      },
+      {
+        "number" : 825,
+        "title" : "Context propagation in actor system after migration from Kamon 1.x to 2.x",
+        "url" : "https://github.com/kamon-io/Kamon/issues/825"
+      },
+      {
+        "number" : 817,
+        "title" : "Unrelated spans in the same trace",
+        "url" : "https://github.com/kamon-io/Kamon/issues/817"
+      },
+      {
+        "number" : 814,
+        "title" : "Add tracing for other existing annotations",
+        "url" : "https://github.com/kamon-io/Kamon/issues/814"
+      },
+      {
+        "number" : 809,
+        "title" : "kamon-jdbc is not working with Lagom JDBC readside",
+        "url" : "https://github.com/kamon-io/Kamon/issues/809"
+      },
+      {
+        "number" : 803,
+        "title" : "Support for W3C Baggage",
+        "url" : "https://github.com/kamon-io/Kamon/issues/803"
+      },
+      {
+        "number" : 802,
+        "title" : "Support for W3C trace-context",
+        "url" : "https://github.com/kamon-io/Kamon/issues/802"
+      },
+      {
+        "number" : 801,
+        "title" : "Connection error, retrying... (11 left) timeout",
+        "url" : "https://github.com/kamon-io/Kamon/issues/801"
+      },
+      {
+        "number" : 794,
+        "title" : "Feature request: [kamon-datadog] Expose OkHttpClient to tweak SSL settings",
+        "url" : "https://github.com/kamon-io/Kamon/issues/794"
+      },
+      {
+        "number" : 793,
+        "title" : "Support for Tapir",
+        "url" : "https://github.com/kamon-io/Kamon/issues/793"
+      },
+      {
+        "number" : 788,
+        "title" : "New Relic reporter will drop data if sending a batch fails",
+        "url" : "https://github.com/kamon-io/Kamon/issues/788"
+      },
+      {
+        "number" : 781,
+        "title" : "Non-negative values for Gauges",
+        "url" : "https://github.com/kamon-io/Kamon/issues/781"
+      },
+      {
+        "number" : 779,
+        "title" : "Datadog - Multiple events are sometimes concatenated (missing newline)",
+        "url" : "https://github.com/kamon-io/Kamon/issues/779"
+      },
+      {
+        "number" : 778,
+        "title" : "Kamon not working when using cluster bootstrap discovery method kubernetes-api",
+        "url" : "https://github.com/kamon-io/Kamon/issues/778"
+      },
+      {
+        "number" : 777,
+        "title" : "Stale metrics in Prometheus Reporter ",
+        "url" : "https://github.com/kamon-io/Kamon/issues/777"
+      },
+      {
+        "number" : 776,
+        "title" : "Kamon breaks \"affinity-pool-executor\"",
+        "url" : "https://github.com/kamon-io/Kamon/issues/776"
+      },
+      {
+        "number" : 774,
+        "title" : "Akka Circuit Breaker instrumentation",
+        "url" : "https://github.com/kamon-io/Kamon/issues/774"
+      },
+      {
+        "number" : 770,
+        "title" : "Handle Future and CompletionStage on the runWithSpan methods",
+        "url" : "https://github.com/kamon-io/Kamon/issues/770"
+      },
+      {
+        "number" : 766,
+        "title" : "Getting Exception related to tags",
+        "url" : "https://github.com/kamon-io/Kamon/issues/766"
+      },
+      {
+        "number" : 761,
+        "title" : "Enabling fine grained HTTP server metric",
+        "url" : "https://github.com/kamon-io/Kamon/issues/761"
+      },
+      {
+        "number" : 698,
+        "title" : "Timer for http.server.connection.lifetime grows larger than default",
+        "url" : "https://github.com/kamon-io/Kamon/issues/698"
+      },
+      {
+        "number" : 744,
+        "title" : "Make the set of percentiles exported configurable by the user",
+        "url" : "https://github.com/kamon-io/Kamon/issues/744"
+      },
+      {
+        "number" : 745,
+        "title" : "Allow overriding the default metric and trace API urls",
+        "url" : "https://github.com/kamon-io/Kamon/issues/745"
+      },
+      {
+        "number" : 743,
+        "title" : "Update public documentation for Kamon New Relic Reporter",
+        "url" : "https://github.com/kamon-io/Kamon/issues/743"
+      },
+      {
+        "number" : 685,
+        "title" : "hiccup metric reports wrong sum numbers",
+        "url" : "https://github.com/kamon-io/Kamon/issues/685"
+      },
+      {
+        "number" : 635,
+        "title" : "Documentation: Screenshot for manual setup of agent refers to aspectjweaver",
+        "url" : "https://github.com/kamon-io/Kamon/issues/635"
+      },
+      {
+        "number" : 699,
+        "title" : "Support disabling akka actor and actorSystem instrumentation",
+        "url" : "https://github.com/kamon-io/Kamon/issues/699"
+      },
+      {
+        "number" : 697,
+        "title" : "Adding support for akka.http client streaming monitoring",
+        "url" : "https://github.com/kamon-io/Kamon/issues/697"
+      },
+      {
+        "number" : 753,
+        "title" : "should use default port as per prometheus convention",
+        "url" : "https://github.com/kamon-io/Kamon/issues/753"
+      },
+      {
+        "number" : 681,
+        "title" : "Context don't propagated to function executed in Pipe Pattern",
+        "url" : "https://github.com/kamon-io/Kamon/issues/681"
+      },
+      {
+        "number" : 714,
+        "title" : "Add posibility to set custom operation name for play requests",
+        "url" : "https://github.com/kamon-io/Kamon/issues/714"
+      },
+      {
+        "number" : 727,
+        "title" : "consider reporting jdbc spans with the datastore as service name",
+        "url" : "https://github.com/kamon-io/Kamon/issues/727"
+      },
+      {
+        "number" : 646,
+        "title" : "NullPointerException when there is some ConfigException thrown during initialisation",
+        "url" : "https://github.com/kamon-io/Kamon/issues/646"
+      },
+      {
+        "number" : 752,
+        "title" : "Issue with label values not being escaped",
+        "url" : "https://github.com/kamon-io/Kamon/issues/752"
+      },
+      {
+        "number" : 713,
+        "title" : "Can't configure the HTTP Server instrumentation on DEV mode",
+        "url" : "https://github.com/kamon-io/Kamon/issues/713"
+      },
+      {
+        "number" : 661,
+        "title" : "Can't load custom SlowStatementProcessor",
+        "url" : "https://github.com/kamon-io/Kamon/issues/661"
+      },
+      {
+        "number" : 643,
+        "title" : "completing a future leaves current span in a unusable and finished state",
+        "url" : "https://github.com/kamon-io/Kamon/issues/643"
+      },
+      {
+        "number" : 726,
+        "title" : "Is gRPC supported?",
+        "url" : "https://github.com/kamon-io/Kamon/issues/726"
+      },
+      {
+        "number" : 712,
+        "title" : "Support for String Interpolating Routing DSL (SIRD)",
+        "url" : "https://github.com/kamon-io/Kamon/issues/712"
+      },
+      {
+        "number" : 622,
+        "title" : "Discard span while preserving its metrics?",
+        "url" : "https://github.com/kamon-io/Kamon/issues/622"
+      },
+      {
+        "number" : 677,
+        "title" : "kamon.instrumentation.akka.filters don't work as documented",
+        "url" : "https://github.com/kamon-io/Kamon/issues/677"
+      },
+      {
+        "number" : 619,
+        "title" : "Custom sampler useless for client requests using akka-http",
+        "url" : "https://github.com/kamon-io/Kamon/issues/619"
+      },
+      {
+        "number" : 616,
+        "title" : "Instrument gRPC",
+        "url" : "https://github.com/kamon-io/Kamon/issues/616"
+      },
+      {
+        "number" : 614,
+        "title" : "Instrument ActiveJDBC",
+        "url" : "https://github.com/kamon-io/Kamon/issues/614"
+      },
+      {
+        "number" : 659,
+        "title" : "Allow disabling of span metrics",
+        "url" : "https://github.com/kamon-io/Kamon/issues/659"
+      },
+      {
+        "number" : 612,
+        "title" : "Datadog's distribution integration ?",
+        "url" : "https://github.com/kamon-io/Kamon/issues/612"
+      },
+      {
+        "number" : 676,
+        "title" : "Support for Akka Persistence",
+        "url" : "https://github.com/kamon-io/Kamon/issues/676"
+      },
+      {
+        "number" : 607,
+        "title" : "kamon-status-page must not show entire config (includes passwords!!)",
+        "url" : "https://github.com/kamon-io/Kamon/issues/607"
+      },
+      {
+        "number" : 647,
+        "title" : "Add cardamo/play-logback-access to instrumentation whitelist",
+        "url" : "https://github.com/kamon-io/Kamon/issues/647"
+      },
+      {
+        "number" : 758,
+        "title" : "Publish alternatives version of the bundle for attaching-only and/or with reporters",
+        "url" : "https://github.com/kamon-io/Kamon/issues/758"
+      },
+      {
+        "number" : 674,
+        "title" : "Investigate alternative instrumentation for mailbox-size",
+        "url" : "https://github.com/kamon-io/Kamon/issues/674"
+      },
+      {
+        "number" : 641,
+        "title" : "Avoid Illegal Reflective Access Warning on JDK11",
+        "url" : "https://github.com/kamon-io/Kamon/issues/641"
+      },
+      {
+        "number" : 589,
+        "title" : "consider a metrics override functionality in core",
+        "url" : "https://github.com/kamon-io/Kamon/issues/589"
+      },
+      {
+        "number" : 585,
+        "title" : "Option to disable metrics collection in config",
+        "url" : "https://github.com/kamon-io/Kamon/issues/585"
+      },
+      {
+        "number" : 657,
+        "title" : "Add pool name as a metric tag for statement spans",
+        "url" : "https://github.com/kamon-io/Kamon/issues/657"
+      },
+      {
+        "number" : 577,
+        "title" : "Kamon not working when using cluster bootstrap discovery method kubernetes-api",
+        "url" : "https://github.com/kamon-io/Kamon/issues/577"
+      },
+      {
+        "number" : 709,
+        "title" : "Documentation on how to use the library",
+        "url" : "https://github.com/kamon-io/Kamon/issues/709"
+      },
+      {
+        "number" : 749,
+        "title" : "Unify the configuration pattern between integrations",
+        "url" : "https://github.com/kamon-io/Kamon/issues/749"
+      },
+      {
+        "number" : 684,
+        "title" : "Context switches metrics are platform-dependent",
+        "url" : "https://github.com/kamon-io/Kamon/issues/684"
+      },
+      {
+        "number" : 570,
+        "title" : "Filters are not working as expected when there are dots?",
+        "url" : "https://github.com/kamon-io/Kamon/issues/570"
+      },
+      {
+        "number" : 566,
+        "title" : "Metrics are reported via kamon-prometheus even though they are removed",
+        "url" : "https://github.com/kamon-io/Kamon/issues/566"
+      },
+      {
+        "number" : 563,
+        "title" : "Kamon on Lagom projects",
+        "url" : "https://github.com/kamon-io/Kamon/issues/563"
+      },
+      {
+        "number" : 557,
+        "title" : "Tracking of remote services calling an instrumented service",
+        "url" : "https://github.com/kamon-io/Kamon/issues/557"
+      },
+      {
+        "number" : 556,
+        "title" : "copy tags from the context into spans",
+        "url" : "https://github.com/kamon-io/Kamon/issues/556"
+      },
+      {
+        "number" : 747,
+        "title" : "verify metric/label name and label value sanity",
+        "url" : "https://github.com/kamon-io/Kamon/issues/747"
+      },
+      {
+        "number" : 543,
+        "title" : "allow providing additional tags on StartedTimer.stop",
+        "url" : "https://github.com/kamon-io/Kamon/issues/543"
+      },
+      {
+        "number" : 693,
+        "title" : "Client connection pool monitoring",
+        "url" : "https://github.com/kamon-io/Kamon/issues/693"
+      },
+      {
+        "number" : 537,
+        "title" : "Allow Debug Traces (Forced Sampling)",
+        "url" : "https://github.com/kamon-io/Kamon/issues/537"
+      },
+      {
+        "number" : 671,
+        "title" : "Support `akka.pattern.after`",
+        "url" : "https://github.com/kamon-io/Kamon/issues/671"
+      },
+      {
+        "number" : 530,
+        "title" : "Allow discarding Spans",
+        "url" : "https://github.com/kamon-io/Kamon/issues/530"
+      },
+      {
+        "number" : 705,
+        "title" : "Define a strategy to handle streamed requests",
+        "url" : "https://github.com/kamon-io/Kamon/issues/705"
+      },
+      {
+        "number" : 529,
+        "title" : "Should we have a global tags configuration for reporters?",
+        "url" : "https://github.com/kamon-io/Kamon/issues/529"
+      },
+      {
+        "number" : 437,
+        "title" : "As Jdk 7 EOL, replace jsr166.LongAdder to java.util.concurrent.atomic.LongAdder",
+        "url" : "https://github.com/kamon-io/Kamon/issues/437"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : "kamon-akka",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "performance-and-monitoring",
+    "beginnerIssuesLabel" : null
+  }
+}

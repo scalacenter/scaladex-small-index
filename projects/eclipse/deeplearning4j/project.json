@@ -1,0 +1,4192 @@
+{
+  "organization" : "eclipse",
+  "repository" : "deeplearning4j",
+  "creationDate" : 1621863440000,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643176408407
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "http://deeplearning4j.konduit.ai",
+    "description" : "Suite of tools for deploying and training deep learning models using the JVM. Highlights include model import for keras, tensorflow, and onnx/pytorch, a modular and tiny c++ library for running math code and a java based math library on top of the core c++ library. Also includes samediff: a pytorch/tensorflow like library for running deep learning using automatic differentiation.",
+    "logo" : "https://avatars.githubusercontent.com/u/56974?v=4",
+    "stars" : 12335,
+    "forks" : 4927,
+    "watchers" : 788,
+    "issues" : 762,
+    "creationDate" : 1385517808000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><p align=\"center\" dir=\"auto\">\n  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/581046b90092b4de08416fe5ea162525a4600ee82d229653b9a94b15873415c5/68747470733a2f2f7777772e7a656c6a6b6f6f6272656e6f7669632e636f6d2f746f6f6c732f746563682f696d616765732f65636c697073655f646565706c6561726e696e67346a2e706e67\"><img src=\"https://camo.githubusercontent.com/581046b90092b4de08416fe5ea162525a4600ee82d229653b9a94b15873415c5/68747470733a2f2f7777772e7a656c6a6b6f6f6272656e6f7669632e636f6d2f746f6f6c732f746563682f696d616765732f65636c697073655f646565706c6561726e696e67346a2e706e67\" data-canonical-src=\"https://www.zeljkoobrenovic.com/tools/tech/images/eclipse_deeplearning4j.png\" style=\"max-width: 100%;\"></a>\n</p>\n<p dir=\"auto\"><a href=\"https://deeplearning4j.konduit.ai/\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/f67ef47db5fb189a024fe12edf3f5285b8cb7c570f84883531560daa81a2a407/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f757365722d646f63756d656e746174696f6e2d626c75652e737667\" alt=\"Documentation\" data-canonical-src=\"https://img.shields.io/badge/user-documentation-blue.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://community.konduit.ai/\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/7b6788c54a42206f1c741429b9e4ec71e8ece40cd259a47ccee8abca94cd0e56/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f47657425323048656c702d436f6d6d756e697479253230466f72756d2d626c7565\" alt=\"Get help at the community forum\" data-canonical-src=\"https://img.shields.io/badge/Get%20Help-Community%20Forum-blue\" style=\"max-width: 100%;\"></a>\n<a href=\"https://javadoc.io/doc/org.deeplearning4j/deeplearning4j-nn\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/74a4b4b27f3a65f620ca59b0d15ee18f738805f61f68dbac6edd2e7703013302/68747470733a2f2f6a617661646f632e696f2f6261646765322f6f72672e646565706c6561726e696e67346a2f646565706c6561726e696e67346a2d6e6e2f444c344a253230415049253230446f632e737667\" alt=\"javadoc\" data-canonical-src=\"https://javadoc.io/badge2/org.deeplearning4j/deeplearning4j-nn/DL4J%20API%20Doc.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://javadoc.io/doc/org.nd4j/nd4j-api\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/cf95804b4bc7b3c97fbe9d2135887a0cb0da603b9565ef476fcb5f7e38188a7a/68747470733a2f2f6a617661646f632e696f2f6261646765322f6f72672e6e64346a2f6e64346a2d6170692f4e44344a253230415049253230446f632e737667\" alt=\"javadoc\" data-canonical-src=\"https://javadoc.io/badge2/org.nd4j/nd4j-api/ND4J%20API%20Doc.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"LICENSE\"><img src=\"https://camo.githubusercontent.com/5df2cab996cdafdeaf48db72a0775d370fcea76fcce7d6fde6240366a5391e5c/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f65636c697073652f646565706c6561726e696e67346a\" alt=\"License\" data-canonical-src=\"https://img.shields.io/github/license/eclipse/deeplearning4j\" style=\"max-width: 100%;\"></a>\n<a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/264b572d2b5db0694241f4818774db1733c833484911c63ba2ed30ef2da5b28b/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f636f6d6d69742d61637469766974792f6d2f65636c697073652f646565706c6561726e696e67346a\"><img src=\"https://camo.githubusercontent.com/264b572d2b5db0694241f4818774db1733c833484911c63ba2ed30ef2da5b28b/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f636f6d6d69742d61637469766974792f6d2f65636c697073652f646565706c6561726e696e67346a\" alt=\"GitHub commit activity\" data-canonical-src=\"https://img.shields.io/github/commit-activity/m/eclipse/deeplearning4j\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">The <strong><a href=\"https://deeplearning4j.konduit.ai/\" rel=\"nofollow\">Eclipse Deeplearning4J</a></strong> (DL4J) ecosystem is a set of projects intended to support all the needs of a JVM based deep learning application. This means starting with the raw data, loading and preprocessing it from wherever and whatever format it is in to building and tuning a wide variety of simple and complex deep learning networks.</p>\n<p dir=\"auto\">Because Deeplearning4J runs on the JVM you can use it with a wide variety of JVM based languages other than Java, like Scala, Kotlin, Clojure and many more.</p>\n<p dir=\"auto\">The DL4J stack comprises of:</p>\n<ul dir=\"auto\">\n<li><strong>DL4J</strong>: High level API to build MultiLayerNetworks and ComputationGraphs with a variety of layers, including custom ones. Supports importing Keras models from h5, including tf.keras models (as of 1.0.0-beta7) and also supports distributed training on Apache Spark</li>\n<li><strong>ND4J</strong>: General purpose linear algebra library with over 500 mathematical, linear algebra and deep learning operations. ND4J is based on the highly-optimized C++ codebase LibND4J that provides CPU (AVX2/512) and GPU (CUDA) support and acceleration by libraries such as OpenBLAS, OneDNN (MKL-DNN), cuDNN, cuBLAS, etc</li>\n<li><strong>SameDiff</strong> : Part of the ND4J library, SameDiff is our automatic differentiation / deep learning framework. SameDiff uses a graph-based (define then run) approach, similar to TensorFlow graph mode. Eager graph (TensorFlow 2.x eager/PyTorch) graph execution is planned. SameDiff supports importing TensorFlow frozen model format .pb (protobuf) models. Import for ONNX, TensorFlow SavedModel and Keras models are planned. Deeplearning4j also has full SameDiff support for easily writing custom layers and loss functions.</li>\n<li><strong>DataVec</strong>: ETL for machine learning data in a wide variety of formats and files (HDFS, Spark, Images, Video, Audio, CSV, Excel etc)</li>\n<li><strong>LibND4J</strong> : C++ library that underpins everything. For more information on how the JVM acceses native arrays and operations refer to <a href=\"https://github.com/bytedeco/javacpp\">JavaCPP</a></li>\n</ul>\n<p dir=\"auto\">All projects in the DL4J ecosystem support Windows, Linux and macOS. Hardware support includes CUDA GPUs (10.0, 10.1, 10.2 except OSX), x86 CPU (x86_64, avx2, avx512), ARM CPU (arm, arm64, armhf) and PowerPC (ppc64le).</p>\n<h2 dir=\"auto\"><a id=\"user-content-community-support\" class=\"anchor\" aria-hidden=\"true\" href=\"#community-support\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Community Support</h2>\n<p dir=\"auto\">For support for the project, please go over to <a href=\"https://community.konduit.ai/\" rel=\"nofollow\">https://community.konduit.ai/</a></p>\n<h2 dir=\"auto\"><a id=\"user-content-using-eclipse-deeplearning4j-in-your-project\" class=\"anchor\" aria-hidden=\"true\" href=\"#using-eclipse-deeplearning4j-in-your-project\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Using Eclipse Deeplearning4J in your project</h2>\n<p dir=\"auto\">Deeplearning4J has quite a few dependencies. For this reason we only support usage with a build tool.</p>\n<div class=\"highlight highlight-text-xml position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&lt;dependencies&gt;\n  &lt;dependency&gt;\n      &lt;groupId&gt;org.deeplearning4j&lt;/groupId&gt;\n      &lt;artifactId&gt;deeplearning4j-core&lt;/artifactId&gt;\n      &lt;version&gt;1.0.0-M1.1&lt;/version&gt;\n  &lt;/dependency&gt;\n  &lt;dependency&gt;\n      &lt;groupId&gt;org.nd4j&lt;/groupId&gt;\n      &lt;artifactId&gt;nd4j-native-platform&lt;/artifactId&gt;\n      &lt;version&gt;1.0.0-M1.1&lt;/version&gt;\n  &lt;/dependency&gt;\n&lt;/dependencies&gt;\"><pre>&lt;<span class=\"pl-ent\">dependencies</span>&gt;\n  &lt;<span class=\"pl-ent\">dependency</span>&gt;\n      &lt;<span class=\"pl-ent\">groupId</span>&gt;org.deeplearning4j&lt;/<span class=\"pl-ent\">groupId</span>&gt;\n      &lt;<span class=\"pl-ent\">artifactId</span>&gt;deeplearning4j-core&lt;/<span class=\"pl-ent\">artifactId</span>&gt;\n      &lt;<span class=\"pl-ent\">version</span>&gt;1.0.0-M1.1&lt;/<span class=\"pl-ent\">version</span>&gt;\n  &lt;/<span class=\"pl-ent\">dependency</span>&gt;\n  &lt;<span class=\"pl-ent\">dependency</span>&gt;\n      &lt;<span class=\"pl-ent\">groupId</span>&gt;org.nd4j&lt;/<span class=\"pl-ent\">groupId</span>&gt;\n      &lt;<span class=\"pl-ent\">artifactId</span>&gt;nd4j-native-platform&lt;/<span class=\"pl-ent\">artifactId</span>&gt;\n      &lt;<span class=\"pl-ent\">version</span>&gt;1.0.0-M1.1&lt;/<span class=\"pl-ent\">version</span>&gt;\n  &lt;/<span class=\"pl-ent\">dependency</span>&gt;\n&lt;/<span class=\"pl-ent\">dependencies</span>&gt;</pre></div>\n<p dir=\"auto\">Add these dependencies to your pom.xml file to use Deeplearning4J with the CPU backend. A full standalone project example is <a href=\"https://github.com/eclipse/deeplearning4j-examples\">available in the example repository</a>, if you want to start a new Maven project from scratch.</p>\n<h2 dir=\"auto\"><a id=\"user-content-a-taste-of-code\" class=\"anchor\" aria-hidden=\"true\" href=\"#a-taste-of-code\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>A taste of code</h2>\n<p dir=\"auto\">Deeplearning4J offers a very high level API for defining even complex neural networks. The following example code shows\nyou how LeNet, a convolutional neural network, is defined in DL4J.</p>\n<div class=\"highlight highlight-source-java position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()\n                .seed(seed)\n                .l2(0.0005)\n                .weightInit(WeightInit.XAVIER)\n                .updater(new Adam(1e-3))\n                .list()\n                .layer(new ConvolutionLayer.Builder(5, 5)\n                        .stride(1,1)\n                        .nOut(20)\n                        .activation(Activation.IDENTITY)\n                        .build())\n                .layer(new SubsamplingLayer.Builder(PoolingType.MAX)\n                        .kernelSize(2,2)\n                        .stride(2,2)\n                        .build())\n                .layer(new ConvolutionLayer.Builder(5, 5)\n                        .stride(1,1)\n                        .nOut(50)\n                        .activation(Activation.IDENTITY)\n                        .build())\n                .layer(new SubsamplingLayer.Builder(PoolingType.MAX)\n                        .kernelSize(2,2)\n                        .stride(2,2)\n                        .build())\n                .layer(new DenseLayer.Builder().activation(Activation.RELU)\n                        .nOut(500).build())\n                .layer(new OutputLayer.Builder(LossFunctions.LossFunction.NEGATIVELOGLIKELIHOOD)\n                        .nOut(outputNum)\n                        .activation(Activation.SOFTMAX)\n                        .build())\n                .setInputType(InputType.convolutionalFlat(28,28,1))\n                .build();\n\"><pre><span class=\"pl-smi\">MultiLayerConfiguration</span> conf <span class=\"pl-k\">=</span> <span class=\"pl-k\">new</span> <span class=\"pl-smi\">NeuralNetConfiguration</span>.<span class=\"pl-smi\">Builder</span>()\n                .seed(seed)\n                .l2(<span class=\"pl-c1\">0.0005</span>)\n                .weightInit(<span class=\"pl-smi\">WeightInit</span><span class=\"pl-c1\"><span class=\"pl-k\">.</span>XAVIER</span>)\n                .updater(<span class=\"pl-k\">new</span> <span class=\"pl-smi\">Adam</span>(<span class=\"pl-c1\">1e-3</span>))\n                .list()\n                .layer(<span class=\"pl-k\">new</span> <span class=\"pl-smi\">ConvolutionLayer</span>.<span class=\"pl-smi\">Builder</span>(<span class=\"pl-c1\">5</span>, <span class=\"pl-c1\">5</span>)\n                        .stride(<span class=\"pl-c1\">1</span>,<span class=\"pl-c1\">1</span>)\n                        .nOut(<span class=\"pl-c1\">20</span>)\n                        .activation(<span class=\"pl-smi\">Activation</span><span class=\"pl-c1\"><span class=\"pl-k\">.</span>IDENTITY</span>)\n                        .build())\n                .layer(<span class=\"pl-k\">new</span> <span class=\"pl-smi\">SubsamplingLayer</span>.<span class=\"pl-smi\">Builder</span>(<span class=\"pl-smi\">PoolingType</span><span class=\"pl-c1\"><span class=\"pl-k\">.</span>MAX</span>)\n                        .kernelSize(<span class=\"pl-c1\">2</span>,<span class=\"pl-c1\">2</span>)\n                        .stride(<span class=\"pl-c1\">2</span>,<span class=\"pl-c1\">2</span>)\n                        .build())\n                .layer(<span class=\"pl-k\">new</span> <span class=\"pl-smi\">ConvolutionLayer</span>.<span class=\"pl-smi\">Builder</span>(<span class=\"pl-c1\">5</span>, <span class=\"pl-c1\">5</span>)\n                        .stride(<span class=\"pl-c1\">1</span>,<span class=\"pl-c1\">1</span>)\n                        .nOut(<span class=\"pl-c1\">50</span>)\n                        .activation(<span class=\"pl-smi\">Activation</span><span class=\"pl-c1\"><span class=\"pl-k\">.</span>IDENTITY</span>)\n                        .build())\n                .layer(<span class=\"pl-k\">new</span> <span class=\"pl-smi\">SubsamplingLayer</span>.<span class=\"pl-smi\">Builder</span>(<span class=\"pl-smi\">PoolingType</span><span class=\"pl-c1\"><span class=\"pl-k\">.</span>MAX</span>)\n                        .kernelSize(<span class=\"pl-c1\">2</span>,<span class=\"pl-c1\">2</span>)\n                        .stride(<span class=\"pl-c1\">2</span>,<span class=\"pl-c1\">2</span>)\n                        .build())\n                .layer(<span class=\"pl-k\">new</span> <span class=\"pl-smi\">DenseLayer</span>.<span class=\"pl-smi\">Builder</span>()<span class=\"pl-k\">.</span>activation(<span class=\"pl-smi\">Activation</span><span class=\"pl-c1\"><span class=\"pl-k\">.</span>RELU</span>)\n                        .nOut(<span class=\"pl-c1\">500</span>)<span class=\"pl-k\">.</span>build())\n                .layer(<span class=\"pl-k\">new</span> <span class=\"pl-smi\">OutputLayer</span>.<span class=\"pl-smi\">Builder</span>(<span class=\"pl-smi\">LossFunctions</span><span class=\"pl-k\">.</span><span class=\"pl-smi\">LossFunction</span><span class=\"pl-c1\"><span class=\"pl-k\">.</span>NEGATIVELOGLIKELIHOOD</span>)\n                        .nOut(outputNum)\n                        .activation(<span class=\"pl-smi\">Activation</span><span class=\"pl-c1\"><span class=\"pl-k\">.</span>SOFTMAX</span>)\n                        .build())\n                .setInputType(<span class=\"pl-smi\">InputType</span><span class=\"pl-k\">.</span>convolutionalFlat(<span class=\"pl-c1\">28</span>,<span class=\"pl-c1\">28</span>,<span class=\"pl-c1\">1</span>))\n                .build();\n</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-documentation-guides-and-tutorials\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation-guides-and-tutorials\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Documentation, Guides and Tutorials</h2>\n<p dir=\"auto\">You can find the official documentation for Deeplearning4J and the other libraries of its ecosystem at <a href=\"http://deeplearning4j.konduit.ai/\" rel=\"nofollow\">http://deeplearning4j.konduit.ai/</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-want-some-examples\" class=\"anchor\" aria-hidden=\"true\" href=\"#want-some-examples\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Want some examples?</h2>\n<p dir=\"auto\">We have separate repository with various examples available: <a href=\"https://github.com/eclipse/deeplearning4j-examples\">https://github.com/eclipse/deeplearning4j-examples</a></p>\n<h2 dir=\"auto\"><a id=\"user-content-building-from-source\" class=\"anchor\" aria-hidden=\"true\" href=\"#building-from-source\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Building from source</h2>\n<p dir=\"auto\">It is preferred to use the official pre-compiled releases (see above). But if you want to build from source, first take a look at the prerequisites for building from source here: <a href=\"https://deeplearning4j.konduit.ai/multi-project/how-to-guides/build-from-source\" rel=\"nofollow\">https://deeplearning4j.konduit.ai/multi-project/how-to-guides/build-from-source</a>.</p>\n<p dir=\"auto\">To build everything, we can use commands like</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"./change-cuda-versions.sh x.x\n./change-scala-versions.sh 2.xx\n./change-spark-versions.sh x\nmvn clean install -Dmaven.test.skip -Dlibnd4j.cuda=x.x -Dlibnd4j.compute=xx\"><pre><code>./change-cuda-versions.sh x.x\n./change-scala-versions.sh 2.xx\n./change-spark-versions.sh x\nmvn clean install -Dmaven.test.skip -Dlibnd4j.cuda=x.x -Dlibnd4j.compute=xx\n</code></pre></div>\n<p dir=\"auto\">or</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"mvn -B -V -U clean install -pl  -Dlibnd4j.platform=linux-x86_64 -Dlibnd4j.chip=cuda -Dlibnd4j.cuda=11.0 -Dlibnd4j.compute=&lt;your GPU CC&gt; -Djavacpp.platform=linux-x86_64 -Dmaven.test.skip=true\"><pre><code>mvn -B -V -U clean install -pl  -Dlibnd4j.platform=linux-x86_64 -Dlibnd4j.chip=cuda -Dlibnd4j.cuda=11.0 -Dlibnd4j.compute=&lt;your GPU CC&gt; -Djavacpp.platform=linux-x86_64 -Dmaven.test.skip=true\n</code></pre></div>\n<p dir=\"auto\">An example of GPU \"CC\" or compute capability is 61 for Titan X Pascal.</p>\n<h2 dir=\"auto\"><a id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>License</h2>\n<p dir=\"auto\"><a href=\"LICENSE\">Apache License 2.0</a></p>\n<h2 dir=\"auto\"><a id=\"user-content-commercial-support\" class=\"anchor\" aria-hidden=\"true\" href=\"#commercial-support\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Commercial Support</h2>\n<p dir=\"auto\">Deeplearning4J is actively developed by the team at <a href=\"https://konduit.ai\" rel=\"nofollow\">Konduit K.K.</a>.</p>\n<p dir=\"auto\">[If you need any commercial support feel free to reach out to us. at <a href=\"mailto:support@konduit.ai\">support@konduit.ai</a></p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "agibsonccc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1144306?v=4",
+        "url" : "https://api.github.com/users/agibsonccc",
+        "contributions" : 1312
+      },
+      {
+        "login" : "raver119",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12250879?v=4",
+        "url" : "https://api.github.com/users/raver119",
+        "contributions" : 292
+      },
+      {
+        "login" : "AlexDBlack",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2360237?v=4",
+        "url" : "https://api.github.com/users/AlexDBlack",
+        "contributions" : 274
+      },
+      {
+        "login" : "quickwritereader",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4885088?v=4",
+        "url" : "https://api.github.com/users/quickwritereader",
+        "contributions" : 119
+      },
+      {
+        "login" : "shugeo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/35595510?v=4",
+        "url" : "https://api.github.com/users/shugeo",
+        "contributions" : 84
+      },
+      {
+        "login" : "alexanderst",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2234648?v=4",
+        "url" : "https://api.github.com/users/alexanderst",
+        "contributions" : 48
+      },
+      {
+        "login" : "RobAltena",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13833070?v=4",
+        "url" : "https://api.github.com/users/RobAltena",
+        "contributions" : 39
+      },
+      {
+        "login" : "shyrma",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30350590?v=4",
+        "url" : "https://api.github.com/users/shyrma",
+        "contributions" : 38
+      },
+      {
+        "login" : "saudet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3328023?v=4",
+        "url" : "https://api.github.com/users/saudet",
+        "contributions" : 30
+      },
+      {
+        "login" : "olegsemeniv",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24583942?v=4",
+        "url" : "https://api.github.com/users/olegsemeniv",
+        "contributions" : 23
+      },
+      {
+        "login" : "aboulang2002",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/44292157?v=4",
+        "url" : "https://api.github.com/users/aboulang2002",
+        "contributions" : 19
+      },
+      {
+        "login" : "farizrahman4u",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11006006?v=4",
+        "url" : "https://api.github.com/users/farizrahman4u",
+        "contributions" : 18
+      },
+      {
+        "login" : "dariuszzbyrad",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6116322?v=4",
+        "url" : "https://api.github.com/users/dariuszzbyrad",
+        "contributions" : 14
+      },
+      {
+        "login" : "sshepel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9946053?v=4",
+        "url" : "https://api.github.com/users/sshepel",
+        "contributions" : 11
+      },
+      {
+        "login" : "printomi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/35722866?v=4",
+        "url" : "https://api.github.com/users/printomi",
+        "contributions" : 11
+      },
+      {
+        "login" : "ShamsUlAzeem",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17789400?v=4",
+        "url" : "https://api.github.com/users/ShamsUlAzeem",
+        "contributions" : 11
+      },
+      {
+        "login" : "treo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/509379?v=4",
+        "url" : "https://api.github.com/users/treo",
+        "contributions" : 9
+      },
+      {
+        "login" : "atuzhykov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/39699084?v=4",
+        "url" : "https://api.github.com/users/atuzhykov",
+        "contributions" : 8
+      },
+      {
+        "login" : "hosuaby",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5645920?v=4",
+        "url" : "https://api.github.com/users/hosuaby",
+        "contributions" : 7
+      },
+      {
+        "login" : "jljljl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6739086?v=4",
+        "url" : "https://api.github.com/users/jljljl",
+        "contributions" : 6
+      },
+      {
+        "login" : "maxpumperla",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3462566?v=4",
+        "url" : "https://api.github.com/users/maxpumperla",
+        "contributions" : 5
+      },
+      {
+        "login" : "eraly",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8340500?v=4",
+        "url" : "https://api.github.com/users/eraly",
+        "contributions" : 5
+      },
+      {
+        "login" : "Bam4d",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1370765?v=4",
+        "url" : "https://api.github.com/users/Bam4d",
+        "contributions" : 5
+      },
+      {
+        "login" : "jxtps",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/90846?v=4",
+        "url" : "https://api.github.com/users/jxtps",
+        "contributions" : 4
+      },
+      {
+        "login" : "basedrhys",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/21359576?v=4",
+        "url" : "https://api.github.com/users/basedrhys",
+        "contributions" : 3
+      },
+      {
+        "login" : "ahmed-mahran",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8685962?v=4",
+        "url" : "https://api.github.com/users/ahmed-mahran",
+        "contributions" : 2
+      },
+      {
+        "login" : "Foorcee",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5587062?v=4",
+        "url" : "https://api.github.com/users/Foorcee",
+        "contributions" : 2
+      },
+      {
+        "login" : "KolyaIvankov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16176232?v=4",
+        "url" : "https://api.github.com/users/KolyaIvankov",
+        "contributions" : 2
+      },
+      {
+        "login" : "pza94",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/73944846?v=4",
+        "url" : "https://api.github.com/users/pza94",
+        "contributions" : 2
+      },
+      {
+        "login" : "bpossolo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/984705?v=4",
+        "url" : "https://api.github.com/users/bpossolo",
+        "contributions" : 1
+      },
+      {
+        "login" : "Celebrate-future",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/78527112?v=4",
+        "url" : "https://api.github.com/users/Celebrate-future",
+        "contributions" : 1
+      },
+      {
+        "login" : "wmeddie",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/122480?v=4",
+        "url" : "https://api.github.com/users/wmeddie",
+        "contributions" : 1
+      },
+      {
+        "login" : "jeannekamikaze",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1595451?v=4",
+        "url" : "https://api.github.com/users/jeannekamikaze",
+        "contributions" : 1
+      },
+      {
+        "login" : "KartikChugh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6678748?v=4",
+        "url" : "https://api.github.com/users/KartikChugh",
+        "contributions" : 1
+      },
+      {
+        "login" : "k-tamura",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1562861?v=4",
+        "url" : "https://api.github.com/users/k-tamura",
+        "contributions" : 1
+      },
+      {
+        "login" : "mjlorenzo305",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/53198701?v=4",
+        "url" : "https://api.github.com/users/mjlorenzo305",
+        "contributions" : 1
+      },
+      {
+        "login" : "maxime-michel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14178626?v=4",
+        "url" : "https://api.github.com/users/maxime-michel",
+        "contributions" : 1
+      },
+      {
+        "login" : "philip-khor",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/35039795?v=4",
+        "url" : "https://api.github.com/users/philip-khor",
+        "contributions" : 1
+      },
+      {
+        "login" : "Romira915",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/40430090?v=4",
+        "url" : "https://api.github.com/users/Romira915",
+        "contributions" : 1
+      },
+      {
+        "login" : "rossmessing",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/21366284?v=4",
+        "url" : "https://api.github.com/users/rossmessing",
+        "contributions" : 1
+      },
+      {
+        "login" : "rnett",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/32281897?v=4",
+        "url" : "https://api.github.com/users/rnett",
+        "contributions" : 1
+      },
+      {
+        "login" : "sinemetu1",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/952533?v=4",
+        "url" : "https://api.github.com/users/sinemetu1",
+        "contributions" : 1
+      },
+      {
+        "login" : "steven-lang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17625341?v=4",
+        "url" : "https://api.github.com/users/steven-lang",
+        "contributions" : 1
+      },
+      {
+        "login" : "thomasleplus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1929743?v=4",
+        "url" : "https://api.github.com/users/thomasleplus",
+        "contributions" : 1
+      },
+      {
+        "login" : "ionspin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/144139?v=4",
+        "url" : "https://api.github.com/users/ionspin",
+        "contributions" : 1
+      },
+      {
+        "login" : "Ulrhol",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6524147?v=4",
+        "url" : "https://api.github.com/users/Ulrhol",
+        "contributions" : 1
+      },
+      {
+        "login" : "vvysotskyi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/20928429?v=4",
+        "url" : "https://api.github.com/users/vvysotskyi",
+        "contributions" : 1
+      },
+      {
+        "login" : "yquemener",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/899106?v=4",
+        "url" : "https://api.github.com/users/yquemener",
+        "contributions" : 1
+      },
+      {
+        "login" : "ch1010",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6724069?v=4",
+        "url" : "https://api.github.com/users/ch1010",
+        "contributions" : 1
+      },
+      {
+        "login" : "cyberbeat",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/907884?v=4",
+        "url" : "https://api.github.com/users/cyberbeat",
+        "contributions" : 1
+      },
+      {
+        "login" : "lzd010",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30429640?v=4",
+        "url" : "https://api.github.com/users/lzd010",
+        "contributions" : 1
+      },
+      {
+        "login" : "mheck136",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1875778?v=4",
+        "url" : "https://api.github.com/users/mheck136",
+        "contributions" : 1
+      },
+      {
+        "login" : "partarstu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/67119045?v=4",
+        "url" : "https://api.github.com/users/partarstu",
+        "contributions" : 1
+      },
+      {
+        "login" : "skymindops",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/34909009?v=4",
+        "url" : "https://api.github.com/users/skymindops",
+        "contributions" : 1
+      },
+      {
+        "login" : "yumg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1999255?v=4",
+        "url" : "https://api.github.com/users/yumg",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 2429,
+    "topics" : [
+      "linear-algebra",
+      "clojure",
+      "neural-nets",
+      "java",
+      "intellij",
+      "deeplearning4j",
+      "hadoop",
+      "spark",
+      "artificial-intelligence",
+      "python",
+      "matrix-library",
+      "gpu",
+      "dl4j",
+      "scala",
+      "deeplearning"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : "https://gitter.im/eclipse/deeplearning4j",
+    "openIssues" : [
+      {
+        "number" : 9607,
+        "title" : "TrainingPerformanceEarlyStoppingListener reports wrong statistics combined with EarlyStoppingTrainer.evaluateEveryNEpochs(x) ",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9607"
+      },
+      {
+        "number" : 9596,
+        "title" : "Implement Einsum op",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9596"
+      },
+      {
+        "number" : 9595,
+        "title" : "Python4J Performance Optimizations",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9595"
+      },
+      {
+        "number" : 9593,
+        "title" : "nOut for Bidirectional Concatenated",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9593"
+      },
+      {
+        "number" : 9592,
+        "title" : "Examples for standard linear algebra operations such and decompositions and solvers",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9592"
+      },
+      {
+        "number" : 9554,
+        "title" : "Allow using custom optimizers / solvers",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9554"
+      },
+      {
+        "number" : 9528,
+        "title" : "EfficientNet model return error in NDArray dimension conversation",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9528"
+      },
+      {
+        "number" : 9525,
+        "title" : "Add assymmetric weights for onnx compatibility",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9525"
+      },
+      {
+        "number" : 9505,
+        "title" : "Add self hosted javadocs better than javadoc.io",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9505"
+      },
+      {
+        "number" : 9499,
+        "title" : "Add back missing javadoc",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9499"
+      },
+      {
+        "number" : 9498,
+        "title" : "Implementing missing loss functions as ops",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9498"
+      },
+      {
+        "number" : 9490,
+        "title" : "Support extended enums with fully qualified class names in code gen",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9490"
+      },
+      {
+        "number" : 9479,
+        "title" : "Signature feature should generate cleaner signatures",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9479"
+      },
+      {
+        "number" : 9467,
+        "title" : "Add missing configurations for image resizing",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9467"
+      },
+      {
+        "number" : 9447,
+        "title" : "Add keras pre processing layers",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9447"
+      },
+      {
+        "number" : 9428,
+        "title" : "Receiving a NullPointerException when accessing the UI Server",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9428"
+      },
+      {
+        "number" : 9417,
+        "title" : "AVX2 brings no performance improvement?",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9417"
+      },
+      {
+        "number" : 9404,
+        "title" : "ParagraphVectors loosing labels when they occur in trained text",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9404"
+      },
+      {
+        "number" : 9398,
+        "title" : "Keras Import Problem: Unsupported keras layer type Functional",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9398"
+      },
+      {
+        "number" : 9359,
+        "title" : "There is no Binary Step activation function on DL4J  ?",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9359"
+      },
+      {
+        "number" : 9358,
+        "title" : "Adding Ultra Fast Sigmoid Function ",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9358"
+      },
+      {
+        "number" : 9354,
+        "title" : "Remove un needed cpu binaries from cuda backend",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9354"
+      },
+      {
+        "number" : 9345,
+        "title" : "Please add explanation of bottom left visualization overview details",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9345"
+      },
+      {
+        "number" : 9342,
+        "title" : "Missing native libraries in nd4j-native-1.0.0-M1-windows-x86_64.jar",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9342"
+      },
+      {
+        "number" : 9332,
+        "title" : "1.0.0-M1 wrong CUDA malloc()",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9332"
+      },
+      {
+        "number" : 9330,
+        "title" : "microej microcontroller for java and Deeplearning4j",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9330"
+      },
+      {
+        "number" : 9296,
+        "title" : "building nd4j snapshot fails with java 16 unless export MAVEN_OPTS=\"–illegal-access=warn\" is used",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9296"
+      },
+      {
+        "number" : 9294,
+        "title" : "speed up the loading of google news word2vec model",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9294"
+      },
+      {
+        "number" : 9293,
+        "title" : "Using a bunch of Keras models in a zip file for Dl4j",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9293"
+      },
+      {
+        "number" : 9279,
+        "title" : "JUnit  tests failing due to global data type inconsistencies",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9279"
+      },
+      {
+        "number" : 9278,
+        "title" : "JVM Crash with TAD happening on CPU backend",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9278"
+      },
+      {
+        "number" : 9271,
+        "title" : "CoreML for IOS with RoboVM",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9271"
+      },
+      {
+        "number" : 9267,
+        "title" : "Inconsistent naming conventions for LastTimeStep",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9267"
+      },
+      {
+        "number" : 9262,
+        "title" : "Unsupported keras layer type DenseFeatures",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9262"
+      },
+      {
+        "number" : 9258,
+        "title" : "Feature Request: Add Support for Apple Silicon M1",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9258"
+      },
+      {
+        "number" : 9257,
+        "title" : "Euclidean Distance with allDistances true not working",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9257"
+      },
+      {
+        "number" : 9234,
+        "title" : "Support Dot merge layers ",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9234"
+      },
+      {
+        "number" : 9174,
+        "title" : "Unsupported keras layer type KerasLayer exception",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9174"
+      },
+      {
+        "number" : 9173,
+        "title" : "SameDiff training requires all minibatches to be the exact same size.",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9173"
+      },
+      {
+        "number" : 9171,
+        "title" : "Exception when running a TensorFlow frozen graph model",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9171"
+      },
+      {
+        "number" : 9168,
+        "title" : "when using sparkNet.fitContinuousLabeledPoint(trainingData),It has a error:merge Feature fails",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9168"
+      },
+      {
+        "number" : 9156,
+        "title" : "Unsupported keras layer type ConvLSTM2D",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9156"
+      },
+      {
+        "number" : 9153,
+        "title" : "Implement LSTM with return_sequences=False",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9153"
+      },
+      {
+        "number" : 9147,
+        "title" : "Loaded SameDiff model can't do evaluation",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9147"
+      },
+      {
+        "number" : 9145,
+        "title" : "Can't train samediff model when reloaded",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9145"
+      },
+      {
+        "number" : 9142,
+        "title" : "after I use DataSet.shuffle method all the data set change to zero.",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9142"
+      },
+      {
+        "number" : 9135,
+        "title" : "Rl4j - Async Learning single global lock",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9135"
+      },
+      {
+        "number" : 9133,
+        "title" : "Loading ONNX model",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9133"
+      },
+      {
+        "number" : 9120,
+        "title" : "WordVectorSerializer.readWord2VecModel throws an exception: \"Unable to guess input file format\"",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9120"
+      },
+      {
+        "number" : 9116,
+        "title" : "Bug in Convolution3DUtils",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9116"
+      },
+      {
+        "number" : 9112,
+        "title" : "Bug in InputTypeUtil",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9112"
+      },
+      {
+        "number" : 9108,
+        "title" : "Support Keras Model (nested layers) in Keras Import",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9108"
+      },
+      {
+        "number" : 9107,
+        "title" : "Calling update(Gradient gradient) on a model that hasn't had it's gradient initialized throws a NullPointerException",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9107"
+      },
+      {
+        "number" : 9106,
+        "title" : "SameDiffLayer does not support multiple inputs",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9106"
+      },
+      {
+        "number" : 9101,
+        "title" : "BatchNormalization layer inside FrozenLayerWithBackprop NullPointerException",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9101"
+      },
+      {
+        "number" : 9099,
+        "title" : "libnd4jcpu frame issue",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9099"
+      },
+      {
+        "number" : 9093,
+        "title" : "LayerValidation always overrides regularizations set on BaseLayer",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9093"
+      },
+      {
+        "number" : 9090,
+        "title" : "Word2Vec SkipGram creates Word-Context Pairs further apart than specified by windows size",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9090"
+      },
+      {
+        "number" : 9088,
+        "title" : "README in nd4j has a dead link",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9088"
+      },
+      {
+        "number" : 9086,
+        "title" : "MultiDataSetIteratorSplitter throws NullPointerException",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9086"
+      },
+      {
+        "number" : 9081,
+        "title" : "Unable to deserialize model on CentOS: restoreMultiLayerNetwork -> NullPointerException",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9081"
+      },
+      {
+        "number" : 9070,
+        "title" : "Svd fails to populate u matrix",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9070"
+      },
+      {
+        "number" : 9069,
+        "title" : "Incorrect calculate LU decomposition",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9069"
+      },
+      {
+        "number" : 9068,
+        "title" : "Op Profiler causes nullpointer exception when enabled with cuda backend",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9068"
+      },
+      {
+        "number" : 9067,
+        "title" : "INDArray allows retrieval of value from invalid index",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9067"
+      },
+      {
+        "number" : 9059,
+        "title" : "Importing Time Distributed fails",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9059"
+      },
+      {
+        "number" : 9056,
+        "title" : "NativeImageLoader wrong RGB loading of Mat",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9056"
+      },
+      {
+        "number" : 9051,
+        "title" : "LocallyConnected2D and SameDiff are slow",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9051"
+      },
+      {
+        "number" : 9038,
+        "title" : "Errors occur when training word2vec on spark",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9038"
+      },
+      {
+        "number" : 9037,
+        "title" : "SameDiff/Libnd4j: SimpleRnn op with backprop",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9037"
+      },
+      {
+        "number" : 9036,
+        "title" : "Libnd4j: Make div forward op allowed datatypes match div_bp",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9036"
+      },
+      {
+        "number" : 9034,
+        "title" : "CUDNN BatchNormalization uses a lot of GPU memory",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9034"
+      },
+      {
+        "number" : 9029,
+        "title" : "BatchNorm Backpropagation issue with SameDiff",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9029"
+      },
+      {
+        "number" : 9028,
+        "title" : "defineInputs(int numInputs) in SDVertexParams is a NoOp",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9028"
+      },
+      {
+        "number" : 9026,
+        "title" : "SameDiff: document SDLoss ops not accepting output gradients",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9026"
+      },
+      {
+        "number" : 9025,
+        "title" : "DL4J: LastTimeStep should support different RNN data formats",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9025"
+      },
+      {
+        "number" : 9023,
+        "title" : "Throw better exception when featurizing sentence pairs for bert fails",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9023"
+      },
+      {
+        "number" : 9022,
+        "title" : "SameDiff/Libnd4j: add WeightFormat to other ConvConfigs",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9022"
+      },
+      {
+        "number" : 9020,
+        "title" : "SameDiff: ExecDebuggingListener doesn't work now that SameDiff uses OpContext for exec internally",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9020"
+      },
+      {
+        "number" : 9019,
+        "title" : "SameDiff generated spaceToBatch has issues",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9019"
+      },
+      {
+        "number" : 9018,
+        "title" : "SameDiff/Libnd4j: relu w/ cutoff sets < cutoff values to cutoff, not 0",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9018"
+      },
+      {
+        "number" : 9016,
+        "title" : "libnd4j: weighted_cross_entropy_with_logits backprop op implementation required",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9016"
+      },
+      {
+        "number" : 9015,
+        "title" : "weightedCrossEntropyWithLogits doesn't accept null weights",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9015"
+      },
+      {
+        "number" : 9012,
+        "title" : "DL4J UI: saved UI stats - internal server error on custom layers",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9012"
+      },
+      {
+        "number" : 9011,
+        "title" : "DL4J UI can fail to launch under some circumstances",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9011"
+      },
+      {
+        "number" : 9008,
+        "title" : "Can I inference in the file-mapped workspace?",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9008"
+      },
+      {
+        "number" : 9000,
+        "title" : "Failed to import keras seq2seq model to DL4J with Merge Vertex error",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/9000"
+      },
+      {
+        "number" : 8992,
+        "title" : "DL4J: TransferLearning GraphBuilder order problem",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8992"
+      },
+      {
+        "number" : 8991,
+        "title" : "DL4J: TransferLearning GraphBuilder doesn't validate names",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8991"
+      },
+      {
+        "number" : 8990,
+        "title" : "Keras Model Import Does Not Support Class Handles for Loss Functions",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8990"
+      },
+      {
+        "number" : 8988,
+        "title" : "ND4J/DL4J/SameDiff: ISchedule implementation JSON issue",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8988"
+      },
+      {
+        "number" : 8981,
+        "title" : "MAX Pooling instead of AVG Pooling in Resnet50 ?",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8981"
+      },
+      {
+        "number" : 8970,
+        "title" : "SameDiff: add SameDiff.close() method",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8970"
+      },
+      {
+        "number" : 8968,
+        "title" : "SameDiff profiler JSON format issue + performance issue",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8968"
+      },
+      {
+        "number" : 8966,
+        "title" : "Extremely slow load time on LSTM Keras model",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8966"
+      },
+      {
+        "number" : 8963,
+        "title" : "SameDiff TF import tests: Set RNG seed for all tests for consistency",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8963"
+      },
+      {
+        "number" : 8957,
+        "title" : "NaN producted by cosinesimilarity operation when point is at zero",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8957"
+      },
+      {
+        "number" : 8948,
+        "title" : "DL4J Keras import: shared activation layers",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8948"
+      },
+      {
+        "number" : 8947,
+        "title" : "libnd4j: non_max_suppression_v3 does not fit to TF NonMaxSuppressionV4/V5",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8947"
+      },
+      {
+        "number" : 8946,
+        "title" : "SameDiff: TF import - NonMaxSuppressionV4/V5 issue",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8946"
+      },
+      {
+        "number" : 8944,
+        "title" : "Version Check doesn't work with Spring Boot Uberjar packaging",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8944"
+      },
+      {
+        "number" : 8932,
+        "title" : "Android gradle build error: java.lang.ArrayIndexOutOfBoundsException by 1.0.0-beta6",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8932"
+      },
+      {
+        "number" : 8927,
+        "title" : "libnd4j: random_gamma op incorrect",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8927"
+      },
+      {
+        "number" : 8922,
+        "title" : "Different prediction and tokenization using flask and DL4j",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8922"
+      },
+      {
+        "number" : 8918,
+        "title" : "libnd4j: Add utility methods for loading arrays from SavedModel protobuf",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8918"
+      },
+      {
+        "number" : 8917,
+        "title" : "SameDiff: Add utilities for easy float16 conversion",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8917"
+      },
+      {
+        "number" : 8916,
+        "title" : "SameDiff: Add graph optimizer (initial implementation + cuDNN)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8916"
+      },
+      {
+        "number" : 8915,
+        "title" : "libnd4j/ND4J/SameDiff: Add quantized integer datatypes (qint8, etc)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8915"
+      },
+      {
+        "number" : 8914,
+        "title" : "libnd4j: C++ graph executor fixes/enhancements",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8914"
+      },
+      {
+        "number" : 8913,
+        "title" : "All projects: Adapt tests (profiles, memory limits, skips etc) for low-memory edge devices",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8913"
+      },
+      {
+        "number" : 8912,
+        "title" : "libnd4j: Review and reduce binary size & baseline memory use",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8912"
+      },
+      {
+        "number" : 8910,
+        "title" : "datavec-data-image + CUDA: JVM crash on TestNativeImageLoader.testConvertPix",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8910"
+      },
+      {
+        "number" : 8906,
+        "title" : "ND4J CI: Windows CUDA JVM Crash in nd4j-tests (merge_max op?)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8906"
+      },
+      {
+        "number" : 8898,
+        "title" : "SameDiff: TF import issue - primitive_gru",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8898"
+      },
+      {
+        "number" : 8896,
+        "title" : "Namespaces and Argmax",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8896"
+      },
+      {
+        "number" : 8894,
+        "title" : "ND4J: NDArrays created on each op (Scalar op scalars, dimensions generally)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8894"
+      },
+      {
+        "number" : 8891,
+        "title" : "CI: Intermittent JVM crash on TestVertxUIMultiSession.testUIMultiSessionParallelTraining",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8891"
+      },
+      {
+        "number" : 8888,
+        "title" : "ParagraphVectors ignores all but first label during training",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8888"
+      },
+      {
+        "number" : 8885,
+        "title" : "SameDiff import tests: clean up class path scanning (TFGraphTestAllHelper) to use ResourceUtils.listClassPathFiles",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8885"
+      },
+      {
+        "number" : 8884,
+        "title" : "SameDiff: Add float loss",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8884"
+      },
+      {
+        "number" : 8883,
+        "title" : "ND4J/SameDiff: Add missing operations to namespaces",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8883"
+      },
+      {
+        "number" : 8880,
+        "title" : "libnd4j: mergemaxindex - supports float output or not? (CPU/GPU inconsistent)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8880"
+      },
+      {
+        "number" : 8873,
+        "title" : "\"org.nd4j.linalg.api.blas.BlasException: Failed to execute sgesvd: -1011\" when running PCA",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8873"
+      },
+      {
+        "number" : 8868,
+        "title" : "DL4J: DataSet and MultiDataSet - assert rank 2 minimum for features/labels/masks",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8868"
+      },
+      {
+        "number" : 8865,
+        "title" : "PCA calculations not using entire MMAP space",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8865"
+      },
+      {
+        "number" : 8858,
+        "title" : "SameDiff TF import: add NCHW space_to_depth and space_to_batch data format tests",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8858"
+      },
+      {
+        "number" : 8853,
+        "title" : "PCA.pca(..) is producing wrong results due to mutations of underlying INDArray",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8853"
+      },
+      {
+        "number" : 8851,
+        "title" : "Ops - Configure Sonar scanning settings",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8851"
+      },
+      {
+        "number" : 8850,
+        "title" : "SameDiff: training configuration name validation",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8850"
+      },
+      {
+        "number" : 8846,
+        "title" : "ArrayIndexOutOfBoundsException in KerasReshape.getInputPreprocessor",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8846"
+      },
+      {
+        "number" : 8845,
+        "title" : "libnd4j - CUDA deadlock possible in libnd4j tests?",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8845"
+      },
+      {
+        "number" : 8842,
+        "title" : "DL4J: implement MLKDNNLSTMHelper.backpropGradient + enable helper",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8842"
+      },
+      {
+        "number" : 8839,
+        "title" : "Exception in thread \"main\" java.lang.RuntimeException on model.setListeners(new ConvolutionalIterationListener(1));",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8839"
+      },
+      {
+        "number" : 8831,
+        "title" : "ND4J/DL4J: Deprecate L1/L2/L3 BLAS methods; update Nd4j.gemm to use op not direct BLAS calls",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8831"
+      },
+      {
+        "number" : 8827,
+        "title" : "ImportKerasSequentialModel  -  NullPointerException",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8827"
+      },
+      {
+        "number" : 8825,
+        "title" : "SameDiff: Auto-generated loss weights variable naming",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8825"
+      },
+      {
+        "number" : 8824,
+        "title" : "op lstmLayer anomaly detected",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8824"
+      },
+      {
+        "number" : 8821,
+        "title" : "SameDiff: multi-output variable naming",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8821"
+      },
+      {
+        "number" : 8820,
+        "title" : "Unsupported Op: AudioSpectogram",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8820"
+      },
+      {
+        "number" : 8817,
+        "title" : "SameDiff random ops not respecting Nd4j RNG seed",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8817"
+      },
+      {
+        "number" : 8805,
+        "title" : "Uptraining ParagraphVectors issue",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8805"
+      },
+      {
+        "number" : 8802,
+        "title" : "SameDiff/ND4J: Intermittent threading issue (CPU backend)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8802"
+      },
+      {
+        "number" : 8793,
+        "title" : "jvm crash",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8793"
+      },
+      {
+        "number" : 8792,
+        "title" : "VGG16 CIFAR10 Weights not working",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8792"
+      },
+      {
+        "number" : 8785,
+        "title" : "datavec-data-image: CUDA JVM crash in tests",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8785"
+      },
+      {
+        "number" : 8780,
+        "title" : "App crash when training model on multi GPU",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8780"
+      },
+      {
+        "number" : 8757,
+        "title" : "CI: Windows CUDA JVM crash - PrintVariable op",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8757"
+      },
+      {
+        "number" : 8750,
+        "title" : "DL4J UI: Shade freemarker library",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8750"
+      },
+      {
+        "number" : 8742,
+        "title" : "nd4j - Cholesky wrapper is missing constructors",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8742"
+      },
+      {
+        "number" : 8740,
+        "title" : "RL4J does an image preprocessing step in the HistoryProcessor",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8740"
+      },
+      {
+        "number" : 8738,
+        "title" : "Maven build: Add dependency convergence checking",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8738"
+      },
+      {
+        "number" : 8737,
+        "title" : "DL4J: Weight decay results in lack of convergence (sometimes?)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8737"
+      },
+      {
+        "number" : 8732,
+        "title" : "CUDA behaves non-deterministically even without cuDNN",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8732"
+      },
+      {
+        "number" : 8727,
+        "title" : "The Cartpole example can't converge",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8727"
+      },
+      {
+        "number" : 8724,
+        "title" : "UI: Netty version clash",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8724"
+      },
+      {
+        "number" : 8712,
+        "title" : "WordVectorSerializer calls Class.forName without a way to specify classloader",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8712"
+      },
+      {
+        "number" : 8708,
+        "title" : "Bug in multiclassification",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8708"
+      },
+      {
+        "number" : 8707,
+        "title" : "Graph imported from FlatBuffers in C++ has an extra variable.",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8707"
+      },
+      {
+        "number" : 8705,
+        "title" : "SameDiff: Additional InferenceSession optimizations (Java)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8705"
+      },
+      {
+        "number" : 8701,
+        "title" : "DL4J KerasSequentialImport problem",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8701"
+      },
+      {
+        "number" : 8698,
+        "title" : "Looking for Help? Need Support? (Read this first)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8698"
+      },
+      {
+        "number" : 8695,
+        "title" : "SameDiff: Shannon entropy gradient failing (java issue)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8695"
+      },
+      {
+        "number" : 8694,
+        "title" : "libnd4j - conv2d: add support for 'fused activations'",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8694"
+      },
+      {
+        "number" : 8688,
+        "title" : "Lack of functional environments",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8688"
+      },
+      {
+        "number" : 8677,
+        "title" : "DL4J: Paragraph vectors (CBOW) JVM crash on CUDA",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8677"
+      },
+      {
+        "number" : 8672,
+        "title" : "KerasTokenizer textToWordSequence returns letters instead of words in the sequence ",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8672"
+      },
+      {
+        "number" : 8669,
+        "title" : "Nd4j linalg namespace",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8669"
+      },
+      {
+        "number" : 8666,
+        "title" : "ND4J: Add simple sanity check tests for new ND4J namespaces",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8666"
+      },
+      {
+        "number" : 8653,
+        "title" : "h5 import from Google Teachable Machine: UnsupportedKerasConfigurationException",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8653"
+      },
+      {
+        "number" : 8652,
+        "title" : "DL4J: Add a SameDiffLoss class for DL4J loss functions based on SameDiff",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8652"
+      },
+      {
+        "number" : 8650,
+        "title" : "libnd4j: legacy ops review",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8650"
+      },
+      {
+        "number" : 8645,
+        "title" : "Add Dice loss op and Dice loss loss function for semantic segmentation",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8645"
+      },
+      {
+        "number" : 8637,
+        "title" : "ParagraphVectors is not Deterministic",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8637"
+      },
+      {
+        "number" : 8634,
+        "title" : "Non-deterministic Word2Vec if Seed is 0",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8634"
+      },
+      {
+        "number" : 8630,
+        "title" : "Error during LineRecordReader reset when using FileSplit with Random initialization",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8630"
+      },
+      {
+        "number" : 8628,
+        "title" : "Quickstart web page is confusing on Maven configuration",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8628"
+      },
+      {
+        "number" : 8623,
+        "title" : "The gamma or beta's gradient is null",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8623"
+      },
+      {
+        "number" : 8604,
+        "title" : "CSVRecordReader with SkipLines problem with JavaRDD",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8604"
+      },
+      {
+        "number" : 8602,
+        "title" : "SameDiff/ND4J: Some RNG ops not updating seed?",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8602"
+      },
+      {
+        "number" : 8594,
+        "title" : "ND4J: Review header files to parse for JavaCPP (CPU/CUDA)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8594"
+      },
+      {
+        "number" : 8593,
+        "title" : "ND4J: nd4j-parameter-server-node test memory issues",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8593"
+      },
+      {
+        "number" : 8588,
+        "title" : "INDArray toString should print the datatype",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8588"
+      },
+      {
+        "number" : 8584,
+        "title" : "Word2Vec fails on spark to average results",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8584"
+      },
+      {
+        "number" : 8579,
+        "title" : "SameDiff generation of unsigned integers produces unexpected results",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8579"
+      },
+      {
+        "number" : 8571,
+        "title" : "ND4J: Review BaseNDArray.gt, neq, eq, etc INDArray signatures",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8571"
+      },
+      {
+        "number" : 8569,
+        "title" : "libnd4j CPU optimization: Add DNNL (MKLDNN) concat helper",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8569"
+      },
+      {
+        "number" : 8560,
+        "title" : "SameDiff CUDA performance analysis",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8560"
+      },
+      {
+        "number" : 8554,
+        "title" : "ND4J: Log classifier (x86, avx2, avx512)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8554"
+      },
+      {
+        "number" : 8553,
+        "title" : "SameDiff / libnd4j: implement helper \"op fusion\"",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8553"
+      },
+      {
+        "number" : 8547,
+        "title" : "Tutorial is deprecated",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8547"
+      },
+      {
+        "number" : 8545,
+        "title" : "SameDiff: operation names should be set when user specified output variable names",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8545"
+      },
+      {
+        "number" : 8544,
+        "title" : "Slow GPU training with CUDA10.2 (ParagraphVectors)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8544"
+      },
+      {
+        "number" : 8535,
+        "title" : "Segment* ops need more tests",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8535"
+      },
+      {
+        "number" : 8534,
+        "title" : "StridedSlice op needs additional testing",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8534"
+      },
+      {
+        "number" : 8533,
+        "title" : "Roll operations needs additional testing",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8533"
+      },
+      {
+        "number" : 8531,
+        "title" : "Unsupported ops for deep spech",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8531"
+      },
+      {
+        "number" : 8524,
+        "title" : "ND4J: Reverse op with int[0] shouldn't be no-op",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8524"
+      },
+      {
+        "number" : 8521,
+        "title" : "Replace arrow's java bindings with javacpp's",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8521"
+      },
+      {
+        "number" : 8519,
+        "title" : "Mean Average Precision evaluation",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8519"
+      },
+      {
+        "number" : 8510,
+        "title" : "SameDiff: Inconsistent execution order (CPU vs. CUDA)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8510"
+      },
+      {
+        "number" : 8506,
+        "title" : "cudaMalloc failure after repeated OpenCV captures",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8506"
+      },
+      {
+        "number" : 8491,
+        "title" : "Keras import: implement reproducible test case generation system",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8491"
+      },
+      {
+        "number" : 8488,
+        "title" : "SameDiff performance analysis + prioritization",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8488"
+      },
+      {
+        "number" : 8485,
+        "title" : "Add public roadmap page",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8485"
+      },
+      {
+        "number" : 8479,
+        "title" : "make libnd4j installable",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8479"
+      },
+      {
+        "number" : 8474,
+        "title" : "Helper methods in samediff for TF graphs",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8474"
+      },
+      {
+        "number" : 8472,
+        "title" : "Nd4j incorrect order with getRow method",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8472"
+      },
+      {
+        "number" : 8464,
+        "title" : "Add tf import test for max_pool_with_argmax",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8464"
+      },
+      {
+        "number" : 8460,
+        "title" : "Runtime loaded libnd4j ops",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8460"
+      },
+      {
+        "number" : 8452,
+        "title" : "Polygamma operation returns tensor different from TF 1.15 output for the same inputs",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8452"
+      },
+      {
+        "number" : 8449,
+        "title" : "non_max_suppression precision issue",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8449"
+      },
+      {
+        "number" : 8447,
+        "title" : "java.lang.ArithmeticException: / by zero ",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8447"
+      },
+      {
+        "number" : 8446,
+        "title" : "MKL-DNN and Intel TBB",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8446"
+      },
+      {
+        "number" : 8440,
+        "title" : "TimeSeriesUtil does not calculate moving average correctly in big arrays",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8440"
+      },
+      {
+        "number" : 8438,
+        "title" : "DL4J UI: side menu hiding part of main content in narrow window",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8438"
+      },
+      {
+        "number" : 8436,
+        "title" : "VocabConstructor not limiting size of VocabCache ",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8436"
+      },
+      {
+        "number" : 8434,
+        "title" : "SameDiff tools: intermediate vars check broken",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8434"
+      },
+      {
+        "number" : 8426,
+        "title" : "Add PreventGradient operation to nd4j",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8426"
+      },
+      {
+        "number" : 8421,
+        "title" : "SameDiff TF import: cudnnRNN operation",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8421"
+      },
+      {
+        "number" : 8404,
+        "title" : "org.deeplearning4j.exception.DL4JInvalidInputException: Problem with creating array with data to predict",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8404"
+      },
+      {
+        "number" : 8397,
+        "title" : "RaggedRange operation wrapper should be added to nd4j",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8397"
+      },
+      {
+        "number" : 8394,
+        "title" : "MKL use in ND4J",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8394"
+      },
+      {
+        "number" : 8389,
+        "title" : "Docs and javadoc broken links check",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8389"
+      },
+      {
+        "number" : 8385,
+        "title" : "SameDiff: multiple concurrent execution streams (single GPU)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8385"
+      },
+      {
+        "number" : 8377,
+        "title" : "libnd4j build: Helpers included from previous build even if not specified",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8377"
+      },
+      {
+        "number" : 8375,
+        "title" : "SameDiff: minimal subgraph calculation caching",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8375"
+      },
+      {
+        "number" : 8371,
+        "title" : "ND4J/SameDiff: Remove CUDA synchronization",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8371"
+      },
+      {
+        "number" : 8370,
+        "title" : "All projects: Deprecated methods cleanup",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8370"
+      },
+      {
+        "number" : 8369,
+        "title" : "ND4J/DL4J/SameDiff: Clean up DataSet/MultiDataSet (Merge)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8369"
+      },
+      {
+        "number" : 8357,
+        "title" : "libnd4j: get rid of one-off signatures in NativeOps",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8357"
+      },
+      {
+        "number" : 8355,
+        "title" : "Add convenience method to get input sizes of comp graph if possible",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8355"
+      },
+      {
+        "number" : 8349,
+        "title" : "DL4J Keras import: Keras allows kernel > input size",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8349"
+      },
+      {
+        "number" : 8347,
+        "title" : "SameDiff/libnd4j: deconv op output size (or padding) configuration",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8347"
+      },
+      {
+        "number" : 8345,
+        "title" : "libnd4j: multi_head_dot_product_attention and ..._bp memory use",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8345"
+      },
+      {
+        "number" : 8339,
+        "title" : "Errors encountered building Tika-Master from the source",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8339"
+      },
+      {
+        "number" : 8317,
+        "title" : "DL4J Keras Import: Add additional deconv test cases",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8317"
+      },
+      {
+        "number" : 8314,
+        "title" : " support of nhwc and ndhwc formats for batchnorm based on mkl dnn api",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8314"
+      },
+      {
+        "number" : 8313,
+        "title" : "Google Released Coral for TPU",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8313"
+      },
+      {
+        "number" : 8312,
+        "title" : "SameDiff: Implement new graph format (FlatBuffers storage problems to be resolved)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8312"
+      },
+      {
+        "number" : 8311,
+        "title" : "SameDiff: graph level RNG",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8311"
+      },
+      {
+        "number" : 8310,
+        "title" : "Support for pretrained universal-sentence-encoder models",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8310"
+      },
+      {
+        "number" : 8307,
+        "title" : "QuickStart problem",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8307"
+      },
+      {
+        "number" : 8306,
+        "title" : "DL4J | NLP: java.lang.OutOfMemoryError when running an NLP example on both CPU and GPU versions",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8306"
+      },
+      {
+        "number" : 8295,
+        "title" : "Results problem of keras CNN autoencoder with dl4j",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8295"
+      },
+      {
+        "number" : 8291,
+        "title" : "Unknown Keras loss function logcosh",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8291"
+      },
+      {
+        "number" : 8284,
+        "title" : "How can I speed up KDTree search on Android?",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8284"
+      },
+      {
+        "number" : 8279,
+        "title" : "DL4J: Standardize activation function class capitalization",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8279"
+      },
+      {
+        "number" : 8271,
+        "title" : "RecordReaderDataSetIterator / DataSetIterator not loading data from recordreader",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8271"
+      },
+      {
+        "number" : 8268,
+        "title" : "Libnd4j: Default maven build does not include MKL-DNN/DNNL",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8268"
+      },
+      {
+        "number" : 8264,
+        "title" : "cuDNN causes NaN scores during the training",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8264"
+      },
+      {
+        "number" : 8246,
+        "title" : "parallel inference on encoder-decoder lstm",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8246"
+      },
+      {
+        "number" : 8241,
+        "title" : "layerNorm should add epsilon, so that the denominator is zero",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8241"
+      },
+      {
+        "number" : 8240,
+        "title" : "Automatic differentiation always throws exceptions in GPU environments",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8240"
+      },
+      {
+        "number" : 8227,
+        "title" : "SameDiff: TF Import Status and Next Steps",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8227"
+      },
+      {
+        "number" : 8226,
+        "title" : "BERT train/test example",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8226"
+      },
+      {
+        "number" : 8223,
+        "title" : "SameDiff: separate losses and activations",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8223"
+      },
+      {
+        "number" : 8211,
+        "title" : "libnd4j profiling",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8211"
+      },
+      {
+        "number" : 8175,
+        "title" : "libnd4j interop overhaul",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8175"
+      },
+      {
+        "number" : 8173,
+        "title" : "DL4J: Add ComputationGraph.calculateGradients method (get input gradients)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8173"
+      },
+      {
+        "number" : 8170,
+        "title" : "DL4J: Optimize MKLDNNBatchNormHelper with moments op",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8170"
+      },
+      {
+        "number" : 8169,
+        "title" : "libnd4j: optimize moments op (single pass)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8169"
+      },
+      {
+        "number" : 8164,
+        "title" : "DL4J: cudnnAllowFallback field should be changed to helperAllowFallback",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8164"
+      },
+      {
+        "number" : 8163,
+        "title" : "RandomPathFilter exeception",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8163"
+      },
+      {
+        "number" : 8141,
+        "title" : "Matrix inverse inconsistence with cuda arch 75",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8141"
+      },
+      {
+        "number" : 8138,
+        "title" : "Jvm crash when running RecordReaderDataSetiteratorTest with Java 10",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8138"
+      },
+      {
+        "number" : 8136,
+        "title" : "SameDiff: No PNorm 2d/3d ops (Java)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8136"
+      },
+      {
+        "number" : 8132,
+        "title" : "Returned Matrix is messed up when using NativeImageLoader ",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8132"
+      },
+      {
+        "number" : 8131,
+        "title" : "SameDiff/Libnd4j: Noop shape handling doesn't match for Java/C++",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8131"
+      },
+      {
+        "number" : 8130,
+        "title" : "DL4J/SameDiff: detect + warn on slow record readers during fitting/evaluation",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8130"
+      },
+      {
+        "number" : 8124,
+        "title" : "DL4J/SameDiff: Add RAdam optimizer",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8124"
+      },
+      {
+        "number" : 8113,
+        "title" : "Restore UIServer into Word2VecRawTextExample",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8113"
+      },
+      {
+        "number" : 8109,
+        "title" : "DL4J: Add in-line training set evaluation listener",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8109"
+      },
+      {
+        "number" : 8108,
+        "title" : "Nd4J: review/add ops for random sampling",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8108"
+      },
+      {
+        "number" : 8101,
+        "title" : "Some confusing functions in ComputationGraph.",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8101"
+      },
+      {
+        "number" : 8099,
+        "title" : "SameDiff ops with manual/SameDiff backprop (to move to C++)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8099"
+      },
+      {
+        "number" : 8094,
+        "title" : "labelProbabilities has documentation but does not exist.",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8094"
+      },
+      {
+        "number" : 8091,
+        "title" : "SameDiff/DL4j remote inference improvements",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8091"
+      },
+      {
+        "number" : 8084,
+        "title" : "java.lang.RuntimeException: Non-existent compression algorithm requested: [UINT8]",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8084"
+      },
+      {
+        "number" : 8080,
+        "title" : "DataVec: FileSplit (and others) - skip any files with name starting with \".\"",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8080"
+      },
+      {
+        "number" : 8052,
+        "title" : "SameDiff: Fix imported BERT full net training issues",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8052"
+      },
+      {
+        "number" : 8047,
+        "title" : "Outputs inconsistent for model imported to dl4j that trained by keras ",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8047"
+      },
+      {
+        "number" : 8045,
+        "title" : "SameDiff: Review SDRNN",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8045"
+      },
+      {
+        "number" : 8030,
+        "title" : "libnd4j: add locally connected 1d/2d ops",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8030"
+      },
+      {
+        "number" : 8025,
+        "title" : "Iterators usability",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8025"
+      },
+      {
+        "number" : 8023,
+        "title" : "ParallelWrapper appears to leak memory over epochs",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8023"
+      },
+      {
+        "number" : 8009,
+        "title" : "DL4J: Add errors + page for zoo models not found",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8009"
+      },
+      {
+        "number" : 8006,
+        "title" : "Automated benchmarking",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8006"
+      },
+      {
+        "number" : 8001,
+        "title" : "Datavec: ImageLoader.toBGR(BufferedImage image) with 1 channel image return 3",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8001"
+      },
+      {
+        "number" : 8000,
+        "title" : "Minifier update: different distributions",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/8000"
+      },
+      {
+        "number" : 7999,
+        "title" : "Minifier update: data types",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7999"
+      },
+      {
+        "number" : 7996,
+        "title" : "Just running an included example (or at least trying to run)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7996"
+      },
+      {
+        "number" : 7994,
+        "title" : "DL4J Zoo: Check pretrained models output layer configuration",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7994"
+      },
+      {
+        "number" : 7980,
+        "title" : "ParallelInterface internal quirks prohibiting caller-async operation",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7980"
+      },
+      {
+        "number" : 7979,
+        "title" : "DL4J/SameDiff evaluation: add some sort of progress/status mechanism",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7979"
+      },
+      {
+        "number" : 7974,
+        "title" : "Libng4j graph executioner: Graph is not topsorted for Keras RNNs",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7974"
+      },
+      {
+        "number" : 7966,
+        "title" : "ND4J/DL4J/DataVec: Standardize/add @NonNull annotations",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7966"
+      },
+      {
+        "number" : 7965,
+        "title" : "Libnd4j/SameDiff Bincount array offset error when calculating shape",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7965"
+      },
+      {
+        "number" : 7964,
+        "title" : "SameDiff TF Import issues with Keras BatchNorm",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7964"
+      },
+      {
+        "number" : 7961,
+        "title" : "ND4J: add runtime offheap memory configuration based on GPU memory size",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7961"
+      },
+      {
+        "number" : 7948,
+        "title" : "Loading 3d TIFF images for CNN3D",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7948"
+      },
+      {
+        "number" : 7936,
+        "title" : "DL4J/ND4J QA: Memory leak detection system",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7936"
+      },
+      {
+        "number" : 7929,
+        "title" : "DataVec: Upgrade Arrow version",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7929"
+      },
+      {
+        "number" : 7922,
+        "title" : "ND4J: Check for dangerous OMP settings",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7922"
+      },
+      {
+        "number" : 7913,
+        "title" : "SameDiff: Ops and Next Steps",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7913"
+      },
+      {
+        "number" : 7902,
+        "title" : "DL4J/ND4J: Reduce garbage / object allocation",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7902"
+      },
+      {
+        "number" : 7901,
+        "title" : "ND4J/Libnd4j/SameDiff: Remove custom op calculateOutputShape implementations",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7901"
+      },
+      {
+        "number" : 7893,
+        "title" : "Migrate DL4j Spark training to new implementation",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7893"
+      },
+      {
+        "number" : 7887,
+        "title" : "UI/Management API",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7887"
+      },
+      {
+        "number" : 7885,
+        "title" : "Consensus implementation",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7885"
+      },
+      {
+        "number" : 7884,
+        "title" : "Spark-based distributed SameDiff training",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7884"
+      },
+      {
+        "number" : 7882,
+        "title" : "Docker setup for distributed SameDiff",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7882"
+      },
+      {
+        "number" : 7879,
+        "title" : "SameDiff execution changes",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7879"
+      },
+      {
+        "number" : 7878,
+        "title" : "NCCL support",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7878"
+      },
+      {
+        "number" : 7877,
+        "title" : "Distributed messaging framework",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7877"
+      },
+      {
+        "number" : 7876,
+        "title" : "Model-parallel SameDiff training",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7876"
+      },
+      {
+        "number" : 7874,
+        "title" : "Multi-device SameDiff training",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7874"
+      },
+      {
+        "number" : 7873,
+        "title" : "Data-parallel SameDiff training",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7873"
+      },
+      {
+        "number" : 7872,
+        "title" : "`ReshapeVertex` does not support creation of 5d arrays",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7872"
+      },
+      {
+        "number" : 7871,
+        "title" : "Multi-device support for Variable ",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7871"
+      },
+      {
+        "number" : 7870,
+        "title" : "Network IO graph operations required",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7870"
+      },
+      {
+        "number" : 7869,
+        "title" : "Local transport implementation",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7869"
+      },
+      {
+        "number" : 7868,
+        "title" : "Communicator abstractions",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7868"
+      },
+      {
+        "number" : 7867,
+        "title" : "Distributed SameDiff implementation",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7867"
+      },
+      {
+        "number" : 7865,
+        "title" : "DL4J: TBPTT with rank 2 input to SequenceEmbeddingLayer",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7865"
+      },
+      {
+        "number" : 7862,
+        "title" : "All projects - review + improve regression tests for saved model/data formats",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7862"
+      },
+      {
+        "number" : 7853,
+        "title" : "SameDiff/DL4J/GraphServer: maximum memory guarantees",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7853"
+      },
+      {
+        "number" : 7845,
+        "title" : "Exeption when calling rnnTimeStep for imported Keras model",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7845"
+      },
+      {
+        "number" : 7828,
+        "title" : "DL4J: Async/Joint iterator can get stuck after exception in underlying iter?",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7828"
+      },
+      {
+        "number" : 7816,
+        "title" : "Are there any XML, Json, Yaml transformers or Vectorizers",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7816"
+      },
+      {
+        "number" : 7809,
+        "title" : "ImageLoader.asMatrix() or asRowVector() returns wrong values since 1.0.0-beta4",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7809"
+      },
+      {
+        "number" : 7805,
+        "title" : "Simpler DataVec serde (proposal)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7805"
+      },
+      {
+        "number" : 7795,
+        "title" : "Cuda crashes while loading/saving data",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7795"
+      },
+      {
+        "number" : 7762,
+        "title" : "DL4J/SameDiff: Add Layerwise Adaptive Rate Scaling (LARS)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7762"
+      },
+      {
+        "number" : 7758,
+        "title" : "DL4J/libnd4j: add cuDNN attention support",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7758"
+      },
+      {
+        "number" : 7757,
+        "title" : "About activateHelper() of SimpleRnn",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7757"
+      },
+      {
+        "number" : 7746,
+        "title" : "cannot import cudnnlstm from keras model",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7746"
+      },
+      {
+        "number" : 7740,
+        "title" : "ImageRecordReader: No way to set MultiPageMode",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7740"
+      },
+      {
+        "number" : 7722,
+        "title" : "SameDiff: Add \"convert on import\" support for importing quantized integer (qint) types",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7722"
+      },
+      {
+        "number" : 7703,
+        "title" : "Affinity-aware workspaces",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7703"
+      },
+      {
+        "number" : 7702,
+        "title" : "ND4J/DL4J: Integrate model validation utilities into model/format loading",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7702"
+      },
+      {
+        "number" : 7695,
+        "title" : "Update Flatbuffers definitions",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7695"
+      },
+      {
+        "number" : 7691,
+        "title" : "libnd4j polishing",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7691"
+      },
+      {
+        "number" : 7689,
+        "title" : "DataVec: Issue loading multi-channel, multi-page TIFF",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7689"
+      },
+      {
+        "number" : 7688,
+        "title" : "Javadoc does not support Lombok, need to \"delombok\"",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7688"
+      },
+      {
+        "number" : 7686,
+        "title" : "DL4J - BertIterator - add support for EmbeddingSequenceLayer + CNN1D",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7686"
+      },
+      {
+        "number" : 7681,
+        "title" : "NLP ParagraphVectorsTextExample run error",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7681"
+      },
+      {
+        "number" : 7679,
+        "title" : "Possible problems with annotation class conversion VocLabelProvider Class",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7679"
+      },
+      {
+        "number" : 7673,
+        "title" : "Double validation review",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7673"
+      },
+      {
+        "number" : 7672,
+        "title" : "Legacy ExtraParams should be removed",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7672"
+      },
+      {
+        "number" : 7667,
+        "title" : "calculateOutputShapes should return DataBuffer",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7667"
+      },
+      {
+        "number" : 7666,
+        "title" : "Single header",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7666"
+      },
+      {
+        "number" : 7662,
+        "title" : "ShapeInfo byte order",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7662"
+      },
+      {
+        "number" : 7660,
+        "title" : "Multi-device support for GraphExecutioner",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7660"
+      },
+      {
+        "number" : 7659,
+        "title" : "Cover CUDA mechanics with proper tests",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7659"
+      },
+      {
+        "number" : 7646,
+        "title" : "MultiLayerNetwork missing LayerWorkspaceMgr settings for single iteration fitHelper",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7646"
+      },
+      {
+        "number" : 7635,
+        "title" : "Saving a MultiLayerNetwork model is very slow when using a ParallelWrapper with multiple GPUs",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7635"
+      },
+      {
+        "number" : 7625,
+        "title" : "ND4J: Import tests initialization time (CUDA)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7625"
+      },
+      {
+        "number" : 7615,
+        "title" : "ND4J/libnd4j: Support multi-buffer arrays?",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7615"
+      },
+      {
+        "number" : 7604,
+        "title" : "Discussion: prevent self-shooting or not",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7604"
+      },
+      {
+        "number" : 7598,
+        "title" : "DL4J: YOLO - support multiple objects in one location",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7598"
+      },
+      {
+        "number" : 7584,
+        "title" : "Nd4j.sortRows() native impl",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7584"
+      },
+      {
+        "number" : 7559,
+        "title" : "Problem in Variational Autoencoder's Reconstruction Probability",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7559"
+      },
+      {
+        "number" : 7552,
+        "title" : "Add option to attention layers for backwards-only attention. ",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7552"
+      },
+      {
+        "number" : 7547,
+        "title" : "DL4J: MultiLayerNetwork evaluation uses detached arrays for output",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7547"
+      },
+      {
+        "number" : 7543,
+        "title" : "And and Or conditions fail",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7543"
+      },
+      {
+        "number" : 7540,
+        "title" : "Text.write prepends extra space.",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7540"
+      },
+      {
+        "number" : 7527,
+        "title" : "SameDiff: Add assertions/validation operations",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7527"
+      },
+      {
+        "number" : 7521,
+        "title" : "DL4J: Improve performance of DL4J with MKL-DNN for ResNet50",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7521"
+      },
+      {
+        "number" : 7494,
+        "title" : "SharedTrainingMaster: ND4JIllegalStateException: originalLength [0] stored in encoded array doesn't match target length [24266]",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7494"
+      },
+      {
+        "number" : 7475,
+        "title" : "SameDiff: Switch DynamicCustomOp execution to use OpContext",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7475"
+      },
+      {
+        "number" : 7462,
+        "title" : "about the efficiency of computationGraph with LSTM",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7462"
+      },
+      {
+        "number" : 7445,
+        "title" : "SameDiff: add easy way to update dynamic shapes",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7445"
+      },
+      {
+        "number" : 7436,
+        "title" : "DL4J: BertIterator - add support for per-token labels, unsupervised sentence matching",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7436"
+      },
+      {
+        "number" : 7431,
+        "title" : "SparkDl4jMultiLayer: LimitedContextPool - Can't allocate new context OR cudaStreamSynchronize failed",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7431"
+      },
+      {
+        "number" : 7408,
+        "title" : "Easier weight sharing",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7408"
+      },
+      {
+        "number" : 7402,
+        "title" : "ND4J: add NDArrayIndex.point(long, boolean keepDim) option",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7402"
+      },
+      {
+        "number" : 7378,
+        "title" : "Reshape, Permute and Flatten layers",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7378"
+      },
+      {
+        "number" : 7377,
+        "title" : "DL4j doesn't work with Java 9 module-info.java System due to split package issue",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7377"
+      },
+      {
+        "number" : 7362,
+        "title" : "Error creating native binaries using Quarkus and GraalVM",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7362"
+      },
+      {
+        "number" : 7349,
+        "title" : "[SNAPSHOT] Basic MNIST model fails in snapshot",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7349"
+      },
+      {
+        "number" : 7322,
+        "title" : "ND4J/Libnd4j: Review CUDA reduction performance",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7322"
+      },
+      {
+        "number" : 7319,
+        "title" : "modelZoo中的NASNet",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7319"
+      },
+      {
+        "number" : 7297,
+        "title" : "DL4j OOM Exception for ResNet50 Inference at Batchsize 512 with the latest snapshots",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7297"
+      },
+      {
+        "number" : 7289,
+        "title" : "Possible inefficient Memory usage",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7289"
+      },
+      {
+        "number" : 7279,
+        "title" : "get average values by use PCA.covarianceMatrix(INDArray in) is always [[0, 0]]",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7279"
+      },
+      {
+        "number" : 7272,
+        "title" : "DL4J: LRN doesn't match MKL-DNN implementation, libnd4j implementation incorrect",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7272"
+      },
+      {
+        "number" : 7271,
+        "title" : "DL4J: Possible ResNet50 Inference Regression - beta3 to snapshots? (CPU)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7271"
+      },
+      {
+        "number" : 7269,
+        "title" : "Add functionality to render report the classification statistics as HTML file",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7269"
+      },
+      {
+        "number" : 7247,
+        "title" : "Type inconsistency",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7247"
+      },
+      {
+        "number" : 7243,
+        "title" : "ParallelInference lead to crash",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7243"
+      },
+      {
+        "number" : 7237,
+        "title" : "org.datavec.arrow.ArrowConverter - Unable to set value at row xx while using LocalTransformExecutor",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7237"
+      },
+      {
+        "number" : 7222,
+        "title" : "Rl4j Malmo example",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7222"
+      },
+      {
+        "number" : 7179,
+        "title" : "DL4J: Add Stratified cross validation iterator",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7179"
+      },
+      {
+        "number" : 7177,
+        "title" : "DL4J NLP: Add Byte Pair Encoding preprocessing",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7177"
+      },
+      {
+        "number" : 7167,
+        "title" : "Review Op instantiation/execution process",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7167"
+      },
+      {
+        "number" : 7166,
+        "title" : "SameDiff/libnd4j: BatchNorm needs some work for training",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7166"
+      },
+      {
+        "number" : 7133,
+        "title" : "NLP: Add WordPiece/SentencePiece tokenizer/detokenizer, training?",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7133"
+      },
+      {
+        "number" : 7116,
+        "title" : "UI Server attached to FileStatsStorage on network trained over many epochs",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7116"
+      },
+      {
+        "number" : 7109,
+        "title" : "DL4J/SameDiff: Add support for cost-sensitive learning",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7109"
+      },
+      {
+        "number" : 7105,
+        "title" : "DL4J: Add support for \"sequence of sequence\" models",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7105"
+      },
+      {
+        "number" : 7096,
+        "title" : "DL4J: Implement YOLO 3",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7096"
+      },
+      {
+        "number" : 7094,
+        "title" : "Only one label per document",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7094"
+      },
+      {
+        "number" : 7083,
+        "title" : "DL4J: Mask arrays are not placed in workspaces",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7083"
+      },
+      {
+        "number" : 7056,
+        "title" : "Same output for every input",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7056"
+      },
+      {
+        "number" : 7053,
+        "title" : "Libnd4j exec: add ability to do NaN/Inf checks during op execution",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7053"
+      },
+      {
+        "number" : 7043,
+        "title" : "DL4J UI: Review + upgrade JS dependencies",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7043"
+      },
+      {
+        "number" : 7041,
+        "title" : "NDArray methods review & optimization",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7041"
+      },
+      {
+        "number" : 7040,
+        "title" : "WordVectorSerializer improvements",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7040"
+      },
+      {
+        "number" : 7039,
+        "title" : "WordVectors use in neural networks",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7039"
+      },
+      {
+        "number" : 7021,
+        "title" : "Inference on a model that shares an embedding layer with multiple input fails",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7021"
+      },
+      {
+        "number" : 7018,
+        "title" : "DL4J: Add 'per feature' loss/error calculation for autoencoders",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7018"
+      },
+      {
+        "number" : 7006,
+        "title" : "Libnd4j: Cholesky decomposition op - validate that input is symmetric and positive definite",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7006"
+      },
+      {
+        "number" : 7005,
+        "title" : "Can`t continue training IDQN",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/7005"
+      },
+      {
+        "number" : 6994,
+        "title" : "DL4J/ND4J: Add DataSetIterator.skipExamples(int) method",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6994"
+      },
+      {
+        "number" : 6987,
+        "title" : "ND4J Tokenizer abstraction",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6987"
+      },
+      {
+        "number" : 6986,
+        "title" : "DL4J pretrained models: ensure data/normalization issue is present in javadoc",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6986"
+      },
+      {
+        "number" : 6975,
+        "title" : "ND4J/SameDiff: Add inception preprocessing for TF import",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6975"
+      },
+      {
+        "number" : 6961,
+        "title" : "DL4J/SameDiff: Add easy way of performing (softmax) temperature scaling calibration",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6961"
+      },
+      {
+        "number" : 6951,
+        "title" : "DL4J CuDNN: NaNs in BatchNorm with FP16",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6951"
+      },
+      {
+        "number" : 6937,
+        "title" : "Possible performance issues of createStatement()",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6937"
+      },
+      {
+        "number" : 6931,
+        "title" : "Word2Vec Multilabel classification issue with Word2VecDataSetIterator",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6931"
+      },
+      {
+        "number" : 6891,
+        "title" : "Examples for SparkParagraphVectors ",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6891"
+      },
+      {
+        "number" : 6889,
+        "title" : "VGG16 in zoo using 10GB of memory on batch 16",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6889"
+      },
+      {
+        "number" : 6856,
+        "title" : "DL4J: MultiLayerNetwork.scoreHelper can use workspace for activations",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6856"
+      },
+      {
+        "number" : 6843,
+        "title" : "LSTM/RepeatVector Keras Incompatibility? ND4JWorkspaceException / Unexpected end-of-input",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6843"
+      },
+      {
+        "number" : 6833,
+        "title" : "Extended support for remote profiling and logging",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6833"
+      },
+      {
+        "number" : 6829,
+        "title" : "WordVectorSerializer has no utility methods to (de)serialize spark impl of Wordvec",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6829"
+      },
+      {
+        "number" : 6818,
+        "title" : "Add weight to KL loss in VariationalAutoencoder.java implementation",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6818"
+      },
+      {
+        "number" : 6795,
+        "title" : "ND4J: CUDA crash after thread/device affinity change",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6795"
+      },
+      {
+        "number" : 6779,
+        "title" : "DL4J: legacy batchnorm backward compatibility?",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6779"
+      },
+      {
+        "number" : 6778,
+        "title" : "DataVec: add NativeImageLoader regression tests",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6778"
+      },
+      {
+        "number" : 6751,
+        "title" : "DL4J Spark: Export may hit HDFS file number limit for large datasets",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6751"
+      },
+      {
+        "number" : 6749,
+        "title" : "DL4J: Spark training - add per parameter thresholds + threshold adaption",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6749"
+      },
+      {
+        "number" : 6742,
+        "title" : "DL4J: SmartFancyBlockingQueueTest stuck on CI",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6742"
+      },
+      {
+        "number" : 6740,
+        "title" : "Enable logging per sequence",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6740"
+      },
+      {
+        "number" : 6737,
+        "title" : "ND4J: Evaluation class - handle Top N accuracy case better with equal probabilities",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6737"
+      },
+      {
+        "number" : 6721,
+        "title" : "DL4J: Move word vectors off-heap for WordVectorSerializer.loadStaticModel",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6721"
+      },
+      {
+        "number" : 6720,
+        "title" : "DL4J: Add cuDNN support for deconv 2d layer",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6720"
+      },
+      {
+        "number" : 6718,
+        "title" : "performance issues on gpu box",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6718"
+      },
+      {
+        "number" : 6697,
+        "title" : "BatchNorm with RecurrentInputType",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6697"
+      },
+      {
+        "number" : 6688,
+        "title" : "Update dl4j distribution mechanism in model zoo to use names",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6688"
+      },
+      {
+        "number" : 6681,
+        "title" : "SameDiff Tensorflow Model Import Test Cases",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6681"
+      },
+      {
+        "number" : 6656,
+        "title" : "DL4J Spark: fix layerwise pretraining via spark",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6656"
+      },
+      {
+        "number" : 6645,
+        "title" : "DL4J Spark: Review garbage generation and object reuse",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6645"
+      },
+      {
+        "number" : 6642,
+        "title" : "RL4J:  A2C Implementation",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6642"
+      },
+      {
+        "number" : 6624,
+        "title" : "DL4J: Check center loss, prelu implementations for issues with distributed training",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6624"
+      },
+      {
+        "number" : 6620,
+        "title" : "DataVec : Two issues with SQLite",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6620"
+      },
+      {
+        "number" : 6612,
+        "title" : "DataVec: Clean text transform",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6612"
+      },
+      {
+        "number" : 6603,
+        "title" : "DL4J: UI performance stats don't match PerformanceListener",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6603"
+      },
+      {
+        "number" : 6582,
+        "title" : "Why no ARPACK?",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6582"
+      },
+      {
+        "number" : 6538,
+        "title" : "Allow attaching a UI only when needed",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6538"
+      },
+      {
+        "number" : 6531,
+        "title" : "Access networkInputTypes of model configs",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6531"
+      },
+      {
+        "number" : 6505,
+        "title" : "Using the cudnn training model, it's going to slow down",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6505"
+      },
+      {
+        "number" : 6496,
+        "title" : "Why is sparkLSTM running slower and slower ",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6496"
+      },
+      {
+        "number" : 6464,
+        "title" : "SameDiff: import test failure for asymmetric dilated conv test cases",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6464"
+      },
+      {
+        "number" : 6463,
+        "title" : "Implementation of feedForwardMaskArray for VariationalAutoencoders",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6463"
+      },
+      {
+        "number" : 6439,
+        "title" : "Make it possible to import TF word embeddings models",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6439"
+      },
+      {
+        "number" : 6413,
+        "title" : "DataVec/DL4J: Standardize data pipeline exceptions",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6413"
+      },
+      {
+        "number" : 6411,
+        "title" : "RELU_layer threshold configuration",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6411"
+      },
+      {
+        "number" : 6410,
+        "title" : "DeepWalk - struggling to match the results of the reference implementation",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6410"
+      },
+      {
+        "number" : 6408,
+        "title" : "Another Mismatched Outputs Ticket for Keras Imported Networks",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6408"
+      },
+      {
+        "number" : 6406,
+        "title" : "DL4J: Add Fashion-MNIST dataset",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6406"
+      },
+      {
+        "number" : 6392,
+        "title" : "DL4J: MLP Profiling",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6392"
+      },
+      {
+        "number" : 6382,
+        "title" : "Add Cnn or DenseLayer, LSTM cannot use TruncatedBPTT",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6382"
+      },
+      {
+        "number" : 6371,
+        "title" : "Minor error on Cifar example",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6371"
+      },
+      {
+        "number" : 6363,
+        "title" : "Warning when loading keras model Unexpected end-of-input in FIELD_NAME",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6363"
+      },
+      {
+        "number" : 6349,
+        "title" : "Libn4dj: add \"put with specified indices\" support",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6349"
+      },
+      {
+        "number" : 6338,
+        "title" : "Docker Hub for GraphServer",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6338"
+      },
+      {
+        "number" : 6335,
+        "title" : "GraphServer CUDA support ",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6335"
+      },
+      {
+        "number" : 6334,
+        "title" : "Improve tests coverage for GraphServer",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6334"
+      },
+      {
+        "number" : 6333,
+        "title" : "Allow zero-copy",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6333"
+      },
+      {
+        "number" : 6332,
+        "title" : "Configurable GraphServer builds",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6332"
+      },
+      {
+        "number" : 6331,
+        "title" : "RPM/DEB packages",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6331"
+      },
+      {
+        "number" : 6330,
+        "title" : "DL4J: add MLN/CG model conversion to SameDiff",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6330"
+      },
+      {
+        "number" : 6329,
+        "title" : "REST support for GraphServer",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6329"
+      },
+      {
+        "number" : 6328,
+        "title" : "Native GraphServer Improvements",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6328"
+      },
+      {
+        "number" : 6324,
+        "title" : "DL4J: Cache mode not supported in LSTM",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6324"
+      },
+      {
+        "number" : 6304,
+        "title" : "Allow to start RL4J learning from a saved policy file.",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6304"
+      },
+      {
+        "number" : 6287,
+        "title" : "SameDiff: check 'op creator method' coverage",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6287"
+      },
+      {
+        "number" : 6278,
+        "title" : "IEvaluation could have the score provided in the eval(...) invocation.",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6278"
+      },
+      {
+        "number" : 6277,
+        "title" : "IEvaluation should have the DataSet provided in the eval(...) invocation.",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6277"
+      },
+      {
+        "number" : 6270,
+        "title" : "Question about Dropout with cuDNN",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6270"
+      },
+      {
+        "number" : 6260,
+        "title" : "Graph.getConnectedVertices does not return connected vertices",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6260"
+      },
+      {
+        "number" : 6253,
+        "title" : "DL4J: Add Padam adaptive gradient updater",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6253"
+      },
+      {
+        "number" : 6244,
+        "title" : "SameDiff: usability improvements for NativeGraphExecutioner",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6244"
+      },
+      {
+        "number" : 6240,
+        "title" : "Word2Vec Gensim and DL4J give different results",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6240"
+      },
+      {
+        "number" : 6201,
+        "title" : "DataVec: need validation (or proper conversion) for ArrowConverter.convertArrowVector()",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6201"
+      },
+      {
+        "number" : 6193,
+        "title" : "DL4J: Enhancements/utilities for CompGraph construction",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6193"
+      },
+      {
+        "number" : 6186,
+        "title" : "DatasetIterator created with BalancedPathFilter has no next element",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6186"
+      },
+      {
+        "number" : 6183,
+        "title" : "Using more cores slows down MKL",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6183"
+      },
+      {
+        "number" : 6169,
+        "title" : "Mixed prec GEMM for CUDA",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6169"
+      },
+      {
+        "number" : 6153,
+        "title" : "DL4J: refactor layer conf into one package for easier imports",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6153"
+      },
+      {
+        "number" : 6130,
+        "title" : "Need method to Evaluate Paragraph Vector at each epoch",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6130"
+      },
+      {
+        "number" : 6126,
+        "title" : "[Spark][hdfs]: Issue with PathSparkDataSetIterator under hdfs?",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6126"
+      },
+      {
+        "number" : 6125,
+        "title" : "[Keras] Support sepconv1D layers + import",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6125"
+      },
+      {
+        "number" : 6123,
+        "title" : "SepConv1d implementation in libnd4j (with bp)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6123"
+      },
+      {
+        "number" : 6111,
+        "title" : "Find optimal threshold for a classifier",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6111"
+      },
+      {
+        "number" : 6108,
+        "title" : "Output differ between keras prediction and DL4j(model from keras trained) prediction",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6108"
+      },
+      {
+        "number" : 6084,
+        "title" : "DL4J output not matching with Keras output",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6084"
+      },
+      {
+        "number" : 6035,
+        "title" : "Legacy RNG operations exception",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6035"
+      },
+      {
+        "number" : 6016,
+        "title" : "DL4J: Add object detection evaluation class",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/6016"
+      },
+      {
+        "number" : 5997,
+        "title" : "DataVec: Remove Image Loader Dependencies",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5997"
+      },
+      {
+        "number" : 5992,
+        "title" : "DL4J: Allow (Multi)DataSet example metadata to be passed to listeners during training",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5992"
+      },
+      {
+        "number" : 5961,
+        "title" : "Using ParagraphVectors without labels",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5961"
+      },
+      {
+        "number" : 5956,
+        "title" : "Keras Model start to train automatically when import to Java",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5956"
+      },
+      {
+        "number" : 5945,
+        "title" : "In Model view of Training UI, scrolling with mouse wheel often makes the layers invisible",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5945"
+      },
+      {
+        "number" : 5941,
+        "title" : "SparkWord2Vec ParameterServer configuration",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5941"
+      },
+      {
+        "number" : 5911,
+        "title" : "DL4J: Word2Vec static model uses a lot of heap objects",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5911"
+      },
+      {
+        "number" : 5866,
+        "title" : "Implement spherical CNNs (and C-LSTMs if possible)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5866"
+      },
+      {
+        "number" : 5851,
+        "title" : "Incorrect reference to homebrew/science/openblas in docs",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5851"
+      },
+      {
+        "number" : 5843,
+        "title" : "Implement AdamW (and AdamWR) optimizer",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5843"
+      },
+      {
+        "number" : 5840,
+        "title" : "More-useful alternative to Batch Norm",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5840"
+      },
+      {
+        "number" : 5812,
+        "title" : "KFoldIterator - Apply kFold for each mini-batch in the dataset",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5812"
+      },
+      {
+        "number" : 5790,
+        "title" : "ND4J: InvertMatrix should use lapack",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5790"
+      },
+      {
+        "number" : 5786,
+        "title" : "Datavec LocalExecutor doesn't work with NDArrayWritable",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5786"
+      },
+      {
+        "number" : 5761,
+        "title" : "[suggestion] Could some functions be synchronized between MultiLayerNetwork and ComputationGraph?",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5761"
+      },
+      {
+        "number" : 5755,
+        "title" : "ParallelWrapper with 2 GPUs has a strange behaviour",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5755"
+      },
+      {
+        "number" : 5748,
+        "title" : "Mis matched shapes in  ShuffleNet  implementation",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5748"
+      },
+      {
+        "number" : 5746,
+        "title" : "Feature Extraction using Pre-Trained VGG16 model taking time",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5746"
+      },
+      {
+        "number" : 5695,
+        "title" : "CG vs MLP, with/out Iterator Caching",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5695"
+      },
+      {
+        "number" : 5627,
+        "title" : "DL4J: Add per-layer timing collection functionality (training, inference)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5627"
+      },
+      {
+        "number" : 5612,
+        "title" : "Exception in RL4J when learning with DQN with convolutional net and 4 channels",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5612"
+      },
+      {
+        "number" : 5601,
+        "title" : "Consider adding maven-enforcer-plugin to prevent dependency convergence",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5601"
+      },
+      {
+        "number" : 5593,
+        "title" : "[Keras] Support import of ActivityRegularization layer",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5593"
+      },
+      {
+        "number" : 5590,
+        "title" : "[Keras] Support GRU import",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5590"
+      },
+      {
+        "number" : 5589,
+        "title" : "[Keras] Support remaining merge modes/layers",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5589"
+      },
+      {
+        "number" : 5572,
+        "title" : "Update ParagraphVectors example (replace MeansBuilder with paravec inferVectors)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5572"
+      },
+      {
+        "number" : 5567,
+        "title" : "Enhancement: Implement GraphVertex that wraps RNN layers and accepts and outputs RNN-state",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5567"
+      },
+      {
+        "number" : 5555,
+        "title" : "Would be great to have this model in DL4j",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5555"
+      },
+      {
+        "number" : 5550,
+        "title" : "Mention of ETA while training data",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5550"
+      },
+      {
+        "number" : 5549,
+        "title" : "Importing sequence to sequence keras models into DL4J",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5549"
+      },
+      {
+        "number" : 5541,
+        "title" : "DL4J: Add support for reusing input arrays for activation gradients",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5541"
+      },
+      {
+        "number" : 5529,
+        "title" : "Eigen eigenvalues method throws UnsupportedOperationException",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5529"
+      },
+      {
+        "number" : 5464,
+        "title" : "DL4J UI: UI model page doesn't report all model config information",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5464"
+      },
+      {
+        "number" : 5463,
+        "title" : "DL4J Zoo - Resnet50 configuration needs to be validated/fixed",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5463"
+      },
+      {
+        "number" : 5454,
+        "title" : "Ops: add convenience script for building mono repo projects",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5454"
+      },
+      {
+        "number" : 5448,
+        "title" : "UI show show epoch counts (not just iteration counts)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5448"
+      },
+      {
+        "number" : 5438,
+        "title" : "DL4J: ParallelWrapper: add ability to configure listeners for one model only",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5438"
+      },
+      {
+        "number" : 5411,
+        "title" : "DL4J - Keras import: add support for nested models",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5411"
+      },
+      {
+        "number" : 5397,
+        "title" : "DL4J: Look at adding some common interface for MLN/CG configurations",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5397"
+      },
+      {
+        "number" : 5389,
+        "title" : "Issue with the distributed version of word2vec (SparkWord2vec)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5389"
+      },
+      {
+        "number" : 5366,
+        "title" : "Create VggFaceLables Class for predicting labels of models trained on VGGFace dataset",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5366"
+      },
+      {
+        "number" : 5353,
+        "title" : "Add JDK 9/10 Maven enforcer check (mono repo, examples)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5353"
+      },
+      {
+        "number" : 5335,
+        "title" : "Spatial Transformer Network",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5335"
+      },
+      {
+        "number" : 5317,
+        "title" : "Improvement of word2vec / GPU documentation and error messages",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5317"
+      },
+      {
+        "number" : 5313,
+        "title" : "DL4J: Make updaters/learning rates configurable on a per-parameter basis",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5313"
+      },
+      {
+        "number" : 5311,
+        "title" : "ComputationGraph ReshapePreprocessor Error! Multiple Input INDArray.",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5311"
+      },
+      {
+        "number" : 5303,
+        "title" : "Better docs around c++ execution",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5303"
+      },
+      {
+        "number" : 5288,
+        "title" : "DL4J: Benchmarking and Performance Investigations",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5288"
+      },
+      {
+        "number" : 5275,
+        "title" : "RL4J: Weighted Double Q Learning",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5275"
+      },
+      {
+        "number" : 5274,
+        "title" : "RL4J: Use workspaces for updaters?",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5274"
+      },
+      {
+        "number" : 5273,
+        "title" : "RL4J: Question: Multiple inputs in comp graph",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5273"
+      },
+      {
+        "number" : 5272,
+        "title" : "RL4J: JVM Crash via HistoryProcessor.transform() - ",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5272"
+      },
+      {
+        "number" : 5271,
+        "title" : "RL4J: Question: are there plans to implement continuous action space?",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5271"
+      },
+      {
+        "number" : 5269,
+        "title" : "RL4J: Please comment the code",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5269"
+      },
+      {
+        "number" : 5268,
+        "title" : "RL4J: No way to load a policy into a neural network",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5268"
+      },
+      {
+        "number" : 5266,
+        "title" : "RL4J: VizDoom Training crash",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5266"
+      },
+      {
+        "number" : 5265,
+        "title" : "RL4J: We do not have characteristic  Graphs for Reinforcement learning",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5265"
+      },
+      {
+        "number" : 5264,
+        "title" : "RL4J: Unable to create Gym environment. Hard coded JSONObject not in JSON.",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5264"
+      },
+      {
+        "number" : 5248,
+        "title" : "Transfer Learning with ResNet50",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5248"
+      },
+      {
+        "number" : 5245,
+        "title" : "DL4J: Add Layer callback for complex training situations",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5245"
+      },
+      {
+        "number" : 5244,
+        "title" : "SameDiff: Look at code generation for SameDiff module",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5244"
+      },
+      {
+        "number" : 5230,
+        "title" : "Accuracy method works wrong in word2vec",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5230"
+      },
+      {
+        "number" : 5224,
+        "title" : "DL4J: Change MnistDataSetIterator to 4d format",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5224"
+      },
+      {
+        "number" : 5222,
+        "title" : "DL4J: Integrate FrozenLayerWithBackprop into transfer learning",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5222"
+      },
+      {
+        "number" : 5216,
+        "title" : "DataVec: OutOfMemoryError when processing CSV using LocalTransformExecutor",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5216"
+      },
+      {
+        "number" : 5215,
+        "title" : "DataVec: SQL interface for TransformProcess/RecordReaders?",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5215"
+      },
+      {
+        "number" : 5214,
+        "title" : "DataVec: RecordWriters and Spark Data Improvements",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5214"
+      },
+      {
+        "number" : 5212,
+        "title" : "DataVec: Word2vec/Paragraph vectors record reader",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5212"
+      },
+      {
+        "number" : 5211,
+        "title" : "DataVec: CSV loader loads NaN without warning",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5211"
+      },
+      {
+        "number" : 5210,
+        "title" : "DataVec: Reductions boilerplate can be significantly reduced",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5210"
+      },
+      {
+        "number" : 5209,
+        "title" : "DataVec: No client for images / DataVecTransformClient doesn't handle images",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5209"
+      },
+      {
+        "number" : 5208,
+        "title" : "DataVec: CSVSparkTransform.transformSequenceArray drops input mask array",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5208"
+      },
+      {
+        "number" : 5207,
+        "title" : "DataVec: SequenceBatchCSVRecord has 1 more list than required?",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5207"
+      },
+      {
+        "number" : 5206,
+        "title" : "DataVec: ImageLoader asMatrix returns wrong shapes",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5206"
+      },
+      {
+        "number" : 5204,
+        "title" : "DataVec: Export datavec schema to Spark SQL schema",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5204"
+      },
+      {
+        "number" : 5203,
+        "title" : "DataVec: Review BalancedPathFilter",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5203"
+      },
+      {
+        "number" : 5202,
+        "title" : "DataVec: Transforms: add a \"concatenate columns to NDArrayWritable\" op",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5202"
+      },
+      {
+        "number" : 5201,
+        "title" : "DataVec: Add ND4J Native and CUDA test profiles",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5201"
+      },
+      {
+        "number" : 5200,
+        "title" : "DataVec: RecordReader: Writable caching + reuse",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5200"
+      },
+      {
+        "number" : 5199,
+        "title" : "DataVec: Text writable is inefficient, has considerable overhead",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5199"
+      },
+      {
+        "number" : 5198,
+        "title" : "DataVec: AnalyzeSpark: analysis is inefficient",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5198"
+      },
+      {
+        "number" : 5197,
+        "title" : "DataVec: Add common univariate data transforms (Box-Cox etc)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5197"
+      },
+      {
+        "number" : 5196,
+        "title" : "DataVec: Add pairwise analysis features",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5196"
+      },
+      {
+        "number" : 5195,
+        "title" : "DataVec: Add a distinct (dedup) transform/filter",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5195"
+      },
+      {
+        "number" : 5194,
+        "title" : "DataVec: Transforms: add convenience methods for same op on multiple columns",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5194"
+      },
+      {
+        "number" : 5193,
+        "title" : "DataVec: Add automatic normalization type inference",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5193"
+      },
+      {
+        "number" : 5192,
+        "title" : "DataVec: Add a Spark Dataset frontend",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5192"
+      },
+      {
+        "number" : 5191,
+        "title" : "DataVec: add ARFF (Weka) record reader",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5191"
+      },
+      {
+        "number" : 5190,
+        "title" : "DataVec: add ImageRecordReader constructor with ability to specify labels",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5190"
+      },
+      {
+        "number" : 5189,
+        "title" : "DataVec: Add audio reading support",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5189"
+      },
+      {
+        "number" : 5188,
+        "title" : "DataVec: NativeImageLoader performance",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5188"
+      },
+      {
+        "number" : 5187,
+        "title" : "DataVec: Output of HtmlAnalysis cannot be rendered offline",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5187"
+      },
+      {
+        "number" : 5186,
+        "title" : "DataVec: Add MatlabRecordReader example",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5186"
+      },
+      {
+        "number" : 5185,
+        "title" : "DataVec: Request example of reading data from .csv.gz files",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5185"
+      },
+      {
+        "number" : 5184,
+        "title" : "DataVec: add ability to split and combine TransformProcess instances",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5184"
+      },
+      {
+        "number" : 5181,
+        "title" : "DataVec: enable customization of DataAnalysis",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5181"
+      },
+      {
+        "number" : 5180,
+        "title" : "DataVec: Make it easier to debug why a TransformProcess fails.",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5180"
+      },
+      {
+        "number" : 5179,
+        "title" : "DataVec: add discretization/bucketing for real-valued columns",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5179"
+      },
+      {
+        "number" : 5155,
+        "title" : "TransferLearning: need a way to do setInputType",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5155"
+      },
+      {
+        "number" : 5144,
+        "title" : "ShiftNet",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5144"
+      },
+      {
+        "number" : 5129,
+        "title" : "Tiny Darknet",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5129"
+      },
+      {
+        "number" : 5112,
+        "title" : "SVD & Orthogonal distribution",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5112"
+      },
+      {
+        "number" : 5104,
+        "title" : "GradientCheckUtil: refactor test cases into a configuration object",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5104"
+      },
+      {
+        "number" : 5089,
+        "title" : "Add CuDNN deterministic mode",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5089"
+      },
+      {
+        "number" : 5088,
+        "title" : "CuDNN LRN and DL4J LRN: slight differences",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5088"
+      },
+      {
+        "number" : 5084,
+        "title" : "Checkpoints import",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5084"
+      },
+      {
+        "number" : 5072,
+        "title" : "\"A fatal error has been detected by the Java Runtime Environment\" when running ParagraphVectors.inferVector(), 1.0.0-alpha",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5072"
+      },
+      {
+        "number" : 5057,
+        "title" : "Implement cyclical learning rate schedules",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5057"
+      },
+      {
+        "number" : 5052,
+        "title" : "Documentation for mixed CNN + LSTM MultiLayerConfiguration for variable-length time-series data",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5052"
+      },
+      {
+        "number" : 5045,
+        "title" : "Stochastic weight averaging",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5045"
+      },
+      {
+        "number" : 5030,
+        "title" : "Gradients sharing in Spark",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5030"
+      },
+      {
+        "number" : 5020,
+        "title" : "dl4j backend for Keras",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5020"
+      },
+      {
+        "number" : 5016,
+        "title" : "Create DL4J layers for all layers implemented in libnd4j",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5016"
+      },
+      {
+        "number" : 5007,
+        "title" : "Improve Data Pipelines",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5007"
+      },
+      {
+        "number" : 5005,
+        "title" : "Add a GAN to the model zoo",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5005"
+      },
+      {
+        "number" : 5003,
+        "title" : "Add DeepMoji to model zoo",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5003"
+      },
+      {
+        "number" : 5001,
+        "title" : "CnnSentenceDataSetIterator with CollectionLabeledSentenceProvider for multi-label setting",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/5001"
+      },
+      {
+        "number" : 4995,
+        "title" : "Add Xception, InceptionV4(?), and MobileNet to model zoo",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4995"
+      },
+      {
+        "number" : 4990,
+        "title" : "Sparse matrices support",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4990"
+      },
+      {
+        "number" : 4989,
+        "title" : "CUDA support for libnd4j/Graph",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4989"
+      },
+      {
+        "number" : 4987,
+        "title" : "Add squashing as a pooling option",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4987"
+      },
+      {
+        "number" : 4986,
+        "title" : "Add YOLOv3 to model zoo",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4986"
+      },
+      {
+        "number" : 4961,
+        "title" : "Replace `learningRate` with `FixedRateScheduler` in `IUpdater` implementations",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4961"
+      },
+      {
+        "number" : 4941,
+        "title" : "Strange IDs from",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4941"
+      },
+      {
+        "number" : 4940,
+        "title" : "Check early stopping + pretrain layers",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4940"
+      },
+      {
+        "number" : 4928,
+        "title" : "Implemented AlphaGo by using DL4j and performance issue",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4928"
+      },
+      {
+        "number" : 4922,
+        "title" : "Unsupported keras layer type Model(use keras2.0.3)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4922"
+      },
+      {
+        "number" : 4919,
+        "title" : "Would be nice: NCE as an option for word2vec embeddings",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4919"
+      },
+      {
+        "number" : 4918,
+        "title" : "Too much memory usage / inefficiency with doc2vec and large vocabularies",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4918"
+      },
+      {
+        "number" : 4912,
+        "title" : "Trying to fit a single example yields not-perfect results when using feedforward with train = false",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4912"
+      },
+      {
+        "number" : 4901,
+        "title" : "Move to Darknet for Transfer Learning example",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4901"
+      },
+      {
+        "number" : 4894,
+        "title" : "Problems with readWord2Vec in Google App Engine",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4894"
+      },
+      {
+        "number" : 4893,
+        "title" : "DL4J helper code for spark-ml only supports pre-spark 2.0 classes",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4893"
+      },
+      {
+        "number" : 4841,
+        "title" : "Layer-wise Adaptive Rate Scaling (LARS) implement",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4841"
+      },
+      {
+        "number" : 4801,
+        "title" : "Early stopping should save the normalizer",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4801"
+      },
+      {
+        "number" : 4800,
+        "title" : "VGG16 model - commented out fully connected layers?",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4800"
+      },
+      {
+        "number" : 4790,
+        "title" : "ResNet50 model from model zoo possibly has minor issues",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4790"
+      },
+      {
+        "number" : 4786,
+        "title" : "word2vec visualization docs are outdated",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4786"
+      },
+      {
+        "number" : 4783,
+        "title" : "Model serving topic page",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4783"
+      },
+      {
+        "number" : 4755,
+        "title" : "Dead link to DeepWalk documentation",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4755"
+      },
+      {
+        "number" : 4737,
+        "title" : "DataVec: Automatic Augmetatioin of Data in BalancedPathFilter ",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4737"
+      },
+      {
+        "number" : 4685,
+        "title" : "Documentation how word2vec is training",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4685"
+      },
+      {
+        "number" : 4646,
+        "title" : "Investigate CR/LF change in WordVectorSerializer",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4646"
+      },
+      {
+        "number" : 4626,
+        "title" : "Early stopping: exception possible - due to model not found",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4626"
+      },
+      {
+        "number" : 4614,
+        "title" : "Support recurrent dropout in LSTMs",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4614"
+      },
+      {
+        "number" : 4573,
+        "title" : "Docs: add section on sequence classification for RNNs",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4573"
+      },
+      {
+        "number" : 4567,
+        "title" : "DataVec missing documentation",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4567"
+      },
+      {
+        "number" : 4565,
+        "title" : "Add Platt scaling and isotonic regression",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4565"
+      },
+      {
+        "number" : 4544,
+        "title" : "Inconsistent results using a model trained as SparkDl4jMultiLayer, saved and loaded as MultiLayerNetwork ",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4544"
+      },
+      {
+        "number" : 4537,
+        "title" : "https://deeplearning4j.org/doc2vec need update",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4537"
+      },
+      {
+        "number" : 4536,
+        "title" : "The accuracy of ParagraphVectors is low on 20news-group dataset (0.24)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4536"
+      },
+      {
+        "number" : 4532,
+        "title" : "Exporting to Core ML",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4532"
+      },
+      {
+        "number" : 4517,
+        "title" : "Docs: quickstart eclipse section links to bad guide",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4517"
+      },
+      {
+        "number" : 4475,
+        "title" : "Load same trained network on different machines get different evaluation result",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4475"
+      },
+      {
+        "number" : 4474,
+        "title" : "PrecisionRecallCurve.getPointAtRecall returns suboptimal point",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4474"
+      },
+      {
+        "number" : 4473,
+        "title" : "Discrepancies in precision/recall using EvaluationBinary with threshold",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4473"
+      },
+      {
+        "number" : 4465,
+        "title" : "Usability of datavec (usability issues)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4465"
+      },
+      {
+        "number" : 4463,
+        "title" : "HyperParameter object to avoid builders in config",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4463"
+      },
+      {
+        "number" : 4384,
+        "title" : "Use clip_by_norm for updating gradients",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4384"
+      },
+      {
+        "number" : 4378,
+        "title" : "Idea for more intuitive loss API",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4378"
+      },
+      {
+        "number" : 4328,
+        "title" : "Memory problem when reloading the model in parallel inference",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4328"
+      },
+      {
+        "number" : 4267,
+        "title" : "UI overwhelmed by creation of unique workers - ParallelWrapper",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4267"
+      },
+      {
+        "number" : 4261,
+        "title" : "Allow freezing of output layers with the Transfer Learning API",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4261"
+      },
+      {
+        "number" : 4258,
+        "title" : "ngram vectors of FastText",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4258"
+      },
+      {
+        "number" : 4252,
+        "title" : "ParaVec: decouple labels from words",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4252"
+      },
+      {
+        "number" : 4248,
+        "title" : "UI evaluation pane",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4248"
+      },
+      {
+        "number" : 4222,
+        "title" : "Batch norm cleanup/refactoring",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4222"
+      },
+      {
+        "number" : 4197,
+        "title" : "Unexpected behavior of InputSplit.sample()",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4197"
+      },
+      {
+        "number" : 4179,
+        "title" : "Please make (or document) a generic API for your optimisers/solvers",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4179"
+      },
+      {
+        "number" : 4164,
+        "title" : "UI Legend mess when several layer/vertices are added in the model",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4164"
+      },
+      {
+        "number" : 4156,
+        "title" : "Loaded ParagraphVectors infers the same (wrong) vectors",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4156"
+      },
+      {
+        "number" : 4153,
+        "title" : "Variational AutoEncoder with LSTM layers in ComputationGrapgh",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4153"
+      },
+      {
+        "number" : 4145,
+        "title" : "Supporting GRU any time soon?",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4145"
+      },
+      {
+        "number" : 4139,
+        "title" : "Verification of Pre-trained GoogLeNet and ResNet50 weights",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4139"
+      },
+      {
+        "number" : 4101,
+        "title" : "UI & summary methods - show trainable vs. non-trainable params count",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4101"
+      },
+      {
+        "number" : 4095,
+        "title" : "API to change the settings of single layer during transfer learning",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4095"
+      },
+      {
+        "number" : 4085,
+        "title" : "Add SRU RNN Implementation",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4085"
+      },
+      {
+        "number" : 4084,
+        "title" : "Sequence of SequenceRecordReader is not supported",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4084"
+      },
+      {
+        "number" : 4054,
+        "title" : "EarlyStopping is returning null in getBestModel ",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4054"
+      },
+      {
+        "number" : 4052,
+        "title" : "Improve UI graph colors",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4052"
+      },
+      {
+        "number" : 4042,
+        "title" : "ParagraphVectors do not contain all labels used for training",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4042"
+      },
+      {
+        "number" : 4040,
+        "title" : "Add `ReduceLROnPlateau` learning policy",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4040"
+      },
+      {
+        "number" : 4033,
+        "title" : "RNN Docs Improvements",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4033"
+      },
+      {
+        "number" : 4027,
+        "title" : "No mention about Hierarchic Softmax being enabled by default for word2vec ",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4027"
+      },
+      {
+        "number" : 4025,
+        "title" : "UI does not have visualisation for the output labels vs. ground truth labels with smoothing function",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4025"
+      },
+      {
+        "number" : 4015,
+        "title" : "webUi cannot display inceptionResnet Graph",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4015"
+      },
+      {
+        "number" : 4009,
+        "title" : "dl4j does not support word2vec plot any more",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4009"
+      },
+      {
+        "number" : 4008,
+        "title" : "Enhancement/Issue for ActivationSoftmax",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/4008"
+      },
+      {
+        "number" : 3998,
+        "title" : "CompGraph: Multi-output vertices, multi-input layers",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3998"
+      },
+      {
+        "number" : 3989,
+        "title" : "UI- refresh is not called after switching graph",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3989"
+      },
+      {
+        "number" : 3973,
+        "title" : "getBestModel reading from memory while early stopping saver set to LocalFileModelSaver",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3973"
+      },
+      {
+        "number" : 3967,
+        "title" : "The code sample of convolutional networks does not display in the documentation",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3967"
+      },
+      {
+        "number" : 3959,
+        "title" : "Label maker creates incorrect labels if it has few examples",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3959"
+      },
+      {
+        "number" : 3940,
+        "title" : "UI: graphs are not switching.",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3940"
+      },
+      {
+        "number" : 3936,
+        "title" : "Keras model import: handle training configuration properly",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3936"
+      },
+      {
+        "number" : 3933,
+        "title" : "infer truncated BPTT value for non-sequence inputs",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3933"
+      },
+      {
+        "number" : 3880,
+        "title" : "a bad design in BaseEarlyStoppingTrainer.java",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3880"
+      },
+      {
+        "number" : 3875,
+        "title" : "a bug in class SamplingDataSetIterator",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3875"
+      },
+      {
+        "number" : 3871,
+        "title" : "Really confusing numeric attributes in DataSetIterator",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3871"
+      },
+      {
+        "number" : 3867,
+        "title" : "creating RDD[Dataset] from RDD[(double,double,double)] (for ex) for training",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3867"
+      },
+      {
+        "number" : 3851,
+        "title" : "docu improvement 'ETL images'",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3851"
+      },
+      {
+        "number" : 3839,
+        "title" : "Spark training: log (once per JVM/executor) memory configuration",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3839"
+      },
+      {
+        "number" : 3835,
+        "title" : "Feature Request: Improved support for thread-safe Normalizer",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3835"
+      },
+      {
+        "number" : 3828,
+        "title" : "UI - allow for easy configuration of a minimal (less detail) mode",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3828"
+      },
+      {
+        "number" : 3751,
+        "title" : "Remote UI and spark conflict issues: Need better documentation",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3751"
+      },
+      {
+        "number" : 3722,
+        "title" : "Different vector values after loading paragraph2vec models",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3722"
+      },
+      {
+        "number" : 3682,
+        "title" : "Layer / neural net configurations: ensure info + links are available in javadoc",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3682"
+      },
+      {
+        "number" : 3647,
+        "title" : "Add functionality for aggregating/plotting multiple evaluation instances",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3647"
+      },
+      {
+        "number" : 3603,
+        "title" : "decodeB64 does not work in Android",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3603"
+      },
+      {
+        "number" : 3575,
+        "title" : "Add \"multi-iteration gradient calculation\" functionality",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3575"
+      },
+      {
+        "number" : 3567,
+        "title" : "RecordReaderDataSetIterator + NullWritable -> masked data support",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3567"
+      },
+      {
+        "number" : 3531,
+        "title" : "CUDA performance clarifications needed",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3531"
+      },
+      {
+        "number" : 3525,
+        "title" : "Add \"reset to initial perspective\"-Button to model tab of dl4j-ui",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3525"
+      },
+      {
+        "number" : 3515,
+        "title" : "Missing expected behaviour for Multinormalizer.fit",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3515"
+      },
+      {
+        "number" : 3495,
+        "title" : "UI/stats listener: add the ability to attach/detach stats storage instances directly from UI",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3495"
+      },
+      {
+        "number" : 3475,
+        "title" : "[DOC] ND4J vs Numpy",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3475"
+      },
+      {
+        "number" : 3472,
+        "title" : "Word2Vec Spark Performance",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3472"
+      },
+      {
+        "number" : 3471,
+        "title" : "UI attempts to load source map files, causing (non-terminal) errors to be logged",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3471"
+      },
+      {
+        "number" : 3416,
+        "title" : "Add support for CRNNs (in particular ConvLSTM2D)",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3416"
+      },
+      {
+        "number" : 3405,
+        "title" : "[UI][SPARK] Web UI worker tab does not function.",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3405"
+      },
+      {
+        "number" : 3398,
+        "title" : "Tooling for training process comparison needed",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3398"
+      },
+      {
+        "number" : 3396,
+        "title" : "Are there two errors in the tutorial documentation?",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3396"
+      },
+      {
+        "number" : 3392,
+        "title" : "EarlyStoppingParallelTraining query/potential issue",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3392"
+      },
+      {
+        "number" : 3379,
+        "title" : "Docs: Add link to \"Apache Spark installation on Windows 10\"-Guide",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3379"
+      },
+      {
+        "number" : 3350,
+        "title" : "Please update Example for ParagraphVectorClassfierExample",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3350"
+      },
+      {
+        "number" : 3305,
+        "title" : "Add K-fold trainer",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3305"
+      },
+      {
+        "number" : 3249,
+        "title" : "Deepwalk doesn't support incremental training yet",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3249"
+      },
+      {
+        "number" : 3239,
+        "title" : "Typo in image for ETL page",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3239"
+      },
+      {
+        "number" : 3212,
+        "title" : "Build Page for all Label Generator features of DataVec",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3212"
+      },
+      {
+        "number" : 3179,
+        "title" : "Missing Feature to combine pre-trained Models",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3179"
+      },
+      {
+        "number" : 3178,
+        "title" : "Missing documentation on rl4j",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3178"
+      },
+      {
+        "number" : 3154,
+        "title" : "ParallelWrapper: add support for parallel evaluation on DataSetIterator",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3154"
+      },
+      {
+        "number" : 3134,
+        "title" : "Issue with skipping imbalanced split while running MnistMLPExample on spark cluster",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3134"
+      },
+      {
+        "number" : 3119,
+        "title" : "Add Spark wrappers for DL4J/ND4J normalization functionality",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3119"
+      },
+      {
+        "number" : 3111,
+        "title" : "PW+UI results in worker data concatenation",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3111"
+      },
+      {
+        "number" : 3077,
+        "title" : "Doc2Vec inferring text of pretrained text not close enough",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3077"
+      },
+      {
+        "number" : 3071,
+        "title" : "Add example of spark streaming and flink streaming inference with dl4j",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3071"
+      },
+      {
+        "number" : 3050,
+        "title" : "problem about ParagraphVectors classfier example",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3050"
+      },
+      {
+        "number" : 3036,
+        "title" : "how to read data from hdfs in csv format, then train in dl4j with spark? ",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3036"
+      },
+      {
+        "number" : 3029,
+        "title" : "Add EarlyStopping documentation for GPUs",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3029"
+      },
+      {
+        "number" : 3022,
+        "title" : "OSGi compliant jars for containers such as Equinox or Felix. ",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/3022"
+      },
+      {
+        "number" : 2941,
+        "title" : "Dev guide: document intellij quirks",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/2941"
+      },
+      {
+        "number" : 2913,
+        "title" : "Add page on inference",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/2913"
+      },
+      {
+        "number" : 2896,
+        "title" : "Provide an example about generating vectors from provided sentences",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/2896"
+      },
+      {
+        "number" : 2875,
+        "title" : "Styled Icon for warnings or notes",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/2875"
+      },
+      {
+        "number" : 2874,
+        "title" : "node2vec",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/2874"
+      },
+      {
+        "number" : 2858,
+        "title" : "Create a normalization page",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/2858"
+      },
+      {
+        "number" : 2842,
+        "title" : "Documentation on interpretation of nn-UI visualization is lacking",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/2842"
+      },
+      {
+        "number" : 2838,
+        "title" : "Low-level rotation invariance support using Flip-Rotate-Pooling Convolutions",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/2838"
+      },
+      {
+        "number" : 2770,
+        "title" : "Documentation for ParagraphVectors learning rate",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/2770"
+      },
+      {
+        "number" : 2767,
+        "title" : "Averaging mode for distrib ps",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/2767"
+      },
+      {
+        "number" : 2739,
+        "title" : "EarlyParallelStoppingTrainer missing DataSetIterator",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/2739"
+      },
+      {
+        "number" : 2698,
+        "title" : "Add ability to render UI components via upload",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/2698"
+      },
+      {
+        "number" : 2662,
+        "title" : "Document Listeners and web UI",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/2662"
+      },
+      {
+        "number" : 2635,
+        "title" : "Add convenience methods/classes for Seq2Seq models",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/2635"
+      },
+      {
+        "number" : 2621,
+        "title" : "Add utility methods for sequence classification",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/2621"
+      },
+      {
+        "number" : 2616,
+        "title" : "Per-example weights",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/2616"
+      },
+      {
+        "number" : 2460,
+        "title" : "DeepWalk: missing \"walks per vertex\" hyperparameter",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/2460"
+      },
+      {
+        "number" : 2272,
+        "title" : "Word2Vec Performance in Spark",
+        "url" : "https://github.com/eclipse/deeplearning4j/issues/2272"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : null,
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : false,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : null,
+    "beginnerIssuesLabel" : null
+  }
+}

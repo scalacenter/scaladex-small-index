@@ -1,0 +1,2112 @@
+{
+  "organization" : "bitcoin-s",
+  "repository" : "bitcoin-s",
+  "creationDate" : 1620068986000,
+  "githubStatus" : {
+    "Ok" : {
+      "updateDate" : 1643170560548
+    }
+  },
+  "githubInfo" : {
+    "homepage" : "https://bitcoin-s.org",
+    "description" : "Bitcoin Implementation in Scala",
+    "logo" : "https://avatars.githubusercontent.com/u/16688471?v=4",
+    "stars" : 263,
+    "forks" : 76,
+    "watchers" : 19,
+    "issues" : 406,
+    "creationDate" : 1461875936000,
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"website/static/img/bitcoin-s-dark-logo.png\"><img src=\"website/static/img/bitcoin-s-dark-logo.png\" alt=\"Bitcoin-S logo\" style=\"max-width: 100%;\"></a>\n<a href=\"https://github.com/bitcoin-s/bitcoin-s/actions\"><img src=\"https://github.com/bitcoin-s/bitcoin-s/workflows/Release/badge.svg\" alt=\"Build Status\" style=\"max-width: 100%;\"></a> <a href=\"https://coveralls.io/github/bitcoin-s/bitcoin-s?branch=master\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/96b81cd46c0211cf755ca450b42e92ec4f8594c0a420bdaecde821f2a5e17846/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6769746875622f626974636f696e2d732f626974636f696e2d732f62616467652e7376673f6272616e63683d6d6173746572\" alt=\"Coverage Status\" data-canonical-src=\"https://coveralls.io/repos/github/bitcoin-s/bitcoin-s/badge.svg?branch=master\" style=\"max-width: 100%;\"></a> <a href=\"https://mvnrepository.com/artifact/org.bitcoin-s\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/c5ee795bc89cea856e9b1de7ca857055f1349c69aef29a55b7d52873ee4a15f5/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4d6176656e25323043656e7472616c2d312e382e302d627269676874677265656e2e737667\" alt=\"Maven Central\" data-canonical-src=\"https://img.shields.io/badge/Maven%20Central-1.8.0-brightgreen.svg\" style=\"max-width: 100%;\"></a> <a href=\"https://gitter.im/bitcoin-s-core\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/3cbc4707a347f1e7e3fd554fdeeebde4b6cf9b228e7b6634bee70f9e24ced933/68747470733a2f2f6261646765732e6769747465722e696d2f67697474657248512f6769747465722e706e67\" alt=\"Gitter chat\" data-canonical-src=\"https://badges.gitter.im/gitterHQ/gitter.png\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Feature-rich toolkit for making Bitcoin and Lightning applications on the JVM.</p>\n<p dir=\"auto\">For a complete guide on how to get started with Bitcoin-S, see our website at <a href=\"https://bitcoin-s.org\" rel=\"nofollow\">Bitcoin-S.org</a>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-contents\" class=\"anchor\" aria-hidden=\"true\" href=\"#contents\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Contents</h3>\n<ul dir=\"auto\">\n<li><a href=\"#what-is-bitcoin-s-\">What is bitcoin-s?</a></li>\n<li><a href=\"#is-bitcoin-s-production-ready-\">Is bitcoin-s production ready?</a></li>\n<li><a href=\"#can-i-trust-the-code-in-bitcoin-s-\">Can I trust the code in bitcoin-s?</a></li>\n<li><a href=\"#getting-started--non-developers-\">Getting started (non-developers)</a></li>\n<li><a href=\"#getting-setup--developers-\">Getting setup (developers)</a></li>\n<li><a href=\"#adding-bitcoin-s-to-your-library\">Adding bitcoin-s to your library</a></li>\n<li><a href=\"#docker-images\">Docker images</a></li>\n<li><a href=\"#contributing\">Contributing</a></li>\n<li><a href=\"#good-first-issues\">Good first issues</a></li>\n<li><a href=\"#license\">License</a></li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-what-is-bitcoin-s\" class=\"anchor\" aria-hidden=\"true\" href=\"#what-is-bitcoin-s\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>What is bitcoin-s?</h3>\n<p dir=\"auto\">Bitcoin-S is a loosely coupled set of cryptocurrency libraries for the JVM. They work well together, but also can be used independently.</p>\n<p dir=\"auto\">This project's goal is NOT to be a full node implementation, rather a set of scalable cryptocurrency libraries that use industry standard tools (rather than esoteric tech often found in cryptocurrency) where possible to make the lives of professional software engineers, security engineers, devops engineers and accountants easier.</p>\n<p dir=\"auto\">We are rapidly iterating on development with the goal of getting to a set of stable APIs that only change when the underlying bitcoin protocol changes.</p>\n<p dir=\"auto\">If you are a professional working a cryptocurrency business and have feedback on how to make your lives easier, please reach\nout on <a href=\"https://suredbits.slack.com/ssb/redirect\" rel=\"nofollow\">slack</a> or <a href=\"https://twitter.com/Chris_Stewart_5/\" rel=\"nofollow\">twitter</a>!</p>\n<h3 dir=\"auto\"><a id=\"user-content-is-bitcoin-s-production-ready\" class=\"anchor\" aria-hidden=\"true\" href=\"#is-bitcoin-s-production-ready\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Is bitcoin-s production ready?</h3>\n<p dir=\"auto\">Please see our latest releases <a href=\"https://github.com/bitcoin-s/bitcoin-s/actions/workflows/release.yml\">here</a>.</p>\n<p dir=\"auto\">Warning! While we try out best to test every pull request in <em>master</em>, this branch may not be stable! Bad things can happen to your node! Beware!</p>\n<h3 dir=\"auto\"><a id=\"user-content-can-i-trust-the-code-in-bitcoin-s\" class=\"anchor\" aria-hidden=\"true\" href=\"#can-i-trust-the-code-in-bitcoin-s\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Can I trust the code in bitcoin-s?</h3>\n<p dir=\"auto\">Please audit and verify any and all code in this toolkit for its suitability and validity. This includes reviewing any and all dependencies.</p>\n<h3 dir=\"auto\"><a id=\"user-content-getting-started-non-developers\" class=\"anchor\" aria-hidden=\"true\" href=\"#getting-started-non-developers\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Getting started (non-developers)</h3>\n<p dir=\"auto\">For a complete guide on how to get started with bitcoin-s, see our <a href=\"https://bitcoin-s.org/docs/getting-started\" rel=\"nofollow\">Getting started</a>.</p>\n<p dir=\"auto\">This link is intended for individuals who are just interested in installing bitcoin-s rather than developing. If you are interested in development, see <strong>Getting setup</strong> below.</p>\n<h3 dir=\"auto\"><a id=\"user-content-getting-setup-developers\" class=\"anchor\" aria-hidden=\"true\" href=\"#getting-setup-developers\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Getting setup (developers)</h3>\n<p dir=\"auto\">For a complete guide on how to get setup with bitcoin-s, see our <a href=\"https://bitcoin-s.org/docs/getting-setup\" rel=\"nofollow\">Getting setup</a>.</p>\n<p dir=\"auto\">This link is intended for setting up development of bitcoin-s. If you want to just install bitcoin-s rather than develop, see <strong>Getting started</strong> above.</p>\n<h3 dir=\"auto\"><a id=\"user-content-adding-bitcoin-s-to-your-library\" class=\"anchor\" aria-hidden=\"true\" href=\"#adding-bitcoin-s-to-your-library\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Adding bitcoin-s to your library</h3>\n<p dir=\"auto\">The latest release of bitcoin-s is <code>1.8.0</code>, here is how you can use the dependencies in your projects:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;org.bitcoin-s&quot; % &quot;bitcoin-s-secp256k1jni&quot; % &quot;1.8.0&quot;\n\nlibraryDependencies += &quot;org.bitcoin-s&quot; %% &quot;bitcoin-s-core&quot; % &quot;1.8.0&quot;\n\nlibraryDependencies += &quot;org.bitcoin-s&quot; %% &quot;bitcoin-s-crypto&quot; % &quot;1.8.0&quot;\n\nlibraryDependencies += &quot;org.bitcoin-s&quot; %% &quot;bitcoin-s-chain&quot; % &quot;1.8.0&quot;\n\nlibraryDependencies += &quot;org.bitcoin-s&quot; %% &quot;bitcoin-s-dlc-oracle&quot; % &quot;1.8.0&quot;\n\nlibraryDependencies += &quot;org.bitcoin-s&quot; %% &quot;bitcoin-s-oracle-explorer-client&quot; % &quot;1.8.0&quot;\n\nlibraryDependencies += &quot;org.bitcoin-s&quot; %% &quot;bitcoin-s-app-commons&quot; % &quot;1.8.0&quot;\n\nlibraryDependencies += &quot;org.bitcoin-s&quot; %% &quot;bitcoin-s-db-commons&quot; % &quot;1.8.0&quot;\n\nlibraryDependencies += &quot;org.bitcoin-s&quot; %% &quot;bitcoin-s-fee-provider&quot; % &quot;1.8.0&quot;\n\nlibraryDependencies += &quot;org.bitcoin-s&quot; %% &quot;bitcoin-s-bitcoind-rpc&quot; % &quot;1.8.0&quot;\n\nlibraryDependencies += &quot;org.bitcoin-s&quot; %% &quot;bitcoin-s-eclair-rpc&quot; % &quot;1.8.0&quot;\n\nlibraryDependencies += &quot;org.bitcoin-s&quot; %% &quot;bitcoin-s-lnd-rpc&quot; % &quot;1.8.0&quot;\n\nlibraryDependencies += &quot;org.bitcoin-s&quot; %% &quot;bitcoin-s-key-manager&quot; % &quot;1.8.0&quot;\n\nlibraryDependencies += &quot;org.bitcoin-s&quot; %% &quot;bitcoin-s-node&quot; % &quot;1.8.0&quot;\n\nlibraryDependencies += &quot;org.bitcoin-s&quot; %% &quot;bitcoin-s-dlc-node&quot; % &quot;1.8.0&quot;\n\nlibraryDependencies += &quot;org.bitcoin-s&quot; %% &quot;bitcoin-s-wallet&quot; % &quot;1.8.0&quot;\n\nlibraryDependencies += &quot;org.bitcoin-s&quot; %% &quot;bitcoin-s-dlc-wallet&quot; % &quot;1.8.0&quot;\n\nlibraryDependencies += &quot;org.bitcoin-s&quot; %% &quot;bitcoin-s-testkit-core&quot; % &quot;1.8.0&quot;\n\nlibraryDependencies += &quot;org.bitcoin-s&quot; %% &quot;bitcoin-s-testkit&quot; % &quot;1.8.0&quot;\n\nlibraryDependencies += &quot;org.bitcoin-s&quot; %% &quot;bitcoin-s-zmq&quot; % &quot;1.8.0&quot;\n\nlibraryDependencies += &quot;org.bitcoin-s&quot; %% &quot;bitcoin-s-tor&quot; % &quot;1.8.0&quot;\n\nlibraryDependencies += &quot;org.bitcoin-s&quot; %% &quot;bitcoin-s-cli&quot; % &quot;1.8.0&quot;\n\"><pre><code>libraryDependencies += \"org.bitcoin-s\" % \"bitcoin-s-secp256k1jni\" % \"1.8.0\"\n\nlibraryDependencies += \"org.bitcoin-s\" %% \"bitcoin-s-core\" % \"1.8.0\"\n\nlibraryDependencies += \"org.bitcoin-s\" %% \"bitcoin-s-crypto\" % \"1.8.0\"\n\nlibraryDependencies += \"org.bitcoin-s\" %% \"bitcoin-s-chain\" % \"1.8.0\"\n\nlibraryDependencies += \"org.bitcoin-s\" %% \"bitcoin-s-dlc-oracle\" % \"1.8.0\"\n\nlibraryDependencies += \"org.bitcoin-s\" %% \"bitcoin-s-oracle-explorer-client\" % \"1.8.0\"\n\nlibraryDependencies += \"org.bitcoin-s\" %% \"bitcoin-s-app-commons\" % \"1.8.0\"\n\nlibraryDependencies += \"org.bitcoin-s\" %% \"bitcoin-s-db-commons\" % \"1.8.0\"\n\nlibraryDependencies += \"org.bitcoin-s\" %% \"bitcoin-s-fee-provider\" % \"1.8.0\"\n\nlibraryDependencies += \"org.bitcoin-s\" %% \"bitcoin-s-bitcoind-rpc\" % \"1.8.0\"\n\nlibraryDependencies += \"org.bitcoin-s\" %% \"bitcoin-s-eclair-rpc\" % \"1.8.0\"\n\nlibraryDependencies += \"org.bitcoin-s\" %% \"bitcoin-s-lnd-rpc\" % \"1.8.0\"\n\nlibraryDependencies += \"org.bitcoin-s\" %% \"bitcoin-s-key-manager\" % \"1.8.0\"\n\nlibraryDependencies += \"org.bitcoin-s\" %% \"bitcoin-s-node\" % \"1.8.0\"\n\nlibraryDependencies += \"org.bitcoin-s\" %% \"bitcoin-s-dlc-node\" % \"1.8.0\"\n\nlibraryDependencies += \"org.bitcoin-s\" %% \"bitcoin-s-wallet\" % \"1.8.0\"\n\nlibraryDependencies += \"org.bitcoin-s\" %% \"bitcoin-s-dlc-wallet\" % \"1.8.0\"\n\nlibraryDependencies += \"org.bitcoin-s\" %% \"bitcoin-s-testkit-core\" % \"1.8.0\"\n\nlibraryDependencies += \"org.bitcoin-s\" %% \"bitcoin-s-testkit\" % \"1.8.0\"\n\nlibraryDependencies += \"org.bitcoin-s\" %% \"bitcoin-s-zmq\" % \"1.8.0\"\n\nlibraryDependencies += \"org.bitcoin-s\" %% \"bitcoin-s-tor\" % \"1.8.0\"\n\nlibraryDependencies += \"org.bitcoin-s\" %% \"bitcoin-s-cli\" % \"1.8.0\"\n\n</code></pre></div>\n<h4 dir=\"auto\"><a id=\"user-content-docker-images\" class=\"anchor\" aria-hidden=\"true\" href=\"#docker-images\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Docker images</h4>\n<p dir=\"auto\">We publish docker images to docker hub on every PR merge and tag on github.\nYou can obtain the images for both the app server and oracle server on these\ndocker hub repos</p>\n<p dir=\"auto\"><a href=\"https://hub.docker.com/r/bitcoinscala/bitcoin-s-server/tags?page=1&amp;ordering=last_updated\" rel=\"nofollow\">bitcoin-s docker hub repo</a></p>\n<p dir=\"auto\"><a href=\"https://hub.docker.com/r/bitcoinscala/bitcoin-s-oracle-server/tags?page=1&amp;ordering=last_updated\" rel=\"nofollow\">oracle-server docker hub repo</a></p>\n<h3 dir=\"auto\"><a id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Contributing</h3>\n<p dir=\"auto\">Bitcoin-S is an open source project where anyone is welcome to contribute. All contributions are encouraged and appreciated, whether that is code, testing, documentation or something else entirely.</p>\n<p dir=\"auto\">See <a href=\"https://bitcoin-s.org/docs/contributing\" rel=\"nofollow\">here</a> for more information.</p>\n<h3 dir=\"auto\"><a id=\"user-content-good-first-issues\" class=\"anchor\" aria-hidden=\"true\" href=\"#good-first-issues\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Good first issues</h3>\n<p dir=\"auto\"><a href=\"https://github.com/bitcoin-s/bitcoin-s/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22\">Here</a> is a list of good first issues that contain bugs which have a relatively limited scope. This is a great place to get started, gain experience, and get familiar with the bitcoin-s contribution process.</p>\n<h3 dir=\"auto\"><a id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>License</h3>\n<p dir=\"auto\">Bitcoin-s is MIT licensed, as found in the <a href=\"LICENSE\">LICENSE</a> file.</p>\n</article></div>",
+    "contributors" : [
+      {
+        "login" : "Christewart",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3514957?v=4",
+        "url" : "https://api.github.com/users/Christewart",
+        "contributions" : 1615
+      },
+      {
+        "login" : "benthecarman",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15256660?v=4",
+        "url" : "https://api.github.com/users/benthecarman",
+        "contributions" : 659
+      },
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://api.github.com/users/scala-steward",
+        "contributions" : 359
+      },
+      {
+        "login" : "torkelrogstad",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16610775?v=4",
+        "url" : "https://api.github.com/users/torkelrogstad",
+        "contributions" : 194
+      },
+      {
+        "login" : "nkohen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22485603?v=4",
+        "url" : "https://api.github.com/users/nkohen",
+        "contributions" : 170
+      },
+      {
+        "login" : "TomMcCabe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12506365?v=4",
+        "url" : "https://api.github.com/users/TomMcCabe",
+        "contributions" : 130
+      },
+      {
+        "login" : "rorp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2314888?v=4",
+        "url" : "https://api.github.com/users/rorp",
+        "contributions" : 107
+      },
+      {
+        "login" : "user411",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22351459?v=4",
+        "url" : "https://api.github.com/users/user411",
+        "contributions" : 36
+      },
+      {
+        "login" : "cwaldron97",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/32018000?v=4",
+        "url" : "https://api.github.com/users/cwaldron97",
+        "contributions" : 26
+      },
+      {
+        "login" : "dependabot[bot]",
+        "avatarUrl" : "https://avatars.githubusercontent.com/in/29110?v=4",
+        "url" : "https://api.github.com/users/dependabot%5Bbot%5D",
+        "contributions" : 13
+      },
+      {
+        "login" : "piu130",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12607663?v=4",
+        "url" : "https://api.github.com/users/piu130",
+        "contributions" : 8
+      },
+      {
+        "login" : "shreyanshyad",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/56965282?v=4",
+        "url" : "https://api.github.com/users/shreyanshyad",
+        "contributions" : 8
+      },
+      {
+        "login" : "shruthii625",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/54840913?v=4",
+        "url" : "https://api.github.com/users/shruthii625",
+        "contributions" : 4
+      },
+      {
+        "login" : "mecampbellsoup",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2043821?v=4",
+        "url" : "https://api.github.com/users/mecampbellsoup",
+        "contributions" : 4
+      },
+      {
+        "login" : "ariskk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4972825?v=4",
+        "url" : "https://api.github.com/users/ariskk",
+        "contributions" : 3
+      },
+      {
+        "login" : "sken77",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22631338?v=4",
+        "url" : "https://api.github.com/users/sken77",
+        "contributions" : 3
+      },
+      {
+        "login" : "dwhjames",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/470008?v=4",
+        "url" : "https://api.github.com/users/dwhjames",
+        "contributions" : 2
+      },
+      {
+        "login" : "mattfaltyn",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/76570855?v=4",
+        "url" : "https://api.github.com/users/mattfaltyn",
+        "contributions" : 2
+      },
+      {
+        "login" : "ncornwell",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/424998?v=4",
+        "url" : "https://api.github.com/users/ncornwell",
+        "contributions" : 2
+      },
+      {
+        "login" : "sambradbury",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/31943456?v=4",
+        "url" : "https://api.github.com/users/sambradbury",
+        "contributions" : 2
+      },
+      {
+        "login" : "tkawachi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22657?v=4",
+        "url" : "https://api.github.com/users/tkawachi",
+        "contributions" : 2
+      },
+      {
+        "login" : "Dan-Smith-Suredbits",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/40217443?v=4",
+        "url" : "https://api.github.com/users/Dan-Smith-Suredbits",
+        "contributions" : 1
+      },
+      {
+        "login" : "Giamme",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/39541140?v=4",
+        "url" : "https://api.github.com/users/Giamme",
+        "contributions" : 1
+      },
+      {
+        "login" : "kaibr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/560760?v=4",
+        "url" : "https://api.github.com/users/kaibr",
+        "contributions" : 1
+      },
+      {
+        "login" : "TannerR1776",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2151516?v=4",
+        "url" : "https://api.github.com/users/TannerR1776",
+        "contributions" : 1
+      },
+      {
+        "login" : "okayplanet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3144575?v=4",
+        "url" : "https://api.github.com/users/okayplanet",
+        "contributions" : 1
+      },
+      {
+        "login" : "philbertw4",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/28876729?v=4",
+        "url" : "https://api.github.com/users/philbertw4",
+        "contributions" : 1
+      },
+      {
+        "login" : "saguywalker",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/25146296?v=4",
+        "url" : "https://api.github.com/users/saguywalker",
+        "contributions" : 1
+      }
+    ],
+    "commits" : 3356,
+    "topics" : [
+      "bitcoin",
+      "functional-programming",
+      "eclair",
+      "lightning-network",
+      "scala",
+      "blockchain",
+      "cryptocurrency"
+    ],
+    "contributingGuide" : null,
+    "codeOfConduct" : null,
+    "chatroom" : null,
+    "openIssues" : [
+      {
+        "number" : 4014,
+        "title" : "When bitcoind used as a backend we don't have support for unconfirmed txs",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/4014"
+      },
+      {
+        "number" : 4008,
+        "title" : "Wallet using an outpoint that doesn't exist onchain",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/4008"
+      },
+      {
+        "number" : 4007,
+        "title" : "Update pg-embedded to use the new methodology",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/4007"
+      },
+      {
+        "number" : 4006,
+        "title" : "Contract id computation is wrong, it does not include the `funding_output_index`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/4006"
+      },
+      {
+        "number" : 4002,
+        "title" : "getversion message needs unprotected on bitcoin-s server",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/4002"
+      },
+      {
+        "number" : 4001,
+        "title" : "DLCs in my database in an `Accepted` state with no associated DLC data.",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/4001"
+      },
+      {
+        "number" : 3991,
+        "title" : "Better error message when authentication with appServer is invalid",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3991"
+      },
+      {
+        "number" : 3988,
+        "title" : "Consider renaming `WitnessScriptPubKeyV1` -> `TaprootScriptPubKey`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3988"
+      },
+      {
+        "number" : 3969,
+        "title" : "Contract ids broken by changes to offer serialization (#3854)",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3969"
+      },
+      {
+        "number" : 3968,
+        "title" : "#3965 disallows unilateral funded DLCs",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3968"
+      },
+      {
+        "number" : 3941,
+        "title" : "Consider making `DLCState.Cancelled` a state",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3941"
+      },
+      {
+        "number" : 3937,
+        "title" : "Prepackaged tor does not work",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3937"
+      },
+      {
+        "number" : 3935,
+        "title" : "ChainUtil does not have access to medianpasttime for endpoints",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3935"
+      },
+      {
+        "number" : 3934,
+        "title" : "Decouple `ServerAppConfig` from `BitcoinSAppConfig`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3934"
+      },
+      {
+        "number" : 3927,
+        "title" : "Add callback for when a offered/accepted DLC is canceled",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3927"
+      },
+      {
+        "number" : 3919,
+        "title" : "Use consistent language throughout the code base wrt to DLCs",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3919"
+      },
+      {
+        "number" : 3916,
+        "title" : "`AddressHandling` can lead to deadlocks",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3916"
+      },
+      {
+        "number" : 3910,
+        "title" : "Requested Wallet Event Stream Events",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3910"
+      },
+      {
+        "number" : 3901,
+        "title" : "Remove the $ sign from doc for installing cli",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3901"
+      },
+      {
+        "number" : 3900,
+        "title" : "Logging breaking on the pi",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3900"
+      },
+      {
+        "number" : 3899,
+        "title" : "Add `sync` and `rescan` json fields to the walletinfo endpoint",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3899"
+      },
+      {
+        "number" : 3888,
+        "title" : "Single UTXO wallet spending error / DLC accounting error",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3888"
+      },
+      {
+        "number" : 3882,
+        "title" : "Get benchmarks for our library for ecdsa adaptor signatures",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3882"
+      },
+      {
+        "number" : 3879,
+        "title" : "Add ability to modify akka configuration settings from `bitcoin-s.conf`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3879"
+      },
+      {
+        "number" : 3878,
+        "title" : "`lndRpcTest` hangs on mac ",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3878"
+      },
+      {
+        "number" : 3873,
+        "title" : "Add `lockedCapital` to `getdlcwalletaccounting`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3873"
+      },
+      {
+        "number" : 3871,
+        "title" : "Memory leak occuring on wallet after rescan",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3871"
+      },
+      {
+        "number" : 3868,
+        "title" : "Wallet not accruately tracking utxos",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3868"
+      },
+      {
+        "number" : 3865,
+        "title" : "Offers can blow up in size when wallet is spammed with dust",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3865"
+      },
+      {
+        "number" : 3864,
+        "title" : "Failed to broadcast DLC funding tx",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3864"
+      },
+      {
+        "number" : 3853,
+        "title" : "Implement `bitcoin-s.keymanager.fail-if-no-seed`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3853"
+      },
+      {
+        "number" : 3850,
+        "title" : "Optimize `ContractInfo.findOutcome()`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3850"
+      },
+      {
+        "number" : 3846,
+        "title" : "Accepting an offer multiple times has issues",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3846"
+      },
+      {
+        "number" : 3842,
+        "title" : "Unconfirmed balance not being calculated correctly on my wallet",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3842"
+      },
+      {
+        "number" : 3820,
+        "title" : "Implement rounding intervals on `createcontractinfo`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3820"
+      },
+      {
+        "number" : 3814,
+        "title" : "Tor checkbox doesn't work on GUI",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3814"
+      },
+      {
+        "number" : 3812,
+        "title" : "Having issue rebroadcasting DLC funding tx",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3812"
+      },
+      {
+        "number" : 3808,
+        "title" : "Add numDigits to json return for `getannouncements`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3808"
+      },
+      {
+        "number" : 3806,
+        "title" : "Schnorr sig implementation diverges from the BIP340 standard",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3806"
+      },
+      {
+        "number" : 3804,
+        "title" : "WalletRoutes createdlcoffer is in sats, should sendtoaddress units be in sats?",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3804"
+      },
+      {
+        "number" : 3767,
+        "title" : "C lightning test cases extremely slow",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3767"
+      },
+      {
+        "number" : 3714,
+        "title" : "`acceptdlc` doesn't return anything",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3714"
+      },
+      {
+        "number" : 3706,
+        "title" : "OracleServer does not accept control-C to quit second time on MacOS",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3706"
+      },
+      {
+        "number" : 3661,
+        "title" : "Socks5Connection unreliable, fails with `General Failure`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3661"
+      },
+      {
+        "number" : 3659,
+        "title" : "Add ability to fetch offer again from GUI",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3659"
+      },
+      {
+        "number" : 3651,
+        "title" : "bitcoind height less than chain module's height on test cases",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3651"
+      },
+      {
+        "number" : 3635,
+        "title" : "Failed to parse/validate config: Unknown option 'file'.  Failing. on CI",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3635"
+      },
+      {
+        "number" : 3632,
+        "title" : "Entire wallet balance gets moved to reserved",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3632"
+      },
+      {
+        "number" : 3622,
+        "title" : "NeutrinoNodeWithWalletTest receive information about received payments condition1 not being satisfied",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3622"
+      },
+      {
+        "number" : 3621,
+        "title" : "`Wallet.clearUtxosAndAddresses` can lead to [SQLITE_CONSTRAINT_FOREIGNKEY]",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3621"
+      },
+      {
+        "number" : 3619,
+        "title" : "requirement failed: We cannot have a PeerMessageReceiverState.Normal if the Peer is not initialized",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3619"
+      },
+      {
+        "number" : 3603,
+        "title" : "Users cannot access Help menu for version information or logs on landing page",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3603"
+      },
+      {
+        "number" : 3602,
+        "title" : "User cannot authenticate with their locally running bitcoin core instance",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3602"
+      },
+      {
+        "number" : 3594,
+        "title" : "Windows wallets has weird behavior with external drives",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3594"
+      },
+      {
+        "number" : 3593,
+        "title" : "Windows user reports invalid zip produced by wallet backup",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3593"
+      },
+      {
+        "number" : 3592,
+        "title" : "Windows user reports windows builds are not signed and do not have a valid license",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3592"
+      },
+      {
+        "number" : 3588,
+        "title" : "NeutrinoNodeWithWalletTest is constantly failing on CI",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3588"
+      },
+      {
+        "number" : 3548,
+        "title" : "Windows user reports error when trying to update binaries via windows installers",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3548"
+      },
+      {
+        "number" : 3544,
+        "title" : "Add Refund button to DLC View",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3544"
+      },
+      {
+        "number" : 3529,
+        "title" : "`NeutrinoNodeTest`/`NeutrinoNodeWithWalletTest` timing out on CI again",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3529"
+      },
+      {
+        "number" : 3523,
+        "title" : "testnet logs go to the mainnet logging place when you use `bitcoin-s-bundle.conf` network settings",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3523"
+      },
+      {
+        "number" : 3520,
+        "title" : "Failed to process ln message on broadcast step of DLC",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3520"
+      },
+      {
+        "number" : 3518,
+        "title" : "Tor binary should be written to `.bitcoin-s/binaries/tor/` ",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3518"
+      },
+      {
+        "number" : 3494,
+        "title" : "DLCs are not properly handled when rescanning",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3494"
+      },
+      {
+        "number" : 3480,
+        "title" : "Get rid of nested options in gui",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3480"
+      },
+      {
+        "number" : 3469,
+        "title" : "Implement initalization logic in `DLCNode`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3469"
+      },
+      {
+        "number" : 3468,
+        "title" : "Figure out how to handle unknown messages in `DLCConnectionHandler`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3468"
+      },
+      {
+        "number" : 3467,
+        "title" : "Allow configuring tor cookie",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3467"
+      },
+      {
+        "number" : 3463,
+        "title" : "Cannot use DLC p2p with local bitcoind node connected via p2p",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3463"
+      },
+      {
+        "number" : 3461,
+        "title" : "Display a warning in the GUI if a large number of CETs will be generated by an offer",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3461"
+      },
+      {
+        "number" : 3460,
+        "title" : "Think about how to cancel an offer in p2p dlc client",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3460"
+      },
+      {
+        "number" : 3448,
+        "title" : "Make it apparent when you are trying to accept an offer on a different network",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3448"
+      },
+      {
+        "number" : 3445,
+        "title" : "Corrupted dlc wallet state, wallet thinks it broadcast a tx, but that tx is invalid",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3445"
+      },
+      {
+        "number" : 3444,
+        "title" : "GUI should warn if you are trying to enter into a DLC and your node isn't fully synced",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3444"
+      },
+      {
+        "number" : 3425,
+        "title" : "Add more descriptive messages when you paste messages into the wrong box",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3425"
+      },
+      {
+        "number" : 3417,
+        "title" : "Add `DLCOracle.listPendingEvents()` ",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3417"
+      },
+      {
+        "number" : 3415,
+        "title" : "`DLCOracle.createNewDigitDecompEvent` isn't async safe",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3415"
+      },
+      {
+        "number" : 3412,
+        "title" : "Look into using a makefile to build server, cli, and bundle",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3412"
+      },
+      {
+        "number" : 3408,
+        "title" : "Consider adding a line on preview graph for the collateral you are contributing",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3408"
+      },
+      {
+        "number" : 3405,
+        "title" : "Update bitcoin-s.org/download to have the latest binaries",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3405"
+      },
+      {
+        "number" : 3404,
+        "title" : "`DLCOracle.findByMaturationDate()` ",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3404"
+      },
+      {
+        "number" : 3403,
+        "title" : "Add test cases for `testmempoolaccept` for DLCs ",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3403"
+      },
+      {
+        "number" : 3397,
+        "title" : "Getting disconnected randomly when doing IBD via tor",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3397"
+      },
+      {
+        "number" : 3393,
+        "title" : "Potenital neogation flow for DLCs",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3393"
+      },
+      {
+        "number" : 3374,
+        "title" : "Add labeling to DLCs",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3374"
+      },
+      {
+        "number" : 3372,
+        "title" : "Add indicator that gui is disconnected from backend",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3372"
+      },
+      {
+        "number" : 3366,
+        "title" : "Add function to add together `SchnorrPublicKey`s",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3366"
+      },
+      {
+        "number" : 3363,
+        "title" : "Windows libsecp link errors",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3363"
+      },
+      {
+        "number" : 3343,
+        "title" : "Add documentation on how to DLC generate test vectors",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3343"
+      },
+      {
+        "number" : 3341,
+        "title" : "Automate closing of DLCs",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3341"
+      },
+      {
+        "number" : 3326,
+        "title" : "Cannot resolve new javafx dependencies",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3326"
+      },
+      {
+        "number" : 3320,
+        "title" : "Attempt to rebroadcast txs after starting up your node and sync is finished",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3320"
+      },
+      {
+        "number" : 3312,
+        "title" : "SbExplorerClient ignores return values for createAnnouncement and createAttestations",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3312"
+      },
+      {
+        "number" : 3307,
+        "title" : "Make file reading happen on client side rather than server side",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3307"
+      },
+      {
+        "number" : 3305,
+        "title" : "Tx fails to broadcast when IBD is going on in testnet3",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3305"
+      },
+      {
+        "number" : 3302,
+        "title" : "secp256k1 library not building / available by default",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3302"
+      },
+      {
+        "number" : 3291,
+        "title" : "Add missing LND gRPC Services",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3291"
+      },
+      {
+        "number" : 3283,
+        "title" : "Make bitcoin-s blockfilter & bitcoind backends use the same set of callbacks",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3283"
+      },
+      {
+        "number" : 3267,
+        "title" : "Consider renaming `encrypted-bitcoin-s-seed.json` to something that doesn't include `encrypted`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3267"
+      },
+      {
+        "number" : 3261,
+        "title" : "How should refunded DLCs be accounted for?",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3261"
+      },
+      {
+        "number" : 3258,
+        "title" : "Static DLC modular functions need unit tests",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3258"
+      },
+      {
+        "number" : 3257,
+        "title" : "CETCalculator Algorithms need more testing for newer code",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3257"
+      },
+      {
+        "number" : 3256,
+        "title" : "Numeric, Multi-Oracle, and Disjoint Union integration tests on regtest",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3256"
+      },
+      {
+        "number" : 3255,
+        "title" : "Unit Testing for TxFinalizers",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3255"
+      },
+      {
+        "number" : 3254,
+        "title" : "Get rid of PSBT use in DLC project completely",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3254"
+      },
+      {
+        "number" : 3253,
+        "title" : "Optimize digit prefix/oracle outcome handling using a Trie data structure",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3253"
+      },
+      {
+        "number" : 3252,
+        "title" : "Implement and test off-by-one handling in CET signature validation",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3252"
+      },
+      {
+        "number" : 3251,
+        "title" : "Rename defs and vals inside of CETCalculator code to match most recent specification",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3251"
+      },
+      {
+        "number" : 3235,
+        "title" : "Make dlc wallet accounting account for blockchain fees in PNL",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3235"
+      },
+      {
+        "number" : 3234,
+        "title" : "Figure out way to re-use listDLC() output in the GUI",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3234"
+      },
+      {
+        "number" : 3230,
+        "title" : "Refunds can be dangerous when using in conjunction with contract explorer",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3230"
+      },
+      {
+        "number" : 3201,
+        "title" : "create dlc_accounting table",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3201"
+      },
+      {
+        "number" : 3182,
+        "title" : "Weirdness when DLC funding inputs are unconfirmed at sign time",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3182"
+      },
+      {
+        "number" : 3162,
+        "title" : "Create Safe and Unsafe cancel DLC",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3162"
+      },
+      {
+        "number" : 3139,
+        "title" : "Restructure `Wallet` and `DLCWallet` into separate smaller pieces",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3139"
+      },
+      {
+        "number" : 3133,
+        "title" : "Can you construct a tlv from OracleAnnouncementDataDb",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3133"
+      },
+      {
+        "number" : 3123,
+        "title" : "Secp256k1Context Incorrectly Used",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3123"
+      },
+      {
+        "number" : 3119,
+        "title" : "Make database calls large transactions in `DLCWallet`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3119"
+      },
+      {
+        "number" : 3073,
+        "title" : "generate the same (low R) signatures as bitcoin-s test case failed",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3073"
+      },
+      {
+        "number" : 3072,
+        "title" : "CoreTest is being published",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3072"
+      },
+      {
+        "number" : 3056,
+        "title" : "Divergent xpubs in SegwitWalletTest",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3056"
+      },
+      {
+        "number" : 3052,
+        "title" : "graalvm 11 does not work on m1 with native lib loader libsecp256k1",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3052"
+      },
+      {
+        "number" : 3040,
+        "title" : "Review rescan defaults and improve documentation",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3040"
+      },
+      {
+        "number" : 3024,
+        "title" : "Thread starvation or clock leap detected",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3024"
+      },
+      {
+        "number" : 3023,
+        "title" : "app commons test missing skip publish",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3023"
+      },
+      {
+        "number" : 3004,
+        "title" : "CI hanging forever on mac Mac 2.13 Wallet, Node, and DLC tests",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3004"
+      },
+      {
+        "number" : 3000,
+        "title" : "Filter headers not syncing in tests sometimes",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/3000"
+      },
+      {
+        "number" : 2993,
+        "title" : "Text malformed when making an offer on GUI",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2993"
+      },
+      {
+        "number" : 2989,
+        "title" : "Have wallet rescan use new akka stream sync logic",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2989"
+      },
+      {
+        "number" : 2981,
+        "title" : "ScanBitcoind fails with waiting for response entity subscription",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2981"
+      },
+      {
+        "number" : 2979,
+        "title" : "`ChainHandlerCached` not used in `Node`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2979"
+      },
+      {
+        "number" : 2977,
+        "title" : "Add ability to fetch headers, filters, etc from peers concurrently",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2977"
+      },
+      {
+        "number" : 2954,
+        "title" : "Add ability to retrieve a redeem script from RPC",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2954"
+      },
+      {
+        "number" : 2951,
+        "title" : "GetBlockFilterResult data structure is incorrect",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2951"
+      },
+      {
+        "number" : 2947,
+        "title" : "Separatet ScriptInterpreter from well-typed Script",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2947"
+      },
+      {
+        "number" : 2924,
+        "title" : "Create Export Wallet option in GUI",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2924"
+      },
+      {
+        "number" : 2909,
+        "title" : "Show Oracle Event Id after pasting oracle announcement in offer dialog",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2909"
+      },
+      {
+        "number" : 2906,
+        "title" : "Rename bitcoind-rpc.rpcbind to bitcoind-rpc.rpcconnect",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2906"
+      },
+      {
+        "number" : 2904,
+        "title" : "[info] java.security.InvalidKeyException: Illegal key size",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2904"
+      },
+      {
+        "number" : 2891,
+        "title" : "Support cookie authentication when using bitcoind as a backend",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2891"
+      },
+      {
+        "number" : 2889,
+        "title" : "git clone might not work out of the box",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2889"
+      },
+      {
+        "number" : 2871,
+        "title" : "Compiling lnd rpc in intellij does not work",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2871"
+      },
+      {
+        "number" : 2870,
+        "title" : "Get address queue running on the wallet scheduler rather than it's own thread",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2870"
+      },
+      {
+        "number" : 2865,
+        "title" : "Add tests for parsing `LndConfig`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2865"
+      },
+      {
+        "number" : 2863,
+        "title" : "Updating docusaurus to v2",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2863"
+      },
+      {
+        "number" : 2844,
+        "title" : "Common LnApi across eclair & lnd",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2844"
+      },
+      {
+        "number" : 2839,
+        "title" : "Javascript environment doesn't support sign with low r",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2839"
+      },
+      {
+        "number" : 2816,
+        "title" : "Server side http version not supported",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2816"
+      },
+      {
+        "number" : 2807,
+        "title" : "Lock/unlock wallet test can run forever",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2807"
+      },
+      {
+        "number" : 2806,
+        "title" : "cryptoTestJS/test gives a bunch of NPM warnings on master",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2806"
+      },
+      {
+        "number" : 2801,
+        "title" : "Parallelization of TransactionProcessing causes errors on postgres",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2801"
+      },
+      {
+        "number" : 2795,
+        "title" : "NeutrinoNodeTest's don't actually test full sync",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2795"
+      },
+      {
+        "number" : 2786,
+        "title" : "Look into CVE-2020-26895",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2786"
+      },
+      {
+        "number" : 2782,
+        "title" : "ScriptGenerators causing timeouts on CI during NetworkPayloadTest",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2782"
+      },
+      {
+        "number" : 2765,
+        "title" : "Investigate code coverage tooling for scala-js",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2765"
+      },
+      {
+        "number" : 2762,
+        "title" : "Investigate QR code support for oracle announcements & attestations",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2762"
+      },
+      {
+        "number" : 2747,
+        "title" : "Increase cli timeout on dlc branch",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2747"
+      },
+      {
+        "number" : 2746,
+        "title" : "JSON serialization Incorrect on DLC branch",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2746"
+      },
+      {
+        "number" : 2741,
+        "title" : "Investigate scalajs modifiers with mdoc",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2741"
+      },
+      {
+        "number" : 2738,
+        "title" : "Running server for the first time in a while, lots of failures",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2738"
+      },
+      {
+        "number" : 2710,
+        "title" : "Add docs saying how to backup oracle db",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2710"
+      },
+      {
+        "number" : 2700,
+        "title" : "EclairRpcClientTest failed to bind port",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2700"
+      },
+      {
+        "number" : 2680,
+        "title" : "Investigate mariadb support",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2680"
+      },
+      {
+        "number" : 2678,
+        "title" : "Private key backups & restoration documentation for docker",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2678"
+      },
+      {
+        "number" : 2650,
+        "title" : "Complete docker compose for regtest setup with bitcoin-s",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2650"
+      },
+      {
+        "number" : 2649,
+        "title" : "Create some high level overview of binaries that bitcoin-s produces",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2649"
+      },
+      {
+        "number" : 2648,
+        "title" : "Consier renaming bitcoin-s-server to something more descriptive",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2648"
+      },
+      {
+        "number" : 2613,
+        "title" : "DLC Pull-Down Related Tests",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2613"
+      },
+      {
+        "number" : 2611,
+        "title" : "Consider prefacing schema names with the network it is associated with on postgres",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2611"
+      },
+      {
+        "number" : 2608,
+        "title" : "Dependabot security alerts for docusaraus deps immer & highlight",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2608"
+      },
+      {
+        "number" : 2596,
+        "title" : "Wallet.processBlock() takes longer than 30 seconds to complete on rescans on mainnet",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2596"
+      },
+      {
+        "number" : 2590,
+        "title" : "BlockMessage during IBD causes errors to be thrown",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2590"
+      },
+      {
+        "number" : 2563,
+        "title" : "Make all our major classes (Wallet, ChainHandler, KeyManager etc) have options to do `.fromDefaultDatadir()`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2563"
+      },
+      {
+        "number" : 2553,
+        "title" : "Make trait to share server configurations across projects like rpc port, rpc bind etc",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2553"
+      },
+      {
+        "number" : 2530,
+        "title" : "Consider adding bitcoin-s-cli examples to docs",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2530"
+      },
+      {
+        "number" : 2506,
+        "title" : "Native image build for appServer",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2506"
+      },
+      {
+        "number" : 2502,
+        "title" : "Add amount checks ot the DLC wallet to make sure DLCs aren't too big",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2502"
+      },
+      {
+        "number" : 2485,
+        "title" : "AddressHandlingTest  fail with an illegal state exception if the queue is full failing on CI",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2485"
+      },
+      {
+        "number" : 2484,
+        "title" : "RescanHandlingTest must be able to discover funds using multiple batches failing on CI intermittently ",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2484"
+      },
+      {
+        "number" : 2481,
+        "title" : "Create download page for snapshots ",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2481"
+      },
+      {
+        "number" : 2477,
+        "title" : "Consider removing `logger` parameter from callbacks now that we have sane logging",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2477"
+      },
+      {
+        "number" : 2472,
+        "title" : "Wallet.processBlock() should check that we are processing the next block relative to our `getSyncHeight()`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2472"
+      },
+      {
+        "number" : 2445,
+        "title" : "bitcoind's seem to not be cached on CI runs on github actions",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2445"
+      },
+      {
+        "number" : 2387,
+        "title" : "DataMessageHandlerTest fails after 5 minutes (!) TcpIdleTimeoutException",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2387"
+      },
+      {
+        "number" : 2371,
+        "title" : "bitcoin-s server runs database migrations twice on startup",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2371"
+      },
+      {
+        "number" : 2369,
+        "title" : "`OutcomeValueFunctionTest` fails on CI sometimes",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2369"
+      },
+      {
+        "number" : 2368,
+        "title" : "Add multi wallet documentation",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2368"
+      },
+      {
+        "number" : 2363,
+        "title" : "Have `KeyManagerAppConfig` handle creation of new seeds",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2363"
+      },
+      {
+        "number" : 2360,
+        "title" : "Reduce number of logback threads",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2360"
+      },
+      {
+        "number" : 2352,
+        "title" : "BIP39LockedKeyManagerApiTest fail to read bad json in the seed file",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2352"
+      },
+      {
+        "number" : 2351,
+        "title" : "Raise `KeyManager`'s `coverageMinimum` back to 90%",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2351"
+      },
+      {
+        "number" : 2335,
+        "title" : "Enable skipping CI jobs when commit message starts with special strings",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2335"
+      },
+      {
+        "number" : 2329,
+        "title" : "New flywayway configuration warnings for dlcOracle",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2329"
+      },
+      {
+        "number" : 2311,
+        "title" : "Add way to validate correct oracle announcement when using `AcceptDLCOfferFromFile`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2311"
+      },
+      {
+        "number" : 2303,
+        "title" : "SignTest NPE",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2303"
+      },
+      {
+        "number" : 2297,
+        "title" : "Spice up README for bitcoin-s landing page",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2297"
+      },
+      {
+        "number" : 2295,
+        "title" : "Scala 2.13.4 '-Xlint:strict-unsealed-patmat' compiler flag",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2295"
+      },
+      {
+        "number" : 2280,
+        "title" : "Validate Received Blocks and Transactions",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2280"
+      },
+      {
+        "number" : 2274,
+        "title" : "gpg-agent is not available in this session error",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2274"
+      },
+      {
+        "number" : 2273,
+        "title" : "Multinonce DLC Optimizations and changes needed",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2273"
+      },
+      {
+        "number" : 2263,
+        "title" : "Handle block mined on the network correctly during IBD",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2263"
+      },
+      {
+        "number" : 2248,
+        "title" : "Create `HDPath.fromBip32Path`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2248"
+      },
+      {
+        "number" : 2216,
+        "title" : "Backwards Witness Stacks",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2216"
+      },
+      {
+        "number" : 2211,
+        "title" : "Make AppConfigFactory.fromClasspathConfig() take in a custom config",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2211"
+      },
+      {
+        "number" : 2200,
+        "title" : "Get rid of null usage in ConsoleCli",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2200"
+      },
+      {
+        "number" : 2179,
+        "title" : "Wallet Reorg Handling",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2179"
+      },
+      {
+        "number" : 2161,
+        "title" : "Add CI row to actually build and run binaries",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2161"
+      },
+      {
+        "number" : 2154,
+        "title" : "Mac CI is either really slow or can't manage an ExecutionContext",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2154"
+      },
+      {
+        "number" : 2123,
+        "title" : "Bitcoind Wallet Backend for DLCs",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2123"
+      },
+      {
+        "number" : 2111,
+        "title" : "Reevaluate bitcoind being considered a `NodeType`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2111"
+      },
+      {
+        "number" : 2107,
+        "title" : "Make sure database configuration in DLCOracleAppConfig has numThreads=1",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2107"
+      },
+      {
+        "number" : 2089,
+        "title" : "sbt publishLocal does not work",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2089"
+      },
+      {
+        "number" : 2075,
+        "title" : "Create Esplora API module",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2075"
+      },
+      {
+        "number" : 2037,
+        "title" : "Consider creating StringFactoryJson interface",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2037"
+      },
+      {
+        "number" : 2022,
+        "title" : "Db config uses network string for db location",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/2022"
+      },
+      {
+        "number" : 1983,
+        "title" : "DLC offer selecting outpoint that has already been spent",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1983"
+      },
+      {
+        "number" : 1974,
+        "title" : "./bitcoin-s-bundle --datadir not working",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1974"
+      },
+      {
+        "number" : 1939,
+        "title" : "Have bundle parse `BitcoinSAppConfig` for both gui and server",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1939"
+      },
+      {
+        "number" : 1923,
+        "title" : "Implement peer discovery",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1923"
+      },
+      {
+        "number" : 1920,
+        "title" : "BitcoindV18RpcClientTest Failure on CI",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1920"
+      },
+      {
+        "number" : 1889,
+        "title" : "EclairRpcTest timeout be able to generate an invoice with amount and pay it and close the channel ",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1889"
+      },
+      {
+        "number" : 1880,
+        "title" : "TipValidation does not validate the `time` of the `BlockHeader`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1880"
+      },
+      {
+        "number" : 1871,
+        "title" : "Check scalatest fixture destruction code for resource leaks",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1871"
+      },
+      {
+        "number" : 1870,
+        "title" : "CI Failure on SignerTest",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1870"
+      },
+      {
+        "number" : 1863,
+        "title" : "AesEncrypt must fails to decrypt with wrong key test case failure",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1863"
+      },
+      {
+        "number" : 1853,
+        "title" : "Set default transaction isolation level to Serialized.",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1853"
+      },
+      {
+        "number" : 1841,
+        "title" : "GTK vs ScalaFX, which library to use for the GUI?",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1841"
+      },
+      {
+        "number" : 1822,
+        "title" : "Implement getpeers",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1822"
+      },
+      {
+        "number" : 1820,
+        "title" : "Discrepancy in block header count and filter header/filter count on node startup",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1820"
+      },
+      {
+        "number" : 1806,
+        "title" : "Future timed out P2PClient after 1000 seconds",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1806"
+      },
+      {
+        "number" : 1796,
+        "title" : "./bitcoin-s-cli stop gives connection refused when it's really shutdown the server",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1796"
+      },
+      {
+        "number" : 1781,
+        "title" : "Format bitcoin-s-cli help message better",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1781"
+      },
+      {
+        "number" : 1766,
+        "title" : "NullPointerException in SignerTest",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1766"
+      },
+      {
+        "number" : 1764,
+        "title" : "Redesign the Neutrino mode",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1764"
+      },
+      {
+        "number" : 1760,
+        "title" : "Adding eclair directly into bitcoin-s",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1760"
+      },
+      {
+        "number" : 1759,
+        "title" : "Figure out the proper way to handle deep reorgs",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1759"
+      },
+      {
+        "number" : 1756,
+        "title" : "Reproducible builds",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1756"
+      },
+      {
+        "number" : 1752,
+        "title" : "Add abillity to remove callback",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1752"
+      },
+      {
+        "number" : 1731,
+        "title" : "Only download and store filters starting from wallet creation time",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1731"
+      },
+      {
+        "number" : 1696,
+        "title" : "scala.concurrent.Future behavior between Scala 2.13 and Scala 2.12",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1696"
+      },
+      {
+        "number" : 1650,
+        "title" : "Implement Branch and Bound `CoinSelectionAlgo`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1650"
+      },
+      {
+        "number" : 1647,
+        "title" : "BIP 21 Support",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1647"
+      },
+      {
+        "number" : 1623,
+        "title" : "Using auto-inc Id as our primary way to find & update rows causes problems",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1623"
+      },
+      {
+        "number" : 1610,
+        "title" : "Moving to microPickle",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1610"
+      },
+      {
+        "number" : 1597,
+        "title" : "Merkle Buffers CI Failure",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1597"
+      },
+      {
+        "number" : 1586,
+        "title" : "Using `updateAll` on a `CRUDAutoInc` table causes a constraint violation",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1586"
+      },
+      {
+        "number" : 1581,
+        "title" : "org.postgresql.util.PSQLException: The connection attempt failed ",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1581"
+      },
+      {
+        "number" : 1557,
+        "title" : "A wallet account doesn't know what master private key owns it",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1557"
+      },
+      {
+        "number" : 1513,
+        "title" : "Better disconnection handling in P2PClient.scala",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1513"
+      },
+      {
+        "number" : 1502,
+        "title" : "Postgres duplicate key block hash error",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1502"
+      },
+      {
+        "number" : 1497,
+        "title" : "Rework NodeApi.downloadBlocks()",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1497"
+      },
+      {
+        "number" : 1491,
+        "title" : "WalletRpcTest import address fails on CI",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1491"
+      },
+      {
+        "number" : 1480,
+        "title" : "Decide how/if to handle witness data in `RawTxBuilder` and `RawTxFinalizer`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1480"
+      },
+      {
+        "number" : 1467,
+        "title" : "libsecp256k1 linking error when bitcoin-s used in a library with that also uses a libsecp256k1 binary",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1467"
+      },
+      {
+        "number" : 1443,
+        "title" : "Native secp256k1 ec_pubkey_decompress bottleneck",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1443"
+      },
+      {
+        "number" : 1442,
+        "title" : "Remove try/catch from Transaction parsing entirely",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1442"
+      },
+      {
+        "number" : 1441,
+        "title" : "Create OP_RETURN ScriptPubKey type",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1441"
+      },
+      {
+        "number" : 1403,
+        "title" : "GUI doesn't work with java 8",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1403"
+      },
+      {
+        "number" : 1392,
+        "title" : "Supress native-lib-loader output when using `bitcoin-s-cli`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1392"
+      },
+      {
+        "number" : 1390,
+        "title" : "Make `bitcoin-s-cli` take a --datadir argument similar to bitcoin-cli",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1390"
+      },
+      {
+        "number" : 1388,
+        "title" : "Remove RawBitcoinSerializer interface",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1388"
+      },
+      {
+        "number" : 1362,
+        "title" : "Payjoin Support",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1362"
+      },
+      {
+        "number" : 1358,
+        "title" : "Validating sent transactions have been accepted",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1358"
+      },
+      {
+        "number" : 1345,
+        "title" : "Add console tab to wallet GUI",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1345"
+      },
+      {
+        "number" : 1339,
+        "title" : "Reproducibility of property based test cases",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1339"
+      },
+      {
+        "number" : 1336,
+        "title" : "failing seed for BlockSpec.Serialization symmetry is Z9FEps8EUoA4dmMWzUGc5ePsYAxgxwE6KvjQJMoKUpJ=",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1336"
+      },
+      {
+        "number" : 1311,
+        "title" : "JNI binding potential memory issue",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1311"
+      },
+      {
+        "number" : 1278,
+        "title" : "Out of memory error when syncing node on mainnet",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1278"
+      },
+      {
+        "number" : 1258,
+        "title" : "How to do wallet architecture?",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1258"
+      },
+      {
+        "number" : 1235,
+        "title" : "ConditionalScriptSignature numberformat exception thrown on property based test",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1235"
+      },
+      {
+        "number" : 1215,
+        "title" : "Add helper methods for comparing endianess hashes correctly",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1215"
+      },
+      {
+        "number" : 1194,
+        "title" : "secp256k1-jni decompress not found linking error in cli native image",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1194"
+      },
+      {
+        "number" : 1191,
+        "title" : "Implement mempool for node project",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1191"
+      },
+      {
+        "number" : 1185,
+        "title" : "Add the auto-incrementing id to slick representations of database items",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1185"
+      },
+      {
+        "number" : 1168,
+        "title" : "bitcoind binary not downloaded for mac osx ",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1168"
+      },
+      {
+        "number" : 1166,
+        "title" : "The `try-bitcoin-s.sh` script fails to find java for versions 11+",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1166"
+      },
+      {
+        "number" : 1162,
+        "title" : "coveralls only publishing coverage report for the last thing run in the CI matrix",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1162"
+      },
+      {
+        "number" : 1154,
+        "title" : "Create `ArityOneRead` to simplify `CliReaders`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1154"
+      },
+      {
+        "number" : 1152,
+        "title" : "Replacing server-side json handling with play JSON",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1152"
+      },
+      {
+        "number" : 1137,
+        "title" : "Implement `apply` and `unapply` functions for all the `XTable.scala` files",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1137"
+      },
+      {
+        "number" : 1125,
+        "title" : "NetworkPayloadTest \"must parse messages based on its command name\"",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1125"
+      },
+      {
+        "number" : 1113,
+        "title" : "Implement Advanced Coin Selection",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1113"
+      },
+      {
+        "number" : 1104,
+        "title" : "Building `bitcoin-s-cli` 2.13.1 fails because of `Cli.scala` implementation",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1104"
+      },
+      {
+        "number" : 1100,
+        "title" : "Graalvm native image cli  java.lang.NoClassDefFoundError: Lorg/codehaus/janino/ScriptEvaluator;",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1100"
+      },
+      {
+        "number" : 1098,
+        "title" : "Generating many blocks on regtest bitcoind node peered with neutrino corrupts chaindb",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1098"
+      },
+      {
+        "number" : 1091,
+        "title" : "Graalvm native image problems with static initialization in `NativeScp256k1`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1091"
+      },
+      {
+        "number" : 1085,
+        "title" : "Fix the need for `--allow-incomplete-classpath` in `cli.sbt`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1085"
+      },
+      {
+        "number" : 1071,
+        "title" : "Give documentation website a dark mode",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1071"
+      },
+      {
+        "number" : 1015,
+        "title" : "Add documentation on how accounts work in the wallet",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1015"
+      },
+      {
+        "number" : 1005,
+        "title" : "Invariant for not reusing keys across cases in ConditionalScriptPubKey ",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1005"
+      },
+      {
+        "number" : 1000,
+        "title" : "Neutrino rescan logic works only with the default address type",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/1000"
+      },
+      {
+        "number" : 999,
+        "title" : "Wallet removes all data from the database before rescan",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/999"
+      },
+      {
+        "number" : 991,
+        "title" : "TransactionSignatureCreatorSpec.spendableCSV property test fails",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/991"
+      },
+      {
+        "number" : 972,
+        "title" : "Implement proper password handling in the key-manager",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/972"
+      },
+      {
+        "number" : 947,
+        "title" : "SPV node does not maintain confirmation numbers",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/947"
+      },
+      {
+        "number" : 942,
+        "title" : "WalletIntegrationTest assert exact amount of satoshis left in wallet",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/942"
+      },
+      {
+        "number" : 921,
+        "title" : "Allow specifying default nLockTime in TxBuilder",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/921"
+      },
+      {
+        "number" : 912,
+        "title" : "bitcoin-s-cli help command doesn't work",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/912"
+      },
+      {
+        "number" : 911,
+        "title" : "cli graalvm native image doesn't work scalac 2.13.x",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/911"
+      },
+      {
+        "number" : 893,
+        "title" : "BitcoinTxBuilderSpec failure",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/893"
+      },
+      {
+        "number" : 890,
+        "title" : "Two threads have apparently attempted to run a suite at the same time. This has resulted in both threads attempting to concurrently change the current Informer.",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/890"
+      },
+      {
+        "number" : 856,
+        "title" : "Write unit test to test eclair rpc backup functionality:",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/856"
+      },
+      {
+        "number" : 850,
+        "title" : "TxBuilder.calcLockTime is incomplete",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/850"
+      },
+      {
+        "number" : 825,
+        "title" : "Benchmark GCS hash matching",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/825"
+      },
+      {
+        "number" : 774,
+        "title" : "NeutrinoNode.stay in sync with a bitcoind instance",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/774"
+      },
+      {
+        "number" : 769,
+        "title" : "Refactor old test cases to use `BitcoinSAsyncTest`, `BitcoinSAsyncFixtureTest`, and `BitcoinSUnitTest`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/769"
+      },
+      {
+        "number" : 758,
+        "title" : "Make `ErroredExecutedScriptProgram` type instead of using `Option` in `ExecutedScriptProgram`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/758"
+      },
+      {
+        "number" : 739,
+        "title" : "Could not get rpc client uptime",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/739"
+      },
+      {
+        "number" : 717,
+        "title" : "DoubleSha256Digest and private case class DoubleSha256DigestImpl pattern still causes allocations",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/717"
+      },
+      {
+        "number" : 716,
+        "title" : "Investigate changing the trait `Blockchain` extends in scala 2.11 and 2.12 from `IndexedSeqLike` -> `IndexedSeq`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/716"
+      },
+      {
+        "number" : 702,
+        "title" : "client1.getDaemon.datadir.exists() was true (TestRpcUtilTest.scala:147)",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/702"
+      },
+      {
+        "number" : 696,
+        "title" : "Scalameter jdk11 Cannot recognize classloader (not URLClassLoader): jdk.internal.loader.ClassLoaders$AppClassLoader@4b85612c",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/696"
+      },
+      {
+        "number" : 678,
+        "title" : "Create a `destroyAppConfig()` that removes the appropriate files for app config",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/678"
+      },
+      {
+        "number" : 674,
+        "title" : "Remove support for bitcoind v16",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/674"
+      },
+      {
+        "number" : 672,
+        "title" : "Get rid of hard Await.result() in P2PClient message processing",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/672"
+      },
+      {
+        "number" : 671,
+        "title" : "Use .recoverWith when processing parsed p2p messages in P2PClient",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/671"
+      },
+      {
+        "number" : 669,
+        "title" : "Remove duplicate methods from CompactSizeUInt comp. object",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/669"
+      },
+      {
+        "number" : 667,
+        "title" : "Update BloomFilter API to return the elements that needs to be inserted into the filter",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/667"
+      },
+      {
+        "number" : 653,
+        "title" : "Benchmark TipValidation",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/653"
+      },
+      {
+        "number" : 650,
+        "title" : "Compile eclair with graalvm native image to speed up test process",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/650"
+      },
+      {
+        "number" : 648,
+        "title" : "Avoid using exceptions as control flow in parseIndividualMessages",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/648"
+      },
+      {
+        "number" : 646,
+        "title" : "Add `Option[BitcoindInstance]` to EclairInstance",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/646"
+      },
+      {
+        "number" : 635,
+        "title" : "Evicted dependency warnings",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/635"
+      },
+      {
+        "number" : 589,
+        "title" : "Consider replacing akka-http with sttp",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/589"
+      },
+      {
+        "number" : 583,
+        "title" : "Remove chain app config from SPV node",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/583"
+      },
+      {
+        "number" : 582,
+        "title" : "Think about transactionality of wallet operations",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/582"
+      },
+      {
+        "number" : 570,
+        "title" : "akka.stream.StreamTcpException: The connection closed with error: Connection reset by peer",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/570"
+      },
+      {
+        "number" : 530,
+        "title" : "MVP node + wallet",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/530"
+      },
+      {
+        "number" : 529,
+        "title" : "Create a type for Merkle Roots",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/529"
+      },
+      {
+        "number" : 528,
+        "title" : "Protect against large inputs to GCS.toUnary",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/528"
+      },
+      {
+        "number" : 526,
+        "title" : "Bloom filter creation is too lax when filtering script constants",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/526"
+      },
+      {
+        "number" : 523,
+        "title" : "Efficient GolombFilter.matchesHash",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/523"
+      },
+      {
+        "number" : 500,
+        "title" : "Figure out how to handle configuration changes while the wallet/node is active",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/500"
+      },
+      {
+        "number" : 482,
+        "title" : "Make PeerMessageReceiverState better",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/482"
+      },
+      {
+        "number" : 480,
+        "title" : "Validate config before proceeding with DB creation etc",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/480"
+      },
+      {
+        "number" : 469,
+        "title" : "Fix utest being included in generated Scaladocs",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/469"
+      },
+      {
+        "number" : 461,
+        "title" : "Implement wrapper for xpriv/xpubs and BIP32 paths",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/461"
+      },
+      {
+        "number" : 455,
+        "title" : "Require third party datasource eventually converges with our current tips",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/455"
+      },
+      {
+        "number" : 454,
+        "title" : "GetBlockHeaderHashFunc & GetBestBlockHeaderFunc traits",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/454"
+      },
+      {
+        "number" : 453,
+        "title" : "Add more complex test cases like reorgs for ChainSync",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/453"
+      },
+      {
+        "number" : 451,
+        "title" : "Investigate using Value classes for sub types of `NumberType`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/451"
+      },
+      {
+        "number" : 441,
+        "title" : "Consider separating tests into fast/slow suites",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/441"
+      },
+      {
+        "number" : 426,
+        "title" : "Bitcoin Core RPC client should throw if something bad happens during startup",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/426"
+      },
+      {
+        "number" : 422,
+        "title" : "Duplicate projects on `$bloop project --verbose`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/422"
+      },
+      {
+        "number" : 418,
+        "title" : "Investigate how mnemonic/xpriv imports work",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/418"
+      },
+      {
+        "number" : 415,
+        "title" : "Enable rpcconect option in BitcoindInstance",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/415"
+      },
+      {
+        "number" : 414,
+        "title" : "Create `MnemonicCode.freshNBitCode()` ",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/414"
+      },
+      {
+        "number" : 402,
+        "title" : "Refactor ZMQSubscriber start and stop methods to return Futures",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/402"
+      },
+      {
+        "number" : 399,
+        "title" : "Add bech32 address length invariants",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/399"
+      },
+      {
+        "number" : 387,
+        "title" : "Create a `UInt256` type",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/387"
+      },
+      {
+        "number" : 386,
+        "title" : "Add HW wallet support",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/386"
+      },
+      {
+        "number" : 363,
+        "title" : "Rethink address ADT",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/363"
+      },
+      {
+        "number" : 358,
+        "title" : "Create a String algebraic datatype in bitcoin-s",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/358"
+      },
+      {
+        "number" : 347,
+        "title" : "Occasional off by one error in EclairRpcTests",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/347"
+      },
+      {
+        "number" : 332,
+        "title" : "EclairTestutil.shutdown and EclairRpcClient.stop() need work",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/332"
+      },
+      {
+        "number" : 331,
+        "title" : "Add abillity to target java 7 for android",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/331"
+      },
+      {
+        "number" : 294,
+        "title" : "Sigops arent counted correctly",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/294"
+      },
+      {
+        "number" : 291,
+        "title" : "Investigate Netty usage in RPC and Eclair RPC projects",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/291"
+      },
+      {
+        "number" : 288,
+        "title" : "Scalatest doesn't invoke `RpcRetryException.printStackTrace`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/288"
+      },
+      {
+        "number" : 283,
+        "title" : "Fix scaladoc warnings",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/283"
+      },
+      {
+        "number" : 275,
+        "title" : "ScriptNumber apply constructor throws an exception",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/275"
+      },
+      {
+        "number" : 261,
+        "title" : "Replace `.size` with `.length` on arrays and strings ",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/261"
+      },
+      {
+        "number" : 208,
+        "title" : "require P2WPKHWitnessV0 and P2WSHWitnessV0 to be only passed compressed public keys",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/208"
+      },
+      {
+        "number" : 185,
+        "title" : "Create a ScriptBuilder for custom scripts",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/185"
+      },
+      {
+        "number" : 180,
+        "title" : "Support HTLC ScriptPubKey and ScriptSignature types in bitcoin-s",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/180"
+      },
+      {
+        "number" : 178,
+        "title" : "Validate buffer size in ScriptFactory.fromBytes",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/178"
+      },
+      {
+        "number" : 174,
+        "title" : "Coverage report broken",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/174"
+      },
+      {
+        "number" : 111,
+        "title" : "ScriptParser serialization symmetry",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/111"
+      },
+      {
+        "number" : 104,
+        "title" : "Create `isValid` in `ScriptFactory`",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/104"
+      },
+      {
+        "number" : 103,
+        "title" : "Transaction De-Serialization Efficiency",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/103"
+      },
+      {
+        "number" : 94,
+        "title" : "Optimize parsing of scripts to tail recursive functions",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/94"
+      },
+      {
+        "number" : 85,
+        "title" : "Consensus compatibility with ONLY mandatory script flags set",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/85"
+      },
+      {
+        "number" : 70,
+        "title" : "Refactoring codebase to avoid throwing exceptions",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/70"
+      },
+      {
+        "number" : 68,
+        "title" : "Refactoring ScriptProgram companion object",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/68"
+      },
+      {
+        "number" : 63,
+        "title" : "Remove `oldVerify` function for verifying digital signatures",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/63"
+      },
+      {
+        "number" : 59,
+        "title" : "Block Serialization Symmetry Failure",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/59"
+      },
+      {
+        "number" : 53,
+        "title" : "Redundant flags definition inside of ScriptProgram and TransactionSignatureComponent",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/53"
+      },
+      {
+        "number" : 49,
+        "title" : "Eliminating TransactionSignatureCheckerResult",
+        "url" : "https://github.com/bitcoin-s/bitcoin-s/issues/49"
+      }
+    ]
+  },
+  "settings" : {
+    "defaultStableVersion" : true,
+    "defaultArtifact" : "bitcoin-s-core",
+    "strictVersions" : false,
+    "customScalaDoc" : null,
+    "documentationLinks" : [
+    ],
+    "deprecated" : false,
+    "contributorsWanted" : true,
+    "artifactDeprecations" : [
+    ],
+    "cliArtifacts" : [
+    ],
+    "category" : "economy-finance-and-cryptocurrencies",
+    "beginnerIssuesLabel" : "help wanted"
+  }
+}
