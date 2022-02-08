@@ -4,7 +4,7 @@
   "creationDate" : 1476409819028,
   "githubStatus" : {
     "Ok" : {
-      "updateDate" : 1643170375527
+      "updateDate" : 1644304716361
     }
   },
   "githubInfo" : {
@@ -13,7 +13,7 @@
     "logo" : "https://avatars.githubusercontent.com/u/1158012?v=4",
     "stars" : 267,
     "forks" : 106,
-    "watchers" : 27,
+    "watchers" : 26,
     "issues" : 86,
     "creationDate" : 1438723978000,
     "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><p dir=\"auto\"><strong>Zinc</strong> is the incremental compiler for Scala.</p>\n<p dir=\"auto\">Most Scala developers use it constantly without noticing. It's leveraged by build tools\nsuch as <a href=\"https://scala-sbt.org\" rel=\"nofollow\">sbt</a>, <a href=\"https://github.com/Jetbrains/intellij-scala\">IntelliJ</a>, <a href=\"https://github.com/davidB/scala-maven-plugin\">Maven</a>, <a href=\"https://docs.gradle.org/current/userguide/scala_plugin.html\" rel=\"nofollow\">Gradle</a>, <a href=\"https://github.com/com-lihaoyi/mill\">Mill</a>, <a href=\"http://pantsbuild.org\" rel=\"nofollow\">Pants</a>, <a href=\"https://github.com/higherkindness/rules_scala\">Bazel</a>,\nand <a href=\"https://github.com/scalacenter/bloop\">Bloop</a>.</p>\n<p dir=\"auto\">Zinc reduces compilation times without sacrificing\ncorrectness. When you change a source file, Zinc analyzes the structure of\nyour code and recompiles only the source files affected by your\nchange. The result should be identical to the output of a clean compile.</p>\n<h2 dir=\"auto\"><a id=\"user-content-code-of-conduct\" class=\"anchor\" aria-hidden=\"true\" href=\"#code-of-conduct\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Code of conduct</h2>\n<p dir=\"auto\">All communication in <code>sbt/*</code> repositories and chat rooms\nis covered by <a href=\"https://scala-lang.org/conduct/\" rel=\"nofollow\">Scala Code of Conduct</a>.\nPlease be kind and courteous to each other.</p>\n<h2 dir=\"auto\"><a id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Contributing</h2>\n<p dir=\"auto\">This project is maintained by Lightbend, the <a href=\"https://scala.epfl.ch\" rel=\"nofollow\">Scala Center</a>,\nand other OSS contributors.</p>\n<p dir=\"auto\">You're welcome to participate. To learn how,\nsee the <a href=\"CONTRIBUTING.md\">CONTRIBUTING guide</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-integrating-zinc\" class=\"anchor\" aria-hidden=\"true\" href=\"#integrating-zinc\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Integrating Zinc</h2>\n<p dir=\"auto\">Most Scala users don't need to think about Zinc at all. Just use\nany of the build tools listed above, and you get Zinc's benefits.</p>\n<p dir=\"auto\">If you're a build tool author, add Zinc to your project with:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;org.scala-sbt&quot; %% &quot;zinc&quot; % &quot;$ZINC_VERSION&quot;\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.scala-sbt<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>zinc<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>$ZINC_VERSION<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">where <code>$ZINC_VERSION</code> is the latest tag pushed to the GitHub repository.</p>\n<p dir=\"auto\">To integrate Zinc, you have two options:</p>\n<ol dir=\"auto\">\n<li>Interface directly with Zinc APIs and maintain your own integration.</li>\n<li>Use Bloop (which has a compilation server that simplifies tooling integrations).</li>\n</ol>\n<h3 dir=\"auto\"><a id=\"user-content-note-to-compiler-bridge-authors\" class=\"anchor\" aria-hidden=\"true\" href=\"#note-to-compiler-bridge-authors\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Note to compiler bridge authors</h3>\n<p dir=\"auto\">The compiler bridge classes are loaded using <a href=\"https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html\" rel=\"nofollow\">java.util.ServiceLoader</a>. In other words, the class implementing <code>xsbti.compile.CompilerInterface2</code> must be mentioned in a file named: <code>/META-INF/services/xsbti.compile.CompilerInterface2</code>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-acknowledgements\" class=\"anchor\" aria-hidden=\"true\" href=\"#acknowledgements\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Acknowledgements</h2>\n<table>\n<thead>\n<tr>\n<th>Logo</th>\n<th>Acknowledgement</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://camo.githubusercontent.com/81cebad9a613009454b2b36f2d410e5ccc2c8e27b6736f9c7074df8cdf6ebd2a/68747470733a2f2f7777772e796f75726b69742e636f6d2f696d616765732f796b6c6f676f2e706e67\"><img src=\"https://camo.githubusercontent.com/81cebad9a613009454b2b36f2d410e5ccc2c8e27b6736f9c7074df8cdf6ebd2a/68747470733a2f2f7777772e796f75726b69742e636f6d2f696d616765732f796b6c6f676f2e706e67\" alt=\"\" data-canonical-src=\"https://www.yourkit.com/images/yklogo.png\" style=\"max-width: 100%;\"></a></td>\n<td>We thank <a href=\"https://www.yourkit.com/\" rel=\"nofollow\">Yourkit</a> for supporting this open-source project with its full-featured profiler.</td>\n</tr>\n</tbody>\n</table>\n</article></div>",
@@ -22,7 +22,7 @@
         "login" : "eed3si9n",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/184683?v=4",
         "url" : "https://api.github.com/users/eed3si9n",
-        "contributions" : 809
+        "contributions" : 810
       },
       {
         "login" : "jvican",
@@ -40,7 +40,7 @@
         "login" : "dwijnand",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/344610?v=4",
         "url" : "https://api.github.com/users/dwijnand",
-        "contributions" : 280
+        "contributions" : 281
       },
       {
         "login" : "gkossakowski",
@@ -100,6 +100,12 @@
         "login" : "adpi2",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/13123162?v=4",
         "url" : "https://api.github.com/users/adpi2",
+        "contributions" : 12
+      },
+      {
+        "login" : "SethTisue",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
+        "url" : "https://api.github.com/users/SethTisue",
         "contributions" : 12
       },
       {
@@ -166,12 +172,6 @@
         "login" : "dotta",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/703748?v=4",
         "url" : "https://api.github.com/users/dotta",
-        "contributions" : 5
-      },
-      {
-        "login" : "SethTisue",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
-        "url" : "https://api.github.com/users/SethTisue",
         "contributions" : 5
       },
       {
@@ -547,7 +547,7 @@
         "contributions" : 1
       }
     ],
-    "commits" : 2755,
+    "commits" : 2764,
     "topics" : [
       "compiler",
       "sbt",
