@@ -4,1744 +4,1744 @@
   "creationDate" : 1453291943589,
   "githubStatus" : {
     "Ok" : {
-      "updateDate" : 1644274822678
+      "updateDate" : 1653647045669
     }
   },
   "githubInfo" : {
     "homepage" : "",
     "description" : "Apache Flink",
     "logo" : "https://avatars.githubusercontent.com/u/47359?v=4",
-    "stars" : 18127,
-    "forks" : 10228,
-    "watchers" : 924,
-    "issues" : 806,
+    "stars" : 18986,
+    "forks" : 10791,
+    "watchers" : 932,
+    "issues" : 883,
     "creationDate" : 1402124410000,
-    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-apache-flink\" class=\"anchor\" aria-hidden=\"true\" href=\"#apache-flink\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Apache Flink</h1>\n<p dir=\"auto\">Apache Flink is an open source stream processing framework with powerful stream- and batch-processing capabilities.</p>\n<p dir=\"auto\">Learn more about Flink at <a href=\"https://flink.apache.org/\" rel=\"nofollow\">https://flink.apache.org/</a></p>\n<h3 dir=\"auto\"><a id=\"user-content-features\" class=\"anchor\" aria-hidden=\"true\" href=\"#features\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Features</h3>\n<ul dir=\"auto\">\n<li>\n<p dir=\"auto\">A streaming-first runtime that supports both batch processing and data streaming programs</p>\n</li>\n<li>\n<p dir=\"auto\">Elegant and fluent APIs in Java and Scala</p>\n</li>\n<li>\n<p dir=\"auto\">A runtime that supports very high throughput and low event latency at the same time</p>\n</li>\n<li>\n<p dir=\"auto\">Support for <em>event time</em> and <em>out-of-order</em> processing in the DataStream API, based on the <em>Dataflow Model</em></p>\n</li>\n<li>\n<p dir=\"auto\">Flexible windowing (time, count, sessions, custom triggers) across different time semantics (event time, processing time)</p>\n</li>\n<li>\n<p dir=\"auto\">Fault-tolerance with <em>exactly-once</em> processing guarantees</p>\n</li>\n<li>\n<p dir=\"auto\">Natural back-pressure in streaming programs</p>\n</li>\n<li>\n<p dir=\"auto\">Libraries for Graph processing (batch), Machine Learning (batch), and Complex Event Processing (streaming)</p>\n</li>\n<li>\n<p dir=\"auto\">Built-in support for iterative programs (BSP) in the DataSet (batch) API</p>\n</li>\n<li>\n<p dir=\"auto\">Custom memory management for efficient and robust switching between in-memory and out-of-core data processing algorithms</p>\n</li>\n<li>\n<p dir=\"auto\">Compatibility layers for Apache Hadoop MapReduce</p>\n</li>\n<li>\n<p dir=\"auto\">Integration with YARN, HDFS, HBase, and other components of the Apache Hadoop ecosystem</p>\n</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-streaming-example\" class=\"anchor\" aria-hidden=\"true\" href=\"#streaming-example\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Streaming Example</h3>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"case class WordWithCount(word: String, count: Long)\n\nval text = env.socketTextStream(host, port, '\\n')\n\nval windowCounts = text.flatMap { w =&gt; w.split(&quot;\\\\s&quot;) }\n  .map { w =&gt; WordWithCount(w, 1) }\n  .keyBy(&quot;word&quot;)\n  .window(TumblingProcessingTimeWindow.of(Time.seconds(5)))\n  .sum(&quot;count&quot;)\n\nwindowCounts.print()\"><pre><span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">WordWithCount</span>(<span class=\"pl-v\">word</span>: <span class=\"pl-en\">String</span>, <span class=\"pl-v\">count</span>: <span class=\"pl-en\">Long</span>)\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">text</span> <span class=\"pl-k\">=</span> env.socketTextStream(host, port, <span class=\"pl-s\">'<span class=\"pl-cce\">\\n</span>'</span>)\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">windowCounts</span> <span class=\"pl-k\">=</span> text.flatMap { w <span class=\"pl-k\">=&gt;</span> w.split(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span><span class=\"pl-cce\">\\\\</span>s<span class=\"pl-pds\">\"</span></span>) }\n  .map { w <span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">WordWithCount</span>(w, <span class=\"pl-c1\">1</span>) }\n  .keyBy(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>word<span class=\"pl-pds\">\"</span></span>)\n  .window(<span class=\"pl-en\">TumblingProcessingTimeWindow</span>.of(<span class=\"pl-en\">Time</span>.seconds(<span class=\"pl-c1\">5</span>)))\n  .sum(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>count<span class=\"pl-pds\">\"</span></span>)\n\nwindowCounts.print()</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-batch-example\" class=\"anchor\" aria-hidden=\"true\" href=\"#batch-example\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Batch Example</h3>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"case class WordWithCount(word: String, count: Long)\n\nval text = env.readTextFile(path)\n\nval counts = text.flatMap { w =&gt; w.split(&quot;\\\\s&quot;) }\n  .map { w =&gt; WordWithCount(w, 1) }\n  .groupBy(&quot;word&quot;)\n  .sum(&quot;count&quot;)\n\ncounts.writeAsCsv(outputPath)\"><pre><span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">WordWithCount</span>(<span class=\"pl-v\">word</span>: <span class=\"pl-en\">String</span>, <span class=\"pl-v\">count</span>: <span class=\"pl-en\">Long</span>)\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">text</span> <span class=\"pl-k\">=</span> env.readTextFile(path)\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">counts</span> <span class=\"pl-k\">=</span> text.flatMap { w <span class=\"pl-k\">=&gt;</span> w.split(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span><span class=\"pl-cce\">\\\\</span>s<span class=\"pl-pds\">\"</span></span>) }\n  .map { w <span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">WordWithCount</span>(w, <span class=\"pl-c1\">1</span>) }\n  .groupBy(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>word<span class=\"pl-pds\">\"</span></span>)\n  .sum(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>count<span class=\"pl-pds\">\"</span></span>)\n\ncounts.writeAsCsv(outputPath)</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-building-apache-flink-from-source\" class=\"anchor\" aria-hidden=\"true\" href=\"#building-apache-flink-from-source\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Building Apache Flink from Source</h2>\n<p dir=\"auto\">Prerequisites for building Flink:</p>\n<ul dir=\"auto\">\n<li>Unix-like environment (we use Linux, Mac OS X, Cygwin, WSL)</li>\n<li>Git</li>\n<li>Maven (we recommend version 3.2.5 and require at least 3.1.1)</li>\n<li>Java 8 or 11 (Java 9 or 10 may work)</li>\n</ul>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"git clone https://github.com/apache/flink.git\ncd flink\nmvn clean package -DskipTests # this will take up to 10 minutes\"><pre><code>git clone https://github.com/apache/flink.git\ncd flink\nmvn clean package -DskipTests # this will take up to 10 minutes\n</code></pre></div>\n<p dir=\"auto\">Flink is now installed in <code>build-target</code>.</p>\n<p dir=\"auto\"><em>NOTE: Maven 3.3.x can build Flink, but will not properly shade away certain dependencies. Maven 3.1.1 creates the libraries properly.\nTo build unit tests with Java 8, use Java 8u51 or above to prevent failures in unit tests that use the PowerMock runner.</em></p>\n<h2 dir=\"auto\"><a id=\"user-content-developing-flink\" class=\"anchor\" aria-hidden=\"true\" href=\"#developing-flink\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Developing Flink</h2>\n<p dir=\"auto\">The Flink committers use IntelliJ IDEA to develop the Flink codebase.\nWe recommend IntelliJ IDEA for developing projects that involve Scala code.</p>\n<p dir=\"auto\">Minimal requirements for an IDE are:</p>\n<ul dir=\"auto\">\n<li>Support for Java and Scala (also mixed projects)</li>\n<li>Support for Maven with Java and Scala</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-intellij-idea\" class=\"anchor\" aria-hidden=\"true\" href=\"#intellij-idea\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>IntelliJ IDEA</h3>\n<p dir=\"auto\">The IntelliJ IDE supports Maven out of the box and offers a plugin for Scala development.</p>\n<ul dir=\"auto\">\n<li>IntelliJ download: <a href=\"https://www.jetbrains.com/idea/\" rel=\"nofollow\">https://www.jetbrains.com/idea/</a></li>\n<li>IntelliJ Scala Plugin: <a href=\"https://plugins.jetbrains.com/plugin/?id=1347\" rel=\"nofollow\">https://plugins.jetbrains.com/plugin/?id=1347</a></li>\n</ul>\n<p dir=\"auto\">Check out our <a href=\"https://nightlies.apache.org/flink/flink-docs-master/flinkDev/ide_setup.html#intellij-idea\" rel=\"nofollow\">Setting up IntelliJ</a> guide for details.</p>\n<h3 dir=\"auto\"><a id=\"user-content-eclipse-scala-ide\" class=\"anchor\" aria-hidden=\"true\" href=\"#eclipse-scala-ide\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Eclipse Scala IDE</h3>\n<p dir=\"auto\"><strong>NOTE:</strong> From our experience, this setup does not work with Flink\ndue to deficiencies of the old Eclipse version bundled with Scala IDE 3.0.3 or\ndue to version incompatibilities with the bundled Scala version in Scala IDE 4.4.1.</p>\n<p dir=\"auto\"><strong>We recommend to use IntelliJ instead (see above)</strong></p>\n<h2 dir=\"auto\"><a id=\"user-content-support\" class=\"anchor\" aria-hidden=\"true\" href=\"#support\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Support</h2>\n<p dir=\"auto\">Don’t hesitate to ask!</p>\n<p dir=\"auto\">Contact the developers and community on the <a href=\"https://flink.apache.org/community.html#mailing-lists\" rel=\"nofollow\">mailing lists</a> if you need any help.</p>\n<p dir=\"auto\"><a href=\"https://issues.apache.org/jira/browse/FLINK\" rel=\"nofollow\">Open an issue</a> if you found a bug in Flink.</p>\n<h2 dir=\"auto\"><a id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Documentation</h2>\n<p dir=\"auto\">The documentation of Apache Flink is located on the website: <a href=\"https://flink.apache.org\" rel=\"nofollow\">https://flink.apache.org</a>\nor in the <code>docs/</code> directory of the source code.</p>\n<h2 dir=\"auto\"><a id=\"user-content-fork-and-contribute\" class=\"anchor\" aria-hidden=\"true\" href=\"#fork-and-contribute\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Fork and Contribute</h2>\n<p dir=\"auto\">This is an active open-source project. We are always open to people who want to use the system or contribute to it.\nContact us if you are looking for implementation tasks that fit your skills.\nThis article describes <a href=\"https://flink.apache.org/contributing/how-to-contribute.html\" rel=\"nofollow\">how to contribute to Apache Flink</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-about\" class=\"anchor\" aria-hidden=\"true\" href=\"#about\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>About</h2>\n<p dir=\"auto\">Apache Flink is an open source project of The Apache Software Foundation (ASF).\nThe Apache Flink project originated from the <a href=\"http://stratosphere.eu\" rel=\"nofollow\">Stratosphere</a> research project.</p>\n</article></div>",
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-apache-flink\" class=\"anchor\" aria-hidden=\"true\" href=\"#apache-flink\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Apache Flink</h1>\n<p dir=\"auto\">Apache Flink is an open source stream processing framework with powerful stream- and batch-processing capabilities.</p>\n<p dir=\"auto\">Learn more about Flink at <a href=\"https://flink.apache.org/\" rel=\"nofollow\">https://flink.apache.org/</a></p>\n<h3 dir=\"auto\"><a id=\"user-content-features\" class=\"anchor\" aria-hidden=\"true\" href=\"#features\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Features</h3>\n<ul dir=\"auto\">\n<li>\n<p dir=\"auto\">A streaming-first runtime that supports both batch processing and data streaming programs</p>\n</li>\n<li>\n<p dir=\"auto\">Elegant and fluent APIs in Java and Scala</p>\n</li>\n<li>\n<p dir=\"auto\">A runtime that supports very high throughput and low event latency at the same time</p>\n</li>\n<li>\n<p dir=\"auto\">Support for <em>event time</em> and <em>out-of-order</em> processing in the DataStream API, based on the <em>Dataflow Model</em></p>\n</li>\n<li>\n<p dir=\"auto\">Flexible windowing (time, count, sessions, custom triggers) across different time semantics (event time, processing time)</p>\n</li>\n<li>\n<p dir=\"auto\">Fault-tolerance with <em>exactly-once</em> processing guarantees</p>\n</li>\n<li>\n<p dir=\"auto\">Natural back-pressure in streaming programs</p>\n</li>\n<li>\n<p dir=\"auto\">Libraries for Graph processing (batch), Machine Learning (batch), and Complex Event Processing (streaming)</p>\n</li>\n<li>\n<p dir=\"auto\">Built-in support for iterative programs (BSP) in the DataSet (batch) API</p>\n</li>\n<li>\n<p dir=\"auto\">Custom memory management for efficient and robust switching between in-memory and out-of-core data processing algorithms</p>\n</li>\n<li>\n<p dir=\"auto\">Compatibility layers for Apache Hadoop MapReduce</p>\n</li>\n<li>\n<p dir=\"auto\">Integration with YARN, HDFS, HBase, and other components of the Apache Hadoop ecosystem</p>\n</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-streaming-example\" class=\"anchor\" aria-hidden=\"true\" href=\"#streaming-example\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Streaming Example</h3>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"case class WordWithCount(word: String, count: Long)\n\nval text = env.socketTextStream(host, port, '\\n')\n\nval windowCounts = text.flatMap { w =&gt; w.split(&quot;\\\\s&quot;) }\n  .map { w =&gt; WordWithCount(w, 1) }\n  .keyBy(&quot;word&quot;)\n  .window(TumblingProcessingTimeWindow.of(Time.seconds(5)))\n  .sum(&quot;count&quot;)\n\nwindowCounts.print()\"><pre><span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">WordWithCount</span>(<span class=\"pl-v\">word</span>: <span class=\"pl-en\">String</span>, <span class=\"pl-v\">count</span>: <span class=\"pl-en\">Long</span>)\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">text</span> <span class=\"pl-k\">=</span> env.socketTextStream(host, port, <span class=\"pl-s\">'<span class=\"pl-cce\">\\n</span>'</span>)\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">windowCounts</span> <span class=\"pl-k\">=</span> text.flatMap { w <span class=\"pl-k\">=&gt;</span> w.split(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span><span class=\"pl-cce\">\\\\</span>s<span class=\"pl-pds\">\"</span></span>) }\n  .map { w <span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">WordWithCount</span>(w, <span class=\"pl-c1\">1</span>) }\n  .keyBy(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>word<span class=\"pl-pds\">\"</span></span>)\n  .window(<span class=\"pl-en\">TumblingProcessingTimeWindow</span>.of(<span class=\"pl-en\">Time</span>.seconds(<span class=\"pl-c1\">5</span>)))\n  .sum(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>count<span class=\"pl-pds\">\"</span></span>)\n\nwindowCounts.print()</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-batch-example\" class=\"anchor\" aria-hidden=\"true\" href=\"#batch-example\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Batch Example</h3>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"case class WordWithCount(word: String, count: Long)\n\nval text = env.readTextFile(path)\n\nval counts = text.flatMap { w =&gt; w.split(&quot;\\\\s&quot;) }\n  .map { w =&gt; WordWithCount(w, 1) }\n  .groupBy(&quot;word&quot;)\n  .sum(&quot;count&quot;)\n\ncounts.writeAsCsv(outputPath)\"><pre><span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">WordWithCount</span>(<span class=\"pl-v\">word</span>: <span class=\"pl-en\">String</span>, <span class=\"pl-v\">count</span>: <span class=\"pl-en\">Long</span>)\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">text</span> <span class=\"pl-k\">=</span> env.readTextFile(path)\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">counts</span> <span class=\"pl-k\">=</span> text.flatMap { w <span class=\"pl-k\">=&gt;</span> w.split(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span><span class=\"pl-cce\">\\\\</span>s<span class=\"pl-pds\">\"</span></span>) }\n  .map { w <span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">WordWithCount</span>(w, <span class=\"pl-c1\">1</span>) }\n  .groupBy(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>word<span class=\"pl-pds\">\"</span></span>)\n  .sum(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>count<span class=\"pl-pds\">\"</span></span>)\n\ncounts.writeAsCsv(outputPath)</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-building-apache-flink-from-source\" class=\"anchor\" aria-hidden=\"true\" href=\"#building-apache-flink-from-source\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Building Apache Flink from Source</h2>\n<p dir=\"auto\">Prerequisites for building Flink:</p>\n<ul dir=\"auto\">\n<li>Unix-like environment (we use Linux, Mac OS X, Cygwin, WSL)</li>\n<li>Git</li>\n<li>Maven (we recommend version 3.2.5 and require at least 3.1.1)</li>\n<li>Java 8 or 11 (Java 9 or 10 may work)</li>\n</ul>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"git clone https://github.com/apache/flink.git\ncd flink\n./mvnw clean package -DskipTests # this will take up to 10 minutes\"><pre class=\"notranslate\"><code>git clone https://github.com/apache/flink.git\ncd flink\n./mvnw clean package -DskipTests # this will take up to 10 minutes\n</code></pre></div>\n<p dir=\"auto\">Flink is now installed in <code>build-target</code>.</p>\n<p dir=\"auto\"><em>NOTE: Maven 3.3.x can build Flink, but will not properly shade away certain dependencies. Maven 3.1.1 creates the libraries properly.\nTo build unit tests with Java 8, use Java 8u51 or above to prevent failures in unit tests that use the PowerMock runner.</em></p>\n<h2 dir=\"auto\"><a id=\"user-content-developing-flink\" class=\"anchor\" aria-hidden=\"true\" href=\"#developing-flink\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Developing Flink</h2>\n<p dir=\"auto\">The Flink committers use IntelliJ IDEA to develop the Flink codebase.\nWe recommend IntelliJ IDEA for developing projects that involve Scala code.</p>\n<p dir=\"auto\">Minimal requirements for an IDE are:</p>\n<ul dir=\"auto\">\n<li>Support for Java and Scala (also mixed projects)</li>\n<li>Support for Maven with Java and Scala</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-intellij-idea\" class=\"anchor\" aria-hidden=\"true\" href=\"#intellij-idea\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>IntelliJ IDEA</h3>\n<p dir=\"auto\">The IntelliJ IDE supports Maven out of the box and offers a plugin for Scala development.</p>\n<ul dir=\"auto\">\n<li>IntelliJ download: <a href=\"https://www.jetbrains.com/idea/\" rel=\"nofollow\">https://www.jetbrains.com/idea/</a></li>\n<li>IntelliJ Scala Plugin: <a href=\"https://plugins.jetbrains.com/plugin/?id=1347\" rel=\"nofollow\">https://plugins.jetbrains.com/plugin/?id=1347</a></li>\n</ul>\n<p dir=\"auto\">Check out our <a href=\"https://nightlies.apache.org/flink/flink-docs-master/flinkDev/ide_setup.html#intellij-idea\" rel=\"nofollow\">Setting up IntelliJ</a> guide for details.</p>\n<h3 dir=\"auto\"><a id=\"user-content-eclipse-scala-ide\" class=\"anchor\" aria-hidden=\"true\" href=\"#eclipse-scala-ide\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Eclipse Scala IDE</h3>\n<p dir=\"auto\"><strong>NOTE:</strong> From our experience, this setup does not work with Flink\ndue to deficiencies of the old Eclipse version bundled with Scala IDE 3.0.3 or\ndue to version incompatibilities with the bundled Scala version in Scala IDE 4.4.1.</p>\n<p dir=\"auto\"><strong>We recommend to use IntelliJ instead (see above)</strong></p>\n<h2 dir=\"auto\"><a id=\"user-content-support\" class=\"anchor\" aria-hidden=\"true\" href=\"#support\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Support</h2>\n<p dir=\"auto\">Don’t hesitate to ask!</p>\n<p dir=\"auto\">Contact the developers and community on the <a href=\"https://flink.apache.org/community.html#mailing-lists\" rel=\"nofollow\">mailing lists</a> if you need any help.</p>\n<p dir=\"auto\"><a href=\"https://issues.apache.org/jira/browse/FLINK\" rel=\"nofollow\">Open an issue</a> if you found a bug in Flink.</p>\n<h2 dir=\"auto\"><a id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Documentation</h2>\n<p dir=\"auto\">The documentation of Apache Flink is located on the website: <a href=\"https://flink.apache.org\" rel=\"nofollow\">https://flink.apache.org</a>\nor in the <code>docs/</code> directory of the source code.</p>\n<h2 dir=\"auto\"><a id=\"user-content-fork-and-contribute\" class=\"anchor\" aria-hidden=\"true\" href=\"#fork-and-contribute\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Fork and Contribute</h2>\n<p dir=\"auto\">This is an active open-source project. We are always open to people who want to use the system or contribute to it.\nContact us if you are looking for implementation tasks that fit your skills.\nThis article describes <a href=\"https://flink.apache.org/contributing/how-to-contribute.html\" rel=\"nofollow\">how to contribute to Apache Flink</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-about\" class=\"anchor\" aria-hidden=\"true\" href=\"#about\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>About</h2>\n<p dir=\"auto\">Apache Flink is an open source project of The Apache Software Foundation (ASF).\nThe Apache Flink project originated from the <a href=\"http://stratosphere.eu\" rel=\"nofollow\">Stratosphere</a> research project.</p>\n</article></div>",
     "contributors" : [
       {
         "login" : "tillrohrmann",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5756858?v=4",
-        "url" : "https://api.github.com/users/tillrohrmann",
-        "contributions" : 2089
+        "url" : "https://github.com/tillrohrmann",
+        "contributions" : 2098
       },
       {
         "login" : "zentol",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5725237?v=4",
-        "url" : "https://api.github.com/users/zentol",
-        "contributions" : 1807
+        "url" : "https://github.com/zentol",
+        "contributions" : 1975
       },
       {
         "login" : "StephanEwen",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1727146?v=4",
-        "url" : "https://api.github.com/users/StephanEwen",
+        "url" : "https://github.com/StephanEwen",
         "contributions" : 1761
       },
       {
         "login" : "aljoscha",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/68551?v=4",
-        "url" : "https://api.github.com/users/aljoscha",
+        "url" : "https://github.com/aljoscha",
         "contributions" : 1091
       },
       {
         "login" : "twalthr",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5746567?v=4",
-        "url" : "https://api.github.com/users/twalthr",
-        "contributions" : 918
+        "url" : "https://github.com/twalthr",
+        "contributions" : 960
       },
       {
         "login" : "fhueske",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/2388347?v=4",
-        "url" : "https://api.github.com/users/fhueske",
+        "url" : "https://github.com/fhueske",
         "contributions" : 795
       },
       {
         "login" : "rmetzger",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/89049?v=4",
-        "url" : "https://api.github.com/users/rmetzger",
-        "contributions" : 737
+        "url" : "https://github.com/rmetzger",
+        "contributions" : 738
       },
       {
         "login" : "dawidwys",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/6242259?v=4",
-        "url" : "https://api.github.com/users/dawidwys",
-        "contributions" : 669
+        "url" : "https://github.com/dawidwys",
+        "contributions" : 690
       },
       {
         "login" : "pnowojski",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/8957547?v=4",
-        "url" : "https://api.github.com/users/pnowojski",
-        "contributions" : 584
+        "url" : "https://github.com/pnowojski",
+        "contributions" : 593
       },
       {
         "login" : "uce",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1756620?v=4",
-        "url" : "https://api.github.com/users/uce",
+        "url" : "https://github.com/uce",
         "contributions" : 434
       },
       {
         "login" : "gyfora",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5880972?v=4",
-        "url" : "https://api.github.com/users/gyfora",
-        "contributions" : 412
+        "url" : "https://github.com/gyfora",
+        "contributions" : 406
       },
       {
         "login" : "kl0u",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/2405800?v=4",
-        "url" : "https://api.github.com/users/kl0u",
+        "url" : "https://github.com/kl0u",
         "contributions" : 397
-      },
-      {
-        "login" : "tzulitai",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/5284370?v=4",
-        "url" : "https://api.github.com/users/tzulitai",
-        "contributions" : 363
-      },
-      {
-        "login" : "wuchong",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/5378924?v=4",
-        "url" : "https://api.github.com/users/wuchong",
-        "contributions" : 360
       },
       {
         "login" : "rkhachatryan",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/3939322?v=4",
-        "url" : "https://api.github.com/users/rkhachatryan",
-        "contributions" : 350
+        "url" : "https://github.com/rkhachatryan",
+        "contributions" : 386
       },
       {
-        "login" : "GJL",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/1681921?v=4",
-        "url" : "https://api.github.com/users/GJL",
-        "contributions" : 336
+        "login" : "wuchong",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5378924?v=4",
+        "url" : "https://github.com/wuchong",
+        "contributions" : 361
+      },
+      {
+        "login" : "tzulitai",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5284370?v=4",
+        "url" : "https://github.com/tzulitai",
+        "contributions" : 360
       },
       {
         "login" : "dianfu",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5466492?v=4",
-        "url" : "https://api.github.com/users/dianfu",
-        "contributions" : 326
+        "url" : "https://github.com/dianfu",
+        "contributions" : 355
+      },
+      {
+        "login" : "GJL",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1681921?v=4",
+        "url" : "https://github.com/GJL",
+        "contributions" : 336
       },
       {
         "login" : "xintongsong",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/6509172?v=4",
-        "url" : "https://api.github.com/users/xintongsong",
-        "contributions" : 324
+        "url" : "https://github.com/xintongsong",
+        "contributions" : 328
       },
       {
         "login" : "JingsongLi",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/9601882?v=4",
-        "url" : "https://api.github.com/users/JingsongLi",
-        "contributions" : 318
+        "url" : "https://github.com/JingsongLi",
+        "contributions" : 321
       },
       {
         "login" : "AHeise",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/4559103?v=4",
-        "url" : "https://api.github.com/users/AHeise",
-        "contributions" : 313
+        "url" : "https://github.com/AHeise",
+        "contributions" : 316
       },
       {
         "login" : "godfreyhe",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/8777671?v=4",
-        "url" : "https://api.github.com/users/godfreyhe",
-        "contributions" : 311
+        "url" : "https://github.com/godfreyhe",
+        "contributions" : 316
       },
       {
         "login" : "mbalassi",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5990983?v=4",
-        "url" : "https://api.github.com/users/mbalassi",
+        "url" : "https://github.com/mbalassi",
         "contributions" : 298
-      },
-      {
-        "login" : "mxm",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/837221?v=4",
-        "url" : "https://api.github.com/users/mxm",
-        "contributions" : 287
       },
       {
         "login" : "zhuzhurk",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5869249?v=4",
-        "url" : "https://api.github.com/users/zhuzhurk",
-        "contributions" : 286
+        "url" : "https://github.com/zhuzhurk",
+        "contributions" : 295
+      },
+      {
+        "login" : "mxm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/837221?v=4",
+        "url" : "https://github.com/mxm",
+        "contributions" : 287
       },
       {
         "login" : "HuangXingBo",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/8536293?v=4",
-        "url" : "https://api.github.com/users/HuangXingBo",
-        "contributions" : 246
+        "url" : "https://github.com/HuangXingBo",
+        "contributions" : 259
       },
       {
         "login" : "azagrebin",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/10573485?v=4",
-        "url" : "https://api.github.com/users/azagrebin",
+        "url" : "https://github.com/azagrebin",
         "contributions" : 235
       },
       {
         "login" : "bowenli86",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1892692?v=4",
-        "url" : "https://api.github.com/users/bowenli86",
+        "url" : "https://github.com/bowenli86",
         "contributions" : 226
       },
       {
         "login" : "tisonkun",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/18818196?v=4",
-        "url" : "https://api.github.com/users/tisonkun",
+        "url" : "https://github.com/tisonkun",
         "contributions" : 225
       },
       {
         "login" : "greghogan",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/569655?v=4",
-        "url" : "https://api.github.com/users/greghogan",
+        "url" : "https://github.com/greghogan",
         "contributions" : 224
-      },
-      {
-        "login" : "zhijiangW",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/12387855?v=4",
-        "url" : "https://api.github.com/users/zhijiangW",
-        "contributions" : 204
       },
       {
         "login" : "KarmaGYZ",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/8684799?v=4",
-        "url" : "https://api.github.com/users/KarmaGYZ",
-        "contributions" : 203
+        "url" : "https://github.com/KarmaGYZ",
+        "contributions" : 213
+      },
+      {
+        "login" : "XComp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1101012?v=4",
+        "url" : "https://github.com/XComp",
+        "contributions" : 209
+      },
+      {
+        "login" : "zhijiangW",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12387855?v=4",
+        "url" : "https://github.com/zhijiangW",
+        "contributions" : 204
       },
       {
         "login" : "sjwiesman",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1891970?v=4",
-        "url" : "https://api.github.com/users/sjwiesman",
+        "url" : "https://github.com/sjwiesman",
         "contributions" : 200
       },
       {
         "login" : "lirui-apache",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5210788?v=4",
-        "url" : "https://api.github.com/users/lirui-apache",
+        "url" : "https://github.com/lirui-apache",
         "contributions" : 192
       },
       {
         "login" : "yanghua",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/2283778?v=4",
-        "url" : "https://api.github.com/users/yanghua",
+        "url" : "https://github.com/yanghua",
         "contributions" : 182
       },
       {
         "login" : "wangyang0918",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/15904523?v=4",
-        "url" : "https://api.github.com/users/wangyang0918",
-        "contributions" : 177
+        "url" : "https://github.com/wangyang0918",
+        "contributions" : 178
+      },
+      {
+        "login" : "slinkydeveloper",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6706544?v=4",
+        "url" : "https://github.com/slinkydeveloper",
+        "contributions" : 172
       },
       {
         "login" : "warneke",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1826769?v=4",
-        "url" : "https://api.github.com/users/warneke",
+        "url" : "https://github.com/warneke",
         "contributions" : 167
+      },
+      {
+        "login" : "gaoyunhaii",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1683890?v=4",
+        "url" : "https://github.com/gaoyunhaii",
+        "contributions" : 158
       },
       {
         "login" : "vasia",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/498957?v=4",
-        "url" : "https://api.github.com/users/vasia",
+        "url" : "https://github.com/vasia",
         "contributions" : 154
       },
       {
         "login" : "gaborhermann",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/6912263?v=4",
-        "url" : "https://api.github.com/users/gaborhermann",
+        "url" : "https://github.com/gaborhermann",
         "contributions" : 148
       },
       {
         "login" : "Airblader",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/2392216?v=4",
-        "url" : "https://api.github.com/users/Airblader",
+        "url" : "https://github.com/Airblader",
         "contributions" : 147
-      },
-      {
-        "login" : "XComp",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/1101012?v=4",
-        "url" : "https://api.github.com/users/XComp",
-        "contributions" : 142
-      },
-      {
-        "login" : "gaoyunhaii",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/1683890?v=4",
-        "url" : "https://api.github.com/users/gaoyunhaii",
-        "contributions" : 133
-      },
-      {
-        "login" : "leonardBang",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/5163645?v=4",
-        "url" : "https://api.github.com/users/leonardBang",
-        "contributions" : 123
       },
       {
         "login" : "akalash",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/3996532?v=4",
-        "url" : "https://api.github.com/users/akalash",
-        "contributions" : 117
+        "url" : "https://github.com/akalash",
+        "contributions" : 131
       },
       {
         "login" : "Myasuka",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1709104?v=4",
-        "url" : "https://api.github.com/users/Myasuka",
-        "contributions" : 115
+        "url" : "https://github.com/Myasuka",
+        "contributions" : 125
       },
       {
-        "login" : "slinkydeveloper",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/6706544?v=4",
-        "url" : "https://api.github.com/users/slinkydeveloper",
-        "contributions" : 115
-      },
-      {
-        "login" : "WeiZhong94",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/44194288?v=4",
-        "url" : "https://api.github.com/users/WeiZhong94",
-        "contributions" : 114
+        "login" : "leonardBang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5163645?v=4",
+        "url" : "https://github.com/leonardBang",
+        "contributions" : 124
       },
       {
         "login" : "fapaul",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/7405553?v=4",
-        "url" : "https://api.github.com/users/fapaul",
-        "contributions" : 99
+        "url" : "https://github.com/fapaul",
+        "contributions" : 114
+      },
+      {
+        "login" : "WeiZhong94",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/44194288?v=4",
+        "url" : "https://github.com/WeiZhong94",
+        "contributions" : 114
+      },
+      {
+        "login" : "matriv",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5058131?v=4",
+        "url" : "https://github.com/matriv",
+        "contributions" : 105
       },
       {
         "login" : "sunjincheng121",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/22488084?v=4",
-        "url" : "https://api.github.com/users/sunjincheng121",
+        "url" : "https://github.com/sunjincheng121",
         "contributions" : 99
       },
       {
         "login" : "wsry",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5469568?v=4",
-        "url" : "https://api.github.com/users/wsry",
-        "contributions" : 95
+        "url" : "https://github.com/wsry",
+        "contributions" : 98
+      },
+      {
+        "login" : "JingGe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4742354?v=4",
+        "url" : "https://github.com/JingGe",
+        "contributions" : 90
       },
       {
         "login" : "asubmissions",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/71169650?v=4",
-        "url" : "https://api.github.com/users/asubmissions",
+        "url" : "https://github.com/asubmissions",
         "contributions" : 90
       },
       {
         "login" : "hequn8128",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/4971479?v=4",
-        "url" : "https://api.github.com/users/hequn8128",
+        "url" : "https://github.com/hequn8128",
         "contributions" : 89
-      },
-      {
-        "login" : "danny0405",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/7644508?v=4",
-        "url" : "https://api.github.com/users/danny0405",
-        "contributions" : 88
       },
       {
         "login" : "tsreaper",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/19909549?v=4",
-        "url" : "https://api.github.com/users/tsreaper",
-        "contributions" : 84
+        "url" : "https://github.com/tsreaper",
+        "contributions" : 88
+      },
+      {
+        "login" : "danny0405",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7644508?v=4",
+        "url" : "https://github.com/danny0405",
+        "contributions" : 88
       },
       {
         "login" : "beyond1920",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1525333?v=4",
-        "url" : "https://api.github.com/users/beyond1920",
-        "contributions" : 82
+        "url" : "https://github.com/beyond1920",
+        "contributions" : 83
       },
       {
         "login" : "Tommy-Neubert",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/4639612?v=4",
-        "url" : "https://api.github.com/users/Tommy-Neubert",
+        "url" : "https://github.com/Tommy-Neubert",
         "contributions" : 78
+      },
+      {
+        "login" : "SteNicholas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10048174?v=4",
+        "url" : "https://github.com/SteNicholas",
+        "contributions" : 77
       },
       {
         "login" : "sekruse",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/2640896?v=4",
-        "url" : "https://api.github.com/users/sekruse",
+        "url" : "https://github.com/sekruse",
         "contributions" : 77
       },
       {
         "login" : "klion26",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1425623?v=4",
-        "url" : "https://api.github.com/users/klion26",
+        "url" : "https://github.com/klion26",
         "contributions" : 77
-      },
-      {
-        "login" : "SteNicholas",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/10048174?v=4",
-        "url" : "https://api.github.com/users/SteNicholas",
-        "contributions" : 76
       },
       {
         "login" : "fsk119",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/33114724?v=4",
-        "url" : "https://api.github.com/users/fsk119",
+        "url" : "https://github.com/fsk119",
+        "contributions" : 72
+      },
+      {
+        "login" : "PatrickRen",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/18453087?v=4",
+        "url" : "https://github.com/PatrickRen",
         "contributions" : 69
       },
       {
         "login" : "ifndef-SleePy",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/8423794?v=4",
-        "url" : "https://api.github.com/users/ifndef-SleePy",
+        "url" : "https://github.com/ifndef-SleePy",
         "contributions" : 68
       },
       {
         "login" : "1u0",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/488251?v=4",
-        "url" : "https://api.github.com/users/1u0",
+        "url" : "https://github.com/1u0",
         "contributions" : 67
-      },
-      {
-        "login" : "KurtYoung",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/955396?v=4",
-        "url" : "https://api.github.com/users/KurtYoung",
-        "contributions" : 66
       },
       {
         "login" : "Thesharing",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/6576831?v=4",
-        "url" : "https://api.github.com/users/Thesharing",
-        "contributions" : 65
+        "url" : "https://github.com/Thesharing",
+        "contributions" : 66
+      },
+      {
+        "login" : "KurtYoung",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/955396?v=4",
+        "url" : "https://github.com/KurtYoung",
+        "contributions" : 66
       },
       {
         "login" : "supermegaciaccount",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/52529625?v=4",
-        "url" : "https://api.github.com/users/supermegaciaccount",
+        "url" : "https://github.com/supermegaciaccount",
         "contributions" : 65
       },
       {
         "login" : "NicoK",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/213026?v=4",
-        "url" : "https://api.github.com/users/NicoK",
+        "url" : "https://github.com/NicoK",
         "contributions" : 64
       },
       {
-        "login" : "PatrickRen",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/18453087?v=4",
-        "url" : "https://api.github.com/users/PatrickRen",
-        "contributions" : 61
+        "login" : "MartijnVisser",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2989614?v=4",
+        "url" : "https://github.com/MartijnVisser",
+        "contributions" : 63
       },
       {
         "login" : "becketqin",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5778611?v=4",
-        "url" : "https://api.github.com/users/becketqin",
+        "url" : "https://github.com/becketqin",
+        "contributions" : 62
+      },
+      {
+        "login" : "RocMarshal",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/64569824?v=4",
+        "url" : "https://github.com/RocMarshal",
         "contributions" : 59
       },
       {
         "login" : "docete",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/59622?v=4",
-        "url" : "https://api.github.com/users/docete",
+        "url" : "https://github.com/docete",
         "contributions" : 53
       },
       {
         "login" : "shuiqiangchen",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/44767915?v=4",
-        "url" : "https://api.github.com/users/shuiqiangchen",
+        "url" : "https://github.com/shuiqiangchen",
         "contributions" : 53
       },
       {
         "login" : "alpinegizmo",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/43608?v=4",
-        "url" : "https://api.github.com/users/alpinegizmo",
+        "url" : "https://github.com/alpinegizmo",
         "contributions" : 52
+      },
+      {
+        "login" : "snuyanzin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/403174?v=4",
+        "url" : "https://github.com/snuyanzin",
+        "contributions" : 50
+      },
+      {
+        "login" : "dmvk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/299781?v=4",
+        "url" : "https://github.com/dmvk",
+        "contributions" : 48
       },
       {
         "login" : "hsaputra",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/105434?v=4",
-        "url" : "https://api.github.com/users/hsaputra",
+        "url" : "https://github.com/hsaputra",
         "contributions" : 48
       },
       {
         "login" : "andralungu",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/2550549?v=4",
-        "url" : "https://api.github.com/users/andralungu",
+        "url" : "https://github.com/andralungu",
         "contributions" : 47
-      },
-      {
-        "login" : "RocMarshal",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/64569824?v=4",
-        "url" : "https://api.github.com/users/RocMarshal",
-        "contributions" : 47
-      },
-      {
-        "login" : "matriv",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/5058131?v=4",
-        "url" : "https://api.github.com/users/matriv",
-        "contributions" : 46
       },
       {
         "login" : "zjuwangg",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/8543127?v=4",
-        "url" : "https://api.github.com/users/zjuwangg",
+        "url" : "https://github.com/zjuwangg",
         "contributions" : 46
       },
       {
         "login" : "curcur",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/11065508?v=4",
-        "url" : "https://api.github.com/users/curcur",
+        "url" : "https://github.com/curcur",
         "contributions" : 44
       },
       {
         "login" : "zhengcanbin",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/26545140?v=4",
-        "url" : "https://api.github.com/users/zhengcanbin",
+        "url" : "https://github.com/zhengcanbin",
         "contributions" : 43
       },
       {
         "login" : "sihuazhou",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/7480427?v=4",
-        "url" : "https://api.github.com/users/sihuazhou",
+        "url" : "https://github.com/sihuazhou",
         "contributions" : 42
       },
       {
-        "login" : "MartijnVisser",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/2989614?v=4",
-        "url" : "https://api.github.com/users/MartijnVisser",
+        "login" : "afedulov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1492164?v=4",
+        "url" : "https://github.com/afedulov",
+        "contributions" : 41
+      },
+      {
+        "login" : "alpreu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11444089?v=4",
+        "url" : "https://github.com/alpreu",
+        "contributions" : 41
+      },
+      {
+        "login" : "echauchot",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8821084?v=4",
+        "url" : "https://github.com/echauchot",
         "contributions" : 41
       },
       {
         "login" : "libenchao",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/4471524?v=4",
-        "url" : "https://api.github.com/users/libenchao",
+        "url" : "https://github.com/libenchao",
         "contributions" : 40
       },
       {
         "login" : "leesf",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/10128888?v=4",
-        "url" : "https://api.github.com/users/leesf",
+        "url" : "https://github.com/leesf",
         "contributions" : 39
       },
       {
         "login" : "guoweiM",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/26054913?v=4",
-        "url" : "https://api.github.com/users/guoweiM",
+        "url" : "https://github.com/guoweiM",
         "contributions" : 39
       },
       {
         "login" : "markus-h",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/724330?v=4",
-        "url" : "https://api.github.com/users/markus-h",
-        "contributions" : 38
-      },
-      {
-        "login" : "dmvk",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/299781?v=4",
-        "url" : "https://api.github.com/users/dmvk",
+        "url" : "https://github.com/markus-h",
         "contributions" : 38
       },
       {
         "login" : "wangxlong",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/10867596?v=4",
-        "url" : "https://api.github.com/users/wangxlong",
+        "url" : "https://github.com/wangxlong",
         "contributions" : 38
-      },
-      {
-        "login" : "sachingoel0101",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/8874261?v=4",
-        "url" : "https://api.github.com/users/sachingoel0101",
-        "contributions" : 36
-      },
-      {
-        "login" : "echauchot",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/8821084?v=4",
-        "url" : "https://api.github.com/users/echauchot",
-        "contributions" : 35
-      },
-      {
-        "login" : "JingGe",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/4742354?v=4",
-        "url" : "https://api.github.com/users/JingGe",
-        "contributions" : 35
       },
       {
         "login" : "mans2singh",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/8467404?v=4",
-        "url" : "https://api.github.com/users/mans2singh",
+        "url" : "https://github.com/mans2singh",
+        "contributions" : 37
+      },
+      {
+        "login" : "sachingoel0101",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8874261?v=4",
+        "url" : "https://github.com/sachingoel0101",
+        "contributions" : 36
+      },
+      {
+        "login" : "wanglijie95",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22834113?v=4",
+        "url" : "https://github.com/wanglijie95",
         "contributions" : 35
       },
       {
         "login" : "tweise",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/263695?v=4",
-        "url" : "https://api.github.com/users/tweise",
-        "contributions" : 34
+        "url" : "https://github.com/tweise",
+        "contributions" : 35
       },
       {
         "login" : "yew1eb",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/4133864?v=4",
-        "url" : "https://api.github.com/users/yew1eb",
+        "url" : "https://github.com/yew1eb",
         "contributions" : 34
       },
       {
         "login" : "yingjunwu",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/15974918?v=4",
-        "url" : "https://api.github.com/users/yingjunwu",
+        "url" : "https://github.com/yingjunwu",
         "contributions" : 33
       },
       {
         "login" : "sunhaibotb",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/7675577?v=4",
-        "url" : "https://api.github.com/users/sunhaibotb",
+        "url" : "https://github.com/sunhaibotb",
         "contributions" : 33
+      },
+      {
+        "login" : "pltbkd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/86285274?v=4",
+        "url" : "https://github.com/pltbkd",
+        "contributions" : 32
       },
       {
         "login" : "chiwanpark",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1941681?v=4",
-        "url" : "https://api.github.com/users/chiwanpark",
+        "url" : "https://github.com/chiwanpark",
+        "contributions" : 32
+      },
+      {
+        "login" : "dannycranmer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4950503?v=4",
+        "url" : "https://github.com/dannycranmer",
         "contributions" : 32
       },
       {
         "login" : "carp84",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/6239804?v=4",
-        "url" : "https://api.github.com/users/carp84",
+        "url" : "https://github.com/carp84",
         "contributions" : 31
       },
       {
         "login" : "hapihu",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/20364527?v=4",
-        "url" : "https://api.github.com/users/hapihu",
+        "url" : "https://github.com/hapihu",
         "contributions" : 31
+      },
+      {
+        "login" : "Aitozi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9486140?v=4",
+        "url" : "https://github.com/Aitozi",
+        "contributions" : 31
+      },
+      {
+        "login" : "zjureel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/28703471?v=4",
+        "url" : "https://github.com/zjureel",
+        "contributions" : 30
       },
       {
         "login" : "xccui",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1452518?v=4",
-        "url" : "https://api.github.com/users/xccui",
+        "url" : "https://github.com/xccui",
         "contributions" : 30
       },
       {
         "login" : "ggevay",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/11377925?v=4",
-        "url" : "https://api.github.com/users/ggevay",
+        "url" : "https://github.com/ggevay",
         "contributions" : 29
       },
       {
         "login" : "qmlmoon",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5807102?v=4",
-        "url" : "https://api.github.com/users/qmlmoon",
+        "url" : "https://github.com/qmlmoon",
         "contributions" : 29
       },
       {
-        "login" : "dannycranmer",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/4950503?v=4",
-        "url" : "https://api.github.com/users/dannycranmer",
-        "contributions" : 29
-      },
-      {
-        "login" : "afedulov",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/1492164?v=4",
-        "url" : "https://api.github.com/users/afedulov",
+        "login" : "syhily",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1761698?v=4",
+        "url" : "https://github.com/syhily",
         "contributions" : 28
       },
       {
         "login" : "jfeher",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/7900661?v=4",
-        "url" : "https://api.github.com/users/jfeher",
+        "url" : "https://github.com/jfeher",
         "contributions" : 28
       },
       {
         "login" : "powibol",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/3706693?v=4",
-        "url" : "https://api.github.com/users/powibol",
+        "url" : "https://github.com/powibol",
+        "contributions" : 28
+      },
+      {
+        "login" : "deadwind4",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12015546?v=4",
+        "url" : "https://github.com/deadwind4",
         "contributions" : 28
       },
       {
         "login" : "lindong28",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5873403?v=4",
-        "url" : "https://api.github.com/users/lindong28",
+        "url" : "https://github.com/lindong28",
+        "contributions" : 26
+      },
+      {
+        "login" : "knaufk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11538663?v=4",
+        "url" : "https://github.com/knaufk",
         "contributions" : 26
       },
       {
         "login" : "mathiaspet",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/3159581?v=4",
-        "url" : "https://api.github.com/users/mathiaspet",
-        "contributions" : 26
-      },
-      {
-        "login" : "zjureel",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/28703471?v=4",
-        "url" : "https://api.github.com/users/zjureel",
+        "url" : "https://github.com/mathiaspet",
         "contributions" : 26
       },
       {
         "login" : "aalexandrov",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1071946?v=4",
-        "url" : "https://api.github.com/users/aalexandrov",
-        "contributions" : 26
-      },
-      {
-        "login" : "Aitozi",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/9486140?v=4",
-        "url" : "https://api.github.com/users/Aitozi",
+        "url" : "https://github.com/aalexandrov",
         "contributions" : 26
       },
       {
         "login" : "szape",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/8025879?v=4",
-        "url" : "https://api.github.com/users/szape",
+        "url" : "https://github.com/szape",
         "contributions" : 25
       },
       {
         "login" : "smarthi",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/3137442?v=4",
-        "url" : "https://api.github.com/users/smarthi",
+        "url" : "https://github.com/smarthi",
         "contributions" : 25
+      },
+      {
+        "login" : "CrynetLogistics",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9928830?v=4",
+        "url" : "https://github.com/CrynetLogistics",
+        "contributions" : 24
       },
       {
         "login" : "tiemsn",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/15994055?v=4",
-        "url" : "https://api.github.com/users/tiemsn",
+        "url" : "https://github.com/tiemsn",
         "contributions" : 24
       },
       {
         "login" : "Shawn-Hx",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/18097476?v=4",
-        "url" : "https://api.github.com/users/Shawn-Hx",
+        "url" : "https://github.com/Shawn-Hx",
         "contributions" : 24
-      },
-      {
-        "login" : "alpreu",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/11444089?v=4",
-        "url" : "https://api.github.com/users/alpreu",
-        "contributions" : 23
-      },
-      {
-        "login" : "knaufk",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/11538663?v=4",
-        "url" : "https://api.github.com/users/knaufk",
-        "contributions" : 23
       },
       {
         "login" : "Xpray",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5170813?v=4",
-        "url" : "https://api.github.com/users/Xpray",
+        "url" : "https://github.com/Xpray",
         "contributions" : 23
       },
       {
         "login" : "vthinkxie",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1506722?v=4",
-        "url" : "https://api.github.com/users/vthinkxie",
+        "url" : "https://github.com/vthinkxie",
         "contributions" : 23
-      },
-      {
-        "login" : "snuyanzin",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/403174?v=4",
-        "url" : "https://api.github.com/users/snuyanzin",
-        "contributions" : 23
-      },
-      {
-        "login" : "wanglijie95",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/22834113?v=4",
-        "url" : "https://api.github.com/users/wanglijie95",
-        "contributions" : 22
       },
       {
         "login" : "HuangZhenQiu",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1072199?v=4",
-        "url" : "https://api.github.com/users/HuangZhenQiu",
+        "url" : "https://github.com/HuangZhenQiu",
         "contributions" : 22
-      },
-      {
-        "login" : "kezhuw",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/541734?v=4",
-        "url" : "https://api.github.com/users/kezhuw",
-        "contributions" : 20
       },
       {
         "login" : "tony810430",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/14329393?v=4",
-        "url" : "https://api.github.com/users/tony810430",
+        "url" : "https://github.com/tony810430",
+        "contributions" : 21
+      },
+      {
+        "login" : "kezhuw",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/541734?v=4",
+        "url" : "https://github.com/kezhuw",
         "contributions" : 20
       },
       {
         "login" : "nielsbasjes",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/240096?v=4",
-        "url" : "https://api.github.com/users/nielsbasjes",
+        "url" : "https://github.com/nielsbasjes",
+        "contributions" : 20
+      },
+      {
+        "login" : "LadyForest",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/55568005?v=4",
+        "url" : "https://github.com/LadyForest",
+        "contributions" : 20
+      },
+      {
+        "login" : "link3280",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13482005?v=4",
+        "url" : "https://github.com/link3280",
         "contributions" : 20
       },
       {
         "login" : "ktzoumas",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1925554?v=4",
-        "url" : "https://api.github.com/users/ktzoumas",
+        "url" : "https://github.com/ktzoumas",
         "contributions" : 20
       },
       {
         "login" : "mushketyk",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/592286?v=4",
-        "url" : "https://api.github.com/users/mushketyk",
+        "url" : "https://github.com/mushketyk",
         "contributions" : 19
       },
       {
         "login" : "iampeter",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/713801?v=4",
-        "url" : "https://api.github.com/users/iampeter",
+        "url" : "https://github.com/iampeter",
         "contributions" : 19
       },
       {
         "login" : "mjsax",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/8959638?v=4",
-        "url" : "https://api.github.com/users/mjsax",
-        "contributions" : 19
-      },
-      {
-        "login" : "LadyForest",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/55568005?v=4",
-        "url" : "https://api.github.com/users/LadyForest",
+        "url" : "https://github.com/mjsax",
         "contributions" : 19
       },
       {
         "login" : "senorcarbone",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/858078?v=4",
-        "url" : "https://api.github.com/users/senorcarbone",
+        "url" : "https://github.com/senorcarbone",
         "contributions" : 18
       },
       {
-        "login" : "link3280",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/13482005?v=4",
-        "url" : "https://api.github.com/users/link3280",
+        "login" : "lincoln-lil",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3712895?v=4",
+        "url" : "https://github.com/lincoln-lil",
         "contributions" : 18
       },
       {
         "login" : "skunert",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5718005?v=4",
-        "url" : "https://api.github.com/users/skunert",
+        "url" : "https://github.com/skunert",
         "contributions" : 18
+      },
+      {
+        "login" : "zoltar9264",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/16664055?v=4",
+        "url" : "https://github.com/zoltar9264",
+        "contributions" : 17
       },
       {
         "login" : "zhuxiaoshang",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/31235759?v=4",
-        "url" : "https://api.github.com/users/zhuxiaoshang",
+        "url" : "https://github.com/zhuxiaoshang",
+        "contributions" : 17
+      },
+      {
+        "login" : "vahmed-hamdy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/94389402?v=4",
+        "url" : "https://github.com/vahmed-hamdy",
+        "contributions" : 17
+      },
+      {
+        "login" : "paul8263",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7007327?v=4",
+        "url" : "https://github.com/paul8263",
         "contributions" : 17
       },
       {
         "login" : "walterddr",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/3581352?v=4",
-        "url" : "https://api.github.com/users/walterddr",
+        "url" : "https://github.com/walterddr",
         "contributions" : 16
       },
       {
         "login" : "gallenvara",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/12931563?v=4",
-        "url" : "https://api.github.com/users/gallenvara",
+        "url" : "https://github.com/gallenvara",
+        "contributions" : 16
+      },
+      {
+        "login" : "liuyongvs",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6316753?v=4",
+        "url" : "https://github.com/liuyongvs",
         "contributions" : 16
       },
       {
         "login" : "liyafan82",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/42827532?v=4",
-        "url" : "https://api.github.com/users/liyafan82",
+        "url" : "https://github.com/liyafan82",
         "contributions" : 16
       },
       {
         "login" : "zuston",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/8609142?v=4",
-        "url" : "https://api.github.com/users/zuston",
+        "url" : "https://github.com/zuston",
         "contributions" : 16
       },
       {
         "login" : "balidani",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1805302?v=4",
-        "url" : "https://api.github.com/users/balidani",
+        "url" : "https://github.com/balidani",
         "contributions" : 16
       },
       {
         "login" : "patricklucas",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/95053?v=4",
-        "url" : "https://api.github.com/users/patricklucas",
-        "contributions" : 15
-      },
-      {
-        "login" : "syhily",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/1761698?v=4",
-        "url" : "https://api.github.com/users/syhily",
-        "contributions" : 15
-      },
-      {
-        "login" : "CrynetLogistics",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/9928830?v=4",
-        "url" : "https://api.github.com/users/CrynetLogistics",
-        "contributions" : 15
-      },
-      {
-        "login" : "liuyongvs",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/6316753?v=4",
-        "url" : "https://api.github.com/users/liuyongvs",
+        "url" : "https://github.com/patricklucas",
         "contributions" : 15
       },
       {
         "login" : "xueyumusic",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/95261?v=4",
-        "url" : "https://api.github.com/users/xueyumusic",
-        "contributions" : 15
-      },
-      {
-        "login" : "paul8263",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/7007327?v=4",
-        "url" : "https://api.github.com/users/paul8263",
-        "contributions" : 15
-      },
-      {
-        "login" : "lincoln-lil",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/3712895?v=4",
-        "url" : "https://api.github.com/users/lincoln-lil",
-        "contributions" : 15
-      },
-      {
-        "login" : "Fokko",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/1134248?v=4",
-        "url" : "https://api.github.com/users/Fokko",
+        "url" : "https://github.com/xueyumusic",
         "contributions" : 15
       },
       {
         "login" : "shaoxuan-wang",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/9400874?v=4",
-        "url" : "https://api.github.com/users/shaoxuan-wang",
+        "url" : "https://github.com/shaoxuan-wang",
         "contributions" : 14
       },
       {
         "login" : "medcv",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/9163132?v=4",
-        "url" : "https://api.github.com/users/medcv",
+        "url" : "https://github.com/medcv",
         "contributions" : 14
       },
       {
         "login" : "xuefuz",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1117004?v=4",
-        "url" : "https://api.github.com/users/xuefuz",
+        "url" : "https://github.com/xuefuz",
         "contributions" : 13
       },
       {
         "login" : "rwaury",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/475882?v=4",
-        "url" : "https://api.github.com/users/rwaury",
+        "url" : "https://github.com/rwaury",
         "contributions" : 13
       },
       {
         "login" : "shijinkui",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/648508?v=4",
-        "url" : "https://api.github.com/users/shijinkui",
+        "url" : "https://github.com/shijinkui",
         "contributions" : 13
       },
       {
         "login" : "tedyu",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/235188?v=4",
-        "url" : "https://api.github.com/users/tedyu",
+        "url" : "https://github.com/tedyu",
         "contributions" : 13
       },
       {
         "login" : "stefanobaghino",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1374489?v=4",
-        "url" : "https://api.github.com/users/stefanobaghino",
+        "url" : "https://github.com/stefanobaghino",
         "contributions" : 13
       },
       {
-        "login" : "deadwind4",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/12015546?v=4",
-        "url" : "https://api.github.com/users/deadwind4",
+        "login" : "Tartarus0zm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9247964?v=4",
+        "url" : "https://github.com/Tartarus0zm",
         "contributions" : 13
       },
       {
         "login" : "wenhuitang",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/42363767?v=4",
-        "url" : "https://api.github.com/users/wenhuitang",
+        "url" : "https://github.com/wenhuitang",
         "contributions" : 13
       },
       {
         "login" : "zjffdu",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/164491?v=4",
-        "url" : "https://api.github.com/users/zjffdu",
+        "url" : "https://github.com/zjffdu",
         "contributions" : 12
       },
       {
         "login" : "qinjunjerry",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/11677043?v=4",
-        "url" : "https://api.github.com/users/qinjunjerry",
+        "url" : "https://github.com/qinjunjerry",
         "contributions" : 12
       },
       {
         "login" : "cshuo",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/13557966?v=4",
-        "url" : "https://api.github.com/users/cshuo",
+        "url" : "https://github.com/cshuo",
         "contributions" : 12
       },
       {
         "login" : "matadorhong",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/4719277?v=4",
-        "url" : "https://api.github.com/users/matadorhong",
+        "url" : "https://github.com/matadorhong",
+        "contributions" : 12
+      },
+      {
+        "login" : "Myracle",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4495851?v=4",
+        "url" : "https://github.com/Myracle",
         "contributions" : 12
       },
       {
         "login" : "andrehacker",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/659564?v=4",
-        "url" : "https://api.github.com/users/andrehacker",
+        "url" : "https://github.com/andrehacker",
         "contributions" : 12
       },
       {
         "login" : "eszesd",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/7976264?v=4",
-        "url" : "https://api.github.com/users/eszesd",
+        "url" : "https://github.com/eszesd",
         "contributions" : 12
       },
       {
         "login" : "fpompermaier",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/3776037?v=4",
-        "url" : "https://api.github.com/users/fpompermaier",
+        "url" : "https://github.com/fpompermaier",
         "contributions" : 12
       },
       {
         "login" : "zzchun",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/33080263?v=4",
-        "url" : "https://api.github.com/users/zzchun",
+        "url" : "https://github.com/zzchun",
+        "contributions" : 12
+      },
+      {
+        "login" : "hackergin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/24229889?v=4",
+        "url" : "https://github.com/hackergin",
         "contributions" : 12
       },
       {
         "login" : "carabolic",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/657767?v=4",
-        "url" : "https://api.github.com/users/carabolic",
+        "url" : "https://github.com/carabolic",
         "contributions" : 11
       },
       {
         "login" : "florianschmidt1994",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/6798306?v=4",
-        "url" : "https://api.github.com/users/florianschmidt1994",
+        "url" : "https://github.com/florianschmidt1994",
         "contributions" : 11
       },
       {
         "login" : "HuangWHWHW",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/13193847?v=4",
-        "url" : "https://api.github.com/users/HuangWHWHW",
+        "url" : "https://github.com/HuangWHWHW",
         "contributions" : 11
       },
       {
         "login" : "Matrix42",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/13606692?v=4",
-        "url" : "https://api.github.com/users/Matrix42",
+        "url" : "https://github.com/Matrix42",
         "contributions" : 11
       },
       {
         "login" : "xuyang1706",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/51157402?v=4",
-        "url" : "https://api.github.com/users/xuyang1706",
+        "url" : "https://github.com/xuyang1706",
         "contributions" : 11
       },
       {
         "login" : "pyscala",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/20840332?v=4",
-        "url" : "https://api.github.com/users/pyscala",
+        "url" : "https://github.com/pyscala",
+        "contributions" : 11
+      },
+      {
+        "login" : "1996fanrui",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/38427477?v=4",
+        "url" : "https://github.com/1996fanrui",
         "contributions" : 11
       },
       {
         "login" : "eaglewatcherwb",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/42056379?v=4",
-        "url" : "https://api.github.com/users/eaglewatcherwb",
+        "url" : "https://github.com/eaglewatcherwb",
         "contributions" : 11
       },
       {
         "login" : "apivovarov",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/218087?v=4",
-        "url" : "https://api.github.com/users/apivovarov",
+        "url" : "https://github.com/apivovarov",
         "contributions" : 10
       },
       {
         "login" : "casidiablo",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/144458?v=4",
-        "url" : "https://api.github.com/users/casidiablo",
+        "url" : "https://github.com/casidiablo",
+        "contributions" : 10
+      },
+      {
+        "login" : "masteryhx",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/38719192?v=4",
+        "url" : "https://github.com/masteryhx",
+        "contributions" : 10
+      },
+      {
+        "login" : "Vancior",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/20366774?v=4",
+        "url" : "https://github.com/Vancior",
         "contributions" : 10
       },
       {
         "login" : "WangTaoTheTonic",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5276001?v=4",
-        "url" : "https://api.github.com/users/WangTaoTheTonic",
+        "url" : "https://github.com/WangTaoTheTonic",
+        "contributions" : 10
+      },
+      {
+        "login" : "yittg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4429171?v=4",
+        "url" : "https://github.com/yittg",
+        "contributions" : 10
+      },
+      {
+        "login" : "Zakelly",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2986149?v=4",
+        "url" : "https://github.com/Zakelly",
+        "contributions" : 10
+      },
+      {
+        "login" : "hehuiyuan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/18002496?v=4",
+        "url" : "https://github.com/hehuiyuan",
         "contributions" : 10
       },
       {
         "login" : "shuai-xu",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/20960838?v=4",
-        "url" : "https://api.github.com/users/shuai-xu",
+        "url" : "https://github.com/shuai-xu",
+        "contributions" : 10
+      },
+      {
+        "login" : "cun8cun8",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11402208?v=4",
+        "url" : "https://github.com/cun8cun8",
         "contributions" : 10
       },
       {
         "login" : "Jiayi-Liao",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/13514599?v=4",
-        "url" : "https://api.github.com/users/Jiayi-Liao",
+        "url" : "https://github.com/Jiayi-Liao",
         "contributions" : 10
       },
       {
-        "login" : "Tartarus0zm",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/9247964?v=4",
-        "url" : "https://api.github.com/users/Tartarus0zm",
+        "login" : "autophagy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/12958979?v=4",
+        "url" : "https://github.com/autophagy",
         "contributions" : 10
       },
       {
         "login" : "lamberken",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/20113411?v=4",
-        "url" : "https://api.github.com/users/lamberken",
-        "contributions" : 10
-      },
-      {
-        "login" : "hackergin",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/24229889?v=4",
-        "url" : "https://api.github.com/users/hackergin",
+        "url" : "https://github.com/lamberken",
         "contributions" : 10
       },
       {
         "login" : "MoeweX",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5738978?v=4",
-        "url" : "https://api.github.com/users/MoeweX",
+        "url" : "https://github.com/MoeweX",
+        "contributions" : 9
+      },
+      {
+        "login" : "metaswirl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1880943?v=4",
+        "url" : "https://github.com/metaswirl",
         "contributions" : 9
       },
       {
         "login" : "Xeli",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1273233?v=4",
-        "url" : "https://api.github.com/users/Xeli",
+        "url" : "https://github.com/Xeli",
+        "contributions" : 9
+      },
+      {
+        "login" : "liyubin117",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7313035?v=4",
+        "url" : "https://github.com/liyubin117",
+        "contributions" : 9
+      },
+      {
+        "login" : "imaffe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22848576?v=4",
+        "url" : "https://github.com/imaffe",
         "contributions" : 9
       },
       {
         "login" : "TanYuxin-tyx",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/20889547?v=4",
-        "url" : "https://api.github.com/users/TanYuxin-tyx",
+        "url" : "https://github.com/TanYuxin-tyx",
         "contributions" : 9
       },
       {
-        "login" : "Zakelly",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/2986149?v=4",
-        "url" : "https://api.github.com/users/Zakelly",
-        "contributions" : 9
-      },
-      {
-        "login" : "hehuiyuan",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/18002496?v=4",
-        "url" : "https://api.github.com/users/hehuiyuan",
+        "login" : "ruanhang1993",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17610579?v=4",
+        "url" : "https://github.com/ruanhang1993",
         "contributions" : 9
       },
       {
         "login" : "aloyszhang",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/48062889?v=4",
-        "url" : "https://api.github.com/users/aloyszhang",
+        "url" : "https://github.com/aloyszhang",
+        "contributions" : 9
+      },
+      {
+        "login" : "gaborgsomogyi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/18561820?v=4",
+        "url" : "https://github.com/gaborgsomogyi",
         "contributions" : 9
       },
       {
         "login" : "YikSanChan",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/17229109?v=4",
-        "url" : "https://api.github.com/users/YikSanChan",
+        "url" : "https://github.com/YikSanChan",
         "contributions" : 9
       },
       {
         "login" : "openinx",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5028729?v=4",
-        "url" : "https://api.github.com/users/openinx",
+        "url" : "https://github.com/openinx",
         "contributions" : 9
       },
       {
         "login" : "austince",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/4655775?v=4",
-        "url" : "https://api.github.com/users/austince",
+        "url" : "https://github.com/austince",
+        "contributions" : 9
+      },
+      {
+        "login" : "lsyldliu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/17698589?v=4",
+        "url" : "https://github.com/lsyldliu",
+        "contributions" : 9
+      },
+      {
+        "login" : "yangjf2019",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/54518670?v=4",
+        "url" : "https://github.com/yangjf2019",
         "contributions" : 9
       },
       {
         "login" : "Clarkkkkk",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/19434270?v=4",
-        "url" : "https://api.github.com/users/Clarkkkkk",
+        "url" : "https://github.com/Clarkkkkk",
         "contributions" : 9
       },
       {
         "login" : "caozhen1937",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/28433016?v=4",
-        "url" : "https://api.github.com/users/caozhen1937",
+        "url" : "https://github.com/caozhen1937",
         "contributions" : 9
       },
       {
         "login" : "s1ck",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/318788?v=4",
-        "url" : "https://api.github.com/users/s1ck",
+        "url" : "https://github.com/s1ck",
+        "contributions" : 8
+      },
+      {
+        "login" : "smattheis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7805104?v=4",
+        "url" : "https://github.com/smattheis",
         "contributions" : 8
       },
       {
         "login" : "jiasheng55",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/11782480?v=4",
-        "url" : "https://api.github.com/users/jiasheng55",
-        "contributions" : 8
-      },
-      {
-        "login" : "yittg",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/4429171?v=4",
-        "url" : "https://api.github.com/users/yittg",
+        "url" : "https://github.com/jiasheng55",
         "contributions" : 8
       },
       {
         "login" : "ffbin",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/13081808?v=4",
-        "url" : "https://api.github.com/users/ffbin",
+        "url" : "https://github.com/ffbin",
+        "contributions" : 8
+      },
+      {
+        "login" : "xuyangzhong",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/25195874?v=4",
+        "url" : "https://github.com/xuyangzhong",
         "contributions" : 8
       },
       {
         "login" : "chaozwn",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/51357674?v=4",
-        "url" : "https://api.github.com/users/chaozwn",
-        "contributions" : 8
-      },
-      {
-        "login" : "vahmed-hamdy",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/94389402?v=4",
-        "url" : "https://api.github.com/users/vahmed-hamdy",
-        "contributions" : 8
-      },
-      {
-        "login" : "Myracle",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/4495851?v=4",
-        "url" : "https://api.github.com/users/Myracle",
+        "url" : "https://github.com/chaozwn",
         "contributions" : 8
       },
       {
         "login" : "jaoki",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1417151?v=4",
-        "url" : "https://api.github.com/users/jaoki",
+        "url" : "https://github.com/jaoki",
         "contributions" : 8
       },
       {
-        "login" : "lsyldliu",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/17698589?v=4",
-        "url" : "https://api.github.com/users/lsyldliu",
-        "contributions" : 8
-      },
-      {
-        "login" : "yangjf2019",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/54518670?v=4",
-        "url" : "https://api.github.com/users/yangjf2019",
+        "login" : "Fokko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1134248?v=4",
+        "url" : "https://github.com/Fokko",
         "contributions" : 8
       },
       {
         "login" : "Sxnan",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/12155662?v=4",
-        "url" : "https://api.github.com/users/Sxnan",
+        "url" : "https://github.com/Sxnan",
+        "contributions" : 8
+      },
+      {
+        "login" : "zoucao",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/32817398?v=4",
+        "url" : "https://github.com/zoucao",
         "contributions" : 8
       },
       {
         "login" : "cebe",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/189796?v=4",
-        "url" : "https://api.github.com/users/cebe",
+        "url" : "https://github.com/cebe",
         "contributions" : 7
       },
       {
         "login" : "iemejia",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/79476?v=4",
-        "url" : "https://api.github.com/users/iemejia",
+        "url" : "https://github.com/iemejia",
         "contributions" : 7
       },
       {
         "login" : "sv3ndk",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1214071?v=4",
-        "url" : "https://api.github.com/users/sv3ndk",
+        "url" : "https://github.com/sv3ndk",
         "contributions" : 7
       },
       {
         "login" : "V1ncentzzZ",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/45353183?v=4",
-        "url" : "https://api.github.com/users/V1ncentzzZ",
+        "url" : "https://github.com/V1ncentzzZ",
         "contributions" : 7
       },
       {
-        "login" : "liyubin117",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/7313035?v=4",
-        "url" : "https://api.github.com/users/liyubin117",
+        "login" : "fredia",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/18653940?v=4",
+        "url" : "https://github.com/fredia",
+        "contributions" : 7
+      },
+      {
+        "login" : "hililiwei",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/59213263?v=4",
+        "url" : "https://github.com/hililiwei",
         "contributions" : 7
       },
       {
         "login" : "maqingxiang",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/35321391?v=4",
-        "url" : "https://api.github.com/users/maqingxiang",
+        "url" : "https://github.com/maqingxiang",
         "contributions" : 7
       },
       {
         "login" : "mtunique",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5835949?v=4",
-        "url" : "https://api.github.com/users/mtunique",
+        "url" : "https://github.com/mtunique",
         "contributions" : 7
       },
       {
         "login" : "wangxiyuan",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/10891919?v=4",
-        "url" : "https://api.github.com/users/wangxiyuan",
+        "url" : "https://github.com/wangxiyuan",
         "contributions" : 7
       },
       {
-        "login" : "xuyangzhong",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/25195874?v=4",
-        "url" : "https://api.github.com/users/xuyangzhong",
+        "login" : "wujinhu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6348524?v=4",
+        "url" : "https://github.com/wujinhu",
         "contributions" : 7
       },
       {
         "login" : "tonycox",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/15128562?v=4",
-        "url" : "https://api.github.com/users/tonycox",
+        "url" : "https://github.com/tonycox",
         "contributions" : 7
       },
       {
         "login" : "EronWright",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1775518?v=4",
-        "url" : "https://api.github.com/users/EronWright",
+        "url" : "https://github.com/EronWright",
         "contributions" : 7
       },
       {
         "login" : "tragicjun",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/3949293?v=4",
-        "url" : "https://api.github.com/users/tragicjun",
+        "url" : "https://github.com/tragicjun",
         "contributions" : 7
-      },
-      {
-        "login" : "gaborgsomogyi",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/18561820?v=4",
-        "url" : "https://api.github.com/users/gaborgsomogyi",
-        "contributions" : 6
-      },
-      {
-        "login" : "pltbkd",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/86285274?v=4",
-        "url" : "https://api.github.com/users/pltbkd",
-        "contributions" : 6
       },
       {
         "login" : "mcfongtw",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1127998?v=4",
-        "url" : "https://api.github.com/users/mcfongtw",
+        "url" : "https://github.com/mcfongtw",
         "contributions" : 6
       },
       {
         "login" : "rohitagarwal003",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/695290?v=4",
-        "url" : "https://api.github.com/users/rohitagarwal003",
+        "url" : "https://github.com/rohitagarwal003",
         "contributions" : 6
       },
       {
         "login" : "rehevkor5",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/16899?v=4",
-        "url" : "https://api.github.com/users/rehevkor5",
+        "url" : "https://github.com/rehevkor5",
         "contributions" : 6
       },
       {
         "login" : "vijikarthi",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5560671?v=4",
-        "url" : "https://api.github.com/users/vijikarthi",
+        "url" : "https://github.com/vijikarthi",
         "contributions" : 6
       },
       {
-        "login" : "hililiwei",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/59213263?v=4",
-        "url" : "https://api.github.com/users/hililiwei",
-        "contributions" : 6
-      },
-      {
-        "login" : "jinglining",
+        "login" : "jerry-024",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/3992588?v=4",
-        "url" : "https://api.github.com/users/jinglining",
+        "url" : "https://github.com/jerry-024",
         "contributions" : 6
       },
       {
         "login" : "enijkamp",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1615918?v=4",
-        "url" : "https://api.github.com/users/enijkamp",
+        "url" : "https://github.com/enijkamp",
         "contributions" : 6
       },
       {
         "login" : "XuQianJin-Stars",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/10494131?v=4",
-        "url" : "https://api.github.com/users/XuQianJin-Stars",
+        "url" : "https://github.com/XuQianJin-Stars",
         "contributions" : 6
       },
       {
         "login" : "zlzhang0122",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5321584?v=4",
-        "url" : "https://api.github.com/users/zlzhang0122",
+        "url" : "https://github.com/zlzhang0122",
         "contributions" : 6
       },
       {
         "login" : "yangyichao-mango",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/29545877?v=4",
-        "url" : "https://api.github.com/users/yangyichao-mango",
+        "url" : "https://github.com/yangyichao-mango",
         "contributions" : 6
       },
       {
         "login" : "jrthe42",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5790960?v=4",
-        "url" : "https://api.github.com/users/jrthe42",
+        "url" : "https://github.com/jrthe42",
         "contributions" : 6
       },
       {
         "login" : "yuruguo",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/13013780?v=4",
-        "url" : "https://api.github.com/users/yuruguo",
+        "url" : "https://github.com/yuruguo",
         "contributions" : 6
       },
       {
         "login" : "akshaydixi",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1679435?v=4",
-        "url" : "https://api.github.com/users/akshaydixi",
+        "url" : "https://github.com/akshaydixi",
         "contributions" : 5
       },
       {
         "login" : "rekhajoshm",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5987836?v=4",
-        "url" : "https://api.github.com/users/rekhajoshm",
+        "url" : "https://github.com/rekhajoshm",
         "contributions" : 5
       },
       {
         "login" : "glaksh100",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/6556511?v=4",
-        "url" : "https://api.github.com/users/glaksh100",
+        "url" : "https://github.com/glaksh100",
         "contributions" : 5
       },
       {
         "login" : "mleich",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/4539384?v=4",
-        "url" : "https://api.github.com/users/mleich",
+        "url" : "https://github.com/mleich",
         "contributions" : 5
       },
       {
         "login" : "mbode",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/9051309?v=4",
-        "url" : "https://api.github.com/users/mbode",
+        "url" : "https://github.com/mbode",
         "contributions" : 5
       },
       {
         "login" : "cmick",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/2039722?v=4",
-        "url" : "https://api.github.com/users/cmick",
+        "url" : "https://github.com/cmick",
         "contributions" : 5
       },
       {
         "login" : "miklosgergely",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/17640179?v=4",
-        "url" : "https://api.github.com/users/miklosgergely",
+        "url" : "https://github.com/miklosgergely",
         "contributions" : 5
       },
       {
         "login" : "banmoy",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/11382970?v=4",
-        "url" : "https://api.github.com/users/banmoy",
+        "url" : "https://github.com/banmoy",
         "contributions" : 5
       },
       {
         "login" : "skidder",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/4603901?v=4",
-        "url" : "https://api.github.com/users/skidder",
+        "url" : "https://github.com/skidder",
+        "contributions" : 5
+      },
+      {
+        "login" : "shenzhu",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4761430?v=4",
+        "url" : "https://github.com/shenzhu",
         "contributions" : 5
       },
       {
         "login" : "StefanRRichter",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/2128543?v=4",
-        "url" : "https://api.github.com/users/StefanRRichter",
+        "url" : "https://github.com/StefanRRichter",
         "contributions" : 5
       },
       {
         "login" : "yjshen",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1387718?v=4",
-        "url" : "https://api.github.com/users/yjshen",
-        "contributions" : 5
-      },
-      {
-        "login" : "imaffe",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/22848576?v=4",
-        "url" : "https://api.github.com/users/imaffe",
+        "url" : "https://github.com/yjshen",
         "contributions" : 5
       },
       {
         "login" : "clarkyzl",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/656810?v=4",
-        "url" : "https://api.github.com/users/clarkyzl",
+        "url" : "https://github.com/clarkyzl",
         "contributions" : 5
       },
       {
         "login" : "molsionmo",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/52347588?v=4",
-        "url" : "https://api.github.com/users/molsionmo",
+        "url" : "https://github.com/molsionmo",
         "contributions" : 5
       },
       {
         "login" : "xiaoHoly",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/37236383?v=4",
-        "url" : "https://api.github.com/users/xiaoHoly",
+        "url" : "https://github.com/xiaoHoly",
+        "contributions" : 5
+      },
+      {
+        "login" : "yangjunhan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/50307523?v=4",
+        "url" : "https://github.com/yangjunhan",
         "contributions" : 5
       },
       {
         "login" : "jjiey",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/29424908?v=4",
-        "url" : "https://api.github.com/users/jjiey",
+        "url" : "https://github.com/jjiey",
         "contributions" : 5
       },
       {
         "login" : "FelixNeutatz",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5217389?v=4",
-        "url" : "https://api.github.com/users/FelixNeutatz",
+        "url" : "https://github.com/FelixNeutatz",
         "contributions" : 5
       },
       {
         "login" : "filiphaase",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5747807?v=4",
-        "url" : "https://api.github.com/users/filiphaase",
+        "url" : "https://github.com/filiphaase",
         "contributions" : 5
       },
       {
         "login" : "jkirsch",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1161446?v=4",
-        "url" : "https://api.github.com/users/jkirsch",
-        "contributions" : 5
-      },
-      {
-        "login" : "autophagy",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/12958979?v=4",
-        "url" : "https://api.github.com/users/autophagy",
-        "contributions" : 5
-      },
-      {
-        "login" : "1996fanrui",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/38427477?v=4",
-        "url" : "https://api.github.com/users/1996fanrui",
+        "url" : "https://github.com/jkirsch",
         "contributions" : 5
       },
       {
         "login" : "xmarker",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/13900636?v=4",
-        "url" : "https://api.github.com/users/xmarker",
+        "url" : "https://github.com/xmarker",
         "contributions" : 5
       },
       {
         "login" : "elbaulp",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/394797?v=4",
-        "url" : "https://api.github.com/users/elbaulp",
-        "contributions" : 4
-      },
-      {
-        "login" : "ruanhang1993",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/17610579?v=4",
-        "url" : "https://api.github.com/users/ruanhang1993",
+        "url" : "https://github.com/elbaulp",
         "contributions" : 4
       },
       {
         "login" : "hwanju",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/4557474?v=4",
-        "url" : "https://api.github.com/users/hwanju",
+        "url" : "https://github.com/hwanju",
         "contributions" : 4
       },
       {
         "login" : "HeartSaVioR",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1317309?v=4",
-        "url" : "https://api.github.com/users/HeartSaVioR",
+        "url" : "https://github.com/HeartSaVioR",
         "contributions" : 4
       },
       {
         "login" : "kottmann",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1217786?v=4",
-        "url" : "https://api.github.com/users/kottmann",
+        "url" : "https://github.com/kottmann",
         "contributions" : 4
       },
       {
         "login" : "kbohinski",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/6530081?v=4",
-        "url" : "https://api.github.com/users/kbohinski",
+        "url" : "https://github.com/kbohinski",
         "contributions" : 4
       },
       {
         "login" : "sarutak",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/4736016?v=4",
-        "url" : "https://api.github.com/users/sarutak",
+        "url" : "https://github.com/sarutak",
         "contributions" : 4
       },
       {
         "login" : "AjaxXu",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1926555?v=4",
-        "url" : "https://api.github.com/users/AjaxXu",
+        "url" : "https://github.com/AjaxXu",
         "contributions" : 4
       },
       {
         "login" : "mproch",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/147658?v=4",
-        "url" : "https://api.github.com/users/mproch",
+        "url" : "https://github.com/mproch",
         "contributions" : 4
       },
       {
         "login" : "mliesenberg",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/2471132?v=4",
-        "url" : "https://api.github.com/users/mliesenberg",
+        "url" : "https://github.com/mliesenberg",
         "contributions" : 4
       },
       {
         "login" : "piyushnarang",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/9885908?v=4",
-        "url" : "https://api.github.com/users/piyushnarang",
-        "contributions" : 4
-      },
-      {
-        "login" : "shenzhu",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/4761430?v=4",
-        "url" : "https://api.github.com/users/shenzhu",
+        "url" : "https://github.com/piyushnarang",
         "contributions" : 4
       },
       {
         "login" : "tobwiens",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/6491363?v=4",
-        "url" : "https://api.github.com/users/tobwiens",
+        "url" : "https://github.com/tobwiens",
         "contributions" : 4
       },
       {
         "login" : "wenlong88",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/20785829?v=4",
-        "url" : "https://api.github.com/users/wenlong88",
+        "url" : "https://github.com/wenlong88",
         "contributions" : 4
       },
       {
         "login" : "yestinchen",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1806200?v=4",
-        "url" : "https://api.github.com/users/yestinchen",
+        "url" : "https://github.com/yestinchen",
         "contributions" : 4
       },
       {
         "login" : "yngwiewang",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/64290793?v=4",
-        "url" : "https://api.github.com/users/yngwiewang",
+        "url" : "https://github.com/yngwiewang",
         "contributions" : 4
       },
       {
         "login" : "YuvalItzchakov",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/3448320?v=4",
-        "url" : "https://api.github.com/users/YuvalItzchakov",
+        "url" : "https://github.com/YuvalItzchakov",
+        "contributions" : 4
+      },
+      {
+        "login" : "GOODBOY008",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13617900?v=4",
+        "url" : "https://github.com/GOODBOY008",
         "contributions" : 4
       },
       {
         "login" : "jinxing64",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/4058918?v=4",
-        "url" : "https://api.github.com/users/jinxing64",
+        "url" : "https://github.com/jinxing64",
         "contributions" : 4
       },
       {
         "login" : "jparkie",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/9499097?v=4",
-        "url" : "https://api.github.com/users/jparkie",
+        "url" : "https://github.com/jparkie",
+        "contributions" : 4
+      },
+      {
+        "login" : "liuzhuang2017",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/95120044?v=4",
+        "url" : "https://github.com/liuzhuang2017",
         "contributions" : 4
       },
       {
         "login" : "manuzhang",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1191767?v=4",
-        "url" : "https://api.github.com/users/manuzhang",
+        "url" : "https://github.com/manuzhang",
         "contributions" : 4
       },
       {
         "login" : "qqibrow",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/441984?v=4",
-        "url" : "https://api.github.com/users/qqibrow",
+        "url" : "https://github.com/qqibrow",
         "contributions" : 4
       },
       {
         "login" : "ramkrish86",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/3690658?v=4",
-        "url" : "https://api.github.com/users/ramkrish86",
+        "url" : "https://github.com/ramkrish86",
         "contributions" : 4
       },
       {
         "login" : "rtudoran",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/16573790?v=4",
-        "url" : "https://api.github.com/users/rtudoran",
+        "url" : "https://github.com/rtudoran",
         "contributions" : 4
       },
       {
         "login" : "shizhengchao",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/22866465?v=4",
-        "url" : "https://api.github.com/users/shizhengchao",
+        "url" : "https://github.com/shizhengchao",
         "contributions" : 4
       },
       {
         "login" : "shouweikun",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/22890348?v=4",
-        "url" : "https://api.github.com/users/shouweikun",
-        "contributions" : 4
-      },
-      {
-        "login" : "zoltar9264",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/16664055?v=4",
-        "url" : "https://api.github.com/users/zoltar9264",
+        "url" : "https://github.com/shouweikun",
         "contributions" : 4
       },
       {
         "login" : "weizheng92",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/11443175?v=4",
-        "url" : "https://api.github.com/users/weizheng92",
-        "contributions" : 4
-      },
-      {
-        "login" : "yangjunhan",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/50307523?v=4",
-        "url" : "https://api.github.com/users/yangjunhan",
+        "url" : "https://github.com/weizheng92",
         "contributions" : 4
       },
       {
         "login" : "zhisheng17",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/10086212?v=4",
-        "url" : "https://api.github.com/users/zhisheng17",
-        "contributions" : 4
-      },
-      {
-        "login" : "zoucao",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/32817398?v=4",
-        "url" : "https://api.github.com/users/zoucao",
+        "url" : "https://github.com/zhisheng17",
         "contributions" : 4
       },
       {
         "login" : "aaronchlam",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/6414135?v=4",
-        "url" : "https://api.github.com/users/aaronchlam",
+        "url" : "https://github.com/aaronchlam",
         "contributions" : 3
       },
       {
         "login" : "AlexanderShoshin",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/14204288?v=4",
-        "url" : "https://api.github.com/users/AlexanderShoshin",
-        "contributions" : 3
-      },
-      {
-        "login" : "benoitparis",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/823075?v=4",
-        "url" : "https://api.github.com/users/benoitparis",
-        "contributions" : 3
-      },
-      {
-        "login" : "brandonJY",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/20021316?v=4",
-        "url" : "https://api.github.com/users/brandonJY",
-        "contributions" : 3
-      },
-      {
-        "login" : "crazyzhou",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/9006082?v=4",
-        "url" : "https://api.github.com/users/crazyzhou",
-        "contributions" : 3
-      },
-      {
-        "login" : "infoverload",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/6058958?v=4",
-        "url" : "https://api.github.com/users/infoverload",
-        "contributions" : 3
-      },
-      {
-        "login" : "DmytroShkvyra",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/3136590?v=4",
-        "url" : "https://api.github.com/users/DmytroShkvyra",
-        "contributions" : 3
-      },
-      {
-        "login" : "ebautistabar",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/5347795?v=4",
-        "url" : "https://api.github.com/users/ebautistabar",
-        "contributions" : 3
-      },
-      {
-        "login" : "galenwarren",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/784517?v=4",
-        "url" : "https://api.github.com/users/galenwarren",
-        "contributions" : 3
-      },
-      {
-        "login" : "GEOFBOT",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/5053772?v=4",
-        "url" : "https://api.github.com/users/GEOFBOT",
-        "contributions" : 3
-      },
-      {
-        "login" : "Guibo-Pan",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/6771208?v=4",
-        "url" : "https://api.github.com/users/Guibo-Pan",
+        "url" : "https://github.com/AlexanderShoshin",
         "contributions" : 3
       }
     ],
-    "commits" : 24141,
+    "commits" : 25140,
     "topics" : [
       "sql",
       "big-data",
@@ -1750,12 +1750,13 @@
       "scala",
       "python"
     ],
-    "contributingGuide" : null,
-    "codeOfConduct" : null,
+    "contributingGuide" : "https://github.com/apache/flink/blob/master/.github/CONTRIBUTING.md",
+    "codeOfConduct" : "https://github.com/apache/.github/blob/master/.github/CODE_OF_CONDUCT.md",
     "chatroom" : null,
     "openIssues" : [
     ],
-    "scalaPercentage" : null
+    "scalaPercentage" : 9,
+    "license" : null
   },
   "settings" : {
     "defaultStableVersion" : true,
