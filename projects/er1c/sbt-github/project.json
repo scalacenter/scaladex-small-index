@@ -4,7 +4,7 @@
   "creationDate" : 1636343355000,
   "githubStatus" : {
     "Ok" : {
-      "updateDate" : 1644303871087
+      "updateDate" : 1660792218527
     }
   },
   "githubInfo" : {
@@ -16,204 +16,204 @@
     "watchers" : 4,
     "issues" : 0,
     "creationDate" : 1609969003000,
-    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h2 dir=\"auto\"><a id=\"user-content-sbt-github\" class=\"anchor\" aria-hidden=\"true\" href=\"#sbt-github\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>sbt-github</h2>\n<p dir=\"auto\"><a href=\"https://github.com/er1c/sbt-github/actions/workflows/ci.yml\"><img src=\"https://github.com/er1c/sbt-github/actions/workflows/ci.yml/badge.svg\" alt=\"Continuous Integration\" style=\"max-width: 100%;\"></a>\n<a href=\"https://search.maven.org/search?q=g:io.github.er1c%20AND%20a:sbt-github\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/8490e625a71b6a621bcafcb5a4af5d50fb5b8bc458c23da206db4f41498c3f01/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f696f2e6769746875622e657231632f7362742d6769746875622f62616467652e737667\" alt=\"Maven Central\" data-canonical-src=\"https://maven-badges.herokuapp.com/maven-central/io.github.er1c/sbt-github/badge.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Forking/refactoring <a href=\"https://github.com/sbt/sbt-bintray\"><code>sbt-bintray</code></a> for GitHub support</p>\n<ul dir=\"auto\">\n<li>Requirements: sbt <code>1.2.1</code> or later.</li>\n</ul>\n<p dir=\"auto\">See <a href=\"REMOTE_CACHE.md\">remote caching</a> for information about sbt-github-remote-cache.</p>\n<h2 dir=\"auto\"><a id=\"user-content-consuming-or-publishing\" class=\"anchor\" aria-hidden=\"true\" href=\"#consuming-or-publishing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Consuming or publishing?</h2>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"resolvers +=  &quot;sbt-github-releases&quot; at &quot;https://maven.pkg.github.com/er1c/sbt-github&quot;\ncredentials += Credentials(&quot;GitHub Package Registry&quot;, &quot;maven.pkg.github.com&quot;, &quot;&lt;github-user&gt;&quot;, &quot;&lt;GITHUB_TOKEN&gt;&quot;)\"><pre>resolvers <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span>  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sbt-github-releases<span class=\"pl-pds\">\"</span></span> at <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>https://maven.pkg.github.com/er1c/sbt-github<span class=\"pl-pds\">\"</span></span>\ncredentials <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Credentials</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>GitHub Package Registry<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>maven.pkg.github.com<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>&lt;github-user&gt;<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>&lt;GITHUB_TOKEN&gt;<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<p dir=\"auto\">If you want to <em>publish</em> to GitHub, read on.</p>\n<h2 dir=\"auto\"><a id=\"user-content-install\" class=\"anchor\" aria-hidden=\"true\" href=\"#install\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Install</h2>\n<h3 dir=\"auto\"><a id=\"user-content-what-you-need\" class=\"anchor\" aria-hidden=\"true\" href=\"#what-you-need\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>What you need</h3>\n<p dir=\"auto\">Add the following to your sbt <code>project/plugins.sbt</code> file:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"addSbtPlugin(&quot;io.github.er1c&quot; % &quot;sbt-github&quot; % &quot;0.2.0&quot;)\"><pre>addSbtPlugin(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>io.github.er1c<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sbt-github<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.2.0<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-usage\" class=\"anchor\" aria-hidden=\"true\" href=\"#usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Usage</h2>\n<p dir=\"auto\">Note that when specifying <code>sbt-github</code> settings in <code>project/*.scala</code> files (as opposed to in <code>build.sbt</code>), you will need to add the following import:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import github.GitHubPluginKeys._\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">github</span>.<span class=\"pl-en\">GitHubPluginKeys</span>.<span class=\"pl-en\">_</span></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-github-user\" class=\"anchor\" aria-hidden=\"true\" href=\"#github-user\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>GitHub User</h3>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"ThisBuild / githubOwner := &quot;er1c&quot;\nThisBuild / githubOwnerType := GitHubOwnerType.User\nThisBuild / githubRepository := &quot;sbt-github&quot;\"><pre><span class=\"pl-en\">ThisBuild</span> <span class=\"pl-k\">/</span> githubOwner <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>er1c<span class=\"pl-pds\">\"</span></span>\n<span class=\"pl-en\">ThisBuild</span> <span class=\"pl-k\">/</span> githubOwnerType <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">GitHubOwnerType</span>.<span class=\"pl-en\">User</span>\n<span class=\"pl-en\">ThisBuild</span> <span class=\"pl-k\">/</span> githubRepository <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sbt-github<span class=\"pl-pds\">\"</span></span></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-github-organization\" class=\"anchor\" aria-hidden=\"true\" href=\"#github-organization\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>GitHub Organization</h3>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"ThisBuild / githubOwner := &quot;sbt&quot;\nThisBuild / githubOwnerType := GitHubOwnerType.Organization\nThisBuild / githubRepository := &quot;io&quot;\"><pre><span class=\"pl-en\">ThisBuild</span> <span class=\"pl-k\">/</span> githubOwner <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sbt<span class=\"pl-pds\">\"</span></span>\n<span class=\"pl-en\">ThisBuild</span> <span class=\"pl-k\">/</span> githubOwnerType <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">GitHubOwnerType</span>.<span class=\"pl-en\">Organization</span>\n<span class=\"pl-en\">ThisBuild</span> <span class=\"pl-k\">/</span> githubRepository <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>io<span class=\"pl-pds\">\"</span></span></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-publishing\" class=\"anchor\" aria-hidden=\"true\" href=\"#publishing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Publishing</h3>\n<p dir=\"auto\">To publish a package to github, you need a github account. You can register for one <a href=\"https://github.com/signup/index\">here</a>.\n<code>GitHubPlugin</code> is an auto plugin that will be added to all projects in your build.\nThis plugin will upload and release your artifacts into github when you run <code>publish</code>.</p>\n<p dir=\"auto\">To exclude a project from being published (for example a root or a tests project) use the <code>skip</code> setting:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"publish / skip := true\"><pre>publish <span class=\"pl-k\">/</span> skip <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-c1\">true</span></pre></div>\n<p dir=\"auto\">At any time you can check who you will be authenticated as with the <code>githubWhoami</code> setting which will print your github username</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&gt; githubWhoami\"><pre><code>&gt; githubWhoami\n</code></pre></div>\n<h4 dir=\"auto\"><a id=\"user-content-credentials\" class=\"anchor\" aria-hidden=\"true\" href=\"#credentials\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Credentials</h4>\n<p dir=\"auto\">To publish, you need to provide github credentials (user name and API key). There are three ways to set them up: credential file, properties, and environment variables.</p>\n<ol dir=\"auto\">\n<li>Credentials file</li>\n</ol>\n<p dir=\"auto\">sbt-github will look for a credentials file under <code>~/.github/.credentials</code> used to authenticate publishing requests to github.</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"realm = GitHub API Realm\nhost = api.github.com\nuser = &lt;github user&gt;\npassword = &lt;api_token&gt;\"><pre><code>realm = GitHub API Realm\nhost = api.github.com\nuser = &lt;github user&gt;\npassword = &lt;api_token&gt;\n</code></pre></div>\n<p dir=\"auto\">You can interactively set up or change the github credentials used by sbt anytime with</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&gt; githubChangeCredentials\"><pre><code>&gt; githubChangeCredentials\n</code></pre></div>\n<p dir=\"auto\">Note you will need to <code>reload</code> your project afterwards which will reset your <code>publishTo</code> setting.</p>\n<ol start=\"2\" dir=\"auto\">\n<li>Properties</li>\n</ol>\n<p dir=\"auto\">You can pass the user and pass as JVM properties when starting sbt:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"sbt -Dgithub.user=yourgithubUser -Dgithub.pass=yourgithubPass\"><pre><code>sbt -Dgithub.user=yourgithubUser -Dgithub.pass=yourgithubPass\n</code></pre></div>\n<ol start=\"3\" dir=\"auto\">\n<li>Environment variables</li>\n</ol>\n<p dir=\"auto\">sbt-github will look for github user and pass in the environment variables <code>github_USER</code> and  <code>github_PASS</code>.</p>\n<h4 dir=\"auto\"><a id=\"user-content-github-organization-1\" class=\"anchor\" aria-hidden=\"true\" href=\"#github-organization-1\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>github organization</h4>\n<p dir=\"auto\">You may optionally wish to publish to a <a href=\"https://github.com/docs/usermanual/interacting/interacting_githuborganizations.html\">github organization</a>\ninstead of your individual github user account. To do so, use the <code>githubOrganization</code> setting in your project's build definition.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"githubOwner := Some(&quot;strength-in-numbers&quot;)\ngithubOwnerType := GitHubOwnerType.Organization\"><pre>githubOwner <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Some</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>strength-in-numbers<span class=\"pl-pds\">\"</span></span>)\ngithubOwnerType <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">GitHubOwnerType</span>.<span class=\"pl-en\">Organization</span></pre></div>\n<p dir=\"auto\">The default GitHub repository, for a github user or organization is named <code>maven</code>. If your Maven repository is named differently, you will need to specify the <code>githubRepository</code> setting.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"githubRepository := &quot;oss-maven&quot;\"><pre>githubRepository <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>oss-maven<span class=\"pl-pds\">\"</span></span></pre></div>\n<h5 dir=\"auto\"><a id=\"user-content-public-default\" class=\"anchor\" aria-hidden=\"true\" href=\"#public-default\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Public (default)</h5>\n<p dir=\"auto\">If your project uses a license, github supports several <a href=\"https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository\">OSS licenses</a>. If you are new to software licenses you may\nwant to grab a coffee and absorb some <a href=\"http://choosealicense.com/\" rel=\"nofollow\">well organized information</a> on the topic of choice.\nSbt already defines a <code>licenses</code> setting key. In order to use github sbt you must define your <code>licenses</code> key to contain a license with a name matching\none of those github defines. I recommend <a href=\"http://choosealicense.com/licenses/mit/\" rel=\"nofollow\">MIT</a>.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"licenses += (&quot;MIT&quot;, url(&quot;http://opensource.org/licenses/MIT&quot;))\"><pre>licenses <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> (<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>MIT<span class=\"pl-pds\">\"</span></span>, url(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>http://opensource.org/licenses/MIT<span class=\"pl-pds\">\"</span></span>))</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-unpublishing\" class=\"anchor\" aria-hidden=\"true\" href=\"#unpublishing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Unpublishing</h3>\n<p dir=\"auto\">It's generally a bad practice to remove a version of a library others may depend on but sometimes you may want test a release with the ability to immediately take it back down if something goes south before others start depending on it. github allows for this flexibility and thus, sbt-github does as well. Use the <code>unpublish</code> task to unpublish the current version from github.</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&gt; githubUnpublish\"><pre><code>&gt; githubUnpublish\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-finding-your-way-around\" class=\"anchor\" aria-hidden=\"true\" href=\"#finding-your-way-around\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Finding your way around</h3>\n<p dir=\"auto\">The easiest way to learn about sbt-github is to use the sbt shell typing <code>github&lt;tab&gt;</code> or <code>help github</code> to discover github keys.</p>\n<h2 dir=\"auto\"><a id=\"user-content-acknowledgments\" class=\"anchor\" aria-hidden=\"true\" href=\"#acknowledgments\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Acknowledgments</h2>\n<p dir=\"auto\">This plugin was first created by Doug Tangren (softprops), 2013-2014.</p>\n<p dir=\"auto\">The plugin is now maintained by <a href=\"https://github.com/er1c\">er1c</a>.</p>\n</article></div>",
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h2 dir=\"auto\"><a id=\"user-content-sbt-github\" class=\"anchor\" aria-hidden=\"true\" href=\"#sbt-github\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>sbt-github</h2>\n<p dir=\"auto\"><a href=\"https://github.com/er1c/sbt-github/actions/workflows/ci.yml\"><img src=\"https://github.com/er1c/sbt-github/actions/workflows/ci.yml/badge.svg\" alt=\"Continuous Integration\" style=\"max-width: 100%;\"></a>\n<a href=\"https://search.maven.org/search?q=g:io.github.er1c%20AND%20a:sbt-github\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/8490e625a71b6a621bcafcb5a4af5d50fb5b8bc458c23da206db4f41498c3f01/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f696f2e6769746875622e657231632f7362742d6769746875622f62616467652e737667\" alt=\"Maven Central\" data-canonical-src=\"https://maven-badges.herokuapp.com/maven-central/io.github.er1c/sbt-github/badge.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Forking/refactoring <a href=\"https://github.com/sbt/sbt-bintray\"><code>sbt-bintray</code></a> for GitHub support</p>\n<ul dir=\"auto\">\n<li>Requirements: sbt <code>1.2.1</code> or later.</li>\n</ul>\n<p dir=\"auto\">See <a href=\"REMOTE_CACHE.md\">remote caching</a> for information about sbt-github-remote-cache.</p>\n<h2 dir=\"auto\"><a id=\"user-content-consuming-or-publishing\" class=\"anchor\" aria-hidden=\"true\" href=\"#consuming-or-publishing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Consuming or publishing?</h2>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"resolvers +=  &quot;sbt-github-releases&quot; at &quot;https://maven.pkg.github.com/er1c/sbt-github&quot;\ncredentials += Credentials(&quot;GitHub Package Registry&quot;, &quot;maven.pkg.github.com&quot;, &quot;&lt;github-user&gt;&quot;, &quot;&lt;GITHUB_TOKEN&gt;&quot;)\"><pre>resolvers <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span>  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sbt-github-releases<span class=\"pl-pds\">\"</span></span> at <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>https://maven.pkg.github.com/er1c/sbt-github<span class=\"pl-pds\">\"</span></span>\ncredentials <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Credentials</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>GitHub Package Registry<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>maven.pkg.github.com<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>&lt;github-user&gt;<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>&lt;GITHUB_TOKEN&gt;<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<p dir=\"auto\">If you want to <em>publish</em> to GitHub, read on.</p>\n<h2 dir=\"auto\"><a id=\"user-content-install\" class=\"anchor\" aria-hidden=\"true\" href=\"#install\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Install</h2>\n<h3 dir=\"auto\"><a id=\"user-content-what-you-need\" class=\"anchor\" aria-hidden=\"true\" href=\"#what-you-need\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>What you need</h3>\n<p dir=\"auto\">Add the following to your sbt <code>project/plugins.sbt</code> file:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"addSbtPlugin(&quot;io.github.er1c&quot; % &quot;sbt-github&quot; % &quot;0.2.0&quot;)\"><pre>addSbtPlugin(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>io.github.er1c<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sbt-github<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.2.0<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-usage\" class=\"anchor\" aria-hidden=\"true\" href=\"#usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Usage</h2>\n<p dir=\"auto\">Note that when specifying <code>sbt-github</code> settings in <code>project/*.scala</code> files (as opposed to in <code>build.sbt</code>), you will need to add the following import:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import github.GitHubPluginKeys._\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">github</span>.<span class=\"pl-en\">GitHubPluginKeys</span>.<span class=\"pl-en\">_</span></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-github-user\" class=\"anchor\" aria-hidden=\"true\" href=\"#github-user\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>GitHub User</h3>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"ThisBuild / githubOwner := &quot;er1c&quot;\nThisBuild / githubOwnerType := GitHubOwnerType.User\nThisBuild / githubRepository := &quot;sbt-github&quot;\"><pre><span class=\"pl-en\">ThisBuild</span> <span class=\"pl-k\">/</span> githubOwner <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>er1c<span class=\"pl-pds\">\"</span></span>\n<span class=\"pl-en\">ThisBuild</span> <span class=\"pl-k\">/</span> githubOwnerType <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">GitHubOwnerType</span>.<span class=\"pl-en\">User</span>\n<span class=\"pl-en\">ThisBuild</span> <span class=\"pl-k\">/</span> githubRepository <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sbt-github<span class=\"pl-pds\">\"</span></span></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-github-organization\" class=\"anchor\" aria-hidden=\"true\" href=\"#github-organization\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>GitHub Organization</h3>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"ThisBuild / githubOwner := &quot;sbt&quot;\nThisBuild / githubOwnerType := GitHubOwnerType.Organization\nThisBuild / githubRepository := &quot;io&quot;\"><pre><span class=\"pl-en\">ThisBuild</span> <span class=\"pl-k\">/</span> githubOwner <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sbt<span class=\"pl-pds\">\"</span></span>\n<span class=\"pl-en\">ThisBuild</span> <span class=\"pl-k\">/</span> githubOwnerType <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">GitHubOwnerType</span>.<span class=\"pl-en\">Organization</span>\n<span class=\"pl-en\">ThisBuild</span> <span class=\"pl-k\">/</span> githubRepository <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>io<span class=\"pl-pds\">\"</span></span></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-publishing\" class=\"anchor\" aria-hidden=\"true\" href=\"#publishing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Publishing</h3>\n<p dir=\"auto\">To publish a package to github, you need a github account. You can register for one <a href=\"https://github.com/signup/index\">here</a>.\n<code>GitHubPlugin</code> is an auto plugin that will be added to all projects in your build.\nThis plugin will upload and release your artifacts into github when you run <code>publish</code>.</p>\n<p dir=\"auto\">To exclude a project from being published (for example a root or a tests project) use the <code>skip</code> setting:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"publish / skip := true\"><pre>publish <span class=\"pl-k\">/</span> skip <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-c1\">true</span></pre></div>\n<p dir=\"auto\">At any time you can check who you will be authenticated as with the <code>githubWhoami</code> setting which will print your github username</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&gt; githubWhoami\"><pre class=\"notranslate\"><code>&gt; githubWhoami\n</code></pre></div>\n<h4 dir=\"auto\"><a id=\"user-content-credentials\" class=\"anchor\" aria-hidden=\"true\" href=\"#credentials\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Credentials</h4>\n<p dir=\"auto\">To publish, you need to provide github credentials (user name and API key). There are three ways to set them up: credential file, properties, and environment variables.</p>\n<ol dir=\"auto\">\n<li>Credentials file</li>\n</ol>\n<p dir=\"auto\">sbt-github will look for a credentials file under <code>~/.github/.credentials</code> used to authenticate publishing requests to github.</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"realm = GitHub API Realm\nhost = api.github.com\nuser = &lt;github user&gt;\npassword = &lt;api_token&gt;\"><pre class=\"notranslate\"><code>realm = GitHub API Realm\nhost = api.github.com\nuser = &lt;github user&gt;\npassword = &lt;api_token&gt;\n</code></pre></div>\n<p dir=\"auto\">You can interactively set up or change the github credentials used by sbt anytime with</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&gt; githubChangeCredentials\"><pre class=\"notranslate\"><code>&gt; githubChangeCredentials\n</code></pre></div>\n<p dir=\"auto\">Note you will need to <code>reload</code> your project afterwards which will reset your <code>publishTo</code> setting.</p>\n<ol start=\"2\" dir=\"auto\">\n<li>Properties</li>\n</ol>\n<p dir=\"auto\">You can pass the user and pass as JVM properties when starting sbt:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"sbt -Dgithub.user=yourgithubUser -Dgithub.pass=yourgithubPass\"><pre class=\"notranslate\"><code>sbt -Dgithub.user=yourgithubUser -Dgithub.pass=yourgithubPass\n</code></pre></div>\n<ol start=\"3\" dir=\"auto\">\n<li>Environment variables</li>\n</ol>\n<p dir=\"auto\">sbt-github will look for github user and pass in the environment variables <code>github_USER</code> and  <code>github_PASS</code>.</p>\n<h4 dir=\"auto\"><a id=\"user-content-github-organization-1\" class=\"anchor\" aria-hidden=\"true\" href=\"#github-organization-1\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>github organization</h4>\n<p dir=\"auto\">You may optionally wish to publish to a <a href=\"https://github.com/docs/usermanual/interacting/interacting_githuborganizations.html\">github organization</a>\ninstead of your individual github user account. To do so, use the <code>githubOrganization</code> setting in your project's build definition.</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"githubOwner := Some(&quot;strength-in-numbers&quot;)\ngithubOwnerType := GitHubOwnerType.Organization\"><pre>githubOwner <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Some</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>strength-in-numbers<span class=\"pl-pds\">\"</span></span>)\ngithubOwnerType <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">GitHubOwnerType</span>.<span class=\"pl-en\">Organization</span></pre></div>\n<p dir=\"auto\">The default GitHub repository, for a github user or organization is named <code>maven</code>. If your Maven repository is named differently, you will need to specify the <code>githubRepository</code> setting.</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"githubRepository := &quot;oss-maven&quot;\"><pre>githubRepository <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>oss-maven<span class=\"pl-pds\">\"</span></span></pre></div>\n<h5 dir=\"auto\"><a id=\"user-content-public-default\" class=\"anchor\" aria-hidden=\"true\" href=\"#public-default\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Public (default)</h5>\n<p dir=\"auto\">If your project uses a license, github supports several <a href=\"https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository\">OSS licenses</a>. If you are new to software licenses you may\nwant to grab a coffee and absorb some <a href=\"http://choosealicense.com/\" rel=\"nofollow\">well organized information</a> on the topic of choice.\nSbt already defines a <code>licenses</code> setting key. In order to use github sbt you must define your <code>licenses</code> key to contain a license with a name matching\none of those github defines. I recommend <a href=\"http://choosealicense.com/licenses/mit/\" rel=\"nofollow\">MIT</a>.</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"licenses += (&quot;MIT&quot;, url(&quot;http://opensource.org/licenses/MIT&quot;))\"><pre>licenses <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> (<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>MIT<span class=\"pl-pds\">\"</span></span>, url(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>http://opensource.org/licenses/MIT<span class=\"pl-pds\">\"</span></span>))</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-unpublishing\" class=\"anchor\" aria-hidden=\"true\" href=\"#unpublishing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Unpublishing</h3>\n<p dir=\"auto\">It's generally a bad practice to remove a version of a library others may depend on but sometimes you may want test a release with the ability to immediately take it back down if something goes south before others start depending on it. github allows for this flexibility and thus, sbt-github does as well. Use the <code>unpublish</code> task to unpublish the current version from github.</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&gt; githubUnpublish\"><pre class=\"notranslate\"><code>&gt; githubUnpublish\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-finding-your-way-around\" class=\"anchor\" aria-hidden=\"true\" href=\"#finding-your-way-around\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Finding your way around</h3>\n<p dir=\"auto\">The easiest way to learn about sbt-github is to use the sbt shell typing <code>github&lt;tab&gt;</code> or <code>help github</code> to discover github keys.</p>\n<h2 dir=\"auto\"><a id=\"user-content-acknowledgments\" class=\"anchor\" aria-hidden=\"true\" href=\"#acknowledgments\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Acknowledgments</h2>\n<p dir=\"auto\">This plugin was first created by Doug Tangren (softprops), 2013-2014.</p>\n<p dir=\"auto\">The plugin is now maintained by <a href=\"https://github.com/er1c\">er1c</a>.</p>\n</article></div>",
     "contributors" : [
       {
         "login" : "softprops",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/2242?v=4",
-        "url" : "https://api.github.com/users/softprops",
+        "url" : "https://github.com/softprops",
         "contributions" : 157
       },
       {
         "login" : "eed3si9n",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/184683?v=4",
-        "url" : "https://api.github.com/users/eed3si9n",
+        "url" : "https://github.com/eed3si9n",
         "contributions" : 65
       },
       {
         "login" : "dwijnand",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/344610?v=4",
-        "url" : "https://api.github.com/users/dwijnand",
+        "url" : "https://github.com/dwijnand",
         "contributions" : 29
       },
       {
         "login" : "2m",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/422086?v=4",
-        "url" : "https://api.github.com/users/2m",
+        "url" : "https://github.com/2m",
         "contributions" : 21
       },
       {
         "login" : "er1c",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/64685?v=4",
-        "url" : "https://api.github.com/users/er1c",
+        "url" : "https://github.com/er1c",
         "contributions" : 14
       },
       {
         "login" : "scala-steward",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
-        "url" : "https://api.github.com/users/scala-steward",
+        "url" : "https://github.com/scala-steward",
         "contributions" : 13
       },
       {
         "login" : "jastice",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/770879?v=4",
-        "url" : "https://api.github.com/users/jastice",
+        "url" : "https://github.com/jastice",
         "contributions" : 9
       },
       {
         "login" : "jvican",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/2462974?v=4",
-        "url" : "https://api.github.com/users/jvican",
+        "url" : "https://github.com/jvican",
         "contributions" : 6
       },
       {
         "login" : "xuwei-k",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/389787?v=4",
-        "url" : "https://api.github.com/users/xuwei-k",
+        "url" : "https://github.com/xuwei-k",
         "contributions" : 5
       },
       {
         "login" : "jrudolph",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/9868?v=4",
-        "url" : "https://api.github.com/users/jrudolph",
+        "url" : "https://github.com/jrudolph",
         "contributions" : 4
       },
       {
         "login" : "jiminhsieh",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5125598?v=4",
-        "url" : "https://api.github.com/users/jiminhsieh",
+        "url" : "https://github.com/jiminhsieh",
         "contributions" : 3
       },
       {
         "login" : "oliverlockwood",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/6017680?v=4",
-        "url" : "https://api.github.com/users/oliverlockwood",
+        "url" : "https://github.com/oliverlockwood",
         "contributions" : 3
       },
       {
         "login" : "SethTisue",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
-        "url" : "https://api.github.com/users/SethTisue",
+        "url" : "https://github.com/SethTisue",
         "contributions" : 3
       },
       {
         "login" : "lukaszwawrzyk",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/10235198?v=4",
-        "url" : "https://api.github.com/users/lukaszwawrzyk",
+        "url" : "https://github.com/lukaszwawrzyk",
         "contributions" : 3
       },
       {
         "login" : "retronym",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/65551?v=4",
-        "url" : "https://api.github.com/users/retronym",
+        "url" : "https://github.com/retronym",
         "contributions" : 2
       },
       {
         "login" : "jsuereth",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/29006?v=4",
-        "url" : "https://api.github.com/users/jsuereth",
+        "url" : "https://github.com/jsuereth",
         "contributions" : 2
       },
       {
         "login" : "mjcramer",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/3793335?v=4",
-        "url" : "https://api.github.com/users/mjcramer",
+        "url" : "https://github.com/mjcramer",
         "contributions" : 2
       },
       {
         "login" : "myyk",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/2080820?v=4",
-        "url" : "https://api.github.com/users/myyk",
+        "url" : "https://github.com/myyk",
         "contributions" : 2
       },
       {
         "login" : "Philippus",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1923596?v=4",
-        "url" : "https://api.github.com/users/Philippus",
+        "url" : "https://github.com/Philippus",
         "contributions" : 2
       },
       {
         "login" : "seglo",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1148412?v=4",
-        "url" : "https://api.github.com/users/seglo",
+        "url" : "https://github.com/seglo",
         "contributions" : 2
       },
       {
         "login" : "travissarles",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/11528695?v=4",
-        "url" : "https://api.github.com/users/travissarles",
+        "url" : "https://github.com/travissarles",
         "contributions" : 2
       },
       {
         "login" : "ulejon",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1325281?v=4",
-        "url" : "https://api.github.com/users/ulejon",
+        "url" : "https://github.com/ulejon",
         "contributions" : 2
       },
       {
         "login" : "zsxwing",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1000778?v=4",
-        "url" : "https://api.github.com/users/zsxwing",
+        "url" : "https://github.com/zsxwing",
         "contributions" : 2
       },
       {
         "login" : "bogdanromanx",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5427480?v=4",
-        "url" : "https://api.github.com/users/bogdanromanx",
+        "url" : "https://github.com/bogdanromanx",
         "contributions" : 1
       },
       {
         "login" : "chrisdostert",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/2335774?v=4",
-        "url" : "https://api.github.com/users/chrisdostert",
+        "url" : "https://github.com/chrisdostert",
         "contributions" : 1
       },
       {
         "login" : "Fokko",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1134248?v=4",
-        "url" : "https://api.github.com/users/Fokko",
+        "url" : "https://github.com/Fokko",
         "contributions" : 1
       },
       {
         "login" : "fthomas",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/141252?v=4",
-        "url" : "https://api.github.com/users/fthomas",
+        "url" : "https://github.com/fthomas",
         "contributions" : 1
       },
       {
         "login" : "jedesah",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1780116?v=4",
-        "url" : "https://api.github.com/users/jedesah",
+        "url" : "https://github.com/jedesah",
         "contributions" : 1
       },
       {
         "login" : "seratch",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/19658?v=4",
-        "url" : "https://api.github.com/users/seratch",
+        "url" : "https://github.com/seratch",
         "contributions" : 1
       },
       {
         "login" : "mathieuleclaire",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/800035?v=4",
-        "url" : "https://api.github.com/users/mathieuleclaire",
+        "url" : "https://github.com/mathieuleclaire",
         "contributions" : 1
       },
       {
         "login" : "mwz",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1190768?v=4",
-        "url" : "https://api.github.com/users/mwz",
+        "url" : "https://github.com/mwz",
         "contributions" : 1
       },
       {
         "login" : "rossabaker",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/142698?v=4",
-        "url" : "https://api.github.com/users/rossabaker",
+        "url" : "https://github.com/rossabaker",
         "contributions" : 1
       },
       {
         "login" : "sullis",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/30938?v=4",
-        "url" : "https://api.github.com/users/sullis",
+        "url" : "https://github.com/sullis",
         "contributions" : 1
       }
     ],
@@ -229,8 +229,686 @@
     "chatroom" : null,
     "openIssues" : [
     ],
-    "scalaPercentage" : null,
-    "license" : null
+    "scalaPercentage" : 100,
+    "license" : "MIT",
+    "commitActivity" : [
+      {
+        "total" : 0,
+        "week" : 1629590400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1630195200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1630800000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1631404800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1632009600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1632614400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1633219200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1633824000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1634428800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1635033600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 2,
+        "week" : 1635638400000,
+        "days" : [
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 1,
+        "week" : 1636243200000,
+        "days" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 1,
+        "week" : 1636848000000,
+        "days" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 2,
+        "week" : 1637452800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1638057600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 2,
+        "week" : 1638662400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1639267200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1639872000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1640476800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1641081600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1641686400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1642291200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1642896000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1643500800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1644105600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1644710400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1645315200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1645920000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1646524800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1647129600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1647734400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1648339200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1648944000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1649548800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1650153600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1650758400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1651363200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1651968000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1652572800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1653177600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1653782400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1654387200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1654992000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1655596800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1656201600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1656806400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1657411200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1658016000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1658620800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1659225600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1659830400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1660435200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ]
   },
   "settings" : {
     "defaultStableVersion" : true,

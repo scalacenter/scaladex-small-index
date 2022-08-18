@@ -4,7 +4,7 @@
   "creationDate" : 1479078628000,
   "githubStatus" : {
     "Ok" : {
-      "updateDate" : 1644305982828
+      "updateDate" : 1660795235327
     }
   },
   "githubInfo" : {
@@ -12,16 +12,16 @@
     "description" : "Scala library for audio DSP :: io/ugens/filters/analysis :: real-time + offline",
     "logo" : "https://avatars.githubusercontent.com/u/16824124?v=4",
     "stars" : 13,
-    "forks" : 2,
+    "forks" : 3,
     "watchers" : 3,
     "issues" : 4,
     "creationDate" : 1460940236000,
-    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-scalaudio\" class=\"anchor\" aria-hidden=\"true\" href=\"#scalaudio\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>scalaudio</h1>\n<p dir=\"auto\">scalaudio is a library is to facilitate audio synthesis/analysis on the JVM by wrapping the Java Sound API in more productive syntax. Its goal is to provide extreme flexibility while reducing verbosity of audio processing code, with the added bonus of type-checking. It aims to be pretty modular (DI for config and output engines via implicits) yet use the same syntax for both real-time and offline processing. Efficiency is a secondary goal, though even in current form some mutable data structures are used to avoid performance snags of constant memory allocation.</p>\n<h3 dir=\"auto\"><a id=\"user-content-build-info\" class=\"anchor\" aria-hidden=\"true\" href=\"#build-info\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Build info</h3>\n<p dir=\"auto\">This project is currently compiled with Scala 2.11 only (cross-compilation support coming soon).</p>\n<p dir=\"auto\">For use within an SBT project, add the following dependency in build.sbt (\"amp\" is currently the main library module):</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;org.auroboros&quot; %% &quot;scalaudio-amp&quot; % &quot;0.1.0-SNAPSHOT&quot;\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.auroboros<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>scalaudio-amp<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.1.0-SNAPSHOT<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">If referencing a snapshot version, the Sonatype snapshot repository must be added as well:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"resolvers += &quot;Sonatype OSS Snapshots&quot; at &quot;https://oss.sonatype.org/content/repositories/snapshots&quot;\"><pre>resolvers <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Sonatype OSS Snapshots<span class=\"pl-pds\">\"</span></span> at <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>https://oss.sonatype.org/content/repositories/snapshots<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">Or for other build tools, see:</p>\n<p dir=\"auto\"><a href=\"https://mvnrepository.com/artifact/org.auroboros\" rel=\"nofollow\">https://mvnrepository.com/artifact/org.auroboros</a></p>\n<h3 dir=\"auto\"><a id=\"user-content-quickstart\" class=\"anchor\" aria-hidden=\"true\" href=\"#quickstart\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Quickstart</h3>\n<p dir=\"auto\">Functions can be composed in any way the user chooses (perhaps using <em>.andThen</em>, for example). I prefer scalaz style (see <a href=\"https://github.com/scalaz/scalaz\">https://github.com/scalaz/scalaz</a> to add if desired, as it is not actually required by scalaudio).</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import scalaz._\nimport Scalaz._\n\nobject MyFirstSynthComposition extends App with AmpSyntax {\n\n    // Create audio context using all default settings except for specified single out channel\n    implicit val audioContext = AudioContext(ScalaudioConfig(nOutChannels = 1))\n\n    // Create a function that produces a &quot;frame&quot; (Array[Double] where array length is number of out channels)\n    val frameFunc = Sine.asFunction(OscState(0, 440.Hz, 0)) // .asFunction is a convenience method from signalz that accepts initial state &amp; produces a state-processing function\n      .map(oscState =&gt; Array(oscState.sample))\n\n    // a frameFunc or stream of frames can be played directly via implicit conversion to a &quot;signal processing graph&quot; type a la:\n    // frameFunc.play(5 seconds)\n    // but using the playback helper automatically appends speaker output to the function\n    playback(frameFunc, 5 seconds)\n}\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">scalaz</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">Scalaz</span>.<span class=\"pl-en\">_</span>\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">MyFirstSynthComposition</span> <span class=\"pl-k\">extends</span> <span class=\"pl-e\">App</span> <span class=\"pl-k\">with</span> <span class=\"pl-e\">AmpSyntax</span> {\n\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> Create audio context using all default settings except for specified single out channel</span>\n    <span class=\"pl-k\">implicit</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">audioContext</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">AudioContext</span>(<span class=\"pl-en\">ScalaudioConfig</span>(nOutChannels <span class=\"pl-k\">=</span> <span class=\"pl-c1\">1</span>))\n\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> Create a function that produces a \"frame\" (Array[Double] where array length is number of out channels)</span>\n    <span class=\"pl-k\">val</span> <span class=\"pl-smi\">frameFunc</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Sine</span>.asFunction(<span class=\"pl-en\">OscState</span>(<span class=\"pl-c1\">0</span>, <span class=\"pl-c1\">440</span>.<span class=\"pl-en\">Hz</span>, <span class=\"pl-c1\">0</span>)) <span class=\"pl-c\"><span class=\"pl-c\">//</span> .asFunction is a convenience method from signalz that accepts initial state &amp; produces a state-processing function</span>\n      .map(oscState <span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">Array</span>(oscState.sample))\n\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> a frameFunc or stream of frames can be played directly via implicit conversion to a \"signal processing graph\" type a la:</span>\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> frameFunc.play(5 seconds)</span>\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> but using the playback helper automatically appends speaker output to the function</span>\n    playback(frameFunc, <span class=\"pl-c1\">5</span> seconds)\n}</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-why\" class=\"anchor\" aria-hidden=\"true\" href=\"#why\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>why?</h3>\n<p dir=\"auto\">This project was initially created to facilitate my own computer music composition &amp; audio machine learning projects but I decided to open source it since I only get to work on it in spurts (between my dayjob, other music composition, and toying around with audio in Clojure... some lib from that venture will probably be appearing here soon as well).</p>\n<p dir=\"auto\">It was loosely inspired by Phil Burk's excellent library JSyn (in fact, JSyn is still a dependency as scalaudio borrows some of its utils, though this dependency will likely be cut in a future release).</p>\n<h3 dir=\"auto\"><a id=\"user-content-contribute\" class=\"anchor\" aria-hidden=\"true\" href=\"#contribute\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>contribute!</h3>\n<p dir=\"auto\">Please feel free to contribute PRs, I will happily review &amp; pull as I am quite actively supporting this project.</p>\n</article></div>",
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-scalaudio\" class=\"anchor\" aria-hidden=\"true\" href=\"#scalaudio\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>scalaudio</h1>\n<p dir=\"auto\">scalaudio is a library is to facilitate audio synthesis/analysis on the JVM by wrapping the Java Sound API in more productive syntax. Its goal is to provide extreme flexibility while reducing verbosity of audio processing code, with the added bonus of type-checking. It aims to be pretty modular (DI for config and output engines via implicits) yet use the same syntax for both real-time and offline processing. Efficiency is a secondary goal, though even in current form some mutable data structures are used to avoid performance snags of constant memory allocation.</p>\n<h3 dir=\"auto\"><a id=\"user-content-build-info\" class=\"anchor\" aria-hidden=\"true\" href=\"#build-info\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Build info</h3>\n<p dir=\"auto\">This project is currently compiled with Scala 2.11 only (cross-compilation support coming soon).</p>\n<p dir=\"auto\">For use within an SBT project, add the following dependency in build.sbt (\"amp\" is currently the main library module):</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;org.auroboros&quot; %% &quot;scalaudio-amp&quot; % &quot;0.1.0-SNAPSHOT&quot;\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.auroboros<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>scalaudio-amp<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.1.0-SNAPSHOT<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">If referencing a snapshot version, the Sonatype snapshot repository must be added as well:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"resolvers += &quot;Sonatype OSS Snapshots&quot; at &quot;https://oss.sonatype.org/content/repositories/snapshots&quot;\"><pre>resolvers <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Sonatype OSS Snapshots<span class=\"pl-pds\">\"</span></span> at <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>https://oss.sonatype.org/content/repositories/snapshots<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">Or for other build tools, see:</p>\n<p dir=\"auto\"><a href=\"https://mvnrepository.com/artifact/org.auroboros\" rel=\"nofollow\">https://mvnrepository.com/artifact/org.auroboros</a></p>\n<h3 dir=\"auto\"><a id=\"user-content-quickstart\" class=\"anchor\" aria-hidden=\"true\" href=\"#quickstart\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Quickstart</h3>\n<p dir=\"auto\">Functions can be composed in any way the user chooses (perhaps using <em>.andThen</em>, for example). I prefer scalaz style (see <a href=\"https://github.com/scalaz/scalaz\">https://github.com/scalaz/scalaz</a> to add if desired, as it is not actually required by scalaudio).</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import scalaz._\nimport Scalaz._\n\nobject MyFirstSynthComposition extends App with AmpSyntax {\n\n    // Create audio context using all default settings except for specified single out channel\n    implicit val audioContext = AudioContext(ScalaudioConfig(nOutChannels = 1))\n\n    // Create a function that produces a &quot;frame&quot; (Array[Double] where array length is number of out channels)\n    val frameFunc = Sine.asFunction(OscState(0, 440.Hz, 0)) // .asFunction is a convenience method from signalz that accepts initial state &amp; produces a state-processing function\n      .map(oscState =&gt; Array(oscState.sample))\n\n    // a frameFunc or stream of frames can be played directly via implicit conversion to a &quot;signal processing graph&quot; type a la:\n    // frameFunc.play(5 seconds)\n    // but using the playback helper automatically appends speaker output to the function\n    playback(frameFunc, 5 seconds)\n}\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">scalaz</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">Scalaz</span>.<span class=\"pl-en\">_</span>\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">MyFirstSynthComposition</span> <span class=\"pl-k\">extends</span> <span class=\"pl-e\">App</span> <span class=\"pl-k\">with</span> <span class=\"pl-e\">AmpSyntax</span> {\n\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> Create audio context using all default settings except for specified single out channel</span>\n    <span class=\"pl-k\">implicit</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">audioContext</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">AudioContext</span>(<span class=\"pl-en\">ScalaudioConfig</span>(nOutChannels <span class=\"pl-k\">=</span> <span class=\"pl-c1\">1</span>))\n\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> Create a function that produces a \"frame\" (Array[Double] where array length is number of out channels)</span>\n    <span class=\"pl-k\">val</span> <span class=\"pl-smi\">frameFunc</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Sine</span>.asFunction(<span class=\"pl-en\">OscState</span>(<span class=\"pl-c1\">0</span>, <span class=\"pl-c1\">440</span>.<span class=\"pl-en\">Hz</span>, <span class=\"pl-c1\">0</span>)) <span class=\"pl-c\"><span class=\"pl-c\">//</span> .asFunction is a convenience method from signalz that accepts initial state &amp; produces a state-processing function</span>\n      .map(oscState <span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">Array</span>(oscState.sample))\n\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> a frameFunc or stream of frames can be played directly via implicit conversion to a \"signal processing graph\" type a la:</span>\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> frameFunc.play(5 seconds)</span>\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> but using the playback helper automatically appends speaker output to the function</span>\n    playback(frameFunc, <span class=\"pl-c1\">5</span> seconds)\n}</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-why\" class=\"anchor\" aria-hidden=\"true\" href=\"#why\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>why?</h3>\n<p dir=\"auto\">This project was initially created to facilitate my own computer music composition &amp; audio machine learning projects but I decided to open source it since I only get to work on it in spurts (between my dayjob, other music composition, and toying around with audio in Clojure... some lib from that venture will probably be appearing here soon as well).</p>\n<p dir=\"auto\">It was loosely inspired by Phil Burk's excellent library JSyn (in fact, JSyn is still a dependency as scalaudio borrows some of its utils, though this dependency will likely be cut in a future release).</p>\n<h3 dir=\"auto\"><a id=\"user-content-contribute\" class=\"anchor\" aria-hidden=\"true\" href=\"#contribute\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>contribute!</h3>\n<p dir=\"auto\">Please feel free to contribute PRs, I will happily review &amp; pull as I am quite actively supporting this project.</p>\n</article></div>",
     "contributors" : [
       {
         "login" : "fat0wl",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/228144?v=4",
-        "url" : "https://api.github.com/users/fat0wl",
+        "url" : "https://github.com/fat0wl",
         "contributions" : 197
       }
     ],
@@ -48,8 +48,686 @@
         "url" : "https://github.com/auroboros/scalaudio/issues/29"
       }
     ],
-    "scalaPercentage" : null,
-    "license" : null
+    "scalaPercentage" : 99,
+    "license" : null,
+    "commitActivity" : [
+      {
+        "total" : 0,
+        "week" : 1629590400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1630195200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1630800000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1631404800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1632009600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1632614400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1633219200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1633824000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1634428800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1635033600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1635638400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1636243200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1636848000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1637452800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1638057600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1638662400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1639267200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1639872000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1640476800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1641081600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1641686400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1642291200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1642896000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1643500800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1644105600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1644710400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1645315200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1645920000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1646524800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1647129600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1647734400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1648339200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1648944000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1649548800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1650153600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1650758400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1651363200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1651968000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1652572800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1653177600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1653782400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1654387200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1654992000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1655596800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1656201600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1656806400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1657411200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1658016000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1658620800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1659225600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1659830400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1660435200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ]
   },
   "settings" : {
     "defaultStableVersion" : true,

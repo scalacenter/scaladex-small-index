@@ -4,46 +4,57 @@
   "creationDate" : 1606021617000,
   "githubStatus" : {
     "Ok" : {
-      "updateDate" : 1644309267345
+      "updateDate" : 1660826166986
     }
   },
   "githubInfo" : {
     "homepage" : "",
     "description" : "A small, convenient, dependency-free library for command-line argument parsing in Scala",
     "logo" : "https://avatars.githubusercontent.com/u/79346799?v=4",
-    "stars" : 120,
-    "forks" : 10,
+    "stars" : 138,
+    "forks" : 14,
     "watchers" : 5,
-    "issues" : 6,
+    "issues" : 10,
     "creationDate" : 1605344448000,
-    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"readme.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-mainargs-022\" class=\"anchor\" aria-hidden=\"true\" href=\"#mainargs-022\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>mainargs 0.2.2</h1>\n<p dir=\"auto\">MainArgs is a small, dependency-free library for command line argument parsing\nin Scala.</p>\n<p dir=\"auto\">MainArgs is used for command-line parsing of the\n<a href=\"http://ammonite.io/\" rel=\"nofollow\">Ammonite Scala REPL</a> and for user-defined <code>@main</code> methods\nin its scripts, as well as for command-line parsing for the\n<a href=\"https://github.com/lihaoyi/mill\">Mill Build Tool</a> and for user-defined\n<code>T.command</code>s.</p>\n<ul dir=\"auto\">\n<li><a href=\"#usage\">Usage</a>\n<ul dir=\"auto\">\n<li><a href=\"#parsing-main-method-parameters\">Parsing Main Method Parameters</a></li>\n<li><a href=\"#multiple-main-methods\">Multiple Main Methods</a></li>\n<li><a href=\"#parsing-case-class-parameters\">Parsing Case Class Paramters</a></li>\n<li><a href=\"#re-using-argument-sets\">Re-using Argument Sets</a></li>\n<li><a href=\"#annotations\">Annotations</a></li>\n<li><a href=\"#customization\">Customization</a></li>\n<li><a href=\"#custom-argument-parsers\">Custom Argument Parsers</a></li>\n<li><a href=\"#handlings-leftover-arguments\">Handling Leftover Arguments</a></li>\n</ul>\n</li>\n<li><a href=\"#prior-art\">Prior Art</a></li>\n<li><a href=\"#changelog\">Changelog</a></li>\n</ul>\n<h1 dir=\"auto\"><a id=\"user-content-usage\" class=\"anchor\" aria-hidden=\"true\" href=\"#usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Usage</h1>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"ivy&quot;com.lihaoyi::mainargs:0.2.2&quot;\"><pre><span class=\"pl-k\">ivy</span><span class=\"pl-s\">\"</span><span class=\"pl-s\">com.lihaoyi::mainargs:0.2.2</span><span class=\"pl-s\">\"</span></pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-parsing-main-method-parameters\" class=\"anchor\" aria-hidden=\"true\" href=\"#parsing-main-method-parameters\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Parsing Main Method Parameters</h2>\n<p dir=\"auto\">You can parse command line arguments and use them to call a main method via\n<code>ParserForMethods(...)</code>:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"package testhello\nimport mainargs.{main, arg, ParserForMethods, Flag}\n\nobject Main{\n  @main\n  def run(@arg(short = 'f', doc = &quot;String to print repeatedly&quot;)\n          foo: String,\n          @arg(name = &quot;my-num&quot;, doc = &quot;How many times to print string&quot;)\n          myNum: Int = 2,\n          @arg(doc = &quot;Example flag, can be passed without any value to become true&quot;)\n          bool: Flag) = {\n    println(foo * myNum + &quot; &quot; + bool.value)\n  }\n  def main(args: Array[String]): Unit = ParserForMethods(this).runOrExit(args)\n}\"><pre><span class=\"pl-k\">package</span> <span class=\"pl-en\">testhello</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">mainargs</span>.{<span class=\"pl-en\">main</span>, <span class=\"pl-en\">arg</span>, <span class=\"pl-en\">ParserForMethods</span>, <span class=\"pl-en\">Flag</span>}\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span>{\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">run</span>(<span class=\"pl-k\">@</span>arg(short <span class=\"pl-k\">=</span> <span class=\"pl-s\">'f'</span>, doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>String to print repeatedly<span class=\"pl-pds\">\"</span></span>)\n          <span class=\"pl-v\">foo</span>: <span class=\"pl-en\">String</span>,\n          <span class=\"pl-k\">@</span>arg(name <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>my-num<span class=\"pl-pds\">\"</span></span>, doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>How many times to print string<span class=\"pl-pds\">\"</span></span>)\n          <span class=\"pl-v\">myNum</span>: <span class=\"pl-en\">Int</span> <span class=\"pl-k\">=</span> <span class=\"pl-c1\">2</span>,\n          <span class=\"pl-k\">@</span>arg(doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Example flag, can be passed without any value to become true<span class=\"pl-pds\">\"</span></span>)\n          <span class=\"pl-v\">bool</span>: <span class=\"pl-en\">Flag</span>) <span class=\"pl-k\">=</span> {\n    println(foo <span class=\"pl-k\">*</span> myNum <span class=\"pl-k\">+</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span> <span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">+</span> bool.value)\n  }\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">main</span>(<span class=\"pl-v\">args</span>: <span class=\"pl-en\">Array</span>[<span class=\"pl-en\">String</span>])<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ParserForMethods</span>(<span class=\"pl-c1\">this</span>).runOrExit(args)\n}</pre></div>\n<div class=\"highlight highlight-source-shell position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ./mill example.hello -f hello\nhellohello false\n\n$ ./mill example.hello -f hello --my-num 3\nhellohellohello false\n\n$ ./mill example.hello -f hello --my-num 3 --bool\nhellohellohello true\n\n$ ./mill example.hello --wrong-flag\nMissing argument: --foo &lt;str&gt;\nUnknown argument: &quot;--wrong-flag&quot;\nExpected Signature: run\n  -f --foo &lt;str&gt;  String to print repeatedly\n  --my-num &lt;int&gt;  How many times to print string\n  --bool          Example flag\"><pre>$ ./mill example.hello -f hello\nhellohello <span class=\"pl-c1\">false</span>\n\n$ ./mill example.hello -f hello --my-num 3\nhellohellohello <span class=\"pl-c1\">false</span>\n\n$ ./mill example.hello -f hello --my-num 3 --bool\nhellohellohello <span class=\"pl-c1\">true</span>\n\n$ ./mill example.hello --wrong-flag\nMissing argument: --foo <span class=\"pl-k\">&lt;</span>str<span class=\"pl-k\">&gt;</span>\nUnknown argument: <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>--wrong-flag<span class=\"pl-pds\">\"</span></span>\nExpected Signature: run\n  -f --foo <span class=\"pl-k\">&lt;</span>str<span class=\"pl-k\">&gt;</span>  String to print repeatedly\n  --my-num <span class=\"pl-k\">&lt;</span>int<span class=\"pl-k\">&gt;</span>  How many <span class=\"pl-c1\">times</span> to print string\n  --bool          Example flag</pre></div>\n<p dir=\"auto\">Setting default values for the method arguments makes them optional, with the\ndefault value being used if an explicit value was not passed in from the\ncommand-line arguments list.</p>\n<p dir=\"auto\">After calling <code>ParserForMethods(...)</code> on the <code>object</code> containing your <code>@main</code>\nmethods, you can call the following methods to perform the argument parsing and\ndispatch:</p>\n<h3 dir=\"auto\"><a id=\"user-content-runorexit\" class=\"anchor\" aria-hidden=\"true\" href=\"#runorexit\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>runOrExit</h3>\n<p dir=\"auto\">Runs the given main method if argument parsing succeeds, otherwise prints out\nthe help text to standard error and calls <code>System.exit(1)</code> to exit the proess</p>\n<h3 dir=\"auto\"><a id=\"user-content-runorthrow\" class=\"anchor\" aria-hidden=\"true\" href=\"#runorthrow\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>runOrThrow</h3>\n<p dir=\"auto\">Runs the given main method if argument parsing succeeds, otherwise throws an\nexception with the help text</p>\n<h3 dir=\"auto\"><a id=\"user-content-runeither\" class=\"anchor\" aria-hidden=\"true\" href=\"#runeither\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>runEither</h3>\n<p dir=\"auto\">Runs the given main method if argument parsing succeeds, returning <code>Right(v: Any)</code> containing the return value of the main method if it succeeds, or <code>Left(s: String)</code> containing the error message if it fails.</p>\n<h3 dir=\"auto\"><a id=\"user-content-runraw\" class=\"anchor\" aria-hidden=\"true\" href=\"#runraw\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>runRaw</h3>\n<p dir=\"auto\">Runs the given main method if argument parsing succeeds, returning\n<code>mainargs.Result.Success(v: Any)</code> containing the return value of the main method\nif it succeeds, or <code>mainargs.Result.Error</code> if it fails. This gives you the\ngreatest flexibility to handle the error cases with custom logic, e.g. if you do\nnot like the default CLI error reporting and would like to write your own.</p>\n<h2 dir=\"auto\"><a id=\"user-content-multiple-main-methods\" class=\"anchor\" aria-hidden=\"true\" href=\"#multiple-main-methods\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Multiple Main Methods</h2>\n<p dir=\"auto\">Programs with multiple entrypoints are supported by annotating multiple <code>def</code>s\nwith <code>@main</code>. Each entrypoint can have their own set of arguments:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"package testhello2\nimport mainargs.{main, arg, ParserForMethods, Flag}\n\nobject Main{\n  @main\n  def foo(@arg(short = 'f', doc = &quot;String to print repeatedly&quot;)\n          foo: String,\n          @arg(name = &quot;my-num&quot;, doc = &quot;How many times to print string&quot;)\n          myNum: Int = 2,\n          @arg(doc = &quot;Example flag&quot;)\n          bool: Flag) = {\n    println(foo * myNum + &quot; &quot; + bool.value)\n  }\n  @main\n  def bar(i: Int,\n          @arg(doc = &quot;Pass in a custom `s` to override it&quot;)\n          s: String  = &quot;lols&quot;) = {\n    println(s * i)\n  }\n  def main(args: Array[String]): Unit = ParserForMethods(this).runOrExit(args)\n}\"><pre><span class=\"pl-k\">package</span> <span class=\"pl-en\">testhello2</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">mainargs</span>.{<span class=\"pl-en\">main</span>, <span class=\"pl-en\">arg</span>, <span class=\"pl-en\">ParserForMethods</span>, <span class=\"pl-en\">Flag</span>}\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span>{\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">foo</span>(<span class=\"pl-k\">@</span>arg(short <span class=\"pl-k\">=</span> <span class=\"pl-s\">'f'</span>, doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>String to print repeatedly<span class=\"pl-pds\">\"</span></span>)\n          <span class=\"pl-v\">foo</span>: <span class=\"pl-en\">String</span>,\n          <span class=\"pl-k\">@</span>arg(name <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>my-num<span class=\"pl-pds\">\"</span></span>, doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>How many times to print string<span class=\"pl-pds\">\"</span></span>)\n          <span class=\"pl-v\">myNum</span>: <span class=\"pl-en\">Int</span> <span class=\"pl-k\">=</span> <span class=\"pl-c1\">2</span>,\n          <span class=\"pl-k\">@</span>arg(doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Example flag<span class=\"pl-pds\">\"</span></span>)\n          <span class=\"pl-v\">bool</span>: <span class=\"pl-en\">Flag</span>) <span class=\"pl-k\">=</span> {\n    println(foo <span class=\"pl-k\">*</span> myNum <span class=\"pl-k\">+</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span> <span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">+</span> bool.value)\n  }\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">bar</span>(<span class=\"pl-v\">i</span>: <span class=\"pl-en\">Int</span>,\n          <span class=\"pl-k\">@</span>arg(doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Pass in a custom `s` to override it<span class=\"pl-pds\">\"</span></span>)\n          <span class=\"pl-v\">s</span>: <span class=\"pl-en\">String</span>  <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>lols<span class=\"pl-pds\">\"</span></span>) <span class=\"pl-k\">=</span> {\n    println(s <span class=\"pl-k\">*</span> i)\n  }\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">main</span>(<span class=\"pl-v\">args</span>: <span class=\"pl-en\">Array</span>[<span class=\"pl-en\">String</span>])<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ParserForMethods</span>(<span class=\"pl-c1\">this</span>).runOrExit(args)\n}</pre></div>\n<div class=\"highlight highlight-source-shell position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ./mill example.hello2\nNeed to specify a sub command: foo, bar\n\n$ ./mill example.hello2 foo -f hello\nhellohello false\n\n$ ./mill example.hello2 bar -i 10\nlolslolslolslolslolslolslolslolslolslols\"><pre>$ ./mill example.hello2\nNeed to specify a sub command: foo, bar\n\n$ ./mill example.hello2 foo -f hello\nhellohello <span class=\"pl-c1\">false</span>\n\n$ ./mill example.hello2 bar -i 10\nlolslolslolslolslolslolslolslolslolslols</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-parsing-case-class-parameters\" class=\"anchor\" aria-hidden=\"true\" href=\"#parsing-case-class-parameters\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Parsing Case Class Parameters</h2>\n<p dir=\"auto\">If you want to construct a configuration object instead of directly calling a\nmethod, you can do so via <code>ParserForClass[T]</code> and `constructOrExit:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"package testclass\nimport mainargs.{main, arg, ParserForClass, Flag}\n\nobject Main{\n  @main\n  case class Config(@arg(short = 'f', doc = &quot;String to print repeatedly&quot;)\n                    foo: String,\n                    @arg(name = &quot;my-num&quot;, doc = &quot;How many times to print string&quot;)\n                    myNum: Int = 2,\n                    @arg(doc = &quot;Example flag&quot;)\n                    bool: Flag)\n  def main(args: Array[String]): Unit = {\n    val config = ParserForClass[Config].constructOrExit(args)\n    println(config)\n  }\n}\"><pre><span class=\"pl-k\">package</span> <span class=\"pl-en\">testclass</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">mainargs</span>.{<span class=\"pl-en\">main</span>, <span class=\"pl-en\">arg</span>, <span class=\"pl-en\">ParserForClass</span>, <span class=\"pl-en\">Flag</span>}\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span>{\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">Config</span>(<span class=\"pl-k\">@</span>arg(short <span class=\"pl-k\">=</span> <span class=\"pl-s\">'f'</span>, doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>String to print repeatedly<span class=\"pl-pds\">\"</span></span>)\n                    <span class=\"pl-v\">foo</span>: <span class=\"pl-en\">String</span>,\n                    <span class=\"pl-k\">@</span>arg(name <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>my-num<span class=\"pl-pds\">\"</span></span>, doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>How many times to print string<span class=\"pl-pds\">\"</span></span>)\n                    <span class=\"pl-v\">myNum</span>: <span class=\"pl-en\">Int</span> <span class=\"pl-k\">=</span> <span class=\"pl-c1\">2</span>,\n                    <span class=\"pl-k\">@</span>arg(doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Example flag<span class=\"pl-pds\">\"</span></span>)\n                    <span class=\"pl-v\">bool</span>: <span class=\"pl-en\">Flag</span>)\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">main</span>(<span class=\"pl-v\">args</span>: <span class=\"pl-en\">Array</span>[<span class=\"pl-en\">String</span>])<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> {\n    <span class=\"pl-k\">val</span> <span class=\"pl-smi\">config</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ParserForClass</span>[<span class=\"pl-en\">Config</span>].constructOrExit(args)\n    println(config)\n  }\n}</pre></div>\n<div class=\"highlight highlight-source-shell position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ./mill example.caseclass --foo &quot;hello&quot;\nConfig(hello,2,Flag(false))\n\n$ ./mill example.caseclass\nMissing argument: --foo &lt;str&gt;\nExpected Signature: apply\n  -f --foo &lt;str&gt;  String to print repeatedly\n  --my-num &lt;int&gt;  How many times to print string\n  --bool          Example flag\"><pre>$ ./mill example.caseclass --foo <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>hello<span class=\"pl-pds\">\"</span></span>\nConfig(hello,2,Flag(false))\n\n$ ./mill example.caseclass\nMissing argument: --foo <span class=\"pl-k\">&lt;</span>str<span class=\"pl-k\">&gt;</span>\nExpected Signature: apply\n  -f --foo <span class=\"pl-k\">&lt;</span>str<span class=\"pl-k\">&gt;</span>  String to print repeatedly\n  --my-num <span class=\"pl-k\">&lt;</span>int<span class=\"pl-k\">&gt;</span>  How many <span class=\"pl-c1\">times</span> to print string\n  --bool          Example flag</pre></div>\n<p dir=\"auto\"><code>ParserForClass[T]</code> also provides corresponding <code>constructOrThrow</code>,\n<code>constructEither</code>, or <code>constructRaw</code> methods for you to handle the error cases\nin whichever style you prefer.</p>\n<h2 dir=\"auto\"><a id=\"user-content-re-using-argument-sets\" class=\"anchor\" aria-hidden=\"true\" href=\"#re-using-argument-sets\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Re-using Argument Sets</h2>\n<p dir=\"auto\">You can share arguments between different <code>@main</code> methods by defining them in a\n<code>@main case class</code> configuration object with an implicit <code>ParserForClass[T]</code>\ndefined:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"package testclassarg\nimport mainargs.{main, arg, ParserForMethods, ParserForClass, Flag}\n\nobject Main{\n  @main\n  case class Config(@arg(short = 'f', doc = &quot;String to print repeatedly&quot;)\n                    foo: String,\n                    @arg(name = &quot;my-num&quot;, doc = &quot;How many times to print string&quot;)\n                    myNum: Int = 2,\n                    @arg(doc = &quot;Example flag&quot;)\n                    bool: Flag)\n  implicit def configParser = ParserForClass[Config]\n\n  @main\n  def bar(config: Config,\n          @arg(name = &quot;extra-message&quot;)\n          extraMessage: String) = {\n    println(config.foo * config.myNum + &quot; &quot; + config.bool.value + &quot; &quot; + extraMessage)\n  }\n  @main\n  def qux(config: Config,\n          n: Int) = {\n    println((config.foo * config.myNum + &quot; &quot; + config.bool.value + &quot;\\n&quot;) * n)\n  }\n\n  def main(args: Array[String]): Unit = ParserForMethods(this).runOrExit(args)\n}\"><pre><span class=\"pl-k\">package</span> <span class=\"pl-en\">testclassarg</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">mainargs</span>.{<span class=\"pl-en\">main</span>, <span class=\"pl-en\">arg</span>, <span class=\"pl-en\">ParserForMethods</span>, <span class=\"pl-en\">ParserForClass</span>, <span class=\"pl-en\">Flag</span>}\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span>{\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">Config</span>(<span class=\"pl-k\">@</span>arg(short <span class=\"pl-k\">=</span> <span class=\"pl-s\">'f'</span>, doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>String to print repeatedly<span class=\"pl-pds\">\"</span></span>)\n                    <span class=\"pl-v\">foo</span>: <span class=\"pl-en\">String</span>,\n                    <span class=\"pl-k\">@</span>arg(name <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>my-num<span class=\"pl-pds\">\"</span></span>, doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>How many times to print string<span class=\"pl-pds\">\"</span></span>)\n                    <span class=\"pl-v\">myNum</span>: <span class=\"pl-en\">Int</span> <span class=\"pl-k\">=</span> <span class=\"pl-c1\">2</span>,\n                    <span class=\"pl-k\">@</span>arg(doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Example flag<span class=\"pl-pds\">\"</span></span>)\n                    <span class=\"pl-v\">bool</span>: <span class=\"pl-en\">Flag</span>)\n  <span class=\"pl-k\">implicit</span> <span class=\"pl-k\">def</span> <span class=\"pl-en\">configParser</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ParserForClass</span>[<span class=\"pl-en\">Config</span>]\n\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">bar</span>(<span class=\"pl-v\">config</span>: <span class=\"pl-en\">Config</span>,\n          <span class=\"pl-k\">@</span>arg(name <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>extra-message<span class=\"pl-pds\">\"</span></span>)\n          <span class=\"pl-v\">extraMessage</span>: <span class=\"pl-en\">String</span>) <span class=\"pl-k\">=</span> {\n    println(config.foo <span class=\"pl-k\">*</span> config.myNum <span class=\"pl-k\">+</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span> <span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">+</span> config.bool.value <span class=\"pl-k\">+</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span> <span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">+</span> extraMessage)\n  }\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">qux</span>(<span class=\"pl-v\">config</span>: <span class=\"pl-en\">Config</span>,\n          <span class=\"pl-v\">n</span>: <span class=\"pl-en\">Int</span>) <span class=\"pl-k\">=</span> {\n    println((config.foo <span class=\"pl-k\">*</span> config.myNum <span class=\"pl-k\">+</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span> <span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">+</span> config.bool.value <span class=\"pl-k\">+</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span><span class=\"pl-cce\">\\n</span><span class=\"pl-pds\">\"</span></span>) <span class=\"pl-k\">*</span> n)\n  }\n\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">main</span>(<span class=\"pl-v\">args</span>: <span class=\"pl-en\">Array</span>[<span class=\"pl-en\">String</span>])<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ParserForMethods</span>(<span class=\"pl-c1\">this</span>).runOrExit(args)\n}</pre></div>\n<div class=\"highlight highlight-source-shell position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"\n$ ./mill example.classarg bar --foo cow --extra-message &quot;hello world&quot;\ncowcow false hello world\n\n$ ./mill example.classarg qux --foo cow --n 5\ncowcow false\ncowcow false\ncowcow false\ncowcow false\ncowcow false\"><pre>$ ./mill example.classarg bar --foo cow --extra-message <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>hello world<span class=\"pl-pds\">\"</span></span>\ncowcow <span class=\"pl-c1\">false</span> hello world\n\n$ ./mill example.classarg qux --foo cow --n 5\ncowcow <span class=\"pl-c1\">false</span>\ncowcow <span class=\"pl-c1\">false</span>\ncowcow <span class=\"pl-c1\">false</span>\ncowcow <span class=\"pl-c1\">false</span>\ncowcow <span class=\"pl-c1\">false</span></pre></div>\n<p dir=\"auto\">This allows you to re-use common command-line parsing configuration without\nneeding to duplicate it in every <code>@main</code> method in which it is needed. A <code>@main def</code> can make use of multiple <code>@main case class</code>es, and <code>@main case class</code>es can\nbe nested arbitrarily deeply.</p>\n<h2 dir=\"auto\"><a id=\"user-content-option-or-sequence-parameters\" class=\"anchor\" aria-hidden=\"true\" href=\"#option-or-sequence-parameters\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Option or Sequence parameters</h2>\n<p dir=\"auto\"><code>@main</code> method parameters can be <code>Option[T]</code> or <code>Seq[T]</code> types, representing\noptional parameters without defaults or repeatable parameters</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"package testoptseq\nimport mainargs.{main, arg, ParserForMethods}\n\nobject Main{\n  @main\n  def runOpt(opt: Option[Int]) = println(opt)\n\n  @main\n  def runSeq(seq: Seq[Int]) = println(seq)\n\n  @main\n  def runVec(seq: Vector[Int]) = println(seq)\n\n  def main(args: Array[String]): Unit = ParserForMethods(this).runOrExit(args)\n}\"><pre><span class=\"pl-k\">package</span> <span class=\"pl-en\">testoptseq</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">mainargs</span>.{<span class=\"pl-en\">main</span>, <span class=\"pl-en\">arg</span>, <span class=\"pl-en\">ParserForMethods</span>}\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span>{\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">runOpt</span>(<span class=\"pl-v\">opt</span>: <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">Int</span>]) <span class=\"pl-k\">=</span> println(opt)\n\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">runSeq</span>(<span class=\"pl-v\">seq</span>: <span class=\"pl-en\">Seq</span>[<span class=\"pl-en\">Int</span>]) <span class=\"pl-k\">=</span> println(seq)\n\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">runVec</span>(<span class=\"pl-v\">seq</span>: <span class=\"pl-en\">Vector</span>[<span class=\"pl-en\">Int</span>]) <span class=\"pl-k\">=</span> println(seq)\n\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">main</span>(<span class=\"pl-v\">args</span>: <span class=\"pl-en\">Array</span>[<span class=\"pl-en\">String</span>])<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ParserForMethods</span>(<span class=\"pl-c1\">this</span>).runOrExit(args)\n}</pre></div>\n<div class=\"highlight highlight-source-shell position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ./mill example.optseq runOpt\nNone\n\n$ ./mill example.optseq runOpt --opt 123\nSome(123)\n\n$ ./mill example.optseq runSeq --seq 123 --seq 456 --seq 789\nList(123, 456, 789)\"><pre>$ ./mill example.optseq runOpt\nNone\n\n$ ./mill example.optseq runOpt --opt 123\nSome(123)\n\n$ ./mill example.optseq runSeq --seq 123 --seq 456 --seq 789\nList(123, 456, 789)</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-annotations\" class=\"anchor\" aria-hidden=\"true\" href=\"#annotations\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Annotations</h2>\n<p dir=\"auto\">The library's annotations and methods support the following parameters to\ncustomize your usage:</p>\n<h3 dir=\"auto\"><a id=\"user-content-main\" class=\"anchor\" aria-hidden=\"true\" href=\"#main\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>@main</h3>\n<ul dir=\"auto\">\n<li>\n<p dir=\"auto\"><code>name: String</code>: lets you specify the top-level name of <code>@main</code> method you are\ndefining. If multiple <code>@main</code> methods are provided, this name controls the\nsub-command name in the CLI</p>\n</li>\n<li>\n<p dir=\"auto\"><code>doc: String</code>: a documentation string used to provide additional information\nabout the command. Normally printed below the command name in the help message</p>\n</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-arg\" class=\"anchor\" aria-hidden=\"true\" href=\"#arg\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>@arg</h3>\n<ul dir=\"auto\">\n<li>\n<p dir=\"auto\"><code>name: String</code>: lets you specify the long name of a CLI parameter, e.g.\n<code>--foo</code>. Defaults to the name of the function parameter if not given</p>\n</li>\n<li>\n<p dir=\"auto\"><code>short: Char</code>: lets you specify the short name of a CLI parameter, e.g. <code>-f</code>.\nIf not given, theargument can only be provided via its long name</p>\n</li>\n<li>\n<p dir=\"auto\"><code>doc: String</code>: a documentation string used to provide additional information\nabout the command</p>\n</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-customization\" class=\"anchor\" aria-hidden=\"true\" href=\"#customization\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Customization</h2>\n<p dir=\"auto\">Apart from taking the name of the main <code>object</code> or config <code>case class</code>,\n<code>ParserForMethods</code> and <code>ParserForClass</code> both have methods that support a number\nof useful configuration values:</p>\n<ul dir=\"auto\">\n<li>\n<p dir=\"auto\"><code>allowPositional: Boolean</code>: allows you to pass CLI arguments \"positionally\"\nwithout the <code>--name</code> of the parameter being provided, e.g. <code>./mill example.hello -f hello --my-num 3 --bool</code> could be called via <code>./mill example.hello hello 3 --bool</code>. Defaults to <code>false</code></p>\n</li>\n<li>\n<p dir=\"auto\"><code>allowRepeats: Boolean</code>: allows you to pass in a flag multiple times, and\nusing the last provided value rather than raising an error. Defaults to\n<code>false</code></p>\n</li>\n<li>\n<p dir=\"auto\"><code>totalWidth: Int</code>: how wide to re-format the <code>doc</code> strings to when printing\nthe help text. Defaults to <code>100</code></p>\n</li>\n<li>\n<p dir=\"auto\"><code>printHelpOnExit: Boolean</code>: whether or not to print the full help text when\nargument parsing fails. This can be convenient, but potentially very verbose\nif the list of arguments is long. Defaults to <code>true</code></p>\n</li>\n<li>\n<p dir=\"auto\"><code>docsOnNewLine: Boolean</code>: whether to print argument doc-strings on a new line\nbelow the name of the argument; this may make things easier to read, but at a\ncost of taking up much more vertical space. Defaults to <code>false</code></p>\n</li>\n<li>\n<p dir=\"auto\"><code>autoprintHelpAndExit: Option[(Int, PrintStream)]</code>: whether to detect <code>--help</code>\nbeing passed in automatically, and if so where to print the help message and\nwhat exit code to exit the process with. Defaults t, <code>Some((0, System.out))</code>,\nbut can be disabled by passing in <code>None</code> if you want to handle help text\nmanually (e.g. by calling <code>.helpText</code> on the parser object)</p>\n</li>\n<li>\n<p dir=\"auto\"><code>customName</code>/<code>customNames</code> and <code>customDoc</code>/<code>customDocs</code>: allows you to\noverride the main method names and documentation strings at runtime. This\nallows you to work around limitations in the use of the <code>@main(name = \"...\", doc = \"...\")</code> annotation that only allows simple static strings.</p>\n</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-custom-argument-parsers\" class=\"anchor\" aria-hidden=\"true\" href=\"#custom-argument-parsers\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Custom Argument Parsers</h2>\n<p dir=\"auto\">If you want to parse arguments into types that are not provided by the library,\nyou can do so by defining an implicit <code>TokensReader[T]</code> for that type:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"package testcustom\nimport mainargs.{main, arg, ParserForMethods, TokensReader}\n\nobject Main{\n  implicit object PathRead extends TokensReader[os.Path](\n    &quot;path&quot;,\n    strs =&gt; Right(os.Path(strs.head, os.pwd))\n  )\n  @main\n  def run(from: os.Path, to: os.Path) = {\n    println(&quot;from: &quot; + from)\n    println(&quot;to:   &quot; + to)\n  }\n\n  def main(args: Array[String]): Unit = ParserForMethods(this).runOrExit(args)\n}\"><pre><span class=\"pl-k\">package</span> <span class=\"pl-en\">testcustom</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">mainargs</span>.{<span class=\"pl-en\">main</span>, <span class=\"pl-en\">arg</span>, <span class=\"pl-en\">ParserForMethods</span>, <span class=\"pl-en\">TokensReader</span>}\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span>{\n  <span class=\"pl-k\">implicit</span> <span class=\"pl-k\">object</span> <span class=\"pl-en\">PathRead</span> <span class=\"pl-k\">extends</span> <span class=\"pl-e\">TokensReader</span>[os.<span class=\"pl-en\">Path</span>](\n    <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>path<span class=\"pl-pds\">\"</span></span>,\n    strs <span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">Right</span>(os.<span class=\"pl-en\">Path</span>(strs.head, os.pwd))\n  )\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">run</span>(<span class=\"pl-v\">from</span>: os.<span class=\"pl-en\">Path</span>, <span class=\"pl-v\">to</span>: os.<span class=\"pl-en\">Path</span>) <span class=\"pl-k\">=</span> {\n    println(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>from: <span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">+</span> from)\n    println(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>to:   <span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">+</span> to)\n  }\n\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">main</span>(<span class=\"pl-v\">args</span>: <span class=\"pl-en\">Array</span>[<span class=\"pl-en\">String</span>])<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ParserForMethods</span>(<span class=\"pl-c1\">this</span>).runOrExit(args)\n}</pre></div>\n<div class=\"highlight highlight-source-shell position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ./mill example.custom --from mainargs --to out\nfrom: /Users/lihaoyi/Github/mainargs/mainargs\nto:   /Users/lihaoyi/Github/mainargs/out\"><pre>$ ./mill example.custom --from mainargs --to out\nfrom: /Users/lihaoyi/Github/mainargs/mainargs\nto:   /Users/lihaoyi/Github/mainargs/out</pre></div>\n<p dir=\"auto\">In this example, we define an implicit <code>PathRead</code> to teach MainArgs how to parse\n<code>os.Path</code>s from the <a href=\"https://github.com/lihaoyi/os-lib\">OS-Lib</a> library.\n<code>ArgReader</code> requires the following fields:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"class ArgReader[T](val shortName: String, // what to print in &lt;...&gt; in the help text\n                   val read: Seq[String] =&gt; Either[String, T],\n                   val alwaysRepeatable: Boolean = false, // used to allow Seq[T]-like parsers\n                   val allowEmpty: Boolean = false) // used to allow Option[T]-like parsers\"><pre><span class=\"pl-k\">class</span> <span class=\"pl-en\">ArgReader</span>[<span class=\"pl-en\">T</span>](<span class=\"pl-k\">val</span> <span class=\"pl-smi\">shortName</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">String</span>, <span class=\"pl-c\"><span class=\"pl-c\">//</span> what to print in &lt;...&gt; in the help text</span>\n                   <span class=\"pl-k\">val</span> <span class=\"pl-smi\">read</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">Seq</span>[<span class=\"pl-en\">String</span>] <span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">Either</span>[<span class=\"pl-en\">String</span>, <span class=\"pl-en\">T</span>],\n                   <span class=\"pl-k\">val</span> <span class=\"pl-smi\">alwaysRepeatable</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">Boolean</span> <span class=\"pl-k\">=</span> <span class=\"pl-c1\">false</span>, <span class=\"pl-c\"><span class=\"pl-c\">//</span> used to allow Seq[T]-like parsers</span>\n                   <span class=\"pl-k\">val</span> <span class=\"pl-smi\">allowEmpty</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">Boolean</span> <span class=\"pl-k\">=</span> <span class=\"pl-c1\">false</span>) <span class=\"pl-c\"><span class=\"pl-c\">//</span> used to allow Option[T]-like parsers</span></pre></div>\n<p dir=\"auto\">Note that <code>read</code> takes all tokens that were passed to a particular parameter.\nNormally this is a <code>Seq</code> of length <code>1</code>, but if <code>allowEmpty</code> is <code>true</code> it could\nbe an empty <code>Seq</code>, and if <code>alwaysRepeatable</code> is <code>true</code> then it could be\narbitrarily long.</p>\n<p dir=\"auto\">The <code>allowRepeats</code> parameter can also result in multiple tokens being passed to\nyour <code>ArgReader</code>; for <code>ArgReader</code>s that do not expect that, the convention is to\nsimply pick the last token in the list. There is no need to raise an error on\nduplicates, as you can simply disable <code>allowRepeats</code> if you want the parser to\nraise an error when a parameter is provided more than once.</p>\n<h2 dir=\"auto\"><a id=\"user-content-handlings-leftover-arguments\" class=\"anchor\" aria-hidden=\"true\" href=\"#handlings-leftover-arguments\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Handlings Leftover Arguments</h2>\n<p dir=\"auto\">You can use the special <code>Leftover[T]</code> type to store any tokens that are\nnot consumed by other parsers:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"package testvararg\nimport mainargs.{main, arg, ParserForMethods, Leftover}\n\nobject Main{\n  @main\n  def run(foo: String,\n          myNum: Int = 2,\n          rest: Leftover[String]) = {\n    println(foo * myNum + &quot; &quot; + rest.value)\n  }\n\n  def main(args: Array[String]): Unit = ParserForMethods(this).runOrExit(args)\n}\"><pre><span class=\"pl-k\">package</span> <span class=\"pl-en\">testvararg</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">mainargs</span>.{<span class=\"pl-en\">main</span>, <span class=\"pl-en\">arg</span>, <span class=\"pl-en\">ParserForMethods</span>, <span class=\"pl-en\">Leftover</span>}\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span>{\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">run</span>(<span class=\"pl-v\">foo</span>: <span class=\"pl-en\">String</span>,\n          <span class=\"pl-v\">myNum</span>: <span class=\"pl-en\">Int</span> <span class=\"pl-k\">=</span> <span class=\"pl-c1\">2</span>,\n          <span class=\"pl-v\">rest</span>: <span class=\"pl-en\">Leftover</span>[<span class=\"pl-en\">String</span>]) <span class=\"pl-k\">=</span> {\n    println(foo <span class=\"pl-k\">*</span> myNum <span class=\"pl-k\">+</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span> <span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">+</span> rest.value)\n  }\n\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">main</span>(<span class=\"pl-v\">args</span>: <span class=\"pl-en\">Array</span>[<span class=\"pl-en\">String</span>])<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ParserForMethods</span>(<span class=\"pl-c1\">this</span>).runOrExit(args)\n}</pre></div>\n<div class=\"highlight highlight-source-shell position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ./mill example.vararg --foo bar i am cow\nbarbar List(i, am, cow)\"><pre>$ ./mill example.vararg --foo bar i am cow\nbarbar List(i, am, cow)</pre></div>\n<p dir=\"auto\">This also works with <code>ParserForClass</code>:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"package testvararg2\nimport mainargs.{main, arg, ParserForClass, Leftover}\n\nobject Main{\n  @main\n  case class Config(foo: String,\n                    myNum: Int = 2,\n                    rest: Leftover[String])\n\n  def main(args: Array[String]): Unit = {\n    val config = ParserForClass[Config].constructOrExit(args)\n    println(config)\n  }\n}\"><pre><span class=\"pl-k\">package</span> <span class=\"pl-en\">testvararg2</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">mainargs</span>.{<span class=\"pl-en\">main</span>, <span class=\"pl-en\">arg</span>, <span class=\"pl-en\">ParserForClass</span>, <span class=\"pl-en\">Leftover</span>}\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span>{\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">Config</span>(<span class=\"pl-v\">foo</span>: <span class=\"pl-en\">String</span>,\n                    <span class=\"pl-v\">myNum</span>: <span class=\"pl-en\">Int</span> <span class=\"pl-k\">=</span> <span class=\"pl-c1\">2</span>,\n                    <span class=\"pl-v\">rest</span>: <span class=\"pl-en\">Leftover</span>[<span class=\"pl-en\">String</span>])\n\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">main</span>(<span class=\"pl-v\">args</span>: <span class=\"pl-en\">Array</span>[<span class=\"pl-en\">String</span>])<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> {\n    <span class=\"pl-k\">val</span> <span class=\"pl-smi\">config</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ParserForClass</span>[<span class=\"pl-en\">Config</span>].constructOrExit(args)\n    println(config)\n  }\n}</pre></div>\n<div class=\"highlight highlight-source-shell position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ./mill example.vararg2 --foo bar i am cow\nConfig(bar,2,Leftover(List(i, am, cow)))\"><pre>$ ./mill example.vararg2 --foo bar i am cow\nConfig(bar,2,Leftover(List(i, am, cow)))</pre></div>\n<p dir=\"auto\">You can also pass in a different type to <code>Leftover</code>, e.g. <code>Leftover[Int]</code> or\n<code>Leftover[Boolean]</code>, if you want to specify that leftover tokens all parse to a\nparticular type. Any tokens that do not conform to that type will result in an\nargument parsing error.</p>\n<h3 dir=\"auto\"><a id=\"user-content-varargs-parameters\" class=\"anchor\" aria-hidden=\"true\" href=\"#varargs-parameters\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Varargs Parameters</h3>\n<p dir=\"auto\">You can also use <code>*</code> \"varargs\" to define a parameter that takes in the remainder\nof the tokens passed to the CLI:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"package testvararg\nimport mainargs.{main, arg, ParserForMethods, Leftover}\n\nobject Main{\n  @main\n  def run(foo: String,\n          myNum: Int,\n          rest: String*) = {\n    println(foo * myNum + &quot; &quot; + rest.value)\n  }\n\n  def main(args: Array[String]): Unit = ParserForMethods(this).runOrExit(args)\n}\"><pre><span class=\"pl-k\">package</span> <span class=\"pl-en\">testvararg</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">mainargs</span>.{<span class=\"pl-en\">main</span>, <span class=\"pl-en\">arg</span>, <span class=\"pl-en\">ParserForMethods</span>, <span class=\"pl-en\">Leftover</span>}\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span>{\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">run</span>(<span class=\"pl-v\">foo</span>: <span class=\"pl-en\">String</span>,\n          <span class=\"pl-v\">myNum</span>: <span class=\"pl-en\">Int</span>,\n          <span class=\"pl-v\">rest</span>: <span class=\"pl-en\">String</span><span class=\"pl-k\">*</span>) <span class=\"pl-k\">=</span> {\n    println(foo <span class=\"pl-k\">*</span> myNum <span class=\"pl-k\">+</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span> <span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">+</span> rest.value)\n  }\n\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">main</span>(<span class=\"pl-v\">args</span>: <span class=\"pl-en\">Array</span>[<span class=\"pl-en\">String</span>])<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ParserForMethods</span>(<span class=\"pl-c1\">this</span>).runOrExit(args)\n}</pre></div>\n<p dir=\"auto\">Note that this has a limitation that you cannot then assign default values to\nthe other parameters of the function, and hence using <code>Leftover[T]</code> is\npreferable for those cases.</p>\n<h1 dir=\"auto\"><a id=\"user-content-prior-art\" class=\"anchor\" aria-hidden=\"true\" href=\"#prior-art\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Prior Art</h1>\n<h2 dir=\"auto\"><a id=\"user-content-ammonite--mill\" class=\"anchor\" aria-hidden=\"true\" href=\"#ammonite--mill\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Ammonite &amp; Mill</h2>\n<p dir=\"auto\">MainArgs grew out of the user-defined <code>@main</code> method feature supported by\nAmmonite Scala Scripts:</p>\n<ul dir=\"auto\">\n<li><a href=\"http://ammonite.io/#ScriptArguments\" rel=\"nofollow\">http://ammonite.io/#ScriptArguments</a></li>\n</ul>\n<p dir=\"auto\">This implementation was largely copy-pasted into the Mill build tool, to use for\nits user-defined <code>T.command</code>s. A parallel implementation was used to parse\ncommand-line parameters for Ammonite and Mill themselves.</p>\n<p dir=\"auto\">Now all four implementations have been unified in the MainArgs library, which\nboth Ammonite and Mill rely heavily upon. MainArgs also provides some additional\nfeatures, such as making it easy to define short versions of flags like <code>-c</code> via\nthe <code>short = '...'</code> parameter, or re-naming the command line flags via <code>name = \"...\"</code>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-case-app\" class=\"anchor\" aria-hidden=\"true\" href=\"#case-app\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Case App</h2>\n<p dir=\"auto\">MainArgs' support for parsing Scala <code>case class</code>es was inspired by Alex\nArchambault's <code>case-app</code> library:</p>\n<ul dir=\"auto\">\n<li><a href=\"https://github.com/alexarchambault/case-app\">https://github.com/alexarchambault/case-app</a></li>\n</ul>\n<p dir=\"auto\">MainArgs has the following differentiators over <code>case-app</code>:</p>\n<ul dir=\"auto\">\n<li>Support for directly dispatching to <code>@main</code> method(s), rather than only\nparsing into <code>case class</code>es</li>\n<li>A dependency-free implementation, without pulling in the heavyweight Shapeless\nlibrary.</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-scopt\" class=\"anchor\" aria-hidden=\"true\" href=\"#scopt\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Scopt</h2>\n<p dir=\"auto\">MainArgs takes a lot of inspiration from the old Scala Scopt library:</p>\n<ul dir=\"auto\">\n<li><a href=\"https://github.com/scopt/scopt\">https://github.com/scopt/scopt</a></li>\n</ul>\n<p dir=\"auto\">Unlike Scopt, MainArgs lets you call <code>@main</code> methods or instantiate <code>case class</code>es directly, without needing to separately define a <code>case class</code> and\nparser. This makes it usable with much less boilerplate than Scopt: a single\nmethod annotated with <code>@main</code> is all you need to turn your program into a\ncommand-line friendly tool.</p>\n<h1 dir=\"auto\"><a id=\"user-content-changelog\" class=\"anchor\" aria-hidden=\"true\" href=\"#changelog\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Changelog</h1>\n<h2 dir=\"auto\"><a id=\"user-content-022\" class=\"anchor\" aria-hidden=\"true\" href=\"#022\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>0.2.2</h2>\n<ul dir=\"auto\">\n<li>Fix hygiene of macros <a href=\"https://github.com/com-lihaoyi/mainargs/pull/12\">#12</a></li>\n<li>Allow special characters in method names and argument names <a href=\"https://github.com/com-lihaoyi/mainargs/pull/13\">#13</a></li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-021\" class=\"anchor\" aria-hidden=\"true\" href=\"#021\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>0.2.1</h2>\n<ul dir=\"auto\">\n<li>Scala-Native 0.4.0 support</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-017\" class=\"anchor\" aria-hidden=\"true\" href=\"#017\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>0.1.7</h2>\n<ul dir=\"auto\">\n<li>\n<p dir=\"auto\">Add support for <code>positional=true</code> flag in <code>mainargs.arg</code>, to specify a\nspecific argument can only be passed positionally regardless of whether\n<code>allowPositional</code> is enabled for the entire parser</p>\n</li>\n<li>\n<p dir=\"auto\">Allow <code>-</code> and <code>--</code> to be passed as argument values without being treated as\nflags</p>\n</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-014\" class=\"anchor\" aria-hidden=\"true\" href=\"#014\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>0.1.4</h2>\n<ul dir=\"auto\">\n<li>First release</li>\n</ul>\n</article></div>",
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"readme.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-mainargs-023\" class=\"anchor\" aria-hidden=\"true\" href=\"#mainargs-023\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>mainargs 0.2.3</h1>\n<p dir=\"auto\">MainArgs is a small, dependency-free library for command line argument parsing\nin Scala.</p>\n<p dir=\"auto\">MainArgs is used for command-line parsing of the\n<a href=\"http://ammonite.io/\" rel=\"nofollow\">Ammonite Scala REPL</a> and for user-defined <code>@main</code> methods\nin its scripts, as well as for command-line parsing for the\n<a href=\"https://github.com/lihaoyi/mill\">Mill Build Tool</a> and for user-defined\n<code>T.command</code>s.</p>\n<ul dir=\"auto\">\n<li><a href=\"#usage\">Usage</a>\n<ul dir=\"auto\">\n<li><a href=\"#parsing-main-method-parameters\">Parsing Main Method Parameters</a>\n<ul dir=\"auto\">\n<li><a href=\"#runorexit\">runOrExit</a></li>\n<li><a href=\"#runorthrow\">runOrThrow</a></li>\n<li><a href=\"#runeither\">runEither</a></li>\n<li><a href=\"#runraw\">runRaw</a></li>\n</ul>\n</li>\n<li><a href=\"#multiple-main-methods\">Multiple Main Methods</a></li>\n<li><a href=\"#parsing-case-class-parameters\">Parsing Case Class Parameters</a></li>\n<li><a href=\"#re-using-argument-sets\">Re-using Argument Sets</a></li>\n<li><a href=\"#option-or-sequence-parameters\">Option or Sequence parameters</a></li>\n<li><a href=\"#annotations\">Annotations</a>\n<ul dir=\"auto\">\n<li><a href=\"#main\">@main</a></li>\n<li><a href=\"#arg\">@arg</a></li>\n</ul>\n</li>\n<li><a href=\"#customization\">Customization</a></li>\n<li><a href=\"#custom-argument-parsers\">Custom Argument Parsers</a></li>\n<li><a href=\"#handlings-leftover-arguments\">Handlings Leftover Arguments</a>\n<ul dir=\"auto\">\n<li><a href=\"#varargs-parameters\">Varargs Parameters</a></li>\n</ul>\n</li>\n</ul>\n</li>\n<li><a href=\"#prior-art\">Prior Art</a>\n<ul dir=\"auto\">\n<li><a href=\"#ammonite--mill\">Ammonite &amp; Mill</a></li>\n<li><a href=\"#case-app\">Case App</a></li>\n<li><a href=\"#scopt\">Scopt</a></li>\n</ul>\n</li>\n<li><a href=\"#changelog\">Changelog</a>\n<ul dir=\"auto\">\n<li><a href=\"#023\">0.2.3</a></li>\n<li><a href=\"#022\">0.2.2</a></li>\n<li><a href=\"#021\">0.2.1</a></li>\n<li><a href=\"#017\">0.1.7</a></li>\n<li><a href=\"#014\">0.1.4</a></li>\n</ul>\n</li>\n</ul>\n<h1 dir=\"auto\"><a id=\"user-content-usage\" class=\"anchor\" aria-hidden=\"true\" href=\"#usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Usage</h1>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"ivy&quot;com.lihaoyi::mainargs:0.2.3&quot;\"><pre><span class=\"pl-k\">ivy</span><span class=\"pl-s\">\"</span><span class=\"pl-s\">com.lihaoyi::mainargs:0.2.3</span><span class=\"pl-s\">\"</span></pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-parsing-main-method-parameters\" class=\"anchor\" aria-hidden=\"true\" href=\"#parsing-main-method-parameters\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Parsing Main Method Parameters</h2>\n<p dir=\"auto\">You can parse command line arguments and use them to call a main method via\n<code>ParserForMethods(...)</code>:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"package testhello\nimport mainargs.{main, arg, ParserForMethods, Flag}\n\nobject Main{\n  @main\n  def run(@arg(short = 'f', doc = &quot;String to print repeatedly&quot;)\n          foo: String,\n          @arg(name = &quot;my-num&quot;, doc = &quot;How many times to print string&quot;)\n          myNum: Int = 2,\n          @arg(doc = &quot;Example flag, can be passed without any value to become true&quot;)\n          bool: Flag) = {\n    println(foo * myNum + &quot; &quot; + bool.value)\n  }\n  def main(args: Array[String]): Unit = ParserForMethods(this).runOrExit(args)\n}\"><pre><span class=\"pl-k\">package</span> <span class=\"pl-en\">testhello</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">mainargs</span>.{<span class=\"pl-en\">main</span>, <span class=\"pl-en\">arg</span>, <span class=\"pl-en\">ParserForMethods</span>, <span class=\"pl-en\">Flag</span>}\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span>{\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">run</span>(<span class=\"pl-k\">@</span>arg(short <span class=\"pl-k\">=</span> <span class=\"pl-s\">'f'</span>, doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>String to print repeatedly<span class=\"pl-pds\">\"</span></span>)\n          <span class=\"pl-v\">foo</span>: <span class=\"pl-en\">String</span>,\n          <span class=\"pl-k\">@</span>arg(name <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>my-num<span class=\"pl-pds\">\"</span></span>, doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>How many times to print string<span class=\"pl-pds\">\"</span></span>)\n          <span class=\"pl-v\">myNum</span>: <span class=\"pl-en\">Int</span> <span class=\"pl-k\">=</span> <span class=\"pl-c1\">2</span>,\n          <span class=\"pl-k\">@</span>arg(doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Example flag, can be passed without any value to become true<span class=\"pl-pds\">\"</span></span>)\n          <span class=\"pl-v\">bool</span>: <span class=\"pl-en\">Flag</span>) <span class=\"pl-k\">=</span> {\n    println(foo <span class=\"pl-k\">*</span> myNum <span class=\"pl-k\">+</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span> <span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">+</span> bool.value)\n  }\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">main</span>(<span class=\"pl-v\">args</span>: <span class=\"pl-en\">Array</span>[<span class=\"pl-en\">String</span>])<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ParserForMethods</span>(<span class=\"pl-c1\">this</span>).runOrExit(args)\n}</pre></div>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ./mill example.hello -f hello\nhellohello false\n\n$ ./mill example.hello -f hello --my-num 3\nhellohellohello false\n\n$ ./mill example.hello -f hello --my-num 3 --bool\nhellohellohello true\n\n$ ./mill example.hello --wrong-flag\nMissing argument: --foo &lt;str&gt;\nUnknown argument: &quot;--wrong-flag&quot;\nExpected Signature: run\n  -f --foo &lt;str&gt;  String to print repeatedly\n  --my-num &lt;int&gt;  How many times to print string\n  --bool          Example flag\"><pre>$ ./mill example.hello -f hello\nhellohello <span class=\"pl-c1\">false</span>\n\n$ ./mill example.hello -f hello --my-num 3\nhellohellohello <span class=\"pl-c1\">false</span>\n\n$ ./mill example.hello -f hello --my-num 3 --bool\nhellohellohello <span class=\"pl-c1\">true</span>\n\n$ ./mill example.hello --wrong-flag\nMissing argument: --foo <span class=\"pl-k\">&lt;</span>str<span class=\"pl-k\">&gt;</span>\nUnknown argument: <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>--wrong-flag<span class=\"pl-pds\">\"</span></span>\nExpected Signature: run\n  -f --foo <span class=\"pl-k\">&lt;</span>str<span class=\"pl-k\">&gt;</span>  String to print repeatedly\n  --my-num <span class=\"pl-k\">&lt;</span>int<span class=\"pl-k\">&gt;</span>  How many <span class=\"pl-c1\">times</span> to print string\n  --bool          Example flag</pre></div>\n<p dir=\"auto\">Setting default values for the method arguments makes them optional, with the\ndefault value being used if an explicit value was not passed in from the\ncommand-line arguments list.</p>\n<p dir=\"auto\">After calling <code>ParserForMethods(...)</code> on the <code>object</code> containing your <code>@main</code>\nmethods, you can call the following methods to perform the argument parsing and\ndispatch:</p>\n<h3 dir=\"auto\"><a id=\"user-content-runorexit\" class=\"anchor\" aria-hidden=\"true\" href=\"#runorexit\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>runOrExit</h3>\n<p dir=\"auto\">Runs the given main method if argument parsing succeeds, otherwise prints out\nthe help text to standard error and calls <code>System.exit(1)</code> to exit the proess</p>\n<h3 dir=\"auto\"><a id=\"user-content-runorthrow\" class=\"anchor\" aria-hidden=\"true\" href=\"#runorthrow\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>runOrThrow</h3>\n<p dir=\"auto\">Runs the given main method if argument parsing succeeds, otherwise throws an\nexception with the help text</p>\n<h3 dir=\"auto\"><a id=\"user-content-runeither\" class=\"anchor\" aria-hidden=\"true\" href=\"#runeither\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>runEither</h3>\n<p dir=\"auto\">Runs the given main method if argument parsing succeeds, returning <code>Right(v: Any)</code> containing the return value of the main method if it succeeds, or <code>Left(s: String)</code> containing the error message if it fails.</p>\n<h3 dir=\"auto\"><a id=\"user-content-runraw\" class=\"anchor\" aria-hidden=\"true\" href=\"#runraw\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>runRaw</h3>\n<p dir=\"auto\">Runs the given main method if argument parsing succeeds, returning\n<code>mainargs.Result.Success(v: Any)</code> containing the return value of the main method\nif it succeeds, or <code>mainargs.Result.Error</code> if it fails. This gives you the\ngreatest flexibility to handle the error cases with custom logic, e.g. if you do\nnot like the default CLI error reporting and would like to write your own.</p>\n<h2 dir=\"auto\"><a id=\"user-content-multiple-main-methods\" class=\"anchor\" aria-hidden=\"true\" href=\"#multiple-main-methods\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Multiple Main Methods</h2>\n<p dir=\"auto\">Programs with multiple entrypoints are supported by annotating multiple <code>def</code>s\nwith <code>@main</code>. Each entrypoint can have their own set of arguments:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"package testhello2\nimport mainargs.{main, arg, ParserForMethods, Flag}\n\nobject Main{\n  @main\n  def foo(@arg(short = 'f', doc = &quot;String to print repeatedly&quot;)\n          foo: String,\n          @arg(name = &quot;my-num&quot;, doc = &quot;How many times to print string&quot;)\n          myNum: Int = 2,\n          @arg(doc = &quot;Example flag&quot;)\n          bool: Flag) = {\n    println(foo * myNum + &quot; &quot; + bool.value)\n  }\n  @main\n  def bar(i: Int,\n          @arg(doc = &quot;Pass in a custom `s` to override it&quot;)\n          s: String  = &quot;lols&quot;) = {\n    println(s * i)\n  }\n  def main(args: Array[String]): Unit = ParserForMethods(this).runOrExit(args)\n}\"><pre><span class=\"pl-k\">package</span> <span class=\"pl-en\">testhello2</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">mainargs</span>.{<span class=\"pl-en\">main</span>, <span class=\"pl-en\">arg</span>, <span class=\"pl-en\">ParserForMethods</span>, <span class=\"pl-en\">Flag</span>}\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span>{\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">foo</span>(<span class=\"pl-k\">@</span>arg(short <span class=\"pl-k\">=</span> <span class=\"pl-s\">'f'</span>, doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>String to print repeatedly<span class=\"pl-pds\">\"</span></span>)\n          <span class=\"pl-v\">foo</span>: <span class=\"pl-en\">String</span>,\n          <span class=\"pl-k\">@</span>arg(name <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>my-num<span class=\"pl-pds\">\"</span></span>, doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>How many times to print string<span class=\"pl-pds\">\"</span></span>)\n          <span class=\"pl-v\">myNum</span>: <span class=\"pl-en\">Int</span> <span class=\"pl-k\">=</span> <span class=\"pl-c1\">2</span>,\n          <span class=\"pl-k\">@</span>arg(doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Example flag<span class=\"pl-pds\">\"</span></span>)\n          <span class=\"pl-v\">bool</span>: <span class=\"pl-en\">Flag</span>) <span class=\"pl-k\">=</span> {\n    println(foo <span class=\"pl-k\">*</span> myNum <span class=\"pl-k\">+</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span> <span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">+</span> bool.value)\n  }\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">bar</span>(<span class=\"pl-v\">i</span>: <span class=\"pl-en\">Int</span>,\n          <span class=\"pl-k\">@</span>arg(doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Pass in a custom `s` to override it<span class=\"pl-pds\">\"</span></span>)\n          <span class=\"pl-v\">s</span>: <span class=\"pl-en\">String</span>  <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>lols<span class=\"pl-pds\">\"</span></span>) <span class=\"pl-k\">=</span> {\n    println(s <span class=\"pl-k\">*</span> i)\n  }\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">main</span>(<span class=\"pl-v\">args</span>: <span class=\"pl-en\">Array</span>[<span class=\"pl-en\">String</span>])<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ParserForMethods</span>(<span class=\"pl-c1\">this</span>).runOrExit(args)\n}</pre></div>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ./mill example.hello2\nNeed to specify a sub command: foo, bar\n\n$ ./mill example.hello2 foo -f hello\nhellohello false\n\n$ ./mill example.hello2 bar -i 10\nlolslolslolslolslolslolslolslolslolslols\"><pre>$ ./mill example.hello2\nNeed to specify a sub command: foo, bar\n\n$ ./mill example.hello2 foo -f hello\nhellohello <span class=\"pl-c1\">false</span>\n\n$ ./mill example.hello2 bar -i 10\nlolslolslolslolslolslolslolslolslolslols</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-parsing-case-class-parameters\" class=\"anchor\" aria-hidden=\"true\" href=\"#parsing-case-class-parameters\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Parsing Case Class Parameters</h2>\n<p dir=\"auto\">If you want to construct a configuration object instead of directly calling a\nmethod, you can do so via <code>ParserForClass[T]</code> and `constructOrExit:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"package testclass\nimport mainargs.{main, arg, ParserForClass, Flag}\n\nobject Main{\n  @main\n  case class Config(@arg(short = 'f', doc = &quot;String to print repeatedly&quot;)\n                    foo: String,\n                    @arg(name = &quot;my-num&quot;, doc = &quot;How many times to print string&quot;)\n                    myNum: Int = 2,\n                    @arg(doc = &quot;Example flag&quot;)\n                    bool: Flag)\n  def main(args: Array[String]): Unit = {\n    val config = ParserForClass[Config].constructOrExit(args)\n    println(config)\n  }\n}\"><pre><span class=\"pl-k\">package</span> <span class=\"pl-en\">testclass</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">mainargs</span>.{<span class=\"pl-en\">main</span>, <span class=\"pl-en\">arg</span>, <span class=\"pl-en\">ParserForClass</span>, <span class=\"pl-en\">Flag</span>}\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span>{\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">Config</span>(<span class=\"pl-k\">@</span>arg(short <span class=\"pl-k\">=</span> <span class=\"pl-s\">'f'</span>, doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>String to print repeatedly<span class=\"pl-pds\">\"</span></span>)\n                    <span class=\"pl-v\">foo</span>: <span class=\"pl-en\">String</span>,\n                    <span class=\"pl-k\">@</span>arg(name <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>my-num<span class=\"pl-pds\">\"</span></span>, doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>How many times to print string<span class=\"pl-pds\">\"</span></span>)\n                    <span class=\"pl-v\">myNum</span>: <span class=\"pl-en\">Int</span> <span class=\"pl-k\">=</span> <span class=\"pl-c1\">2</span>,\n                    <span class=\"pl-k\">@</span>arg(doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Example flag<span class=\"pl-pds\">\"</span></span>)\n                    <span class=\"pl-v\">bool</span>: <span class=\"pl-en\">Flag</span>)\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">main</span>(<span class=\"pl-v\">args</span>: <span class=\"pl-en\">Array</span>[<span class=\"pl-en\">String</span>])<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> {\n    <span class=\"pl-k\">val</span> <span class=\"pl-smi\">config</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ParserForClass</span>[<span class=\"pl-en\">Config</span>].constructOrExit(args)\n    println(config)\n  }\n}</pre></div>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ./mill example.caseclass --foo &quot;hello&quot;\nConfig(hello,2,Flag(false))\n\n$ ./mill example.caseclass\nMissing argument: --foo &lt;str&gt;\nExpected Signature: apply\n  -f --foo &lt;str&gt;  String to print repeatedly\n  --my-num &lt;int&gt;  How many times to print string\n  --bool          Example flag\"><pre>$ ./mill example.caseclass --foo <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>hello<span class=\"pl-pds\">\"</span></span>\nConfig(hello,2,Flag(false))\n\n$ ./mill example.caseclass\nMissing argument: --foo <span class=\"pl-k\">&lt;</span>str<span class=\"pl-k\">&gt;</span>\nExpected Signature: apply\n  -f --foo <span class=\"pl-k\">&lt;</span>str<span class=\"pl-k\">&gt;</span>  String to print repeatedly\n  --my-num <span class=\"pl-k\">&lt;</span>int<span class=\"pl-k\">&gt;</span>  How many <span class=\"pl-c1\">times</span> to print string\n  --bool          Example flag</pre></div>\n<p dir=\"auto\"><code>ParserForClass[T]</code> also provides corresponding <code>constructOrThrow</code>,\n<code>constructEither</code>, or <code>constructRaw</code> methods for you to handle the error cases\nin whichever style you prefer.</p>\n<h2 dir=\"auto\"><a id=\"user-content-re-using-argument-sets\" class=\"anchor\" aria-hidden=\"true\" href=\"#re-using-argument-sets\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Re-using Argument Sets</h2>\n<p dir=\"auto\">You can share arguments between different <code>@main</code> methods by defining them in a\n<code>@main case class</code> configuration object with an implicit <code>ParserForClass[T]</code>\ndefined:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"package testclassarg\nimport mainargs.{main, arg, ParserForMethods, ParserForClass, Flag}\n\nobject Main{\n  @main\n  case class Config(@arg(short = 'f', doc = &quot;String to print repeatedly&quot;)\n                    foo: String,\n                    @arg(name = &quot;my-num&quot;, doc = &quot;How many times to print string&quot;)\n                    myNum: Int = 2,\n                    @arg(doc = &quot;Example flag&quot;)\n                    bool: Flag)\n  implicit def configParser = ParserForClass[Config]\n\n  @main\n  def bar(config: Config,\n          @arg(name = &quot;extra-message&quot;)\n          extraMessage: String) = {\n    println(config.foo * config.myNum + &quot; &quot; + config.bool.value + &quot; &quot; + extraMessage)\n  }\n  @main\n  def qux(config: Config,\n          n: Int) = {\n    println((config.foo * config.myNum + &quot; &quot; + config.bool.value + &quot;\\n&quot;) * n)\n  }\n\n  def main(args: Array[String]): Unit = ParserForMethods(this).runOrExit(args)\n}\"><pre><span class=\"pl-k\">package</span> <span class=\"pl-en\">testclassarg</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">mainargs</span>.{<span class=\"pl-en\">main</span>, <span class=\"pl-en\">arg</span>, <span class=\"pl-en\">ParserForMethods</span>, <span class=\"pl-en\">ParserForClass</span>, <span class=\"pl-en\">Flag</span>}\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span>{\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">Config</span>(<span class=\"pl-k\">@</span>arg(short <span class=\"pl-k\">=</span> <span class=\"pl-s\">'f'</span>, doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>String to print repeatedly<span class=\"pl-pds\">\"</span></span>)\n                    <span class=\"pl-v\">foo</span>: <span class=\"pl-en\">String</span>,\n                    <span class=\"pl-k\">@</span>arg(name <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>my-num<span class=\"pl-pds\">\"</span></span>, doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>How many times to print string<span class=\"pl-pds\">\"</span></span>)\n                    <span class=\"pl-v\">myNum</span>: <span class=\"pl-en\">Int</span> <span class=\"pl-k\">=</span> <span class=\"pl-c1\">2</span>,\n                    <span class=\"pl-k\">@</span>arg(doc <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Example flag<span class=\"pl-pds\">\"</span></span>)\n                    <span class=\"pl-v\">bool</span>: <span class=\"pl-en\">Flag</span>)\n  <span class=\"pl-k\">implicit</span> <span class=\"pl-k\">def</span> <span class=\"pl-en\">configParser</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ParserForClass</span>[<span class=\"pl-en\">Config</span>]\n\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">bar</span>(<span class=\"pl-v\">config</span>: <span class=\"pl-en\">Config</span>,\n          <span class=\"pl-k\">@</span>arg(name <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>extra-message<span class=\"pl-pds\">\"</span></span>)\n          <span class=\"pl-v\">extraMessage</span>: <span class=\"pl-en\">String</span>) <span class=\"pl-k\">=</span> {\n    println(config.foo <span class=\"pl-k\">*</span> config.myNum <span class=\"pl-k\">+</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span> <span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">+</span> config.bool.value <span class=\"pl-k\">+</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span> <span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">+</span> extraMessage)\n  }\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">qux</span>(<span class=\"pl-v\">config</span>: <span class=\"pl-en\">Config</span>,\n          <span class=\"pl-v\">n</span>: <span class=\"pl-en\">Int</span>) <span class=\"pl-k\">=</span> {\n    println((config.foo <span class=\"pl-k\">*</span> config.myNum <span class=\"pl-k\">+</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span> <span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">+</span> config.bool.value <span class=\"pl-k\">+</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span><span class=\"pl-cce\">\\n</span><span class=\"pl-pds\">\"</span></span>) <span class=\"pl-k\">*</span> n)\n  }\n\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">main</span>(<span class=\"pl-v\">args</span>: <span class=\"pl-en\">Array</span>[<span class=\"pl-en\">String</span>])<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ParserForMethods</span>(<span class=\"pl-c1\">this</span>).runOrExit(args)\n}</pre></div>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"\n$ ./mill example.classarg bar --foo cow --extra-message &quot;hello world&quot;\ncowcow false hello world\n\n$ ./mill example.classarg qux --foo cow --n 5\ncowcow false\ncowcow false\ncowcow false\ncowcow false\ncowcow false\"><pre>$ ./mill example.classarg bar --foo cow --extra-message <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>hello world<span class=\"pl-pds\">\"</span></span>\ncowcow <span class=\"pl-c1\">false</span> hello world\n\n$ ./mill example.classarg qux --foo cow --n 5\ncowcow <span class=\"pl-c1\">false</span>\ncowcow <span class=\"pl-c1\">false</span>\ncowcow <span class=\"pl-c1\">false</span>\ncowcow <span class=\"pl-c1\">false</span>\ncowcow <span class=\"pl-c1\">false</span></pre></div>\n<p dir=\"auto\">This allows you to re-use common command-line parsing configuration without\nneeding to duplicate it in every <code>@main</code> method in which it is needed. A <code>@main def</code> can make use of multiple <code>@main case class</code>es, and <code>@main case class</code>es can\nbe nested arbitrarily deeply.</p>\n<h2 dir=\"auto\"><a id=\"user-content-option-or-sequence-parameters\" class=\"anchor\" aria-hidden=\"true\" href=\"#option-or-sequence-parameters\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Option or Sequence parameters</h2>\n<p dir=\"auto\"><code>@main</code> method parameters can be <code>Option[T]</code> or <code>Seq[T]</code> types, representing\noptional parameters without defaults or repeatable parameters</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"package testoptseq\nimport mainargs.{main, arg, ParserForMethods}\n\nobject Main{\n  @main\n  def runOpt(opt: Option[Int]) = println(opt)\n\n  @main\n  def runSeq(seq: Seq[Int]) = println(seq)\n\n  @main\n  def runVec(seq: Vector[Int]) = println(seq)\n\n  def main(args: Array[String]): Unit = ParserForMethods(this).runOrExit(args)\n}\"><pre><span class=\"pl-k\">package</span> <span class=\"pl-en\">testoptseq</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">mainargs</span>.{<span class=\"pl-en\">main</span>, <span class=\"pl-en\">arg</span>, <span class=\"pl-en\">ParserForMethods</span>}\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span>{\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">runOpt</span>(<span class=\"pl-v\">opt</span>: <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">Int</span>]) <span class=\"pl-k\">=</span> println(opt)\n\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">runSeq</span>(<span class=\"pl-v\">seq</span>: <span class=\"pl-en\">Seq</span>[<span class=\"pl-en\">Int</span>]) <span class=\"pl-k\">=</span> println(seq)\n\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">runVec</span>(<span class=\"pl-v\">seq</span>: <span class=\"pl-en\">Vector</span>[<span class=\"pl-en\">Int</span>]) <span class=\"pl-k\">=</span> println(seq)\n\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">main</span>(<span class=\"pl-v\">args</span>: <span class=\"pl-en\">Array</span>[<span class=\"pl-en\">String</span>])<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ParserForMethods</span>(<span class=\"pl-c1\">this</span>).runOrExit(args)\n}</pre></div>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ./mill example.optseq runOpt\nNone\n\n$ ./mill example.optseq runOpt --opt 123\nSome(123)\n\n$ ./mill example.optseq runSeq --seq 123 --seq 456 --seq 789\nList(123, 456, 789)\"><pre>$ ./mill example.optseq runOpt\nNone\n\n$ ./mill example.optseq runOpt --opt 123\nSome(123)\n\n$ ./mill example.optseq runSeq --seq 123 --seq 456 --seq 789\nList(123, 456, 789)</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-annotations\" class=\"anchor\" aria-hidden=\"true\" href=\"#annotations\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Annotations</h2>\n<p dir=\"auto\">The library's annotations and methods support the following parameters to\ncustomize your usage:</p>\n<h3 dir=\"auto\"><a id=\"user-content-main\" class=\"anchor\" aria-hidden=\"true\" href=\"#main\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>@main</h3>\n<ul dir=\"auto\">\n<li>\n<p dir=\"auto\"><code>name: String</code>: lets you specify the top-level name of <code>@main</code> method you are\ndefining. If multiple <code>@main</code> methods are provided, this name controls the\nsub-command name in the CLI</p>\n</li>\n<li>\n<p dir=\"auto\"><code>doc: String</code>: a documentation string used to provide additional information\nabout the command. Normally printed below the command name in the help message</p>\n</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-arg\" class=\"anchor\" aria-hidden=\"true\" href=\"#arg\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>@arg</h3>\n<ul dir=\"auto\">\n<li>\n<p dir=\"auto\"><code>name: String</code>: lets you specify the long name of a CLI parameter, e.g.\n<code>--foo</code>. Defaults to the name of the function parameter if not given</p>\n</li>\n<li>\n<p dir=\"auto\"><code>short: Char</code>: lets you specify the short name of a CLI parameter, e.g. <code>-f</code>.\nIf not given, theargument can only be provided via its long name</p>\n</li>\n<li>\n<p dir=\"auto\"><code>doc: String</code>: a documentation string used to provide additional information\nabout the command</p>\n</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-customization\" class=\"anchor\" aria-hidden=\"true\" href=\"#customization\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Customization</h2>\n<p dir=\"auto\">Apart from taking the name of the main <code>object</code> or config <code>case class</code>,\n<code>ParserForMethods</code> and <code>ParserForClass</code> both have methods that support a number\nof useful configuration values:</p>\n<ul dir=\"auto\">\n<li>\n<p dir=\"auto\"><code>allowPositional: Boolean</code>: allows you to pass CLI arguments \"positionally\"\nwithout the <code>--name</code> of the parameter being provided, e.g. <code>./mill example.hello -f hello --my-num 3 --bool</code> could be called via <code>./mill example.hello hello 3 --bool</code>. Defaults to <code>false</code></p>\n</li>\n<li>\n<p dir=\"auto\"><code>allowRepeats: Boolean</code>: allows you to pass in a flag multiple times, and\nusing the last provided value rather than raising an error. Defaults to\n<code>false</code></p>\n</li>\n<li>\n<p dir=\"auto\"><code>totalWidth: Int</code>: how wide to re-format the <code>doc</code> strings to when printing\nthe help text. Defaults to <code>100</code></p>\n</li>\n<li>\n<p dir=\"auto\"><code>printHelpOnExit: Boolean</code>: whether or not to print the full help text when\nargument parsing fails. This can be convenient, but potentially very verbose\nif the list of arguments is long. Defaults to <code>true</code></p>\n</li>\n<li>\n<p dir=\"auto\"><code>docsOnNewLine: Boolean</code>: whether to print argument doc-strings on a new line\nbelow the name of the argument; this may make things easier to read, but at a\ncost of taking up much more vertical space. Defaults to <code>false</code></p>\n</li>\n<li>\n<p dir=\"auto\"><code>autoprintHelpAndExit: Option[(Int, PrintStream)]</code>: whether to detect <code>--help</code>\nbeing passed in automatically, and if so where to print the help message and\nwhat exit code to exit the process with. Defaults t, <code>Some((0, System.out))</code>,\nbut can be disabled by passing in <code>None</code> if you want to handle help text\nmanually (e.g. by calling <code>.helpText</code> on the parser object)</p>\n</li>\n<li>\n<p dir=\"auto\"><code>customName</code>/<code>customNames</code> and <code>customDoc</code>/<code>customDocs</code>: allows you to\noverride the main method names and documentation strings at runtime. This\nallows you to work around limitations in the use of the <code>@main(name = \"...\", doc = \"...\")</code> annotation that only allows simple static strings.</p>\n</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-custom-argument-parsers\" class=\"anchor\" aria-hidden=\"true\" href=\"#custom-argument-parsers\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Custom Argument Parsers</h2>\n<p dir=\"auto\">If you want to parse arguments into types that are not provided by the library,\nyou can do so by defining an implicit <code>TokensReader[T]</code> for that type:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"package testcustom\nimport mainargs.{main, arg, ParserForMethods, TokensReader}\n\nobject Main{\n  implicit object PathRead extends TokensReader[os.Path](\n    &quot;path&quot;,\n    strs =&gt; Right(os.Path(strs.head, os.pwd))\n  )\n  @main\n  def run(from: os.Path, to: os.Path) = {\n    println(&quot;from: &quot; + from)\n    println(&quot;to:   &quot; + to)\n  }\n\n  def main(args: Array[String]): Unit = ParserForMethods(this).runOrExit(args)\n}\"><pre><span class=\"pl-k\">package</span> <span class=\"pl-en\">testcustom</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">mainargs</span>.{<span class=\"pl-en\">main</span>, <span class=\"pl-en\">arg</span>, <span class=\"pl-en\">ParserForMethods</span>, <span class=\"pl-en\">TokensReader</span>}\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span>{\n  <span class=\"pl-k\">implicit</span> <span class=\"pl-k\">object</span> <span class=\"pl-en\">PathRead</span> <span class=\"pl-k\">extends</span> <span class=\"pl-e\">TokensReader</span>[os.<span class=\"pl-en\">Path</span>](\n    <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>path<span class=\"pl-pds\">\"</span></span>,\n    strs <span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">Right</span>(os.<span class=\"pl-en\">Path</span>(strs.head, os.pwd))\n  )\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">run</span>(<span class=\"pl-v\">from</span>: os.<span class=\"pl-en\">Path</span>, <span class=\"pl-v\">to</span>: os.<span class=\"pl-en\">Path</span>) <span class=\"pl-k\">=</span> {\n    println(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>from: <span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">+</span> from)\n    println(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>to:   <span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">+</span> to)\n  }\n\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">main</span>(<span class=\"pl-v\">args</span>: <span class=\"pl-en\">Array</span>[<span class=\"pl-en\">String</span>])<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ParserForMethods</span>(<span class=\"pl-c1\">this</span>).runOrExit(args)\n}</pre></div>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ./mill example.custom --from mainargs --to out\nfrom: /Users/lihaoyi/Github/mainargs/mainargs\nto:   /Users/lihaoyi/Github/mainargs/out\"><pre>$ ./mill example.custom --from mainargs --to out\nfrom: /Users/lihaoyi/Github/mainargs/mainargs\nto:   /Users/lihaoyi/Github/mainargs/out</pre></div>\n<p dir=\"auto\">In this example, we define an implicit <code>PathRead</code> to teach MainArgs how to parse\n<code>os.Path</code>s from the <a href=\"https://github.com/lihaoyi/os-lib\">OS-Lib</a> library.\n<code>ArgReader</code> requires the following fields:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"class ArgReader[T](val shortName: String, // what to print in &lt;...&gt; in the help text\n                   val read: Seq[String] =&gt; Either[String, T],\n                   val alwaysRepeatable: Boolean = false, // used to allow Seq[T]-like parsers\n                   val allowEmpty: Boolean = false) // used to allow Option[T]-like parsers\"><pre><span class=\"pl-k\">class</span> <span class=\"pl-en\">ArgReader</span>[<span class=\"pl-en\">T</span>](<span class=\"pl-k\">val</span> <span class=\"pl-smi\">shortName</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">String</span>, <span class=\"pl-c\"><span class=\"pl-c\">//</span> what to print in &lt;...&gt; in the help text</span>\n                   <span class=\"pl-k\">val</span> <span class=\"pl-smi\">read</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">Seq</span>[<span class=\"pl-en\">String</span>] <span class=\"pl-k\">=&gt;</span> <span class=\"pl-en\">Either</span>[<span class=\"pl-en\">String</span>, <span class=\"pl-en\">T</span>],\n                   <span class=\"pl-k\">val</span> <span class=\"pl-smi\">alwaysRepeatable</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">Boolean</span> <span class=\"pl-k\">=</span> <span class=\"pl-c1\">false</span>, <span class=\"pl-c\"><span class=\"pl-c\">//</span> used to allow Seq[T]-like parsers</span>\n                   <span class=\"pl-k\">val</span> <span class=\"pl-smi\">allowEmpty</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">Boolean</span> <span class=\"pl-k\">=</span> <span class=\"pl-c1\">false</span>) <span class=\"pl-c\"><span class=\"pl-c\">//</span> used to allow Option[T]-like parsers</span></pre></div>\n<p dir=\"auto\">Note that <code>read</code> takes all tokens that were passed to a particular parameter.\nNormally this is a <code>Seq</code> of length <code>1</code>, but if <code>allowEmpty</code> is <code>true</code> it could\nbe an empty <code>Seq</code>, and if <code>alwaysRepeatable</code> is <code>true</code> then it could be\narbitrarily long.</p>\n<p dir=\"auto\">The <code>allowRepeats</code> parameter can also result in multiple tokens being passed to\nyour <code>ArgReader</code>; for <code>ArgReader</code>s that do not expect that, the convention is to\nsimply pick the last token in the list. There is no need to raise an error on\nduplicates, as you can simply disable <code>allowRepeats</code> if you want the parser to\nraise an error when a parameter is provided more than once.</p>\n<h2 dir=\"auto\"><a id=\"user-content-handlings-leftover-arguments\" class=\"anchor\" aria-hidden=\"true\" href=\"#handlings-leftover-arguments\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Handlings Leftover Arguments</h2>\n<p dir=\"auto\">You can use the special <code>Leftover[T]</code> type to store any tokens that are\nnot consumed by other parsers:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"package testvararg\nimport mainargs.{main, arg, ParserForMethods, Leftover}\n\nobject Main{\n  @main\n  def run(foo: String,\n          myNum: Int = 2,\n          rest: Leftover[String]) = {\n    println(foo * myNum + &quot; &quot; + rest.value)\n  }\n\n  def main(args: Array[String]): Unit = ParserForMethods(this).runOrExit(args)\n}\"><pre><span class=\"pl-k\">package</span> <span class=\"pl-en\">testvararg</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">mainargs</span>.{<span class=\"pl-en\">main</span>, <span class=\"pl-en\">arg</span>, <span class=\"pl-en\">ParserForMethods</span>, <span class=\"pl-en\">Leftover</span>}\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span>{\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">run</span>(<span class=\"pl-v\">foo</span>: <span class=\"pl-en\">String</span>,\n          <span class=\"pl-v\">myNum</span>: <span class=\"pl-en\">Int</span> <span class=\"pl-k\">=</span> <span class=\"pl-c1\">2</span>,\n          <span class=\"pl-v\">rest</span>: <span class=\"pl-en\">Leftover</span>[<span class=\"pl-en\">String</span>]) <span class=\"pl-k\">=</span> {\n    println(foo <span class=\"pl-k\">*</span> myNum <span class=\"pl-k\">+</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span> <span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">+</span> rest.value)\n  }\n\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">main</span>(<span class=\"pl-v\">args</span>: <span class=\"pl-en\">Array</span>[<span class=\"pl-en\">String</span>])<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ParserForMethods</span>(<span class=\"pl-c1\">this</span>).runOrExit(args)\n}</pre></div>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ./mill example.vararg --foo bar i am cow\nbarbar List(i, am, cow)\"><pre>$ ./mill example.vararg --foo bar i am cow\nbarbar List(i, am, cow)</pre></div>\n<p dir=\"auto\">This also works with <code>ParserForClass</code>:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"package testvararg2\nimport mainargs.{main, arg, ParserForClass, Leftover}\n\nobject Main{\n  @main\n  case class Config(foo: String,\n                    myNum: Int = 2,\n                    rest: Leftover[String])\n\n  def main(args: Array[String]): Unit = {\n    val config = ParserForClass[Config].constructOrExit(args)\n    println(config)\n  }\n}\"><pre><span class=\"pl-k\">package</span> <span class=\"pl-en\">testvararg2</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">mainargs</span>.{<span class=\"pl-en\">main</span>, <span class=\"pl-en\">arg</span>, <span class=\"pl-en\">ParserForClass</span>, <span class=\"pl-en\">Leftover</span>}\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span>{\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">Config</span>(<span class=\"pl-v\">foo</span>: <span class=\"pl-en\">String</span>,\n                    <span class=\"pl-v\">myNum</span>: <span class=\"pl-en\">Int</span> <span class=\"pl-k\">=</span> <span class=\"pl-c1\">2</span>,\n                    <span class=\"pl-v\">rest</span>: <span class=\"pl-en\">Leftover</span>[<span class=\"pl-en\">String</span>])\n\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">main</span>(<span class=\"pl-v\">args</span>: <span class=\"pl-en\">Array</span>[<span class=\"pl-en\">String</span>])<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> {\n    <span class=\"pl-k\">val</span> <span class=\"pl-smi\">config</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ParserForClass</span>[<span class=\"pl-en\">Config</span>].constructOrExit(args)\n    println(config)\n  }\n}</pre></div>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ./mill example.vararg2 --foo bar i am cow\nConfig(bar,2,Leftover(List(i, am, cow)))\"><pre>$ ./mill example.vararg2 --foo bar i am cow\nConfig(bar,2,Leftover(List(i, am, cow)))</pre></div>\n<p dir=\"auto\">You can also pass in a different type to <code>Leftover</code>, e.g. <code>Leftover[Int]</code> or\n<code>Leftover[Boolean]</code>, if you want to specify that leftover tokens all parse to a\nparticular type. Any tokens that do not conform to that type will result in an\nargument parsing error.</p>\n<h3 dir=\"auto\"><a id=\"user-content-varargs-parameters\" class=\"anchor\" aria-hidden=\"true\" href=\"#varargs-parameters\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Varargs Parameters</h3>\n<p dir=\"auto\">You can also use <code>*</code> \"varargs\" to define a parameter that takes in the remainder\nof the tokens passed to the CLI:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"package testvararg\nimport mainargs.{main, arg, ParserForMethods, Leftover}\n\nobject Main{\n  @main\n  def run(foo: String,\n          myNum: Int,\n          rest: String*) = {\n    println(foo * myNum + &quot; &quot; + rest.value)\n  }\n\n  def main(args: Array[String]): Unit = ParserForMethods(this).runOrExit(args)\n}\"><pre><span class=\"pl-k\">package</span> <span class=\"pl-en\">testvararg</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">mainargs</span>.{<span class=\"pl-en\">main</span>, <span class=\"pl-en\">arg</span>, <span class=\"pl-en\">ParserForMethods</span>, <span class=\"pl-en\">Leftover</span>}\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span>{\n  <span class=\"pl-k\">@</span>main\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">run</span>(<span class=\"pl-v\">foo</span>: <span class=\"pl-en\">String</span>,\n          <span class=\"pl-v\">myNum</span>: <span class=\"pl-en\">Int</span>,\n          <span class=\"pl-v\">rest</span>: <span class=\"pl-en\">String</span><span class=\"pl-k\">*</span>) <span class=\"pl-k\">=</span> {\n    println(foo <span class=\"pl-k\">*</span> myNum <span class=\"pl-k\">+</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span> <span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">+</span> rest.value)\n  }\n\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">main</span>(<span class=\"pl-v\">args</span>: <span class=\"pl-en\">Array</span>[<span class=\"pl-en\">String</span>])<span class=\"pl-k\">:</span> <span class=\"pl-en\">Unit</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">ParserForMethods</span>(<span class=\"pl-c1\">this</span>).runOrExit(args)\n}</pre></div>\n<p dir=\"auto\">Note that this has a limitation that you cannot then assign default values to\nthe other parameters of the function, and hence using <code>Leftover[T]</code> is\npreferable for those cases.</p>\n<h1 dir=\"auto\"><a id=\"user-content-prior-art\" class=\"anchor\" aria-hidden=\"true\" href=\"#prior-art\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Prior Art</h1>\n<h2 dir=\"auto\"><a id=\"user-content-ammonite--mill\" class=\"anchor\" aria-hidden=\"true\" href=\"#ammonite--mill\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Ammonite &amp; Mill</h2>\n<p dir=\"auto\">MainArgs grew out of the user-defined <code>@main</code> method feature supported by\nAmmonite Scala Scripts:</p>\n<ul dir=\"auto\">\n<li><a href=\"http://ammonite.io/#ScriptArguments\" rel=\"nofollow\">http://ammonite.io/#ScriptArguments</a></li>\n</ul>\n<p dir=\"auto\">This implementation was largely copy-pasted into the Mill build tool, to use for\nits user-defined <code>T.command</code>s. A parallel implementation was used to parse\ncommand-line parameters for Ammonite and Mill themselves.</p>\n<p dir=\"auto\">Now all four implementations have been unified in the MainArgs library, which\nboth Ammonite and Mill rely heavily upon. MainArgs also provides some additional\nfeatures, such as making it easy to define short versions of flags like <code>-c</code> via\nthe <code>short = '...'</code> parameter, or re-naming the command line flags via <code>name = \"...\"</code>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-case-app\" class=\"anchor\" aria-hidden=\"true\" href=\"#case-app\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Case App</h2>\n<p dir=\"auto\">MainArgs' support for parsing Scala <code>case class</code>es was inspired by Alex\nArchambault's <code>case-app</code> library:</p>\n<ul dir=\"auto\">\n<li><a href=\"https://github.com/alexarchambault/case-app\">https://github.com/alexarchambault/case-app</a></li>\n</ul>\n<p dir=\"auto\">MainArgs has the following differentiators over <code>case-app</code>:</p>\n<ul dir=\"auto\">\n<li>Support for directly dispatching to <code>@main</code> method(s), rather than only\nparsing into <code>case class</code>es</li>\n<li>A dependency-free implementation, without pulling in the heavyweight Shapeless\nlibrary.</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-scopt\" class=\"anchor\" aria-hidden=\"true\" href=\"#scopt\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Scopt</h2>\n<p dir=\"auto\">MainArgs takes a lot of inspiration from the old Scala Scopt library:</p>\n<ul dir=\"auto\">\n<li><a href=\"https://github.com/scopt/scopt\">https://github.com/scopt/scopt</a></li>\n</ul>\n<p dir=\"auto\">Unlike Scopt, MainArgs lets you call <code>@main</code> methods or instantiate <code>case class</code>es directly, without needing to separately define a <code>case class</code> and\nparser. This makes it usable with much less boilerplate than Scopt: a single\nmethod annotated with <code>@main</code> is all you need to turn your program into a\ncommand-line friendly tool.</p>\n<h1 dir=\"auto\"><a id=\"user-content-changelog\" class=\"anchor\" aria-hidden=\"true\" href=\"#changelog\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Changelog</h1>\n<h2 dir=\"auto\"><a id=\"user-content-023\" class=\"anchor\" aria-hidden=\"true\" href=\"#023\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>0.2.3</h2>\n<ul dir=\"auto\">\n<li>Support Scala 3 <a href=\"https://github.com/com-lihaoyi/mainargs/pull/18\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/com-lihaoyi/mainargs/pull/18/hovercard\">#18</a></li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-022\" class=\"anchor\" aria-hidden=\"true\" href=\"#022\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>0.2.2</h2>\n<ul dir=\"auto\">\n<li>Fix hygiene of macros <a href=\"https://github.com/com-lihaoyi/mainargs/pull/12\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/com-lihaoyi/mainargs/pull/12/hovercard\">#12</a></li>\n<li>Allow special characters in method names and argument names <a href=\"https://github.com/com-lihaoyi/mainargs/pull/13\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/com-lihaoyi/mainargs/pull/13/hovercard\">#13</a></li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-021\" class=\"anchor\" aria-hidden=\"true\" href=\"#021\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>0.2.1</h2>\n<ul dir=\"auto\">\n<li>Scala-Native 0.4.0 support</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-017\" class=\"anchor\" aria-hidden=\"true\" href=\"#017\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>0.1.7</h2>\n<ul dir=\"auto\">\n<li>\n<p dir=\"auto\">Add support for <code>positional=true</code> flag in <code>mainargs.arg</code>, to specify a\nspecific argument can only be passed positionally regardless of whether\n<code>allowPositional</code> is enabled for the entire parser</p>\n</li>\n<li>\n<p dir=\"auto\">Allow <code>-</code> and <code>--</code> to be passed as argument values without being treated as\nflags</p>\n</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-014\" class=\"anchor\" aria-hidden=\"true\" href=\"#014\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>0.1.4</h2>\n<ul dir=\"auto\">\n<li>First release</li>\n</ul>\n</article></div>",
     "contributors" : [
       {
         "login" : "lihaoyi",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/934140?v=4",
-        "url" : "https://api.github.com/users/lihaoyi",
+        "url" : "https://github.com/lihaoyi",
         "contributions" : 90
       },
       {
         "login" : "lolgab",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5793054?v=4",
-        "url" : "https://api.github.com/users/lolgab",
+        "url" : "https://github.com/lolgab",
+        "contributions" : 3
+      },
+      {
+        "login" : "ckipp01",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13974112?v=4",
+        "url" : "https://github.com/ckipp01",
         "contributions" : 1
       },
       {
         "login" : "thiloplanz",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/150349?v=4",
-        "url" : "https://api.github.com/users/thiloplanz",
+        "url" : "https://github.com/thiloplanz",
         "contributions" : 1
       }
     ],
-    "commits" : 92,
+    "commits" : 95,
     "topics" : [
     ],
     "contributingGuide" : null,
     "codeOfConduct" : null,
     "chatroom" : null,
     "openIssues" : [
+      {
+        "number" : 21,
+        "title" : "Add new documentation annotation for program level help text",
+        "url" : "https://github.com/com-lihaoyi/mainargs/issues/21"
+      },
       {
         "number" : 16,
         "title" : "Make default args snake-case",
@@ -70,8 +81,686 @@
         "url" : "https://github.com/com-lihaoyi/mainargs/issues/4"
       }
     ],
-    "scalaPercentage" : null,
-    "license" : null
+    "scalaPercentage" : 98,
+    "license" : null,
+    "commitActivity" : [
+      {
+        "total" : 0,
+        "week" : 1629590400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1630195200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1630800000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1631404800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1632009600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1632614400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1633219200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1633824000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1634428800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1635033600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1635638400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1636243200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1636848000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1637452800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 2,
+        "week" : 1638057600000,
+        "days" : [
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1638662400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 1,
+        "week" : 1639267200000,
+        "days" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1639872000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1640476800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1641081600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1641686400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1642291200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1642896000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1643500800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1644105600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1644710400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1645315200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1645920000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 1,
+        "week" : 1646524800000,
+        "days" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1647129600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 1,
+        "week" : 1647734400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1648339200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1648944000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1649548800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1650153600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1650758400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1651363200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1651968000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1652572800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1653177600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1653782400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1654387200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1654992000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1655596800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1656201600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1656806400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1657411200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1658016000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 1,
+        "week" : 1658620800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1659225600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1659830400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1660435200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ]
   },
   "settings" : {
     "defaultStableVersion" : true,

@@ -4,250 +4,275 @@
   "creationDate" : 1424054310967,
   "githubStatus" : {
     "Ok" : {
-      "updateDate" : 1644309160059
+      "updateDate" : 1660826003546
     }
   },
   "githubInfo" : {
     "homepage" : null,
     "description" : "Base classes to use when writing tests with Spark",
     "logo" : "https://avatars.githubusercontent.com/u/59893?v=4",
-    "stars" : 1324,
-    "forks" : 344,
+    "stars" : 1378,
+    "forks" : 350,
     "watchers" : 78,
-    "issues" : 109,
+    "issues" : 113,
     "creationDate" : 1422656639000,
-    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/holdenk/spark-testing-base/actions/workflows/github-actions-basic.yml/badge.svg?branch=master\"><img src=\"https://github.com/holdenk/spark-testing-base/actions/workflows/github-actions-basic.yml/badge.svg?branch=master\" alt=\"build status\" style=\"max-width: 100%;\"></a></p>\n<h1 dir=\"auto\"><a id=\"user-content-spark-testing-base\" class=\"anchor\" aria-hidden=\"true\" href=\"#spark-testing-base\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>spark-testing-base</h1>\n<p dir=\"auto\">Base classes to use when writing tests with Spark.</p>\n<h2 dir=\"auto\"><a id=\"user-content-why\" class=\"anchor\" aria-hidden=\"true\" href=\"#why\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Why?</h2>\n<p dir=\"auto\">You've written an awesome program in Spark and now its time to write some tests. Only you find yourself writing the code to setup and tear down local mode Spark in between each suite and you say to your self:\nThis is not my beautiful code.</p>\n<h2 dir=\"auto\"><a id=\"user-content-how\" class=\"anchor\" aria-hidden=\"true\" href=\"#how\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>How?</h2>\n<p dir=\"auto\">So you include com.holdenkarau.spark-testing-base [spark_version]_1.0.0 and extend one of the classes and write some simple tests instead.  For example to include this in a project using Spark 3.0.0:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&quot;com.holdenkarau&quot; %% &quot;spark-testing-base&quot; % &quot;3.0.0_1.0.0&quot; % &quot;test&quot;\"><pre><span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.holdenkarau<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>spark-testing-base<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>3.0.0_1.0.0<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>test<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">or</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&lt;dependency&gt;\n    &lt;groupId&gt;com.holdenkarau&lt;/groupId&gt;\n    &lt;artifactId&gt;spark-testing-base_2.11&lt;/artifactId&gt;\n    &lt;version&gt;${spark.version}_0.11.0&lt;/version&gt;\n    &lt;scope&gt;test&lt;/scope&gt;\n&lt;/dependency&gt;\"><pre><code>&lt;dependency&gt;\n    &lt;groupId&gt;com.holdenkarau&lt;/groupId&gt;\n    &lt;artifactId&gt;spark-testing-base_2.11&lt;/artifactId&gt;\n    &lt;version&gt;${spark.version}_0.11.0&lt;/version&gt;\n    &lt;scope&gt;test&lt;/scope&gt;\n&lt;/dependency&gt;\n</code></pre></div>\n<p dir=\"auto\">If you'd like to use Kafka related features you need to include this artefact to your dependencies as well:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&quot;com.holdenkarau&quot; %% &quot;spark-testing-kafka-0_8&quot; % &quot;3.0.0_0.14.0&quot; % &quot;test&quot;\"><pre><span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.holdenkarau<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>spark-testing-kafka-0_8<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>3.0.0_0.14.0<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>test<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">or</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&lt;dependency&gt;\n    &lt;groupId&gt;com.holdenkarau&lt;/groupId&gt;\n    &lt;artifactId&gt;spark-testing-kafka-0_8_2.11&lt;/artifactId&gt;\n    &lt;version&gt;${spark.version}_0.14.0&lt;/version&gt;\n    &lt;scope&gt;test&lt;/scope&gt;\n&lt;/dependency&gt;\"><pre><code>&lt;dependency&gt;\n    &lt;groupId&gt;com.holdenkarau&lt;/groupId&gt;\n    &lt;artifactId&gt;spark-testing-kafka-0_8_2.11&lt;/artifactId&gt;\n    &lt;version&gt;${spark.version}_0.14.0&lt;/version&gt;\n    &lt;scope&gt;test&lt;/scope&gt;\n&lt;/dependency&gt;\n</code></pre></div>\n<p dir=\"auto\">Currently the Kafka dependency is <em>only</em> built for Scala 2.11.</p>\n<p dir=\"auto\">How to use it inside your code? have a look at the <a href=\"https://github.com/holdenk/spark-testing-base/wiki\">wiki</a> page.</p>\n<p dir=\"auto\">The <a href=\"https://mvnrepository.com/artifact/com.holdenkarau\" rel=\"nofollow\">Maven repositories page for spark-testing-base</a> lists the releases available.</p>\n<p dir=\"auto\">The Python package of spark-testing-base is available via:</p>\n<ul dir=\"auto\">\n<li>PyPI: <a href=\"https://pypi.org/project/spark-testing-base/\" rel=\"nofollow\">https://pypi.org/project/spark-testing-base/</a>, e.g. <code>pip install spark-testing-base</code></li>\n<li>Conda: <a href=\"https://anaconda.org/conda-forge/spark-testing-base\" rel=\"nofollow\">https://anaconda.org/conda-forge/spark-testing-base</a>, e.g. <code>conda install -c conda-forge spark-testing-base</code></li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-minimum-memory-requirements-and-ooms\" class=\"anchor\" aria-hidden=\"true\" href=\"#minimum-memory-requirements-and-ooms\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Minimum Memory Requirements and OOMs</h2>\n<p dir=\"auto\">The default SBT testing java options are too small to support running many of the tests due to the need to launch Spark in local mode. To increase the amount of memory in a build.sbt file you can add:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"fork in Test := true\njavaOptions ++= Seq(&quot;-Xms512M&quot;, &quot;-Xmx2048M&quot;, &quot;-XX:MaxPermSize=2048M&quot;, &quot;-XX:+CMSClassUnloadingEnabled&quot;)\"><pre>fork in <span class=\"pl-en\">Test</span> <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-c1\">true</span>\njavaOptions <span class=\"pl-k\">++</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Seq</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>-Xms512M<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>-Xmx2048M<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>-XX:MaxPermSize=2048M<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>-XX:+CMSClassUnloadingEnabled<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<p dir=\"auto\">If using surefire you can add:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&lt;argLine&gt;-Xmx2048m -XX:MaxPermSize=2048m&lt;/argLine&gt;\"><pre><code>&lt;argLine&gt;-Xmx2048m -XX:MaxPermSize=2048m&lt;/argLine&gt;\n</code></pre></div>\n<p dir=\"auto\">Note: the specific memory values are examples only (and the values used to run spark-testing-base's own tests).</p>\n<h2 dir=\"auto\"><a id=\"user-content-special-considerations\" class=\"anchor\" aria-hidden=\"true\" href=\"#special-considerations\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Special considerations</h2>\n<p dir=\"auto\">Make sure to disable parallel execution.</p>\n<p dir=\"auto\">In sbt you can add:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"parallelExecution in Test := false\"><pre>parallelExecution in <span class=\"pl-en\">Test</span> <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-c1\">false</span></pre></div>\n<p dir=\"auto\">In surefire make sure that forkCount is set to 1 and reuseForks is true.</p>\n<h2 dir=\"auto\"><a id=\"user-content-where-is-this-from\" class=\"anchor\" aria-hidden=\"true\" href=\"#where-is-this-from\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Where is this from?</h2>\n<p dir=\"auto\">Some of this code is a stripped down version of the test suite bases that are in Apache Spark but are not accessible. Other parts are also inspired by sscheck (scalacheck generators for Spark).</p>\n<p dir=\"auto\">Other parts of this are implemented on top of the test suite bases to make your life even easier.</p>\n<h2 dir=\"auto\"><a id=\"user-content-how-do-i-build-this\" class=\"anchor\" aria-hidden=\"true\" href=\"#how-do-i-build-this\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>How do I build this?</h2>\n<p dir=\"auto\">This project is built with sbt.</p>\n<h2 dir=\"auto\"><a id=\"user-content-what-are-some-other-options\" class=\"anchor\" aria-hidden=\"true\" href=\"#what-are-some-other-options\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>What are some other options?</h2>\n<p dir=\"auto\">While we hope you choose our library, <a href=\"https://github.com/juanrh/sscheck\">https://github.com/juanrh/sscheck</a> , <a href=\"https://github.com/hammerlab/spark-tests\">https://github.com/hammerlab/spark-tests</a> , <a href=\"https://github.com/wdm0006/DummyRDD\">https://github.com/wdm0006/DummyRDD</a> , and more <a href=\"https://www.google.com/search?q=python+spark+testing+libraries\" rel=\"nofollow\">https://www.google.com/search?q=python+spark+testing+libraries</a> exist as options.</p>\n<h2 dir=\"auto\"><a id=\"user-content-release-notes\" class=\"anchor\" aria-hidden=\"true\" href=\"#release-notes\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a href=\"RELEASE_NOTES.md\">Release Notes</a></h2>\n</article></div>",
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/holdenk/spark-testing-base/actions/workflows/github-actions-basic.yml/badge.svg?branch=master\"><img src=\"https://github.com/holdenk/spark-testing-base/actions/workflows/github-actions-basic.yml/badge.svg?branch=master\" alt=\"build status\" style=\"max-width: 100%;\"></a></p>\n<h1 dir=\"auto\"><a id=\"user-content-spark-testing-base\" class=\"anchor\" aria-hidden=\"true\" href=\"#spark-testing-base\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>spark-testing-base</h1>\n<p dir=\"auto\">Base classes to use when writing tests with Spark.</p>\n<h2 dir=\"auto\"><a id=\"user-content-why\" class=\"anchor\" aria-hidden=\"true\" href=\"#why\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Why?</h2>\n<p dir=\"auto\">You've written an awesome program in Spark and now its time to write some tests. Only you find yourself writing the code to setup and tear down local mode Spark in between each suite and you say to your self:\nThis is not my beautiful code.</p>\n<h2 dir=\"auto\"><a id=\"user-content-how\" class=\"anchor\" aria-hidden=\"true\" href=\"#how\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>How?</h2>\n<p dir=\"auto\">So you include com.holdenkarau.spark-testing-base [spark_version]_1.0.0 and extend one of the classes and write some simple tests instead.  For example to include this in a project using Spark 3.0.0:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&quot;com.holdenkarau&quot; %% &quot;spark-testing-base&quot; % &quot;3.0.0_1.0.0&quot; % &quot;test&quot;\"><pre><span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.holdenkarau<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>spark-testing-base<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>3.0.0_1.0.0<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>test<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">or</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&lt;dependency&gt;\n    &lt;groupId&gt;com.holdenkarau&lt;/groupId&gt;\n    &lt;artifactId&gt;spark-testing-base_2.11&lt;/artifactId&gt;\n    &lt;version&gt;${spark.version}_0.11.0&lt;/version&gt;\n    &lt;scope&gt;test&lt;/scope&gt;\n&lt;/dependency&gt;\"><pre class=\"notranslate\"><code>&lt;dependency&gt;\n    &lt;groupId&gt;com.holdenkarau&lt;/groupId&gt;\n    &lt;artifactId&gt;spark-testing-base_2.11&lt;/artifactId&gt;\n    &lt;version&gt;${spark.version}_0.11.0&lt;/version&gt;\n    &lt;scope&gt;test&lt;/scope&gt;\n&lt;/dependency&gt;\n</code></pre></div>\n<p dir=\"auto\">If you'd like to use Kafka related features you need to include this artefact to your dependencies as well:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&quot;com.holdenkarau&quot; %% &quot;spark-testing-kafka-0_8&quot; % &quot;3.0.0_0.14.0&quot; % &quot;test&quot;\"><pre><span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.holdenkarau<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>spark-testing-kafka-0_8<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>3.0.0_0.14.0<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>test<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">or</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&lt;dependency&gt;\n    &lt;groupId&gt;com.holdenkarau&lt;/groupId&gt;\n    &lt;artifactId&gt;spark-testing-kafka-0_8_2.11&lt;/artifactId&gt;\n    &lt;version&gt;${spark.version}_0.14.0&lt;/version&gt;\n    &lt;scope&gt;test&lt;/scope&gt;\n&lt;/dependency&gt;\"><pre class=\"notranslate\"><code>&lt;dependency&gt;\n    &lt;groupId&gt;com.holdenkarau&lt;/groupId&gt;\n    &lt;artifactId&gt;spark-testing-kafka-0_8_2.11&lt;/artifactId&gt;\n    &lt;version&gt;${spark.version}_0.14.0&lt;/version&gt;\n    &lt;scope&gt;test&lt;/scope&gt;\n&lt;/dependency&gt;\n</code></pre></div>\n<p dir=\"auto\">Currently the Kafka dependency is <em>only</em> built for Scala 2.11.</p>\n<p dir=\"auto\">How to use it inside your code? have a look at the <a href=\"https://github.com/holdenk/spark-testing-base/wiki\">wiki</a> page.</p>\n<p dir=\"auto\">The <a href=\"https://mvnrepository.com/artifact/com.holdenkarau\" rel=\"nofollow\">Maven repositories page for spark-testing-base</a> lists the releases available.</p>\n<p dir=\"auto\">The Python package of spark-testing-base is available via:</p>\n<ul dir=\"auto\">\n<li>PyPI: <a href=\"https://pypi.org/project/spark-testing-base/\" rel=\"nofollow\">https://pypi.org/project/spark-testing-base/</a>, e.g. <code>pip install spark-testing-base</code></li>\n<li>Conda: <a href=\"https://anaconda.org/conda-forge/spark-testing-base\" rel=\"nofollow\">https://anaconda.org/conda-forge/spark-testing-base</a>, e.g. <code>conda install -c conda-forge spark-testing-base</code></li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-minimum-memory-requirements-and-ooms\" class=\"anchor\" aria-hidden=\"true\" href=\"#minimum-memory-requirements-and-ooms\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Minimum Memory Requirements and OOMs</h2>\n<p dir=\"auto\">The default SBT testing java options are too small to support running many of the tests due to the need to launch Spark in local mode. To increase the amount of memory in a build.sbt file you can add:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"fork in Test := true\njavaOptions ++= Seq(&quot;-Xms512M&quot;, &quot;-Xmx2048M&quot;, &quot;-XX:MaxPermSize=2048M&quot;, &quot;-XX:+CMSClassUnloadingEnabled&quot;)\"><pre>fork in <span class=\"pl-en\">Test</span> <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-c1\">true</span>\njavaOptions <span class=\"pl-k\">++</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Seq</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>-Xms512M<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>-Xmx2048M<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>-XX:MaxPermSize=2048M<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>-XX:+CMSClassUnloadingEnabled<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<p dir=\"auto\">If using surefire you can add:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&lt;argLine&gt;-Xmx2048m -XX:MaxPermSize=2048m&lt;/argLine&gt;\"><pre class=\"notranslate\"><code>&lt;argLine&gt;-Xmx2048m -XX:MaxPermSize=2048m&lt;/argLine&gt;\n</code></pre></div>\n<p dir=\"auto\">Note: the specific memory values are examples only (and the values used to run spark-testing-base's own tests).</p>\n<h2 dir=\"auto\"><a id=\"user-content-special-considerations\" class=\"anchor\" aria-hidden=\"true\" href=\"#special-considerations\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Special considerations</h2>\n<p dir=\"auto\">Make sure to disable parallel execution.</p>\n<p dir=\"auto\">In sbt you can add:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"parallelExecution in Test := false\"><pre>parallelExecution in <span class=\"pl-en\">Test</span> <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-c1\">false</span></pre></div>\n<p dir=\"auto\">In surefire make sure that forkCount is set to 1 and reuseForks is true.</p>\n<h2 dir=\"auto\"><a id=\"user-content-where-is-this-from\" class=\"anchor\" aria-hidden=\"true\" href=\"#where-is-this-from\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Where is this from?</h2>\n<p dir=\"auto\">Some of this code is a stripped down version of the test suite bases that are in Apache Spark but are not accessible. Other parts are also inspired by sscheck (scalacheck generators for Spark).</p>\n<p dir=\"auto\">Other parts of this are implemented on top of the test suite bases to make your life even easier.</p>\n<h2 dir=\"auto\"><a id=\"user-content-how-do-i-build-this\" class=\"anchor\" aria-hidden=\"true\" href=\"#how-do-i-build-this\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>How do I build this?</h2>\n<p dir=\"auto\">This project is built with sbt.</p>\n<h2 dir=\"auto\"><a id=\"user-content-what-are-some-other-options\" class=\"anchor\" aria-hidden=\"true\" href=\"#what-are-some-other-options\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>What are some other options?</h2>\n<p dir=\"auto\">While we hope you choose our library, <a href=\"https://github.com/juanrh/sscheck\">https://github.com/juanrh/sscheck</a> , <a href=\"https://github.com/hammerlab/spark-tests\">https://github.com/hammerlab/spark-tests</a> , <a href=\"https://github.com/wdm0006/DummyRDD\">https://github.com/wdm0006/DummyRDD</a> , and more <a href=\"https://www.google.com/search?q=python+spark+testing+libraries\" rel=\"nofollow\">https://www.google.com/search?q=python+spark+testing+libraries</a> exist as options.</p>\n<h2 dir=\"auto\"><a id=\"user-content-release-notes\" class=\"anchor\" aria-hidden=\"true\" href=\"#release-notes\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a href=\"RELEASE_NOTES.md\">Release Notes</a></h2>\n</article></div>",
     "contributors" : [
       {
         "login" : "holdenk",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/59893?v=4",
-        "url" : "https://api.github.com/users/holdenk",
-        "contributions" : 491
+        "url" : "https://github.com/holdenk",
+        "contributions" : 493
       },
       {
         "login" : "mahmoudhanafy",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/3827156?v=4",
-        "url" : "https://api.github.com/users/mahmoudhanafy",
+        "url" : "https://github.com/mahmoudhanafy",
         "contributions" : 79
       },
       {
         "login" : "MrPowers",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/2722395?v=4",
-        "url" : "https://api.github.com/users/MrPowers",
+        "url" : "https://github.com/MrPowers",
         "contributions" : 8
       },
       {
         "login" : "rylanhalteman",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/2278079?v=4",
-        "url" : "https://api.github.com/users/rylanhalteman",
+        "url" : "https://github.com/rylanhalteman",
         "contributions" : 7
       },
       {
         "login" : "zouzias",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1871144?v=4",
-        "url" : "https://api.github.com/users/zouzias",
+        "url" : "https://github.com/zouzias",
         "contributions" : 6
       },
       {
         "login" : "kaatzee",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/2965012?v=4",
-        "url" : "https://api.github.com/users/kaatzee",
+        "url" : "https://github.com/kaatzee",
         "contributions" : 5
       },
       {
         "login" : "limansky",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/111185?v=4",
-        "url" : "https://api.github.com/users/limansky",
+        "url" : "https://github.com/limansky",
         "contributions" : 5
       },
       {
         "login" : "bryanyang0528",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5171607?v=4",
-        "url" : "https://api.github.com/users/bryanyang0528",
+        "url" : "https://github.com/bryanyang0528",
         "contributions" : 2
       },
       {
         "login" : "dbast",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/2790401?v=4",
-        "url" : "https://api.github.com/users/dbast",
+        "url" : "https://github.com/dbast",
         "contributions" : 2
       },
       {
         "login" : "hgiddens",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/198783?v=4",
-        "url" : "https://api.github.com/users/hgiddens",
+        "url" : "https://github.com/hgiddens",
         "contributions" : 2
       },
       {
         "login" : "nightscape",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/35170?v=4",
-        "url" : "https://api.github.com/users/nightscape",
+        "url" : "https://github.com/nightscape",
         "contributions" : 2
       },
       {
         "login" : "ponkin",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/323904?v=4",
-        "url" : "https://api.github.com/users/ponkin",
+        "url" : "https://github.com/ponkin",
         "contributions" : 1
       },
       {
         "login" : "borisclemencon",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/10812246?v=4",
-        "url" : "https://api.github.com/users/borisclemencon",
+        "url" : "https://github.com/borisclemencon",
         "contributions" : 1
       },
       {
         "login" : "bryanv",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/113546?v=4",
-        "url" : "https://api.github.com/users/bryanv",
+        "url" : "https://github.com/bryanv",
         "contributions" : 1
       },
       {
         "login" : "brkyvz",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5243515?v=4",
-        "url" : "https://api.github.com/users/brkyvz",
+        "url" : "https://github.com/brkyvz",
         "contributions" : 1
       },
       {
         "login" : "dmvieira",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1108613?v=4",
-        "url" : "https://api.github.com/users/dmvieira",
+        "url" : "https://github.com/dmvieira",
         "contributions" : 1
       },
       {
         "login" : "lunaticare",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/947471?v=4",
-        "url" : "https://api.github.com/users/lunaticare",
+        "url" : "https://github.com/lunaticare",
         "contributions" : 1
       },
       {
         "login" : "felipefzdz",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/369379?v=4",
-        "url" : "https://api.github.com/users/felipefzdz",
+        "url" : "https://github.com/felipefzdz",
         "contributions" : 1
       },
       {
         "login" : "felipehummel",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/21449?v=4",
-        "url" : "https://api.github.com/users/felipehummel",
+        "url" : "https://github.com/felipehummel",
         "contributions" : 1
       },
       {
         "login" : "gneotux",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1918857?v=4",
-        "url" : "https://api.github.com/users/gneotux",
+        "url" : "https://github.com/gneotux",
         "contributions" : 1
       },
       {
         "login" : "helfper",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/2981969?v=4",
-        "url" : "https://api.github.com/users/helfper",
+        "url" : "https://github.com/helfper",
         "contributions" : 1
       },
       {
         "login" : "falloutdurham",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/97861?v=4",
-        "url" : "https://api.github.com/users/falloutdurham",
+        "url" : "https://github.com/falloutdurham",
         "contributions" : 1
       },
       {
         "login" : "jackcviers",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/660372?v=4",
-        "url" : "https://api.github.com/users/jackcviers",
+        "url" : "https://github.com/jackcviers",
         "contributions" : 1
       },
       {
         "login" : "jerrypnz",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/292028?v=4",
-        "url" : "https://api.github.com/users/jerrypnz",
+        "url" : "https://github.com/jerrypnz",
         "contributions" : 1
       },
       {
         "login" : "JoshRosen",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/50748?v=4",
-        "url" : "https://api.github.com/users/JoshRosen",
+        "url" : "https://github.com/JoshRosen",
         "contributions" : 1
       },
       {
         "login" : "juanrh",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/895341?v=4",
-        "url" : "https://api.github.com/users/juanrh",
-        "contributions" : 1
-      },
-      {
-        "login" : "Veske",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/5602603?v=4",
-        "url" : "https://api.github.com/users/Veske",
+        "url" : "https://github.com/juanrh",
         "contributions" : 1
       },
       {
         "login" : "markdessain",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/230477?v=4",
-        "url" : "https://api.github.com/users/markdessain",
+        "url" : "https://github.com/markdessain",
         "contributions" : 1
       },
       {
         "login" : "morazow",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/916295?v=4",
-        "url" : "https://api.github.com/users/morazow",
+        "url" : "https://github.com/morazow",
+        "contributions" : 1
+      },
+      {
+        "login" : "sathiyapk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5880194?v=4",
+        "url" : "https://github.com/sathiyapk",
         "contributions" : 1
       },
       {
         "login" : "sgt",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5119?v=4",
-        "url" : "https://api.github.com/users/sgt",
+        "url" : "https://github.com/sgt",
         "contributions" : 1
       },
       {
         "login" : "ac27182",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/42341528?v=4",
-        "url" : "https://api.github.com/users/ac27182",
+        "url" : "https://github.com/ac27182",
         "contributions" : 1
       },
       {
         "login" : "chiefmanc",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/11571352?v=4",
-        "url" : "https://api.github.com/users/chiefmanc",
+        "url" : "https://github.com/chiefmanc",
         "contributions" : 1
       },
       {
         "login" : "mandoz",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1105556?v=4",
-        "url" : "https://api.github.com/users/mandoz",
+        "url" : "https://github.com/mandoz",
         "contributions" : 1
       },
       {
         "login" : "pchundi",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/4728134?v=4",
-        "url" : "https://api.github.com/users/pchundi",
+        "url" : "https://github.com/pchundi",
         "contributions" : 1
       },
       {
         "login" : "rgarciate",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/18609971?v=4",
-        "url" : "https://api.github.com/users/rgarciate",
+        "url" : "https://github.com/rgarciate",
         "contributions" : 1
       },
       {
         "login" : "siklosid",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/11415774?v=4",
-        "url" : "https://api.github.com/users/siklosid",
+        "url" : "https://github.com/siklosid",
         "contributions" : 1
       },
       {
         "login" : "smadarasmi",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/23423749?v=4",
-        "url" : "https://api.github.com/users/smadarasmi",
+        "url" : "https://github.com/smadarasmi",
         "contributions" : 1
       }
     ],
-    "commits" : 635,
+    "commits" : 637,
     "topics" : [
     ],
-    "contributingGuide" : null,
-    "codeOfConduct" : null,
+    "contributingGuide" : "https://github.com/holdenk/spark-testing-base/blob/master/CONTRIBUTING.md",
+    "codeOfConduct" : "https://github.com/holdenk/spark-testing-base/blob/master/CODE_OF_CONDUCT.md",
     "chatroom" : null,
     "openIssues" : [
+      {
+        "number" : 354,
+        "title" : "Unable to run tests with Spark v3.2.1 and scalatest v3.2.x",
+        "url" : "https://github.com/holdenk/spark-testing-base/issues/354"
+      },
+      {
+        "number" : 353,
+        "title" : "netty: java.lang.NoSuchMethodError:'void io.netty.buffer.PooledByteBufAllocator.<init>(boolean, int, int, int, int, int, int, boolean)'",
+        "url" : "https://github.com/holdenk/spark-testing-base/issues/353"
+      },
+      {
+        "number" : 351,
+        "title" : "Log4J dependency issue",
+        "url" : "https://github.com/holdenk/spark-testing-base/issues/351"
+      },
+      {
+        "number" : 350,
+        "title" : "Add module supporting munit",
+        "url" : "https://github.com/holdenk/spark-testing-base/issues/350"
+      },
+      {
+        "number" : 349,
+        "title" : "saveAsTable function doesn't create a table after updating to the spark 3.1.1",
+        "url" : "https://github.com/holdenk/spark-testing-base/issues/349"
+      },
       {
         "number" : 348,
         "title" : "ZIO-test support ? ",
@@ -719,8 +744,686 @@
         "url" : "https://github.com/holdenk/spark-testing-base/issues/14"
       }
     ],
-    "scalaPercentage" : null,
-    "license" : null
+    "scalaPercentage" : 75,
+    "license" : "Apache-2.0",
+    "commitActivity" : [
+      {
+        "total" : 0,
+        "week" : 1629590400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1630195200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1630800000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1631404800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1632009600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1632614400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1633219200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1633824000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1634428800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1635033600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 1,
+        "week" : 1635638400000,
+        "days" : [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 2,
+        "week" : 1636243200000,
+        "days" : [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1636848000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1637452800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1638057600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1638662400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1639267200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1639872000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1640476800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1641081600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1641686400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1642291200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1642896000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1643500800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1644105600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1644710400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1645315200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1645920000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1646524800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1647129600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1647734400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1648339200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1648944000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1649548800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1650153600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1650758400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1651363200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1651968000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1652572800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1653177600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1653782400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1654387200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1654992000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1655596800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 2,
+        "week" : 1656201600000,
+        "days" : [
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1656806400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1657411200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1658016000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1658620800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1659225600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1659830400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1660435200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ]
   },
   "settings" : {
     "defaultStableVersion" : true,

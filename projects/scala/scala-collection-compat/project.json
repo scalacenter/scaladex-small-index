@@ -4,272 +4,302 @@
   "creationDate" : 1526394596000,
   "githubStatus" : {
     "Ok" : {
-      "updateDate" : 1644301075324
+      "updateDate" : 1660813968604
     }
   },
   "githubInfo" : {
     "homepage" : "",
     "description" : "makes some Scala 2.13 APIs (primarily collections, also some others) available on 2.11 and 2.12, to aid cross-building",
     "logo" : "https://avatars.githubusercontent.com/u/57059?v=4",
-    "stars" : 170,
-    "forks" : 63,
-    "watchers" : 23,
-    "issues" : 31,
+    "stars" : 179,
+    "forks" : 72,
+    "watchers" : 21,
+    "issues" : 30,
     "creationDate" : 1521207565000,
-    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h2 dir=\"auto\"><a id=\"user-content-purpose-and-scope\" class=\"anchor\" aria-hidden=\"true\" href=\"#purpose-and-scope\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Purpose and scope</h2>\n<p dir=\"auto\">This library makes some Scala 2.13 APIs available on Scala 2.11 and 2.12.</p>\n<p dir=\"auto\">The idea is to facilitate\n<a href=\"https://github.com/scala/collection-strawman/wiki/FAQ#how-do-i-cross-build-my-project-against-scala-212-and-scala-213\">cross-building</a>\nScala 2.13 and 3.0 code on the older versions.</p>\n<p dir=\"auto\">Although the name of the library is scala-\"collection\"-compat, we have now widened the scope to include other parts of the Scala 2.13/3.0 standard library besides just collections.</p>\n<p dir=\"auto\">Only the most commonly used APIs are supported; many are missing. Contributions are welcome.</p>\n<h2 dir=\"auto\"><a id=\"user-content-usage\" class=\"anchor\" aria-hidden=\"true\" href=\"#usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Usage</h2>\n<p dir=\"auto\">To use this library, add the following to your <code>build.sbt</code>:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;org.scala-lang.modules&quot; %% &quot;scala-collection-compat&quot; % &quot;&lt;version&gt;&quot;\"><pre><code>libraryDependencies += \"org.scala-lang.modules\" %% \"scala-collection-compat\" % \"&lt;version&gt;\"\n</code></pre></div>\n<p dir=\"auto\">All future versions will remain backwards binary compatible with 2.0.0. (The 1.0.0 release was withdrawn and should not be used.)</p>\n<h2 dir=\"auto\"><a id=\"user-content-how-it-works\" class=\"anchor\" aria-hidden=\"true\" href=\"#how-it-works\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>How it works</h2>\n<p dir=\"auto\">The 2.13 collections redesign did not break source compatibility for most ordinary code, but there are some exceptions.</p>\n<p dir=\"auto\">For example, the <code>to</code> method is used with a type parameter in 2.12:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"xs.to[List]\"><pre>xs.to[<span class=\"pl-en\">List</span>]</pre></div>\n<p dir=\"auto\">With this compatibility library you can instead use the 2.13 syntax, which takes a value parameter:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import scala.collection.compat._\nxs.to(List)\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">scala</span>.<span class=\"pl-en\">collection</span>.<span class=\"pl-en\">compat</span>.<span class=\"pl-en\">_</span>\nxs.to(<span class=\"pl-en\">List</span>)</pre></div>\n<p dir=\"auto\">The 2.13 and 3.0 versions consist only of an empty <code>scala.collection.compat</code> package object, so <code>import scala.collection.compat._</code> won't cause an error in cross-compiled code.</p>\n<p dir=\"auto\">The 2.11 and 2.12 versions have the needed compatibility code in this package.</p>\n<p dir=\"auto\">The library also adds backported versions of new collection types, such as <code>immutable.ArraySeq</code> and <code>immutable.LazyList</code>. (On 2.13, these types are just aliases to standard library types.)</p>\n<p dir=\"auto\">And it adds backported versions of some 2.13 collections methods such as <code>maxOption</code>.</p>\n<p dir=\"auto\">And, it includes support for some non-collections classes such as the <code>@nowarn</code> annotation added in 2.13.2.</p>\n<h2 dir=\"auto\"><a id=\"user-content-migration-rules\" class=\"anchor\" aria-hidden=\"true\" href=\"#migration-rules\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Migration rules</h2>\n<p dir=\"auto\">The migration rules use scalafix. Please see the <a href=\"https://scalacenter.github.io/scalafix/docs/users/installation.html\" rel=\"nofollow\">official installation instructions</a> and, in particular, check that your full Scala version is supported (ex 2.12.15).</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"// project/plugins.sbt\naddSbtPlugin(&quot;ch.epfl.scala&quot; % &quot;sbt-scalafix&quot; % &quot;0.9.34&quot;)\"><pre><span class=\"pl-c\"><span class=\"pl-c\">//</span> project/plugins.sbt</span>\naddSbtPlugin(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>ch.epfl.scala<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sbt-scalafix<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.9.34<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-collection213upgrade\" class=\"anchor\" aria-hidden=\"true\" href=\"#collection213upgrade\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Collection213Upgrade</h3>\n<p dir=\"auto\">The <code>Collection213Upgrade</code> rewrite upgrades to the 2.13 collections without the ability to compile the code-base with 2.12 or 2.11. This rewrite is suitable for applications that don't need to cross-compile against multiple Scala versions.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"// build.sbt\nThisBuild / scalafixDependencies += &quot;org.scala-lang.modules&quot; %% &quot;scala-collection-migrations&quot; % &quot;&lt;version&gt;&quot;\naddCompilerPlugin(scalafixSemanticdb)\nscalacOptions ++= List(&quot;-Yrangepos&quot;, &quot;-P:semanticdb:synthetics:on&quot;)\"><pre><span class=\"pl-c\"><span class=\"pl-c\">//</span> build.sbt</span>\n<span class=\"pl-en\">ThisBuild</span> <span class=\"pl-k\">/</span> scalafixDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.scala-lang.modules<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>scala-collection-migrations<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>&lt;version&gt;<span class=\"pl-pds\">\"</span></span>\naddCompilerPlugin(scalafixSemanticdb)\nscalacOptions <span class=\"pl-k\">++</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">List</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>-Yrangepos<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>-P:semanticdb:synthetics:on<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<div class=\"highlight highlight-source-shell position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"// sbt shell\n&gt; ;test:scalafix Collection213Upgrade ;scalafix Collection213Upgrade\"><pre>// sbt shell\n<span class=\"pl-k\">&gt;</span> <span class=\"pl-k\">;</span>test:scalafix Collection213Upgrade <span class=\"pl-k\">;</span>scalafix Collection213Upgrade</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-collection213crosscompat\" class=\"anchor\" aria-hidden=\"true\" href=\"#collection213crosscompat\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Collection213CrossCompat</h3>\n<p dir=\"auto\">The <code>Collection213CrossCompat</code> rewrite upgrades to the 2.13 collections with the ability to compile the code-base with 2.12 or later. This rewrite is suitable for libraries that are cross-published for multiple Scala versions.</p>\n<p dir=\"auto\">To cross-build for 2.12 and 2.11, the rewrite rule introduces a dependency on the scala-collection-compat module, which provides some APIs of 2.13 on 2.12 and 2.11. This enables you to write your library using the latest 2.13 collections API while still supporting users on an older Scala version.</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"// build.sbt\nThisBuild / scalafixDependencies += &quot;org.scala-lang.modules&quot; %% &quot;scala-collection-migrations&quot; % &quot;&lt;version&gt;&quot;\nlibraryDependencies +=  &quot;org.scala-lang.modules&quot; %% &quot;scala-collection-compat&quot; % &quot;&lt;version&gt;&quot;\naddCompilerPlugin(scalafixSemanticdb)\nscalacOptions ++= List(&quot;-Yrangepos&quot;, &quot;-P:semanticdb:synthetics:on&quot;)\"><pre><span class=\"pl-c\"><span class=\"pl-c\">//</span> build.sbt</span>\n<span class=\"pl-en\">ThisBuild</span> <span class=\"pl-k\">/</span> scalafixDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.scala-lang.modules<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>scala-collection-migrations<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>&lt;version&gt;<span class=\"pl-pds\">\"</span></span>\nlibraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span>  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.scala-lang.modules<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>scala-collection-compat<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>&lt;version&gt;<span class=\"pl-pds\">\"</span></span>\naddCompilerPlugin(scalafixSemanticdb)\nscalacOptions <span class=\"pl-k\">++</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">List</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>-Yrangepos<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>-P:semanticdb:synthetics:on<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<div class=\"highlight highlight-source-shell position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"// sbt shell\n&gt; ;test:scalafix Collection213CrossCompat ;scalafix Collection213CrossCompat\"><pre>// sbt shell\n<span class=\"pl-k\">&gt;</span> <span class=\"pl-k\">;</span>test:scalafix Collection213CrossCompat <span class=\"pl-k\">;</span>scalafix Collection213CrossCompat</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-buildscala\" class=\"anchor\" aria-hidden=\"true\" href=\"#buildscala\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Build.scala</h3>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"// If you are using project/Build.scala add the following imports:\nimport scalafix.sbt.ScalafixPlugin.autoImport.{scalafixDependencies, scalafixSemanticdb}\"><pre><span class=\"pl-c\"><span class=\"pl-c\">//</span> If you are using project/Build.scala add the following imports:</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">scalafix</span>.<span class=\"pl-en\">sbt</span>.<span class=\"pl-en\">ScalafixPlugin</span>.<span class=\"pl-en\">autoImport</span>.{<span class=\"pl-en\">scalafixDependencies</span>, <span class=\"pl-en\">scalafixSemanticdb</span>}</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Contributing</h3>\n<p dir=\"auto\">The migration tool is not exhaustive. Contributions of additional rewrites are welcome.  If you encounter a use case that’s not supported, please report it as described in the <a href=\"CONTRIBUTING.md#migration-tool\">contributing\ndocumentation</a>.</p>\n</article></div>",
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h2 dir=\"auto\"><a id=\"user-content-purpose-and-scope\" class=\"anchor\" aria-hidden=\"true\" href=\"#purpose-and-scope\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Purpose and scope</h2>\n<p dir=\"auto\">This library makes some Scala 2.13 APIs available on Scala 2.11 and 2.12.</p>\n<p dir=\"auto\">The idea is to facilitate\n<a href=\"https://github.com/scala/collection-strawman/wiki/FAQ#how-do-i-cross-build-my-project-against-scala-212-and-scala-213\">cross-building</a>\nScala 2.13 and 3.0 code on the older versions.</p>\n<p dir=\"auto\">Although the name of the library is scala-\"collection\"-compat, we have now widened the scope to include other parts of the Scala 2.13/3.0 standard library besides just collections.</p>\n<p dir=\"auto\">Only the most commonly used APIs are supported; many are missing. Contributions are welcome.</p>\n<h2 dir=\"auto\"><a id=\"user-content-usage\" class=\"anchor\" aria-hidden=\"true\" href=\"#usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Usage</h2>\n<p dir=\"auto\">To use this library, add the following to your <code>build.sbt</code>:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;org.scala-lang.modules&quot; %% &quot;scala-collection-compat&quot; % &quot;&lt;version&gt;&quot;\"><pre class=\"notranslate\"><code>libraryDependencies += \"org.scala-lang.modules\" %% \"scala-collection-compat\" % \"&lt;version&gt;\"\n</code></pre></div>\n<p dir=\"auto\">All future versions will remain backwards binary compatible with 2.0.0. (The 1.0.0 release was withdrawn and should not be used.)</p>\n<h2 dir=\"auto\"><a id=\"user-content-how-it-works\" class=\"anchor\" aria-hidden=\"true\" href=\"#how-it-works\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>How it works</h2>\n<p dir=\"auto\">The 2.13 collections redesign did not break source compatibility for most ordinary code, but there are some exceptions.</p>\n<p dir=\"auto\">For example, the <code>to</code> method is used with a type parameter in 2.12:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"xs.to[List]\"><pre>xs.to[<span class=\"pl-en\">List</span>]</pre></div>\n<p dir=\"auto\">With this compatibility library you can instead use the 2.13 syntax, which takes a value parameter:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import scala.collection.compat._\nxs.to(List)\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">scala</span>.<span class=\"pl-en\">collection</span>.<span class=\"pl-en\">compat</span>.<span class=\"pl-en\">_</span>\nxs.to(<span class=\"pl-en\">List</span>)</pre></div>\n<p dir=\"auto\">The 2.13 and 3.0 versions consist only of an empty <code>scala.collection.compat</code> package object, so <code>import scala.collection.compat._</code> won't cause an error in cross-compiled code.</p>\n<p dir=\"auto\">The 2.11 and 2.12 versions have the needed compatibility code in this package.</p>\n<p dir=\"auto\">The library also adds backported versions of new collection types, such as <code>immutable.ArraySeq</code> and <code>immutable.LazyList</code>. (On 2.13, these types are just aliases to standard library types.)</p>\n<p dir=\"auto\">And it adds backported versions of some 2.13 collections methods such as <code>maxOption</code>.</p>\n<p dir=\"auto\">And, it includes support for some non-collections classes such as the <code>@nowarn</code> annotation added in 2.13.2.</p>\n<h2 dir=\"auto\"><a id=\"user-content-migration-rules\" class=\"anchor\" aria-hidden=\"true\" href=\"#migration-rules\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Migration rules</h2>\n<p dir=\"auto\">The migration rules use scalafix. Please see the <a href=\"https://scalacenter.github.io/scalafix/docs/users/installation.html\" rel=\"nofollow\">official installation instructions</a> if you are using an old version of sbt (&lt;1.3) or in case the commands below do not work.</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"// project/plugins.sbt\naddSbtPlugin(&quot;ch.epfl.scala&quot; % &quot;sbt-scalafix&quot; % &quot;0.10.1&quot;)\"><pre><span class=\"pl-c\"><span class=\"pl-c\">//</span> project/plugins.sbt</span>\naddSbtPlugin(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>ch.epfl.scala<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sbt-scalafix<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.10.1<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-collection213upgrade\" class=\"anchor\" aria-hidden=\"true\" href=\"#collection213upgrade\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Collection213Upgrade</h3>\n<p dir=\"auto\">The <code>Collection213Upgrade</code> rewrite upgrades to the 2.13 collections without the ability to compile the code-base with 2.12 or 2.11. This rewrite is suitable for applications that don't need to cross-compile against multiple Scala versions.</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"// build.sbt\nscalacOptions += &quot;-P:semanticdb:synthetics:on&quot;\"><pre><span class=\"pl-c\"><span class=\"pl-c\">//</span> build.sbt</span>\nscalacOptions <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>-P:semanticdb:synthetics:on<span class=\"pl-pds\">\"</span></span></pre></div>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"// sbt shell\n&gt; scalafixEnable\n&gt; scalafixAll dependency:Collection213Upgrade@org.scala-lang.modules:scala-collection-migrations:&lt;version&gt; \"><pre>// sbt shell\n<span class=\"pl-k\">&gt;</span> scalafixEnable\n<span class=\"pl-k\">&gt;</span> scalafixAll dependency:Collection213Upgrade@org.scala-lang.modules:scala-collection-migrations:<span class=\"pl-k\">&lt;</span>version<span class=\"pl-k\">&gt;</span> </pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-collection213crosscompat\" class=\"anchor\" aria-hidden=\"true\" href=\"#collection213crosscompat\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Collection213CrossCompat</h3>\n<p dir=\"auto\">The <code>Collection213CrossCompat</code> rewrite upgrades to the 2.13 collections with the ability to compile the code-base with 2.12 or later. This rewrite is suitable for libraries that are cross-published for multiple Scala versions.</p>\n<p dir=\"auto\">To cross-build for 2.12 and 2.11, the rewrite rule introduces a dependency on the scala-collection-compat module, which provides some APIs of 2.13 on 2.12 and 2.11. This enables you to write your library using the latest 2.13 collections API while still supporting users on an older Scala version.</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"// build.sbt\nlibraryDependencies +=  &quot;org.scala-lang.modules&quot; %% &quot;scala-collection-compat&quot; % &quot;&lt;version&gt;&quot;\nscalacOptions += &quot;-P:semanticdb:synthetics:on&quot;\"><pre><span class=\"pl-c\"><span class=\"pl-c\">//</span> build.sbt</span>\nlibraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span>  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.scala-lang.modules<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>scala-collection-compat<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>&lt;version&gt;<span class=\"pl-pds\">\"</span></span>\nscalacOptions <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>-P:semanticdb:synthetics:on<span class=\"pl-pds\">\"</span></span></pre></div>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"// sbt shell\n&gt; scalafixEnable\n&gt; scalafixAll dependency:Collection213CrossCompat@org.scala-lang.modules:scala-collection-migrations:&lt;version&gt; \"><pre>// sbt shell\n<span class=\"pl-k\">&gt;</span> scalafixEnable\n<span class=\"pl-k\">&gt;</span> scalafixAll dependency:Collection213CrossCompat@org.scala-lang.modules:scala-collection-migrations:<span class=\"pl-k\">&lt;</span>version<span class=\"pl-k\">&gt;</span> </pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Contributing</h3>\n<p dir=\"auto\">The migration tool is not exhaustive. Contributions of additional rewrites are welcome.  If you encounter a use case that’s not supported, please report it as described in the <a href=\"CONTRIBUTING.md#migration-tool\">contributing\ndocumentation</a>.</p>\n</article></div>",
     "contributors" : [
       {
         "login" : "SethTisue",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
-        "url" : "https://api.github.com/users/SethTisue",
-        "contributions" : 187
+        "url" : "https://github.com/SethTisue",
+        "contributions" : 200
       },
       {
         "login" : "julienrf",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/332812?v=4",
-        "url" : "https://api.github.com/users/julienrf",
-        "contributions" : 135
+        "url" : "https://github.com/julienrf",
+        "contributions" : 136
       },
       {
         "login" : "scala-steward",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
-        "url" : "https://api.github.com/users/scala-steward",
-        "contributions" : 110
+        "url" : "https://github.com/scala-steward",
+        "contributions" : 121
       },
       {
         "login" : "MasseGuillaume",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/921490?v=4",
-        "url" : "https://api.github.com/users/MasseGuillaume",
+        "url" : "https://github.com/MasseGuillaume",
         "contributions" : 89
       },
       {
         "login" : "lrytz",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/119636?v=4",
-        "url" : "https://api.github.com/users/lrytz",
-        "contributions" : 62
+        "url" : "https://github.com/lrytz",
+        "contributions" : 64
       },
       {
         "login" : "olafurpg",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1408093?v=4",
-        "url" : "https://api.github.com/users/olafurpg",
+        "url" : "https://github.com/olafurpg",
         "contributions" : 21
       },
       {
         "login" : "NthPortal",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/7505383?v=4",
-        "url" : "https://api.github.com/users/NthPortal",
+        "url" : "https://github.com/NthPortal",
         "contributions" : 20
       },
       {
         "login" : "szeiger",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/54262?v=4",
-        "url" : "https://api.github.com/users/szeiger",
+        "url" : "https://github.com/szeiger",
         "contributions" : 17
       },
       {
         "login" : "ekrich",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/933058?v=4",
-        "url" : "https://api.github.com/users/ekrich",
+        "url" : "https://github.com/ekrich",
         "contributions" : 11
       },
       {
         "login" : "ijuma",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/24747?v=4",
-        "url" : "https://api.github.com/users/ijuma",
+        "url" : "https://github.com/ijuma",
         "contributions" : 11
       },
       {
         "login" : "xerial",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/57538?v=4",
-        "url" : "https://api.github.com/users/xerial",
+        "url" : "https://github.com/xerial",
         "contributions" : 8
       },
       {
         "login" : "xuwei-k",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/389787?v=4",
-        "url" : "https://api.github.com/users/xuwei-k",
+        "url" : "https://github.com/xuwei-k",
         "contributions" : 8
       },
       {
         "login" : "dwijnand",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/344610?v=4",
-        "url" : "https://api.github.com/users/dwijnand",
+        "url" : "https://github.com/dwijnand",
         "contributions" : 8
+      },
+      {
+        "login" : "haukeh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/697956?v=4",
+        "url" : "https://github.com/haukeh",
+        "contributions" : 4
+      },
+      {
+        "login" : "pedorich-n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15573098?v=4",
+        "url" : "https://github.com/pedorich-n",
+        "contributions" : 4
       },
       {
         "login" : "marcelocenerine",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1107367?v=4",
-        "url" : "https://api.github.com/users/marcelocenerine",
+        "url" : "https://github.com/marcelocenerine",
         "contributions" : 3
       },
       {
         "login" : "pietrotull",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/917046?v=4",
-        "url" : "https://api.github.com/users/pietrotull",
-        "contributions" : 3
-      },
-      {
-        "login" : "eed3si9n",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/184683?v=4",
-        "url" : "https://api.github.com/users/eed3si9n",
+        "url" : "https://github.com/pietrotull",
         "contributions" : 3
       },
       {
         "login" : "emanb29",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/789922?v=4",
-        "url" : "https://api.github.com/users/emanb29",
+        "url" : "https://github.com/emanb29",
         "contributions" : 3
+      },
+      {
+        "login" : "eed3si9n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/184683?v=4",
+        "url" : "https://github.com/eed3si9n",
+        "contributions" : 3
+      },
+      {
+        "login" : "bjaglin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/349077?v=4",
+        "url" : "https://github.com/bjaglin",
+        "contributions" : 2
       },
       {
         "login" : "smarter",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/63430?v=4",
-        "url" : "https://api.github.com/users/smarter",
+        "url" : "https://github.com/smarter",
+        "contributions" : 2
+      },
+      {
+        "login" : "JD557",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1187242?v=4",
+        "url" : "https://github.com/JD557",
         "contributions" : 2
       },
       {
         "login" : "griggt",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/17014833?v=4",
-        "url" : "https://api.github.com/users/griggt",
+        "url" : "https://github.com/griggt",
         "contributions" : 2
       },
       {
         "login" : "raboof",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/131856?v=4",
-        "url" : "https://api.github.com/users/raboof",
+        "url" : "https://github.com/raboof",
         "contributions" : 2
       },
       {
         "login" : "robstoll",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5557885?v=4",
-        "url" : "https://api.github.com/users/robstoll",
+        "url" : "https://github.com/robstoll",
         "contributions" : 2
       },
       {
         "login" : "bplommer",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/8990749?v=4",
-        "url" : "https://api.github.com/users/bplommer",
+        "url" : "https://github.com/bplommer",
         "contributions" : 1
       },
       {
         "login" : "cquiroz",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/3615303?v=4",
-        "url" : "https://api.github.com/users/cquiroz",
+        "url" : "https://github.com/cquiroz",
         "contributions" : 1
       },
       {
         "login" : "fdietze",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1186516?v=4",
-        "url" : "https://api.github.com/users/fdietze",
+        "url" : "https://github.com/fdietze",
         "contributions" : 1
       },
       {
         "login" : "Daenyth",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/14644?v=4",
-        "url" : "https://api.github.com/users/Daenyth",
+        "url" : "https://github.com/Daenyth",
         "contributions" : 1
       },
       {
         "login" : "hygt",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/8556681?v=4",
-        "url" : "https://api.github.com/users/hygt",
+        "url" : "https://github.com/hygt",
         "contributions" : 1
       },
       {
         "login" : "lolgab",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/5793054?v=4",
-        "url" : "https://api.github.com/users/lolgab",
+        "url" : "https://github.com/lolgab",
         "contributions" : 1
       },
       {
         "login" : "MaximeKjaer",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/990794?v=4",
-        "url" : "https://api.github.com/users/MaximeKjaer",
+        "url" : "https://github.com/MaximeKjaer",
         "contributions" : 1
       },
       {
         "login" : "mlachkar",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/7843237?v=4",
-        "url" : "https://api.github.com/users/mlachkar",
+        "url" : "https://github.com/mlachkar",
         "contributions" : 1
       },
       {
         "login" : "pjfanning",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/11783444?v=4",
-        "url" : "https://api.github.com/users/pjfanning",
+        "url" : "https://github.com/pjfanning",
         "contributions" : 1
       },
       {
         "login" : "Philippus",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1923596?v=4",
-        "url" : "https://api.github.com/users/Philippus",
+        "url" : "https://github.com/Philippus",
+        "contributions" : 1
+      },
+      {
+        "login" : "ryan-johnson-databricks",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/79601771?v=4",
+        "url" : "https://github.com/ryan-johnson-databricks",
         "contributions" : 1
       },
       {
         "login" : "sjrd",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/535934?v=4",
-        "url" : "https://api.github.com/users/sjrd",
+        "url" : "https://github.com/sjrd",
         "contributions" : 1
       },
       {
         "login" : "lavrov",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/2944597?v=4",
-        "url" : "https://api.github.com/users/lavrov",
+        "url" : "https://github.com/lavrov",
         "contributions" : 1
       },
       {
         "login" : "VladPodilnyk",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/12114216?v=4",
-        "url" : "https://api.github.com/users/VladPodilnyk",
+        "url" : "https://github.com/VladPodilnyk",
         "contributions" : 1
       },
       {
         "login" : "wsargent",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/71236?v=4",
-        "url" : "https://api.github.com/users/wsargent",
+        "url" : "https://github.com/wsargent",
         "contributions" : 1
       },
       {
         "login" : "Atry",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/601530?v=4",
-        "url" : "https://api.github.com/users/Atry",
+        "url" : "https://github.com/Atry",
         "contributions" : 1
       },
       {
         "login" : "yannbolliger",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/25909702?v=4",
-        "url" : "https://api.github.com/users/yannbolliger",
+        "url" : "https://github.com/yannbolliger",
         "contributions" : 1
       },
       {
         "login" : "yufangong",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/7762468?v=4",
-        "url" : "https://api.github.com/users/yufangong",
+        "url" : "https://github.com/yufangong",
         "contributions" : 1
       },
       {
         "login" : "ghik",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1022675?v=4",
-        "url" : "https://api.github.com/users/ghik",
+        "url" : "https://github.com/ghik",
         "contributions" : 1
       },
       {
         "login" : "samzilverberg",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/229485?v=4",
-        "url" : "https://api.github.com/users/samzilverberg",
+        "url" : "https://github.com/samzilverberg",
         "contributions" : 1
       }
     ],
-    "commits" : 726,
+    "commits" : 766,
     "topics" : [
     ],
-    "contributingGuide" : null,
-    "codeOfConduct" : null,
+    "contributingGuide" : "https://github.com/scala/scala-collection-compat/blob/main/CONTRIBUTING.md",
+    "codeOfConduct" : "https://github.com/scala/scala-collection-compat/blob/main/CODE_OF_CONDUCT.md",
     "chatroom" : null,
     "openIssues" : [
       {
-        "number" : 520,
-        "title" : "duplicates scala/annotation/nowarn.class with different file contents",
-        "url" : "https://github.com/scala/scala-collection-compat/issues/520"
+        "number" : 543,
+        "title" : "add `distinctBy`",
+        "url" : "https://github.com/scala/scala-collection-compat/issues/543"
       },
       {
         "number" : 517,
@@ -315,11 +345,6 @@
         "number" : 346,
         "title" : "scala.jdk.javaapi.CollectionConverters for Scala 2.11/2.12",
         "url" : "https://github.com/scala/scala-collection-compat/issues/346"
-      },
-      {
-        "number" : 240,
-        "title" : "`.to(Col)` vs \"unused import\" warning",
-        "url" : "https://github.com/scala/scala-collection-compat/issues/240"
       },
       {
         "number" : 235,
@@ -417,8 +442,686 @@
         "url" : "https://github.com/scala/scala-collection-compat/issues/44"
       }
     ],
-    "scalaPercentage" : null,
-    "license" : null
+    "scalaPercentage" : 99,
+    "license" : "Apache-2.0",
+    "commitActivity" : [
+      {
+        "total" : 1,
+        "week" : 1629590400000,
+        "days" : [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1630195200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 1,
+        "week" : 1630800000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 1,
+        "week" : 1631404800000,
+        "days" : [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1632009600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1632614400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 14,
+        "week" : 1633219200000,
+        "days" : [
+          0,
+          9,
+          3,
+          1,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1633824000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 1,
+        "week" : 1634428800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 3,
+        "week" : 1635033600000,
+        "days" : [
+          0,
+          0,
+          1,
+          0,
+          0,
+          2,
+          0
+        ]
+      },
+      {
+        "total" : 2,
+        "week" : 1635638400000,
+        "days" : [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 1,
+        "week" : 1636243200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1636848000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1637452800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 1,
+        "week" : 1638057600000,
+        "days" : [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 3,
+        "week" : 1638662400000,
+        "days" : [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1
+        ]
+      },
+      {
+        "total" : 1,
+        "week" : 1639267200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 4,
+        "week" : 1639872000000,
+        "days" : [
+          0,
+          0,
+          1,
+          0,
+          3,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 2,
+        "week" : 1640476800000,
+        "days" : [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 2,
+        "week" : 1641081600000,
+        "days" : [
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 3,
+        "week" : 1641686400000,
+        "days" : [
+          0,
+          0,
+          0,
+          2,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "total" : 1,
+        "week" : 1642291200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1642896000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 1,
+        "week" : 1643500800000,
+        "days" : [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1644105600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 1,
+        "week" : 1644710400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1645315200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1645920000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 2,
+        "week" : 1646524800000,
+        "days" : [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 3,
+        "week" : 1647129600000,
+        "days" : [
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 2,
+        "week" : 1647734400000,
+        "days" : [
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1648339200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 1,
+        "week" : 1648944000000,
+        "days" : [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 1,
+        "week" : 1649548800000,
+        "days" : [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1650153600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1650758400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1651363200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1651968000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 1,
+        "week" : 1652572800000,
+        "days" : [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1653177600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 3,
+        "week" : 1653782400000,
+        "days" : [
+          0,
+          0,
+          0,
+          1,
+          0,
+          2,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1654387200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1654992000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1655596800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 2,
+        "week" : 1656201600000,
+        "days" : [
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 10,
+        "week" : 1656806400000,
+        "days" : [
+          0,
+          4,
+          1,
+          0,
+          0,
+          4,
+          1
+        ]
+      },
+      {
+        "total" : 2,
+        "week" : 1657411200000,
+        "days" : [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1658016000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 2,
+        "week" : 1658620800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1659225600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1659830400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1660435200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ]
   },
   "settings" : {
     "defaultStableVersion" : true,

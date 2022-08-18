@@ -4,17 +4,17 @@
   "creationDate" : 1498038041000,
   "githubStatus" : {
     "Ok" : {
-      "updateDate" : 1653647614845
+      "updateDate" : 1660816999293
     }
   },
   "githubInfo" : {
     "homepage" : "",
     "description" : "An embedded job scheduler.",
     "logo" : "https://avatars.githubusercontent.com/u/1713646?v=4",
-    "stars" : 107,
+    "stars" : 114,
     "forks" : 40,
-    "watchers" : 20,
-    "issues" : 40,
+    "watchers" : 21,
+    "issues" : 41,
     "creationDate" : 1493363247000,
     "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-cuttle\" class=\"anchor\" aria-hidden=\"true\" href=\"#cuttle\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Cuttle</h1>\n<p dir=\"auto\">An embedded job scheduler/executor for your Scala projects.</p>\n<h1 dir=\"auto\"><a id=\"user-content-concepts\" class=\"anchor\" aria-hidden=\"true\" href=\"#concepts\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Concepts</h1>\n<p dir=\"auto\">Embedded means that cuttle is not an hosted service where you submit jobs to schedule/execute. Instead it is\na Scala library that you embed into your own project to schedule and execute a DAG of jobs. The DAG and the jobs\ndefinitions are all written using the cuttle Scala API. The scheduling mechanism can be customized.</p>\n<h2 dir=\"auto\"><a id=\"user-content-jobs\" class=\"anchor\" aria-hidden=\"true\" href=\"#jobs\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Jobs</h2>\n<p dir=\"auto\">A cuttle project is composed of many <a href=\"https://criteo.github.io/cuttle/api/com/criteo/cuttle/Job.html\" rel=\"nofollow\">Jobs</a> to execute.</p>\n<p dir=\"auto\">Each job is defined by a set of metadata (<em>such as the job identifier, name, etc.</em>) and most importantly by a side effect function. This function handles the actual job execution, and its Scala signature is something like <code>Context =&gt; Future[Completed]</code> (<em>which can be read as “execute the job for this input parameter and signal me the completion or failure with the returned Future value”</em>).</p>\n<p dir=\"auto\">The side effect function is opaque for cuttle, so it can't exactly know what will happen there (<em>it can be any Scala code</em>), but it assumes that the function:</p>\n<ul dir=\"auto\">\n<li>Is asynchronous and non-blocking. It will immediately return a <a href=\"https://www.scala-lang.org/api/current/scala/concurrent/Future.html\" rel=\"nofollow\">Future</a> value that will be resolved upon execution success or failure.</li>\n<li>Produces a side effect, so calling it actually will do some job and mutate some state somewhere.</li>\n<li>Is idempotent, so calling it twice for the same input (<em>context</em>) won't be a problem.</li>\n</ul>\n<p dir=\"auto\">Being idempotent is important because cuttle is an <strong>at least once</strong> executor. It will ensure that the job has been successfully executed at least once for a given input. In case of failure or crash it may have to execute it again and so it may happen that the side effect function will succeed more that once. It would be very brittle otherwise.</p>\n<h2 dir=\"auto\"><a id=\"user-content-scheduler\" class=\"anchor\" aria-hidden=\"true\" href=\"#scheduler\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Scheduler</h2>\n<p dir=\"auto\">Executions of these jobs are planned by a <a href=\"https://criteo.github.io/cuttle/api/com/criteo/cuttle/Scheduler.html\" rel=\"nofollow\">Scheduler</a>. Actually a job is always configured for a specific <a href=\"https://criteo.github.io/cuttle/api/com/criteo/cuttle/Scheduling.html\" rel=\"nofollow\">Scheduling</a> and this is the type <code>S</code> you usually see in the Scala API. This scheduling information allows to provide more information to the scheduler about how the jobs must be triggered.</p>\n<p dir=\"auto\">The scheduler gets the list of job (a scheduling specific <a href=\"https://criteo.github.io/cuttle/api/com/criteo/cuttle/Workload.html\" rel=\"nofollow\">Workload</a>) as input and starts producing <a href=\"https://criteo.github.io/cuttle/api/com/criteo/cuttle/Execution.html\" rel=\"nofollow\">Executions</a>. A basic scheduler can for example run a single execution for each job.</p>\n<p dir=\"auto\">But of course more sophisticated schedulers can exist. Cuttle comes with a <a href=\"https://criteo.github.io/cuttle/api/com/criteo/cuttle/timeseries/TimeSeries.html\" rel=\"nofollow\">TimeSeries</a> scheduler that executes a whole job workflow (a Directed Acyclic Graph of jobs) across time partitions. For example it can execute the graph hourly or daily. And it can even execute it across different time partitions such as a daily job depending on several executions of an hourly job.</p>\n<p dir=\"auto\">The input context given to the side effect function depends of the scheduling. For example the input for a time series job is <a href=\"https://criteo.github.io/cuttle/api/com/criteo/cuttle/timeseries/TimeSeriesContext.html\" rel=\"nofollow\">TimeSeriesContext</a> and contains basically the start and end time for the partition for which the job is being executed.</p>\n<h2 dir=\"auto\"><a id=\"user-content-executor\" class=\"anchor\" aria-hidden=\"true\" href=\"#executor\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Executor</h2>\n<p dir=\"auto\">The cuttle <a href=\"https://criteo.github.io/cuttle/api/com/criteo/cuttle/Executor.html\" rel=\"nofollow\">Executor</a> handles the job executions triggered by the scheduler. When it has to execute a job for a given <a href=\"https://criteo.github.io/cuttle/api/com/criteo/cuttle/SchedulingContext.html\" rel=\"nofollow\">SchedulingContext</a> it creates and execution, and then invoke the job's side effect function for it.</p>\n<p dir=\"auto\">As soon as the execution starts, it is in the <strong>Started</strong> state. Started executions are displayed in the UI with a special status indicating if they are <strong>Running</strong> or <strong>Waiting</strong>. This actually indicates if the Scala code being currently executed is waiting for some external resources (<em>the permit to fork an external process for example</em>). But as soon as the execution is <strong>Started</strong> it means that the Scala lambda behind is running!</p>\n<p dir=\"auto\">An execution can also be in the <strong>Stuck</strong> state. It happens when a given execution keeps failing: Let's say the scheduler wants to execute the job <em>a</em> for the <em>X</em> context. So it asks the executor which eventually executes the job side effect. If the function fails, the returned <a href=\"https://www.scala-lang.org/api/current/scala/concurrent/Future.html\" rel=\"nofollow\">Future</a> fails and the scheduler is notified of that failure. Because the scheduler really wants that job to be executed for the <em>X</em> context, it will submit it again. When the executor sees this new execution coming back after a failure it will apply a <a href=\"https://criteo.github.io/cuttle/api/com/criteo/cuttle/RetryStrategy.html\" rel=\"nofollow\">RetryStrategy</a>. The default strategy is to use an exponential backoff to delay the retry of these failing executions. While being in this state <strong>Stuck</strong> executions are displayed in a special tab of the UI and it means that it is something you should take care of.</p>\n<p dir=\"auto\">An execution can also be in <strong>Paused</strong> state. It happens when the job itself has been paused. Note that this is a temporary state; eventually the job has to be unpaused and so the executions will be triggered, otherwise more and more paused executions will stack forever.</p>\n<p dir=\"auto\">Finally executions can be <strong>Finished</strong> either with a <strong>Success</strong> or <strong>Failed</strong> state. You can retrieve these old executions in the log for finished executions.</p>\n<h2 dir=\"auto\"><a id=\"user-content-execution-platforms\" class=\"anchor\" aria-hidden=\"true\" href=\"#execution-platforms\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Execution Platforms</h2>\n<p dir=\"auto\">The way to manage external resources in cuttle is via <a href=\"https://criteo.github.io/cuttle/api/com/criteo/cuttle/ExecutionPlatform.html\" rel=\"nofollow\">ExecutionPlatform</a>. An execution platforms defines the contract about how to use the resources. They are configured at project bootstrap and usually set limits on how resources will be used (<em>for example to only allow 10 external processes to be forked at the same time</em>).</p>\n<p dir=\"auto\">This is necessary because potentially thousands of concurrent executions can happen in cuttle. These executions will fight for shared resources via these execution platforms. Usually a platform will use a priority queue to prioritize access to these shared resources, and the priority is based on the <a href=\"https://criteo.github.io/cuttle/api/com/criteo/cuttle/SchedulingContext.html\" rel=\"nofollow\">SchedulingContext</a> of each execution (<em>so the executions with highest priority get access to the shared resources first</em>). For example the <a href=\"https://criteo.github.io/cuttle/api/com/criteo/cuttle/timeseries/TimeSeriesContext.html\" rel=\"nofollow\">TimeSeriesContext</a> defines its <a href=\"https://www.scala-lang.org/api/current/scala/math/Ordering.html\" rel=\"nofollow\">Ordering</a> in such way that oldest partitions take priority.</p>\n<h2 dir=\"auto\"><a id=\"user-content-time-series-scheduling\" class=\"anchor\" aria-hidden=\"true\" href=\"#time-series-scheduling\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Time series scheduling</h2>\n<p dir=\"auto\">The built-in <a href=\"https://criteo.github.io/cuttle/api/com/criteo/cuttle/timeseries/TimeSeriesScheduler.html\" rel=\"nofollow\">TimeSeriesScheduler</a> executes a workflow of jobs for the time partitions defined in a calendar. Each job defines how it maps to the calendar (<em>for example Hourly or Daily CEST</em>), and the scheduler ensures that at least one execution is created and successfully run for each defined (Job, Period) pair.</p>\n<p dir=\"auto\">In case of failure the time series scheduler will submit the execution again and again until the partition is successfully completed (<em>depending of the retry strategy you have configured the delay between retries will vary</em>).</p>\n<p dir=\"auto\">It is also possible to <a href=\"https://criteo.github.io/cuttle/api/com/criteo/cuttle/timeseries/Backfill.html\" rel=\"nofollow\">Backfill</a> successfully completed past partitions, meaning that we want to recompute them anyway. The whole graph or only a part of the graph can be backfilled depending of what you need. A priority can be given to the backfill so the executions triggered by this backfill can be assigned more or less priority than the day to day workload.</p>\n<h1 dir=\"auto\"><a id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Documentation</h1>\n<p dir=\"auto\">The <a href=\"https://criteo.github.io/cuttle/api/index.html\" rel=\"nofollow\">API documentation</a> is the main reference for Scala programmers.</p>\n<p dir=\"auto\">For a project example, you can also follow these hands-on introductions:</p>\n<ul dir=\"auto\">\n<li><a href=\"https://criteo.github.io/cuttle/examples/examples0/HelloTimeSeries.scala.html\" rel=\"nofollow\">A basic project using the built-in timeseries scheduler</a>.</li>\n<li><a href=\"https://criteo.github.io/cuttle/examples/examples0/HelloCustomScheduling.scala.html\" rel=\"nofollow\">A minimal custom scheduling</a></li>\n</ul>\n<p dir=\"auto\">To run the example application, checkout the repository, launch the <a href=\"http://www.scala-sbt.org/\" rel=\"nofollow\">sbt</a> console in the project (<em>you will need <a href=\"https://yarnpkg.com/en/\" rel=\"nofollow\">yarn</a> as well to compile the UI part</em>), and run the <code>example HelloTimeSeries</code> command.</p>\n<h1 dir=\"auto\"><a id=\"user-content-usage\" class=\"anchor\" aria-hidden=\"true\" href=\"#usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Usage</h1>\n<p dir=\"auto\">The library is cross-built for <strong>Scala 2.11</strong> and <strong>Scala 2.12</strong>.</p>\n<p dir=\"auto\">The core module to use is <code>\"com.criteo.cuttle\" %% \"cuttle\" % \"0.12.4\"</code>.</p>\n<p dir=\"auto\">You also need to fetch one <strong>Scheduler</strong> implementation:</p>\n<ul dir=\"auto\">\n<li><strong>TimeSeries</strong>: <code>\"com.criteo.cuttle\" %% \"timeseries\" % \"0.12.4\"\"</code>.</li>\n<li><strong>Cron</strong>: <code>\"com.criteo.cuttle\" %% \"cron\" % \"0.12.4\"\"</code>.</li>\n</ul>\n<h1 dir=\"auto\"><a id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>License</h1>\n<p dir=\"auto\">This project is licensed under the Apache 2.0 license.</p>\n<h1 dir=\"auto\"><a id=\"user-content-copyright\" class=\"anchor\" aria-hidden=\"true\" href=\"#copyright\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Copyright</h1>\n<p dir=\"auto\">Copyright © Criteo, 2021.</p>\n</article></div>",
     "contributors" : [
@@ -204,7 +204,685 @@
       }
     ],
     "scalaPercentage" : 54,
-    "license" : null
+    "license" : "Apache-2.0",
+    "commitActivity" : [
+      {
+        "total" : 0,
+        "week" : 1629590400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1630195200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1630800000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1631404800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1632009600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1632614400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1633219200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1633824000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 1,
+        "week" : 1634428800000,
+        "days" : [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1635033600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1635638400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1636243200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1636848000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1637452800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1638057600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1638662400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1639267200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1639872000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1640476800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1641081600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1641686400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1642291200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1642896000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1643500800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1644105600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1644710400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1645315200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1645920000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1646524800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1647129600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1647734400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1648339200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1648944000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1649548800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1650153600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1650758400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1651363200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1651968000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1652572800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1653177600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1653782400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1654387200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1654992000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1655596800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1656201600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1656806400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1657411200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1658016000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1658620800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1659225600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1659830400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1660435200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ]
   },
   "settings" : {
     "defaultStableVersion" : true,

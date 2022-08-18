@@ -1,117 +1,117 @@
 {
   "organization" : "softwaremill",
   "repository" : "akka-http-session",
-  "creationDate" : 1451285997643,
+  "creationDate" : 1436536799000,
   "githubStatus" : {
     "Ok" : {
-      "updateDate" : 1644303601805
+      "updateDate" : 1660791883727
     }
   },
   "githubInfo" : {
     "homepage" : "https://softwaremill.com/open-source/",
     "description" : "Web & mobile client-side akka-http sessions, with optional JWT support",
     "logo" : "https://avatars.githubusercontent.com/u/322765?v=4",
-    "stars" : 434,
-    "forks" : 57,
-    "watchers" : 43,
+    "stars" : 438,
+    "forks" : 59,
+    "watchers" : 45,
     "issues" : 11,
     "creationDate" : 1435671605000,
-    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/softwaremill/akka-http-session/raw/master/banner.png\"><img src=\"https://github.com/softwaremill/akka-http-session/raw/master/banner.png\" alt=\"akka-http-session\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\"><a href=\"https://travis-ci.org/softwaremill/akka-http-session\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/9d81d11af11c89525f230fca237743a086c63e9598aa1bd8c701f32721f788d9/68747470733a2f2f7472617669732d63692e6f72672f736f6674776172656d696c6c2f616b6b612d687474702d73657373696f6e2e7376673f6272616e63683d6d6173746572\" alt=\"Build Status\" data-canonical-src=\"https://travis-ci.org/softwaremill/akka-http-session.svg?branch=master\" style=\"max-width: 100%;\"></a>\n<a href=\"https://gitter.im/softwaremill/akka-http-session?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/5dbac0213da25c445bd11f168587c11a200ba153ef3014e8408e462e410169b3/68747470733a2f2f6261646765732e6769747465722e696d2f4a6f696e253230436861742e737667\" alt=\"Join the chat at https://gitter.im/softwaremill/akka-http-session\" data-canonical-src=\"https://badges.gitter.im/Join%20Chat.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://maven-badges.herokuapp.com/maven-central/com.softwaremill.akka-http-session/core_2.12\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/06a1420460c156aa781dc3edaf116e54b83fa8893692fb61e09c294fe1bead6a/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f636f6d2e736f6674776172656d696c6c2e616b6b612d687474702d73657373696f6e2f636f72655f322e31322f62616467652e737667\" alt=\"Maven Central\" data-canonical-src=\"https://maven-badges.herokuapp.com/maven-central/com.softwaremill.akka-http-session/core_2.12/badge.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\"><a href=\"https://doc.akka.io/docs/akka-http/current/index.html\" rel=\"nofollow\"><code>akka-http</code></a> is an Akka\nmodule, originating from <a href=\"http://spray.io\" rel=\"nofollow\">spray.io</a>, for building <em>reactive</em> REST services with an elegant DSL.</p>\n<p dir=\"auto\"><code>akka-http</code> is a great toolkit for building backends for single-page or mobile applications. In almost all apps there\nis a need to maintain user sessions, make sure session data is secure and cannot be tampered with.</p>\n<p dir=\"auto\"><code>akka-http-session</code> provides directives for client-side session management in web and mobile applications, using cookies\nor custom headers + local storage, with optional <a href=\"http://jwt.io/\" rel=\"nofollow\">Json Web Tokens</a> format support.</p>\n<p dir=\"auto\">A <a href=\"https://github.com/softwaremill/akka-http-session-faq\">comprehensive FAQ</a> is available, along with code examples (in Java, but easy to translate to Scala) which answers many common questions on how sessions work, how to secure them and implement using akka-http.</p>\n<h2 dir=\"auto\"><a id=\"user-content-what-is-a-session\" class=\"anchor\" aria-hidden=\"true\" href=\"#what-is-a-session\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>What is a session?</h2>\n<p dir=\"auto\">Session data typically contains at least the <code>id</code> or <code>username</code> of the logged in user. This id must be secured so that a\nsession cannot be \"stolen\" or forged easily.</p>\n<p dir=\"auto\">Sessions can be stored on the server, either in-memory or in a database, with the session <code>id</code> sent to the client,\nor entirely on the client in a serialized format. The former approach requires sticky sessions or additional shared\nstorage, while using the latter (which is supported by this library) sessions can be easily deserialized on any server.</p>\n<p dir=\"auto\">A session is a string token which is sent to the client and should be sent back to the server on every request.</p>\n<p dir=\"auto\">To prevent forging, serialized session data is <strong>signed</strong> using a server secret. The signature is appended to the\nsession data that is sent to the client, and verified when the session token is received back.</p>\n<h2 dir=\"auto\"><a id=\"user-content-akka-http-session-features\" class=\"anchor\" aria-hidden=\"true\" href=\"#akka-http-session-features\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><code>akka-http-session</code> features</h2>\n<ul dir=\"auto\">\n<li>type-safe client-side sessions</li>\n<li>sessions can be encrypted</li>\n<li>sessions contain an expiry date</li>\n<li>cookie or custom header transport</li>\n<li>support for <a href=\"http://jwt.io/\" rel=\"nofollow\">JWT</a></li>\n<li>refresh token support (e.g. to implement \"remember me\")</li>\n<li>CSRF tokens support</li>\n<li>Java &amp; Scala APIs</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-example\" class=\"anchor\" aria-hidden=\"true\" href=\"#example\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Example</h2>\n<p dir=\"auto\">You can try out a simple example by running <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/scala/com/softwaremill/example/ScalaExample.scala\"><code>com.softwaremill.example.ScalaExample</code></a> or <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/java/com/softwaremill/example/JavaExample.java\"><code>com.softwaremill.example.JavaExample</code></a> and opening <a href=\"http://localhost:8080\" rel=\"nofollow\">http://localhost:8080</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-sessionmanager--configuration\" class=\"anchor\" aria-hidden=\"true\" href=\"#sessionmanager--configuration\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><code>SessionManager</code> &amp; configuration</h2>\n<p dir=\"auto\">All directives require an (implicit for scala) instance of a <code>SessionManager[T]</code> (or <code>SessionManager&lt;T&gt;</code>), which can be created by providing a server\nsecret (via a <code>SessionConfig</code>). The secret should be a long, random string unique to each environment your app is\nrunning in. You can generate one with <code>SessionUtil.randomServerSecret()</code>. Note that when you change the secret,\nall sessions will become invalid.</p>\n<p dir=\"auto\">A <code>SessionConfig</code> instance can be created using <a href=\"https://github.com/typesafehub/config\">Typesafe config</a>.\nThe only value that you need to provide is <code>akka.http.session.server-secret</code>,\npreferably via <code>application.conf</code> (then you can safely call <code>SessionConfig.fromConfig</code>) or by using\n<code>SessionConfig.default()</code>.</p>\n<p dir=\"auto\">You can customize any of the <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/core/src/main/resources/reference.conf\">default config options</a>\neither by modifying them through <code>application.conf</code> or by modifying the <code>SessionConfig</code> case class. If a value has\ntype <code>Option[]</code>, you can set it to <code>None</code> by using a <code>none</code> value in the config file (for both java and scala).</p>\n<p dir=\"auto\">When using cookies, by default the <code>secure</code> attribute of cookies is not set (for development), however it is\nrecommended that all sites use <code>https</code> and all cookies have this attribute set.</p>\n<h2 dir=\"auto\"><a id=\"user-content-client-side-sessions\" class=\"anchor\" aria-hidden=\"true\" href=\"#client-side-sessions\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Client-side sessions</h2>\n<p dir=\"auto\">All session-related directives take at least two parameters:</p>\n<ul dir=\"auto\">\n<li>session continuity: <code>oneOff</code> vs <code>refreshable</code>; specifies what should happen when the session expires. If <code>refreshable</code>\nand a refresh token is present, the session will be re-created. See below for details.</li>\n<li>session transport: <code>usingCookies</code> vs <code>usingHeaders</code></li>\n</ul>\n<p dir=\"auto\">Typically, you would create aliases for the session-related directives which use the right parameters basing on the\ncurrent request and logic specific to your application.</p>\n<h3 dir=\"auto\"><a id=\"user-content-cookies-vs-header\" class=\"anchor\" aria-hidden=\"true\" href=\"#cookies-vs-header\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Cookies vs header</h3>\n<p dir=\"auto\">Session data can be sent to the client using cookies or custom headers. The first approach is the simplest to use,\nas cookies are automatically sent to the server on each request.</p>\n<p dir=\"auto\">However, cookies have some security vulnerabilities, and are typically not used in mobile applications. For these\nscenarios, session data can be transported using custom headers (the names of the headers are configurable in\nthe config).</p>\n<p dir=\"auto\">When using headers, you need to store the session (and, if used, refresh-) tokens yourself. These tokens can be\nstored in-memory, or persistently e.g. using the browser's local storage.</p>\n<p dir=\"auto\">You can dynamically decide which transport to use, basing e.g. on the user-agent or other request properties.</p>\n<h3 dir=\"auto\"><a id=\"user-content-basic-usage\" class=\"anchor\" aria-hidden=\"true\" href=\"#basic-usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Basic usage</h3>\n<p dir=\"auto\">Sessions are typed. The <code>T</code> type parameter in <code>SessionManager[T]</code> (or <code>SessionManager&lt;T&gt;</code>) determines what data is stored in the session.\nBasic types like <code>String</code>, <code>Int</code>, <code>Long</code>, <code>Float</code>, <code>Double</code> and <code>Map[String, String]</code> (<code>Map&lt;String, String&gt;</code>) are supported out-of-the box.\nSupport for other types can be added by providing a (an implicit for scala) <code>SessionSerializer[T, String]</code> (<code>SessionSerializer&lt;T, String&gt;</code>). For case classes, it's most\nconvenient to use a <code>MultiValueSessionSerializer[T]</code> or (<code>MultiValueSessionSerializer&lt;T&gt;</code>) which should convert the instance into a <code>String -&gt; String</code> map\n(nested types are not supported on purpose, as session data should be small &amp; simple). Examples of <code>SessionSerializer</code> and <code>MultiValueSessionSerializer</code>\nusage can be found <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/scala/com/softwaremill/example/serializers\">here</a> for scala and <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/java/com/softwaremill/example/serializers\">here</a> for java.</p>\n<p dir=\"auto\">Here are code samples in <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/scala/com/softwaremill/example/session/manager/MyScalaSessionManager.scala\">scala</a> and <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/java/com/softwaremill/example/session/manager/MyJavaSessionManager.java\">java</a> illustrating how to create a session manager where the session content will be a single <code>Long</code> number.</p>\n<p dir=\"auto\">The basic directives enable you to set, read and invalidate the session. To create a new client-side session (create\nand set a new session cookie), you need to use the <code>setSession</code> directive. See how it's done in <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/java/com/softwaremill/example/session/SetSessionJava.java\">java</a> and <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/scala/com/softwaremill/example/session/SetSessionScala.scala\">scala</a>.</p>\n<p dir=\"auto\">Note that when using cookies, their size is limited to 4KB, so you shouldn't put too much data in there (the signature\ntakes about 50 characters).</p>\n<p dir=\"auto\">You can require a session to be present, optionally require a session or get a full description of possible session decode outcomes.\nCheck <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/java/com/softwaremill/example/session/VariousSessionsJava.java\">java</a> and <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/scala/com/softwaremill/example/session/VariousSessionsScala.scala\">scala</a> examples for details.</p>\n<p dir=\"auto\">If a required session is not present, by default a <code>403</code> HTTP status code is returned. Finally, a session can be invalidated. See how it's done in examples for <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/java/com/softwaremill/example/session/SessionInvalidationJava.java\">java</a> and <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/scala/com/softwaremill/example/session/SessionInvalidationScala.scala\">scala</a>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-encrypting-the-session\" class=\"anchor\" aria-hidden=\"true\" href=\"#encrypting-the-session\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Encrypting the session</h3>\n<p dir=\"auto\">It is possible to encrypt the session data by modifying the <code>akka.http.session.encrypt-data</code> config option. When\nsessions are encrypted, it's not possible to read their content on the client side.</p>\n<p dir=\"auto\">The key used for encrypting will be calculated basing on the server secret.</p>\n<h3 dir=\"auto\"><a id=\"user-content-session-expirytimeout\" class=\"anchor\" aria-hidden=\"true\" href=\"#session-expirytimeout\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Session expiry/timeout</h3>\n<p dir=\"auto\">By default, sessions expire after a week. This can be disabled or changed with the <code>akka.http.session.max-age</code> config\noption.</p>\n<p dir=\"auto\">Note that when using cookies, even though the cookie sent will be a session cookie, it is possible that the client\nwill have the browser open for a very long time, <a href=\"http://stackoverflow.com/questions/10617954/chrome-doesnt-delete-session-cookies\" rel=\"nofollow\">uses Chrome or FF</a>,\nor if an attacker steals the cookie, it can be re-used. Hence having an expiry date for sessions is highly recommended.</p>\n<h2 dir=\"auto\"><a id=\"user-content-jwt-encoding-sessions\" class=\"anchor\" aria-hidden=\"true\" href=\"#jwt-encoding-sessions\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>JWT: encoding sessions</h2>\n<p dir=\"auto\">By default, sessions are encoded into a string using a custom format, where expiry/data/signature parts are separated using <code>-</code>, and data fields are separated using <code>=</code> and url-encoded.</p>\n<p dir=\"auto\">You can also encode sessions in the <a href=\"http://jwt.io\" rel=\"nofollow\">Json Web Tokens</a> format, by adding the additional <code>jwt</code> dependency, which makes use of <a href=\"http://json4s.org\" rel=\"nofollow\"><code>json4s</code></a>.</p>\n<p dir=\"auto\">When using JWT, you need to provide a serializer which serializes session data to a <code>JValue</code> instead of a <code>String</code>.\nA number of serializers for the basic types are present in <code>JValueSessionSerializer</code>, as well as a generic serializer for case classes (used above).</p>\n<p dir=\"auto\">You may also find it helpful to include the json4s-ext library which provides serializers for common Java types such as  <code>java.util.UUID</code>, <code>org.joda.time._</code> and Java enumerations.</p>\n<p dir=\"auto\">Grab some <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/java/com/softwaremill/example/jwt/JavaJwtExample.java\">java</a> and <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/scala/com/softwaremill/example/serializers/JWTSerializersScala.scala\">scala</a> examples.</p>\n<p dir=\"auto\">There are many tools available to read JWT session data using various platforms, e.g.\n<a href=\"https://github.com/auth0/angular-jwt\">for Angular</a>.</p>\n<p dir=\"auto\">It is also possible to customize the session data content generated by overriding appropriate methods in\n<code>JwtSessionEncoder</code> (e.g. provide additional claims in the payload).</p>\n<h2 dir=\"auto\"><a id=\"user-content-registered-jwt-claims-support\" class=\"anchor\" aria-hidden=\"true\" href=\"#registered-jwt-claims-support\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Registered JWT claims support</h2>\n<p dir=\"auto\">This library supports all registered claims mentioned in <a href=\"https://tools.ietf.org/html/rfc7519#page-9\" rel=\"nofollow\">RFC 7519, Section 4.1</a>.</p>\n<p dir=\"auto\">Static claims such as <code>iss</code> (<em>Issuer</em>), <code>sub</code> (<em>Subject</em>) and <code>aud</code> (<em>Audience</em>) can be configured by setting <code>akka.http.session.jwt.iss</code>, <code>akka.http.session.jwt.sub</code> and <code>akka.http.session.jwt.aud</code> string properties, respectively.</p>\n<p dir=\"auto\">Because claims such as <code>exp</code> (<em>Expiration Time</em>) and <code>nbf</code> (<em>Not Before</em>) depend on the time at which the JWT was issued, configuration expects durations instead of fixed timestamps.\nEffective claim values are then calculated by adding these offsets to the current timestamp (the JWT's issue time).\nThe offset values are configured via keys defined under <code>akka.http.session.jwt.exp-timeout</code> and <code>akka.http.session.jwt.nbf-offset</code>.</p>\n<p dir=\"auto\">If <code>exp-timeout</code> is not defined, value of <code>akka.http.session.max-age</code> would be used instead.</p>\n<p dir=\"auto\"><code>iat</code> (<em>Issued At</em>) claim represents issue time and cannot be customized. Although you can decide to include this claim in your tokens or not by setting <code>akka.http.session.jwt.include-iat</code> to <code>true</code> or <code>false</code>. By default, this claim is not included.</p>\n<p dir=\"auto\"><code>jti</code> (<em>JWT ID</em>) claim is a case-sensitive string containing a unique identifier for the JWT. It must be unique per token and collisions must be prevented even among values produced by different issuers.\nAkka-http-session will compute and include <code>jti</code> claim if <code>akka.http.session.jwt.include-jti</code> is set to <code>true</code> (it's disabled by default).\nToken ids are generated using the below scheme:</p>\n<p dir=\"auto\"><code>&lt;iss claim value&gt;-&lt;random UUID&gt;</code> or just <code>&lt;random UUID&gt;</code>, depending on the <code>iss</code> claim presence.</p>\n<p dir=\"auto\">You can find a sample claims configuration below:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"akka.http.session {\n  jwt {\n    iss = &quot;Issuer&quot;\n    sub = &quot;Subject&quot;\n    aud = &quot;Audience&quot;\n    exp-timeout = 7 days\n    nbf-offset = 5 minutes\n    include-iat = true\n    include-jti = true\n  }\n}\n\"><pre lang=\"hocon\"><code>akka.http.session {\n  jwt {\n    iss = \"Issuer\"\n    sub = \"Subject\"\n    aud = \"Audience\"\n    exp-timeout = 7 days\n    nbf-offset = 5 minutes\n    include-iat = true\n    include-jti = true\n  }\n}\n\n</code></pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-signing-session-using-a-configurable-algorithm\" class=\"anchor\" aria-hidden=\"true\" href=\"#signing-session-using-a-configurable-algorithm\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Signing session using a configurable algorithm</h2>\n<p dir=\"auto\">In the case of JWT, it's possible to configure which JWS algorithm should be used. Currently, supported ones are:</p>\n<ul dir=\"auto\">\n<li><code>HS256</code> - HMAC using SHA-256 (used by default)</li>\n<li><code>RS256</code> - RSA (RSASSA-PKCS1-v1_5) using SHA-256</li>\n</ul>\n<p dir=\"auto\">All non-JWT sessions use HMAC with SHA-256 and this cannot be configured.</p>\n<h3 dir=\"auto\"><a id=\"user-content-configuring-jws-for-json-web-tokens-only\" class=\"anchor\" aria-hidden=\"true\" href=\"#configuring-jws-for-json-web-tokens-only\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Configuring JWS (for JSON Web Tokens only)</h3>\n<p dir=\"auto\">In order to start using RSA algorithm you have to configure <code>akka.http.session.jws.alg</code> and <code>akka.http.session.jws.rsa-private-key</code> properties:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"akka.http.session {\n  jws {\n    alg = &quot;RS256&quot;\n    rsa-private-key = &quot;&lt;your private PKCS#8 key goes here&gt;&quot;\n  }\n}\"><pre lang=\"hocon\"><code>akka.http.session {\n  jws {\n    alg = \"RS256\"\n    rsa-private-key = \"&lt;your private PKCS#8 key goes here&gt;\"\n  }\n}\n</code></pre></div>\n<p dir=\"auto\">Because <code>HS256</code> is used by default you may skip the <code>jws</code> configuration and rely on a reference configuration delivered with the library.\nAlternatively, if you prefer to be more explicit, you might follow this configuration template:</p>\n<div class=\"snippet-clipboard-content position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"akka.http.session {\n  server-secret = &quot;&lt;at least 64-digits length secret goes here&gt;&quot;\n  jws {\n    alg = &quot;HS256&quot;\n  }\n}\"><pre lang=\"hocon\"><code>akka.http.session {\n  server-secret = \"&lt;at least 64-digits length secret goes here&gt;\"\n  jws {\n    alg = \"HS256\"\n  }\n}\n</code></pre></div>\n<p dir=\"auto\">You might notice that even if you want to sign your sessions using RSA key and encryption is disabled, you still have to define the server-secret property.</p>\n<p dir=\"auto\">That's because all non-JWT sessions still depend on HMAC with SHA256 algorithm which requires the server secret and the library cannot determine which session encoder(s) will be used (it's specified in the client's code).</p>\n<h2 dir=\"auto\"><a id=\"user-content-csrf-protection-cookie-transport-only\" class=\"anchor\" aria-hidden=\"true\" href=\"#csrf-protection-cookie-transport-only\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>CSRF protection (cookie transport only)</h2>\n<p dir=\"auto\">CSRF is a kind of an attack where an attacker issues a <code>GET</code> or <code>POST</code> request on behalf of a user, if the user e.g.\nclicks on a specially constructed link. See the <a href=\"https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet\" rel=\"nofollow\">OWASP page</a>\nor the <a href=\"https://www.playframework.com/documentation/2.2.x/JavaCsrf\" rel=\"nofollow\">Play! docs</a> for a thorough introduction.</p>\n<p dir=\"auto\">Web apps which use cookies for session management should be protected against CSRF attacks. This implementation:</p>\n<ul dir=\"auto\">\n<li>assumes that <code>GET</code> requests are non-mutating (have no side effects)</li>\n<li>uses double-submit cookies to verify requests</li>\n<li>requires the token to be set in a custom header or (optionally) in a form field</li>\n<li>generates a new token on the first <code>GET</code> request that doesn't have the token cookie set</li>\n</ul>\n<p dir=\"auto\">Note that if the token is passed in a form field, the website isn't protected by HTTPS or you don't control all\nsubdomains, this scheme <a href=\"http://security.stackexchange.com/questions/59470/double-submit-cookies-vulnerabilities/61039#61039\" rel=\"nofollow\">can be broken</a>.\nCurrently, setting a custom header seems to be a secure solution, and is what a number of projects do (that's why, when\nusing custom headers to send session data, no additional protection is needed).</p>\n<p dir=\"auto\">It is recommended to generate a new CSRF token after logging in, see <a href=\"http://security.stackexchange.com/questions/22903/why-refresh-csrf-token-per-form-request\" rel=\"nofollow\">this SO question</a>.\nA new token can be generated using the <code>setNewCsrfToken</code> directive.</p>\n<p dir=\"auto\">By default the name of the CSRF cookie and the custom header matches what <a href=\"https://docs.angularjs.org/api/ng/service/$http\" rel=\"nofollow\">AngularJS expects and sets</a>.\nThese can be customized in the config.</p>\n<h2 dir=\"auto\"><a id=\"user-content-refresh-tokens-aka-remember-me\" class=\"anchor\" aria-hidden=\"true\" href=\"#refresh-tokens-aka-remember-me\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Refresh tokens (a.k.a \"remember me\")</h2>\n<p dir=\"auto\">If you'd like to implement persistent, \"remember-me\" sessions, you should use <code>refreshable</code> instead of <code>oneOff</code>\nsessions. This is especially useful in mobile applications, where you log in once, and the session is remembered for\na long time. Make sure to adjust the <code>akka.http.session.refresh-token.max-age</code> config option appropriately\n(defaults to 1 month)!</p>\n<p dir=\"auto\">You can dynamically decide, basing on the request properties (e.g. a query parameter), if a session should be\nrefreshable or not. Just pass the right parameter to <code>setSession</code>.</p>\n<p dir=\"auto\">When using refreshable sessions, in addition to an (implicit) <code>SessionManager</code> instance, you need to provide an\nimplementation of the <code>RefreshTokenStorage</code> trait. This trait has methods to lookup, store and delete refresh tokens.\nTypically it would use some persistent storage.</p>\n<p dir=\"auto\">The tokens are never stored directly, instead only token hashes are passed to the storage. That way even if the token\ndatabase is leaked, it won't be possible to forge sessions using the hashes. Moreover, in addition to the token hash,\na selector value is stored. That value is used to lookup stored hashes; tokens are compared using a special\nconstant-time comparison method, to prevent timing attacks.</p>\n<p dir=\"auto\">When a session expires or is not present, but the refresh token is (sent from the client using either a cookie,\nor a custom header), a new session will be created (using the <code>RefreshTokenLookupResult.createSession</code> function),\nand a new refresh token will be created.</p>\n<p dir=\"auto\">Note that you can differentiate between sessions created from refresh tokens and from regular authentication\nby storing appropriate information in the session data. That way, you can force the user to re-authenticate\nif the session was created by a refresh token before crucial operations.</p>\n<p dir=\"auto\">It is of course possible to read <code>oneOff</code>-session using <code>requiredSession(refreshable, ...)</code>. If a session was created\nas <code>oneOff</code>, using <code>refreshable</code> has no additional effect.</p>\n<h3 dir=\"auto\"><a id=\"user-content-touching-sessions\" class=\"anchor\" aria-hidden=\"true\" href=\"#touching-sessions\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Touching sessions</h3>\n<p dir=\"auto\">The semantics of <code>touch[Required|Optional]Session()</code> are a bit subtle. You can still use expiring client\nsessions when using refresh tokens. You will then have 2 stages of expiration: expiration of the client session\n(should be shorter), and expiry of the refresh token. That way you can have strongly-authenticated sessions\nwhich expire fast, and weaker-authenticated re-creatable sessions (as described in the paragraph above).</p>\n<p dir=\"auto\">When touching an existing session, the refresh token will not be re-generated and extended, only the session\ncookie.</p>\n<h2 dir=\"auto\"><a id=\"user-content-links\" class=\"anchor\" aria-hidden=\"true\" href=\"#links\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Links</h2>\n<ul dir=\"auto\">\n<li><a href=\"https://github.com/softwaremill/bootzooka\">Bootzooka</a>, a web application template project using <code>akka-http</code> and <code>akka-http-session</code></li>\n<li><a href=\"https://github.com/gnieh/spray-session\">Spray session</a>, similar project for spray.io</li>\n<li><a href=\"https://github.com/enetsee/Spray-SPA\">Spray SPA</a>, a single-page-application demo built using spray.io, also\ncontaining an implementation of client-side sessions</li>\n<li><a href=\"https://playframework.com\" rel=\"nofollow\">Play framework</a>, a full web framework, from which parts of the session encoding/decoding\ncode was taken</li>\n<li><a href=\"http://guides.rubyonrails.org/security.html#session-storage\" rel=\"nofollow\">Rails security guide</a>, a description of how sessions are\nstored in Rails</li>\n<li><a href=\"https://github.com/akka/akka-http/issues/114\">Akka-Http issue 114</a> for implementing similar functionality straight in Akka-Http</li>\n<li><a href=\"https://paragonie.com/blog/2015/04/secure-authentication-php-with-long-term-persistence#title.2\" rel=\"nofollow\">Implementing remember me</a></li>\n<li><a href=\"http://stackoverflow.com/questions/549/the-definitive-guide-to-form-based-website-authentication\" rel=\"nofollow\">The definitive guide to form-based website authorization</a></li>\n<li><a href=\"https://scotch.io/tutorials/the-anatomy-of-a-json-web-token\" rel=\"nofollow\">The Anatomy of a JSON Web Token</a></li>\n<li><a href=\"https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/\" rel=\"nofollow\">Cookies vs tokens</a></li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-using-from-sbt\" class=\"anchor\" aria-hidden=\"true\" href=\"#using-from-sbt\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Using from SBT</h2>\n<p dir=\"auto\">For <code>akka-http</code> version <code>10+</code>:</p>\n<div class=\"highlight highlight-source-scala position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;com.softwaremill.akka-http-session&quot; %% &quot;core&quot; % &quot;0.7.0&quot;\nlibraryDependencies += &quot;com.softwaremill.akka-http-session&quot; %% &quot;jwt&quot;  % &quot;0.7.0&quot; // optional\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.softwaremill.akka-http-session<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>core<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.7.0<span class=\"pl-pds\">\"</span></span>\nlibraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.softwaremill.akka-http-session<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>jwt<span class=\"pl-pds\">\"</span></span>  <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.7.0<span class=\"pl-pds\">\"</span></span> <span class=\"pl-c\"><span class=\"pl-c\">//</span> optional</span></pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-updating\" class=\"anchor\" aria-hidden=\"true\" href=\"#updating\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Updating</h2>\n<p dir=\"auto\">Certain releases changed the client token encoding/serialization. In those cases, it's important to enable the appropriate\ntoken migrations, otherwise existing client sessions will be invalid (and your users will be logged out).</p>\n<p dir=\"auto\">When updating from a version before 0.5.3, set <code>akka.http.session.token-migration.v0-5-3.enabled = true</code>.</p>\n<p dir=\"auto\">When updating from a version before 0.5.2, set <code>akka.http.session.token-migration.v0-5-2.enabled = true</code>.</p>\n<p dir=\"auto\">Note that when updating through multiple releases, be sure to enable all the appropriate migrations.</p>\n<p dir=\"auto\">For versions prior to 0.5.0, no migration path is provided. However, you can implement your own encoders/serializers\nto support migrating from whatever version you are using.</p>\n<p dir=\"auto\">Since token changes may be security related, migrations should be enabled for the shortest period of time\nafter which the vast majority of client tokens have been migrated.</p>\n<h2 dir=\"auto\"><a id=\"user-content-commercial-support\" class=\"anchor\" aria-hidden=\"true\" href=\"#commercial-support\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Commercial Support</h2>\n<p dir=\"auto\">We offer commercial support for akka-http-session and related technologies, as well as development services. <a href=\"https://softwaremill.com\" rel=\"nofollow\">Contact us</a> to learn more about our offer!</p>\n<h2 dir=\"auto\"><a id=\"user-content-copyright\" class=\"anchor\" aria-hidden=\"true\" href=\"#copyright\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Copyright</h2>\n<p dir=\"auto\">Copyright (C) 2016-2021 SoftwareMill <a href=\"https://softwaremill.com\" rel=\"nofollow\">https://softwaremill.com</a>.</p>\n</article></div>",
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/softwaremill/akka-http-session/raw/master/banner.png\"><img src=\"https://github.com/softwaremill/akka-http-session/raw/master/banner.png\" alt=\"akka-http-session\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\"><a href=\"https://travis-ci.org/softwaremill/akka-http-session\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/9d81d11af11c89525f230fca237743a086c63e9598aa1bd8c701f32721f788d9/68747470733a2f2f7472617669732d63692e6f72672f736f6674776172656d696c6c2f616b6b612d687474702d73657373696f6e2e7376673f6272616e63683d6d6173746572\" alt=\"Build Status\" data-canonical-src=\"https://travis-ci.org/softwaremill/akka-http-session.svg?branch=master\" style=\"max-width: 100%;\"></a>\n<a href=\"https://gitter.im/softwaremill/akka-http-session?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/5dbac0213da25c445bd11f168587c11a200ba153ef3014e8408e462e410169b3/68747470733a2f2f6261646765732e6769747465722e696d2f4a6f696e253230436861742e737667\" alt=\"Join the chat at https://gitter.im/softwaremill/akka-http-session\" data-canonical-src=\"https://badges.gitter.im/Join%20Chat.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://maven-badges.herokuapp.com/maven-central/com.softwaremill.akka-http-session/core_2.12\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/06a1420460c156aa781dc3edaf116e54b83fa8893692fb61e09c294fe1bead6a/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f636f6d2e736f6674776172656d696c6c2e616b6b612d687474702d73657373696f6e2f636f72655f322e31322f62616467652e737667\" alt=\"Maven Central\" data-canonical-src=\"https://maven-badges.herokuapp.com/maven-central/com.softwaremill.akka-http-session/core_2.12/badge.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\"><a href=\"https://doc.akka.io/docs/akka-http/current/index.html\" rel=\"nofollow\"><code>akka-http</code></a> is an Akka\nmodule, originating from <a href=\"http://spray.io\" rel=\"nofollow\">spray.io</a>, for building <em>reactive</em> REST services with an elegant DSL.</p>\n<p dir=\"auto\"><code>akka-http</code> is a great toolkit for building backends for single-page or mobile applications. In almost all apps there\nis a need to maintain user sessions, make sure session data is secure and cannot be tampered with.</p>\n<p dir=\"auto\"><code>akka-http-session</code> provides directives for client-side session management in web and mobile applications, using cookies\nor custom headers + local storage, with optional <a href=\"http://jwt.io/\" rel=\"nofollow\">Json Web Tokens</a> format support.</p>\n<p dir=\"auto\">A <a href=\"https://github.com/softwaremill/akka-http-session-faq\">comprehensive FAQ</a> is available, along with code examples (in Java, but easy to translate to Scala) which answers many common questions on how sessions work, how to secure them and implement using akka-http.</p>\n<h2 dir=\"auto\"><a id=\"user-content-what-is-a-session\" class=\"anchor\" aria-hidden=\"true\" href=\"#what-is-a-session\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>What is a session?</h2>\n<p dir=\"auto\">Session data typically contains at least the <code>id</code> or <code>username</code> of the logged in user. This id must be secured so that a\nsession cannot be \"stolen\" or forged easily.</p>\n<p dir=\"auto\">Sessions can be stored on the server, either in-memory or in a database, with the session <code>id</code> sent to the client,\nor entirely on the client in a serialized format. The former approach requires sticky sessions or additional shared\nstorage, while using the latter (which is supported by this library) sessions can be easily deserialized on any server.</p>\n<p dir=\"auto\">A session is a string token which is sent to the client and should be sent back to the server on every request.</p>\n<p dir=\"auto\">To prevent forging, serialized session data is <strong>signed</strong> using a server secret. The signature is appended to the\nsession data that is sent to the client, and verified when the session token is received back.</p>\n<h2 dir=\"auto\"><a id=\"user-content-akka-http-session-features\" class=\"anchor\" aria-hidden=\"true\" href=\"#akka-http-session-features\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><code>akka-http-session</code> features</h2>\n<ul dir=\"auto\">\n<li>type-safe client-side sessions</li>\n<li>sessions can be encrypted</li>\n<li>sessions contain an expiry date</li>\n<li>cookie or custom header transport</li>\n<li>support for <a href=\"http://jwt.io/\" rel=\"nofollow\">JWT</a></li>\n<li>refresh token support (e.g. to implement \"remember me\")</li>\n<li>CSRF tokens support</li>\n<li>Java &amp; Scala APIs</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-example\" class=\"anchor\" aria-hidden=\"true\" href=\"#example\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Example</h2>\n<p dir=\"auto\">You can try out a simple example by running <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/scala/com/softwaremill/example/ScalaExample.scala\"><code>com.softwaremill.example.ScalaExample</code></a> or <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/java/com/softwaremill/example/JavaExample.java\"><code>com.softwaremill.example.JavaExample</code></a> and opening <a href=\"http://localhost:8080\" rel=\"nofollow\">http://localhost:8080</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-sessionmanager--configuration\" class=\"anchor\" aria-hidden=\"true\" href=\"#sessionmanager--configuration\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><code>SessionManager</code> &amp; configuration</h2>\n<p dir=\"auto\">All directives require an (implicit for scala) instance of a <code>SessionManager[T]</code> (or <code>SessionManager&lt;T&gt;</code>), which can be created by providing a server\nsecret (via a <code>SessionConfig</code>). The secret should be a long, random string unique to each environment your app is\nrunning in. You can generate one with <code>SessionUtil.randomServerSecret()</code>. Note that when you change the secret,\nall sessions will become invalid.</p>\n<p dir=\"auto\">A <code>SessionConfig</code> instance can be created using <a href=\"https://github.com/typesafehub/config\">Typesafe config</a>.\nThe only value that you need to provide is <code>akka.http.session.server-secret</code>,\npreferably via <code>application.conf</code> (then you can safely call <code>SessionConfig.fromConfig</code>) or by using\n<code>SessionConfig.default()</code>.</p>\n<p dir=\"auto\">You can customize any of the <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/core/src/main/resources/reference.conf\">default config options</a>\neither by modifying them through <code>application.conf</code> or by modifying the <code>SessionConfig</code> case class. If a value has\ntype <code>Option[]</code>, you can set it to <code>None</code> by using a <code>none</code> value in the config file (for both java and scala).</p>\n<p dir=\"auto\">When using cookies, by default the <code>secure</code> attribute of cookies is not set (for development), however it is\nrecommended that all sites use <code>https</code> and all cookies have this attribute set.</p>\n<h2 dir=\"auto\"><a id=\"user-content-client-side-sessions\" class=\"anchor\" aria-hidden=\"true\" href=\"#client-side-sessions\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Client-side sessions</h2>\n<p dir=\"auto\">All session-related directives take at least two parameters:</p>\n<ul dir=\"auto\">\n<li>session continuity: <code>oneOff</code> vs <code>refreshable</code>; specifies what should happen when the session expires. If <code>refreshable</code>\nand a refresh token is present, the session will be re-created. See below for details.</li>\n<li>session transport: <code>usingCookies</code> vs <code>usingHeaders</code></li>\n</ul>\n<p dir=\"auto\">Typically, you would create aliases for the session-related directives which use the right parameters basing on the\ncurrent request and logic specific to your application.</p>\n<h3 dir=\"auto\"><a id=\"user-content-cookies-vs-header\" class=\"anchor\" aria-hidden=\"true\" href=\"#cookies-vs-header\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Cookies vs header</h3>\n<p dir=\"auto\">Session data can be sent to the client using cookies or custom headers. The first approach is the simplest to use,\nas cookies are automatically sent to the server on each request.</p>\n<p dir=\"auto\">However, cookies have some security vulnerabilities, and are typically not used in mobile applications. For these\nscenarios, session data can be transported using custom headers (the names of the headers are configurable in\nthe config).</p>\n<p dir=\"auto\">When using headers, you need to store the session (and, if used, refresh-) tokens yourself. These tokens can be\nstored in-memory, or persistently e.g. using the browser's local storage.</p>\n<p dir=\"auto\">You can dynamically decide which transport to use, basing e.g. on the user-agent or other request properties.</p>\n<h3 dir=\"auto\"><a id=\"user-content-basic-usage\" class=\"anchor\" aria-hidden=\"true\" href=\"#basic-usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Basic usage</h3>\n<p dir=\"auto\">Sessions are typed. The <code>T</code> type parameter in <code>SessionManager[T]</code> (or <code>SessionManager&lt;T&gt;</code>) determines what data is stored in the session.\nBasic types like <code>String</code>, <code>Int</code>, <code>Long</code>, <code>Float</code>, <code>Double</code> and <code>Map[String, String]</code> (<code>Map&lt;String, String&gt;</code>) are supported out-of-the box.\nSupport for other types can be added by providing a (an implicit for scala) <code>SessionSerializer[T, String]</code> (<code>SessionSerializer&lt;T, String&gt;</code>). For case classes, it's most\nconvenient to use a <code>MultiValueSessionSerializer[T]</code> or (<code>MultiValueSessionSerializer&lt;T&gt;</code>) which should convert the instance into a <code>String -&gt; String</code> map\n(nested types are not supported on purpose, as session data should be small &amp; simple). Examples of <code>SessionSerializer</code> and <code>MultiValueSessionSerializer</code>\nusage can be found <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/scala/com/softwaremill/example/serializers\">here</a> for scala and <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/java/com/softwaremill/example/serializers\">here</a> for java.</p>\n<p dir=\"auto\">Here are code samples in <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/scala/com/softwaremill/example/session/manager/MyScalaSessionManager.scala\">scala</a> and <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/java/com/softwaremill/example/session/manager/MyJavaSessionManager.java\">java</a> illustrating how to create a session manager where the session content will be a single <code>Long</code> number.</p>\n<p dir=\"auto\">The basic directives enable you to set, read and invalidate the session. To create a new client-side session (create\nand set a new session cookie), you need to use the <code>setSession</code> directive. See how it's done in <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/java/com/softwaremill/example/session/SetSessionJava.java\">java</a> and <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/scala/com/softwaremill/example/session/SetSessionScala.scala\">scala</a>.</p>\n<p dir=\"auto\">Note that when using cookies, their size is limited to 4KB, so you shouldn't put too much data in there (the signature\ntakes about 50 characters).</p>\n<p dir=\"auto\">You can require a session to be present, optionally require a session or get a full description of possible session decode outcomes.\nCheck <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/java/com/softwaremill/example/session/VariousSessionsJava.java\">java</a> and <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/scala/com/softwaremill/example/session/VariousSessionsScala.scala\">scala</a> examples for details.</p>\n<p dir=\"auto\">If a required session is not present, by default a <code>403</code> HTTP status code is returned. Finally, a session can be invalidated. See how it's done in examples for <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/java/com/softwaremill/example/session/SessionInvalidationJava.java\">java</a> and <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/scala/com/softwaremill/example/session/SessionInvalidationScala.scala\">scala</a>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-encrypting-the-session\" class=\"anchor\" aria-hidden=\"true\" href=\"#encrypting-the-session\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Encrypting the session</h3>\n<p dir=\"auto\">It is possible to encrypt the session data by modifying the <code>akka.http.session.encrypt-data</code> config option. When\nsessions are encrypted, it's not possible to read their content on the client side.</p>\n<p dir=\"auto\">The key used for encrypting will be calculated basing on the server secret.</p>\n<h3 dir=\"auto\"><a id=\"user-content-session-expirytimeout\" class=\"anchor\" aria-hidden=\"true\" href=\"#session-expirytimeout\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Session expiry/timeout</h3>\n<p dir=\"auto\">By default, sessions expire after a week. This can be disabled or changed with the <code>akka.http.session.max-age</code> config\noption.</p>\n<p dir=\"auto\">Note that when using cookies, even though the cookie sent will be a session cookie, it is possible that the client\nwill have the browser open for a very long time, <a href=\"http://stackoverflow.com/questions/10617954/chrome-doesnt-delete-session-cookies\" rel=\"nofollow\">uses Chrome or FF</a>,\nor if an attacker steals the cookie, it can be re-used. Hence having an expiry date for sessions is highly recommended.</p>\n<h2 dir=\"auto\"><a id=\"user-content-jwt-encoding-sessions\" class=\"anchor\" aria-hidden=\"true\" href=\"#jwt-encoding-sessions\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>JWT: encoding sessions</h2>\n<p dir=\"auto\">By default, sessions are encoded into a string using a custom format, where expiry/data/signature parts are separated using <code>-</code>, and data fields are separated using <code>=</code> and url-encoded.</p>\n<p dir=\"auto\">You can also encode sessions in the <a href=\"http://jwt.io\" rel=\"nofollow\">Json Web Tokens</a> format, by adding the additional <code>jwt</code> dependency, which makes use of <a href=\"http://json4s.org\" rel=\"nofollow\"><code>json4s</code></a>.</p>\n<p dir=\"auto\">When using JWT, you need to provide a serializer which serializes session data to a <code>JValue</code> instead of a <code>String</code>.\nA number of serializers for the basic types are present in <code>JValueSessionSerializer</code>, as well as a generic serializer for case classes (used above).</p>\n<p dir=\"auto\">You may also find it helpful to include the json4s-ext library which provides serializers for common Java types such as  <code>java.util.UUID</code>, <code>org.joda.time._</code> and Java enumerations.</p>\n<p dir=\"auto\">Grab some <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/java/com/softwaremill/example/jwt/JavaJwtExample.java\">java</a> and <a href=\"https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/scala/com/softwaremill/example/serializers/JWTSerializersScala.scala\">scala</a> examples.</p>\n<p dir=\"auto\">There are many tools available to read JWT session data using various platforms, e.g.\n<a href=\"https://github.com/auth0/angular-jwt\">for Angular</a>.</p>\n<p dir=\"auto\">It is also possible to customize the session data content generated by overriding appropriate methods in\n<code>JwtSessionEncoder</code> (e.g. provide additional claims in the payload).</p>\n<h2 dir=\"auto\"><a id=\"user-content-registered-jwt-claims-support\" class=\"anchor\" aria-hidden=\"true\" href=\"#registered-jwt-claims-support\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Registered JWT claims support</h2>\n<p dir=\"auto\">This library supports all registered claims mentioned in <a href=\"https://tools.ietf.org/html/rfc7519#page-9\" rel=\"nofollow\">RFC 7519, Section 4.1</a>.</p>\n<p dir=\"auto\">Static claims such as <code>iss</code> (<em>Issuer</em>), <code>sub</code> (<em>Subject</em>) and <code>aud</code> (<em>Audience</em>) can be configured by setting <code>akka.http.session.jwt.iss</code>, <code>akka.http.session.jwt.sub</code> and <code>akka.http.session.jwt.aud</code> string properties, respectively.</p>\n<p dir=\"auto\">Because claims such as <code>exp</code> (<em>Expiration Time</em>) and <code>nbf</code> (<em>Not Before</em>) depend on the time at which the JWT was issued, configuration expects durations instead of fixed timestamps.\nEffective claim values are then calculated by adding these offsets to the current timestamp (the JWT's issue time).\nThe offset values are configured via keys defined under <code>akka.http.session.jwt.exp-timeout</code> and <code>akka.http.session.jwt.nbf-offset</code>.</p>\n<p dir=\"auto\">If <code>exp-timeout</code> is not defined, value of <code>akka.http.session.max-age</code> would be used instead.</p>\n<p dir=\"auto\"><code>iat</code> (<em>Issued At</em>) claim represents issue time and cannot be customized. Although you can decide to include this claim in your tokens or not by setting <code>akka.http.session.jwt.include-iat</code> to <code>true</code> or <code>false</code>. By default, this claim is not included.</p>\n<p dir=\"auto\"><code>jti</code> (<em>JWT ID</em>) claim is a case-sensitive string containing a unique identifier for the JWT. It must be unique per token and collisions must be prevented even among values produced by different issuers.\nAkka-http-session will compute and include <code>jti</code> claim if <code>akka.http.session.jwt.include-jti</code> is set to <code>true</code> (it's disabled by default).\nToken ids are generated using the below scheme:</p>\n<p dir=\"auto\"><code>&lt;iss claim value&gt;-&lt;random UUID&gt;</code> or just <code>&lt;random UUID&gt;</code>, depending on the <code>iss</code> claim presence.</p>\n<p dir=\"auto\">You can find a sample claims configuration below:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"akka.http.session {\n  jwt {\n    iss = &quot;Issuer&quot;\n    sub = &quot;Subject&quot;\n    aud = &quot;Audience&quot;\n    exp-timeout = 7 days\n    nbf-offset = 5 minutes\n    include-iat = true\n    include-jti = true\n  }\n}\n\"><pre lang=\"hocon\" class=\"notranslate\"><code>akka.http.session {\n  jwt {\n    iss = \"Issuer\"\n    sub = \"Subject\"\n    aud = \"Audience\"\n    exp-timeout = 7 days\n    nbf-offset = 5 minutes\n    include-iat = true\n    include-jti = true\n  }\n}\n\n</code></pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-signing-session-using-a-configurable-algorithm\" class=\"anchor\" aria-hidden=\"true\" href=\"#signing-session-using-a-configurable-algorithm\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Signing session using a configurable algorithm</h2>\n<p dir=\"auto\">In the case of JWT, it's possible to configure which JWS algorithm should be used. Currently, supported ones are:</p>\n<ul dir=\"auto\">\n<li><code>HS256</code> - HMAC using SHA-256 (used by default)</li>\n<li><code>RS256</code> - RSA (RSASSA-PKCS1-v1_5) using SHA-256</li>\n</ul>\n<p dir=\"auto\">All non-JWT sessions use HMAC with SHA-256 and this cannot be configured.</p>\n<h3 dir=\"auto\"><a id=\"user-content-configuring-jws-for-json-web-tokens-only\" class=\"anchor\" aria-hidden=\"true\" href=\"#configuring-jws-for-json-web-tokens-only\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Configuring JWS (for JSON Web Tokens only)</h3>\n<p dir=\"auto\">In order to start using RSA algorithm you have to configure <code>akka.http.session.jws.alg</code> and <code>akka.http.session.jws.rsa-private-key</code> properties:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"akka.http.session {\n  jws {\n    alg = &quot;RS256&quot;\n    rsa-private-key = &quot;&lt;your private PKCS#8 key goes here&gt;&quot;\n  }\n}\"><pre lang=\"hocon\" class=\"notranslate\"><code>akka.http.session {\n  jws {\n    alg = \"RS256\"\n    rsa-private-key = \"&lt;your private PKCS#8 key goes here&gt;\"\n  }\n}\n</code></pre></div>\n<p dir=\"auto\">Because <code>HS256</code> is used by default you may skip the <code>jws</code> configuration and rely on a reference configuration delivered with the library.\nAlternatively, if you prefer to be more explicit, you might follow this configuration template:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"akka.http.session {\n  server-secret = &quot;&lt;at least 64-digits length secret goes here&gt;&quot;\n  jws {\n    alg = &quot;HS256&quot;\n  }\n}\"><pre lang=\"hocon\" class=\"notranslate\"><code>akka.http.session {\n  server-secret = \"&lt;at least 64-digits length secret goes here&gt;\"\n  jws {\n    alg = \"HS256\"\n  }\n}\n</code></pre></div>\n<p dir=\"auto\">You might notice that even if you want to sign your sessions using RSA key and encryption is disabled, you still have to define the server-secret property.</p>\n<p dir=\"auto\">That's because all non-JWT sessions still depend on HMAC with SHA256 algorithm which requires the server secret and the library cannot determine which session encoder(s) will be used (it's specified in the client's code).</p>\n<h2 dir=\"auto\"><a id=\"user-content-csrf-protection-cookie-transport-only\" class=\"anchor\" aria-hidden=\"true\" href=\"#csrf-protection-cookie-transport-only\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>CSRF protection (cookie transport only)</h2>\n<p dir=\"auto\">CSRF is a kind of an attack where an attacker issues a <code>GET</code> or <code>POST</code> request on behalf of a user, if the user e.g.\nclicks on a specially constructed link. See the <a href=\"https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet\" rel=\"nofollow\">OWASP page</a>\nor the <a href=\"https://www.playframework.com/documentation/2.2.x/JavaCsrf\" rel=\"nofollow\">Play! docs</a> for a thorough introduction.</p>\n<p dir=\"auto\">Web apps which use cookies for session management should be protected against CSRF attacks. This implementation:</p>\n<ul dir=\"auto\">\n<li>assumes that <code>GET</code> requests are non-mutating (have no side effects)</li>\n<li>uses double-submit cookies to verify requests</li>\n<li>requires the token to be set in a custom header or (optionally) in a form field</li>\n<li>generates a new token on the first <code>GET</code> request that doesn't have the token cookie set</li>\n</ul>\n<p dir=\"auto\">Note that if the token is passed in a form field, the website isn't protected by HTTPS or you don't control all\nsubdomains, this scheme <a href=\"http://security.stackexchange.com/questions/59470/double-submit-cookies-vulnerabilities/61039#61039\" rel=\"nofollow\">can be broken</a>.\nCurrently, setting a custom header seems to be a secure solution, and is what a number of projects do (that's why, when\nusing custom headers to send session data, no additional protection is needed).</p>\n<p dir=\"auto\">It is recommended to generate a new CSRF token after logging in, see <a href=\"http://security.stackexchange.com/questions/22903/why-refresh-csrf-token-per-form-request\" rel=\"nofollow\">this SO question</a>.\nA new token can be generated using the <code>setNewCsrfToken</code> directive.</p>\n<p dir=\"auto\">By default the name of the CSRF cookie and the custom header matches what <a href=\"https://docs.angularjs.org/api/ng/service/$http\" rel=\"nofollow\">AngularJS expects and sets</a>.\nThese can be customized in the config.</p>\n<h2 dir=\"auto\"><a id=\"user-content-refresh-tokens-aka-remember-me\" class=\"anchor\" aria-hidden=\"true\" href=\"#refresh-tokens-aka-remember-me\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Refresh tokens (a.k.a \"remember me\")</h2>\n<p dir=\"auto\">If you'd like to implement persistent, \"remember-me\" sessions, you should use <code>refreshable</code> instead of <code>oneOff</code>\nsessions. This is especially useful in mobile applications, where you log in once, and the session is remembered for\na long time. Make sure to adjust the <code>akka.http.session.refresh-token.max-age</code> config option appropriately\n(defaults to 1 month)!</p>\n<p dir=\"auto\">You can dynamically decide, basing on the request properties (e.g. a query parameter), if a session should be\nrefreshable or not. Just pass the right parameter to <code>setSession</code>.</p>\n<p dir=\"auto\">When using refreshable sessions, in addition to an (implicit) <code>SessionManager</code> instance, you need to provide an\nimplementation of the <code>RefreshTokenStorage</code> trait. This trait has methods to lookup, store and delete refresh tokens.\nTypically it would use some persistent storage.</p>\n<p dir=\"auto\">The tokens are never stored directly, instead only token hashes are passed to the storage. That way even if the token\ndatabase is leaked, it won't be possible to forge sessions using the hashes. Moreover, in addition to the token hash,\na selector value is stored. That value is used to lookup stored hashes; tokens are compared using a special\nconstant-time comparison method, to prevent timing attacks.</p>\n<p dir=\"auto\">When a session expires or is not present, but the refresh token is (sent from the client using either a cookie,\nor a custom header), a new session will be created (using the <code>RefreshTokenLookupResult.createSession</code> function),\nand a new refresh token will be created.</p>\n<p dir=\"auto\">Note that you can differentiate between sessions created from refresh tokens and from regular authentication\nby storing appropriate information in the session data. That way, you can force the user to re-authenticate\nif the session was created by a refresh token before crucial operations.</p>\n<p dir=\"auto\">It is of course possible to read <code>oneOff</code>-session using <code>requiredSession(refreshable, ...)</code>. If a session was created\nas <code>oneOff</code>, using <code>refreshable</code> has no additional effect.</p>\n<h3 dir=\"auto\"><a id=\"user-content-touching-sessions\" class=\"anchor\" aria-hidden=\"true\" href=\"#touching-sessions\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Touching sessions</h3>\n<p dir=\"auto\">The semantics of <code>touch[Required|Optional]Session()</code> are a bit subtle. You can still use expiring client\nsessions when using refresh tokens. You will then have 2 stages of expiration: expiration of the client session\n(should be shorter), and expiry of the refresh token. That way you can have strongly-authenticated sessions\nwhich expire fast, and weaker-authenticated re-creatable sessions (as described in the paragraph above).</p>\n<p dir=\"auto\">When touching an existing session, the refresh token will not be re-generated and extended, only the session\ncookie.</p>\n<h2 dir=\"auto\"><a id=\"user-content-links\" class=\"anchor\" aria-hidden=\"true\" href=\"#links\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Links</h2>\n<ul dir=\"auto\">\n<li><a href=\"https://github.com/softwaremill/bootzooka\">Bootzooka</a>, a web application template project using <code>akka-http</code> and <code>akka-http-session</code></li>\n<li><a href=\"https://github.com/gnieh/spray-session\">Spray session</a>, similar project for spray.io</li>\n<li><a href=\"https://github.com/enetsee/Spray-SPA\">Spray SPA</a>, a single-page-application demo built using spray.io, also\ncontaining an implementation of client-side sessions</li>\n<li><a href=\"https://playframework.com\" rel=\"nofollow\">Play framework</a>, a full web framework, from which parts of the session encoding/decoding\ncode was taken</li>\n<li><a href=\"http://guides.rubyonrails.org/security.html#session-storage\" rel=\"nofollow\">Rails security guide</a>, a description of how sessions are\nstored in Rails</li>\n<li><a href=\"https://github.com/akka/akka-http/issues/114\" data-hovercard-type=\"issue\" data-hovercard-url=\"/akka/akka-http/issues/114/hovercard\">Akka-Http issue 114</a> for implementing similar functionality straight in Akka-Http</li>\n<li><a href=\"https://paragonie.com/blog/2015/04/secure-authentication-php-with-long-term-persistence#title.2\" rel=\"nofollow\">Implementing remember me</a></li>\n<li><a href=\"http://stackoverflow.com/questions/549/the-definitive-guide-to-form-based-website-authentication\" rel=\"nofollow\">The definitive guide to form-based website authorization</a></li>\n<li><a href=\"https://scotch.io/tutorials/the-anatomy-of-a-json-web-token\" rel=\"nofollow\">The Anatomy of a JSON Web Token</a></li>\n<li><a href=\"https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/\" rel=\"nofollow\">Cookies vs tokens</a></li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-using-from-sbt\" class=\"anchor\" aria-hidden=\"true\" href=\"#using-from-sbt\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Using from SBT</h2>\n<p dir=\"auto\">For <code>akka-http</code> version <code>10+</code>:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;com.softwaremill.akka-http-session&quot; %% &quot;core&quot; % &quot;0.7.0&quot;\nlibraryDependencies += &quot;com.softwaremill.akka-http-session&quot; %% &quot;jwt&quot;  % &quot;0.7.0&quot; // optional\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.softwaremill.akka-http-session<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>core<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.7.0<span class=\"pl-pds\">\"</span></span>\nlibraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.softwaremill.akka-http-session<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>jwt<span class=\"pl-pds\">\"</span></span>  <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.7.0<span class=\"pl-pds\">\"</span></span> <span class=\"pl-c\"><span class=\"pl-c\">//</span> optional</span></pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-updating\" class=\"anchor\" aria-hidden=\"true\" href=\"#updating\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Updating</h2>\n<p dir=\"auto\">Certain releases changed the client token encoding/serialization. In those cases, it's important to enable the appropriate\ntoken migrations, otherwise existing client sessions will be invalid (and your users will be logged out).</p>\n<p dir=\"auto\">When updating from a version before 0.5.3, set <code>akka.http.session.token-migration.v0-5-3.enabled = true</code>.</p>\n<p dir=\"auto\">When updating from a version before 0.5.2, set <code>akka.http.session.token-migration.v0-5-2.enabled = true</code>.</p>\n<p dir=\"auto\">Note that when updating through multiple releases, be sure to enable all the appropriate migrations.</p>\n<p dir=\"auto\">For versions prior to 0.5.0, no migration path is provided. However, you can implement your own encoders/serializers\nto support migrating from whatever version you are using.</p>\n<p dir=\"auto\">Since token changes may be security related, migrations should be enabled for the shortest period of time\nafter which the vast majority of client tokens have been migrated.</p>\n<h2 dir=\"auto\"><a id=\"user-content-commercial-support\" class=\"anchor\" aria-hidden=\"true\" href=\"#commercial-support\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Commercial Support</h2>\n<p dir=\"auto\">We offer commercial support for akka-http-session and related technologies, as well as development services. <a href=\"https://softwaremill.com\" rel=\"nofollow\">Contact us</a> to learn more about our offer!</p>\n<h2 dir=\"auto\"><a id=\"user-content-copyright\" class=\"anchor\" aria-hidden=\"true\" href=\"#copyright\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Copyright</h2>\n<p dir=\"auto\">Copyright (C) 2016-2021 SoftwareMill <a href=\"https://softwaremill.com\" rel=\"nofollow\">https://softwaremill.com</a>.</p>\n</article></div>",
     "contributors" : [
       {
         "login" : "adamw",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/60503?v=4",
-        "url" : "https://api.github.com/users/adamw",
+        "url" : "https://github.com/adamw",
         "contributions" : 171
       },
       {
         "login" : "kijanowski",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/304581?v=4",
-        "url" : "https://api.github.com/users/kijanowski",
+        "url" : "https://github.com/kijanowski",
         "contributions" : 24
       },
       {
         "login" : "mkubala",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/328844?v=4",
-        "url" : "https://api.github.com/users/mkubala",
+        "url" : "https://github.com/mkubala",
         "contributions" : 17
       },
       {
         "login" : "Opalo",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1519236?v=4",
-        "url" : "https://api.github.com/users/Opalo",
+        "url" : "https://github.com/Opalo",
         "contributions" : 15
       },
       {
         "login" : "kevinavery",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1910102?v=4",
-        "url" : "https://api.github.com/users/kevinavery",
+        "url" : "https://github.com/kevinavery",
         "contributions" : 5
       },
       {
         "login" : "kciesielski",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1413553?v=4",
-        "url" : "https://api.github.com/users/kciesielski",
+        "url" : "https://github.com/kciesielski",
         "contributions" : 5
       },
       {
         "login" : "gokyo",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/6510179?v=4",
-        "url" : "https://api.github.com/users/gokyo",
+        "url" : "https://github.com/gokyo",
         "contributions" : 2
       },
       {
         "login" : "aaabramov",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/11317222?v=4",
-        "url" : "https://api.github.com/users/aaabramov",
+        "url" : "https://github.com/aaabramov",
         "contributions" : 1
       },
       {
         "login" : "bmjsmith",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/769053?v=4",
-        "url" : "https://api.github.com/users/bmjsmith",
+        "url" : "https://github.com/bmjsmith",
         "contributions" : 1
       },
       {
         "login" : "queimadus",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1107697?v=4",
-        "url" : "https://api.github.com/users/queimadus",
+        "url" : "https://github.com/queimadus",
         "contributions" : 1
       },
       {
         "login" : "mpoplavkov",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/20353500?v=4",
-        "url" : "https://api.github.com/users/mpoplavkov",
+        "url" : "https://github.com/mpoplavkov",
         "contributions" : 1
       },
       {
         "login" : "pjfanning",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/11783444?v=4",
-        "url" : "https://api.github.com/users/pjfanning",
+        "url" : "https://github.com/pjfanning",
         "contributions" : 1
       },
       {
         "login" : "sahataba",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/327253?v=4",
-        "url" : "https://api.github.com/users/sahataba",
+        "url" : "https://github.com/sahataba",
         "contributions" : 1
       },
       {
         "login" : "SethTisue",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
-        "url" : "https://api.github.com/users/SethTisue",
+        "url" : "https://github.com/SethTisue",
         "contributions" : 1
       },
       {
         "login" : "gitter-badger",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/8518239?v=4",
-        "url" : "https://api.github.com/users/gitter-badger",
+        "url" : "https://github.com/gitter-badger",
         "contributions" : 1
       },
       {
         "login" : "firehooper",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1431982?v=4",
-        "url" : "https://api.github.com/users/firehooper",
+        "url" : "https://github.com/firehooper",
         "contributions" : 1
       }
     ],
@@ -186,8 +186,686 @@
         "url" : "https://github.com/softwaremill/akka-http-session/issues/15"
       }
     ],
-    "scalaPercentage" : null,
-    "license" : null
+    "scalaPercentage" : 50,
+    "license" : "Apache-2.0",
+    "commitActivity" : [
+      {
+        "total" : 0,
+        "week" : 1629590400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1630195200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1630800000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1631404800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1632009600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1632614400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1633219200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1633824000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1634428800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1635033600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1635638400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1636243200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1636848000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1637452800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1638057600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1638662400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1639267200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1639872000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1640476800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1641081600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1641686400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1642291200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 2,
+        "week" : 1642896000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ]
+      },
+      {
+        "total" : 5,
+        "week" : 1643500800000,
+        "days" : [
+          0,
+          5,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1644105600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1644710400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1645315200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1645920000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1646524800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1647129600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1647734400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1648339200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1648944000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1649548800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1650153600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1650758400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1651363200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1651968000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1652572800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1653177600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1653782400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1654387200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1654992000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1655596800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1656201600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1656806400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1657411200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1658016000000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1658620800000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1659225600000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1659830400000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "total" : 0,
+        "week" : 1660435200000,
+        "days" : [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ]
   },
   "settings" : {
     "defaultStableVersion" : true,
