@@ -4,19 +4,19 @@
   "creationDate" : 1413460298000,
   "githubStatus" : {
     "Ok" : {
-      "updateDate" : 1660811698445
+      "updateDate" : 1723549214605
     }
   },
   "githubInfo" : {
     "homepage" : "",
     "description" : "Remote shell access via SSH for your Scala applications",
     "logo" : "https://avatars.githubusercontent.com/u/135347?v=4",
-    "stars" : 232,
-    "forks" : 51,
-    "watchers" : 15,
-    "issues" : 16,
+    "stars" : 233,
+    "forks" : 52,
+    "watchers" : 16,
+    "issues" : 19,
     "creationDate" : 1319810879000,
-    "readme" : "<div id=\"readme\" class=\"rst\" data-path=\"README.rst\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><p dir=\"auto\"><strong>scala-ssh</strong> is a <a href=\"http://www.scala-lang.org/\" rel=\"nofollow\">Scala</a> library providing remote shell access via SSH.\nIt builds on <a href=\"https://github.com/hierynomus/sshj\">SSHJ</a> to provide the following features:</p>\n<ul dir=\"auto\">\n<li>Remote execution of one or more shell commands</li>\n<li>Access to <code>stdin</code>, <code>stdout</code>, <code>stderr</code> and exitcode of remote shell commands</li>\n<li>Authentication via password, public key or agent</li>\n<li>Host key verification via <code>known_hosts</code> file or explicit fingerprint</li>\n<li>Convenient configuration of remote host properties via config file, resource or directly in code</li>\n<li>Scala-idiomatic API</li>\n</ul>\n<a href=\"https://maven-badges.herokuapp.com/maven-central/com.decodified/scala-ssh_2.12\" rel=\"nofollow\"><img alt=\"The latest scala-ssh artifacts on Maven Central\" src=\"https://camo.githubusercontent.com/452c72cc58aca1bf7cfa0417f3aa142dbb48ed9037aa270d57f3eeb7619313ed/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e6465636f6469666965642f7363616c612d7373685f322e31322e737667\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.decodified/scala-ssh_2.12.svg\" style=\"max-width: 100%;\">\n</a>\n<a href=\"https://travis-ci.org/sirthias/scala-ssh\" rel=\"nofollow\"><img alt=\"https://travis-ci.org/sirthias/scala-ssh.svg?branch=master\" src=\"https://camo.githubusercontent.com/ad1f78e25174d87e2c1a7c910a24f288a2b5dbbef4436752fb365e5ee7bc3786/68747470733a2f2f7472617669732d63692e6f72672f73697274686961732f7363616c612d7373682e7376673f6272616e63683d6d6173746572\" data-canonical-src=\"https://travis-ci.org/sirthias/scala-ssh.svg?branch=master\" style=\"max-width: 100%;\"></a>\n<a href=\"http://shields.io/\" rel=\"nofollow\"><img alt=\"uses badges\" src=\"https://camo.githubusercontent.com/f579be53ae1793e32b0e6e86754960a0d30e5511835f4a983e95069845c630fb/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f757365732d6261646765732d6666363962342e737667\" data-canonical-src=\"https://img.shields.io/badge/uses-badges-ff69b4.svg\" style=\"max-width: 100%;\">\n</a>\n<hr>\n<a name=\"user-content-installation\"></a>\n<h2 dir=\"auto\"><a id=\"user-content-installation\" class=\"anchor\" aria-hidden=\"true\" href=\"#installation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Installation</h2>\n<p dir=\"auto\">The latest release is <strong>0.11.1</strong> and is built against Scala 2.12, 2.13 and 3.\nIt is available from Maven Central. If you use <a href=\"https://github.com/harrah/xsbt/wiki\">SBT</a> you can pull in the <em>scala-ssh</em> artifacts with:</p>\n<pre>libraryDependencies += \"com.decodified\" %% \"scala-ssh\" % \"0.11.1\"\n</pre>\n<p dir=\"auto\"><a href=\"https://github.com/hierynomus/sshj\">SSHJ</a> uses <a href=\"http://www.slf4j.org/\" rel=\"nofollow\">SLF4J</a> for logging, so you might want to also add <a href=\"http://logback.qos.ch/\" rel=\"nofollow\">logback</a> to your dependencies:</p>\n<pre>libraryDependencies += \"ch.qos.logback\" % \"logback-classic\" % \"1.2.3\"\n</pre>\n<a name=\"user-content-usage\"></a>\n<h2 dir=\"auto\"><a id=\"user-content-usage\" class=\"anchor\" aria-hidden=\"true\" href=\"#usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Usage</h2>\n<p dir=\"auto\">The highest-level API element provided by <em>scala-ssh</em> is the <code>SSH</code> object. You use it like this:</p>\n<pre>SSH(\"example.com\") { client =&gt;\n  for {\n    result &lt;- client.exec(\"ls -a\")\n  } println(\"Result:\\n\" + result.stdOutAsString())\n}\n</pre>\n<p dir=\"auto\">This establishes an SSH connection to host <code>example.com</code> and gives you an <code>SshClient</code> instance that you can use\nto execute one or more commands on the host.\n<code>SSH.apply</code> has a second (optional) parameter of type <code>HostConfigProvider</code>, which is essentially a function\nreturning a <code>HostConfig</code> instance for a given hostname. A <code>HostConfig</code> looks like this:</p>\n<pre>case class HostConfig(\n  login: SshLogin,\n  hostName: String = \"\",\n  port: Int = 22,\n  connectTimeout: Option[Int] = None,\n  connectionTimeout: Option[Int] = None,\n  commandTimeout: Option[Int] = None,\n  enableCompression: Boolean = false,\n  hostKeyVerifier: HostKeyVerifier = ...,\n  sshjConfig: Config = ...\n)\n</pre>\n<p dir=\"auto\">It provides all the details required for properly establishing an SSH connection.\nIf you don't provide an explicit <code>HostConfigProvider</code> the default one will be used. For every hostname you pass to the\n<code>SSH.apply</code> method this default <code>HostConfigProvider</code> expects a file <code>~/.scala-ssh/{hostname}</code>, which contains the\nproperties of a <code>HostConfig</code> in a simple config file format (see below for details). The <code>HostResourceConfig</code> object\ngives you alternative <code>HostConfigProvider</code> implementations that read the host config from classpath resources.</p>\n<p dir=\"auto\">If the file <code>~/.scala-ssh/{hostname}</code> (or the classpath resource <code>{hostname}</code>) doesn't exist <em>scala-ssh</em> looks for\nmore general files (or resources) in the following way:</p>\n<ol dir=\"auto\">\n<li>As long as the first segment of the host name (up to the first <code>.</code>) contains one or more digits replace the\nrightmost of these with <code>X</code> and look for a respectively named file or resource. Repeat until no digits left.</li>\n<li>Drop all characters up to (and including) the first <code>.</code> from the host name and look for a respectively named file\nor resource.</li>\n<li>Repeat from 1. as long as there are characters left.</li>\n</ol>\n<p dir=\"auto\">This means that for a host with name <code>node42.tier1.example.com</code> the following locations (either under\n<code>~/.scala-ssh/</code> or the classpath, depending on the <code>HostConfigProvider</code>) are tried:</p>\n<ol dir=\"auto\">\n<li><code>node42.tier1.example.com</code></li>\n<li><code>node4X.tier1.example.com</code></li>\n<li><code>nodeXX.tier1.example.com</code></li>\n<li><code>tier1.example.com</code></li>\n<li><code>tierX.example.com</code></li>\n<li><code>example.com</code></li>\n<li><code>com</code></li>\n</ol>\n<a name=\"user-content-host-config-file-format\"></a>\n<h2 dir=\"auto\"><a id=\"user-content-host-config-file-format\" class=\"anchor\" aria-hidden=\"true\" href=\"#host-config-file-format\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Host Config File Format</h2>\n<p dir=\"auto\">A host config file is a UTF8-encoded text file containing <code>key = value</code> pairs, one per line.\nBlank lines and lines starting with a <code>#</code> character are ignored. This is an example file:</p>\n<pre># simple password-based config\nlogin-type = password\nusername = bob\npassword = 123\ncommand-timeout = 5000\nenable-compression = yes\n</pre>\n<p dir=\"auto\">These key are defined:</p>\n<dl>\n<dt>login-type</dt>\n<dd>required, can be either <code>password</code> or <code>keyfile</code></dd>\n<dt>host-name</dt>\n<dd>optional, if not given the name of the config file is assumed to be the hostname</dd>\n<dt>port</dt>\n<dd>optional, the default value is <code>22</code></dd>\n<dt>username</dt>\n<dd>required</dd>\n<dt>password</dt>\n<dd>required for login-type <code>password</code>, ignored otherwise</dd>\n<dt>keyfile</dt>\n<dd>optionally specifies the location of the user keyfile to use with login-type <code>keyfile</code>,\nif not given the default files <code>~/.ssh/id_ed25519</code>, <code>~/.ssh/id_rsa</code> and <code>~/.ssh/id_dsa</code> are tried,\nif the filename starts with a <code>+</code> the file is searched in addition to the default\nlocations, if the filename starts with <code>classpath:</code> it is interpreted as the name of a classpath resource holding\nthe private key,\nignored for login-type <code>password</code></dd>\n<dt>passphrase</dt>\n<dd>optionally specifies the passphrase for the keyfile, if not given the keyfile is assumed to be unencrypted,\nignored for login-type <code>password</code></dd>\n<dt>connect-timeout</dt>\n<dd>optionally specifies the number of milli-seconds that a connection request has to succeed in before triggering a\ntimeout error, default value is 'no timeout'</dd>\n<dt>connection-timeout</dt>\n<dd>optionally specifies the number of milli-seconds that an idle connection is held open before being closed due due to\nidleness, default value is 'no timeout'</dd>\n<dt>command-timeout</dt>\n<dd>optionally specifies the number of milli-seconds that a pending response to an issued command is waited for before\ntriggering a timeout error, default value is 'no timeout'</dd>\n<dt>enable-compression</dt>\n<dd>optionally adds <code>zlib</code> compression to preferred compression algorithms, there is no guarantee that it will be\nsuccessfully negotiatied, requires <code>jzlib</code> on the classpath (see 'installation' chapter) above, default is 'no'</dd>\n<dt>fingerprint</dt>\n<dd>optionally specifies the fingerprint of the public host key to verify in standard SSH format\n(e.g. <code>4b:69:6c:72:6f:79:20:77:61:73:20:68:65:72:65:21</code>), if not given the standard <code>~/.ssh/known_hosts</code> or\n<code>~/.ssh/known_hosts2</code> files will be searched for a matching entry, fingerprint verification can be entirely disabled\nby setting <code>fingerprint = any</code></dd>\n</dl>\n<a name=\"user-content-troubleshooting\"></a>\n<h2 dir=\"auto\"><a id=\"user-content-troubleshooting\" class=\"anchor\" aria-hidden=\"true\" href=\"#troubleshooting\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Troubleshooting</h2>\n<a name=\"user-content-java-cryptography-extension-policy-files\"></a>\n<h3 dir=\"auto\"><a id=\"user-content-java-cryptography-extension-policy-files\" class=\"anchor\" aria-hidden=\"true\" href=\"#java-cryptography-extension-policy-files\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Java Cryptography Extension Policy Files</h3>\n<p dir=\"auto\">To use this library it might be necessary that you install the Java Cryptography Extension Policy\nFiles from the JDK additional downloads section. Make sure they are installed, especially if you\nencounter exceptions like this:</p>\n<blockquote>\n<dl>\n<dt>net.schmizz.sshj.common.SSHRuntimeException: null</dt>\n<dd>at net.schmizz.sshj.common.Buffer.readPublicKey(Buffer.java:432) ~[sshj-0.12.0.jar:na]\nat net.schmizz.sshj.transport.kex.AbstractDHG.next(AbstractDHG.java:108) ~[sshj-0.12.0.jar:na]\nat net.schmizz.sshj.transport.KeyExchanger.handle(KeyExchanger.java:352) ~[sshj-0.12.0.jar:na]\nat net.schmizz.sshj.transport.TransportImpl.handle(TransportImpl.java:487) ~[sshj-0.12.0.jar:na]\nat net.schmizz.sshj.transport.Decoder.decode(Decoder.java:107) ~[sshj-0.12.0.jar:na]\nat net.schmizz.sshj.transport.Decoder.received(Decoder.java:175) ~[sshj-0.12.0.jar:na]\nat net.schmizz.sshj.transport.Reader.run(Reader.java:61) ~[sshj-0.12.0.jar:na]</dd>\n<dt>Caused by: java.security.GeneralSecurityException: java.security.spec.InvalidKeySpecException: key spec not recognised</dt>\n<dd>at net.schmizz.sshj.common.KeyType$3.readPubKeyFromBuffer(KeyType.java:146) ~[sshj-0.12.0.jar:na]\nat net.schmizz.sshj.common.Buffer.readPublicKey(Buffer.java:430) ~[sshj-0.12.0.jar:na]\n... 6 common frames omitted</dd>\n<dt>Caused by: java.security.spec.InvalidKeySpecException: key spec not recognised</dt>\n<dd>at org.bouncycastle.jcajce.provider.asymmetric.util.BaseKeyFactorySpi.engineGeneratePublic(Unknown Source) ~[bcprov-jdk15on-1.52.jar:1.52.0]\nat org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi.engineGeneratePublic(Unknown Source) ~[bcprov-jdk15on-1.52.jar:1.52.0]\nat java.security.KeyFactory.generatePublic(KeyFactory.java:334) ~[na:1.8.0_05]\nat net.schmizz.sshj.common.KeyType$3.readPubKeyFromBuffer(KeyType.java:144) ~[sshj-0.12.0.jar:na]\n... 7 common frames omitted</dd>\n</dl>\n</blockquote>\n<a name=\"user-content-running-tests-locally\"></a>\n<h2 dir=\"auto\"><a id=\"user-content-running-tests-locally\" class=\"anchor\" aria-hidden=\"true\" href=\"#running-tests-locally\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Running tests locally</h2>\n<p dir=\"auto\">Some of the tests needs a running SSH daemon and expects particular structure of ~/.scala-ssh. In case you want to run\nthose tests locally there is prepared structure to run dockerized sbt and sshd. Running dockerized structure should\nwork just by itself:</p>\n<p dir=\"auto\"><code>`\nscripts/local/dockerized-sbt.sh\n# and then in sbt:\ntest\n`</code></p>\n<p dir=\"auto\">Having sbt as a separate step make it easier to run changes iteratively in dockerized sbt.</p>\n<a name=\"user-content-license\"></a>\n<h2 dir=\"auto\"><a id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>License</h2>\n<p dir=\"auto\"><em>scala-ssh</em> is licensed under <a href=\"http://www.apache.org/licenses/LICENSE-2.0\" rel=\"nofollow\">APL 2.0</a>.</p>\n<a name=\"user-content-patch-policy\"></a>\n<h2 dir=\"auto\"><a id=\"user-content-patch-policy\" class=\"anchor\" aria-hidden=\"true\" href=\"#patch-policy\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Patch Policy</h2>\n<p dir=\"auto\">Feedback and contributions to the project, no matter what kind, are always very welcome.\nHowever, patches can only be accepted from their original author.\nAlong with any patches, please state that the patch is your original work and that you license the work to the\n<em>scala-ssh</em> project under the project’s open source license.</p>\n\n</article></div>",
+    "readme" : "<div id=\"readme\" class=\"rst\" data-path=\"README.rst\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><p dir=\"auto\"><strong>scala-ssh</strong> is a <a href=\"http://www.scala-lang.org/\" rel=\"nofollow\">Scala</a> library providing remote shell access via SSH.\nIt builds on <a href=\"https://github.com/hierynomus/sshj\">SSHJ</a> to provide the following features:</p>\n<ul dir=\"auto\">\n<li>Remote execution of one or more shell commands</li>\n<li>Access to <code>stdin</code>, <code>stdout</code>, <code>stderr</code> and exitcode of remote shell commands</li>\n<li>Authentication via password, public key or agent</li>\n<li>Host key verification via <code>known_hosts</code> file or explicit fingerprint</li>\n<li>Convenient configuration of remote host properties via config file, resource or directly in code</li>\n<li>Scala-idiomatic API</li>\n</ul>\n<a href=\"https://maven-badges.herokuapp.com/maven-central/com.decodified/scala-ssh_2.12\" rel=\"nofollow\"><img alt=\"The latest scala-ssh artifacts on Maven Central\" src=\"https://camo.githubusercontent.com/8caff9ce482992eeee99c10ad701394c4a01d1f1e12bcfab37da63c5a4577395/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e6465636f6469666965642f7363616c612d7373685f322e31322e737667\" data-canonical-src=\"https://img.shields.io/maven-central/v/com.decodified/scala-ssh_2.12.svg\" style=\"max-width: 100%;\">\n</a>\n<a href=\"https://travis-ci.org/sirthias/scala-ssh\" rel=\"nofollow\"><img alt=\"https://travis-ci.org/sirthias/scala-ssh.svg?branch=master\" src=\"https://camo.githubusercontent.com/7393a19a19da3b055fb0367dcc47cd78525464e550d90be4bee1d039bc90e57e/68747470733a2f2f7472617669732d63692e6f72672f73697274686961732f7363616c612d7373682e7376673f6272616e63683d6d6173746572\" data-canonical-src=\"https://travis-ci.org/sirthias/scala-ssh.svg?branch=master\" style=\"max-width: 100%;\"></a>\n<a href=\"http://shields.io/\" rel=\"nofollow\"><img alt=\"uses badges\" src=\"https://camo.githubusercontent.com/93d2bfd6558cc8bacceb5939d81024e8827d3d6ad6480e9050cb7a7d53c9069e/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f757365732d6261646765732d6666363962342e737667\" data-canonical-src=\"https://img.shields.io/badge/uses-badges-ff69b4.svg\" style=\"max-width: 100%;\">\n</a>\n<hr>\n<a name=\"user-content-installation\"></a>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Installation</h2><a id=\"user-content-installation\" class=\"anchor\" aria-label=\"Permalink: Installation\" href=\"#installation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">The latest release is <strong>0.11.1</strong> and is built against Scala 2.12, 2.13 and 3.\nIt is available from Maven Central. If you use <a href=\"https://github.com/harrah/xsbt/wiki\">SBT</a> you can pull in the <em>scala-ssh</em> artifacts with:</p>\n<pre>libraryDependencies += \"com.decodified\" %% \"scala-ssh\" % \"0.11.1\"\n</pre>\n<p dir=\"auto\"><a href=\"https://github.com/hierynomus/sshj\">SSHJ</a> uses <a href=\"http://www.slf4j.org/\" rel=\"nofollow\">SLF4J</a> for logging, so you might want to also add <a href=\"http://logback.qos.ch/\" rel=\"nofollow\">logback</a> to your dependencies:</p>\n<pre>libraryDependencies += \"ch.qos.logback\" % \"logback-classic\" % \"1.2.3\"\n</pre>\n<a name=\"user-content-usage\"></a>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Usage</h2><a id=\"user-content-usage\" class=\"anchor\" aria-label=\"Permalink: Usage\" href=\"#usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">The highest-level API element provided by <em>scala-ssh</em> is the <code>SSH</code> object. You use it like this:</p>\n<pre>SSH(\"example.com\") { client =&gt;\n  for {\n    result &lt;- client.exec(\"ls -a\")\n  } println(\"Result:\\n\" + result.stdOutAsString())\n}\n</pre>\n<p dir=\"auto\">This establishes an SSH connection to host <code>example.com</code> and gives you an <code>SshClient</code> instance that you can use\nto execute one or more commands on the host.\n<code>SSH.apply</code> has a second (optional) parameter of type <code>HostConfigProvider</code>, which is essentially a function\nreturning a <code>HostConfig</code> instance for a given hostname. A <code>HostConfig</code> looks like this:</p>\n<pre>case class HostConfig(\n  login: SshLogin,\n  hostName: String = \"\",\n  port: Int = 22,\n  connectTimeout: Option[Int] = None,\n  connectionTimeout: Option[Int] = None,\n  commandTimeout: Option[Int] = None,\n  enableCompression: Boolean = false,\n  hostKeyVerifier: HostKeyVerifier = ...,\n  sshjConfig: Config = ...\n)\n</pre>\n<p dir=\"auto\">It provides all the details required for properly establishing an SSH connection.\nIf you don't provide an explicit <code>HostConfigProvider</code> the default one will be used. For every hostname you pass to the\n<code>SSH.apply</code> method this default <code>HostConfigProvider</code> expects a file <code>~/.scala-ssh/{hostname}</code>, which contains the\nproperties of a <code>HostConfig</code> in a simple config file format (see below for details). The <code>HostResourceConfig</code> object\ngives you alternative <code>HostConfigProvider</code> implementations that read the host config from classpath resources.</p>\n<p dir=\"auto\">If the file <code>~/.scala-ssh/{hostname}</code> (or the classpath resource <code>{hostname}</code>) doesn't exist <em>scala-ssh</em> looks for\nmore general files (or resources) in the following way:</p>\n<ol dir=\"auto\">\n<li>As long as the first segment of the host name (up to the first <code>.</code>) contains one or more digits replace the\nrightmost of these with <code>X</code> and look for a respectively named file or resource. Repeat until no digits left.</li>\n<li>Drop all characters up to (and including) the first <code>.</code> from the host name and look for a respectively named file\nor resource.</li>\n<li>Repeat from 1. as long as there are characters left.</li>\n</ol>\n<p dir=\"auto\">This means that for a host with name <code>node42.tier1.example.com</code> the following locations (either under\n<code>~/.scala-ssh/</code> or the classpath, depending on the <code>HostConfigProvider</code>) are tried:</p>\n<ol dir=\"auto\">\n<li><code>node42.tier1.example.com</code></li>\n<li><code>node4X.tier1.example.com</code></li>\n<li><code>nodeXX.tier1.example.com</code></li>\n<li><code>tier1.example.com</code></li>\n<li><code>tierX.example.com</code></li>\n<li><code>example.com</code></li>\n<li><code>com</code></li>\n</ol>\n<a name=\"user-content-host-config-file-format\"></a>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Host Config File Format</h2><a id=\"user-content-host-config-file-format\" class=\"anchor\" aria-label=\"Permalink: Host Config File Format\" href=\"#host-config-file-format\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">A host config file is a UTF8-encoded text file containing <code>key = value</code> pairs, one per line.\nBlank lines and lines starting with a <code>#</code> character are ignored. This is an example file:</p>\n<pre># simple password-based config\nlogin-type = password\nusername = bob\npassword = 123\ncommand-timeout = 5000\nenable-compression = yes\n</pre>\n<p dir=\"auto\">These key are defined:</p>\n<dl>\n<dt>login-type</dt>\n<dd>required, can be either <code>password</code> or <code>keyfile</code></dd>\n<dt>host-name</dt>\n<dd>optional, if not given the name of the config file is assumed to be the hostname</dd>\n<dt>port</dt>\n<dd>optional, the default value is <code>22</code></dd>\n<dt>username</dt>\n<dd>required</dd>\n<dt>password</dt>\n<dd>required for login-type <code>password</code>, ignored otherwise</dd>\n<dt>keyfile</dt>\n<dd>optionally specifies the location of the user keyfile to use with login-type <code>keyfile</code>,\nif not given the default files <code>~/.ssh/id_ed25519</code>, <code>~/.ssh/id_rsa</code> and <code>~/.ssh/id_dsa</code> are tried,\nif the filename starts with a <code>+</code> the file is searched in addition to the default\nlocations, if the filename starts with <code>classpath:</code> it is interpreted as the name of a classpath resource holding\nthe private key,\nignored for login-type <code>password</code></dd>\n<dt>passphrase</dt>\n<dd>optionally specifies the passphrase for the keyfile, if not given the keyfile is assumed to be unencrypted,\nignored for login-type <code>password</code></dd>\n<dt>connect-timeout</dt>\n<dd>optionally specifies the number of milli-seconds that a connection request has to succeed in before triggering a\ntimeout error, default value is 'no timeout'</dd>\n<dt>connection-timeout</dt>\n<dd>optionally specifies the number of milli-seconds that an idle connection is held open before being closed due due to\nidleness, default value is 'no timeout'</dd>\n<dt>command-timeout</dt>\n<dd>optionally specifies the number of milli-seconds that a pending response to an issued command is waited for before\ntriggering a timeout error, default value is 'no timeout'</dd>\n<dt>enable-compression</dt>\n<dd>optionally adds <code>zlib</code> compression to preferred compression algorithms, there is no guarantee that it will be\nsuccessfully negotiatied, requires <code>jzlib</code> on the classpath (see 'installation' chapter) above, default is 'no'</dd>\n<dt>fingerprint</dt>\n<dd>optionally specifies the fingerprint of the public host key to verify in standard SSH format\n(e.g. <code>4b:69:6c:72:6f:79:20:77:61:73:20:68:65:72:65:21</code>), if not given the standard <code>~/.ssh/known_hosts</code> or\n<code>~/.ssh/known_hosts2</code> files will be searched for a matching entry, fingerprint verification can be entirely disabled\nby setting <code>fingerprint = any</code></dd>\n</dl>\n<a name=\"user-content-troubleshooting\"></a>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Troubleshooting</h2><a id=\"user-content-troubleshooting\" class=\"anchor\" aria-label=\"Permalink: Troubleshooting\" href=\"#troubleshooting\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<a name=\"user-content-java-cryptography-extension-policy-files\"></a>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">Java Cryptography Extension Policy Files</h3><a id=\"user-content-java-cryptography-extension-policy-files\" class=\"anchor\" aria-label=\"Permalink: Java Cryptography Extension Policy Files\" href=\"#java-cryptography-extension-policy-files\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">To use this library it might be necessary that you install the Java Cryptography Extension Policy\nFiles from the JDK additional downloads section. Make sure they are installed, especially if you\nencounter exceptions like this:</p>\n<blockquote>\n<dl>\n<dt>net.schmizz.sshj.common.SSHRuntimeException: null</dt>\n<dd>at net.schmizz.sshj.common.Buffer.readPublicKey(Buffer.java:432) ~[sshj-0.12.0.jar:na]\nat net.schmizz.sshj.transport.kex.AbstractDHG.next(AbstractDHG.java:108) ~[sshj-0.12.0.jar:na]\nat net.schmizz.sshj.transport.KeyExchanger.handle(KeyExchanger.java:352) ~[sshj-0.12.0.jar:na]\nat net.schmizz.sshj.transport.TransportImpl.handle(TransportImpl.java:487) ~[sshj-0.12.0.jar:na]\nat net.schmizz.sshj.transport.Decoder.decode(Decoder.java:107) ~[sshj-0.12.0.jar:na]\nat net.schmizz.sshj.transport.Decoder.received(Decoder.java:175) ~[sshj-0.12.0.jar:na]\nat net.schmizz.sshj.transport.Reader.run(Reader.java:61) ~[sshj-0.12.0.jar:na]</dd>\n<dt>Caused by: java.security.GeneralSecurityException: java.security.spec.InvalidKeySpecException: key spec not recognised</dt>\n<dd>at net.schmizz.sshj.common.KeyType$3.readPubKeyFromBuffer(KeyType.java:146) ~[sshj-0.12.0.jar:na]\nat net.schmizz.sshj.common.Buffer.readPublicKey(Buffer.java:430) ~[sshj-0.12.0.jar:na]\n... 6 common frames omitted</dd>\n<dt>Caused by: java.security.spec.InvalidKeySpecException: key spec not recognised</dt>\n<dd>at org.bouncycastle.jcajce.provider.asymmetric.util.BaseKeyFactorySpi.engineGeneratePublic(Unknown Source) ~[bcprov-jdk15on-1.52.jar:1.52.0]\nat org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi.engineGeneratePublic(Unknown Source) ~[bcprov-jdk15on-1.52.jar:1.52.0]\nat java.security.KeyFactory.generatePublic(KeyFactory.java:334) ~[na:1.8.0_05]\nat net.schmizz.sshj.common.KeyType$3.readPubKeyFromBuffer(KeyType.java:144) ~[sshj-0.12.0.jar:na]\n... 7 common frames omitted</dd>\n</dl>\n</blockquote>\n<a name=\"user-content-running-tests-locally\"></a>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Running tests locally</h2><a id=\"user-content-running-tests-locally\" class=\"anchor\" aria-label=\"Permalink: Running tests locally\" href=\"#running-tests-locally\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">Some of the tests needs a running SSH daemon and expects particular structure of ~/.scala-ssh. In case you want to run\nthose tests locally there is prepared structure to run dockerized sbt and sshd. Running dockerized structure should\nwork just by itself:</p>\n<p dir=\"auto\"><code>`\nscripts/local/dockerized-sbt.sh\n# and then in sbt:\ntest\n`</code></p>\n<p dir=\"auto\">Having sbt as a separate step make it easier to run changes iteratively in dockerized sbt.</p>\n<a name=\"user-content-license\"></a>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">License</h2><a id=\"user-content-license\" class=\"anchor\" aria-label=\"Permalink: License\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><em>scala-ssh</em> is licensed under <a href=\"http://www.apache.org/licenses/LICENSE-2.0\" rel=\"nofollow\">APL 2.0</a>.</p>\n<a name=\"user-content-patch-policy\"></a>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Patch Policy</h2><a id=\"user-content-patch-policy\" class=\"anchor\" aria-label=\"Permalink: Patch Policy\" href=\"#patch-policy\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">Feedback and contributions to the project, no matter what kind, are always very welcome.\nHowever, patches can only be accepted from their original author.\nAlong with any patches, please state that the patch is your original work and that you license the work to the\n<em>scala-ssh</em> project under the project’s open source license.</p>\n\n</article></div>",
     "contributors" : [
       {
         "login" : "sirthias",
@@ -61,63 +61,9 @@
         "contributions" : 2
       },
       {
-        "login" : "bplommer",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/8990749?v=4",
-        "url" : "https://github.com/bplommer",
-        "contributions" : 1
-      },
-      {
-        "login" : "danosipov",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/710655?v=4",
-        "url" : "https://github.com/danosipov",
-        "contributions" : 1
-      },
-      {
-        "login" : "HairyFotr",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/566245?v=4",
-        "url" : "https://github.com/HairyFotr",
-        "contributions" : 1
-      },
-      {
-        "login" : "johansja",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/78258?v=4",
-        "url" : "https://github.com/johansja",
-        "contributions" : 1
-      },
-      {
-        "login" : "matsluni",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/2551177?v=4",
-        "url" : "https://github.com/matsluni",
-        "contributions" : 1
-      },
-      {
-        "login" : "note",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/345056?v=4",
-        "url" : "https://github.com/note",
-        "contributions" : 1
-      },
-      {
-        "login" : "philcali",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/105208?v=4",
-        "url" : "https://github.com/philcali",
-        "contributions" : 1
-      },
-      {
-        "login" : "razie",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/144038?v=4",
-        "url" : "https://github.com/razie",
-        "contributions" : 1
-      },
-      {
-        "login" : "ReadmeCritic",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/15367484?v=4",
-        "url" : "https://github.com/ReadmeCritic",
-        "contributions" : 1
-      },
-      {
-        "login" : "SethTisue",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
-        "url" : "https://github.com/SethTisue",
+        "login" : "jzt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/128130?v=4",
+        "url" : "https://github.com/jzt",
         "contributions" : 1
       },
       {
@@ -127,9 +73,63 @@
         "contributions" : 1
       },
       {
-        "login" : "jzt",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/128130?v=4",
-        "url" : "https://github.com/jzt",
+        "login" : "SethTisue",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
+        "url" : "https://github.com/SethTisue",
+        "contributions" : 1
+      },
+      {
+        "login" : "ReadmeCritic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15367484?v=4",
+        "url" : "https://github.com/ReadmeCritic",
+        "contributions" : 1
+      },
+      {
+        "login" : "razie",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/144038?v=4",
+        "url" : "https://github.com/razie",
+        "contributions" : 1
+      },
+      {
+        "login" : "philcali",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/105208?v=4",
+        "url" : "https://github.com/philcali",
+        "contributions" : 1
+      },
+      {
+        "login" : "note",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/345056?v=4",
+        "url" : "https://github.com/note",
+        "contributions" : 1
+      },
+      {
+        "login" : "matsluni",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2551177?v=4",
+        "url" : "https://github.com/matsluni",
+        "contributions" : 1
+      },
+      {
+        "login" : "johansja",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/78258?v=4",
+        "url" : "https://github.com/johansja",
+        "contributions" : 1
+      },
+      {
+        "login" : "HairyFotr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/566245?v=4",
+        "url" : "https://github.com/HairyFotr",
+        "contributions" : 1
+      },
+      {
+        "login" : "danosipov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/710655?v=4",
+        "url" : "https://github.com/danosipov",
+        "contributions" : 1
+      },
+      {
+        "login" : "bplommer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8990749?v=4",
+        "url" : "https://github.com/bplommer",
         "contributions" : 1
       }
     ],
@@ -138,8 +138,22 @@
     ],
     "contributingGuide" : null,
     "codeOfConduct" : null,
-    "chatroom" : null,
     "openIssues" : [
+      {
+        "number" : 59,
+        "title" : "Upgrade from jcraft:jsch to mwiede:jsch",
+        "url" : "https://github.com/sirthias/scala-ssh/issues/59"
+      },
+      {
+        "number" : 58,
+        "title" : "Suppress login banner",
+        "url" : "https://github.com/sirthias/scala-ssh/issues/58"
+      },
+      {
+        "number" : 57,
+        "title" : "Missing tests for SFTP client",
+        "url" : "https://github.com/sirthias/scala-ssh/issues/57"
+      },
       {
         "number" : 53,
         "title" : "0.10.0 & scala 2.13.1 is not working...",
@@ -219,698 +233,20 @@
     "scalaPercentage" : 92,
     "license" : "Apache-2.0",
     "commitActivity" : [
-      {
-        "total" : 0,
-        "week" : 1629590400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1630195200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1630800000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1631404800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1632009600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1632614400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1633219200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1633824000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1634428800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1635033600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1635638400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1636243200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1636848000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1637452800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1638057600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1638662400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1639267200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1639872000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1640476800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1641081600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1641686400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1642291200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1642896000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1643500800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1644105600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1644710400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1645315200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1645920000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1646524800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1647129600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1647734400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1648339200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1648944000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1649548800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1650153600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1650758400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1651363200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1651968000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1652572800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1653177600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1653782400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1654387200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1654992000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1655596800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1656201600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1656806400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1657411200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1658016000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1658620800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1659225600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1659830400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1660435200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      }
     ]
   },
   "settings" : {
     "preferStableVersion" : true,
     "defaultArtifact" : "scala-ssh",
-    "strictVersions" : false,
     "customScalaDoc" : null,
     "documentationLinks" : [
     ],
-    "deprecated" : false,
     "contributorsWanted" : false,
     "deprecatedArtifacts" : [
     ],
     "cliArtifacts" : [
     ],
     "category" : "network",
-    "beginnerIssuesLabel" : null
+    "chatroom" : null
   }
 }

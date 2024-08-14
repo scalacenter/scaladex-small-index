@@ -4,19 +4,19 @@
   "creationDate" : 1449091115000,
   "githubStatus" : {
     "Ok" : {
-      "updateDate" : 1660810313578
+      "updateDate" : 1723549059580
     }
   },
   "githubInfo" : {
     "homepage" : "",
     "description" : "Iteratees for Cats",
     "logo" : "https://avatars.githubusercontent.com/u/316049?v=4",
-    "stars" : 185,
-    "forks" : 20,
+    "stars" : 182,
+    "forks" : 17,
     "watchers" : 5,
-    "issues" : 32,
+    "issues" : 40,
     "creationDate" : 1441765058000,
-    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-iterateeio\" class=\"anchor\" aria-hidden=\"true\" href=\"#iterateeio\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>iteratee.io</h1>\n<p dir=\"auto\"><a href=\"https://travis-ci.org/travisbrown/iteratee\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/6e6999785c6682c41c63297492cd90c6b69777a45c855711e71e9cfbb036b192/68747470733a2f2f696d672e736869656c64732e696f2f7472617669732f74726176697362726f776e2f69746572617465652f6d61696e2e737667\" alt=\"Build status\" data-canonical-src=\"https://img.shields.io/travis/travisbrown/iteratee/main.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://codecov.io/github/travisbrown/iteratee\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/fe8b20023770da813d604e026a835742d2dc7dc453d5a426fc51a05b80d4c29a/68747470733a2f2f696d672e736869656c64732e696f2f636f6465636f762f632f6769746875622f74726176697362726f776e2f69746572617465652f6d61696e2e737667\" alt=\"Coverage status\" data-canonical-src=\"https://img.shields.io/codecov/c/github/travisbrown/iteratee/main.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://gitter.im/travisbrown/iteratee\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/06c55569604c09f117e9c9795d1c21d1cc3aa2a4fadeb0e3a2bca46bcd494a67/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6769747465722d6a6f696e253230636861742d677265656e2e737667\" alt=\"Gitter\" data-canonical-src=\"https://img.shields.io/badge/gitter-join%20chat-green.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://maven-badges.herokuapp.com/maven-central/io.iteratee/iteratee-core_2.13\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/d237213f5036beeddcdd15737bba325dd97d275e37c5868a85c2af3d3d4bc0c7/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f696f2e69746572617465652f69746572617465652d636f72655f322e31332e737667\" alt=\"Maven Central\" data-canonical-src=\"https://img.shields.io/maven-central/v/io.iteratee/iteratee-core_2.13.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">This project is an iteratee implementation for <a href=\"https://github.com/typelevel/cats\">Cats</a> that began as a port of\n<a href=\"https://github.com/scalaz/scalaz\">Scalaz</a>'s <a href=\"https://github.com/scalaz/scalaz/tree/series/7.2.x/iteratee/src/main/scala/scalaz/iteratee\">iteratee package</a>, although the API and implementation are now\nvery different from Scalaz's. There are <a href=\"http://travisbrown.github.io/iteratee/api/#io.iteratee.package\" rel=\"nofollow\">API docs</a> (but they're a work in progress), and\nI've published a <a href=\"https://meta.plasm.us/posts/2016/01/08/yet-another-iteratee-library/\" rel=\"nofollow\">blog post</a> introducing the project.</p>\n<p dir=\"auto\">The motivations for the port are similar to those for <a href=\"https://github.com/travisbrown/circe\">circe</a>—in particular I'm aiming for a\nmore consistent API, better performance, and better documentation.</p>\n<p dir=\"auto\">Note that this library doesn't support many of the use cases that <a href=\"https://github.com/functional-streams-for-scala/fs2\">fs2</a> (formerly Scalaz\nStream) is designed to handle. It doesn't support nondeterministic reading from multiple streams,\nfor example, and in general is a less appropriate choice for situations where concurrency and\nparallelism are primary goals. Where the use cases of fs2 and this library do overlap, however, it's\noften likely to be a simpler, faster solution.</p>\n<p dir=\"auto\">The initial performance benchmarks look promising. For example, here are the throughput results for\nsumming a sequence of numbers with this library and <code>cats.Id</code> (<code>II</code>), this library and Monix's\n<code>Task</code> (<code>IM</code>), this library and Scalaz's <code>Task</code> (<code>IT</code>), this library and Twitter futures (<code>IR</code>),\nScalaz Stream (<code>S</code>), scalaz-iteratee (<code>Z</code>), <a href=\"https://www.playframework.com/documentation/2.5.x/Iteratees\" rel=\"nofollow\">play-iteratee</a> (<code>P</code>), the Scala\ncollections library (<code>C</code>), and fs2 (<code>F</code>). Higher numbers are better.</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"Benchmark                      Mode  Cnt      Score     Error  Units\nInMemoryBenchmark.sumInts0II  thrpt   80  10225.388 ± 191.612  ops/s\nInMemoryBenchmark.sumInts1IM  thrpt   80  13395.800 ±  30.912  ops/s\nInMemoryBenchmark.sumInts2IT  thrpt   80  18609.579 ±  47.491  ops/s\nInMemoryBenchmark.sumInts3IR  thrpt   80  15999.740 ± 114.949  ops/s\nInMemoryBenchmark.sumInts4S   thrpt   80     72.074 ±   1.209  ops/s\nInMemoryBenchmark.sumInts5Z   thrpt   80    310.472 ±   4.368  ops/s\nInMemoryBenchmark.sumInts6P   thrpt   80     43.071 ±   0.543  ops/s\nInMemoryBenchmark.sumInts7C   thrpt   80  12975.042 ±  48.702  ops/s\nInMemoryBenchmark.sumInts8F   thrpt   80   9610.699 ±  41.936  ops/s\"><pre class=\"notranslate\"><code>Benchmark                      Mode  Cnt      Score     Error  Units\nInMemoryBenchmark.sumInts0II  thrpt   80  10225.388 ± 191.612  ops/s\nInMemoryBenchmark.sumInts1IM  thrpt   80  13395.800 ±  30.912  ops/s\nInMemoryBenchmark.sumInts2IT  thrpt   80  18609.579 ±  47.491  ops/s\nInMemoryBenchmark.sumInts3IR  thrpt   80  15999.740 ± 114.949  ops/s\nInMemoryBenchmark.sumInts4S   thrpt   80     72.074 ±   1.209  ops/s\nInMemoryBenchmark.sumInts5Z   thrpt   80    310.472 ±   4.368  ops/s\nInMemoryBenchmark.sumInts6P   thrpt   80     43.071 ±   0.543  ops/s\nInMemoryBenchmark.sumInts7C   thrpt   80  12975.042 ±  48.702  ops/s\nInMemoryBenchmark.sumInts8F   thrpt   80   9610.699 ±  41.936  ops/s\n</code></pre></div>\n<p dir=\"auto\">And the results for collecting the first 10,000 values from an infinite stream of non-negative\nnumbers into a <code>Vector</code>:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"Benchmark                         Mode  Cnt     Score    Error  Units\nStreamingBenchmark.takeLongs0II  thrpt   80  2787.725 ± 16.812  ops/s\nStreamingBenchmark.takeLongs1IM  thrpt   80  1617.848 ± 19.899  ops/s\nStreamingBenchmark.takeLongs2IT  thrpt   80  1052.494 ±  7.707  ops/s\nStreamingBenchmark.takeLongs3IR  thrpt   80   979.514 ± 26.197  ops/s\nStreamingBenchmark.takeLongs4S   thrpt   80    56.882 ±  0.969  ops/s\nStreamingBenchmark.takeLongs5Z   thrpt   80   154.103 ± 10.350  ops/s\nStreamingBenchmark.takeLongs6P   thrpt   80     1.216 ±  0.005  ops/s\nStreamingBenchmark.takeLongs7C   thrpt   80  3273.158 ± 55.187  ops/s\nStreamingBenchmark.takeLongs8F   thrpt   80     7.915 ±  0.044  ops/s\"><pre class=\"notranslate\"><code>Benchmark                         Mode  Cnt     Score    Error  Units\nStreamingBenchmark.takeLongs0II  thrpt   80  2787.725 ± 16.812  ops/s\nStreamingBenchmark.takeLongs1IM  thrpt   80  1617.848 ± 19.899  ops/s\nStreamingBenchmark.takeLongs2IT  thrpt   80  1052.494 ±  7.707  ops/s\nStreamingBenchmark.takeLongs3IR  thrpt   80   979.514 ± 26.197  ops/s\nStreamingBenchmark.takeLongs4S   thrpt   80    56.882 ±  0.969  ops/s\nStreamingBenchmark.takeLongs5Z   thrpt   80   154.103 ± 10.350  ops/s\nStreamingBenchmark.takeLongs6P   thrpt   80     1.216 ±  0.005  ops/s\nStreamingBenchmark.takeLongs7C   thrpt   80  3273.158 ± 55.187  ops/s\nStreamingBenchmark.takeLongs8F   thrpt   80     7.915 ±  0.044  ops/s\n</code></pre></div>\n<p dir=\"auto\">And allocation rates (lower is better):</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"Benchmark                                            Mode  Cnt           Score          Error  Units\nInMemoryBenchmark.sumInts0II:gc.alloc.rate.norm     thrpt   20      159953.462 ±       11.863   B/op\nInMemoryBenchmark.sumInts1IM:gc.alloc.rate.norm     thrpt   20      160203.272 ±        5.949   B/op\nInMemoryBenchmark.sumInts2IT:gc.alloc.rate.norm     thrpt   20      160622.026 ±        6.323   B/op\nInMemoryBenchmark.sumInts3IR:gc.alloc.rate.norm     thrpt   20      160398.303 ±        6.685   B/op\nInMemoryBenchmark.sumInts4S:gc.alloc.rate.norm      thrpt   20    63936897.241 ±   320928.043   B/op\nInMemoryBenchmark.sumInts5Z:gc.alloc.rate.norm      thrpt   20    16401510.998 ±        6.115   B/op\nInMemoryBenchmark.sumInts6P:gc.alloc.rate.norm      thrpt   20    13802446.593 ±   229152.745   B/op\nInMemoryBenchmark.sumInts7C:gc.alloc.rate.norm      thrpt   20      159851.547 ±       14.556   B/op\nInMemoryBenchmark.sumInts8F:gc.alloc.rate.norm      thrpt   20      260454.260 ±     1522.736   B/op\n\nBenchmark                                            Mode  Cnt           Score          Error  Units\nStreamingBenchmark.takeLongs0II:gc.alloc.rate.norm  thrpt   20     3043720.338 ±        0.018   B/op\nStreamingBenchmark.takeLongs1IM:gc.alloc.rate.norm  thrpt   20     3444961.639 ±        4.168   B/op\nStreamingBenchmark.takeLongs2IT:gc.alloc.rate.norm  thrpt   20     5804308.795 ±    61718.228   B/op\nStreamingBenchmark.takeLongs3IR:gc.alloc.rate.norm  thrpt   20     5124124.296 ±        5.147   B/op\nStreamingBenchmark.takeLongs4S:gc.alloc.rate.norm   thrpt   20    75347149.315 ±   555268.150   B/op\nStreamingBenchmark.takeLongs5Z:gc.alloc.rate.norm   thrpt   20    28588033.048 ±   238419.245   B/op\nStreamingBenchmark.takeLongs6P:gc.alloc.rate.norm   thrpt   20  1206196498.000 ±    71329.621   B/op\nStreamingBenchmark.takeLongs7C:gc.alloc.rate.norm   thrpt   20      526752.310 ±        0.029   B/op\nStreamingBenchmark.takeLongs8F:gc.alloc.rate.norm   thrpt   20   531380973.839 ± 13505581.754   B/op\"><pre class=\"notranslate\"><code>Benchmark                                            Mode  Cnt           Score          Error  Units\nInMemoryBenchmark.sumInts0II:gc.alloc.rate.norm     thrpt   20      159953.462 ±       11.863   B/op\nInMemoryBenchmark.sumInts1IM:gc.alloc.rate.norm     thrpt   20      160203.272 ±        5.949   B/op\nInMemoryBenchmark.sumInts2IT:gc.alloc.rate.norm     thrpt   20      160622.026 ±        6.323   B/op\nInMemoryBenchmark.sumInts3IR:gc.alloc.rate.norm     thrpt   20      160398.303 ±        6.685   B/op\nInMemoryBenchmark.sumInts4S:gc.alloc.rate.norm      thrpt   20    63936897.241 ±   320928.043   B/op\nInMemoryBenchmark.sumInts5Z:gc.alloc.rate.norm      thrpt   20    16401510.998 ±        6.115   B/op\nInMemoryBenchmark.sumInts6P:gc.alloc.rate.norm      thrpt   20    13802446.593 ±   229152.745   B/op\nInMemoryBenchmark.sumInts7C:gc.alloc.rate.norm      thrpt   20      159851.547 ±       14.556   B/op\nInMemoryBenchmark.sumInts8F:gc.alloc.rate.norm      thrpt   20      260454.260 ±     1522.736   B/op\n\nBenchmark                                            Mode  Cnt           Score          Error  Units\nStreamingBenchmark.takeLongs0II:gc.alloc.rate.norm  thrpt   20     3043720.338 ±        0.018   B/op\nStreamingBenchmark.takeLongs1IM:gc.alloc.rate.norm  thrpt   20     3444961.639 ±        4.168   B/op\nStreamingBenchmark.takeLongs2IT:gc.alloc.rate.norm  thrpt   20     5804308.795 ±    61718.228   B/op\nStreamingBenchmark.takeLongs3IR:gc.alloc.rate.norm  thrpt   20     5124124.296 ±        5.147   B/op\nStreamingBenchmark.takeLongs4S:gc.alloc.rate.norm   thrpt   20    75347149.315 ±   555268.150   B/op\nStreamingBenchmark.takeLongs5Z:gc.alloc.rate.norm   thrpt   20    28588033.048 ±   238419.245   B/op\nStreamingBenchmark.takeLongs6P:gc.alloc.rate.norm   thrpt   20  1206196498.000 ±    71329.621   B/op\nStreamingBenchmark.takeLongs7C:gc.alloc.rate.norm   thrpt   20      526752.310 ±        0.029   B/op\nStreamingBenchmark.takeLongs8F:gc.alloc.rate.norm   thrpt   20   531380973.839 ± 13505581.754   B/op\n</code></pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>License</h2>\n<p dir=\"auto\">iteratee.io is licensed under the <strong><a href=\"http://www.apache.org/licenses/LICENSE-2.0\" rel=\"nofollow\">Apache License, Version 2.0</a></strong> (the\n\"License\"); you may not use this software except in compliance with the License.</p>\n<p dir=\"auto\">Unless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.</p>\n</article></div>",
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><div class=\"markdown-heading\" dir=\"auto\"><h1 class=\"heading-element\" dir=\"auto\">iteratee.io</h1><a id=\"user-content-iterateeio\" class=\"anchor\" aria-label=\"Permalink: iteratee.io\" href=\"#iterateeio\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><a href=\"https://travis-ci.org/travisbrown/iteratee\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/7e0c75f82854e9de53ab11bc32988c13e17e8a584df71d4c0ce74deaf93bff5a/68747470733a2f2f696d672e736869656c64732e696f2f7472617669732f74726176697362726f776e2f69746572617465652f6d61696e2e737667\" alt=\"Build status\" data-canonical-src=\"https://img.shields.io/travis/travisbrown/iteratee/main.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://codecov.io/github/travisbrown/iteratee\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/4a84b38af0ad678a8703cb780a166311518838f5f65e7c413a7e5bce7bb247da/68747470733a2f2f696d672e736869656c64732e696f2f636f6465636f762f632f6769746875622f74726176697362726f776e2f69746572617465652f6d61696e2e737667\" alt=\"Coverage status\" data-canonical-src=\"https://img.shields.io/codecov/c/github/travisbrown/iteratee/main.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://gitter.im/travisbrown/iteratee\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/5982569df0f71a08cb89692f3fa4f037ae9f95a74494ad7b3e6405dc1485b9fa/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6769747465722d6a6f696e253230636861742d677265656e2e737667\" alt=\"Gitter\" data-canonical-src=\"https://img.shields.io/badge/gitter-join%20chat-green.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://maven-badges.herokuapp.com/maven-central/io.iteratee/iteratee-core_2.13\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/f4065a79fde8133965ad3c80b825d70b8c144dc31a8378301fa741f2a0279a3f/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f696f2e69746572617465652f69746572617465652d636f72655f322e31332e737667\" alt=\"Maven Central\" data-canonical-src=\"https://img.shields.io/maven-central/v/io.iteratee/iteratee-core_2.13.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">This project is an iteratee implementation for <a href=\"https://github.com/typelevel/cats\">Cats</a> that began as a port of\n<a href=\"https://github.com/scalaz/scalaz\">Scalaz</a>'s <a href=\"https://github.com/scalaz/scalaz/tree/series/7.2.x/iteratee/src/main/scala/scalaz/iteratee\">iteratee package</a>, although the API and implementation are now\nvery different from Scalaz's. There are <a href=\"http://travisbrown.github.io/iteratee/api/#io.iteratee.package\" rel=\"nofollow\">API docs</a> (but they're a work in progress), and\nI've published a <a href=\"https://meta.plasm.us/posts/2016/01/08/yet-another-iteratee-library/\" rel=\"nofollow\">blog post</a> introducing the project.</p>\n<p dir=\"auto\">The motivations for the port are similar to those for <a href=\"https://github.com/travisbrown/circe\">circe</a>—in particular I'm aiming for a\nmore consistent API, better performance, and better documentation.</p>\n<p dir=\"auto\">Note that this library doesn't support many of the use cases that <a href=\"https://github.com/functional-streams-for-scala/fs2\">fs2</a> (formerly Scalaz\nStream) is designed to handle. It doesn't support nondeterministic reading from multiple streams,\nfor example, and in general is a less appropriate choice for situations where concurrency and\nparallelism are primary goals. Where the use cases of fs2 and this library do overlap, however, it's\noften likely to be a simpler, faster solution.</p>\n<p dir=\"auto\">The initial performance benchmarks look promising. For example, here are the throughput results for\nsumming a sequence of numbers with this library and <code>cats.Id</code> (<code>II</code>), this library and Monix's\n<code>Task</code> (<code>IM</code>), this library and Scalaz's <code>Task</code> (<code>IT</code>), this library and Twitter futures (<code>IR</code>),\nScalaz Stream (<code>S</code>), scalaz-iteratee (<code>Z</code>), <a href=\"https://www.playframework.com/documentation/2.5.x/Iteratees\" rel=\"nofollow\">play-iteratee</a> (<code>P</code>), the Scala\ncollections library (<code>C</code>), and fs2 (<code>F</code>). Higher numbers are better.</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"Benchmark                      Mode  Cnt      Score     Error  Units\nInMemoryBenchmark.sumInts0II  thrpt   80  10225.388 ± 191.612  ops/s\nInMemoryBenchmark.sumInts1IM  thrpt   80  13395.800 ±  30.912  ops/s\nInMemoryBenchmark.sumInts2IT  thrpt   80  18609.579 ±  47.491  ops/s\nInMemoryBenchmark.sumInts3IR  thrpt   80  15999.740 ± 114.949  ops/s\nInMemoryBenchmark.sumInts4S   thrpt   80     72.074 ±   1.209  ops/s\nInMemoryBenchmark.sumInts5Z   thrpt   80    310.472 ±   4.368  ops/s\nInMemoryBenchmark.sumInts6P   thrpt   80     43.071 ±   0.543  ops/s\nInMemoryBenchmark.sumInts7C   thrpt   80  12975.042 ±  48.702  ops/s\nInMemoryBenchmark.sumInts8F   thrpt   80   9610.699 ±  41.936  ops/s\"><pre class=\"notranslate\"><code>Benchmark                      Mode  Cnt      Score     Error  Units\nInMemoryBenchmark.sumInts0II  thrpt   80  10225.388 ± 191.612  ops/s\nInMemoryBenchmark.sumInts1IM  thrpt   80  13395.800 ±  30.912  ops/s\nInMemoryBenchmark.sumInts2IT  thrpt   80  18609.579 ±  47.491  ops/s\nInMemoryBenchmark.sumInts3IR  thrpt   80  15999.740 ± 114.949  ops/s\nInMemoryBenchmark.sumInts4S   thrpt   80     72.074 ±   1.209  ops/s\nInMemoryBenchmark.sumInts5Z   thrpt   80    310.472 ±   4.368  ops/s\nInMemoryBenchmark.sumInts6P   thrpt   80     43.071 ±   0.543  ops/s\nInMemoryBenchmark.sumInts7C   thrpt   80  12975.042 ±  48.702  ops/s\nInMemoryBenchmark.sumInts8F   thrpt   80   9610.699 ±  41.936  ops/s\n</code></pre></div>\n<p dir=\"auto\">And the results for collecting the first 10,000 values from an infinite stream of non-negative\nnumbers into a <code>Vector</code>:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"Benchmark                         Mode  Cnt     Score    Error  Units\nStreamingBenchmark.takeLongs0II  thrpt   80  2787.725 ± 16.812  ops/s\nStreamingBenchmark.takeLongs1IM  thrpt   80  1617.848 ± 19.899  ops/s\nStreamingBenchmark.takeLongs2IT  thrpt   80  1052.494 ±  7.707  ops/s\nStreamingBenchmark.takeLongs3IR  thrpt   80   979.514 ± 26.197  ops/s\nStreamingBenchmark.takeLongs4S   thrpt   80    56.882 ±  0.969  ops/s\nStreamingBenchmark.takeLongs5Z   thrpt   80   154.103 ± 10.350  ops/s\nStreamingBenchmark.takeLongs6P   thrpt   80     1.216 ±  0.005  ops/s\nStreamingBenchmark.takeLongs7C   thrpt   80  3273.158 ± 55.187  ops/s\nStreamingBenchmark.takeLongs8F   thrpt   80     7.915 ±  0.044  ops/s\"><pre class=\"notranslate\"><code>Benchmark                         Mode  Cnt     Score    Error  Units\nStreamingBenchmark.takeLongs0II  thrpt   80  2787.725 ± 16.812  ops/s\nStreamingBenchmark.takeLongs1IM  thrpt   80  1617.848 ± 19.899  ops/s\nStreamingBenchmark.takeLongs2IT  thrpt   80  1052.494 ±  7.707  ops/s\nStreamingBenchmark.takeLongs3IR  thrpt   80   979.514 ± 26.197  ops/s\nStreamingBenchmark.takeLongs4S   thrpt   80    56.882 ±  0.969  ops/s\nStreamingBenchmark.takeLongs5Z   thrpt   80   154.103 ± 10.350  ops/s\nStreamingBenchmark.takeLongs6P   thrpt   80     1.216 ±  0.005  ops/s\nStreamingBenchmark.takeLongs7C   thrpt   80  3273.158 ± 55.187  ops/s\nStreamingBenchmark.takeLongs8F   thrpt   80     7.915 ±  0.044  ops/s\n</code></pre></div>\n<p dir=\"auto\">And allocation rates (lower is better):</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"Benchmark                                            Mode  Cnt           Score          Error  Units\nInMemoryBenchmark.sumInts0II:gc.alloc.rate.norm     thrpt   20      159953.462 ±       11.863   B/op\nInMemoryBenchmark.sumInts1IM:gc.alloc.rate.norm     thrpt   20      160203.272 ±        5.949   B/op\nInMemoryBenchmark.sumInts2IT:gc.alloc.rate.norm     thrpt   20      160622.026 ±        6.323   B/op\nInMemoryBenchmark.sumInts3IR:gc.alloc.rate.norm     thrpt   20      160398.303 ±        6.685   B/op\nInMemoryBenchmark.sumInts4S:gc.alloc.rate.norm      thrpt   20    63936897.241 ±   320928.043   B/op\nInMemoryBenchmark.sumInts5Z:gc.alloc.rate.norm      thrpt   20    16401510.998 ±        6.115   B/op\nInMemoryBenchmark.sumInts6P:gc.alloc.rate.norm      thrpt   20    13802446.593 ±   229152.745   B/op\nInMemoryBenchmark.sumInts7C:gc.alloc.rate.norm      thrpt   20      159851.547 ±       14.556   B/op\nInMemoryBenchmark.sumInts8F:gc.alloc.rate.norm      thrpt   20      260454.260 ±     1522.736   B/op\n\nBenchmark                                            Mode  Cnt           Score          Error  Units\nStreamingBenchmark.takeLongs0II:gc.alloc.rate.norm  thrpt   20     3043720.338 ±        0.018   B/op\nStreamingBenchmark.takeLongs1IM:gc.alloc.rate.norm  thrpt   20     3444961.639 ±        4.168   B/op\nStreamingBenchmark.takeLongs2IT:gc.alloc.rate.norm  thrpt   20     5804308.795 ±    61718.228   B/op\nStreamingBenchmark.takeLongs3IR:gc.alloc.rate.norm  thrpt   20     5124124.296 ±        5.147   B/op\nStreamingBenchmark.takeLongs4S:gc.alloc.rate.norm   thrpt   20    75347149.315 ±   555268.150   B/op\nStreamingBenchmark.takeLongs5Z:gc.alloc.rate.norm   thrpt   20    28588033.048 ±   238419.245   B/op\nStreamingBenchmark.takeLongs6P:gc.alloc.rate.norm   thrpt   20  1206196498.000 ±    71329.621   B/op\nStreamingBenchmark.takeLongs7C:gc.alloc.rate.norm   thrpt   20      526752.310 ±        0.029   B/op\nStreamingBenchmark.takeLongs8F:gc.alloc.rate.norm   thrpt   20   531380973.839 ± 13505581.754   B/op\"><pre class=\"notranslate\"><code>Benchmark                                            Mode  Cnt           Score          Error  Units\nInMemoryBenchmark.sumInts0II:gc.alloc.rate.norm     thrpt   20      159953.462 ±       11.863   B/op\nInMemoryBenchmark.sumInts1IM:gc.alloc.rate.norm     thrpt   20      160203.272 ±        5.949   B/op\nInMemoryBenchmark.sumInts2IT:gc.alloc.rate.norm     thrpt   20      160622.026 ±        6.323   B/op\nInMemoryBenchmark.sumInts3IR:gc.alloc.rate.norm     thrpt   20      160398.303 ±        6.685   B/op\nInMemoryBenchmark.sumInts4S:gc.alloc.rate.norm      thrpt   20    63936897.241 ±   320928.043   B/op\nInMemoryBenchmark.sumInts5Z:gc.alloc.rate.norm      thrpt   20    16401510.998 ±        6.115   B/op\nInMemoryBenchmark.sumInts6P:gc.alloc.rate.norm      thrpt   20    13802446.593 ±   229152.745   B/op\nInMemoryBenchmark.sumInts7C:gc.alloc.rate.norm      thrpt   20      159851.547 ±       14.556   B/op\nInMemoryBenchmark.sumInts8F:gc.alloc.rate.norm      thrpt   20      260454.260 ±     1522.736   B/op\n\nBenchmark                                            Mode  Cnt           Score          Error  Units\nStreamingBenchmark.takeLongs0II:gc.alloc.rate.norm  thrpt   20     3043720.338 ±        0.018   B/op\nStreamingBenchmark.takeLongs1IM:gc.alloc.rate.norm  thrpt   20     3444961.639 ±        4.168   B/op\nStreamingBenchmark.takeLongs2IT:gc.alloc.rate.norm  thrpt   20     5804308.795 ±    61718.228   B/op\nStreamingBenchmark.takeLongs3IR:gc.alloc.rate.norm  thrpt   20     5124124.296 ±        5.147   B/op\nStreamingBenchmark.takeLongs4S:gc.alloc.rate.norm   thrpt   20    75347149.315 ±   555268.150   B/op\nStreamingBenchmark.takeLongs5Z:gc.alloc.rate.norm   thrpt   20    28588033.048 ±   238419.245   B/op\nStreamingBenchmark.takeLongs6P:gc.alloc.rate.norm   thrpt   20  1206196498.000 ±    71329.621   B/op\nStreamingBenchmark.takeLongs7C:gc.alloc.rate.norm   thrpt   20      526752.310 ±        0.029   B/op\nStreamingBenchmark.takeLongs8F:gc.alloc.rate.norm   thrpt   20   531380973.839 ± 13505581.754   B/op\n</code></pre></div>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">License</h2><a id=\"user-content-license\" class=\"anchor\" aria-label=\"Permalink: License\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">iteratee.io is licensed under the <strong><a href=\"http://www.apache.org/licenses/LICENSE-2.0\" rel=\"nofollow\">Apache License, Version 2.0</a></strong> (the\n\"License\"); you may not use this software except in compliance with the License.</p>\n<p dir=\"auto\">Unless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.</p>\n</article></div>",
     "contributors" : [
       {
         "login" : "travisbrown",
@@ -91,21 +91,9 @@
         "contributions" : 3
       },
       {
-        "login" : "anovstrup",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/375423?v=4",
-        "url" : "https://github.com/anovstrup",
-        "contributions" : 2
-      },
-      {
-        "login" : "ilya-murzinov",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/3704363?v=4",
-        "url" : "https://github.com/ilya-murzinov",
-        "contributions" : 2
-      },
-      {
-        "login" : "sullivan-",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/518346?v=4",
-        "url" : "https://github.com/sullivan-",
+        "login" : "rossabaker",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/142698?v=4",
+        "url" : "https://github.com/rossabaker",
         "contributions" : 2
       },
       {
@@ -115,9 +103,21 @@
         "contributions" : 2
       },
       {
-        "login" : "rossabaker",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/142698?v=4",
-        "url" : "https://github.com/rossabaker",
+        "login" : "sullivan-",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/518346?v=4",
+        "url" : "https://github.com/sullivan-",
+        "contributions" : 2
+      },
+      {
+        "login" : "ilya-murzinov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3704363?v=4",
+        "url" : "https://github.com/ilya-murzinov",
+        "contributions" : 2
+      },
+      {
+        "login" : "anovstrup",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/375423?v=4",
+        "url" : "https://github.com/anovstrup",
         "contributions" : 2
       },
       {
@@ -173,7 +173,6 @@
     ],
     "contributingGuide" : null,
     "codeOfConduct" : null,
-    "chatroom" : "https://gitter.im/travisbrown/iteratee",
     "openIssues" : [
       {
         "number" : 610,
@@ -229,698 +228,20 @@
     "scalaPercentage" : 100,
     "license" : "Apache-2.0",
     "commitActivity" : [
-      {
-        "total" : 2,
-        "week" : 1629590400000,
-        "days" : [
-          0,
-          0,
-          0,
-          1,
-          1,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 4,
-        "week" : 1630195200000,
-        "days" : [
-          0,
-          3,
-          0,
-          1,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1630800000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          2,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1631404800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 5,
-        "week" : 1632009600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          5,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1632614400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1633219200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 7,
-        "week" : 1633824000000,
-        "days" : [
-          5,
-          2,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1634428800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1635033600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1635638400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1636243200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1636848000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1637452800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1638057600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1638662400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1639267200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1639872000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1640476800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1641081600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1641686400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1642291200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1642896000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1643500800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1644105600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1644710400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1645315200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1645920000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1646524800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1647129600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1647734400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1648339200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1648944000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1649548800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1650153600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1650758400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1651363200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1651968000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1652572800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1653177600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1653782400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1654387200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1654992000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1655596800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1656201600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1656806400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1657411200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1658016000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1658620800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1659225600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1659830400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1660435200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      }
     ]
   },
   "settings" : {
     "preferStableVersion" : true,
     "defaultArtifact" : "iteratee-core",
-    "strictVersions" : false,
     "customScalaDoc" : null,
     "documentationLinks" : [
     ],
-    "deprecated" : false,
     "contributorsWanted" : false,
     "deprecatedArtifacts" : [
     ],
     "cliArtifacts" : [
     ],
     "category" : "asynchronous-and-reactive-programming",
-    "beginnerIssuesLabel" : null
+    "chatroom" : null
   }
 }

@@ -4,19 +4,19 @@
   "creationDate" : 1418524766000,
   "githubStatus" : {
     "Ok" : {
-      "updateDate" : 1660807042607
+      "updateDate" : 1723548855271
     }
   },
   "githubInfo" : {
     "homepage" : "",
     "description" : "Quartz Extension and utilities for cron-style scheduling in Akka",
     "logo" : "https://avatars.githubusercontent.com/u/2838551?v=4",
-    "stars" : 549,
-    "forks" : 106,
+    "stars" : 559,
+    "forks" : 113,
     "watchers" : 28,
-    "issues" : 5,
+    "issues" : 10,
     "creationDate" : 1365821321000,
-    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-akka-quartz-scheduler\" class=\"anchor\" aria-hidden=\"true\" href=\"#akka-quartz-scheduler\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>akka-quartz-scheduler</h1>\n<p dir=\"auto\"><a href=\"https://travis-ci.org/enragedginger/akka-quartz-scheduler\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/ee43b727d0935247c26e47689dc1bb6b444d7c68d7bfb3a14256598a9ce22b21/68747470733a2f2f6170692e7472617669732d63692e6f72672f656e726167656467696e6765722f616b6b612d71756172747a2d7363686564756c65722e7376673f6272616e63683d6d6173746572\" alt=\"Build Status\" data-canonical-src=\"https://api.travis-ci.org/enragedginger/akka-quartz-scheduler.svg?branch=master\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Quartz Extension and utilities for true scheduling in Akka 2.6.x.</p>\n<p dir=\"auto\">Current release is built for Scala 2.13.x and Akka 2.6.x and is available on Maven Central. If you would like support\nfor a different combination of Scala and Akka, simply post your request on the issues page (as well as a reason as to\nwhy the currently available versions won't work for you. I'm always curious about these things).</p>\n<h1 dir=\"auto\"><a id=\"user-content-why-akka-and-quartz\" class=\"anchor\" aria-hidden=\"true\" href=\"#why-akka-and-quartz\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Why Akka and Quartz?</h1>\n<p dir=\"auto\">Note that this is named and targeted as akka-quartz-scheduler for a reason: it is <em>not</em> a complete port of Quartz.\nRather, we utilize the concepts of Quartz' scheduling system to provide a more robust and reliable scheduling component\nto Akka than the one already available.</p>\n<p dir=\"auto\">The goal here is to provide Akka with a scheduling system that is closer to what one would expect for Cron type jobs –\nset up long-running ActorSystems that can have certain events kicked off by Quartz.</p>\n<p dir=\"auto\">There aren't currently any plans on having anything to do with the distributed transaction, persistence,\nclustering or any other nonsense anytime soon. This is for cron-ey type timing and scheduling.</p>\n<p dir=\"auto\">There is the ability in Quartz to pass JobDataMaps around that accrue mutable state across job ticks;\nwe currently do NOT support that to enforce integrity, but may expose a deeper actor structure later that\ngives some ability to work around that, if need arises.</p>\n<h2 dir=\"auto\"><a id=\"user-content-why-not-use-othercomparabletool-instead\" class=\"anchor\" aria-hidden=\"true\" href=\"#why-not-use-othercomparabletool-instead\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Why Not Use $OtherComparableTool Instead?</h2>\n<ol dir=\"auto\">\n<li>\n<p dir=\"auto\">What's wrong with Akka's existing Scheduler?\nAs Viktor Klang points out, 'Perhaps the name \"Scheduler\" was unfortunate,\n\"Deferer\" is probably more indicative of what it does.'</p>\n<p dir=\"auto\">The Akka Scheduler is designed to setup events that happen based on durations from the current moment:\nYou can say \"fire this job in 15 minutes, every 30 minutes thereafter\" but not \"fire a job every day at 3pm\".</p>\n<p dir=\"auto\">Furthermore, Akka's default scheduler is executed around a <a href=\"http://docs.jboss.org/netty/3.1/api/org/jboss/netty/util/HashedWheelTimer.html\" rel=\"nofollow\"><code>HashedWheelTimer</code></a> –\na potential precision loss for jobs, as it does not provide strong guarantees on the timeliness of execution.</p>\n</li>\n<li>\n<p dir=\"auto\">Why not just use the Quartz component in <a href=\"http://doc.akka.io/docs/akka/2.1.2/scala/camel.html\" rel=\"nofollow\">Akka's Camel Extension</a>?</p>\n<ol dir=\"auto\">\n<li>To begin with, Akka's Camel extension was <em>not</em> available in Akka 2.0.x, only in 2.1+</li>\n<li>Camel brings with it a whole architecture change (<code>Consumers</code>, <code>Producers</code>, etc) and is not exactly \"lightweight\" to plug in if all you want is Quartz support.</li>\n<li>We wanted to bring the scheduling concept of Quartz into Akka as cleanly as possible with native configuration integration and a lightweight feel.</li>\n</ol>\n</li>\n<li>\n<p dir=\"auto\">What about that other <code>akka-quartz</code> component up on GitHub?</p>\n<p dir=\"auto\">The interface to this aforementioned <code>akka-quartz</code> component is via Actors - one creates an instance of an Actor that\nhas its own Quartz Scheduler underneath it, and sends messages to that Actor to schedule jobs. Because it is an Actor\nwhich provides no \"Singleton\"-like guarantee, it becomes too easy for users to accidentally spin up multiple scheduler\ninstances, each of which is backed by its own threadpool.\nInstead, with <code>akka-quartz-scheduler</code> we use Akka's Extension system which provides\na plugin model – we guarantee only one Quartz Scheduler is <em>ever</em> spun up per <code>ActorSystem</code>. This means\nwe will never create anything but one single Thread Pool which you have control over the size of, for\nany given <code>ActorSystem</code>.</p>\n</li>\n</ol>\n<p dir=\"auto\">Finally, a common failure of the above listed alternatives is that configuration of things like a repeating schedule\nshould be separated from code in a configuration file which an operations team (not the developers) can\ncontrol. Thus, <code>akka-quartz-scheduler</code> only allows specifying the following in code: the name of a job, what actor to send\nthe tick to, and the message to send on a tick. The configuration of how frequently to 'tick' on a schedule is\nexternalised to the Akka configuration file; when a schedule request is made its name is matched up with an entry\nin the config which specifies the rules the actual scheduling should follow.</p>\n<p dir=\"auto\">Thus, development can outline the skeleton of repeating jobs in their code, specifying only what to do WHEN a 'tick' of\nthe schedule fires. Then, operations has complete control over how often a job runs and what rules it follows to determine\nthe schedule of firing.</p>\n<p dir=\"auto\">This, among other things, prevents accidental mistakes such as changing a schedule in development for testing. A\nchange of that sort is fixable without Operations needing to require a recompilation of source code.</p>\n<h3 dir=\"auto\"><a id=\"user-content-todo\" class=\"anchor\" aria-hidden=\"true\" href=\"#todo\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>TODO</h3>\n<ul dir=\"auto\">\n<li>investigate supporting listeners, with actor hookarounds.</li>\n<li>misfires and recovery model - play nice with supervision, deathwatch, etc\n[docs page 23 - very close to supervision strategy]</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-usage\" class=\"anchor\" aria-hidden=\"true\" href=\"#usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Usage</h2>\n<p dir=\"auto\">See CHANGELOG.md for a list of changes by release.</p>\n<p dir=\"auto\">Usage of the <code>akka-quartz-scheduler</code> component first requires including the necessary dependency in your SBT project:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"// For Akka 2.6.x and Akka Typed Actors 2.6.x and Scala 2.12.x, 2.13.x, 3.1.x\nlibraryDependencies += &quot;com.enragedginger&quot; %% &quot;akka-quartz-scheduler&quot; % &quot;1.9.3-akka-2.6.x&quot;\n\n// For Akka 2.6.x and Scala 2.12.x, 2.13.x\nlibraryDependencies += &quot;com.enragedginger&quot; %% &quot;akka-quartz-scheduler&quot; % &quot;1.8.5-akka-2.6.x&quot;\n\n// For Akka 2.5.x and Scala 2.11.x, 2.12.x, 2.13.x\nlibraryDependencies += &quot;com.enragedginger&quot; %% &quot;akka-quartz-scheduler&quot; % &quot;1.8.1-akka-2.5.x&quot;\n\n// For Akka 2.4.x and Scala 2.11.x, 2.12.x\nlibraryDependencies += &quot;com.enragedginger&quot; %% &quot;akka-quartz-scheduler&quot; % &quot;1.6.0-akka-2.4.x&quot;\"><pre><span class=\"pl-c\"><span class=\"pl-c\">//</span> For Akka 2.6.x and Akka Typed Actors 2.6.x and Scala 2.12.x, 2.13.x, 3.1.x</span>\nlibraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.enragedginger<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>akka-quartz-scheduler<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.9.3-akka-2.6.x<span class=\"pl-pds\">\"</span></span>\n\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> For Akka 2.6.x and Scala 2.12.x, 2.13.x</span>\nlibraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.enragedginger<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>akka-quartz-scheduler<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.8.5-akka-2.6.x<span class=\"pl-pds\">\"</span></span>\n\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> For Akka 2.5.x and Scala 2.11.x, 2.12.x, 2.13.x</span>\nlibraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.enragedginger<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>akka-quartz-scheduler<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.8.1-akka-2.5.x<span class=\"pl-pds\">\"</span></span>\n\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> For Akka 2.4.x and Scala 2.11.x, 2.12.x</span>\nlibraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.enragedginger<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>akka-quartz-scheduler<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.6.0-akka-2.4.x<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">Note: As of Akka 2.6, <a href=\"https://doc.akka.io/docs/akka/current/project/migration-guide-2.5.x-2.6.x.html\" rel=\"nofollow\">Scala 2.11 is no longer supported</a>.\nIf you wish to use newer versions of akka-quartz-scheduler, but you're stuck on Scala 2.11 for some reason, please open an issue / PR and we'll see what we can do.</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"//Older versions of the artifact for those that require pre Akka 2.3 or pre Scala 2.11\n//If you would like a current version of the artifact to be published for your required version\n//of Akka and Scala, simply file on issue on the project page.\nresolvers += &quot;Typesafe Repository&quot; at &quot;http://repo.typesafe.com/typesafe/releases/&quot;\n\n\n// For Akka 2.0.x\nlibraryDependencies += &quot;com.typesafe.akka&quot; %% &quot;akka-quartz-scheduler&quot; % &quot;1.2.0-akka-2.0.x&quot;\n// For Akka 2.1.x\nlibraryDependencies += &quot;com.typesafe.akka&quot; %% &quot;akka-quartz-scheduler&quot; % &quot;1.2.0-akka-2.1.x&quot;\n// For Akka 2.2.x\nlibraryDependencies += &quot;com.typesafe.akka&quot; %% &quot;akka-quartz-scheduler&quot; % &quot;1.2.0-akka-2.2.x&quot;\n// For Akka 2.3.x and Scala 2.10.4\nlibraryDependencies += &quot;com.typesafe.akka&quot; % &quot;akka-quartz-scheduler_2.10&quot; % &quot;1.4.0-akka-2.3.x&quot;\"><pre><span class=\"pl-c\"><span class=\"pl-c\">//</span>Older versions of the artifact for those that require pre Akka 2.3 or pre Scala 2.11</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span>If you would like a current version of the artifact to be published for your required version</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span>of Akka and Scala, simply file on issue on the project page.</span>\nresolvers <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Typesafe Repository<span class=\"pl-pds\">\"</span></span> at <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>http://repo.typesafe.com/typesafe/releases/<span class=\"pl-pds\">\"</span></span>\n\n\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> For Akka 2.0.x</span>\nlibraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.typesafe.akka<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>akka-quartz-scheduler<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.2.0-akka-2.0.x<span class=\"pl-pds\">\"</span></span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> For Akka 2.1.x</span>\nlibraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.typesafe.akka<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>akka-quartz-scheduler<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.2.0-akka-2.1.x<span class=\"pl-pds\">\"</span></span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> For Akka 2.2.x</span>\nlibraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.typesafe.akka<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>akka-quartz-scheduler<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.2.0-akka-2.2.x<span class=\"pl-pds\">\"</span></span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> For Akka 2.3.x and Scala 2.10.4</span>\nlibraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.typesafe.akka<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>akka-quartz-scheduler_2.10<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.4.0-akka-2.3.x<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">Note that the version name includes the Akka revision (Previous releases included the Akka release in the artifact name, which broken Maven).</p>\n<h3 dir=\"auto\"><a id=\"user-content-akka-typed-actor-26x\" class=\"anchor\" aria-hidden=\"true\" href=\"#akka-typed-actor-26x\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Akka Typed Actor (2.6.x)</h3>\n<p dir=\"auto\">If you use newer Akka Actor version then, from within your Akka project you can create and access a Typed Scheduler:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"// Akka Typed Actors sample.\nimport com.typesafe.akka.extension.quartz.QuartzSchedulerTypedExtension\n\nval scheduler = QuartzSchedulerTypedExtension(typedSystem)\n\"><pre><span class=\"pl-c\"><span class=\"pl-c\">//</span> Akka Typed Actors sample.</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">typesafe</span>.<span class=\"pl-en\">akka</span>.<span class=\"pl-en\">extension</span>.<span class=\"pl-en\">quartz</span>.<span class=\"pl-en\">QuartzSchedulerTypedExtension</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">scheduler</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">QuartzSchedulerTypedExtension</span>(typedSystem)\n</pre></div>\n<p dir=\"auto\">Where <code>typedSystem</code> represents an instance of an Akka Typed <code>ActorSystem[-T]</code> – note that <code>QuartzSchedulerTypedExtension</code>\nis scoped to that <code>ActorSystem[-T]</code> and there will only ever be one instance of it per <code>ActorSystem[-T]</code>.</p>\n<p dir=\"auto\">The primary external method on the <code>scheduler</code> instance is <code>schedule</code>, used for scheduling a job:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"def scheduleTyped[T](name: String, receiver: ActorRef[T], msg: T): java.util.Date\"><pre><span class=\"pl-k\">def</span> <span class=\"pl-en\">scheduleTyped</span>[<span class=\"pl-en\">T</span>](<span class=\"pl-v\">name</span>: <span class=\"pl-en\">String</span>, <span class=\"pl-v\">receiver</span>: <span class=\"pl-en\">ActorRef</span>[<span class=\"pl-en\">T</span>], <span class=\"pl-v\">msg</span>: <span class=\"pl-en\">T</span>)<span class=\"pl-k\">:</span> java.util.<span class=\"pl-en\">Date</span></pre></div>\n<p dir=\"auto\">OR</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"def scheduleTyped[T](name: String, receiver: ActorRef[T], msg: T, startDate: Option[Date]): java.util.Date\"><pre><span class=\"pl-k\">def</span> <span class=\"pl-en\">scheduleTyped</span>[<span class=\"pl-en\">T</span>](<span class=\"pl-v\">name</span>: <span class=\"pl-en\">String</span>, <span class=\"pl-v\">receiver</span>: <span class=\"pl-en\">ActorRef</span>[<span class=\"pl-en\">T</span>], <span class=\"pl-v\">msg</span>: <span class=\"pl-en\">T</span>, <span class=\"pl-v\">startDate</span>: <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">Date</span>])<span class=\"pl-k\">:</span> java.util.<span class=\"pl-en\">Date</span></pre></div>\n<p dir=\"auto\">The arguments to schedule are:</p>\n<ul dir=\"auto\">\n<li><code>name</code>: A <code>String</code> identifying the name of this schedule. This <em>must</em> match a schedule present in the configuration</li>\n<li><code>receiver</code>: A typed <code>ActorRef[T]</code>, who will be sent <code>msg</code> each time the schedule fires</li>\n<li><code>msg</code>: An instance of <code>A</code>, representing a message instance which will be sent to <code>receiver</code> each time the schedule fires</li>\n<li><code>startDate</code>: An optional <code>Date</code>, for postponed start of a job. Defaults to now.</li>\n</ul>\n<p dir=\"auto\">Invoking <code>scheduleTyped[A]</code> returns an instance of <code>java.util.Date</code>, representing the first time the newly setup schedule\nwill fire.</p>\n<p dir=\"auto\">Each time the Quartz schedule trigger fires, Quartz will send a copy of <code>msg</code> to your <code>receiver</code> actor.</p>\n<p dir=\"auto\">Note that you can use the same logic for scheduling Quartz with Akka Typed Actor as the older version.</p>\n<h3 dir=\"auto\"><a id=\"user-content-akka-actor-25x\" class=\"anchor\" aria-hidden=\"true\" href=\"#akka-actor-25x\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Akka Actor (2.5.x)</h3>\n<p dir=\"auto\">If you use old Akka Actor version then, from within your Akka project you can create and access a Scheduler:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"// Akka Actors sample.\nimport com.typesafe.akka.extension.quartz.QuartzSchedulerExtension\n\nval scheduler = QuartzSchedulerExtension(system)\n\"><pre><span class=\"pl-c\"><span class=\"pl-c\">//</span> Akka Actors sample.</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">typesafe</span>.<span class=\"pl-en\">akka</span>.<span class=\"pl-en\">extension</span>.<span class=\"pl-en\">quartz</span>.<span class=\"pl-en\">QuartzSchedulerExtension</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">scheduler</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">QuartzSchedulerExtension</span>(system)\n</pre></div>\n<p dir=\"auto\">Where <code>system</code> represents an instance of an Akka <code>ActorSystem</code> – note that <code>QuartzSchedulerExtension</code> is scoped\nto that <code>ActorSystem</code> and there will only ever be one instance of it per <code>ActorSystem</code>.</p>\n<p dir=\"auto\">The primary external method on the <code>scheduler</code> instance is <code>schedule</code>, used for scheduling a job:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"def schedule(name: String, receiver: ActorRef, msg: AnyRef, startDate: Option[Date]): java.util.Date\"><pre><span class=\"pl-k\">def</span> <span class=\"pl-en\">schedule</span>(<span class=\"pl-v\">name</span>: <span class=\"pl-en\">String</span>, <span class=\"pl-v\">receiver</span>: <span class=\"pl-en\">ActorRef</span>, <span class=\"pl-v\">msg</span>: <span class=\"pl-en\">AnyRef</span>, <span class=\"pl-v\">startDate</span>: <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">Date</span>])<span class=\"pl-k\">:</span> java.util.<span class=\"pl-en\">Date</span></pre></div>\n<p dir=\"auto\">OR</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"def schedule(name: String, receiver: ActorSelection, msg: AnyRef, startDate: Option[Date]): java.util.Date\"><pre><span class=\"pl-k\">def</span> <span class=\"pl-en\">schedule</span>(<span class=\"pl-v\">name</span>: <span class=\"pl-en\">String</span>, <span class=\"pl-v\">receiver</span>: <span class=\"pl-en\">ActorSelection</span>, <span class=\"pl-v\">msg</span>: <span class=\"pl-en\">AnyRef</span>, <span class=\"pl-v\">startDate</span>: <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">Date</span>])<span class=\"pl-k\">:</span> java.util.<span class=\"pl-en\">Date</span></pre></div>\n<p dir=\"auto\">The arguments to schedule are:</p>\n<ul dir=\"auto\">\n<li><code>name</code>: A <code>String</code> identifying the name of this schedule. This <em>must</em> match a schedule present in the configuration</li>\n<li><code>receiver</code>: An <code>ActorRef</code> or <code>ActorSelection</code>, who will be sent <code>msg</code> each time the schedule fires</li>\n<li><code>msg</code>: An <code>AnyRef</code>, representing a message instance which will be sent to <code>receiver</code> each time the schedule fires</li>\n<li><code>startDate</code>: An optional <code>Date</code>, for postponed start of a job. Defaults to now.</li>\n</ul>\n<p dir=\"auto\">Invoking <code>schedule</code> returns an instance of <code>java.util.Date</code>, representing the first time the newly setup schedule\nwill fire.</p>\n<p dir=\"auto\">Each time the Quartz schedule trigger fires, Quartz will send a copy of <code>msg</code> to your <code>receiver</code> actor.</p>\n<p dir=\"auto\">Here is an example, using a schedule called <code>Every30Seconds</code>, which sends a <code>Tick</code> message to a <code>CleanupActor</code> (which does hand wavy cleanup things):</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"case object Tick\n\nval cleaner = system.actorOf(Props[CleanupActor])\n\nQuartzSchedulerExtension(system).schedule(&quot;Every30Seconds&quot;, cleaner, Tick)\"><pre><span class=\"pl-k\">case</span> <span class=\"pl-k\">object</span> <span class=\"pl-en\">Tick</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">cleaner</span> <span class=\"pl-k\">=</span> system.actorOf(<span class=\"pl-en\">Props</span>[<span class=\"pl-en\">CleanupActor</span>])\n\n<span class=\"pl-en\">QuartzSchedulerExtension</span>(system).schedule(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Every30Seconds<span class=\"pl-pds\">\"</span></span>, cleaner, <span class=\"pl-en\">Tick</span>)</pre></div>\n<p dir=\"auto\">Where the <code>Tick</code> message is handled normally inside the Actor's message loop. If one wanted to ensure that schedule\nmessages were dealt with more immediately than \"normal\" actor messages, they could utilize <a href=\"http://doc.akka.io/docs/akka/2.4.1/scala/dispatchers.html\" rel=\"nofollow\">Priority Mailboxes</a>.</p>\n<p dir=\"auto\">The details on the configuration of a job is outlined below in the section '<em>Schedule Configuration</em>'.</p>\n<h3 dir=\"auto\"><a id=\"user-content-returning-scheduled-fire-time\" class=\"anchor\" aria-hidden=\"true\" href=\"#returning-scheduled-fire-time\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Returning scheduled Fire Time</h3>\n<p dir=\"auto\">There are situations where the fire time is helpful. For example, when an error occurs, we know which job trigger is\nbeing processed and can be recovered.</p>\n<p dir=\"auto\">Here is an example using the case class <code>MessageRequireFireTime</code> wrapping the <code>Tick</code> message.  This will send a\n<code>MessageWithFireTime(Tick, previousFireTime, scheduledFireTime, nextFireTime)</code> message to a <code>WorkerActor</code>:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"case object Tick\n\nval worker = system.actorOf(Props[WorkerActor])\n\nQuartzSchedulerExtension(system).schedule(&quot;Every30Seconds&quot;, worker, MessageRequireFireTime(Tick))\"><pre><span class=\"pl-k\">case</span> <span class=\"pl-k\">object</span> <span class=\"pl-en\">Tick</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">worker</span> <span class=\"pl-k\">=</span> system.actorOf(<span class=\"pl-en\">Props</span>[<span class=\"pl-en\">WorkerActor</span>])\n\n<span class=\"pl-en\">QuartzSchedulerExtension</span>(system).schedule(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Every30Seconds<span class=\"pl-pds\">\"</span></span>, worker, <span class=\"pl-en\">MessageRequireFireTime</span>(<span class=\"pl-en\">Tick</span>))</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-configuration-of-quartz-scheduler\" class=\"anchor\" aria-hidden=\"true\" href=\"#configuration-of-quartz-scheduler\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Configuration of Quartz Scheduler</h3>\n<p dir=\"auto\">All configuration of <code>akka-quartz-scheduler</code> is done inside of the Akka configuration file in an <code>akka.quartz</code> config\nblock. Like Akka's configuration file, this follows the <a href=\"https://github.com/typesafehub/config/blob/master/HOCON.md\">HOCON Configuration Format</a>.\nThus, any entries specified as <code>foo.bar.baz = x</code> can also be expressed as <code>foo { bar { baz = x } }</code>.</p>\n<p dir=\"auto\">At the top level of the configuration, optional values may be set which override the defaults for:</p>\n<ul dir=\"auto\">\n<li><code>defaultTimezone</code> - <strong>[String]</strong> represents the timezone to configure all jobs to run in. <em>DEFAULTS TO UTC</em>\nmust be parseable by <a href=\"http://docs.oracle.com/javase/7/docs/api/java/util/TimeZone.html#getTimeZone(java.lang.String)\" rel=\"nofollow\"><code>java.util.TimeZone.getTimeZone()</code></a>,</li>\n<li><code>threadPool.threadCount</code> - <strong>[Int]</strong> The number of threads to allocate to the internal Quartz threadpool. <em>DEFAULTS TO 1</em> - you may wish to up this number if you have a large number of schedules\nbeing executed. With only 1 thread, each trigger will queue up and you may not get responsive schedule notifications.</li>\n<li><code>threadPool.threadPriority</code> - <strong>[Int]</strong> A number, between 1 (Lowest priority) and 10 (Highest priority), specifying the priority to assign to Quartz' threads <em>DEFAULTS TO 5</em></li>\n<li><code>threadPool.daemonThreads</code> - <strong>[Boolean]</strong> A boolean indicating whether the threads Quartz creates should execute as <a href=\"http://stackoverflow.com/a/2213348\" rel=\"nofollow\">Daemon Threads</a> or not. <em>DEFAULTS TO TRUE</em></li>\n</ul>\n<p dir=\"auto\">There are two 'primary' sub-blocks of the <code>akka.quartz</code> configuration, which are <code>schedules</code> and <code>calendars</code>.</p>\n<h4 dir=\"auto\"><a id=\"user-content-schedule-configuration\" class=\"anchor\" aria-hidden=\"true\" href=\"#schedule-configuration\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Schedule Configuration</h4>\n<p dir=\"auto\">Schedules are our abstraction over Quartz' Job &amp; Trigger concepts. They allow you to define a named schedule,\nwhich will fire a schedule event (sending a message to an actor, as specified in code) each time the Quartz trigger fires.</p>\n<p dir=\"auto\">Currently, you can only specify \"Cron\" schedules, which follow <a href=\"http://quartz-scheduler.org/api/2.1.7/org/quartz/CronExpression.html\" rel=\"nofollow\">Quartz' CronExpression Language</a>,\nwhich is designed to match the standard Unix cron syntax with a few nice additions.</p>\n<p dir=\"auto\">The schedule name in the configuration will be used to match it up with a requested job when <code>schedule</code> is invoked;\ncase does not matter as the \"Is there a matching job?\" configuration lookup is case insensitive.</p>\n<p dir=\"auto\">The configuration block for schedules is in <code>akka.quartz.schedules</code>, with sub-entries being specified inside of a named\nblock, such that the configuration for a schedule named <code>Every30Seconds</code> would have its configuration values specified inside\nthe configuration block <code>akka.quartz.schedules.Every30Seconds</code>.</p>\n<p dir=\"auto\">The entries that can be placed inside of a schedule configuration are:</p>\n<ul dir=\"auto\">\n<li><code>expression</code> - <strong>[String]</strong> <em>[required]</em> a valid <a href=\"http://quartz-scheduler.org/api/2.1.7/org/quartz/CronExpression.html\" rel=\"nofollow\">Quartz' CronExpression</a>,\nwhich describes when this job should trigger. e.g. <code>expression = \"*/30 * * ? * *\"</code> would fire every 30 seconds, on every date (however,\nthe firing schedule created by this expression is modified by the <code>calendars</code> variable, defined below)</li>\n<li><code>timezone</code> - <strong>[String]</strong> <em>[optional]</em>  the timezone in which to execute the schedule, <em>DEFAULTS TO <code>akka.quartz.defaultTimezone</code>, WHICH DEFAULTS TO <strong>UTC</strong></em>\nmust be parseable by <a href=\"http://docs.oracle.com/javase/7/docs/api/java/util/TimeZone.html#getTimeZone(java.lang.String)\" rel=\"nofollow\"><code>java.util.TimeZone.getTimeZone()</code></a></li>\n<li><code>description</code> - <strong>[String]</strong> <em>[optional]</em> a description of the job. <em>DEFAULTS TO null</em>. Mostly for human friendliness\nwhen they read your configuration aka \"what this schedule is for\", but set in Quartz as well for if you dump the scheduler contents\nfor debug.</li>\n<li><code>calendar</code> - <strong>[String]</strong> <em>[optional]</em> An option String which is the name of a configured Calendar.  This Calendar is applied\nto this schedule as \"exemptions\" (Any times/dates falling in the Calendar will be excluded from the schedule firing - i.e.\na Calendar that excludes all Mondays would keep a schedule configured to trigger every hour, from triggering <em>at all</em> on Mondays.\nNOTE: In versions 1.3.x and prior, this property was \"calendars\" and supported a list of Strings.  However, Quartz, and by proxy, this library\nnever actually supported multiple calendars for one schedule.  Therefore, in versions 1.4.x and beyond this property has been renamed to \"calendar\"\nand is an optional String.\n<em>DEFAULTS TO <strong>None[String]</strong></em></li>\n</ul>\n<p dir=\"auto\">An example schedule called <code>Every30Seconds</code> which, aptly, fires off every 30 seconds:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"akka {\n  quartz {\n    schedules {\n      Every30Seconds {\n        description = &quot;A cron job that fires off every 30 seconds&quot;\n        expression = &quot;*/30 * * ? * *&quot;\n        calendar = &quot;OnlyBusinessHours&quot;\n      }\n    }\n  }\n}\"><pre class=\"notranslate\"><code>akka {\n  quartz {\n    schedules {\n      Every30Seconds {\n        description = \"A cron job that fires off every 30 seconds\"\n        expression = \"*/30 * * ? * *\"\n        calendar = \"OnlyBusinessHours\"\n      }\n    }\n  }\n}\n</code></pre></div>\n<p dir=\"auto\">This Schedule specifies a Cron Expression which executes every 30 seconds of every day, but is modified by the calendar\n\"OnlyBusinessHours\", which excludes triggers from firing outside of between 8am and 6pm (and is detailed below).</p>\n<h4 dir=\"auto\"><a id=\"user-content-calendar-configuration\" class=\"anchor\" aria-hidden=\"true\" href=\"#calendar-configuration\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Calendar Configuration</h4>\n<p dir=\"auto\">Calendars in the <code>akka-quartz-scheduler</code> mirror the concept of <a href=\"http://quartz-scheduler.org/documentation/quartz-2.x/tutorials/tutorial-lesson-04\" rel=\"nofollow\">Quartz' Calendars</a> –\nmost specifically, they allow you to specify <em>exclusions</em> that override a schedule.</p>\n<p dir=\"auto\">Calendars are configured globally, in the <code>akka.quartz.calendars</code> configuration block. The definition of a calendar and what it excludes\nis made within this block. By default, no Calendars are applied to a Schedule. Instead, you must reference a named Calendar\ninside the <code>calendars</code> array of a Schedule's configuration, as outlined above.</p>\n<p dir=\"auto\">The configuration block for calendars is in <code>akka.quartz.calendars</code>, with sub-entries being specified inside of a named\nblock, such that the configuration for a calendar named <code>OnlyBusinessHours</code> would have it's configuration values specified inside\nthe configuration block <code>akka.quartz.calendars.OnlyBusinessHours</code>.</p>\n<p dir=\"auto\">There are several types of Calendar, each with its own specific configurations. The configuration values which are common to <em>all</em> types of Calendar are:</p>\n<ul dir=\"auto\">\n<li><code>type</code> - <strong>[String]</strong> <em>[required]</em> a valid type of Calendar. Currently either: Annual, Holiday, Daily, Monthly, Weekly, and Cron</li>\n<li><code>timezone</code> - <strong>[String]</strong> <em>[optional]</em>  the timezone in which to execute the calendar, <em>DEFAULTS TO <code>akka.quartz.defaultTimezone</code>, WHICH DEFAULTS TO <strong>UTC</strong></em>\nmust be parseable by <a href=\"http://docs.oracle.com/javase/7/docs/api/java/util/TimeZone.html#getTimeZone(java.lang.String)\" rel=\"nofollow\"><code>java.util.TimeZone.getTimeZone()</code></a></li>\n<li><code>description</code> - <strong>[String]</strong> <em>[optional]</em> a description of the calendar. <em>DEFAULTS TO null</em>. Mostly for human friendliness\nwhen they read your configuration aka \"what this calendar is for\", but set in Quartz as well for if you dump the scheduler contents\nfor debug.</li>\n</ul>\n<p dir=\"auto\">Each specific Calendar type and its particular configuration entries are...</p>\n<h5 dir=\"auto\"><a id=\"user-content-annual-calendar\" class=\"anchor\" aria-hidden=\"true\" href=\"#annual-calendar\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>'Annual' Calendar</h5>\n<p dir=\"auto\">An annual calendar excludes specific days of a given year, e.g. bank holidays which fall on the same date every year (Christmas and Gregorian New Year's for example)\nThis calendar <em>does not take year into account</em>, and will apply to all years.</p>\n<p dir=\"auto\">It has only one configuration entry:</p>\n<ul dir=\"auto\">\n<li><code>excludeDates</code> - <strong>[Seq[String]]</strong> <em>[required]</em> This is a list of strings which are dates in the MM-DD format, representing which dates to exclude.\nFor example, \"Exclude Christmas and New Years\" would read as <code>excludeDates = [\"12-25\", \"01-01\"]</code></li>\n</ul>\n<p dir=\"auto\">An example:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"WinterClosings {\n  type = Annual\n  description = &quot;Major holiday dates that occur in the winter time every year, non-moveable (The year doesn't matter)&quot;\n  excludeDates = [&quot;12-25&quot;, &quot;01-01&quot;]\n}\"><pre class=\"notranslate\"><code>WinterClosings {\n  type = Annual\n  description = \"Major holiday dates that occur in the winter time every year, non-moveable (The year doesn't matter)\"\n  excludeDates = [\"12-25\", \"01-01\"]\n}\n</code></pre></div>\n<h5 dir=\"auto\"><a id=\"user-content-holiday-calendar\" class=\"anchor\" aria-hidden=\"true\" href=\"#holiday-calendar\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>'Holiday' Calendar</h5>\n<p dir=\"auto\">A holiday calendar excludes specific dates, with a fully month, day, year taken into account. It is mostly useful for\nmoving Bank Holidays (e.g. President's Day) and Moveable Feasts (e.g. Easter, which is based on a Lunar calendar).</p>\n<p dir=\"auto\">It has only one configuration entry:</p>\n<ul dir=\"auto\">\n<li><code>excludeDates</code> - <strong>[Seq[String]]</strong> <em>[required]</em> This is a list of strings in the ISO-8601 date format (YYYY-MM-DD), representing which dates\n(with year taken into account) to exclude. For example, excluding the the next 5 years' Easter holidays would read as <code>excludeDates = [\"2013-03-31\", \"2014-04-20\", \"2015-04-05\", \"2016-03-27\", \"2017-04-16\"]</code></li>\n</ul>\n<p dir=\"auto\">An example:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"Easter {\n  type = Holiday\n  description = &quot;The easter holiday (a moveable feast) for the next five years&quot;\n  excludeDates = [&quot;2013-03-31&quot;, &quot;2014-04-20&quot;, &quot;2015-04-05&quot;, &quot;2016-03-27&quot;, &quot;2017-04-16&quot;]\n}\"><pre class=\"notranslate\"><code>Easter {\n  type = Holiday\n  description = \"The easter holiday (a moveable feast) for the next five years\"\n  excludeDates = [\"2013-03-31\", \"2014-04-20\", \"2015-04-05\", \"2016-03-27\", \"2017-04-16\"]\n}\n</code></pre></div>\n<h5 dir=\"auto\"><a id=\"user-content-daily-calendar\" class=\"anchor\" aria-hidden=\"true\" href=\"#daily-calendar\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>'Daily' Calendar</h5>\n<p dir=\"auto\">A daily calendar excludes a specified time range each day. It <em>may not</em> cross daily boundaries, and Quartz will enforce this.\ni.e. You cannot specify \"11PM to 1AM\" – to do that you'll need to specify two separate daily calendars.</p>\n<p dir=\"auto\">Exclusions in a Daily calendar are specified in a <code>exclude</code> with a <code>startTime</code> and <code>endTime</code> entry. Each of these fields\nfollows a time format of <code>HH:MM[:SS[:mmm]]</code> where:\n- HH is the hour of the specified time using military (24-hour) time, and must be in the range 0-23\n- MM is the minute of the specified time, and must be in the range 0-59\n- SS is the <strong>optional</strong> second of the specified time, and must be in the range 0-59\n- mmm is the <strong>optional</strong> millisecond of the specified time, and must be in the range 0-999</p>\n<p dir=\"auto\">An example, which doesn't allow jobs to run between 3AM and 5AM during the PST Timezone:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"HourOfTheWolf {\n  type = Daily\n  description = &quot;A period every day in which cron jobs are quiesced, during night hours&quot;\n  exclude {\n    startTime = &quot;03:00&quot;\n    endTime   = &quot;05:00:00&quot;\n  }\n  timezone = PST\n}\"><pre class=\"notranslate\"><code>HourOfTheWolf {\n  type = Daily\n  description = \"A period every day in which cron jobs are quiesced, during night hours\"\n  exclude {\n    startTime = \"03:00\"\n    endTime   = \"05:00:00\"\n  }\n  timezone = PST\n}\n</code></pre></div>\n<h5 dir=\"auto\"><a id=\"user-content-monthly-calendar\" class=\"anchor\" aria-hidden=\"true\" href=\"#monthly-calendar\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>'Monthly' Calendar</h5>\n<p dir=\"auto\">A monthly calendar excludes a set of days of the month, i.e. \"Don't run a job on the 1st or 15th days of the month\"</p>\n<p dir=\"auto\">It has only one configuration entry:</p>\n<ul dir=\"auto\">\n<li><code>excludeDays</code> - <strong>[Seq[Int]]</strong> <em>[required]</em> This is a list of Ints, between 1 and 31, representing a day of the month.</li>\n</ul>\n<p dir=\"auto\">An example:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"FirstAndLastOfMonth {\n  type = Monthly\n  description = &quot;A thinly veiled example to test monthly exclusions&quot;\n  excludeDays = [1, 31]\n}\"><pre class=\"notranslate\"><code>FirstAndLastOfMonth {\n  type = Monthly\n  description = \"A thinly veiled example to test monthly exclusions\"\n  excludeDays = [1, 31]\n}\n</code></pre></div>\n<h5 dir=\"auto\"><a id=\"user-content-weekly-calendar\" class=\"anchor\" aria-hidden=\"true\" href=\"#weekly-calendar\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>'Weekly' Calendar</h5>\n<p dir=\"auto\">A weekly calendar excludes a set of days of the week. <em>By default, Saturday and Sunday are always excluded</em></p>\n<p dir=\"auto\">The configuration entries:</p>\n<ul dir=\"auto\">\n<li><code>excludeDays</code> - <strong>[Seq[Int]]</strong> <em>[required]</em> This is a list of Ints, between 1 and 7 – where 1 is Sunday and 7 is Saturday – representing days of the week to exclude.</li>\n<li><code>excludeWeekends</code> - <strong>Boolean</strong> <em>defaults to TRUE</em> Whether weekends should be excluded automatically by this scheduler or not. Note that <code>excludeWeekends</code> is overriden\nby <code>excludeDays</code> – if you specify <code>excludeWeekends = false</code> but <code>excludeDays</code> includes Sunday (<code>1</code>) or Saturday (<code>7</code>), then a configuration error will be thrown.</li>\n</ul>\n<p dir=\"auto\">An example, which excludes jobs from running on any Monday:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"MondaysSuck {\n  type = Weekly\n  description = &quot;Everyone, including this calendar, hates mondays as an integer&quot;\n  excludeDays = [2]\n  excludeWeekends = false\n}\"><pre class=\"notranslate\"><code>MondaysSuck {\n  type = Weekly\n  description = \"Everyone, including this calendar, hates mondays as an integer\"\n  excludeDays = [2]\n  excludeWeekends = false\n}\n</code></pre></div>\n<p dir=\"auto\">Note that by default, <code>excludeWeekends</code> would be true and thus <code>excludeDays</code> would implicitly be <code>[1, 2, 7]</code></p>\n<h5 dir=\"auto\"><a id=\"user-content-cron-calendar\" class=\"anchor\" aria-hidden=\"true\" href=\"#cron-calendar\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>'Cron' Calendar</h5>\n<p dir=\"auto\">A cron calendar excludes the set of times expressed by a given <a href=\"http://quartz-scheduler.org/api/2.1.7/org/quartz/CronExpression.html\" rel=\"nofollow\">Quartz CronExpression</a>.</p>\n<p dir=\"auto\">It has only one configuration entry:</p>\n<ul dir=\"auto\">\n<li><code>excludeExpression</code> - <strong>[String]</strong> <em>[required]</em> A valid <a href=\"http://quartz-scheduler.org/api/2.1.7/org/quartz/CronExpression.html\" rel=\"nofollow\">Quartz CronExpression</a>, which will be\nused to specify what times a job <em>cannot</em> run in (the opposite of a Cron Schedule).</li>\n</ul>\n<p dir=\"auto\">An example Calendar, which specifies an exclusion set of <code>00:00 - 07:59</code> and <code>18:00 - 23:59</code> (thereby only allowing jobs to run from <code>08:00 - 17:59</code>):</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"OnlyBusinessHours {\n  type = Cron\n  excludeExpression = &quot;* * 0-7,18-23 ? * *&quot;\n}\"><pre class=\"notranslate\"><code>OnlyBusinessHours {\n  type = Cron\n  excludeExpression = \"* * 0-7,18-23 ? * *\"\n}\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-dynamic-create-update-delete-jobschedule-operations\" class=\"anchor\" aria-hidden=\"true\" href=\"#dynamic-create-update-delete-jobschedule-operations\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Dynamic create, update, delete <code>JobSchedule</code> operations</h3>\n<p dir=\"auto\">These <code>JobSchedule</code> operations let you programatically manage job and job scheduling\nall at once.\n<em>For working examples please check test section:</em>\n<em>\"The Quartz Scheduling Extension with Dynamic create, update, delete JobSchedule operations\"</em>\n<em>in</em> <code>com.typesafe.akka.extension.quartz.QuartzSchedulerFunctionalSpec</code></p>\n<h4 dir=\"auto\"><a id=\"user-content-create-jobschedule\" class=\"anchor\" aria-hidden=\"true\" href=\"#create-jobschedule\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Create JobSchedule</h4>\n<p dir=\"auto\"><code>createJobSchedule</code> let you create a new job and schedule it all at once:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val scheduleJobName : String = &quot;myJobName_1&quot;\nval messageReceiverActor: ActorRef = myActorRef\nval messageSentToReceiver : AnyRef = myCaseClassMessage \nval scheduleCronExpression: String = &quot;*/10 * * ? * *&quot; // Will fire every ten seconds\n\ntry { \n  scheduler.createJobSchedule(\n  \tname = scheduleJobName, \n  \treceiver = messageReceiverActor, \n  \tmsg = messageSentToReceiver, \n  \tcronExpression = scheduleCronExpression)\n} catch {\n  case iae: IllegalArgumentException =&gt; iae // Do something useful with it.\n}\t\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">scheduleJobName</span> <span class=\"pl-k\">:</span> <span class=\"pl-en\">String</span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>myJobName_1<span class=\"pl-pds\">\"</span></span>\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">messageReceiverActor</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">ActorRef</span> <span class=\"pl-k\">=</span> myActorRef\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">messageSentToReceiver</span> <span class=\"pl-k\">:</span> <span class=\"pl-en\">AnyRef</span> <span class=\"pl-k\">=</span> myCaseClassMessage \n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">scheduleCronExpression</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">String</span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>*/10 * * ? * *<span class=\"pl-pds\">\"</span></span> <span class=\"pl-c\"><span class=\"pl-c\">//</span> Will fire every ten seconds</span>\n\n<span class=\"pl-k\">try</span> { \n  scheduler.createJobSchedule(\n  \tname <span class=\"pl-k\">=</span> scheduleJobName, \n  \treceiver <span class=\"pl-k\">=</span> messageReceiverActor, \n  \tmsg <span class=\"pl-k\">=</span> messageSentToReceiver, \n  \tcronExpression <span class=\"pl-k\">=</span> scheduleCronExpression)\n} <span class=\"pl-k\">catch</span> {\n  <span class=\"pl-k\">case</span> <span class=\"pl-v\">iae</span>: <span class=\"pl-en\">IllegalArgumentException</span> <span class=\"pl-k\">=&gt;</span> iae <span class=\"pl-c\"><span class=\"pl-c\">//</span> Do something useful with it.</span>\n}\t</pre></div>\n<p dir=\"auto\">In addition you can specify the following optional description, calendar and timezone parameters:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val scheduleJobDescriptionOpt : Option[String] = Some(&quot;Scheduled job for test purposes.&quot;)\nval aCalendarName: Option[String] = Some(&quot;HourOfTheWolf&quot;)\nval aTimeZone: java.util.TimeZone = java.util.TimeZone.getTimeZone(&quot;UTC&quot;)\n\ntry { \n  scheduler.createJobSchedule(\n  \tname = scheduleJobName, \n  \treceiver = messageReceiverActor, \n  \tmsg = messageSentToReceiver, \n  \tcronExpression = scheduleCronExpression, \n  \tdescription = Some(job.description), \n  \tcalendar = aCalendarName, \n  \ttimezone = aTimeZone\n  )\n} catch {\n  case iae: IllegalArgumentException =&gt; iae // Do something useful with it.\n}\t\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">scheduleJobDescriptionOpt</span> <span class=\"pl-k\">:</span> <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">String</span>] <span class=\"pl-k\">=</span> <span class=\"pl-en\">Some</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Scheduled job for test purposes.<span class=\"pl-pds\">\"</span></span>)\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">aCalendarName</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">String</span>] <span class=\"pl-k\">=</span> <span class=\"pl-en\">Some</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>HourOfTheWolf<span class=\"pl-pds\">\"</span></span>)\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">aTimeZone</span><span class=\"pl-k\">:</span> java.util.<span class=\"pl-en\">TimeZone</span> <span class=\"pl-k\">=</span> java.util.<span class=\"pl-en\">TimeZone</span>.getTimeZone(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>UTC<span class=\"pl-pds\">\"</span></span>)\n\n<span class=\"pl-k\">try</span> { \n  scheduler.createJobSchedule(\n  \tname <span class=\"pl-k\">=</span> scheduleJobName, \n  \treceiver <span class=\"pl-k\">=</span> messageReceiverActor, \n  \tmsg <span class=\"pl-k\">=</span> messageSentToReceiver, \n  \tcronExpression <span class=\"pl-k\">=</span> scheduleCronExpression, \n  \tdescription <span class=\"pl-k\">=</span> <span class=\"pl-en\">Some</span>(job.description), \n  \tcalendar <span class=\"pl-k\">=</span> aCalendarName, \n  \ttimezone <span class=\"pl-k\">=</span> aTimeZone\n  )\n} <span class=\"pl-k\">catch</span> {\n  <span class=\"pl-k\">case</span> <span class=\"pl-v\">iae</span>: <span class=\"pl-en\">IllegalArgumentException</span> <span class=\"pl-k\">=&gt;</span> iae <span class=\"pl-c\"><span class=\"pl-c\">//</span> Do something useful with it.</span>\n}\t</pre></div>\n<h4 dir=\"auto\"><a id=\"user-content-update-jobschedule\" class=\"anchor\" aria-hidden=\"true\" href=\"#update-jobschedule\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Update JobSchedule</h4>\n<p dir=\"auto\"><code>updateJobSchedule</code> has exactely the same signature as create JobSchedule but tries to perform\nan update of an existing <code>scheduleJobName</code></p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"try { \n  scheduler.updateJobSchedule(\n  \tname = scheduleJobName, \n  \treceiver = messageReceiverActor, \n  \tmsg = messageSentToReceiver, \n  \tcronExpression = scheduleCronExpression, \n  \tdescription = Some(job.description), \n  \tcalendar = aCalendarName, \n  \ttimezone = aTimeZone\n  )\n} catch {\n  case iae: IllegalArgumentException =&gt; iae // Do something useful with it.\n}\t\"><pre><span class=\"pl-k\">try</span> { \n  scheduler.updateJobSchedule(\n  \tname <span class=\"pl-k\">=</span> scheduleJobName, \n  \treceiver <span class=\"pl-k\">=</span> messageReceiverActor, \n  \tmsg <span class=\"pl-k\">=</span> messageSentToReceiver, \n  \tcronExpression <span class=\"pl-k\">=</span> scheduleCronExpression, \n  \tdescription <span class=\"pl-k\">=</span> <span class=\"pl-en\">Some</span>(job.description), \n  \tcalendar <span class=\"pl-k\">=</span> aCalendarName, \n  \ttimezone <span class=\"pl-k\">=</span> aTimeZone\n  )\n} <span class=\"pl-k\">catch</span> {\n  <span class=\"pl-k\">case</span> <span class=\"pl-v\">iae</span>: <span class=\"pl-en\">IllegalArgumentException</span> <span class=\"pl-k\">=&gt;</span> iae <span class=\"pl-c\"><span class=\"pl-c\">//</span> Do something useful with it.</span>\n}\t</pre></div>\n<h4 dir=\"auto\"><a id=\"user-content-delete-jobschedule\" class=\"anchor\" aria-hidden=\"true\" href=\"#delete-jobschedule\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Delete JobSchedule</h4>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"try {\n  if (scheduler.deleteJobSchedule(name = scheduleJobName)) { \n    // Do something if deletion succeeded\n  } else {\n    // Do something else if deletion failed\n  }\n} catch {\n  case e: Exception =&gt;\n    // Take action in case an exception is thrown \n}\"><pre><span class=\"pl-k\">try</span> {\n  <span class=\"pl-k\">if</span> (scheduler.deleteJobSchedule(name <span class=\"pl-k\">=</span> scheduleJobName)) { \n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> Do something if deletion succeeded</span>\n  } <span class=\"pl-k\">else</span> {\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> Do something else if deletion failed</span>\n  }\n} <span class=\"pl-k\">catch</span> {\n  <span class=\"pl-k\">case</span> <span class=\"pl-v\">e</span>: <span class=\"pl-en\">Exception</span> <span class=\"pl-k\">=&gt;</span>\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> Take action in case an exception is thrown </span>\n}</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-mass-operations-suspendall-resumeall-deleteall\" class=\"anchor\" aria-hidden=\"true\" href=\"#mass-operations-suspendall-resumeall-deleteall\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Mass operations suspendAll, resumeAll, deleteAll</h3>\n<p dir=\"auto\">These mass operations let you manage many <code>JobSchedule</code>s at once.\n<em>For working examples please check test section:</em>\n<em>\"The Quartz Scheduling Extension with Dynamic mass methods\"</em>\n<em>in</em> <code>com.typesafe.akka.extension.quartz.QuartzSchedulerFunctionalSpec</code></p>\n<h4 dir=\"auto\"><a id=\"user-content-suspend-all-schedules\" class=\"anchor\" aria-hidden=\"true\" href=\"#suspend-all-schedules\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Suspend All Schedules</h4>\n<p dir=\"auto\">Suspends (pauses) all jobs in the scheduler.</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"try {\n  scheduler.suspendAll()\n} catch {\n  case e: SchedulerException =&gt;\n    // Take action in case an exception is thrown \n}\"><pre><span class=\"pl-k\">try</span> {\n  scheduler.suspendAll()\n} <span class=\"pl-k\">catch</span> {\n  <span class=\"pl-k\">case</span> <span class=\"pl-v\">e</span>: <span class=\"pl-en\">SchedulerException</span> <span class=\"pl-k\">=&gt;</span>\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> Take action in case an exception is thrown </span>\n}</pre></div>\n<h4 dir=\"auto\"><a id=\"user-content-resume-all-schedules\" class=\"anchor\" aria-hidden=\"true\" href=\"#resume-all-schedules\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Resume All Schedules</h4>\n<p dir=\"auto\">Unpauses all paused jobs in the scheduler.</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"try {\n  scheduler.resumeAll()\n} catch {\n  case e: SchedulerException =&gt;\n    // Take action in case an exception is thrown \n}\"><pre><span class=\"pl-k\">try</span> {\n  scheduler.resumeAll()\n} <span class=\"pl-k\">catch</span> {\n  <span class=\"pl-k\">case</span> <span class=\"pl-v\">e</span>: <span class=\"pl-en\">SchedulerException</span> <span class=\"pl-k\">=&gt;</span>\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> Take action in case an exception is thrown </span>\n}</pre></div>\n<h4 dir=\"auto\"><a id=\"user-content-delete-all-schedules\" class=\"anchor\" aria-hidden=\"true\" href=\"#delete-all-schedules\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Delete All Schedules</h4>\n<p dir=\"auto\">Deletes all jobs in the scheduler without shutting down the scheduler.</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"try {\n  scheduler.deleteAll()\n} catch {\n  case e: SchedulerException =&gt;\n    // Take action in case an exception is thrown \n}\"><pre><span class=\"pl-k\">try</span> {\n  scheduler.deleteAll()\n} <span class=\"pl-k\">catch</span> {\n  <span class=\"pl-k\">case</span> <span class=\"pl-v\">e</span>: <span class=\"pl-en\">SchedulerException</span> <span class=\"pl-k\">=&gt;</span>\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> Take action in case an exception is thrown </span>\n}</pre></div>\n</article></div>",
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><div class=\"markdown-heading\" dir=\"auto\"><h1 class=\"heading-element\" dir=\"auto\">akka-quartz-scheduler</h1><a id=\"user-content-akka-quartz-scheduler\" class=\"anchor\" aria-label=\"Permalink: akka-quartz-scheduler\" href=\"#akka-quartz-scheduler\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><a href=\"https://travis-ci.org/enragedginger/akka-quartz-scheduler\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/931f098168486bb559b1ec25593d92d2bcc6c588bed48d5e791d384a05371120/68747470733a2f2f6170692e7472617669732d63692e6f72672f656e726167656467696e6765722f616b6b612d71756172747a2d7363686564756c65722e7376673f6272616e63683d6d6173746572\" alt=\"Build Status\" data-canonical-src=\"https://api.travis-ci.org/enragedginger/akka-quartz-scheduler.svg?branch=master\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Quartz Extension and utilities for true scheduling in Akka 2.6.x.</p>\n<p dir=\"auto\">Current release is built for Scala 2.13.x and Akka 2.6.x and is available on Maven Central. If you would like support\nfor a different combination of Scala and Akka, simply post your request on the issues page (as well as a reason as to\nwhy the currently available versions won't work for you. I'm always curious about these things).</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h1 class=\"heading-element\" dir=\"auto\">Why Akka and Quartz?</h1><a id=\"user-content-why-akka-and-quartz\" class=\"anchor\" aria-label=\"Permalink: Why Akka and Quartz?\" href=\"#why-akka-and-quartz\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">Note that this is named and targeted as akka-quartz-scheduler for a reason: it is <em>not</em> a complete port of Quartz.\nRather, we utilize the concepts of Quartz' scheduling system to provide a more robust and reliable scheduling component\nto Akka than the one already available.</p>\n<p dir=\"auto\">The goal here is to provide Akka with a scheduling system that is closer to what one would expect for Cron type jobs –\nset up long-running ActorSystems that can have certain events kicked off by Quartz.</p>\n<p dir=\"auto\">There aren't currently any plans on having anything to do with the distributed transaction, persistence,\nclustering or any other nonsense anytime soon. This is for cron-ey type timing and scheduling.</p>\n<p dir=\"auto\">There is the ability in Quartz to pass JobDataMaps around that accrue mutable state across job ticks;\nwe currently do NOT support that to enforce integrity, but may expose a deeper actor structure later that\ngives some ability to work around that, if need arises.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Why Not Use $OtherComparableTool Instead?</h2><a id=\"user-content-why-not-use-othercomparabletool-instead\" class=\"anchor\" aria-label=\"Permalink: Why Not Use $OtherComparableTool Instead?\" href=\"#why-not-use-othercomparabletool-instead\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<ol dir=\"auto\">\n<li>\n<p dir=\"auto\">What's wrong with Akka's existing Scheduler?\nAs Viktor Klang points out, 'Perhaps the name \"Scheduler\" was unfortunate,\n\"Deferer\" is probably more indicative of what it does.'</p>\n<p dir=\"auto\">The Akka Scheduler is designed to setup events that happen based on durations from the current moment:\nYou can say \"fire this job in 15 minutes, every 30 minutes thereafter\" but not \"fire a job every day at 3pm\".</p>\n<p dir=\"auto\">Furthermore, Akka's default scheduler is executed around a <a href=\"http://docs.jboss.org/netty/3.1/api/org/jboss/netty/util/HashedWheelTimer.html\" rel=\"nofollow\"><code>HashedWheelTimer</code></a> –\na potential precision loss for jobs, as it does not provide strong guarantees on the timeliness of execution.</p>\n</li>\n<li>\n<p dir=\"auto\">Why not just use the Quartz component in <a href=\"http://doc.akka.io/docs/akka/2.1.2/scala/camel.html\" rel=\"nofollow\">Akka's Camel Extension</a>?</p>\n<ol dir=\"auto\">\n<li>To begin with, Akka's Camel extension was <em>not</em> available in Akka 2.0.x, only in 2.1+</li>\n<li>Camel brings with it a whole architecture change (<code>Consumers</code>, <code>Producers</code>, etc) and is not exactly \"lightweight\" to plug in if all you want is Quartz support.</li>\n<li>We wanted to bring the scheduling concept of Quartz into Akka as cleanly as possible with native configuration integration and a lightweight feel.</li>\n</ol>\n</li>\n<li>\n<p dir=\"auto\">What about that other <code>akka-quartz</code> component up on GitHub?</p>\n<p dir=\"auto\">The interface to this aforementioned <code>akka-quartz</code> component is via Actors - one creates an instance of an Actor that\nhas its own Quartz Scheduler underneath it, and sends messages to that Actor to schedule jobs. Because it is an Actor\nwhich provides no \"Singleton\"-like guarantee, it becomes too easy for users to accidentally spin up multiple scheduler\ninstances, each of which is backed by its own threadpool.\nInstead, with <code>akka-quartz-scheduler</code> we use Akka's Extension system which provides\na plugin model – we guarantee only one Quartz Scheduler is <em>ever</em> spun up per <code>ActorSystem</code>. This means\nwe will never create anything but one single Thread Pool which you have control over the size of, for\nany given <code>ActorSystem</code>.</p>\n</li>\n</ol>\n<p dir=\"auto\">Finally, a common failure of the above listed alternatives is that configuration of things like a repeating schedule\nshould be separated from code in a configuration file which an operations team (not the developers) can\ncontrol. Thus, <code>akka-quartz-scheduler</code> only allows specifying the following in code: the name of a job, what actor to send\nthe tick to, and the message to send on a tick. The configuration of how frequently to 'tick' on a schedule is\nexternalised to the Akka configuration file; when a schedule request is made its name is matched up with an entry\nin the config which specifies the rules the actual scheduling should follow.</p>\n<p dir=\"auto\">Thus, development can outline the skeleton of repeating jobs in their code, specifying only what to do WHEN a 'tick' of\nthe schedule fires. Then, operations has complete control over how often a job runs and what rules it follows to determine\nthe schedule of firing.</p>\n<p dir=\"auto\">This, among other things, prevents accidental mistakes such as changing a schedule in development for testing. A\nchange of that sort is fixable without Operations needing to require a recompilation of source code.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">TODO</h3><a id=\"user-content-todo\" class=\"anchor\" aria-label=\"Permalink: TODO\" href=\"#todo\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<ul dir=\"auto\">\n<li>investigate supporting listeners, with actor hookarounds.</li>\n<li>misfires and recovery model - play nice with supervision, deathwatch, etc\n[docs page 23 - very close to supervision strategy]</li>\n</ul>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Usage</h2><a id=\"user-content-usage\" class=\"anchor\" aria-label=\"Permalink: Usage\" href=\"#usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">See CHANGELOG.md for a list of changes by release.</p>\n<p dir=\"auto\">Usage of the <code>akka-quartz-scheduler</code> component first requires including the necessary dependency in your SBT project:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"// For Akka 2.6.x and Akka Typed Actors 2.6.x and Scala 2.12.x, 2.13.x, 3.1.x\nlibraryDependencies += &quot;com.enragedginger&quot; %% &quot;akka-quartz-scheduler&quot; % &quot;1.9.3-akka-2.6.x&quot;\n\n// For Akka 2.6.x and Scala 2.12.x, 2.13.x\nlibraryDependencies += &quot;com.enragedginger&quot; %% &quot;akka-quartz-scheduler&quot; % &quot;1.8.5-akka-2.6.x&quot;\n\n// For Akka 2.5.x and Scala 2.11.x, 2.12.x, 2.13.x\nlibraryDependencies += &quot;com.enragedginger&quot; %% &quot;akka-quartz-scheduler&quot; % &quot;1.8.1-akka-2.5.x&quot;\n\n// For Akka 2.4.x and Scala 2.11.x, 2.12.x\nlibraryDependencies += &quot;com.enragedginger&quot; %% &quot;akka-quartz-scheduler&quot; % &quot;1.6.0-akka-2.4.x&quot;\"><pre><span class=\"pl-c\"><span class=\"pl-c\">//</span> For Akka 2.6.x and Akka Typed Actors 2.6.x and Scala 2.12.x, 2.13.x, 3.1.x</span>\nlibraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.enragedginger<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>akka-quartz-scheduler<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.9.3-akka-2.6.x<span class=\"pl-pds\">\"</span></span>\n\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> For Akka 2.6.x and Scala 2.12.x, 2.13.x</span>\nlibraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.enragedginger<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>akka-quartz-scheduler<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.8.5-akka-2.6.x<span class=\"pl-pds\">\"</span></span>\n\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> For Akka 2.5.x and Scala 2.11.x, 2.12.x, 2.13.x</span>\nlibraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.enragedginger<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>akka-quartz-scheduler<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.8.1-akka-2.5.x<span class=\"pl-pds\">\"</span></span>\n\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> For Akka 2.4.x and Scala 2.11.x, 2.12.x</span>\nlibraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.enragedginger<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>akka-quartz-scheduler<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.6.0-akka-2.4.x<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">Note: As of Akka 2.6, <a href=\"https://doc.akka.io/docs/akka/current/project/migration-guide-2.5.x-2.6.x.html\" rel=\"nofollow\">Scala 2.11 is no longer supported</a>.\nIf you wish to use newer versions of akka-quartz-scheduler, but you're stuck on Scala 2.11 for some reason, please open an issue / PR and we'll see what we can do.</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"//Older versions of the artifact for those that require pre Akka 2.3 or pre Scala 2.11\n//If you would like a current version of the artifact to be published for your required version\n//of Akka and Scala, simply file on issue on the project page.\nresolvers += &quot;Typesafe Repository&quot; at &quot;http://repo.typesafe.com/typesafe/releases/&quot;\n\n\n// For Akka 2.0.x\nlibraryDependencies += &quot;com.typesafe.akka&quot; %% &quot;akka-quartz-scheduler&quot; % &quot;1.2.0-akka-2.0.x&quot;\n// For Akka 2.1.x\nlibraryDependencies += &quot;com.typesafe.akka&quot; %% &quot;akka-quartz-scheduler&quot; % &quot;1.2.0-akka-2.1.x&quot;\n// For Akka 2.2.x\nlibraryDependencies += &quot;com.typesafe.akka&quot; %% &quot;akka-quartz-scheduler&quot; % &quot;1.2.0-akka-2.2.x&quot;\n// For Akka 2.3.x and Scala 2.10.4\nlibraryDependencies += &quot;com.typesafe.akka&quot; % &quot;akka-quartz-scheduler_2.10&quot; % &quot;1.4.0-akka-2.3.x&quot;\"><pre><span class=\"pl-c\"><span class=\"pl-c\">//</span>Older versions of the artifact for those that require pre Akka 2.3 or pre Scala 2.11</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span>If you would like a current version of the artifact to be published for your required version</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span>of Akka and Scala, simply file on issue on the project page.</span>\nresolvers <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Typesafe Repository<span class=\"pl-pds\">\"</span></span> at <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>http://repo.typesafe.com/typesafe/releases/<span class=\"pl-pds\">\"</span></span>\n\n\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> For Akka 2.0.x</span>\nlibraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.typesafe.akka<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>akka-quartz-scheduler<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.2.0-akka-2.0.x<span class=\"pl-pds\">\"</span></span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> For Akka 2.1.x</span>\nlibraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.typesafe.akka<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>akka-quartz-scheduler<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.2.0-akka-2.1.x<span class=\"pl-pds\">\"</span></span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> For Akka 2.2.x</span>\nlibraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.typesafe.akka<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>akka-quartz-scheduler<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.2.0-akka-2.2.x<span class=\"pl-pds\">\"</span></span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> For Akka 2.3.x and Scala 2.10.4</span>\nlibraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.typesafe.akka<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>akka-quartz-scheduler_2.10<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.4.0-akka-2.3.x<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">Note that the version name includes the Akka revision (Previous releases included the Akka release in the artifact name, which broken Maven).</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">Akka Typed Actor (2.6.x)</h3><a id=\"user-content-akka-typed-actor-26x\" class=\"anchor\" aria-label=\"Permalink: Akka Typed Actor (2.6.x)\" href=\"#akka-typed-actor-26x\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">If you use newer Akka Actor version then, from within your Akka project you can create and access a Typed Scheduler:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"// Akka Typed Actors sample.\nimport com.typesafe.akka.extension.quartz.QuartzSchedulerTypedExtension\n\nval scheduler = QuartzSchedulerTypedExtension(typedSystem)\n\"><pre><span class=\"pl-c\"><span class=\"pl-c\">//</span> Akka Typed Actors sample.</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">typesafe</span>.<span class=\"pl-en\">akka</span>.<span class=\"pl-en\">extension</span>.<span class=\"pl-en\">quartz</span>.<span class=\"pl-en\">QuartzSchedulerTypedExtension</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-v\">scheduler</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">QuartzSchedulerTypedExtension</span>(typedSystem)\n</pre></div>\n<p dir=\"auto\">Where <code>typedSystem</code> represents an instance of an Akka Typed <code>ActorSystem[-T]</code> – note that <code>QuartzSchedulerTypedExtension</code>\nis scoped to that <code>ActorSystem[-T]</code> and there will only ever be one instance of it per <code>ActorSystem[-T]</code>.</p>\n<p dir=\"auto\">The primary external method on the <code>scheduler</code> instance is <code>schedule</code>, used for scheduling a job:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"def scheduleTyped[T](name: String, receiver: ActorRef[T], msg: T): java.util.Date\"><pre><span class=\"pl-k\">def</span> <span class=\"pl-en\">scheduleTyped</span>[<span class=\"pl-en\">T</span>](<span class=\"pl-v\">name</span>: <span class=\"pl-en\">String</span>, <span class=\"pl-v\">receiver</span>: <span class=\"pl-en\">ActorRef</span>[<span class=\"pl-en\">T</span>], <span class=\"pl-v\">msg</span>: <span class=\"pl-en\">T</span>)<span class=\"pl-k\">:</span> java.util.<span class=\"pl-en\">Date</span></pre></div>\n<p dir=\"auto\">OR</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"def scheduleTyped[T](name: String, receiver: ActorRef[T], msg: T, startDate: Option[Date]): java.util.Date\"><pre><span class=\"pl-k\">def</span> <span class=\"pl-en\">scheduleTyped</span>[<span class=\"pl-en\">T</span>](<span class=\"pl-v\">name</span>: <span class=\"pl-en\">String</span>, <span class=\"pl-v\">receiver</span>: <span class=\"pl-en\">ActorRef</span>[<span class=\"pl-en\">T</span>], <span class=\"pl-v\">msg</span>: <span class=\"pl-en\">T</span>, <span class=\"pl-v\">startDate</span>: <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">Date</span>])<span class=\"pl-k\">:</span> java.util.<span class=\"pl-en\">Date</span></pre></div>\n<p dir=\"auto\">The arguments to schedule are:</p>\n<ul dir=\"auto\">\n<li><code>name</code>: A <code>String</code> identifying the name of this schedule. This <em>must</em> match a schedule present in the configuration</li>\n<li><code>receiver</code>: A typed <code>ActorRef[T]</code>, who will be sent <code>msg</code> each time the schedule fires</li>\n<li><code>msg</code>: An instance of <code>A</code>, representing a message instance which will be sent to <code>receiver</code> each time the schedule fires</li>\n<li><code>startDate</code>: An optional <code>Date</code>, for postponed start of a job. Defaults to now.</li>\n</ul>\n<p dir=\"auto\">Invoking <code>scheduleTyped[A]</code> returns an instance of <code>java.util.Date</code>, representing the first time the newly setup schedule\nwill fire.</p>\n<p dir=\"auto\">Each time the Quartz schedule trigger fires, Quartz will send a copy of <code>msg</code> to your <code>receiver</code> actor.</p>\n<p dir=\"auto\">Note that you can use the same logic for scheduling Quartz with Akka Typed Actor as the older version.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">Akka Actor (2.5.x)</h3><a id=\"user-content-akka-actor-25x\" class=\"anchor\" aria-label=\"Permalink: Akka Actor (2.5.x)\" href=\"#akka-actor-25x\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">If you use old Akka Actor version then, from within your Akka project you can create and access a Scheduler:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"// Akka Actors sample.\nimport com.typesafe.akka.extension.quartz.QuartzSchedulerExtension\n\nval scheduler = QuartzSchedulerExtension(system)\n\"><pre><span class=\"pl-c\"><span class=\"pl-c\">//</span> Akka Actors sample.</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">typesafe</span>.<span class=\"pl-en\">akka</span>.<span class=\"pl-en\">extension</span>.<span class=\"pl-en\">quartz</span>.<span class=\"pl-en\">QuartzSchedulerExtension</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-v\">scheduler</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">QuartzSchedulerExtension</span>(system)\n</pre></div>\n<p dir=\"auto\">Where <code>system</code> represents an instance of an Akka <code>ActorSystem</code> – note that <code>QuartzSchedulerExtension</code> is scoped\nto that <code>ActorSystem</code> and there will only ever be one instance of it per <code>ActorSystem</code>.</p>\n<p dir=\"auto\">The primary external method on the <code>scheduler</code> instance is <code>schedule</code>, used for scheduling a job:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"def schedule(name: String, receiver: ActorRef, msg: AnyRef, startDate: Option[Date]): java.util.Date\"><pre><span class=\"pl-k\">def</span> <span class=\"pl-en\">schedule</span>(<span class=\"pl-v\">name</span>: <span class=\"pl-en\">String</span>, <span class=\"pl-v\">receiver</span>: <span class=\"pl-en\">ActorRef</span>, <span class=\"pl-v\">msg</span>: <span class=\"pl-en\">AnyRef</span>, <span class=\"pl-v\">startDate</span>: <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">Date</span>])<span class=\"pl-k\">:</span> java.util.<span class=\"pl-en\">Date</span></pre></div>\n<p dir=\"auto\">OR</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"def schedule(name: String, receiver: ActorSelection, msg: AnyRef, startDate: Option[Date]): java.util.Date\"><pre><span class=\"pl-k\">def</span> <span class=\"pl-en\">schedule</span>(<span class=\"pl-v\">name</span>: <span class=\"pl-en\">String</span>, <span class=\"pl-v\">receiver</span>: <span class=\"pl-en\">ActorSelection</span>, <span class=\"pl-v\">msg</span>: <span class=\"pl-en\">AnyRef</span>, <span class=\"pl-v\">startDate</span>: <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">Date</span>])<span class=\"pl-k\">:</span> java.util.<span class=\"pl-en\">Date</span></pre></div>\n<p dir=\"auto\">The arguments to schedule are:</p>\n<ul dir=\"auto\">\n<li><code>name</code>: A <code>String</code> identifying the name of this schedule. This <em>must</em> match a schedule present in the configuration</li>\n<li><code>receiver</code>: An <code>ActorRef</code> or <code>ActorSelection</code>, who will be sent <code>msg</code> each time the schedule fires</li>\n<li><code>msg</code>: An <code>AnyRef</code>, representing a message instance which will be sent to <code>receiver</code> each time the schedule fires</li>\n<li><code>startDate</code>: An optional <code>Date</code>, for postponed start of a job. Defaults to now.</li>\n</ul>\n<p dir=\"auto\">Invoking <code>schedule</code> returns an instance of <code>java.util.Date</code>, representing the first time the newly setup schedule\nwill fire.</p>\n<p dir=\"auto\">Each time the Quartz schedule trigger fires, Quartz will send a copy of <code>msg</code> to your <code>receiver</code> actor.</p>\n<p dir=\"auto\">Here is an example, using a schedule called <code>Every30Seconds</code>, which sends a <code>Tick</code> message to a <code>CleanupActor</code> (which does hand wavy cleanup things):</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"case object Tick\n\nval cleaner = system.actorOf(Props[CleanupActor])\n\nQuartzSchedulerExtension(system).schedule(&quot;Every30Seconds&quot;, cleaner, Tick)\"><pre><span class=\"pl-k\">case</span> <span class=\"pl-k\">object</span> <span class=\"pl-en\">Tick</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-v\">cleaner</span> <span class=\"pl-k\">=</span> system.actorOf(<span class=\"pl-en\">Props</span>[<span class=\"pl-en\">CleanupActor</span>])\n\n<span class=\"pl-en\">QuartzSchedulerExtension</span>(system).schedule(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Every30Seconds<span class=\"pl-pds\">\"</span></span>, cleaner, <span class=\"pl-en\">Tick</span>)</pre></div>\n<p dir=\"auto\">Where the <code>Tick</code> message is handled normally inside the Actor's message loop. If one wanted to ensure that schedule\nmessages were dealt with more immediately than \"normal\" actor messages, they could utilize <a href=\"http://doc.akka.io/docs/akka/2.4.1/scala/dispatchers.html\" rel=\"nofollow\">Priority Mailboxes</a>.</p>\n<p dir=\"auto\">The details on the configuration of a job is outlined below in the section '<em>Schedule Configuration</em>'.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">Returning scheduled Fire Time</h3><a id=\"user-content-returning-scheduled-fire-time\" class=\"anchor\" aria-label=\"Permalink: Returning scheduled Fire Time\" href=\"#returning-scheduled-fire-time\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">There are situations where the fire time is helpful. For example, when an error occurs, we know which job trigger is\nbeing processed and can be recovered.</p>\n<p dir=\"auto\">Here is an example using the case class <code>MessageRequireFireTime</code> wrapping the <code>Tick</code> message.  This will send a\n<code>MessageWithFireTime(Tick, previousFireTime, scheduledFireTime, nextFireTime)</code> message to a <code>WorkerActor</code>:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"case object Tick\n\nval worker = system.actorOf(Props[WorkerActor])\n\nQuartzSchedulerExtension(system).schedule(&quot;Every30Seconds&quot;, worker, MessageRequireFireTime(Tick))\"><pre><span class=\"pl-k\">case</span> <span class=\"pl-k\">object</span> <span class=\"pl-en\">Tick</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-v\">worker</span> <span class=\"pl-k\">=</span> system.actorOf(<span class=\"pl-en\">Props</span>[<span class=\"pl-en\">WorkerActor</span>])\n\n<span class=\"pl-en\">QuartzSchedulerExtension</span>(system).schedule(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Every30Seconds<span class=\"pl-pds\">\"</span></span>, worker, <span class=\"pl-en\">MessageRequireFireTime</span>(<span class=\"pl-en\">Tick</span>))</pre></div>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">Configuration of Quartz Scheduler</h3><a id=\"user-content-configuration-of-quartz-scheduler\" class=\"anchor\" aria-label=\"Permalink: Configuration of Quartz Scheduler\" href=\"#configuration-of-quartz-scheduler\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">All configuration of <code>akka-quartz-scheduler</code> is done inside of the Akka configuration file in an <code>akka.quartz</code> config\nblock. Like Akka's configuration file, this follows the <a href=\"https://github.com/typesafehub/config/blob/master/HOCON.md\">HOCON Configuration Format</a>.\nThus, any entries specified as <code>foo.bar.baz = x</code> can also be expressed as <code>foo { bar { baz = x } }</code>.</p>\n<p dir=\"auto\">At the top level of the configuration, optional values may be set which override the defaults for:</p>\n<ul dir=\"auto\">\n<li><code>defaultTimezone</code> - <strong>[String]</strong> represents the timezone to configure all jobs to run in. <em>DEFAULTS TO UTC</em>\nmust be parseable by <a href=\"http://docs.oracle.com/javase/7/docs/api/java/util/TimeZone.html#getTimeZone(java.lang.String)\" rel=\"nofollow\"><code>java.util.TimeZone.getTimeZone()</code></a>,</li>\n<li><code>threadPool.threadCount</code> - <strong>[Int]</strong> The number of threads to allocate to the internal Quartz threadpool. <em>DEFAULTS TO 1</em> - you may wish to up this number if you have a large number of schedules\nbeing executed. With only 1 thread, each trigger will queue up and you may not get responsive schedule notifications.</li>\n<li><code>threadPool.threadPriority</code> - <strong>[Int]</strong> A number, between 1 (Lowest priority) and 10 (Highest priority), specifying the priority to assign to Quartz' threads <em>DEFAULTS TO 5</em></li>\n<li><code>threadPool.daemonThreads</code> - <strong>[Boolean]</strong> A boolean indicating whether the threads Quartz creates should execute as <a href=\"http://stackoverflow.com/a/2213348\" rel=\"nofollow\">Daemon Threads</a> or not. <em>DEFAULTS TO TRUE</em></li>\n</ul>\n<p dir=\"auto\">There are two 'primary' sub-blocks of the <code>akka.quartz</code> configuration, which are <code>schedules</code> and <code>calendars</code>.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h4 class=\"heading-element\" dir=\"auto\">Schedule Configuration</h4><a id=\"user-content-schedule-configuration\" class=\"anchor\" aria-label=\"Permalink: Schedule Configuration\" href=\"#schedule-configuration\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">Schedules are our abstraction over Quartz' Job &amp; Trigger concepts. They allow you to define a named schedule,\nwhich will fire a schedule event (sending a message to an actor, as specified in code) each time the Quartz trigger fires.</p>\n<p dir=\"auto\">Currently, you can only specify \"Cron\" schedules, which follow <a href=\"http://quartz-scheduler.org/api/2.1.7/org/quartz/CronExpression.html\" rel=\"nofollow\">Quartz' CronExpression Language</a>,\nwhich is designed to match the standard Unix cron syntax with a few nice additions.</p>\n<p dir=\"auto\">The schedule name in the configuration will be used to match it up with a requested job when <code>schedule</code> is invoked;\ncase does not matter as the \"Is there a matching job?\" configuration lookup is case insensitive.</p>\n<p dir=\"auto\">The configuration block for schedules is in <code>akka.quartz.schedules</code>, with sub-entries being specified inside of a named\nblock, such that the configuration for a schedule named <code>Every30Seconds</code> would have its configuration values specified inside\nthe configuration block <code>akka.quartz.schedules.Every30Seconds</code>.</p>\n<p dir=\"auto\">The entries that can be placed inside of a schedule configuration are:</p>\n<ul dir=\"auto\">\n<li><code>expression</code> - <strong>[String]</strong> <em>[required]</em> a valid <a href=\"http://quartz-scheduler.org/api/2.1.7/org/quartz/CronExpression.html\" rel=\"nofollow\">Quartz' CronExpression</a>,\nwhich describes when this job should trigger. e.g. <code>expression = \"*/30 * * ? * *\"</code> would fire every 30 seconds, on every date (however,\nthe firing schedule created by this expression is modified by the <code>calendars</code> variable, defined below)</li>\n<li><code>timezone</code> - <strong>[String]</strong> <em>[optional]</em>  the timezone in which to execute the schedule, <em>DEFAULTS TO <code>akka.quartz.defaultTimezone</code>, WHICH DEFAULTS TO <strong>UTC</strong></em>\nmust be parseable by <a href=\"http://docs.oracle.com/javase/7/docs/api/java/util/TimeZone.html#getTimeZone(java.lang.String)\" rel=\"nofollow\"><code>java.util.TimeZone.getTimeZone()</code></a></li>\n<li><code>description</code> - <strong>[String]</strong> <em>[optional]</em> a description of the job. <em>DEFAULTS TO null</em>. Mostly for human friendliness\nwhen they read your configuration aka \"what this schedule is for\", but set in Quartz as well for if you dump the scheduler contents\nfor debug.</li>\n<li><code>calendar</code> - <strong>[String]</strong> <em>[optional]</em> An option String which is the name of a configured Calendar.  This Calendar is applied\nto this schedule as \"exemptions\" (Any times/dates falling in the Calendar will be excluded from the schedule firing - i.e.\na Calendar that excludes all Mondays would keep a schedule configured to trigger every hour, from triggering <em>at all</em> on Mondays.\nNOTE: In versions 1.3.x and prior, this property was \"calendars\" and supported a list of Strings.  However, Quartz, and by proxy, this library\nnever actually supported multiple calendars for one schedule.  Therefore, in versions 1.4.x and beyond this property has been renamed to \"calendar\"\nand is an optional String.\n<em>DEFAULTS TO <strong>None[String]</strong></em></li>\n</ul>\n<p dir=\"auto\">An example schedule called <code>Every30Seconds</code> which, aptly, fires off every 30 seconds:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"akka {\n  quartz {\n    schedules {\n      Every30Seconds {\n        description = &quot;A cron job that fires off every 30 seconds&quot;\n        expression = &quot;*/30 * * ? * *&quot;\n        calendar = &quot;OnlyBusinessHours&quot;\n      }\n    }\n  }\n}\"><pre class=\"notranslate\"><code>akka {\n  quartz {\n    schedules {\n      Every30Seconds {\n        description = \"A cron job that fires off every 30 seconds\"\n        expression = \"*/30 * * ? * *\"\n        calendar = \"OnlyBusinessHours\"\n      }\n    }\n  }\n}\n</code></pre></div>\n<p dir=\"auto\">This Schedule specifies a Cron Expression which executes every 30 seconds of every day, but is modified by the calendar\n\"OnlyBusinessHours\", which excludes triggers from firing outside of between 8am and 6pm (and is detailed below).</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h4 class=\"heading-element\" dir=\"auto\">Calendar Configuration</h4><a id=\"user-content-calendar-configuration\" class=\"anchor\" aria-label=\"Permalink: Calendar Configuration\" href=\"#calendar-configuration\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">Calendars in the <code>akka-quartz-scheduler</code> mirror the concept of <a href=\"http://quartz-scheduler.org/documentation/quartz-2.x/tutorials/tutorial-lesson-04\" rel=\"nofollow\">Quartz' Calendars</a> –\nmost specifically, they allow you to specify <em>exclusions</em> that override a schedule.</p>\n<p dir=\"auto\">Calendars are configured globally, in the <code>akka.quartz.calendars</code> configuration block. The definition of a calendar and what it excludes\nis made within this block. By default, no Calendars are applied to a Schedule. Instead, you must reference a named Calendar\ninside the <code>calendars</code> array of a Schedule's configuration, as outlined above.</p>\n<p dir=\"auto\">The configuration block for calendars is in <code>akka.quartz.calendars</code>, with sub-entries being specified inside of a named\nblock, such that the configuration for a calendar named <code>OnlyBusinessHours</code> would have it's configuration values specified inside\nthe configuration block <code>akka.quartz.calendars.OnlyBusinessHours</code>.</p>\n<p dir=\"auto\">There are several types of Calendar, each with its own specific configurations. The configuration values which are common to <em>all</em> types of Calendar are:</p>\n<ul dir=\"auto\">\n<li><code>type</code> - <strong>[String]</strong> <em>[required]</em> a valid type of Calendar. Currently either: Annual, Holiday, Daily, Monthly, Weekly, and Cron</li>\n<li><code>timezone</code> - <strong>[String]</strong> <em>[optional]</em>  the timezone in which to execute the calendar, <em>DEFAULTS TO <code>akka.quartz.defaultTimezone</code>, WHICH DEFAULTS TO <strong>UTC</strong></em>\nmust be parseable by <a href=\"http://docs.oracle.com/javase/7/docs/api/java/util/TimeZone.html#getTimeZone(java.lang.String)\" rel=\"nofollow\"><code>java.util.TimeZone.getTimeZone()</code></a></li>\n<li><code>description</code> - <strong>[String]</strong> <em>[optional]</em> a description of the calendar. <em>DEFAULTS TO null</em>. Mostly for human friendliness\nwhen they read your configuration aka \"what this calendar is for\", but set in Quartz as well for if you dump the scheduler contents\nfor debug.</li>\n</ul>\n<p dir=\"auto\">Each specific Calendar type and its particular configuration entries are...</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h5 class=\"heading-element\" dir=\"auto\">'Annual' Calendar</h5><a id=\"user-content-annual-calendar\" class=\"anchor\" aria-label=\"Permalink: 'Annual' Calendar\" href=\"#annual-calendar\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">An annual calendar excludes specific days of a given year, e.g. bank holidays which fall on the same date every year (Christmas and Gregorian New Year's for example)\nThis calendar <em>does not take year into account</em>, and will apply to all years.</p>\n<p dir=\"auto\">It has only one configuration entry:</p>\n<ul dir=\"auto\">\n<li><code>excludeDates</code> - <strong>[Seq[String]]</strong> <em>[required]</em> This is a list of strings which are dates in the MM-DD format, representing which dates to exclude.\nFor example, \"Exclude Christmas and New Years\" would read as <code>excludeDates = [\"12-25\", \"01-01\"]</code></li>\n</ul>\n<p dir=\"auto\">An example:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"WinterClosings {\n  type = Annual\n  description = &quot;Major holiday dates that occur in the winter time every year, non-moveable (The year doesn't matter)&quot;\n  excludeDates = [&quot;12-25&quot;, &quot;01-01&quot;]\n}\"><pre class=\"notranslate\"><code>WinterClosings {\n  type = Annual\n  description = \"Major holiday dates that occur in the winter time every year, non-moveable (The year doesn't matter)\"\n  excludeDates = [\"12-25\", \"01-01\"]\n}\n</code></pre></div>\n<div class=\"markdown-heading\" dir=\"auto\"><h5 class=\"heading-element\" dir=\"auto\">'Holiday' Calendar</h5><a id=\"user-content-holiday-calendar\" class=\"anchor\" aria-label=\"Permalink: 'Holiday' Calendar\" href=\"#holiday-calendar\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">A holiday calendar excludes specific dates, with a fully month, day, year taken into account. It is mostly useful for\nmoving Bank Holidays (e.g. President's Day) and Moveable Feasts (e.g. Easter, which is based on a Lunar calendar).</p>\n<p dir=\"auto\">It has only one configuration entry:</p>\n<ul dir=\"auto\">\n<li><code>excludeDates</code> - <strong>[Seq[String]]</strong> <em>[required]</em> This is a list of strings in the ISO-8601 date format (YYYY-MM-DD), representing which dates\n(with year taken into account) to exclude. For example, excluding the the next 5 years' Easter holidays would read as <code>excludeDates = [\"2013-03-31\", \"2014-04-20\", \"2015-04-05\", \"2016-03-27\", \"2017-04-16\"]</code></li>\n</ul>\n<p dir=\"auto\">An example:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"Easter {\n  type = Holiday\n  description = &quot;The easter holiday (a moveable feast) for the next five years&quot;\n  excludeDates = [&quot;2013-03-31&quot;, &quot;2014-04-20&quot;, &quot;2015-04-05&quot;, &quot;2016-03-27&quot;, &quot;2017-04-16&quot;]\n}\"><pre class=\"notranslate\"><code>Easter {\n  type = Holiday\n  description = \"The easter holiday (a moveable feast) for the next five years\"\n  excludeDates = [\"2013-03-31\", \"2014-04-20\", \"2015-04-05\", \"2016-03-27\", \"2017-04-16\"]\n}\n</code></pre></div>\n<div class=\"markdown-heading\" dir=\"auto\"><h5 class=\"heading-element\" dir=\"auto\">'Daily' Calendar</h5><a id=\"user-content-daily-calendar\" class=\"anchor\" aria-label=\"Permalink: 'Daily' Calendar\" href=\"#daily-calendar\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">A daily calendar excludes a specified time range each day. It <em>may not</em> cross daily boundaries, and Quartz will enforce this.\ni.e. You cannot specify \"11PM to 1AM\" – to do that you'll need to specify two separate daily calendars.</p>\n<p dir=\"auto\">Exclusions in a Daily calendar are specified in a <code>exclude</code> with a <code>startTime</code> and <code>endTime</code> entry. Each of these fields\nfollows a time format of <code>HH:MM[:SS[:mmm]]</code> where:\n- HH is the hour of the specified time using military (24-hour) time, and must be in the range 0-23\n- MM is the minute of the specified time, and must be in the range 0-59\n- SS is the <strong>optional</strong> second of the specified time, and must be in the range 0-59\n- mmm is the <strong>optional</strong> millisecond of the specified time, and must be in the range 0-999</p>\n<p dir=\"auto\">An example, which doesn't allow jobs to run between 3AM and 5AM during the PST Timezone:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"HourOfTheWolf {\n  type = Daily\n  description = &quot;A period every day in which cron jobs are quiesced, during night hours&quot;\n  exclude {\n    startTime = &quot;03:00&quot;\n    endTime   = &quot;05:00:00&quot;\n  }\n  timezone = PST\n}\"><pre class=\"notranslate\"><code>HourOfTheWolf {\n  type = Daily\n  description = \"A period every day in which cron jobs are quiesced, during night hours\"\n  exclude {\n    startTime = \"03:00\"\n    endTime   = \"05:00:00\"\n  }\n  timezone = PST\n}\n</code></pre></div>\n<div class=\"markdown-heading\" dir=\"auto\"><h5 class=\"heading-element\" dir=\"auto\">'Monthly' Calendar</h5><a id=\"user-content-monthly-calendar\" class=\"anchor\" aria-label=\"Permalink: 'Monthly' Calendar\" href=\"#monthly-calendar\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">A monthly calendar excludes a set of days of the month, i.e. \"Don't run a job on the 1st or 15th days of the month\"</p>\n<p dir=\"auto\">It has only one configuration entry:</p>\n<ul dir=\"auto\">\n<li><code>excludeDays</code> - <strong>[Seq[Int]]</strong> <em>[required]</em> This is a list of Ints, between 1 and 31, representing a day of the month.</li>\n</ul>\n<p dir=\"auto\">An example:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"FirstAndLastOfMonth {\n  type = Monthly\n  description = &quot;A thinly veiled example to test monthly exclusions&quot;\n  excludeDays = [1, 31]\n}\"><pre class=\"notranslate\"><code>FirstAndLastOfMonth {\n  type = Monthly\n  description = \"A thinly veiled example to test monthly exclusions\"\n  excludeDays = [1, 31]\n}\n</code></pre></div>\n<div class=\"markdown-heading\" dir=\"auto\"><h5 class=\"heading-element\" dir=\"auto\">'Weekly' Calendar</h5><a id=\"user-content-weekly-calendar\" class=\"anchor\" aria-label=\"Permalink: 'Weekly' Calendar\" href=\"#weekly-calendar\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">A weekly calendar excludes a set of days of the week. <em>By default, Saturday and Sunday are always excluded</em></p>\n<p dir=\"auto\">The configuration entries:</p>\n<ul dir=\"auto\">\n<li><code>excludeDays</code> - <strong>[Seq[Int]]</strong> <em>[required]</em> This is a list of Ints, between 1 and 7 – where 1 is Sunday and 7 is Saturday – representing days of the week to exclude.</li>\n<li><code>excludeWeekends</code> - <strong>Boolean</strong> <em>defaults to TRUE</em> Whether weekends should be excluded automatically by this scheduler or not. Note that <code>excludeWeekends</code> is overriden\nby <code>excludeDays</code> – if you specify <code>excludeWeekends = false</code> but <code>excludeDays</code> includes Sunday (<code>1</code>) or Saturday (<code>7</code>), then a configuration error will be thrown.</li>\n</ul>\n<p dir=\"auto\">An example, which excludes jobs from running on any Monday:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"MondaysSuck {\n  type = Weekly\n  description = &quot;Everyone, including this calendar, hates mondays as an integer&quot;\n  excludeDays = [2]\n  excludeWeekends = false\n}\"><pre class=\"notranslate\"><code>MondaysSuck {\n  type = Weekly\n  description = \"Everyone, including this calendar, hates mondays as an integer\"\n  excludeDays = [2]\n  excludeWeekends = false\n}\n</code></pre></div>\n<p dir=\"auto\">Note that by default, <code>excludeWeekends</code> would be true and thus <code>excludeDays</code> would implicitly be <code>[1, 2, 7]</code></p>\n<div class=\"markdown-heading\" dir=\"auto\"><h5 class=\"heading-element\" dir=\"auto\">'Cron' Calendar</h5><a id=\"user-content-cron-calendar\" class=\"anchor\" aria-label=\"Permalink: 'Cron' Calendar\" href=\"#cron-calendar\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">A cron calendar excludes the set of times expressed by a given <a href=\"http://quartz-scheduler.org/api/2.1.7/org/quartz/CronExpression.html\" rel=\"nofollow\">Quartz CronExpression</a>.</p>\n<p dir=\"auto\">It has only one configuration entry:</p>\n<ul dir=\"auto\">\n<li><code>excludeExpression</code> - <strong>[String]</strong> <em>[required]</em> A valid <a href=\"http://quartz-scheduler.org/api/2.1.7/org/quartz/CronExpression.html\" rel=\"nofollow\">Quartz CronExpression</a>, which will be\nused to specify what times a job <em>cannot</em> run in (the opposite of a Cron Schedule).</li>\n</ul>\n<p dir=\"auto\">An example Calendar, which specifies an exclusion set of <code>00:00 - 07:59</code> and <code>18:00 - 23:59</code> (thereby only allowing jobs to run from <code>08:00 - 17:59</code>):</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"OnlyBusinessHours {\n  type = Cron\n  excludeExpression = &quot;* * 0-7,18-23 ? * *&quot;\n}\"><pre class=\"notranslate\"><code>OnlyBusinessHours {\n  type = Cron\n  excludeExpression = \"* * 0-7,18-23 ? * *\"\n}\n</code></pre></div>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">Dynamic create, update, delete <code>JobSchedule</code> operations</h3><a id=\"user-content-dynamic-create-update-delete-jobschedule-operations\" class=\"anchor\" aria-label=\"Permalink: Dynamic create, update, delete JobSchedule operations\" href=\"#dynamic-create-update-delete-jobschedule-operations\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">These <code>JobSchedule</code> operations let you programatically manage job and job scheduling\nall at once.\n<em>For working examples please check test section:</em>\n<em>\"The Quartz Scheduling Extension with Dynamic create, update, delete JobSchedule operations\"</em>\n<em>in</em> <code>com.typesafe.akka.extension.quartz.QuartzSchedulerFunctionalSpec</code></p>\n<div class=\"markdown-heading\" dir=\"auto\"><h4 class=\"heading-element\" dir=\"auto\">Create JobSchedule</h4><a id=\"user-content-create-jobschedule\" class=\"anchor\" aria-label=\"Permalink: Create JobSchedule\" href=\"#create-jobschedule\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><code>createJobSchedule</code> let you create a new job and schedule it all at once:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"val scheduleJobName : String = &quot;myJobName_1&quot;\nval messageReceiverActor: ActorRef = myActorRef\nval messageSentToReceiver : AnyRef = myCaseClassMessage \nval scheduleCronExpression: String = &quot;*/10 * * ? * *&quot; // Will fire every ten seconds\n\ntry { \n  scheduler.createJobSchedule(\n  \tname = scheduleJobName, \n  \treceiver = messageReceiverActor, \n  \tmsg = messageSentToReceiver, \n  \tcronExpression = scheduleCronExpression)\n} catch {\n  case iae: IllegalArgumentException =&gt; iae // Do something useful with it.\n}\t\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-v\">scheduleJobName</span> <span class=\"pl-k\">:</span> <span class=\"pl-en\">String</span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>myJobName_1<span class=\"pl-pds\">\"</span></span>\n<span class=\"pl-k\">val</span> <span class=\"pl-v\">messageReceiverActor</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">ActorRef</span> <span class=\"pl-k\">=</span> myActorRef\n<span class=\"pl-k\">val</span> <span class=\"pl-v\">messageSentToReceiver</span> <span class=\"pl-k\">:</span> <span class=\"pl-en\">AnyRef</span> <span class=\"pl-k\">=</span> myCaseClassMessage \n<span class=\"pl-k\">val</span> <span class=\"pl-v\">scheduleCronExpression</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">String</span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>*/10 * * ? * *<span class=\"pl-pds\">\"</span></span> <span class=\"pl-c\"><span class=\"pl-c\">//</span> Will fire every ten seconds</span>\n\n<span class=\"pl-k\">try</span> { \n  scheduler.createJobSchedule(\n  \tname <span class=\"pl-k\">=</span> scheduleJobName, \n  \treceiver <span class=\"pl-k\">=</span> messageReceiverActor, \n  \tmsg <span class=\"pl-k\">=</span> messageSentToReceiver, \n  \tcronExpression <span class=\"pl-k\">=</span> scheduleCronExpression)\n} <span class=\"pl-k\">catch</span> {\n  <span class=\"pl-k\">case</span> <span class=\"pl-v\">iae</span>: <span class=\"pl-en\">IllegalArgumentException</span> <span class=\"pl-k\">=&gt;</span> iae <span class=\"pl-c\"><span class=\"pl-c\">//</span> Do something useful with it.</span>\n}\t</pre></div>\n<p dir=\"auto\">In addition you can specify the following optional description, calendar and timezone parameters:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"val scheduleJobDescriptionOpt : Option[String] = Some(&quot;Scheduled job for test purposes.&quot;)\nval aCalendarName: Option[String] = Some(&quot;HourOfTheWolf&quot;)\nval aTimeZone: java.util.TimeZone = java.util.TimeZone.getTimeZone(&quot;UTC&quot;)\n\ntry { \n  scheduler.createJobSchedule(\n  \tname = scheduleJobName, \n  \treceiver = messageReceiverActor, \n  \tmsg = messageSentToReceiver, \n  \tcronExpression = scheduleCronExpression, \n  \tdescription = Some(job.description), \n  \tcalendar = aCalendarName, \n  \ttimezone = aTimeZone\n  )\n} catch {\n  case iae: IllegalArgumentException =&gt; iae // Do something useful with it.\n}\t\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-v\">scheduleJobDescriptionOpt</span> <span class=\"pl-k\">:</span> <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">String</span>] <span class=\"pl-k\">=</span> <span class=\"pl-en\">Some</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Scheduled job for test purposes.<span class=\"pl-pds\">\"</span></span>)\n<span class=\"pl-k\">val</span> <span class=\"pl-v\">aCalendarName</span><span class=\"pl-k\">:</span> <span class=\"pl-en\">Option</span>[<span class=\"pl-en\">String</span>] <span class=\"pl-k\">=</span> <span class=\"pl-en\">Some</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>HourOfTheWolf<span class=\"pl-pds\">\"</span></span>)\n<span class=\"pl-k\">val</span> <span class=\"pl-v\">aTimeZone</span><span class=\"pl-k\">:</span> java.util.<span class=\"pl-en\">TimeZone</span> <span class=\"pl-k\">=</span> java.util.<span class=\"pl-en\">TimeZone</span>.getTimeZone(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>UTC<span class=\"pl-pds\">\"</span></span>)\n\n<span class=\"pl-k\">try</span> { \n  scheduler.createJobSchedule(\n  \tname <span class=\"pl-k\">=</span> scheduleJobName, \n  \treceiver <span class=\"pl-k\">=</span> messageReceiverActor, \n  \tmsg <span class=\"pl-k\">=</span> messageSentToReceiver, \n  \tcronExpression <span class=\"pl-k\">=</span> scheduleCronExpression, \n  \tdescription <span class=\"pl-k\">=</span> <span class=\"pl-en\">Some</span>(job.description), \n  \tcalendar <span class=\"pl-k\">=</span> aCalendarName, \n  \ttimezone <span class=\"pl-k\">=</span> aTimeZone\n  )\n} <span class=\"pl-k\">catch</span> {\n  <span class=\"pl-k\">case</span> <span class=\"pl-v\">iae</span>: <span class=\"pl-en\">IllegalArgumentException</span> <span class=\"pl-k\">=&gt;</span> iae <span class=\"pl-c\"><span class=\"pl-c\">//</span> Do something useful with it.</span>\n}\t</pre></div>\n<div class=\"markdown-heading\" dir=\"auto\"><h4 class=\"heading-element\" dir=\"auto\">Update JobSchedule</h4><a id=\"user-content-update-jobschedule\" class=\"anchor\" aria-label=\"Permalink: Update JobSchedule\" href=\"#update-jobschedule\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><code>updateJobSchedule</code> has exactely the same signature as create JobSchedule but tries to perform\nan update of an existing <code>scheduleJobName</code></p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"try { \n  scheduler.updateJobSchedule(\n  \tname = scheduleJobName, \n  \treceiver = messageReceiverActor, \n  \tmsg = messageSentToReceiver, \n  \tcronExpression = scheduleCronExpression, \n  \tdescription = Some(job.description), \n  \tcalendar = aCalendarName, \n  \ttimezone = aTimeZone\n  )\n} catch {\n  case iae: IllegalArgumentException =&gt; iae // Do something useful with it.\n}\t\"><pre><span class=\"pl-k\">try</span> { \n  scheduler.updateJobSchedule(\n  \tname <span class=\"pl-k\">=</span> scheduleJobName, \n  \treceiver <span class=\"pl-k\">=</span> messageReceiverActor, \n  \tmsg <span class=\"pl-k\">=</span> messageSentToReceiver, \n  \tcronExpression <span class=\"pl-k\">=</span> scheduleCronExpression, \n  \tdescription <span class=\"pl-k\">=</span> <span class=\"pl-en\">Some</span>(job.description), \n  \tcalendar <span class=\"pl-k\">=</span> aCalendarName, \n  \ttimezone <span class=\"pl-k\">=</span> aTimeZone\n  )\n} <span class=\"pl-k\">catch</span> {\n  <span class=\"pl-k\">case</span> <span class=\"pl-v\">iae</span>: <span class=\"pl-en\">IllegalArgumentException</span> <span class=\"pl-k\">=&gt;</span> iae <span class=\"pl-c\"><span class=\"pl-c\">//</span> Do something useful with it.</span>\n}\t</pre></div>\n<div class=\"markdown-heading\" dir=\"auto\"><h4 class=\"heading-element\" dir=\"auto\">Delete JobSchedule</h4><a id=\"user-content-delete-jobschedule\" class=\"anchor\" aria-label=\"Permalink: Delete JobSchedule\" href=\"#delete-jobschedule\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"try {\n  if (scheduler.deleteJobSchedule(name = scheduleJobName)) { \n    // Do something if deletion succeeded\n  } else {\n    // Do something else if deletion failed\n  }\n} catch {\n  case e: Exception =&gt;\n    // Take action in case an exception is thrown \n}\"><pre><span class=\"pl-k\">try</span> {\n  <span class=\"pl-k\">if</span> (scheduler.deleteJobSchedule(name <span class=\"pl-k\">=</span> scheduleJobName)) { \n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> Do something if deletion succeeded</span>\n  } <span class=\"pl-k\">else</span> {\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> Do something else if deletion failed</span>\n  }\n} <span class=\"pl-k\">catch</span> {\n  <span class=\"pl-k\">case</span> <span class=\"pl-v\">e</span>: <span class=\"pl-en\">Exception</span> <span class=\"pl-k\">=&gt;</span>\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> Take action in case an exception is thrown </span>\n}</pre></div>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">Mass operations suspendAll, resumeAll, deleteAll</h3><a id=\"user-content-mass-operations-suspendall-resumeall-deleteall\" class=\"anchor\" aria-label=\"Permalink: Mass operations suspendAll, resumeAll, deleteAll\" href=\"#mass-operations-suspendall-resumeall-deleteall\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">These mass operations let you manage many <code>JobSchedule</code>s at once.\n<em>For working examples please check test section:</em>\n<em>\"The Quartz Scheduling Extension with Dynamic mass methods\"</em>\n<em>in</em> <code>com.typesafe.akka.extension.quartz.QuartzSchedulerFunctionalSpec</code></p>\n<div class=\"markdown-heading\" dir=\"auto\"><h4 class=\"heading-element\" dir=\"auto\">Suspend All Schedules</h4><a id=\"user-content-suspend-all-schedules\" class=\"anchor\" aria-label=\"Permalink: Suspend All Schedules\" href=\"#suspend-all-schedules\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">Suspends (pauses) all jobs in the scheduler.</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"try {\n  scheduler.suspendAll()\n} catch {\n  case e: SchedulerException =&gt;\n    // Take action in case an exception is thrown \n}\"><pre><span class=\"pl-k\">try</span> {\n  scheduler.suspendAll()\n} <span class=\"pl-k\">catch</span> {\n  <span class=\"pl-k\">case</span> <span class=\"pl-v\">e</span>: <span class=\"pl-en\">SchedulerException</span> <span class=\"pl-k\">=&gt;</span>\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> Take action in case an exception is thrown </span>\n}</pre></div>\n<div class=\"markdown-heading\" dir=\"auto\"><h4 class=\"heading-element\" dir=\"auto\">Resume All Schedules</h4><a id=\"user-content-resume-all-schedules\" class=\"anchor\" aria-label=\"Permalink: Resume All Schedules\" href=\"#resume-all-schedules\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">Unpauses all paused jobs in the scheduler.</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"try {\n  scheduler.resumeAll()\n} catch {\n  case e: SchedulerException =&gt;\n    // Take action in case an exception is thrown \n}\"><pre><span class=\"pl-k\">try</span> {\n  scheduler.resumeAll()\n} <span class=\"pl-k\">catch</span> {\n  <span class=\"pl-k\">case</span> <span class=\"pl-v\">e</span>: <span class=\"pl-en\">SchedulerException</span> <span class=\"pl-k\">=&gt;</span>\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> Take action in case an exception is thrown </span>\n}</pre></div>\n<div class=\"markdown-heading\" dir=\"auto\"><h4 class=\"heading-element\" dir=\"auto\">Delete All Schedules</h4><a id=\"user-content-delete-all-schedules\" class=\"anchor\" aria-label=\"Permalink: Delete All Schedules\" href=\"#delete-all-schedules\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">Deletes all jobs in the scheduler without shutting down the scheduler.</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"try {\n  scheduler.deleteAll()\n} catch {\n  case e: SchedulerException =&gt;\n    // Take action in case an exception is thrown \n}\"><pre><span class=\"pl-k\">try</span> {\n  scheduler.deleteAll()\n} <span class=\"pl-k\">catch</span> {\n  <span class=\"pl-k\">case</span> <span class=\"pl-v\">e</span>: <span class=\"pl-en\">SchedulerException</span> <span class=\"pl-k\">=&gt;</span>\n    <span class=\"pl-c\"><span class=\"pl-c\">//</span> Take action in case an exception is thrown </span>\n}</pre></div>\n</article></div>",
     "contributors" : [
       {
         "login" : "enragedginger",
@@ -37,12 +37,6 @@
         "contributions" : 5
       },
       {
-        "login" : "benwaffle",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/1713819?v=4",
-        "url" : "https://github.com/benwaffle",
-        "contributions" : 3
-      },
-      {
         "login" : "felipebonezi",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1410319?v=4",
         "url" : "https://github.com/felipebonezi",
@@ -53,84 +47,6 @@
         "avatarUrl" : "https://avatars.githubusercontent.com/u/336161?v=4",
         "url" : "https://github.com/patriknw",
         "contributions" : 2
-      },
-      {
-        "login" : "AndreasKillaitis0000",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/40392109?v=4",
-        "url" : "https://github.com/AndreasKillaitis0000",
-        "contributions" : 1
-      },
-      {
-        "login" : "ajcamilo",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/4998021?v=4",
-        "url" : "https://github.com/ajcamilo",
-        "contributions" : 1
-      },
-      {
-        "login" : "amdelamar",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/18532924?v=4",
-        "url" : "https://github.com/amdelamar",
-        "contributions" : 1
-      },
-      {
-        "login" : "ceilican",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/1809436?v=4",
-        "url" : "https://github.com/ceilican",
-        "contributions" : 1
-      },
-      {
-        "login" : "camilosampedro",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/8657866?v=4",
-        "url" : "https://github.com/camilosampedro",
-        "contributions" : 1
-      },
-      {
-        "login" : "jhulten",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/40279?v=4",
-        "url" : "https://github.com/jhulten",
-        "contributions" : 1
-      },
-      {
-        "login" : "kvma",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/6835452?v=4",
-        "url" : "https://github.com/kvma",
-        "contributions" : 1
-      },
-      {
-        "login" : "ktoso",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/120979?v=4",
-        "url" : "https://github.com/ktoso",
-        "contributions" : 1
-      },
-      {
-        "login" : "maxsel",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/3755559?v=4",
-        "url" : "https://github.com/maxsel",
-        "contributions" : 1
-      },
-      {
-        "login" : "mtrna",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/48676?v=4",
-        "url" : "https://github.com/mtrna",
-        "contributions" : 1
-      },
-      {
-        "login" : "migmruiz",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/1760721?v=4",
-        "url" : "https://github.com/migmruiz",
-        "contributions" : 1
-      },
-      {
-        "login" : "takezoe",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/1094760?v=4",
-        "url" : "https://github.com/takezoe",
-        "contributions" : 1
-      },
-      {
-        "login" : "nikolaylagutko",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/849337?v=4",
-        "url" : "https://github.com/nikolaylagutko",
-        "contributions" : 1
       },
       {
         "login" : "refond",
@@ -211,19 +127,111 @@
         "contributions" : 1
       },
       {
-        "login" : "yukiasai",
+        "login" : "xai3",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/6880730?v=4",
-        "url" : "https://github.com/yukiasai",
+        "url" : "https://github.com/xai3",
+        "contributions" : 1
+      },
+      {
+        "login" : "takezoe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1094760?v=4",
+        "url" : "https://github.com/takezoe",
+        "contributions" : 1
+      },
+      {
+        "login" : "migmruiz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1760721?v=4",
+        "url" : "https://github.com/migmruiz",
+        "contributions" : 1
+      },
+      {
+        "login" : "mtrna",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/48676?v=4",
+        "url" : "https://github.com/mtrna",
+        "contributions" : 1
+      },
+      {
+        "login" : "maxsel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3755559?v=4",
+        "url" : "https://github.com/maxsel",
+        "contributions" : 1
+      },
+      {
+        "login" : "ktoso",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/120979?v=4",
+        "url" : "https://github.com/ktoso",
+        "contributions" : 1
+      },
+      {
+        "login" : "kvma",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6835452?v=4",
+        "url" : "https://github.com/kvma",
+        "contributions" : 1
+      },
+      {
+        "login" : "jhulten",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/40279?v=4",
+        "url" : "https://github.com/jhulten",
+        "contributions" : 1
+      },
+      {
+        "login" : "camilosampedro",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8657866?v=4",
+        "url" : "https://github.com/camilosampedro",
+        "contributions" : 1
+      },
+      {
+        "login" : "ceilican",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1809436?v=4",
+        "url" : "https://github.com/ceilican",
+        "contributions" : 1
+      },
+      {
+        "login" : "benwaffle",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1713819?v=4",
+        "url" : "https://github.com/benwaffle",
+        "contributions" : 1
+      },
+      {
+        "login" : "amdelamar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/18532924?v=4",
+        "url" : "https://github.com/amdelamar",
+        "contributions" : 1
+      },
+      {
+        "login" : "ajcamilo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4998021?v=4",
+        "url" : "https://github.com/ajcamilo",
+        "contributions" : 1
+      },
+      {
+        "login" : "AndreasKillaitis0000",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/40392109?v=4",
+        "url" : "https://github.com/AndreasKillaitis0000",
         "contributions" : 1
       }
     ],
-    "commits" : 165,
+    "commits" : 162,
     "topics" : [
     ],
     "contributingGuide" : null,
     "codeOfConduct" : null,
-    "chatroom" : null,
     "openIssues" : [
+      {
+        "number" : 120,
+        "title" : "Akka Quartz Scheduler Dependency",
+        "url" : "https://github.com/enragedginger/akka-quartz-scheduler/issues/120"
+      },
+      {
+        "number" : 117,
+        "title" : "Pekko variant",
+        "url" : "https://github.com/enragedginger/akka-quartz-scheduler/issues/117"
+      },
+      {
+        "number" : 116,
+        "title" : "Disable schedulers with property",
+        "url" : "https://github.com/enragedginger/akka-quartz-scheduler/issues/116"
+      },
       {
         "number" : 112,
         "title" : "Combining calendars",
@@ -248,698 +256,20 @@
     "scalaPercentage" : 99,
     "license" : null,
     "commitActivity" : [
-      {
-        "total" : 0,
-        "week" : 1629590400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1630195200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1630800000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1631404800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1632009600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1632614400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1633219200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1633824000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1634428800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1635033600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1635638400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          2
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1636243200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1636848000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1637452800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1638057600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1638662400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1639267200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1639872000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1640476800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1641081600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1641686400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1642291200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1642896000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1643500800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1644105600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1644710400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1645315200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1645920000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1646524800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1647129600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1647734400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1648339200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1648944000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1649548800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1650153600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1650758400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1651363200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1651968000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1652572800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1653177600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1653782400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1654387200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1654992000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1655596800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1656201600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1656806400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1657411200000,
-        "days" : [
-          0,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1658016000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1658620800000,
-        "days" : [
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1659225600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1659830400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1660435200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      }
     ]
   },
   "settings" : {
     "preferStableVersion" : true,
     "defaultArtifact" : "akka-quartz-scheduler",
-    "strictVersions" : false,
     "customScalaDoc" : null,
     "documentationLinks" : [
     ],
-    "deprecated" : false,
     "contributorsWanted" : false,
     "deprecatedArtifacts" : [
     ],
     "cliArtifacts" : [
     ],
     "category" : "schedulers",
-    "beginnerIssuesLabel" : null
+    "chatroom" : null
   }
 }

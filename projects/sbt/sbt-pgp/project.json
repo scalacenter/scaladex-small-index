@@ -4,19 +4,19 @@
   "creationDate" : 1372843052000,
   "githubStatus" : {
     "Ok" : {
-      "updateDate" : 1660790352287
+      "updateDate" : 1723608500032
     }
   },
   "githubInfo" : {
     "homepage" : "",
     "description" : "PGP plugin for sbt",
     "logo" : "https://avatars.githubusercontent.com/u/1158012?v=4",
-    "stars" : 136,
-    "forks" : 51,
+    "stars" : 142,
+    "forks" : 56,
     "watchers" : 7,
     "issues" : 19,
     "creationDate" : 1315497490000,
-    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-sbt-pgp\" class=\"anchor\" aria-hidden=\"true\" href=\"#sbt-pgp\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>sbt-pgp</h1>\n<p dir=\"auto\">sbt-pgp provides PGP signing for sbt.</p>\n<p dir=\"auto\">Some OSS repositories (e.g. Sonatype) will require that you sign artifacts with publicly available keys prior to release. The primary purpose of sbt-pgp is to let you sign the artifacts using a GPG key.</p>\n<h2 dir=\"auto\"><a id=\"user-content-setup\" class=\"anchor\" aria-hidden=\"true\" href=\"#setup\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Setup</h2>\n<p dir=\"auto\">Add the following to your <code>project/plugins.sbt</code> file:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"addSbtPlugin(&quot;com.github.sbt&quot; % &quot;sbt-pgp&quot; % &quot;2.1.2&quot;)\"><pre>addSbtPlugin(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.github.sbt<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sbt-pgp<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>2.1.2<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<p dir=\"auto\"><strong>Note</strong>: We changed the organization from <code>\"com.jsuereth\"</code> to <code>\"com.github.sbt\"</code>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-usage\" class=\"anchor\" aria-hidden=\"true\" href=\"#usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Usage</h2>\n<p dir=\"auto\">There are two modes of use:</p>\n<ul dir=\"auto\">\n<li>By default sbt-pgp 2.0.0+ will use the <code>gpg</code> command-line utility (GNU Privary Guard, \"GnuPG\"). It provides great support and is available on many platforms.  You'll need to make sure this is installed prior to usage as this dependency is not provided.</li>\n<li>Prior to sbt-pgp 2.0.0, <code>sbt-pgp</code> used the <a href=\"http://www.bouncycastle.org/\" rel=\"nofollow\">Bouncy Castle</a> library, an implementation of PGP that is included with the plugin. It is a Java-only solution that gives the plugin great flexibility in what it can do and how it performs it.</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-install-gnupg-or-gnu-privary-guard-gpg\" class=\"anchor\" aria-hidden=\"true\" href=\"#install-gnupg-or-gnu-privary-guard-gpg\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Install GnuPG (or GNU Privary Guard, GPG)</h3>\n<p dir=\"auto\">First, please check that you have a recent version of GPG (GNU Privary Guard, \"GnuPG\") on your system. If not, install it from <a href=\"http://www.gnupg.org/download/\" rel=\"nofollow\">http://www.gnupg.org/download/</a> or your favorite package manager. For macOS, we recommend using <a href=\"https://gpgtools.org/\" rel=\"nofollow\">GPG Suite</a>.</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ gpg --version\ngpg (GnuPG/MacGPG2) 2.2.17\nlibgcrypt 1.8.4\nCopyright (C) 2019 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later &lt;https://gnu.org/licenses/gpl.html&gt;\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n\nHome: /Users/xxxx/.gnupg\nSupported algorithms:\nPubkey: RSA, ELG, DSA, ECDH, ECDSA, EDDSA\nCipher: IDEA, 3DES, CAST5, BLOWFISH, AES, AES192, AES256, TWOFISH,\n        CAMELLIA128, CAMELLIA192, CAMELLIA256\nHash: SHA1, RIPEMD160, SHA256, SHA384, SHA512, SHA224\nCompression: Uncompressed, ZIP, ZLIB, BZIP2\"><pre class=\"notranslate\"><code>$ gpg --version\ngpg (GnuPG/MacGPG2) 2.2.17\nlibgcrypt 1.8.4\nCopyright (C) 2019 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later &lt;https://gnu.org/licenses/gpl.html&gt;\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n\nHome: /Users/xxxx/.gnupg\nSupported algorithms:\nPubkey: RSA, ELG, DSA, ECDH, ECDSA, EDDSA\nCipher: IDEA, 3DES, CAST5, BLOWFISH, AES, AES192, AES256, TWOFISH,\n        CAMELLIA128, CAMELLIA192, CAMELLIA256\nHash: SHA1, RIPEMD160, SHA256, SHA384, SHA512, SHA224\nCompression: Uncompressed, ZIP, ZLIB, BZIP2\n</code></pre></div>\n<p dir=\"auto\">You should also have a program named <code>gpg-agent</code> running in the background.</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ps aux | grep gpg\need3si9n          5157   0.0  0.0  4317860    972   ??  Ss    7:17PM   0:00.02 gpg-agent --homedir /Users/eed3si9n/.gnupg --use-standard-socket --daemon\need3si9n          2734   0.0  0.0  4300360    732   ??  S     6:56PM   0:00.02 /bin/bash /usr/local/MacGPG2/libexec/shutdown-gpg-agent\need3si9n          5291   0.0  0.0  4277252    824 s002  S+    7:24PM   0:00.00 grep gpg\"><pre class=\"notranslate\"><code>$ ps aux | grep gpg\need3si9n          5157   0.0  0.0  4317860    972   ??  Ss    7:17PM   0:00.02 gpg-agent --homedir /Users/eed3si9n/.gnupg --use-standard-socket --daemon\need3si9n          2734   0.0  0.0  4300360    732   ??  S     6:56PM   0:00.02 /bin/bash /usr/local/MacGPG2/libexec/shutdown-gpg-agent\need3si9n          5291   0.0  0.0  4277252    824 s002  S+    7:24PM   0:00.00 grep gpg\n</code></pre></div>\n<p dir=\"auto\">If you're using <a href=\"https://gpgtools.org/\" rel=\"nofollow\">GPG Suite</a>, navigate to Preferences &gt; GPG Suite, and uncheck \"Store in macOS Keychain\" to prevent your passphrase from being stored on your laptop.</p>\n<h3 dir=\"auto\"><a id=\"user-content-working-with-pgp-signatures\" class=\"anchor\" aria-hidden=\"true\" href=\"#working-with-pgp-signatures\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Working with PGP signatures</h3>\n<p dir=\"auto\">See <a href=\"https://central.sonatype.org/pages/working-with-pgp-signatures.html\" rel=\"nofollow\">Working with PGP Signatures</a> for details.</p>\n<p dir=\"auto\">A key pair allows you to sign artifacts with GPG and users can subsequently validate that artifacts have been signed by you. You can generate a key with.</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ gpg --gen-key\"><pre class=\"notranslate\"><code>$ gpg --gen-key\n</code></pre></div>\n<p dir=\"auto\">Select the default value when asked for the kind (RSA) and the size (2048bit) of the key. The time of validity for the key defaults to never expire. However it is commonly suggested to use a value of less than 2 years. Once they key is expired you can extend it, provided you own the key and therefore know the passphrase.</p>\n<p dir=\"auto\">Once key pair is generated, we can list them along with any other keys installed:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ gpg --list-keys\n/Users/xxx/.gnupg/pubring.gpg\n----------------------------------\npub   dsa2048 2010-08-19 [SC] [expires: 2020-06-15]\n      85E38F69046B44C1EC9FB07B76D78F0500D026C4\nuid           [ultimate] GPGTools Team &lt;team@gpgtools.org&gt;\nuid           [ultimate] GPGTools Project Team (Official OpenPGP Key) &lt;gpgtools-org@lists.gpgtools.org&gt;\nuid           [ultimate] GPGMail Project Team (Official OpenPGP Key) &lt;gpgmail-devel@lists.gpgmail.org&gt;\nuid           [ultimate] [jpeg image of size 5871]\nsub   elg2048 2010-08-19 [E] [expires: 2020-06-15]\nsub   rsa4096 2014-04-08 [S] [expires: 2024-01-02]\n\npub   rsa2048 2012-02-14 [SCEA] [expires: 2028-02-09]\n      2BE67AC00D699E04E840B7FE29967E804D85663F\nuid           [ultimate] Eugene Yokota &lt;eed3si9n@gmail.com&gt;\nsub   rsa2048 2012-02-14 [SEA] [expires: 2028-02-09]\n\n....\"><pre class=\"notranslate\"><code>$ gpg --list-keys\n/Users/xxx/.gnupg/pubring.gpg\n----------------------------------\npub   dsa2048 2010-08-19 [SC] [expires: 2020-06-15]\n      85E38F69046B44C1EC9FB07B76D78F0500D026C4\nuid           [ultimate] GPGTools Team &lt;team@gpgtools.org&gt;\nuid           [ultimate] GPGTools Project Team (Official OpenPGP Key) &lt;gpgtools-org@lists.gpgtools.org&gt;\nuid           [ultimate] GPGMail Project Team (Official OpenPGP Key) &lt;gpgmail-devel@lists.gpgmail.org&gt;\nuid           [ultimate] [jpeg image of size 5871]\nsub   elg2048 2010-08-19 [E] [expires: 2020-06-15]\nsub   rsa4096 2014-04-08 [S] [expires: 2024-01-02]\n\npub   rsa2048 2012-02-14 [SCEA] [expires: 2028-02-09]\n      2BE67AC00D699E04E840B7FE29967E804D85663F\nuid           [ultimate] Eugene Yokota &lt;eed3si9n@gmail.com&gt;\nsub   rsa2048 2012-02-14 [SEA] [expires: 2028-02-09]\n\n....\n</code></pre></div>\n<p dir=\"auto\">To list the private keys you can use:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ gpg --list-secret-keys\n/Users/xxx/.gnupg/pubring.gpg\n----------------------------------\nsec   rsa2048 2012-02-14 [SCEA] [expires: 2028-02-09]\n      2BE67AC00D699E04E840B7FE29967E804D85663F\nuid           [ultimate] Eugene Yokota &lt;eed3si9n@gmail.com&gt;\nssb   rsa2048 2012-02-14 [SEA] [expires: 2028-02-09]\"><pre class=\"notranslate\"><code>$ gpg --list-secret-keys\n/Users/xxx/.gnupg/pubring.gpg\n----------------------------------\nsec   rsa2048 2012-02-14 [SCEA] [expires: 2028-02-09]\n      2BE67AC00D699E04E840B7FE29967E804D85663F\nuid           [ultimate] Eugene Yokota &lt;eed3si9n@gmail.com&gt;\nssb   rsa2048 2012-02-14 [SEA] [expires: 2028-02-09]\n</code></pre></div>\n<p dir=\"auto\">Since other people need your <strong>public</strong> key to verify your files, you have to distribute your public key to a key server:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ gpg --keyserver keyserver.ubuntu.com --send-keys 2BE67AC00D699E04E840B7FE29967E804D85663F\"><pre class=\"notranslate\"><code>$ gpg --keyserver keyserver.ubuntu.com --send-keys 2BE67AC00D699E04E840B7FE29967E804D85663F\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-importing-key-pair\" class=\"anchor\" aria-hidden=\"true\" href=\"#importing-key-pair\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Importing key pair</h3>\n<p dir=\"auto\">If you have previously created a key pair using sbt-pgp 1.x's <code>pgp-cmd</code> for example, your secret key should be at <code>$HOME/.sbt/gpg/secring.asc</code>. You can import this to GnuPG as follows:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ gpg --import $HOME/.sbt/gpg/secring.asc\ngpg: /root/.gnupg/trustdb.gpg: trustdb created\ngpg: key 77098E6A92692949: public key &quot;foo &lt;foo@example.com&gt;&quot; imported\ngpg: key 77098E6A92692949: secret key imported\ngpg: Total number processed: 1\ngpg:               imported: 1\ngpg:       secret keys read: 1\ngpg:   secret keys imported:\n\ngpg --list-key\n/root/.gnupg/pubring.kbx\n------------------------\npub   rsa2048 2019-09-15 [SCEA]\n      965F25CC72DF4F2A4358AC9B77098E6A92692949\nuid           [ unknown] foo &lt;foo@example.com&gt;\"><pre class=\"notranslate\"><code>$ gpg --import $HOME/.sbt/gpg/secring.asc\ngpg: /root/.gnupg/trustdb.gpg: trustdb created\ngpg: key 77098E6A92692949: public key \"foo &lt;foo@example.com&gt;\" imported\ngpg: key 77098E6A92692949: secret key imported\ngpg: Total number processed: 1\ngpg:               imported: 1\ngpg:       secret keys read: 1\ngpg:   secret keys imported:\n\ngpg --list-key\n/root/.gnupg/pubring.kbx\n------------------------\npub   rsa2048 2019-09-15 [SCEA]\n      965F25CC72DF4F2A4358AC9B77098E6A92692949\nuid           [ unknown] foo &lt;foo@example.com&gt;\n</code></pre></div>\n<p dir=\"auto\">Next, see <a href=\"#configuration-signing-key\">signing key</a> section below to set <code>965F25CC72DF4F2A4358AC9B77098E6A92692949</code> as the signing key.</p>\n<h3 dir=\"auto\"><a id=\"user-content-publishing-from-travis-ci\" class=\"anchor\" aria-hidden=\"true\" href=\"#publishing-from-travis-ci\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Publishing from Travis CI</h3>\n<p dir=\"auto\">See <a href=\"https://github.com/olafurpg/sbt-ci-release\">sbt-ci-release</a>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-publishing-artifacts\" class=\"anchor\" aria-hidden=\"true\" href=\"#publishing-artifacts\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Publishing Artifacts</h3>\n<p dir=\"auto\">To publish signed artifacts, use <code>publishSigned</code> or <code>publishLocalSigned</code>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-skipping-publishing\" class=\"anchor\" aria-hidden=\"true\" href=\"#skipping-publishing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Skipping publishing</h3>\n<p dir=\"auto\">To skip the publish step for a subproject, set <code>publish / skip</code> to <code>true</code>.</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"publish / skip := true\"><pre class=\"notranslate\"><code>publish / skip := true\n</code></pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-pin-entry-passphrase-entry\" class=\"anchor\" aria-hidden=\"true\" href=\"#pin-entry-passphrase-entry\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>PIN entry (passphrase entry)</h3>\n<p dir=\"auto\">If you've configured your gpg-agent with <a href=\"https://gpgtools.org/\" rel=\"nofollow\">GPG Suite</a>, it should ask for the passphrase when you run <code>publishLocalSigned</code>:</p>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"doc/pinentry.png\"><img src=\"doc/pinentry.png\" alt=\"pinentry\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Note: It might take 30s or more for the dialog to show up.</p>\n<p dir=\"auto\">Otherwise, add <code>pinentry-program</code> line in <code>~/.gnupg/gpg-agent.conf</code> with the appropriate path to a pinentry program:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"pinentry-program /usr/bin/pinentry\ndefault-cache-ttl 600\nmax-cache-ttl 7200\"><pre class=\"notranslate\"><code>pinentry-program /usr/bin/pinentry\ndefault-cache-ttl 600\nmax-cache-ttl 7200\n</code></pre></div>\n<p dir=\"auto\">You might need to restart the gpg-agent for the setting to take effect.</p>\n<h4 dir=\"auto\"><a id=\"user-content-automating-pin-entry-passphrase-entry\" class=\"anchor\" aria-hidden=\"true\" href=\"#automating-pin-entry-passphrase-entry\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Automating PIN entry (passphrase Entry)</h4>\n<p dir=\"auto\">sbt-pgp 1.x has provided ways of storing passphrase using <code>pgpPassphrase</code> or in the credentials, but we no longer recommend using these methods on your laptop.</p>\n<p dir=\"auto\">On CI environment like Travis CI, you might want to automate passphrase entry. For that purpose sbt-pgp supports <code>PGP_PASSPHRASE</code> environment variable following <a href=\"https://github.com/olafurpg/sbt-ci-release\">olafurpg/sbt-ci-release</a>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-configuration-signing-key\" class=\"anchor\" aria-hidden=\"true\" href=\"#configuration-signing-key\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Configuration: Signing Key</h3>\n<p dir=\"auto\">By default, all signing operations will use <code>gpg</code>'s default key. A specific key can be used by setting sbt <code>Credentials</code> for the host \"gpg\".</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"credentials += Credentials(\n  &quot;GnuPG Key ID&quot;,\n  &quot;gpg&quot;,\n  &quot;2BE67AC00D699E04E840B7FE29967E804D85663F&quot;, // key identifier\n  &quot;ignored&quot; // this field is ignored; passwords are supplied by pinentry\n)\"><pre>credentials <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Credentials</span>(\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>GnuPG Key ID<span class=\"pl-pds\">\"</span></span>,\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>gpg<span class=\"pl-pds\">\"</span></span>,\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>2BE67AC00D699E04E840B7FE29967E804D85663F<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-c\"><span class=\"pl-c\">//</span> key identifier</span>\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>ignored<span class=\"pl-pds\">\"</span></span> <span class=\"pl-c\"><span class=\"pl-c\">//</span> this field is ignored; passwords are supplied by pinentry</span>\n)</pre></div>\n<p dir=\"auto\"><strong>Note</strong>: This follows the convention set by <a href=\"https://github.com/jodersky/sbt-gpg\">jodersky/sbt-gpg</a>.</p>\n<p dir=\"auto\">You can also use the <code>usePgpKeyHex</code> method.</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"usePgpKeyHex(&quot;2BE67AC00D699E04E840B7FE29967E804D85663F&quot;)\"><pre>usePgpKeyHex(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>2BE67AC00D699E04E840B7FE29967E804D85663F<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-openpgp-support\" class=\"anchor\" aria-hidden=\"true\" href=\"#openpgp-support\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>OpenPGP Support</h3>\n<p dir=\"auto\">If you are using a <a href=\"https://support.yubico.com/support/solutions/articles/15000006486-yubikey-4\" rel=\"nofollow\">Yubikey 4</a> or another smartcard that <a href=\"https://incenp.org/notes/2016/openpgp-card-implementations.html\" rel=\"nofollow\">supports OpenPGP</a>, then you may have private keys implemented directly on the smartcard rather than using the gpg keyring.  In this situation, you will use <code>gpg-agent</code> and a pinentry (<code>pinentry-mac</code>, <code>pinentry-qt</code>, <code>pinentry-curses</code> etc) rather than a passphrase.  Set <code>useGpgPinentry := true</code> in your <code>build.sbt</code> settings to configure <code>sbt-pgp</code> appropriately.</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"Global / useGpgPinentry := true\"><pre><span class=\"pl-en\">Global</span> <span class=\"pl-k\">/</span> useGpgPinentry <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-c1\">true</span></pre></div>\n<p dir=\"auto\">Note that <code>sbt-pgp</code> only supports OpenPGP through the GPG command line tool -- it is not available through bouncycastle.  In addition, you may need to explicitly <a href=\"https://github.com/drduh/YubiKey-Guide\">enable support for OpenPGP on the Yubikey 4</a>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-configuration-gpg-command-line\" class=\"anchor\" aria-hidden=\"true\" href=\"#configuration-gpg-command-line\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Configuration: gpg command-line</h3>\n<p dir=\"auto\"><code>sbt-pgp</code> needs to know where the <code>gpg</code> executable is to run.  It will look for a either a <code>gpg</code> or <code>gpg.exe</code> executable on your <code>PATH</code> depdending on your platform.  To configure a different location, place the following in your <code>~/.sbt/gpg.sbt</code> file:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"Global / gpgCommand := &quot;/path/to/gpg&quot;\"><pre><span class=\"pl-en\">Global</span> <span class=\"pl-k\">/</span> gpgCommand <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>/path/to/gpg<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">By default <code>sbt-pgp</code> will use the default private keys from the standard gpg keyrings.\nYou can configure the key ring you use with the <code>pgpKeyRing</code> setting.</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"Global / pgpKeyRing := Some(file(&quot;/home/me/pgp/pubring.gpg&quot;))\"><pre><span class=\"pl-en\">Global</span> <span class=\"pl-k\">/</span> pgpKeyRing <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Some</span>(file(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>/home/me/pgp/pubring.gpg<span class=\"pl-pds\">\"</span></span>))</pre></div>\n<p dir=\"auto\">If specificied, this is passed to <code>gpg</code> command as <code>--no-default-keyring --keyring &lt;value&gt;</code>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-validating-pgp-keys\" class=\"anchor\" aria-hidden=\"true\" href=\"#validating-pgp-keys\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Validating PGP Keys</h3>\n<p dir=\"auto\">The plugin can be used to validate the PGP signatures of the dependencies of the project you're using.   To validate these signatures, simply use the <code>checkPgpSignatures</code> task:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&gt; checkPgpSignatures\n[info] Resolving org.scala-lang#scala-library;2.9.1 ...\n...\n[info] ----- PGP Signature Results -----\n[info]                    com.novocode : junit-interface :        0.7 : jar   [MISSING]\n[info]               javax.transaction :             jta :     1.0.1B : jar   [MISSING]\n[info]          org.scala-lang.plugins :   continuations :      2.9.1 : jar   [MISSING]\n[info]                org.apache.derby :           derby : 10.5.3.0_1 : jar   [UNTRUSTED(0x98e21827)]\n[error] {file:/home/josh/projects/typesafe/test-signing/}test-gpg/*:check-pgp-signatures: Some artifacts have bad signatures or are signed by untrusted sources!\n[error] Total time: 2 s, completed Jan 23, 2012 12:03:28 PM\"><pre class=\"notranslate\"><code>&gt; checkPgpSignatures\n[info] Resolving org.scala-lang#scala-library;2.9.1 ...\n...\n[info] ----- PGP Signature Results -----\n[info]                    com.novocode : junit-interface :        0.7 : jar   [MISSING]\n[info]               javax.transaction :             jta :     1.0.1B : jar   [MISSING]\n[info]          org.scala-lang.plugins :   continuations :      2.9.1 : jar   [MISSING]\n[info]                org.apache.derby :           derby : 10.5.3.0_1 : jar   [UNTRUSTED(0x98e21827)]\n[error] {file:/home/josh/projects/typesafe/test-signing/}test-gpg/*:check-pgp-signatures: Some artifacts have bad signatures or are signed by untrusted sources!\n[error] Total time: 2 s, completed Jan 23, 2012 12:03:28 PM\n</code></pre></div>\n<p dir=\"auto\">In the above output, the signature for derby is from an untrusted key (id: <code>0x98e21827</code>).  You can import this key into your public key ring, and then the plugin will trust artifacts from that key.   The public, by default, accepts any keys included in your public key ring file.</p>\n<h3 dir=\"auto\"><a id=\"user-content-using-bouncy-castle-deprecated\" class=\"anchor\" aria-hidden=\"true\" href=\"#using-bouncy-castle-deprecated\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Using Bouncy Castle (deprecated)</h3>\n<p dir=\"auto\">Prior to sbt-pgp 2.0.0, <code>sbt-pgp</code> used the <a href=\"http://www.bouncycastle.org/\" rel=\"nofollow\">Bouncy Castle</a> library by default. If you cant to use <code>gpg</code> command setting <code>useGpg</code> to <code>false</code> will use the Bouncy Castle mode:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"Global / useGpg := false\"><pre><span class=\"pl-en\">Global</span> <span class=\"pl-k\">/</span> useGpg <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-c1\">false</span></pre></div>\n<p dir=\"auto\">Or by setting <code>SBT_PGP_USE_GPG</code> environment variable to <code>0</code>.</p>\n<p dir=\"auto\">When using Bouncy Castle modue, <code>sbt-pgp</code> will ask for your password once, and cache it for the duration of the sbt process. The prompt will look something like this:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"Please enter PGP passphrase (or ENTER to abort): ******\"><pre class=\"notranslate\"><code>Please enter PGP passphrase (or ENTER to abort): ******\n</code></pre></div>\n</article></div>",
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><div class=\"markdown-heading\" dir=\"auto\"><h1 class=\"heading-element\" dir=\"auto\">sbt-pgp</h1><a id=\"user-content-sbt-pgp\" class=\"anchor\" aria-label=\"Permalink: sbt-pgp\" href=\"#sbt-pgp\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">sbt-pgp provides PGP signing for sbt.</p>\n<p dir=\"auto\">Some OSS repositories (e.g. Sonatype) will require that you sign artifacts with publicly available keys prior to release. The primary purpose of sbt-pgp is to let you sign the artifacts using a GPG key.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Setup</h2><a id=\"user-content-setup\" class=\"anchor\" aria-label=\"Permalink: Setup\" href=\"#setup\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><a href=\"https://index.scala-lang.org/sbt/sbt-pgp/sbt-pgp\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/1d5972cab2ec0cc4031ffdf6fd4f4fb2433381e5d4a4f49fcfe8b5286aa3a6a5/68747470733a2f2f696e6465782e7363616c612d6c616e672e6f72672f7362742f7362742d7067702f7362742d7067702f6c61746573742d62792d7363616c612d76657273696f6e2e7376673f746172676574547970653d536274\" alt=\"sbt-pgp Scala version support\" data-canonical-src=\"https://index.scala-lang.org/sbt/sbt-pgp/sbt-pgp/latest-by-scala-version.svg?targetType=Sbt\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Add the following to your <code>project/plugins.sbt</code> file:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"addSbtPlugin(&quot;com.github.sbt&quot; % &quot;sbt-pgp&quot; % &quot;x.y.z&quot;)\"><pre>addSbtPlugin(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.github.sbt<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sbt-pgp<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>x.y.z<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<p dir=\"auto\"><strong>Note</strong>: We changed the organization from <code>\"com.jsuereth\"</code> to <code>\"com.github.sbt\"</code>.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Usage</h2><a id=\"user-content-usage\" class=\"anchor\" aria-label=\"Permalink: Usage\" href=\"#usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">There are two modes of use:</p>\n<ul dir=\"auto\">\n<li>By default sbt-pgp 2.0.0+ will use the <code>gpg</code> command-line utility (GNU Privary Guard, \"GnuPG\"). It provides great support and is available on many platforms.  You'll need to make sure this is installed prior to usage as this dependency is not provided.</li>\n<li>Prior to sbt-pgp 2.0.0, <code>sbt-pgp</code> used the <a href=\"http://www.bouncycastle.org/\" rel=\"nofollow\">Bouncy Castle</a> library, an implementation of PGP that is included with the plugin. It is a Java-only solution that gives the plugin great flexibility in what it can do and how it performs it.</li>\n</ul>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">Install GnuPG (or GNU Privacy Guard, GPG)</h3><a id=\"user-content-install-gnupg-or-gnu-privacy-guard-gpg\" class=\"anchor\" aria-label=\"Permalink: Install GnuPG (or GNU Privacy Guard, GPG)\" href=\"#install-gnupg-or-gnu-privacy-guard-gpg\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">First, please check that you have a recent version of GPG (GNU Privary Guard, \"GnuPG\") on your system. If not, install it from <a href=\"http://www.gnupg.org/download/\" rel=\"nofollow\">http://www.gnupg.org/download/</a> or your favorite package manager. For macOS, we recommend using <a href=\"https://gpgtools.org/\" rel=\"nofollow\">GPG Suite</a>.</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ gpg --version\ngpg (GnuPG/MacGPG2) 2.2.17\nlibgcrypt 1.8.4\nCopyright (C) 2019 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later &lt;https://gnu.org/licenses/gpl.html&gt;\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n\nHome: /Users/xxxx/.gnupg\nSupported algorithms:\nPubkey: RSA, ELG, DSA, ECDH, ECDSA, EDDSA\nCipher: IDEA, 3DES, CAST5, BLOWFISH, AES, AES192, AES256, TWOFISH,\n        CAMELLIA128, CAMELLIA192, CAMELLIA256\nHash: SHA1, RIPEMD160, SHA256, SHA384, SHA512, SHA224\nCompression: Uncompressed, ZIP, ZLIB, BZIP2\"><pre class=\"notranslate\"><code>$ gpg --version\ngpg (GnuPG/MacGPG2) 2.2.17\nlibgcrypt 1.8.4\nCopyright (C) 2019 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later &lt;https://gnu.org/licenses/gpl.html&gt;\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n\nHome: /Users/xxxx/.gnupg\nSupported algorithms:\nPubkey: RSA, ELG, DSA, ECDH, ECDSA, EDDSA\nCipher: IDEA, 3DES, CAST5, BLOWFISH, AES, AES192, AES256, TWOFISH,\n        CAMELLIA128, CAMELLIA192, CAMELLIA256\nHash: SHA1, RIPEMD160, SHA256, SHA384, SHA512, SHA224\nCompression: Uncompressed, ZIP, ZLIB, BZIP2\n</code></pre></div>\n<p dir=\"auto\">You should also have a program named <code>gpg-agent</code> running in the background.</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ ps aux | grep gpg\need3si9n          5157   0.0  0.0  4317860    972   ??  Ss    7:17PM   0:00.02 gpg-agent --homedir /Users/eed3si9n/.gnupg --use-standard-socket --daemon\need3si9n          2734   0.0  0.0  4300360    732   ??  S     6:56PM   0:00.02 /bin/bash /usr/local/MacGPG2/libexec/shutdown-gpg-agent\need3si9n          5291   0.0  0.0  4277252    824 s002  S+    7:24PM   0:00.00 grep gpg\"><pre class=\"notranslate\"><code>$ ps aux | grep gpg\need3si9n          5157   0.0  0.0  4317860    972   ??  Ss    7:17PM   0:00.02 gpg-agent --homedir /Users/eed3si9n/.gnupg --use-standard-socket --daemon\need3si9n          2734   0.0  0.0  4300360    732   ??  S     6:56PM   0:00.02 /bin/bash /usr/local/MacGPG2/libexec/shutdown-gpg-agent\need3si9n          5291   0.0  0.0  4277252    824 s002  S+    7:24PM   0:00.00 grep gpg\n</code></pre></div>\n<p dir=\"auto\">If you're using <a href=\"https://gpgtools.org/\" rel=\"nofollow\">GPG Suite</a>, navigate to Preferences &gt; GPG Suite, and uncheck \"Store in macOS Keychain\" to prevent your passphrase from being stored on your laptop.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">Working with PGP signatures</h3><a id=\"user-content-working-with-pgp-signatures\" class=\"anchor\" aria-label=\"Permalink: Working with PGP signatures\" href=\"#working-with-pgp-signatures\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">See <a href=\"https://central.sonatype.org/pages/working-with-pgp-signatures.html\" rel=\"nofollow\">Working with PGP Signatures</a> for details.</p>\n<p dir=\"auto\">A key pair allows you to sign artifacts with GPG and users can subsequently validate that artifacts have been signed by you. You can generate a key with.</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ gpg --gen-key\"><pre class=\"notranslate\"><code>$ gpg --gen-key\n</code></pre></div>\n<p dir=\"auto\">Select the default value when asked for the kind (RSA) and the size (2048bit) of the key. The time of validity for the key defaults to never expire. However it is commonly suggested to use a value of less than 2 years. Once they key is expired you can extend it, provided you own the key and therefore know the passphrase.</p>\n<p dir=\"auto\">Once key pair is generated, we can list them along with any other keys installed:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ gpg --list-keys\n/Users/xxx/.gnupg/pubring.gpg\n----------------------------------\npub   dsa2048 2010-08-19 [SC] [expires: 2020-06-15]\n      85E38F69046B44C1EC9FB07B76D78F0500D026C4\nuid           [ultimate] GPGTools Team &lt;team@gpgtools.org&gt;\nuid           [ultimate] GPGTools Project Team (Official OpenPGP Key) &lt;gpgtools-org@lists.gpgtools.org&gt;\nuid           [ultimate] GPGMail Project Team (Official OpenPGP Key) &lt;gpgmail-devel@lists.gpgmail.org&gt;\nuid           [ultimate] [jpeg image of size 5871]\nsub   elg2048 2010-08-19 [E] [expires: 2020-06-15]\nsub   rsa4096 2014-04-08 [S] [expires: 2024-01-02]\n\npub   rsa2048 2012-02-14 [SCEA] [expires: 2028-02-09]\n      2BE67AC00D699E04E840B7FE29967E804D85663F\nuid           [ultimate] Eugene Yokota &lt;eed3si9n@gmail.com&gt;\nsub   rsa2048 2012-02-14 [SEA] [expires: 2028-02-09]\n\n....\"><pre class=\"notranslate\"><code>$ gpg --list-keys\n/Users/xxx/.gnupg/pubring.gpg\n----------------------------------\npub   dsa2048 2010-08-19 [SC] [expires: 2020-06-15]\n      85E38F69046B44C1EC9FB07B76D78F0500D026C4\nuid           [ultimate] GPGTools Team &lt;team@gpgtools.org&gt;\nuid           [ultimate] GPGTools Project Team (Official OpenPGP Key) &lt;gpgtools-org@lists.gpgtools.org&gt;\nuid           [ultimate] GPGMail Project Team (Official OpenPGP Key) &lt;gpgmail-devel@lists.gpgmail.org&gt;\nuid           [ultimate] [jpeg image of size 5871]\nsub   elg2048 2010-08-19 [E] [expires: 2020-06-15]\nsub   rsa4096 2014-04-08 [S] [expires: 2024-01-02]\n\npub   rsa2048 2012-02-14 [SCEA] [expires: 2028-02-09]\n      2BE67AC00D699E04E840B7FE29967E804D85663F\nuid           [ultimate] Eugene Yokota &lt;eed3si9n@gmail.com&gt;\nsub   rsa2048 2012-02-14 [SEA] [expires: 2028-02-09]\n\n....\n</code></pre></div>\n<p dir=\"auto\">To list the private keys you can use:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ gpg --list-secret-keys\n/Users/xxx/.gnupg/pubring.gpg\n----------------------------------\nsec   rsa2048 2012-02-14 [SCEA] [expires: 2028-02-09]\n      2BE67AC00D699E04E840B7FE29967E804D85663F\nuid           [ultimate] Eugene Yokota &lt;eed3si9n@gmail.com&gt;\nssb   rsa2048 2012-02-14 [SEA] [expires: 2028-02-09]\"><pre class=\"notranslate\"><code>$ gpg --list-secret-keys\n/Users/xxx/.gnupg/pubring.gpg\n----------------------------------\nsec   rsa2048 2012-02-14 [SCEA] [expires: 2028-02-09]\n      2BE67AC00D699E04E840B7FE29967E804D85663F\nuid           [ultimate] Eugene Yokota &lt;eed3si9n@gmail.com&gt;\nssb   rsa2048 2012-02-14 [SEA] [expires: 2028-02-09]\n</code></pre></div>\n<p dir=\"auto\">Since other people need your <strong>public</strong> key to verify your files, you have to distribute your public key to a key server:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ gpg --keyserver keyserver.ubuntu.com --send-keys 2BE67AC00D699E04E840B7FE29967E804D85663F\"><pre class=\"notranslate\"><code>$ gpg --keyserver keyserver.ubuntu.com --send-keys 2BE67AC00D699E04E840B7FE29967E804D85663F\n</code></pre></div>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">Importing key pair</h3><a id=\"user-content-importing-key-pair\" class=\"anchor\" aria-label=\"Permalink: Importing key pair\" href=\"#importing-key-pair\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">If you have previously created a key pair using sbt-pgp 1.x's <code>pgp-cmd</code> for example, your secret key should be at <code>$HOME/.sbt/gpg/secring.asc</code>. You can import this to GnuPG as follows:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ gpg --import $HOME/.sbt/gpg/secring.asc\ngpg: /root/.gnupg/trustdb.gpg: trustdb created\ngpg: key 77098E6A92692949: public key &quot;foo &lt;foo@example.com&gt;&quot; imported\ngpg: key 77098E6A92692949: secret key imported\ngpg: Total number processed: 1\ngpg:               imported: 1\ngpg:       secret keys read: 1\ngpg:   secret keys imported:\n\ngpg --list-key\n/root/.gnupg/pubring.kbx\n------------------------\npub   rsa2048 2019-09-15 [SCEA]\n      965F25CC72DF4F2A4358AC9B77098E6A92692949\nuid           [ unknown] foo &lt;foo@example.com&gt;\"><pre class=\"notranslate\"><code>$ gpg --import $HOME/.sbt/gpg/secring.asc\ngpg: /root/.gnupg/trustdb.gpg: trustdb created\ngpg: key 77098E6A92692949: public key \"foo &lt;foo@example.com&gt;\" imported\ngpg: key 77098E6A92692949: secret key imported\ngpg: Total number processed: 1\ngpg:               imported: 1\ngpg:       secret keys read: 1\ngpg:   secret keys imported:\n\ngpg --list-key\n/root/.gnupg/pubring.kbx\n------------------------\npub   rsa2048 2019-09-15 [SCEA]\n      965F25CC72DF4F2A4358AC9B77098E6A92692949\nuid           [ unknown] foo &lt;foo@example.com&gt;\n</code></pre></div>\n<p dir=\"auto\">Next, see <a href=\"#configuration-signing-key\">signing key</a> section below to set <code>965F25CC72DF4F2A4358AC9B77098E6A92692949</code> as the signing key.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">Publishing from Travis CI</h3><a id=\"user-content-publishing-from-travis-ci\" class=\"anchor\" aria-label=\"Permalink: Publishing from Travis CI\" href=\"#publishing-from-travis-ci\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">See <a href=\"https://github.com/olafurpg/sbt-ci-release\">sbt-ci-release</a>.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">Publishing Artifacts</h3><a id=\"user-content-publishing-artifacts\" class=\"anchor\" aria-label=\"Permalink: Publishing Artifacts\" href=\"#publishing-artifacts\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">To publish signed artifacts, use <code>publishSigned</code> or <code>publishLocalSigned</code>.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">Skipping publishing</h3><a id=\"user-content-skipping-publishing\" class=\"anchor\" aria-label=\"Permalink: Skipping publishing\" href=\"#skipping-publishing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">To skip the publish step for a subproject, set <code>publish / skip</code> to <code>true</code>.</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"publish / skip := true\"><pre class=\"notranslate\"><code>publish / skip := true\n</code></pre></div>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">PIN entry (passphrase entry)</h3><a id=\"user-content-pin-entry-passphrase-entry\" class=\"anchor\" aria-label=\"Permalink: PIN entry (passphrase entry)\" href=\"#pin-entry-passphrase-entry\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">If you've configured your gpg-agent with <a href=\"https://gpgtools.org/\" rel=\"nofollow\">GPG Suite</a>, it should ask for the passphrase when you run <code>publishLocalSigned</code>:</p>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"doc/pinentry.png\"><img src=\"doc/pinentry.png\" alt=\"pinentry\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Note: It might take 30s or more for the dialog to show up.</p>\n<p dir=\"auto\">Otherwise, add <code>pinentry-program</code> line in <code>~/.gnupg/gpg-agent.conf</code> with the appropriate path to a pinentry program:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"pinentry-program /usr/bin/pinentry\ndefault-cache-ttl 600\nmax-cache-ttl 7200\"><pre class=\"notranslate\"><code>pinentry-program /usr/bin/pinentry\ndefault-cache-ttl 600\nmax-cache-ttl 7200\n</code></pre></div>\n<p dir=\"auto\">You might need to restart the gpg-agent for the setting to take effect.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h4 class=\"heading-element\" dir=\"auto\">Automating PIN entry (passphrase Entry)</h4><a id=\"user-content-automating-pin-entry-passphrase-entry\" class=\"anchor\" aria-label=\"Permalink: Automating PIN entry (passphrase Entry)\" href=\"#automating-pin-entry-passphrase-entry\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">sbt-pgp 1.x has provided ways of storing passphrase using <code>pgpPassphrase</code> or in the credentials, but we no longer recommend using these methods on your laptop.</p>\n<p dir=\"auto\">On CI environment like Travis CI, you might want to automate passphrase entry. For that purpose sbt-pgp supports <code>PGP_PASSPHRASE</code> environment variable following <a href=\"https://github.com/olafurpg/sbt-ci-release\">olafurpg/sbt-ci-release</a>.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">Configuration: Signing Key</h3><a id=\"user-content-configuration-signing-key\" class=\"anchor\" aria-label=\"Permalink: Configuration: Signing Key\" href=\"#configuration-signing-key\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">By default, all signing operations will use <code>gpg</code>'s default key. A specific key can be used by setting sbt <code>Credentials</code> for the host \"gpg\".</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"credentials += Credentials(\n  &quot;GnuPG Key ID&quot;,\n  &quot;gpg&quot;,\n  &quot;2BE67AC00D699E04E840B7FE29967E804D85663F&quot;, // key identifier\n  &quot;ignored&quot; // this field is ignored; passwords are supplied by pinentry\n)\"><pre>credentials <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Credentials</span>(\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>GnuPG Key ID<span class=\"pl-pds\">\"</span></span>,\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>gpg<span class=\"pl-pds\">\"</span></span>,\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>2BE67AC00D699E04E840B7FE29967E804D85663F<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-c\"><span class=\"pl-c\">//</span> key identifier</span>\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>ignored<span class=\"pl-pds\">\"</span></span> <span class=\"pl-c\"><span class=\"pl-c\">//</span> this field is ignored; passwords are supplied by pinentry</span>\n)</pre></div>\n<p dir=\"auto\"><strong>Note</strong>: This follows the convention set by <a href=\"https://github.com/jodersky/sbt-gpg\">jodersky/sbt-gpg</a>.</p>\n<p dir=\"auto\">You can also use the <code>usePgpKeyHex</code> method.</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"usePgpKeyHex(&quot;2BE67AC00D699E04E840B7FE29967E804D85663F&quot;)\"><pre>usePgpKeyHex(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>2BE67AC00D699E04E840B7FE29967E804D85663F<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">OpenPGP Support</h3><a id=\"user-content-openpgp-support\" class=\"anchor\" aria-label=\"Permalink: OpenPGP Support\" href=\"#openpgp-support\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">If you are using a <a href=\"https://support.yubico.com/support/solutions/articles/15000006486-yubikey-4\" rel=\"nofollow\">Yubikey 4</a> or another smartcard that <a href=\"https://incenp.org/notes/2016/openpgp-card-implementations.html\" rel=\"nofollow\">supports OpenPGP</a>, then you may have private keys implemented directly on the smartcard rather than using the gpg keyring.  In this situation, you will use <code>gpg-agent</code> and a pinentry (<code>pinentry-mac</code>, <code>pinentry-qt</code>, <code>pinentry-curses</code> etc) rather than a passphrase.  Set <code>useGpgPinentry := true</code> in your <code>build.sbt</code> settings to configure <code>sbt-pgp</code> appropriately.</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"Global / useGpgPinentry := true\"><pre><span class=\"pl-en\">Global</span> <span class=\"pl-k\">/</span> useGpgPinentry <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-c1\">true</span></pre></div>\n<p dir=\"auto\">Note that <code>sbt-pgp</code> only supports OpenPGP through the GPG command line tool -- it is not available through bouncycastle.  In addition, you may need to explicitly <a href=\"https://github.com/drduh/YubiKey-Guide\">enable support for OpenPGP on the Yubikey 4</a>.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">Configuration: gpg command-line</h3><a id=\"user-content-configuration-gpg-command-line\" class=\"anchor\" aria-label=\"Permalink: Configuration: gpg command-line\" href=\"#configuration-gpg-command-line\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><code>sbt-pgp</code> needs to know where the <code>gpg</code> executable is to run.  It will look for a either a <code>gpg</code> or <code>gpg.exe</code> executable on your <code>PATH</code> depdending on your platform.  To configure a different location, place the following in your <code>~/.sbt/gpg.sbt</code> file:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"Global / gpgCommand := &quot;/path/to/gpg&quot;\"><pre><span class=\"pl-en\">Global</span> <span class=\"pl-k\">/</span> gpgCommand <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>/path/to/gpg<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">By default <code>sbt-pgp</code> will use the default private keys from the standard gpg keyrings.\nYou can configure the key ring you use with the <code>pgpKeyRing</code> setting.</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"Global / pgpKeyRing := Some(file(&quot;/home/me/pgp/pubring.gpg&quot;))\"><pre><span class=\"pl-en\">Global</span> <span class=\"pl-k\">/</span> pgpKeyRing <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Some</span>(file(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>/home/me/pgp/pubring.gpg<span class=\"pl-pds\">\"</span></span>))</pre></div>\n<p dir=\"auto\">If specificied, this is passed to <code>gpg</code> command as <code>--no-default-keyring --keyring &lt;value&gt;</code>.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">Validating PGP Keys</h3><a id=\"user-content-validating-pgp-keys\" class=\"anchor\" aria-label=\"Permalink: Validating PGP Keys\" href=\"#validating-pgp-keys\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">The plugin can be used to validate the PGP signatures of the dependencies of the project you're using.   To validate these signatures, simply use the <code>checkPgpSignatures</code> task:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&gt; checkPgpSignatures\n[info] Resolving org.scala-lang#scala-library;2.9.1 ...\n...\n[info] ----- PGP Signature Results -----\n[info]                    com.novocode : junit-interface :        0.7 : jar   [MISSING]\n[info]               javax.transaction :             jta :     1.0.1B : jar   [MISSING]\n[info]          org.scala-lang.plugins :   continuations :      2.9.1 : jar   [MISSING]\n[info]                org.apache.derby :           derby : 10.5.3.0_1 : jar   [UNTRUSTED(0x98e21827)]\n[error] {file:/home/josh/projects/typesafe/test-signing/}test-gpg/*:check-pgp-signatures: Some artifacts have bad signatures or are signed by untrusted sources!\n[error] Total time: 2 s, completed Jan 23, 2012 12:03:28 PM\"><pre class=\"notranslate\"><code>&gt; checkPgpSignatures\n[info] Resolving org.scala-lang#scala-library;2.9.1 ...\n...\n[info] ----- PGP Signature Results -----\n[info]                    com.novocode : junit-interface :        0.7 : jar   [MISSING]\n[info]               javax.transaction :             jta :     1.0.1B : jar   [MISSING]\n[info]          org.scala-lang.plugins :   continuations :      2.9.1 : jar   [MISSING]\n[info]                org.apache.derby :           derby : 10.5.3.0_1 : jar   [UNTRUSTED(0x98e21827)]\n[error] {file:/home/josh/projects/typesafe/test-signing/}test-gpg/*:check-pgp-signatures: Some artifacts have bad signatures or are signed by untrusted sources!\n[error] Total time: 2 s, completed Jan 23, 2012 12:03:28 PM\n</code></pre></div>\n<p dir=\"auto\">In the above output, the signature for derby is from an untrusted key (id: <code>0x98e21827</code>).  You can import this key into your public key ring, and then the plugin will trust artifacts from that key.   The public, by default, accepts any keys included in your public key ring file.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">Using Bouncy Castle (deprecated)</h3><a id=\"user-content-using-bouncy-castle-deprecated\" class=\"anchor\" aria-label=\"Permalink: Using Bouncy Castle (deprecated)\" href=\"#using-bouncy-castle-deprecated\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">Prior to sbt-pgp 2.0.0, <code>sbt-pgp</code> used the <a href=\"http://www.bouncycastle.org/\" rel=\"nofollow\">Bouncy Castle</a> library by default. If you cant to use <code>gpg</code> command setting <code>useGpg</code> to <code>false</code> will use the Bouncy Castle mode:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"Global / useGpg := false\"><pre><span class=\"pl-en\">Global</span> <span class=\"pl-k\">/</span> useGpg <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-c1\">false</span></pre></div>\n<p dir=\"auto\">Or by setting <code>SBT_PGP_USE_GPG</code> environment variable to <code>0</code>.</p>\n<p dir=\"auto\">When using Bouncy Castle modue, <code>sbt-pgp</code> will ask for your password once, and cache it for the duration of the sbt process. The prompt will look something like this:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"Please enter PGP passphrase (or ENTER to abort): ******\"><pre class=\"notranslate\"><code>Please enter PGP passphrase (or ENTER to abort): ******\n</code></pre></div>\n</article></div>",
     "contributors" : [
       {
         "login" : "jsuereth",
@@ -28,7 +28,7 @@
         "login" : "eed3si9n",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/184683?v=4",
         "url" : "https://github.com/eed3si9n",
-        "contributions" : 105
+        "contributions" : 113
       },
       {
         "login" : "xuwei-k",
@@ -73,54 +73,6 @@
         "contributions" : 2
       },
       {
-        "login" : "raboof",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/131856?v=4",
-        "url" : "https://github.com/raboof",
-        "contributions" : 1
-      },
-      {
-        "login" : "dwijnand",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/344610?v=4",
-        "url" : "https://github.com/dwijnand",
-        "contributions" : 1
-      },
-      {
-        "login" : "fmpwizard",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/62802?v=4",
-        "url" : "https://github.com/fmpwizard",
-        "contributions" : 1
-      },
-      {
-        "login" : "fthomas",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/141252?v=4",
-        "url" : "https://github.com/fthomas",
-        "contributions" : 1
-      },
-      {
-        "login" : "havocp",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/218689?v=4",
-        "url" : "https://github.com/havocp",
-        "contributions" : 1
-      },
-      {
-        "login" : "cvogt",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/274947?v=4",
-        "url" : "https://github.com/cvogt",
-        "contributions" : 1
-      },
-      {
-        "login" : "TheBizzle",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/912890?v=4",
-        "url" : "https://github.com/TheBizzle",
-        "contributions" : 1
-      },
-      {
-        "login" : "mshibuya",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/486678?v=4",
-        "url" : "https://github.com/mshibuya",
-        "contributions" : 1
-      },
-      {
         "login" : "sirthias",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/135347?v=4",
         "url" : "https://github.com/sirthias",
@@ -145,15 +97,21 @@
         "contributions" : 1
       },
       {
-        "login" : "ffinfo",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/2419555?v=4",
-        "url" : "https://github.com/ffinfo",
-        "contributions" : 1
-      },
-      {
         "login" : "remi-thieblin-ck",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/8091595?v=4",
         "url" : "https://github.com/remi-thieblin-ck",
+        "contributions" : 1
+      },
+      {
+        "login" : "winitzki",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2163489?v=4",
+        "url" : "https://github.com/winitzki",
+        "contributions" : 1
+      },
+      {
+        "login" : "SethTisue",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
+        "url" : "https://github.com/SethTisue",
         "contributions" : 1
       },
       {
@@ -167,19 +125,66 @@
         "avatarUrl" : "https://avatars.githubusercontent.com/u/3388993?v=4",
         "url" : "https://github.com/sovaalexandr",
         "contributions" : 1
+      },
+      {
+        "login" : "mshibuya",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/486678?v=4",
+        "url" : "https://github.com/mshibuya",
+        "contributions" : 1
+      },
+      {
+        "login" : "TheBizzle",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/912890?v=4",
+        "url" : "https://github.com/TheBizzle",
+        "contributions" : 1
+      },
+      {
+        "login" : "cvogt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/274947?v=4",
+        "url" : "https://github.com/cvogt",
+        "contributions" : 1
+      },
+      {
+        "login" : "havocp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/218689?v=4",
+        "url" : "https://github.com/havocp",
+        "contributions" : 1
+      },
+      {
+        "login" : "fthomas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/141252?v=4",
+        "url" : "https://github.com/fthomas",
+        "contributions" : 1
+      },
+      {
+        "login" : "fmpwizard",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/62802?v=4",
+        "url" : "https://github.com/fmpwizard",
+        "contributions" : 1
+      },
+      {
+        "login" : "dwijnand",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/344610?v=4",
+        "url" : "https://github.com/dwijnand",
+        "contributions" : 1
+      },
+      {
+        "login" : "raboof",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/131856?v=4",
+        "url" : "https://github.com/raboof",
+        "contributions" : 1
       }
     ],
-    "commits" : 311,
+    "commits" : 320,
     "topics" : [
     ],
     "contributingGuide" : null,
     "codeOfConduct" : null,
-    "chatroom" : "https://gitter.im/sbt/sbt-pgp",
     "openIssues" : [
       {
-        "number" : 191,
-        "title" : "\"gpg: invalid option \"--pinentry-mode\"\" when gpg is 2.0",
-        "url" : "https://github.com/sbt/sbt-pgp/issues/191"
+        "number" : 203,
+        "title" : "fail if the specified key does not exist",
+        "url" : "https://github.com/sbt/sbt-pgp/issues/203"
       },
       {
         "number" : 183,
@@ -275,698 +280,20 @@
     "scalaPercentage" : 99,
     "license" : null,
     "commitActivity" : [
-      {
-        "total" : 0,
-        "week" : 1629590400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1630195200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1630800000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1631404800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          2,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1632009600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1632614400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1633219200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1633824000000,
-        "days" : [
-          0,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1634428800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1635033600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1635638400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1636243200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1636848000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1637452800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1638057600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1638662400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1639267200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1639872000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1640476800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1641081600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1641686400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1642291200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1642896000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          2
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1643500800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1644105600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1644710400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1645315200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1645920000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1646524800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1647129600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1647734400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1648339200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1648944000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1649548800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1650153600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1650758400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1651363200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1651968000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1652572800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1653177600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1653782400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1654387200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1654992000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1655596800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1656201600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1656806400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1657411200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1658016000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1658620800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1659225600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1659830400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1660435200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      }
     ]
   },
   "settings" : {
     "preferStableVersion" : true,
     "defaultArtifact" : null,
-    "strictVersions" : false,
     "customScalaDoc" : null,
     "documentationLinks" : [
     ],
-    "deprecated" : false,
     "contributorsWanted" : false,
     "deprecatedArtifacts" : [
     ],
     "cliArtifacts" : [
     ],
     "category" : "packaging-and-publishing",
-    "beginnerIssuesLabel" : null
+    "chatroom" : null
   }
 }

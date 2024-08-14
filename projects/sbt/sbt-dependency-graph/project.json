@@ -4,19 +4,19 @@
   "creationDate" : 1374503274000,
   "githubStatus" : {
     "Ok" : {
-      "updateDate" : 1660810997885
+      "updateDate" : 1723549125969
     }
   },
   "githubInfo" : {
     "homepage" : "",
     "description" : "sbt plugin to create a dependency graph for your project",
     "logo" : "https://avatars.githubusercontent.com/u/1158012?v=4",
-    "stars" : 1238,
-    "forks" : 112,
-    "watchers" : 53,
+    "stars" : 1241,
+    "forks" : 113,
+    "watchers" : 54,
     "issues" : 56,
     "creationDate" : 1321369719000,
-    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-sbt-dependency-graph\" class=\"anchor\" aria-hidden=\"true\" href=\"#sbt-dependency-graph\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>sbt-dependency-graph</h1>\n<p dir=\"auto\"><a href=\"https://gitter.im/jrudolph/sbt-dependency-graph?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/5dbac0213da25c445bd11f168587c11a200ba153ef3014e8408e462e410169b3/68747470733a2f2f6261646765732e6769747465722e696d2f4a6f696e253230436861742e737667\" alt=\"Join the chat at https://gitter.im/jrudolph/sbt-dependency-graph\" data-canonical-src=\"https://badges.gitter.im/Join%20Chat.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Visualize your project's dependencies.</p>\n<p dir=\"auto\"><strong>DEPRECATED: This plugin has been replaced by built-in sbt plugin in sbt 1.4+, please replace your dependency on this plugin with the following statement <code>addDependencyTreePlugin</code></strong></p>\n<p dir=\"auto\"><strong>Note: Under sbt &gt;= 1.3.x some features might currently not work as expected or not at all (like <code>dependencyLicenses</code>).</strong></p>\n<h2 dir=\"auto\"><a id=\"user-content-usage-instructions\" class=\"anchor\" aria-hidden=\"true\" href=\"#usage-instructions\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Usage Instructions</h2>\n<p dir=\"auto\">sbt-dependency-graph is an informational tool rather than one that changes your build, so you will more than likely wish to\ninstall it as a <a href=\"http://www.scala-sbt.org/0.13/tutorial/Using-Plugins.html#Global+plugins\" rel=\"nofollow\">global plugin</a> so that you can use it in any SBT project without the need to explicitly add it to each one. To do\nthis, add the plugin dependency to <code>~/.sbt/0.13/plugins/plugins.sbt</code> for sbt 0.13 or <code>~/.sbt/1.0/plugins/plugins.sbt</code> for sbt 1.0:</p>\n<p dir=\"auto\">For sbt 1.4+ use:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"addDependencyTreePlugin\"><pre>addDependencyTreePlugin</pre></div>\n<p dir=\"auto\">For sbt &lt; 1.3 use:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"addSbtPlugin(&quot;net.virtual-void&quot; % &quot;sbt-dependency-graph&quot; % &quot;0.10.0-RC1&quot;)\"><pre>addSbtPlugin(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>net.virtual-void<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sbt-dependency-graph<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.10.0-RC1<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<p dir=\"auto\">To add the plugin only to a single project, put this line into <code>project/plugins.sbt</code> of your project, instead.</p>\n<p dir=\"auto\">The plugin currently supports sbt versions &gt;= 0.13.10 and sbt 1.0.x. For versions supporting older versions of sbt see\nthe notes of version <a href=\"https://github.com/jrudolph/sbt-dependency-graph/tree/v0.8.2#compatibility-notes\">0.8.2</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-main-tasks\" class=\"anchor\" aria-hidden=\"true\" href=\"#main-tasks\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Main Tasks</h2>\n<ul dir=\"auto\">\n<li><code>dependencyTree</code>: Shows an ASCII tree representation of the project's dependencies</li>\n<li><code>dependencyBrowseGraph</code>: Opens a browser window with a visualization of the dependency graph (courtesy of graphlib-dot + dagre-d3).</li>\n<li><code>dependencyBrowseTree</code>: Opens a browser window with a visualization of the dependency tree (courtesy of jstree).</li>\n<li><code>dependencyList</code>: Shows a flat list of all transitive dependencies on the sbt console (sorted by organization and name)</li>\n<li><code>whatDependsOn &lt;organization&gt; &lt;module&gt; &lt;revision&gt;?</code>: Find out what depends on an artifact. Shows a reverse dependency\ntree for the selected module. The <code>&lt;revision&gt;</code> argument is optional.</li>\n<li><code>dependencyLicenseInfo</code>: show dependencies grouped by declared license</li>\n<li><code>dependencyStats</code>: Shows a table with each module a row with (transitive) Jar sizes and number of dependencies</li>\n<li><code>dependencyGraphMl</code>: Generates a <code>.graphml</code> file with the project's dependencies to <code>target/dependencies-&lt;config&gt;.graphml</code>.\nUse e.g. <a href=\"http://www.yworks.com/en/products_yed_about.html\" rel=\"nofollow\">yEd</a> to format the graph to your needs.</li>\n<li><code>dependencyDot</code>: Generates a .dot file with the project's dependencies to <code>target/dependencies-&lt;config&gt;.dot</code>.\nUse <a href=\"http://www.graphviz.org/\" rel=\"nofollow\">graphviz</a> to render it to your preferred graphic format.</li>\n<li><code>dependencyGraph</code>: Shows an ASCII graph of the project's dependencies on the sbt console (only supported on sbt 0.13)</li>\n<li><code>ivyReport</code>: Lets ivy generate the resolution report for you project. Use\n<code>show ivyReport</code> for the filename of the generated report</li>\n</ul>\n<p dir=\"auto\">The following tasks also support the <code>toFile</code> subtask to save the contents to a file:</p>\n<ul dir=\"auto\">\n<li><code>dependencyTree</code></li>\n<li><code>dependencyList</code></li>\n<li><code>dependencyStats</code></li>\n<li><code>dependencyLicenseInfo</code></li>\n</ul>\n<p dir=\"auto\">The <code>toFile</code> subtask has the following syntax:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&lt;config&gt;:&lt;task&gt;::toFile &lt;filename&gt; [-f|--force]\"><pre class=\"notranslate\"><code>&lt;config&gt;:&lt;task&gt;::toFile &lt;filename&gt; [-f|--force]\n</code></pre></div>\n<p dir=\"auto\">Use <code>-f</code> to force overwriting an existing file.</p>\n<p dir=\"auto\">E.g. <code>test:dependencyStats::toFile target/depstats.txt</code> will write the output of the <code>dependencyStats</code> in the <code>test</code>\nconfiguration to the file <code>target/depstats.txt</code> but would not overwrite an existing file.</p>\n<p dir=\"auto\">All tasks can be scoped to a configuration to get the report for a specific configuration. <code>test:dependencyGraph</code>,\nfor example, prints the dependencies in the <code>test</code> configuration. If you don't specify any configuration, <code>compile</code> is\nassumed as usual.</p>\n<p dir=\"auto\">Note: If you want to run tasks with parameters from outside the sbt shell, make sure to put the whole task invocation in\nquotes,  e.g. <code>sbt \"whatDependsOn &lt;org&gt; &lt;module&gt; &lt;version&gt;\"</code>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-configuration-settings\" class=\"anchor\" aria-hidden=\"true\" href=\"#configuration-settings\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Configuration settings</h2>\n<ul dir=\"auto\">\n<li><code>filterScalaLibrary</code>: Defines if the scala library should be excluded from the output of the dependency-* functions.\nIf <code>true</code>, instead of showing the dependency <code>\"[S]\"</code> is appended to the artifact name. Set to <code>false</code> if\nyou want the scala-library dependency to appear in the output. (default: true)</li>\n<li><code>dependencyGraphMLFile</code>: a setting which allows configuring the output path of <code>dependency-graph-ml</code>.</li>\n<li><code>dependencyDotFile</code>: a setting which allows configuring the output path of <code>dependency-dot</code>.</li>\n<li><code>dependencyDotHeader</code>: a setting to customize the header of the dot file (e.g. to set your preferred node shapes).</li>\n<li><code>dependencyDotNodeLabel</code>: defines the format of a node label\n(default set to <code>[organisation]&lt;BR/&gt;&lt;B&gt;[name]&lt;/B&gt;&lt;BR/&gt;[version]</code>)</li>\n</ul>\n<p dir=\"auto\">E.g. in <code>build.sbt</code> you can change configuration settings like this:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"filterScalaLibrary := false // include scala library in output\n\ndependencyDotFile := file(&quot;dependencies.dot&quot;) //render dot file to `./dependencies.dot`\"><pre>filterScalaLibrary <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-c1\">false</span> <span class=\"pl-c\"><span class=\"pl-c\">//</span> include scala library in output</span>\n\ndependencyDotFile <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> file(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>dependencies.dot<span class=\"pl-pds\">\"</span></span>) <span class=\"pl-c\"><span class=\"pl-c\">//</span>render dot file to `./dependencies.dot`</span></pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-known-issues\" class=\"anchor\" aria-hidden=\"true\" href=\"#known-issues\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Known issues</h2>\n<ul dir=\"auto\">\n<li><a href=\"https://github.com/jrudolph/sbt-dependency-graph/issues/19\" data-hovercard-type=\"issue\" data-hovercard-url=\"/sbt/sbt-dependency-graph/issues/19/hovercard\">#19</a>: There's an unfixed bug with graph generation for particular layouts. Workaround:\nUse <code>dependency-tree</code> instead of <code>dependency-graph</code>.</li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>License</h2>\n<p dir=\"auto\">Published under the <a href=\"http://en.wikipedia.org/wiki/Apache_license\" rel=\"nofollow\">Apache License 2.0</a>.</p>\n</article></div>",
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><div class=\"markdown-heading\" dir=\"auto\"><h1 class=\"heading-element\" dir=\"auto\">sbt-dependency-graph</h1><a id=\"user-content-sbt-dependency-graph\" class=\"anchor\" aria-label=\"Permalink: sbt-dependency-graph\" href=\"#sbt-dependency-graph\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><a href=\"https://gitter.im/jrudolph/sbt-dependency-graph?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/2da7039d862cabe847953554272000b86e80b158a0723c9a832720b935df3f43/68747470733a2f2f6261646765732e6769747465722e696d2f4a6f696e253230436861742e737667\" alt=\"Join the chat at https://gitter.im/jrudolph/sbt-dependency-graph\" data-canonical-src=\"https://badges.gitter.im/Join%20Chat.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Visualize your project's dependencies.</p>\n<p dir=\"auto\"><strong>DEPRECATED: This plugin has been replaced by built-in sbt plugin in sbt 1.4+, please replace your dependency on this plugin with the following statement <code>addDependencyTreePlugin</code></strong></p>\n<p dir=\"auto\"><strong>Note: Under sbt &gt;= 1.3.x some features might currently not work as expected or not at all (like <code>dependencyLicenses</code>).</strong></p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Usage Instructions</h2><a id=\"user-content-usage-instructions\" class=\"anchor\" aria-label=\"Permalink: Usage Instructions\" href=\"#usage-instructions\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">sbt-dependency-graph is an informational tool rather than one that changes your build, so you will more than likely wish to\ninstall it as a <a href=\"http://www.scala-sbt.org/0.13/tutorial/Using-Plugins.html#Global+plugins\" rel=\"nofollow\">global plugin</a> so that you can use it in any SBT project without the need to explicitly add it to each one. To do\nthis, add the plugin dependency to <code>~/.sbt/0.13/plugins/plugins.sbt</code> for sbt 0.13 or <code>~/.sbt/1.0/plugins/plugins.sbt</code> for sbt 1.0:</p>\n<p dir=\"auto\">For sbt 1.4+ use:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"addDependencyTreePlugin\"><pre>addDependencyTreePlugin</pre></div>\n<p dir=\"auto\">For sbt &lt; 1.3 use:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"addSbtPlugin(&quot;net.virtual-void&quot; % &quot;sbt-dependency-graph&quot; % &quot;0.10.0-RC1&quot;)\"><pre>addSbtPlugin(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>net.virtual-void<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sbt-dependency-graph<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.10.0-RC1<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<p dir=\"auto\">To add the plugin only to a single project, put this line into <code>project/plugins.sbt</code> of your project, instead.</p>\n<p dir=\"auto\">The plugin currently supports sbt versions &gt;= 0.13.10 and sbt 1.0.x. For versions supporting older versions of sbt see\nthe notes of version <a href=\"https://github.com/jrudolph/sbt-dependency-graph/tree/v0.8.2#compatibility-notes\">0.8.2</a>.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Main Tasks</h2><a id=\"user-content-main-tasks\" class=\"anchor\" aria-label=\"Permalink: Main Tasks\" href=\"#main-tasks\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<ul dir=\"auto\">\n<li><code>dependencyTree</code>: Shows an ASCII tree representation of the project's dependencies</li>\n<li><code>dependencyBrowseGraph</code>: Opens a browser window with a visualization of the dependency graph (courtesy of graphlib-dot + dagre-d3).</li>\n<li><code>dependencyBrowseTree</code>: Opens a browser window with a visualization of the dependency tree (courtesy of jstree).</li>\n<li><code>dependencyList</code>: Shows a flat list of all transitive dependencies on the sbt console (sorted by organization and name)</li>\n<li><code>whatDependsOn &lt;organization&gt; &lt;module&gt; &lt;revision&gt;?</code>: Find out what depends on an artifact. Shows a reverse dependency\ntree for the selected module. The <code>&lt;revision&gt;</code> argument is optional.</li>\n<li><code>dependencyLicenseInfo</code>: show dependencies grouped by declared license</li>\n<li><code>dependencyStats</code>: Shows a table with each module a row with (transitive) Jar sizes and number of dependencies</li>\n<li><code>dependencyGraphMl</code>: Generates a <code>.graphml</code> file with the project's dependencies to <code>target/dependencies-&lt;config&gt;.graphml</code>.\nUse e.g. <a href=\"http://www.yworks.com/en/products_yed_about.html\" rel=\"nofollow\">yEd</a> to format the graph to your needs.</li>\n<li><code>dependencyDot</code>: Generates a .dot file with the project's dependencies to <code>target/dependencies-&lt;config&gt;.dot</code>.\nUse <a href=\"http://www.graphviz.org/\" rel=\"nofollow\">graphviz</a> to render it to your preferred graphic format.</li>\n<li><code>dependencyGraph</code>: Shows an ASCII graph of the project's dependencies on the sbt console (only supported on sbt 0.13)</li>\n<li><code>ivyReport</code>: Lets ivy generate the resolution report for you project. Use\n<code>show ivyReport</code> for the filename of the generated report</li>\n</ul>\n<p dir=\"auto\">The following tasks also support the <code>toFile</code> subtask to save the contents to a file:</p>\n<ul dir=\"auto\">\n<li><code>dependencyTree</code></li>\n<li><code>dependencyList</code></li>\n<li><code>dependencyStats</code></li>\n<li><code>dependencyLicenseInfo</code></li>\n</ul>\n<p dir=\"auto\">The <code>toFile</code> subtask has the following syntax:</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&lt;config&gt;:&lt;task&gt;::toFile &lt;filename&gt; [-f|--force]\"><pre class=\"notranslate\"><code>&lt;config&gt;:&lt;task&gt;::toFile &lt;filename&gt; [-f|--force]\n</code></pre></div>\n<p dir=\"auto\">Use <code>-f</code> to force overwriting an existing file.</p>\n<p dir=\"auto\">E.g. <code>test:dependencyStats::toFile target/depstats.txt</code> will write the output of the <code>dependencyStats</code> in the <code>test</code>\nconfiguration to the file <code>target/depstats.txt</code> but would not overwrite an existing file.</p>\n<p dir=\"auto\">All tasks can be scoped to a configuration to get the report for a specific configuration. <code>test:dependencyGraph</code>,\nfor example, prints the dependencies in the <code>test</code> configuration. If you don't specify any configuration, <code>compile</code> is\nassumed as usual.</p>\n<p dir=\"auto\">Note: If you want to run tasks with parameters from outside the sbt shell, make sure to put the whole task invocation in\nquotes,  e.g. <code>sbt \"whatDependsOn &lt;org&gt; &lt;module&gt; &lt;version&gt;\"</code>.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Configuration settings</h2><a id=\"user-content-configuration-settings\" class=\"anchor\" aria-label=\"Permalink: Configuration settings\" href=\"#configuration-settings\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<ul dir=\"auto\">\n<li><code>filterScalaLibrary</code>: Defines if the scala library should be excluded from the output of the dependency-* functions.\nIf <code>true</code>, instead of showing the dependency <code>\"[S]\"</code> is appended to the artifact name. Set to <code>false</code> if\nyou want the scala-library dependency to appear in the output. (default: true)</li>\n<li><code>dependencyGraphMLFile</code>: a setting which allows configuring the output path of <code>dependency-graph-ml</code>.</li>\n<li><code>dependencyDotFile</code>: a setting which allows configuring the output path of <code>dependency-dot</code>.</li>\n<li><code>dependencyDotHeader</code>: a setting to customize the header of the dot file (e.g. to set your preferred node shapes).</li>\n<li><code>dependencyDotNodeLabel</code>: defines the format of a node label\n(default set to <code>[organisation]&lt;BR/&gt;&lt;B&gt;[name]&lt;/B&gt;&lt;BR/&gt;[version]</code>)</li>\n</ul>\n<p dir=\"auto\">E.g. in <code>build.sbt</code> you can change configuration settings like this:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"filterScalaLibrary := false // include scala library in output\n\ndependencyDotFile := file(&quot;dependencies.dot&quot;) //render dot file to `./dependencies.dot`\"><pre>filterScalaLibrary <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> <span class=\"pl-c1\">false</span> <span class=\"pl-c\"><span class=\"pl-c\">//</span> include scala library in output</span>\n\ndependencyDotFile <span class=\"pl-k\">:</span><span class=\"pl-k\">=</span> file(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>dependencies.dot<span class=\"pl-pds\">\"</span></span>) <span class=\"pl-c\"><span class=\"pl-c\">//</span>render dot file to `./dependencies.dot`</span></pre></div>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Known issues</h2><a id=\"user-content-known-issues\" class=\"anchor\" aria-label=\"Permalink: Known issues\" href=\"#known-issues\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<ul dir=\"auto\">\n<li><a href=\"https://github.com/jrudolph/sbt-dependency-graph/issues/19\" data-hovercard-type=\"issue\" data-hovercard-url=\"/sbt/sbt-dependency-graph/issues/19/hovercard\">#19</a>: There's an unfixed bug with graph generation for particular layouts. Workaround:\nUse <code>dependency-tree</code> instead of <code>dependency-graph</code>.</li>\n</ul>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">License</h2><a id=\"user-content-license\" class=\"anchor\" aria-label=\"Permalink: License\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">Published under the <a href=\"http://en.wikipedia.org/wiki/Apache_license\" rel=\"nofollow\">Apache License 2.0</a>.</p>\n</article></div>",
     "contributors" : [
       {
         "login" : "jrudolph",
@@ -61,111 +61,9 @@
         "contributions" : 2
       },
       {
-        "login" : "aruediger",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/243903?v=4",
-        "url" : "https://github.com/aruediger",
-        "contributions" : 1
-      },
-      {
-        "login" : "alexbezhan",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/1303861?v=4",
-        "url" : "https://github.com/alexbezhan",
-        "contributions" : 1
-      },
-      {
-        "login" : "benmccann",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/322311?v=4",
-        "url" : "https://github.com/benmccann",
-        "contributions" : 1
-      },
-      {
-        "login" : "bjaglin",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/349077?v=4",
-        "url" : "https://github.com/bjaglin",
-        "contributions" : 1
-      },
-      {
-        "login" : "ches",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/13277?v=4",
-        "url" : "https://github.com/ches",
-        "contributions" : 1
-      },
-      {
-        "login" : "dwijnand",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/344610?v=4",
-        "url" : "https://github.com/dwijnand",
-        "contributions" : 1
-      },
-      {
-        "login" : "alkersan",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/527045?v=4",
-        "url" : "https://github.com/alkersan",
-        "contributions" : 1
-      },
-      {
-        "login" : "ebowman",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/104774?v=4",
-        "url" : "https://github.com/ebowman",
-        "contributions" : 1
-      },
-      {
-        "login" : "jatcwang",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/4957161?v=4",
-        "url" : "https://github.com/jatcwang",
-        "contributions" : 1
-      },
-      {
-        "login" : "retronym",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/65551?v=4",
-        "url" : "https://github.com/retronym",
-        "contributions" : 1
-      },
-      {
-        "login" : "jaytaylor",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/435652?v=4",
-        "url" : "https://github.com/jaytaylor",
-        "contributions" : 1
-      },
-      {
-        "login" : "neko-kai",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/450507?v=4",
-        "url" : "https://github.com/neko-kai",
-        "contributions" : 1
-      },
-      {
-        "login" : "leifwickland",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/731622?v=4",
-        "url" : "https://github.com/leifwickland",
-        "contributions" : 1
-      },
-      {
-        "login" : "2m",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/422086?v=4",
-        "url" : "https://github.com/2m",
-        "contributions" : 1
-      },
-      {
-        "login" : "Blaisorblade",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/289960?v=4",
-        "url" : "https://github.com/Blaisorblade",
-        "contributions" : 1
-      },
-      {
-        "login" : "pcejrowski",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/9643002?v=4",
-        "url" : "https://github.com/pcejrowski",
-        "contributions" : 1
-      },
-      {
-        "login" : "sullis",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/30938?v=4",
-        "url" : "https://github.com/sullis",
-        "contributions" : 1
-      },
-      {
-        "login" : "sderosiaux",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/3936459?v=4",
-        "url" : "https://github.com/sderosiaux",
+        "login" : "chikei",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/84867?v=4",
+        "url" : "https://github.com/chikei",
         "contributions" : 1
       },
       {
@@ -175,13 +73,103 @@
         "contributions" : 1
       },
       {
-        "login" : "chikei",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/84867?v=4",
-        "url" : "https://github.com/chikei",
+        "login" : "sderosiaux",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3936459?v=4",
+        "url" : "https://github.com/sderosiaux",
+        "contributions" : 1
+      },
+      {
+        "login" : "sullis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/30938?v=4",
+        "url" : "https://github.com/sullis",
+        "contributions" : 1
+      },
+      {
+        "login" : "Blaisorblade",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/289960?v=4",
+        "url" : "https://github.com/Blaisorblade",
+        "contributions" : 1
+      },
+      {
+        "login" : "2m",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/422086?v=4",
+        "url" : "https://github.com/2m",
+        "contributions" : 1
+      },
+      {
+        "login" : "leifwickland",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/731622?v=4",
+        "url" : "https://github.com/leifwickland",
+        "contributions" : 1
+      },
+      {
+        "login" : "neko-kai",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/450507?v=4",
+        "url" : "https://github.com/neko-kai",
+        "contributions" : 1
+      },
+      {
+        "login" : "jaytaylor",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/435652?v=4",
+        "url" : "https://github.com/jaytaylor",
+        "contributions" : 1
+      },
+      {
+        "login" : "retronym",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/65551?v=4",
+        "url" : "https://github.com/retronym",
+        "contributions" : 1
+      },
+      {
+        "login" : "jatcwang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4957161?v=4",
+        "url" : "https://github.com/jatcwang",
+        "contributions" : 1
+      },
+      {
+        "login" : "alkersan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/527045?v=4",
+        "url" : "https://github.com/alkersan",
+        "contributions" : 1
+      },
+      {
+        "login" : "dwijnand",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/344610?v=4",
+        "url" : "https://github.com/dwijnand",
+        "contributions" : 1
+      },
+      {
+        "login" : "ches",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13277?v=4",
+        "url" : "https://github.com/ches",
+        "contributions" : 1
+      },
+      {
+        "login" : "bjaglin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/349077?v=4",
+        "url" : "https://github.com/bjaglin",
+        "contributions" : 1
+      },
+      {
+        "login" : "benmccann",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/322311?v=4",
+        "url" : "https://github.com/benmccann",
+        "contributions" : 1
+      },
+      {
+        "login" : "alexbezhan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1303861?v=4",
+        "url" : "https://github.com/alexbezhan",
+        "contributions" : 1
+      },
+      {
+        "login" : "aruediger",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/243903?v=4",
+        "url" : "https://github.com/aruediger",
         "contributions" : 1
       }
     ],
-    "commits" : 291,
+    "commits" : 289,
     "topics" : [
       "sbt",
       "build-tool",
@@ -191,7 +179,6 @@
     ],
     "contributingGuide" : null,
     "codeOfConduct" : null,
-    "chatroom" : null,
     "openIssues" : [
       {
         "number" : 195,
@@ -427,698 +414,20 @@
     "scalaPercentage" : 93,
     "license" : "Apache-2.0",
     "commitActivity" : [
-      {
-        "total" : 0,
-        "week" : 1629590400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1630195200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1630800000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1631404800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1632009600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1632614400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1633219200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1633824000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1634428800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1635033600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1635638400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1636243200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1636848000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1637452800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1638057600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1638662400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1639267200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1639872000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1640476800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1641081600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1641686400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1642291200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1642896000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1643500800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1644105600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1644710400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1645315200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1645920000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1646524800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1647129600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1647734400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1648339200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1648944000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1649548800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1650153600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1650758400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1651363200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1651968000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1652572800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1653177600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1653782400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1654387200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1654992000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1655596800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1656201600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1656806400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1657411200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1658016000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1658620800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1659225600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1659830400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1660435200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      }
     ]
   },
   "settings" : {
     "preferStableVersion" : true,
     "defaultArtifact" : null,
-    "strictVersions" : false,
     "customScalaDoc" : null,
     "documentationLinks" : [
     ],
-    "deprecated" : false,
     "contributorsWanted" : false,
     "deprecatedArtifacts" : [
     ],
     "cliArtifacts" : [
     ],
     "category" : "library-dependency-management",
-    "beginnerIssuesLabel" : null
+    "chatroom" : null
   }
 }
