@@ -4,31 +4,31 @@
   "creationDate" : 1400086584000,
   "githubStatus" : {
     "Ok" : {
-      "updateDate" : 1660816919737
+      "updateDate" : 1723550626393
     }
   },
   "githubInfo" : {
     "homepage" : null,
     "description" : "A Dynamically Typed Scala Json Library",
     "logo" : "https://avatars.githubusercontent.com/u/2462974?v=4",
-    "stars" : 168,
+    "stars" : 181,
     "forks" : 13,
-    "watchers" : 13,
-    "issues" : 7,
+    "watchers" : 11,
+    "issues" : 14,
     "creationDate" : 1394415007000,
-    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/jvican/dijon/workflows/Continuous%20Integration/badge.svg?branch=master\"><img src=\"https://github.com/jvican/dijon/workflows/Continuous%20Integration/badge.svg?branch=master\" alt=\"Continuous Integration\" style=\"max-width: 100%;\"></a></p>\n<h1 dir=\"auto\"><a id=\"user-content-dijon---dynamic-json-in-scala\" class=\"anchor\" aria-hidden=\"true\" href=\"#dijon---dynamic-json-in-scala\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>dijon - Dynamic JSON in Scala</h1>\n<ul dir=\"auto\">\n<li>Boiler-free JSON wrangling using Scala <a href=\"https://www.scala-lang.org/api/2.13.2/scala/Dynamic.html\" rel=\"nofollow\">Dynamic Types</a></li>\n<li>Support of <a href=\"https://tools.ietf.org/html/rfc8259\" rel=\"nofollow\">RFC8259</a> using a codec based on <a href=\"https://github.com/plokhotnyuk/jsoniter-scala/blob/master/jsoniter-scala-core/src/main/scala/com/github/plokhotnyuk/jsoniter_scala/core/package.scala\">jsoniter-scala-core</a> that <a href=\"https://github.com/nst/JSONTestSuite/pull/99\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/nst/JSONTestSuite/pull/99/hovercard\">passes all JSONTestSuite checks</a></li>\n<li>Why yet another Scala JSON library? Well, code speaks more than thousand words:</li>\n</ul>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val (name, age) = (&quot;Tigri&quot;, 7)\nval cat = json&quot;&quot;&quot;\n  {\n    &quot;name&quot;: &quot;$name&quot;,\n    &quot;age&quot;: $age,\n    &quot;hobbies&quot;: [&quot;eating&quot;, &quot;purring&quot;],\n    &quot;is cat&quot;: true\n  }\n&quot;&quot;&quot;\nassert(cat.name == name)                         // dynamic type\nassert(cat.age == age)\nval Some(catAge: Int) = cat.age.asInt\nassert(catAge == age)\nassert(cat.age.asBoolean == None)\n\nval catMap = cat.toMap                           // view as a hashmap\nassert(catMap.toMap.keysIterator.toSeq == Seq(&quot;name&quot;, &quot;age&quot;, &quot;hobbies&quot;, &quot;is cat&quot;))\n\nassert(cat.hobbies(1) == &quot;purring&quot;) // array access\nassert(cat.hobbies(100) == None)    // missing element\nassert(cat.`is cat` == true)        // keys with spaces/symbols/scala-keywords need to be escaped with ticks\nassert(cat.email == None)           // missing key\n\nval vet = `{}`                      // create empty json object\nvet.name = &quot;Dr. Kitty Specialist&quot;   // set attributes in json object\nvet.phones = `[]`                   // create empty json array\nval phone = &quot;(650) 493-4233&quot;\nvet.phones(2) = phone               // set the 3rd item in array to this phone\nassert(vet.phones == mutable.Seq(None, None, phone))  // first 2 entries None\n\nvet.address = `{}`\nvet.address.name = &quot;Animal Hospital&quot;\nvet.address.city = &quot;Palo Alto&quot;\nvet.address.zip = 94306\nassert(vet.address == mutable.Map[String, SomeJson](&quot;name&quot; -&gt; &quot;Animal Hospital&quot;, &quot;city&quot; -&gt; &quot;Palo Alto&quot;, &quot;zip&quot; -&gt; 94306))\n\ncat.vet = vet                            // set the cat.vet to be the vet json object we created above\nassert(cat.vet.phones(2) == phone)\nassert(cat.vet.address.zip == 94306)     // json deep access\n\nprintln(cat) // {&quot;name&quot;:&quot;Tigri&quot;,&quot;age&quot;:7,&quot;hobbies&quot;:[&quot;eating&quot;,&quot;purring&quot;],&quot;is cat&quot;:true,&quot;vet&quot;:{&quot;name&quot;:&quot;Dr. Kitty Specialist&quot;,&quot;phones&quot;:[null,null,&quot;(650) 493-4233&quot;],&quot;address&quot;:{&quot;name&quot;:&quot;Animal Hospital&quot;,&quot;city&quot;:&quot;Palo Alto&quot;,&quot;zip&quot;:94306}}}\n\nassert(cat == parse(cat.toString))   // round-trip test\n\nvar basicCat = cat -- &quot;vet&quot;                                  // remove 1 key\nbasicCat = basicCat -- (&quot;hobbies&quot;, &quot;is cat&quot;, &quot;paws&quot;)         // remove multiple keys (&quot;paws&quot; is not in cat)\nassert(basicCat == json&quot;&quot;&quot;{ &quot;name&quot;: &quot;Tigri&quot;, &quot;age&quot;: 7}&quot;&quot;&quot;)   // after dropping some keys above\"><pre><span class=\"pl-k\">val</span> (name, age) <span class=\"pl-k\">=</span> (<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Tigri<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-c1\">7</span>)\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">cat</span> <span class=\"pl-k\">=</span> <span class=\"pl-k\">json</span><span class=\"pl-s\">\"\"\"</span>\n<span class=\"pl-s\">  {</span>\n<span class=\"pl-s\">    \"name\": \"</span>$name<span class=\"pl-s\">\",</span>\n<span class=\"pl-s\">    \"age\": </span>$age<span class=\"pl-s\">,</span>\n<span class=\"pl-s\">    \"hobbies\": [\"eating\", \"purring\"],</span>\n<span class=\"pl-s\">    \"is cat\": true</span>\n<span class=\"pl-s\">  }</span>\n<span class=\"pl-s\">\"\"\"</span>\nassert(cat.name <span class=\"pl-k\">==</span> name)                         <span class=\"pl-c\"><span class=\"pl-c\">//</span> dynamic type</span>\nassert(cat.age <span class=\"pl-k\">==</span> age)\n<span class=\"pl-k\">val</span> <span class=\"pl-en\">Some</span>(<span class=\"pl-v\">catAge</span>: <span class=\"pl-en\">Int</span>) <span class=\"pl-k\">=</span> cat.age.asInt\nassert(catAge <span class=\"pl-k\">==</span> age)\nassert(cat.age.asBoolean <span class=\"pl-k\">==</span> <span class=\"pl-en\">None</span>)\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">catMap</span> <span class=\"pl-k\">=</span> cat.toMap                           <span class=\"pl-c\"><span class=\"pl-c\">//</span> view as a hashmap</span>\nassert(catMap.toMap.keysIterator.toSeq <span class=\"pl-k\">==</span> <span class=\"pl-en\">Seq</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>name<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>age<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>hobbies<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>is cat<span class=\"pl-pds\">\"</span></span>))\n\nassert(cat.hobbies(<span class=\"pl-c1\">1</span>) <span class=\"pl-k\">==</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>purring<span class=\"pl-pds\">\"</span></span>) <span class=\"pl-c\"><span class=\"pl-c\">//</span> array access</span>\nassert(cat.hobbies(<span class=\"pl-c1\">100</span>) <span class=\"pl-k\">==</span> <span class=\"pl-en\">None</span>)    <span class=\"pl-c\"><span class=\"pl-c\">//</span> missing element</span>\nassert(cat.`is cat` <span class=\"pl-k\">==</span> <span class=\"pl-c1\">true</span>)        <span class=\"pl-c\"><span class=\"pl-c\">//</span> keys with spaces/symbols/scala-keywords need to be escaped with ticks</span>\nassert(cat.email <span class=\"pl-k\">==</span> <span class=\"pl-en\">None</span>)           <span class=\"pl-c\"><span class=\"pl-c\">//</span> missing key</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">vet</span> <span class=\"pl-k\">=</span> `{}`                      <span class=\"pl-c\"><span class=\"pl-c\">//</span> create empty json object</span>\nvet.name <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Dr. Kitty Specialist<span class=\"pl-pds\">\"</span></span>   <span class=\"pl-c\"><span class=\"pl-c\">//</span> set attributes in json object</span>\nvet.phones <span class=\"pl-k\">=</span> `[]`                   <span class=\"pl-c\"><span class=\"pl-c\">//</span> create empty json array</span>\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">phone</span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>(650) 493-4233<span class=\"pl-pds\">\"</span></span>\nvet.phones(<span class=\"pl-c1\">2</span>) <span class=\"pl-k\">=</span> phone               <span class=\"pl-c\"><span class=\"pl-c\">//</span> set the 3rd item in array to this phone</span>\nassert(vet.phones <span class=\"pl-k\">==</span> mutable.<span class=\"pl-en\">Seq</span>(<span class=\"pl-en\">None</span>, <span class=\"pl-en\">None</span>, phone))  <span class=\"pl-c\"><span class=\"pl-c\">//</span> first 2 entries None</span>\n\nvet.address <span class=\"pl-k\">=</span> `{}`\nvet.address.name <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Animal Hospital<span class=\"pl-pds\">\"</span></span>\nvet.address.city <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Palo Alto<span class=\"pl-pds\">\"</span></span>\nvet.address.zip <span class=\"pl-k\">=</span> <span class=\"pl-c1\">94306</span>\nassert(vet.address <span class=\"pl-k\">==</span> mutable.<span class=\"pl-en\">Map</span>[<span class=\"pl-en\">String</span>, <span class=\"pl-en\">SomeJson</span>](<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>name<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Animal Hospital<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>city<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Palo Alto<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>zip<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-c1\">94306</span>))\n\ncat.vet <span class=\"pl-k\">=</span> vet                            <span class=\"pl-c\"><span class=\"pl-c\">//</span> set the cat.vet to be the vet json object we created above</span>\nassert(cat.vet.phones(<span class=\"pl-c1\">2</span>) <span class=\"pl-k\">==</span> phone)\nassert(cat.vet.address.zip <span class=\"pl-k\">==</span> <span class=\"pl-c1\">94306</span>)     <span class=\"pl-c\"><span class=\"pl-c\">//</span> json deep access</span>\n\nprintln(cat) <span class=\"pl-c\"><span class=\"pl-c\">//</span> {\"name\":\"Tigri\",\"age\":7,\"hobbies\":[\"eating\",\"purring\"],\"is cat\":true,\"vet\":{\"name\":\"Dr. Kitty Specialist\",\"phones\":[null,null,\"(650) 493-4233\"],\"address\":{\"name\":\"Animal Hospital\",\"city\":\"Palo Alto\",\"zip\":94306}}}</span>\n\nassert(cat <span class=\"pl-k\">==</span> parse(cat.toString))   <span class=\"pl-c\"><span class=\"pl-c\">//</span> round-trip test</span>\n\n<span class=\"pl-k\">var</span> <span class=\"pl-smi\">basicCat</span> <span class=\"pl-k\">=</span> cat <span class=\"pl-k\">--</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>vet<span class=\"pl-pds\">\"</span></span>                                  <span class=\"pl-c\"><span class=\"pl-c\">//</span> remove 1 key</span>\nbasicCat <span class=\"pl-k\">=</span> basicCat <span class=\"pl-k\">--</span> (<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>hobbies<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>is cat<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>paws<span class=\"pl-pds\">\"</span></span>)         <span class=\"pl-c\"><span class=\"pl-c\">//</span> remove multiple keys (\"paws\" is not in cat)</span>\nassert(basicCat <span class=\"pl-k\">==</span> <span class=\"pl-k\">json</span><span class=\"pl-s\">\"\"\"</span><span class=\"pl-s\">{ \"name\": \"Tigri\", \"age\": 7}</span><span class=\"pl-s\">\"\"\"</span>)   <span class=\"pl-c\"><span class=\"pl-c\">//</span> after dropping some keys above</span></pre></div>\n<ul dir=\"auto\">\n<li>Simple deep-merging:</li>\n</ul>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val scala = json&quot;&quot;&quot;\n{\n  &quot;name&quot;: &quot;scala&quot;,\n  &quot;version&quot;: &quot;2.13.2&quot;,\n  &quot;features&quot;: {\n    &quot;functional&quot;: true,\n    &quot;awesome&quot;: true\n  }\n}\n&quot;&quot;&quot;\n\nval java = json&quot;&quot;&quot;\n{\n  &quot;name&quot;: &quot;java&quot;,\n  &quot;features&quot;: {\n    &quot;functional&quot;: [0, 0],\n    &quot;terrible&quot;: true\n  },\n  &quot;bugs&quot;: 213\n}\n&quot;&quot;&quot;\n\nval scalaCopy = scala.deepCopy\nval javaCopy = java.deepCopy\n\nassert((scala ++ java) == json&quot;&quot;&quot;{&quot;name&quot;:&quot;java&quot;,&quot;version&quot;:&quot;2.13.2&quot;,&quot;features&quot;:{&quot;functional&quot;:[0,0],&quot;terrible&quot;:true,&quot;awesome&quot;:true},&quot;bugs&quot;:213}&quot;&quot;&quot;)\nassert((java ++ scala) == json&quot;&quot;&quot;{&quot;name&quot;:&quot;scala&quot;,&quot;version&quot;:&quot;2.13.2&quot;,&quot;features&quot;:{&quot;functional&quot;: true,&quot;terrible&quot;:true,&quot;awesome&quot;:true},&quot;bugs&quot;:213}&quot;&quot;&quot;)\n\nassert(scala == scalaCopy)       // original json objects stay untouched after merging\nassert(java == javaCopy)\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">scala</span> <span class=\"pl-k\">=</span> <span class=\"pl-k\">json</span><span class=\"pl-s\">\"\"\"</span>\n<span class=\"pl-s\">{</span>\n<span class=\"pl-s\">  \"name\": \"scala\",</span>\n<span class=\"pl-s\">  \"version\": \"2.13.2\",</span>\n<span class=\"pl-s\">  \"features\": {</span>\n<span class=\"pl-s\">    \"functional\": true,</span>\n<span class=\"pl-s\">    \"awesome\": true</span>\n<span class=\"pl-s\">  }</span>\n<span class=\"pl-s\">}</span>\n<span class=\"pl-s\">\"\"\"</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">java</span> <span class=\"pl-k\">=</span> <span class=\"pl-k\">json</span><span class=\"pl-s\">\"\"\"</span>\n<span class=\"pl-s\">{</span>\n<span class=\"pl-s\">  \"name\": \"java\",</span>\n<span class=\"pl-s\">  \"features\": {</span>\n<span class=\"pl-s\">    \"functional\": [0, 0],</span>\n<span class=\"pl-s\">    \"terrible\": true</span>\n<span class=\"pl-s\">  },</span>\n<span class=\"pl-s\">  \"bugs\": 213</span>\n<span class=\"pl-s\">}</span>\n<span class=\"pl-s\">\"\"\"</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">scalaCopy</span> <span class=\"pl-k\">=</span> scala.deepCopy\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">javaCopy</span> <span class=\"pl-k\">=</span> java.deepCopy\n\nassert((scala <span class=\"pl-k\">++</span> java) <span class=\"pl-k\">==</span> <span class=\"pl-k\">json</span><span class=\"pl-s\">\"\"\"</span><span class=\"pl-s\">{\"name\":\"java\",\"version\":\"2.13.2\",\"features\":{\"functional\":[0,0],\"terrible\":true,\"awesome\":true},\"bugs\":213}</span><span class=\"pl-s\">\"\"\"</span>)\nassert((java <span class=\"pl-k\">++</span> scala) <span class=\"pl-k\">==</span> <span class=\"pl-k\">json</span><span class=\"pl-s\">\"\"\"</span><span class=\"pl-s\">{\"name\":\"scala\",\"version\":\"2.13.2\",\"features\":{\"functional\": true,\"terrible\":true,\"awesome\":true},\"bugs\":213}</span><span class=\"pl-s\">\"\"\"</span>)\n\nassert(scala <span class=\"pl-k\">==</span> scalaCopy)       <span class=\"pl-c\"><span class=\"pl-c\">//</span> original json objects stay untouched after merging</span>\nassert(java <span class=\"pl-k\">==</span> javaCopy)</pre></div>\n<ul dir=\"auto\">\n<li><a href=\"dijon/src/main/scala/dijon/UnionType.scala\">Union types</a> for <a href=\"dijon/src/main/scala/dijon/package.scala#L11\">type-safety</a>:</li>\n</ul>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val json = `{}`\njson.aString = &quot;hi&quot;                        // compiles\njson.aBoolean = true                       // compiles\njson.anInt = 23                            // compiles\n//json.somethingElse = Option(&quot;hi&quot;)       // does not compile\nval Some(i: Int) = json.anInt.asInt\nassert(i == 23)\nassert(json.aBoolean.asInt == None)\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">json</span> <span class=\"pl-k\">=</span> `{}`\njson.aString <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>hi<span class=\"pl-pds\">\"</span></span>                        <span class=\"pl-c\"><span class=\"pl-c\">//</span> compiles</span>\njson.aBoolean <span class=\"pl-k\">=</span> <span class=\"pl-c1\">true</span>                       <span class=\"pl-c\"><span class=\"pl-c\">//</span> compiles</span>\njson.anInt <span class=\"pl-k\">=</span> <span class=\"pl-c1\">23</span>                            <span class=\"pl-c\"><span class=\"pl-c\">//</span> compiles</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span>json.somethingElse = Option(\"hi\")       // does not compile</span>\n<span class=\"pl-k\">val</span> <span class=\"pl-en\">Some</span>(<span class=\"pl-v\">i</span>: <span class=\"pl-en\">Int</span>) <span class=\"pl-k\">=</span> json.anInt.asInt\nassert(i <span class=\"pl-k\">==</span> <span class=\"pl-c1\">23</span>)\nassert(json.aBoolean.asInt <span class=\"pl-k\">==</span> <span class=\"pl-en\">None</span>)</pre></div>\n<ul dir=\"auto\">\n<li><code>obj()</code> and <code>arr()</code> constructor functions for building up complex JSON values with less overhead:</li>\n</ul>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"val rick = obj(\n  &quot;name&quot; -&gt; name,\n  &quot;age&quot; -&gt; age,\n  &quot;class&quot; -&gt; &quot;human&quot;,\n  &quot;weight&quot; -&gt; 175.1,\n  &quot;is online&quot; -&gt; true,\n  &quot;contact&quot; -&gt; obj(\n    &quot;emails&quot; -&gt; arr(email1, email2),\n    &quot;phone&quot; -&gt; obj(\n      &quot;home&quot; -&gt; &quot;817-xxx-xxx&quot;,\n      &quot;work&quot; -&gt; &quot;650-xxx-xxx&quot;\n    )\n  ),\n  &quot;hobbies&quot; -&gt; arr(\n    &quot;eating&quot;,\n    obj(\n      &quot;games&quot; -&gt; obj(\n        &quot;chess&quot; -&gt; true,\n        &quot;football&quot; -&gt; false\n      )\n    ),\n    arr(&quot;coding&quot;, arr(&quot;python&quot;, &quot;scala&quot;)),\n    None\n  ),\n  &quot;toMap&quot; -&gt; arr(23, 345, true),\n  &quot;apply&quot; -&gt; 42\n)\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-smi\">rick</span> <span class=\"pl-k\">=</span> obj(\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>name<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> name,\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>age<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> age,\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>class<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>human<span class=\"pl-pds\">\"</span></span>,\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>weight<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-c1\">175.1</span>,\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>is online<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-c1\">true</span>,\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>contact<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> obj(\n    <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>emails<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> arr(email1, email2),\n    <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>phone<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> obj(\n      <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>home<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>817-xxx-xxx<span class=\"pl-pds\">\"</span></span>,\n      <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>work<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>650-xxx-xxx<span class=\"pl-pds\">\"</span></span>\n    )\n  ),\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>hobbies<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> arr(\n    <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>eating<span class=\"pl-pds\">\"</span></span>,\n    obj(\n      <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>games<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> obj(\n        <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>chess<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-c1\">true</span>,\n        <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>football<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-c1\">false</span>\n      )\n    ),\n    arr(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>coding<span class=\"pl-pds\">\"</span></span>, arr(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>python<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>scala<span class=\"pl-pds\">\"</span></span>)),\n    <span class=\"pl-en\">None</span>\n  ),\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>toMap<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> arr(<span class=\"pl-c1\">23</span>, <span class=\"pl-c1\">345</span>, <span class=\"pl-c1\">true</span>),\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>apply<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-c1\">42</span>\n)</pre></div>\n<p dir=\"auto\">See the <a href=\"dijon/src/test/scala/dijon/DijonSpec.scala\">spec</a> for more examples.</p>\n<p dir=\"auto\">Also, for the <code>dijon.codec</code> an additional functionality is available when using <a href=\"https://github.com/plokhotnyuk/jsoniter-scala/blob/master/jsoniter-scala-core/src/main/scala/com/github/plokhotnyuk/jsoniter_scala/core/package.scala\">jsoniter-scala-core</a>, like:</p>\n<ul dir=\"auto\">\n<li>parsing/serialization from/to byte arrays, byte buffers, and input/output streams</li>\n<li>parsing of <a href=\"https://en.wikipedia.org/wiki/JSON_streaming\" rel=\"nofollow\">streamed JSON values</a> (concatenated or delimited by\nwhitespace characters) and JSON arrays from input streams using callbacks without the need of holding a whole input in\nthe memory</li>\n<li>use a custom configuration for parsing and serializing</li>\n</ul>\n<p dir=\"auto\">See <a href=\"https://github.com/plokhotnyuk/jsoniter-scala/blob/master/jsoniter-scala-core/src/test/scala/com/github/plokhotnyuk/jsoniter_scala/core/PackageSpec.scala\">jsoniter-scala-core spec</a> for more details and code samples.</p>\n<h1 dir=\"auto\"><a id=\"user-content-usage\" class=\"anchor\" aria-hidden=\"true\" href=\"#usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Usage</h1>\n<ol dir=\"auto\">\n<li>Add the following to your <code>build.sbt</code>:</li>\n</ol>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"libraryDependency += &quot;me.vican.jorge&quot; %% &quot;dijon&quot; % &quot;0.6.0&quot; // Use %%% instead of %% for Scala.js\"><pre>libraryDependency <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>me.vican.jorge<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>dijon<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.6.0<span class=\"pl-pds\">\"</span></span> <span class=\"pl-c\"><span class=\"pl-c\">//</span> Use %%% instead of %% for Scala.js</span></pre></div>\n<ol start=\"2\" dir=\"auto\">\n<li>Turn on support of dynamic types by adding import clause:</li>\n</ol>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import scala.language.dynamics._\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">scala</span>.<span class=\"pl-en\">language</span>.<span class=\"pl-en\">dynamics</span>.<span class=\"pl-en\">_</span></pre></div>\n<p dir=\"auto\">or by setting the scala compiler option:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"scalacOptions += &quot;-language:dynamics&quot;\"><pre>scalacOptions <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>-language:dynamics<span class=\"pl-pds\">\"</span></span></pre></div>\n<ol start=\"3\" dir=\"auto\">\n<li>Add import of the package object of <code>dijon</code> for the main functionality:</li>\n</ol>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import dijon._\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">dijon</span>.<span class=\"pl-en\">_</span></pre></div>\n<ol start=\"4\" dir=\"auto\">\n<li>Optionally, add import of package object of <code>jsoniter-scala-core</code> for extended json functionality:</li>\n</ol>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import com.github.plokhotnyuk.jsoniter_scala.core._\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">github</span>.<span class=\"pl-en\">plokhotnyuk</span>.<span class=\"pl-en\">jsoniter_scala</span>.<span class=\"pl-en\">core</span>.<span class=\"pl-en\">_</span></pre></div>\n<h1 dir=\"auto\"><a id=\"user-content-todo\" class=\"anchor\" aria-hidden=\"true\" href=\"#todo\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>TODO</h1>\n<ul dir=\"auto\">\n<li>BigInt support</li>\n<li>Circular references checker</li>\n<li>YAML interpolator</li>\n<li>Macro for type inference to induce compile-time errors where possible</li>\n<li>JSON string interpolator fills in braces, quotes and commas etc</li>\n</ul>\n</article></div>",
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/jvican/dijon/workflows/Continuous%20Integration/badge.svg?branch=master\"><img src=\"https://github.com/jvican/dijon/workflows/Continuous%20Integration/badge.svg?branch=master\" alt=\"Continuous Integration\" style=\"max-width: 100%;\"></a></p>\n<div class=\"markdown-heading\" dir=\"auto\"><h1 class=\"heading-element\" dir=\"auto\">dijon - Dynamic JSON in Scala</h1><a id=\"user-content-dijon---dynamic-json-in-scala\" class=\"anchor\" aria-label=\"Permalink: dijon - Dynamic JSON in Scala\" href=\"#dijon---dynamic-json-in-scala\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<ul dir=\"auto\">\n<li>Boiler-free JSON wrangling using Scala <a href=\"https://www.scala-lang.org/api/2.13.2/scala/Dynamic.html\" rel=\"nofollow\">Dynamic Types</a></li>\n<li>Support of <a href=\"https://tools.ietf.org/html/rfc8259\" rel=\"nofollow\">RFC8259</a> using a codec based on <a href=\"https://github.com/plokhotnyuk/jsoniter-scala/blob/master/jsoniter-scala-core/src/main/scala/com/github/plokhotnyuk/jsoniter_scala/core/package.scala\">jsoniter-scala-core</a> that <a href=\"https://github.com/nst/JSONTestSuite/pull/99\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/nst/JSONTestSuite/pull/99/hovercard\">passes all JSONTestSuite checks</a></li>\n<li>Why yet another Scala JSON library? Well, code speaks more than thousand words:</li>\n</ul>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"val (name, age) = (&quot;Tigri&quot;, 7)\nval cat = json&quot;&quot;&quot;\n  {\n    &quot;name&quot;: &quot;$name&quot;,\n    &quot;age&quot;: $age,\n    &quot;hobbies&quot;: [&quot;eating&quot;, &quot;purring&quot;],\n    &quot;is cat&quot;: true\n  }\n&quot;&quot;&quot;\nassert(cat.name == name)                         // dynamic type\nassert(cat.age == age)\nval Some(catAge: Int) = cat.age.asInt\nassert(catAge == age)\nassert(cat.age.asBoolean == None)\n\nval catMap = cat.toMap                           // view as a hashmap\nassert(catMap.toMap.keysIterator.toSeq == Seq(&quot;name&quot;, &quot;age&quot;, &quot;hobbies&quot;, &quot;is cat&quot;))\n\nassert(cat.hobbies(1) == &quot;purring&quot;) // array access\nassert(cat.hobbies(100) == None)    // missing element\nassert(cat.`is cat` == true)        // keys with spaces/symbols/scala-keywords need to be escaped with ticks\nassert(cat.email == None)           // missing key\n\nval vet = `{}`                      // create empty json object\nvet.name = &quot;Dr. Kitty Specialist&quot;   // set attributes in json object\nvet.phones = `[]`                   // create empty json array\nval phone = &quot;(650) 493-4233&quot;\nvet.phones(2) = phone               // set the 3rd item in array to this phone\nassert(vet.phones == mutable.Seq(None, None, phone))  // first 2 entries None\n\nvet.address = `{}`\nvet.address.name = &quot;Animal Hospital&quot;\nvet.address.city = &quot;Palo Alto&quot;\nvet.address.zip = 94306\nassert(vet.address == mutable.Map[String, SomeJson](&quot;name&quot; -&gt; &quot;Animal Hospital&quot;, &quot;city&quot; -&gt; &quot;Palo Alto&quot;, &quot;zip&quot; -&gt; 94306))\n\ncat.vet = vet                            // set the cat.vet to be the vet json object we created above\nassert(cat.vet.phones(2) == phone)\nassert(cat.vet.address.zip == 94306)     // json deep access\n\nprintln(cat) // {&quot;name&quot;:&quot;Tigri&quot;,&quot;age&quot;:7,&quot;hobbies&quot;:[&quot;eating&quot;,&quot;purring&quot;],&quot;is cat&quot;:true,&quot;vet&quot;:{&quot;name&quot;:&quot;Dr. Kitty Specialist&quot;,&quot;phones&quot;:[null,null,&quot;(650) 493-4233&quot;],&quot;address&quot;:{&quot;name&quot;:&quot;Animal Hospital&quot;,&quot;city&quot;:&quot;Palo Alto&quot;,&quot;zip&quot;:94306}}}\n\nassert(cat == parse(cat.toString))   // round-trip test\n\nvar basicCat = cat -- &quot;vet&quot;                                  // remove 1 key\nbasicCat = basicCat -- (&quot;hobbies&quot;, &quot;is cat&quot;, &quot;paws&quot;)         // remove multiple keys (&quot;paws&quot; is not in cat)\nassert(basicCat == json&quot;&quot;&quot;{ &quot;name&quot;: &quot;Tigri&quot;, &quot;age&quot;: 7}&quot;&quot;&quot;)   // after dropping some keys above\"><pre><span class=\"pl-k\">val</span> (name, age) <span class=\"pl-k\">=</span> (<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Tigri<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-c1\">7</span>)\n<span class=\"pl-k\">val</span> <span class=\"pl-v\">cat</span> <span class=\"pl-k\">=</span> <span class=\"pl-k\">json</span><span class=\"pl-s\">\"\"\"</span>\n<span class=\"pl-s\">  {</span>\n<span class=\"pl-s\">    \"name\": \"</span>$name<span class=\"pl-s\">\",</span>\n<span class=\"pl-s\">    \"age\": </span>$age<span class=\"pl-s\">,</span>\n<span class=\"pl-s\">    \"hobbies\": [\"eating\", \"purring\"],</span>\n<span class=\"pl-s\">    \"is cat\": true</span>\n<span class=\"pl-s\">  }</span>\n<span class=\"pl-s\">\"\"\"</span>\nassert(cat.name <span class=\"pl-k\">==</span> name)                         <span class=\"pl-c\"><span class=\"pl-c\">//</span> dynamic type</span>\nassert(cat.age <span class=\"pl-k\">==</span> age)\n<span class=\"pl-k\">val</span> <span class=\"pl-en\">Some</span>(<span class=\"pl-v\">catAge</span>: <span class=\"pl-en\">Int</span>) <span class=\"pl-k\">=</span> cat.age.asInt\nassert(catAge <span class=\"pl-k\">==</span> age)\nassert(cat.age.asBoolean <span class=\"pl-k\">==</span> <span class=\"pl-en\">None</span>)\n\n<span class=\"pl-k\">val</span> <span class=\"pl-v\">catMap</span> <span class=\"pl-k\">=</span> cat.toMap                           <span class=\"pl-c\"><span class=\"pl-c\">//</span> view as a hashmap</span>\nassert(catMap.toMap.keysIterator.toSeq <span class=\"pl-k\">==</span> <span class=\"pl-en\">Seq</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>name<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>age<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>hobbies<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>is cat<span class=\"pl-pds\">\"</span></span>))\n\nassert(cat.hobbies(<span class=\"pl-c1\">1</span>) <span class=\"pl-k\">==</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>purring<span class=\"pl-pds\">\"</span></span>) <span class=\"pl-c\"><span class=\"pl-c\">//</span> array access</span>\nassert(cat.hobbies(<span class=\"pl-c1\">100</span>) <span class=\"pl-k\">==</span> <span class=\"pl-en\">None</span>)    <span class=\"pl-c\"><span class=\"pl-c\">//</span> missing element</span>\nassert(cat.`is cat` <span class=\"pl-k\">==</span> <span class=\"pl-c1\">true</span>)        <span class=\"pl-c\"><span class=\"pl-c\">//</span> keys with spaces/symbols/scala-keywords need to be escaped with ticks</span>\nassert(cat.email <span class=\"pl-k\">==</span> <span class=\"pl-en\">None</span>)           <span class=\"pl-c\"><span class=\"pl-c\">//</span> missing key</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-v\">vet</span> <span class=\"pl-k\">=</span> `{}`                      <span class=\"pl-c\"><span class=\"pl-c\">//</span> create empty json object</span>\nvet.name <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Dr. Kitty Specialist<span class=\"pl-pds\">\"</span></span>   <span class=\"pl-c\"><span class=\"pl-c\">//</span> set attributes in json object</span>\nvet.phones <span class=\"pl-k\">=</span> `[]`                   <span class=\"pl-c\"><span class=\"pl-c\">//</span> create empty json array</span>\n<span class=\"pl-k\">val</span> <span class=\"pl-v\">phone</span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>(650) 493-4233<span class=\"pl-pds\">\"</span></span>\nvet.phones(<span class=\"pl-c1\">2</span>) <span class=\"pl-k\">=</span> phone               <span class=\"pl-c\"><span class=\"pl-c\">//</span> set the 3rd item in array to this phone</span>\nassert(vet.phones <span class=\"pl-k\">==</span> mutable.<span class=\"pl-en\">Seq</span>(<span class=\"pl-en\">None</span>, <span class=\"pl-en\">None</span>, phone))  <span class=\"pl-c\"><span class=\"pl-c\">//</span> first 2 entries None</span>\n\nvet.address <span class=\"pl-k\">=</span> `{}`\nvet.address.name <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Animal Hospital<span class=\"pl-pds\">\"</span></span>\nvet.address.city <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Palo Alto<span class=\"pl-pds\">\"</span></span>\nvet.address.zip <span class=\"pl-k\">=</span> <span class=\"pl-c1\">94306</span>\nassert(vet.address <span class=\"pl-k\">==</span> mutable.<span class=\"pl-en\">Map</span>[<span class=\"pl-en\">String</span>, <span class=\"pl-en\">SomeJson</span>](<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>name<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Animal Hospital<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>city<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Palo Alto<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>zip<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-c1\">94306</span>))\n\ncat.vet <span class=\"pl-k\">=</span> vet                            <span class=\"pl-c\"><span class=\"pl-c\">//</span> set the cat.vet to be the vet json object we created above</span>\nassert(cat.vet.phones(<span class=\"pl-c1\">2</span>) <span class=\"pl-k\">==</span> phone)\nassert(cat.vet.address.zip <span class=\"pl-k\">==</span> <span class=\"pl-c1\">94306</span>)     <span class=\"pl-c\"><span class=\"pl-c\">//</span> json deep access</span>\n\nprintln(cat) <span class=\"pl-c\"><span class=\"pl-c\">//</span> {\"name\":\"Tigri\",\"age\":7,\"hobbies\":[\"eating\",\"purring\"],\"is cat\":true,\"vet\":{\"name\":\"Dr. Kitty Specialist\",\"phones\":[null,null,\"(650) 493-4233\"],\"address\":{\"name\":\"Animal Hospital\",\"city\":\"Palo Alto\",\"zip\":94306}}}</span>\n\nassert(cat <span class=\"pl-k\">==</span> parse(cat.toString))   <span class=\"pl-c\"><span class=\"pl-c\">//</span> round-trip test</span>\n\n<span class=\"pl-k\">var</span> <span class=\"pl-v\">basicCat</span> <span class=\"pl-k\">=</span> cat <span class=\"pl-k\">--</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>vet<span class=\"pl-pds\">\"</span></span>                                  <span class=\"pl-c\"><span class=\"pl-c\">//</span> remove 1 key</span>\nbasicCat <span class=\"pl-k\">=</span> basicCat <span class=\"pl-k\">--</span> (<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>hobbies<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>is cat<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>paws<span class=\"pl-pds\">\"</span></span>)         <span class=\"pl-c\"><span class=\"pl-c\">//</span> remove multiple keys (\"paws\" is not in cat)</span>\nassert(basicCat <span class=\"pl-k\">==</span> <span class=\"pl-k\">json</span><span class=\"pl-s\">\"\"\"</span><span class=\"pl-s\">{ \"name\": \"Tigri\", \"age\": 7}</span><span class=\"pl-s\">\"\"\"</span>)   <span class=\"pl-c\"><span class=\"pl-c\">//</span> after dropping some keys above</span></pre></div>\n<ul dir=\"auto\">\n<li>Simple deep-merging:</li>\n</ul>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"val scala = json&quot;&quot;&quot;\n{\n  &quot;name&quot;: &quot;scala&quot;,\n  &quot;version&quot;: &quot;2.13.2&quot;,\n  &quot;features&quot;: {\n    &quot;functional&quot;: true,\n    &quot;awesome&quot;: true\n  }\n}\n&quot;&quot;&quot;\n\nval java = json&quot;&quot;&quot;\n{\n  &quot;name&quot;: &quot;java&quot;,\n  &quot;features&quot;: {\n    &quot;functional&quot;: [0, 0],\n    &quot;terrible&quot;: true\n  },\n  &quot;bugs&quot;: 213\n}\n&quot;&quot;&quot;\n\nval scalaCopy = scala.deepCopy\nval javaCopy = java.deepCopy\n\nassert((scala ++ java) == json&quot;&quot;&quot;{&quot;name&quot;:&quot;java&quot;,&quot;version&quot;:&quot;2.13.2&quot;,&quot;features&quot;:{&quot;functional&quot;:[0,0],&quot;terrible&quot;:true,&quot;awesome&quot;:true},&quot;bugs&quot;:213}&quot;&quot;&quot;)\nassert((java ++ scala) == json&quot;&quot;&quot;{&quot;name&quot;:&quot;scala&quot;,&quot;version&quot;:&quot;2.13.2&quot;,&quot;features&quot;:{&quot;functional&quot;: true,&quot;terrible&quot;:true,&quot;awesome&quot;:true},&quot;bugs&quot;:213}&quot;&quot;&quot;)\n\nassert(scala == scalaCopy)       // original json objects stay untouched after merging\nassert(java == javaCopy)\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-v\">scala</span> <span class=\"pl-k\">=</span> <span class=\"pl-k\">json</span><span class=\"pl-s\">\"\"\"</span>\n<span class=\"pl-s\">{</span>\n<span class=\"pl-s\">  \"name\": \"scala\",</span>\n<span class=\"pl-s\">  \"version\": \"2.13.2\",</span>\n<span class=\"pl-s\">  \"features\": {</span>\n<span class=\"pl-s\">    \"functional\": true,</span>\n<span class=\"pl-s\">    \"awesome\": true</span>\n<span class=\"pl-s\">  }</span>\n<span class=\"pl-s\">}</span>\n<span class=\"pl-s\">\"\"\"</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-v\">java</span> <span class=\"pl-k\">=</span> <span class=\"pl-k\">json</span><span class=\"pl-s\">\"\"\"</span>\n<span class=\"pl-s\">{</span>\n<span class=\"pl-s\">  \"name\": \"java\",</span>\n<span class=\"pl-s\">  \"features\": {</span>\n<span class=\"pl-s\">    \"functional\": [0, 0],</span>\n<span class=\"pl-s\">    \"terrible\": true</span>\n<span class=\"pl-s\">  },</span>\n<span class=\"pl-s\">  \"bugs\": 213</span>\n<span class=\"pl-s\">}</span>\n<span class=\"pl-s\">\"\"\"</span>\n\n<span class=\"pl-k\">val</span> <span class=\"pl-v\">scalaCopy</span> <span class=\"pl-k\">=</span> scala.deepCopy\n<span class=\"pl-k\">val</span> <span class=\"pl-v\">javaCopy</span> <span class=\"pl-k\">=</span> java.deepCopy\n\nassert((scala <span class=\"pl-k\">++</span> java) <span class=\"pl-k\">==</span> <span class=\"pl-k\">json</span><span class=\"pl-s\">\"\"\"</span><span class=\"pl-s\">{\"name\":\"java\",\"version\":\"2.13.2\",\"features\":{\"functional\":[0,0],\"terrible\":true,\"awesome\":true},\"bugs\":213}</span><span class=\"pl-s\">\"\"\"</span>)\nassert((java <span class=\"pl-k\">++</span> scala) <span class=\"pl-k\">==</span> <span class=\"pl-k\">json</span><span class=\"pl-s\">\"\"\"</span><span class=\"pl-s\">{\"name\":\"scala\",\"version\":\"2.13.2\",\"features\":{\"functional\": true,\"terrible\":true,\"awesome\":true},\"bugs\":213}</span><span class=\"pl-s\">\"\"\"</span>)\n\nassert(scala <span class=\"pl-k\">==</span> scalaCopy)       <span class=\"pl-c\"><span class=\"pl-c\">//</span> original json objects stay untouched after merging</span>\nassert(java <span class=\"pl-k\">==</span> javaCopy)</pre></div>\n<ul dir=\"auto\">\n<li><a href=\"dijon/src/main/scala/dijon/UnionType.scala\">Union types</a> for <a href=\"dijon/src/main/scala/dijon/package.scala#L11\">type-safety</a>:</li>\n</ul>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"val json = `{}`\njson.aString = &quot;hi&quot;                        // compiles\njson.aBoolean = true                       // compiles\njson.anInt = 23                            // compiles\n//json.somethingElse = Option(&quot;hi&quot;)       // does not compile\nval Some(i: Int) = json.anInt.asInt\nassert(i == 23)\nassert(json.aBoolean.asInt == None)\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-v\">json</span> <span class=\"pl-k\">=</span> `{}`\njson.aString <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>hi<span class=\"pl-pds\">\"</span></span>                        <span class=\"pl-c\"><span class=\"pl-c\">//</span> compiles</span>\njson.aBoolean <span class=\"pl-k\">=</span> <span class=\"pl-c1\">true</span>                       <span class=\"pl-c\"><span class=\"pl-c\">//</span> compiles</span>\njson.anInt <span class=\"pl-k\">=</span> <span class=\"pl-c1\">23</span>                            <span class=\"pl-c\"><span class=\"pl-c\">//</span> compiles</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span>json.somethingElse = Option(\"hi\")       // does not compile</span>\n<span class=\"pl-k\">val</span> <span class=\"pl-en\">Some</span>(<span class=\"pl-v\">i</span>: <span class=\"pl-en\">Int</span>) <span class=\"pl-k\">=</span> json.anInt.asInt\nassert(i <span class=\"pl-k\">==</span> <span class=\"pl-c1\">23</span>)\nassert(json.aBoolean.asInt <span class=\"pl-k\">==</span> <span class=\"pl-en\">None</span>)</pre></div>\n<ul dir=\"auto\">\n<li><code>obj()</code> and <code>arr()</code> constructor functions for building up complex JSON values with less overhead:</li>\n</ul>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"val rick = obj(\n  &quot;name&quot; -&gt; name,\n  &quot;age&quot; -&gt; age,\n  &quot;class&quot; -&gt; &quot;human&quot;,\n  &quot;weight&quot; -&gt; 175.1,\n  &quot;is online&quot; -&gt; true,\n  &quot;contact&quot; -&gt; obj(\n    &quot;emails&quot; -&gt; arr(email1, email2),\n    &quot;phone&quot; -&gt; obj(\n      &quot;home&quot; -&gt; &quot;817-xxx-xxx&quot;,\n      &quot;work&quot; -&gt; &quot;650-xxx-xxx&quot;\n    )\n  ),\n  &quot;hobbies&quot; -&gt; arr(\n    &quot;eating&quot;,\n    obj(\n      &quot;games&quot; -&gt; obj(\n        &quot;chess&quot; -&gt; true,\n        &quot;football&quot; -&gt; false\n      )\n    ),\n    arr(&quot;coding&quot;, arr(&quot;python&quot;, &quot;scala&quot;)),\n    None\n  ),\n  &quot;toMap&quot; -&gt; arr(23, 345, true),\n  &quot;apply&quot; -&gt; 42\n)\"><pre><span class=\"pl-k\">val</span> <span class=\"pl-v\">rick</span> <span class=\"pl-k\">=</span> obj(\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>name<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> name,\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>age<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> age,\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>class<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>human<span class=\"pl-pds\">\"</span></span>,\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>weight<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-c1\">175.1</span>,\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>is online<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-c1\">true</span>,\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>contact<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> obj(\n    <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>emails<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> arr(email1, email2),\n    <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>phone<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> obj(\n      <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>home<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>817-xxx-xxx<span class=\"pl-pds\">\"</span></span>,\n      <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>work<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>650-xxx-xxx<span class=\"pl-pds\">\"</span></span>\n    )\n  ),\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>hobbies<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> arr(\n    <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>eating<span class=\"pl-pds\">\"</span></span>,\n    obj(\n      <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>games<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> obj(\n        <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>chess<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-c1\">true</span>,\n        <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>football<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-c1\">false</span>\n      )\n    ),\n    arr(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>coding<span class=\"pl-pds\">\"</span></span>, arr(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>python<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>scala<span class=\"pl-pds\">\"</span></span>)),\n    <span class=\"pl-en\">None</span>\n  ),\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>toMap<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> arr(<span class=\"pl-c1\">23</span>, <span class=\"pl-c1\">345</span>, <span class=\"pl-c1\">true</span>),\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>apply<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">-</span><span class=\"pl-k\">&gt;</span> <span class=\"pl-c1\">42</span>\n)</pre></div>\n<p dir=\"auto\">See the <a href=\"dijon/src/test/scala/dijon/DijonSpec.scala\">spec</a> for more examples.</p>\n<p dir=\"auto\">Also, for the <code>dijon.codec</code> an additional functionality is available when using <a href=\"https://github.com/plokhotnyuk/jsoniter-scala/blob/master/jsoniter-scala-core/src/main/scala/com/github/plokhotnyuk/jsoniter_scala/core/package.scala\">jsoniter-scala-core</a>, like:</p>\n<ul dir=\"auto\">\n<li>parsing/serialization from/to byte arrays, byte buffers, and input/output streams</li>\n<li>parsing of <a href=\"https://en.wikipedia.org/wiki/JSON_streaming\" rel=\"nofollow\">streamed JSON values</a> (concatenated or delimited by\nwhitespace characters) and JSON arrays from input streams using callbacks without the need of holding a whole input in\nthe memory</li>\n<li>use a custom configuration for parsing and serializing</li>\n</ul>\n<p dir=\"auto\">See <a href=\"https://github.com/plokhotnyuk/jsoniter-scala/blob/master/jsoniter-scala-core/src/test/scala/com/github/plokhotnyuk/jsoniter_scala/core/PackageSpec.scala\">jsoniter-scala-core spec</a> for more details and code samples.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h1 class=\"heading-element\" dir=\"auto\">Usage</h1><a id=\"user-content-usage\" class=\"anchor\" aria-label=\"Permalink: Usage\" href=\"#usage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<ol dir=\"auto\">\n<li>Add the following to your <code>build.sbt</code>:</li>\n</ol>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"libraryDependency += &quot;me.vican.jorge&quot; %% &quot;dijon&quot; % &quot;0.6.0&quot; // Use %%% instead of %% for Scala.js\"><pre>libraryDependency <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>me.vican.jorge<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>dijon<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.6.0<span class=\"pl-pds\">\"</span></span> <span class=\"pl-c\"><span class=\"pl-c\">//</span> Use %%% instead of %% for Scala.js</span></pre></div>\n<ol start=\"2\" dir=\"auto\">\n<li>Turn on support of dynamic types by adding import clause:</li>\n</ol>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"import scala.language.dynamics._\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">scala</span>.<span class=\"pl-en\">language</span>.<span class=\"pl-en\">dynamics</span>.<span class=\"pl-en\">_</span></pre></div>\n<p dir=\"auto\">or by setting the scala compiler option:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"scalacOptions += &quot;-language:dynamics&quot;\"><pre>scalacOptions <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>-language:dynamics<span class=\"pl-pds\">\"</span></span></pre></div>\n<ol start=\"3\" dir=\"auto\">\n<li>Add import of the package object of <code>dijon</code> for the main functionality:</li>\n</ol>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"import dijon._\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">dijon</span>.<span class=\"pl-en\">_</span></pre></div>\n<ol start=\"4\" dir=\"auto\">\n<li>Optionally, add import of package object of <code>jsoniter-scala-core</code> for extended json functionality:</li>\n</ol>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"import com.github.plokhotnyuk.jsoniter_scala.core._\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">com</span>.<span class=\"pl-en\">github</span>.<span class=\"pl-en\">plokhotnyuk</span>.<span class=\"pl-en\">jsoniter_scala</span>.<span class=\"pl-en\">core</span>.<span class=\"pl-en\">_</span></pre></div>\n<div class=\"markdown-heading\" dir=\"auto\"><h1 class=\"heading-element\" dir=\"auto\">TODO</h1><a id=\"user-content-todo\" class=\"anchor\" aria-label=\"Permalink: TODO\" href=\"#todo\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<ul dir=\"auto\">\n<li>BigInt support</li>\n<li>Circular references checker</li>\n<li>YAML interpolator</li>\n<li>Macro for type inference to induce compile-time errors where possible</li>\n<li>JSON string interpolator fills in braces, quotes and commas etc</li>\n</ul>\n</article></div>",
     "contributors" : [
       {
         "login" : "scala-steward",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
         "url" : "https://github.com/scala-steward",
-        "contributions" : 222
+        "contributions" : 271
       },
       {
         "login" : "plokhotnyuk",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/890289?v=4",
         "url" : "https://github.com/plokhotnyuk",
-        "contributions" : 68
+        "contributions" : 69
       },
       {
         "login" : "pathikrit",
@@ -40,7 +40,7 @@
         "login" : "jvican",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/2462974?v=4",
         "url" : "https://github.com/jvican",
-        "contributions" : 43
+        "contributions" : 49
       },
       {
         "login" : "pnpritchard",
@@ -61,7 +61,7 @@
         "contributions" : 2
       }
     ],
-    "commits" : 408,
+    "commits" : 464,
     "topics" : [
       "dynamic-types",
       "json",
@@ -70,8 +70,12 @@
     ],
     "contributingGuide" : null,
     "codeOfConduct" : null,
-    "chatroom" : null,
     "openIssues" : [
+      {
+        "number" : 437,
+        "title" : "Add function changeFieldName",
+        "url" : "https://github.com/jvican/dijon/issues/437"
+      },
       {
         "number" : 318,
         "title" : "Conversion to dataframe",
@@ -86,698 +90,20 @@
     "scalaPercentage" : 100,
     "license" : null,
     "commitActivity" : [
-      {
-        "total" : 2,
-        "week" : 1629590400000,
-        "days" : [
-          0,
-          0,
-          0,
-          1,
-          1,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 4,
-        "week" : 1630195200000,
-        "days" : [
-          0,
-          0,
-          1,
-          3,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1630800000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          1
-        ]
-      },
-      {
-        "total" : 3,
-        "week" : 1631404800000,
-        "days" : [
-          0,
-          0,
-          0,
-          1,
-          1,
-          0,
-          1
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1632009600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          2
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1632614400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          1,
-          0,
-          1
-        ]
-      },
-      {
-        "total" : 3,
-        "week" : 1633219200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          2,
-          0,
-          1
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1633824000000,
-        "days" : [
-          0,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1634428800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          1,
-          0,
-          1
-        ]
-      },
-      {
-        "total" : 3,
-        "week" : 1635033600000,
-        "days" : [
-          0,
-          0,
-          1,
-          1,
-          0,
-          0,
-          1
-        ]
-      },
-      {
-        "total" : 3,
-        "week" : 1635638400000,
-        "days" : [
-          0,
-          1,
-          1,
-          1,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1636243200000,
-        "days" : [
-          0,
-          0,
-          1,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1636848000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          2,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1637452800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1638057600000,
-        "days" : [
-          0,
-          0,
-          2,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1638662400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1639267200000,
-        "days" : [
-          0,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1639872000000,
-        "days" : [
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1640476800000,
-        "days" : [
-          0,
-          1,
-          0,
-          1,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1641081600000,
-        "days" : [
-          1,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1641686400000,
-        "days" : [
-          0,
-          0,
-          0,
-          1,
-          0,
-          0,
-          1
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1642291200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 7,
-        "week" : 1642896000000,
-        "days" : [
-          1,
-          2,
-          0,
-          1,
-          2,
-          0,
-          1
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1643500800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 7,
-        "week" : 1644105600000,
-        "days" : [
-          0,
-          0,
-          0,
-          4,
-          2,
-          0,
-          1
-        ]
-      },
-      {
-        "total" : 3,
-        "week" : 1644710400000,
-        "days" : [
-          0,
-          2,
-          0,
-          0,
-          0,
-          0,
-          1
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1645315200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1645920000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1646524800000,
-        "days" : [
-          0,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1647129600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 6,
-        "week" : 1647734400000,
-        "days" : [
-          0,
-          0,
-          0,
-          6,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1648339200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1648944000000,
-        "days" : [
-          0,
-          0,
-          1,
-          0,
-          1,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1649548800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1650153600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1650758400000,
-        "days" : [
-          0,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1651363200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1651968000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          1,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1652572800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1653177600000,
-        "days" : [
-          0,
-          0,
-          1,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1653782400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1654387200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1654992000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1655596800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1656201600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1656806400000,
-        "days" : [
-          0,
-          0,
-          0,
-          2,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1657411200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1658016000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1658620800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1659225600000,
-        "days" : [
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1659830400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          1,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1660435200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      }
     ]
   },
   "settings" : {
     "preferStableVersion" : true,
     "defaultArtifact" : null,
-    "strictVersions" : false,
     "customScalaDoc" : null,
     "documentationLinks" : [
     ],
-    "deprecated" : false,
     "contributorsWanted" : false,
     "deprecatedArtifacts" : [
     ],
     "cliArtifacts" : [
     ],
     "category" : "json",
-    "beginnerIssuesLabel" : null
+    "chatroom" : null
   }
 }

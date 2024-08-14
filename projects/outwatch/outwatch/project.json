@@ -4,37 +4,37 @@
   "creationDate" : 1479089192000,
   "githubStatus" : {
     "Ok" : {
-      "updateDate" : 1660791643265
+      "updateDate" : 1723608590019
     }
   },
   "githubInfo" : {
     "homepage" : "http://outwatch.github.io",
     "description" : "The Functional and Reactive Web-Frontend Library for Scala.js",
     "logo" : "https://avatars.githubusercontent.com/u/20708480?v=4",
-    "stars" : 425,
-    "forks" : 47,
-    "watchers" : 23,
-    "issues" : 37,
+    "stars" : 462,
+    "forks" : 42,
+    "watchers" : 21,
+    "issues" : 45,
     "creationDate" : 1478280376000,
-    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-outwatch\" class=\"anchor\" aria-hidden=\"true\" href=\"#outwatch\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Outwatch</h1>\n<p dir=\"auto\">The Functional and Reactive Web-Frontend Library for Scala.js</p>\n<p dir=\"auto\"><a href=\"http://typelevel.org\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/bb818456435bc14954fd9e78e0c8a8520bec00aad6a5d8c993fabf401e3a61fc/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f747970656c6576656c2d696e63756261746f722d4635314332422e737667\" alt=\"Typelevel incubator\" data-canonical-src=\"https://img.shields.io/badge/typelevel-incubator-F51C2B.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://discord.gg/9V8FZTVZ9R\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/ab28a7bb180b98ce9130264a9312d7e82068a74ae51eecec98a3179dc570ee22/68747470733a2f2f696d672e736869656c64732e696f2f646973636f72642f3633323237373839363733393934363531372e7376673f6c6162656c3d266c6f676f3d646973636f7264266c6f676f436f6c6f723d66666666666626636f6c6f723d343034323434266c6162656c436f6c6f723d364137454332\" alt=\"Discord\" data-canonical-src=\"https://img.shields.io/discord/632277896739946517.svg?label=&amp;logo=discord&amp;logoColor=ffffff&amp;color=404244&amp;labelColor=6A7EC2\" style=\"max-width: 100%;\"></a>\n<a href=\"https://index.scala-lang.org/outwatch/outwatch/outwatch\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/cfb86c0e1c78b3d852af69e01053580d6c19d11a7fd5c353cfc1d783d3536fa8/68747470733a2f2f696e6465782e7363616c612d6c616e672e6f72672f6f757477617463682f6f757477617463682f6f757477617463682f6c61746573742d62792d7363616c612d76657273696f6e2e7376673f706c6174666f726d3d736a7331\" alt=\"outwatch Scala version support\" data-canonical-src=\"https://index.scala-lang.org/outwatch/outwatch/outwatch/latest-by-scala-version.svg?platform=sjs1\" style=\"max-width: 100%;\"></a></p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"import outwatch._\nimport outwatch.dsl._\nimport colibri._\nimport cats.effect.{IO, IOApp}\n\nobject Main extends IOApp.Simple {\n  override def run = {\n    val counter = Subject.behavior(0)\n    val myComponent = div(\n      button(&quot;+&quot;, onClick(counter.map(_ + 1)) --&gt; counter),\n      counter,\n    )\n\n    Outwatch.renderReplace[IO](&quot;#app&quot;, myComponent)\n  }\n}\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">outwatch</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">outwatch</span>.<span class=\"pl-en\">dsl</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">colibri</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">cats</span>.<span class=\"pl-en\">effect</span>.{<span class=\"pl-en\">IO</span>, <span class=\"pl-en\">IOApp</span>}\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span> <span class=\"pl-k\">extends</span> <span class=\"pl-e\">IOApp</span>.<span class=\"pl-en\">Simple</span> {\n  <span class=\"pl-k\">override</span> <span class=\"pl-k\">def</span> <span class=\"pl-en\">run</span> <span class=\"pl-k\">=</span> {\n    <span class=\"pl-k\">val</span> <span class=\"pl-smi\">counter</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Subject</span>.behavior(<span class=\"pl-c1\">0</span>)\n    <span class=\"pl-k\">val</span> <span class=\"pl-smi\">myComponent</span> <span class=\"pl-k\">=</span> div(\n      button(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>+<span class=\"pl-pds\">\"</span></span>, onClick(counter.map(_ <span class=\"pl-k\">+</span> <span class=\"pl-c1\">1</span>)) <span class=\"pl-k\">--</span><span class=\"pl-k\">&gt;</span> counter),\n      counter,\n    )\n\n    <span class=\"pl-en\">Outwatch</span>.renderReplace[<span class=\"pl-en\">IO</span>](<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>#app<span class=\"pl-pds\">\"</span></span>, myComponent)\n  }\n}</pre></div>\n<p dir=\"auto\">In Outwatch, you can describe your whole web application without doing any side effect - you only run your application when rendering it.</p>\n<ul dir=\"auto\">\n<li>Write UI-components using pure functions</li>\n<li>Manage state in a referentially transparent way using <a href=\"https://github.com/typelevel/cats-effect\">cats-effect</a></li>\n<li>Built-in lightweight <code>Observable</code> and <code>Subject</code> types from <a href=\"http://github.com/cornerman/colibri\">colibri</a></li>\n<li>Seamlessly works with existing reactive programming libraries: <a href=\"https://github.com/zio/zio\">ZIO</a>, <a href=\"https://github.com/typelevel/fs2\">fs2</a>, <a href=\"https://github.com/raquo/airstream\">Airstream</a>, <a href=\"https://github.com/lihaoyi/scala.rx\">scala.rx</a></li>\n<li>Low-boilerplate, many convenient helper functions</li>\n<li>Built on top of <a href=\"https://github.com/snabbdom/snabbdom\">snabbdom</a>, a virtual dom library</li>\n</ul>\n<p dir=\"auto\">You will find interactive examples and explanations in our <a href=\"https://outwatch.github.io/docs/readme.html\" rel=\"nofollow\">documentation</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><a href=\"https://outwatch.github.io/docs/readme.html\" rel=\"nofollow\">Documentation</a></h2>\n<h2 dir=\"auto\"><a id=\"user-content-quickstart\" class=\"anchor\" aria-hidden=\"true\" href=\"#quickstart\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Quickstart</h2>\n<h3 dir=\"auto\"><a id=\"user-content-template\" class=\"anchor\" aria-hidden=\"true\" href=\"#template\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Template</h3>\n<p dir=\"auto\">The quickest way to play with outwatch is to use our template.</p>\n<p dir=\"auto\">Make sure that <code>java</code>, <code>sbt</code>, <code>nodejs</code> and <code>yarn</code> are installed.</p>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"sbt new outwatch/seed.g8\"><pre>sbt new outwatch/seed.g8</pre></div>\n<p dir=\"auto\">In your newly created project directory, run:</p>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"sbt dev\"><pre>sbt dev</pre></div>\n<p dir=\"auto\">and point your browser to <a href=\"http://localhost:12345\" rel=\"nofollow\">http://localhost:12345</a>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-manual-setup\" class=\"anchor\" aria-hidden=\"true\" href=\"#manual-setup\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Manual setup</h3>\n<p dir=\"auto\">Add the <code>scalajs</code> and <code>scalajs-bundler</code> plugins to your <code>project/plugins.sbt</code>:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"addSbtPlugin(&quot;org.scala-js&quot; % &quot;sbt-scalajs&quot; % &quot;1.x.x&quot;)\naddSbtPlugin(&quot;ch.epfl.scala&quot; % &quot;sbt-scalajs-bundler&quot; % &quot;x.x.x&quot;)\"><pre>addSbtPlugin(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.scala-js<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sbt-scalajs<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>1.x.x<span class=\"pl-pds\">\"</span></span>)\naddSbtPlugin(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>ch.epfl.scala<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sbt-scalajs-bundler<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>x.x.x<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<p dir=\"auto\">Add the outwatch dependencies to your <code>build.sbt</code>:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"enablePlugins(ScalaJSPlugin)\nenablePlugins(ScalaJSBundlerPlugin)\n\nresolvers += &quot;jitpack&quot; at &quot;https://jitpack.io&quot;\nval outwatchVersion = &quot;&lt;latest outwatch version&gt;&quot;\nlibraryDependencies ++= Seq(\n  &quot;io.github.outwatch&quot;   %%% &quot;outwatch&quot;          % outwatchVersion,\n  // optional dependencies:\n  &quot;com.github.cornerman&quot; %%% &quot;colibri-zio&quot;       % &quot;0.5.0&quot;, // zio support\n  &quot;com.github.cornerman&quot; %%% &quot;colibri-fs2&quot;       % &quot;0.5.0&quot;, // fs2 support\n  &quot;com.github.cornerman&quot; %%% &quot;colibri-airstream&quot; % &quot;0.5.0&quot;, // sirstream support\n  &quot;com.github.cornerman&quot; %%% &quot;colibri-rx&quot;        % &quot;0.5.0&quot;, // scala.rx support\n  &quot;com.github.cornerman&quot; %%% &quot;colibri-router&quot;    % &quot;0.5.0&quot;, // Url Router support\n)\n\"><pre>enablePlugins(<span class=\"pl-en\">ScalaJSPlugin</span>)\nenablePlugins(<span class=\"pl-en\">ScalaJSBundlerPlugin</span>)\n\nresolvers <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>jitpack<span class=\"pl-pds\">\"</span></span> at <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>https://jitpack.io<span class=\"pl-pds\">\"</span></span>\n<span class=\"pl-k\">val</span> <span class=\"pl-smi\">outwatchVersion</span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>&lt;latest outwatch version&gt;<span class=\"pl-pds\">\"</span></span>\nlibraryDependencies <span class=\"pl-k\">++</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Seq</span>(\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>io.github.outwatch<span class=\"pl-pds\">\"</span></span>   <span class=\"pl-k\">%%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>outwatch<span class=\"pl-pds\">\"</span></span>          <span class=\"pl-k\">%</span> outwatchVersion,\n  <span class=\"pl-c\"><span class=\"pl-c\">//</span> optional dependencies:</span>\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.github.cornerman<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>colibri-zio<span class=\"pl-pds\">\"</span></span>       <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.5.0<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-c\"><span class=\"pl-c\">//</span> zio support</span>\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.github.cornerman<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>colibri-fs2<span class=\"pl-pds\">\"</span></span>       <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.5.0<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-c\"><span class=\"pl-c\">//</span> fs2 support</span>\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.github.cornerman<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>colibri-airstream<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.5.0<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-c\"><span class=\"pl-c\">//</span> sirstream support</span>\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.github.cornerman<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>colibri-rx<span class=\"pl-pds\">\"</span></span>        <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.5.0<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-c\"><span class=\"pl-c\">//</span> scala.rx support</span>\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.github.cornerman<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>colibri-router<span class=\"pl-pds\">\"</span></span>    <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.5.0<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-c\"><span class=\"pl-c\">//</span> Url Router support</span>\n)\n</pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-bugs-and-feedback\" class=\"anchor\" aria-hidden=\"true\" href=\"#bugs-and-feedback\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Bugs and Feedback</h2>\n<p dir=\"auto\">For bugs, questions and discussions please use <a href=\"https://github.com/outwatch/outwatch/issues\">GitHub Issues</a>.</p>\n<h2 dir=\"auto\"><a id=\"user-content-community\" class=\"anchor\" aria-hidden=\"true\" href=\"#community\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Community</h2>\n<p dir=\"auto\">We adopted the <a href=\"https://www.scala-lang.org/conduct/\" rel=\"nofollow\">Scala Code of Conduct</a>. People are expected to follow it when discussing Outwatch on the Github page, Gitter channel, or other venues.</p>\n<h2 dir=\"auto\"><a id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>LICENSE</h2>\n<p dir=\"auto\">Licensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at</p>\n<p dir=\"auto\"><a href=\"https://www.apache.org/licenses/LICENSE-2.0\" rel=\"nofollow\">https://www.apache.org/licenses/LICENSE-2.0</a></p>\n<p dir=\"auto\">Unless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.</p>\n</article></div>",
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><div class=\"markdown-heading\" dir=\"auto\"><h1 class=\"heading-element\" dir=\"auto\">Outwatch</h1><a id=\"user-content-outwatch\" class=\"anchor\" aria-label=\"Permalink: Outwatch\" href=\"#outwatch\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">The Functional and Reactive Web-Frontend Library for Scala.js</p>\n<p dir=\"auto\"><a href=\"http://typelevel.org\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/f7d3fc12fda44e2d179fd07eec32362174052a2083275ac4a67021368a36daa3/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f747970656c6576656c2d696e63756261746f722d4635314332422e737667\" alt=\"Typelevel incubator\" data-canonical-src=\"https://img.shields.io/badge/typelevel-incubator-F51C2B.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://codecov.io/gh/outwatch/outwatch\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/dbd352169ce6fe79e5d9c780ff849eacba4f30ddb8b986100c5f8a5b9ac4db86/68747470733a2f2f636f6465636f762e696f2f67682f6f757477617463682f6f757477617463682f6272616e63682f6d61737465722f67726170682f62616467652e7376673f746f6b656e3d5447436378426e4f4869\" alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/outwatch/outwatch/branch/master/graph/badge.svg?token=TGCcxBnOHi\" style=\"max-width: 100%;\"></a>\n<a href=\"https://discord.gg/9V8FZTVZ9R\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/8ad4dc9d1cdf672811603577c477ccc5658699607c2d0b29a4e0ed0368c7f5eb/68747470733a2f2f696d672e736869656c64732e696f2f646973636f72642f3633323237373839363733393934363531372e7376673f6c6162656c3d266c6f676f3d646973636f7264266c6f676f436f6c6f723d66666666666626636f6c6f723d343034323434266c6162656c436f6c6f723d364137454332\" alt=\"Discord\" data-canonical-src=\"https://img.shields.io/discord/632277896739946517.svg?label=&amp;logo=discord&amp;logoColor=ffffff&amp;color=404244&amp;labelColor=6A7EC2\" style=\"max-width: 100%;\"></a>\n<a href=\"https://index.scala-lang.org/outwatch/outwatch/outwatch\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/85509d08913df02dff1d0aa4d30fa5ef523e60f1d41734723fb1b456478f0fdd/68747470733a2f2f696e6465782e7363616c612d6c616e672e6f72672f6f757477617463682f6f757477617463682f6f757477617463682f6c61746573742d62792d7363616c612d76657273696f6e2e7376673f706c6174666f726d3d736a7331\" alt=\"outwatch Scala version support\" data-canonical-src=\"https://index.scala-lang.org/outwatch/outwatch/outwatch/latest-by-scala-version.svg?platform=sjs1\" style=\"max-width: 100%;\"></a></p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"import outwatch._\nimport outwatch.dsl._\nimport colibri._\nimport cats.effect.{IO, IOApp}\n\nobject Main extends IOApp.Simple {\n  override def run = {\n    val counter = Subject.behavior(0)\n    val myComponent = div(\n      button(&quot;+&quot;, onClick(counter.map(_ + 1)) --&gt; counter),\n      counter,\n    )\n\n    Outwatch.renderReplace[IO](&quot;#app&quot;, myComponent)\n  }\n}\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">outwatch</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">outwatch</span>.<span class=\"pl-en\">dsl</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">colibri</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">cats</span>.<span class=\"pl-en\">effect</span>.{<span class=\"pl-en\">IO</span>, <span class=\"pl-en\">IOApp</span>}\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span> <span class=\"pl-k\">extends</span> <span class=\"pl-en\">IOApp</span>.<span class=\"pl-en\">Simple</span> {\n  <span class=\"pl-k\">override</span> <span class=\"pl-k\">def</span> <span class=\"pl-en\">run</span> <span class=\"pl-k\">=</span> {\n    <span class=\"pl-k\">val</span> <span class=\"pl-v\">counter</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">Subject</span>.behavior(<span class=\"pl-c1\">0</span>)\n    <span class=\"pl-k\">val</span> <span class=\"pl-v\">myComponent</span> <span class=\"pl-k\">=</span> div(\n      button(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>+<span class=\"pl-pds\">\"</span></span>, onClick(counter.map(_ <span class=\"pl-k\">+</span> <span class=\"pl-c1\">1</span>)) <span class=\"pl-k\">--</span><span class=\"pl-k\">&gt;</span> counter),\n      counter,\n    )\n\n    <span class=\"pl-en\">Outwatch</span>.renderReplace[<span class=\"pl-en\">IO</span>](<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>#app<span class=\"pl-pds\">\"</span></span>, myComponent)\n  }\n}</pre></div>\n<p dir=\"auto\">In Outwatch, you can describe your whole web application without doing any side effect - you only run your application when rendering it.</p>\n<ul dir=\"auto\">\n<li>Write UI-components using pure functions</li>\n<li>Manage state in a referentially transparent way using <a href=\"https://github.com/typelevel/cats-effect\">cats-effect</a></li>\n<li>Built-in lightweight <code>Observable</code> and <code>Subject</code> types from <a href=\"http://github.com/cornerman/colibri\">colibri</a></li>\n<li>Seamlessly works with existing reactive programming libraries: <a href=\"https://github.com/zio/zio\">ZIO</a>, <a href=\"https://github.com/typelevel/fs2\">fs2</a>, <a href=\"https://github.com/raquo/airstream\">Airstream</a>, <a href=\"https://github.com/lihaoyi/scala.rx\">scala.rx</a></li>\n<li>Low-boilerplate, many convenient helper functions</li>\n<li>Built on top of <a href=\"https://github.com/snabbdom/snabbdom\">snabbdom</a>, a virtual dom library</li>\n</ul>\n<p dir=\"auto\">You will find interactive examples and explanations in our <a href=\"https://outwatch.github.io/docs/readme.html\" rel=\"nofollow\">documentation</a>.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\"><a href=\"https://outwatch.github.io/docs/readme.html\" rel=\"nofollow\">Documentation</a></h2><a id=\"user-content-documentation\" class=\"anchor\" aria-label=\"Permalink: Documentation\" href=\"#documentation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Bugs and Feedback</h2><a id=\"user-content-bugs-and-feedback\" class=\"anchor\" aria-label=\"Permalink: Bugs and Feedback\" href=\"#bugs-and-feedback\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">For bugs, questions and discussions please use <a href=\"https://github.com/outwatch/outwatch/issues\">GitHub Issues</a>.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Community</h2><a id=\"user-content-community\" class=\"anchor\" aria-label=\"Permalink: Community\" href=\"#community\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">We adopted the <a href=\"https://www.scala-lang.org/conduct/\" rel=\"nofollow\">Scala Code of Conduct</a>. People are expected to follow it when discussing Outwatch on the Github page, Gitter channel, or other venues.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">LICENSE</h2><a id=\"user-content-license\" class=\"anchor\" aria-label=\"Permalink: LICENSE\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">Licensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at</p>\n<p dir=\"auto\"><a href=\"https://www.apache.org/licenses/LICENSE-2.0\" rel=\"nofollow\">https://www.apache.org/licenses/LICENSE-2.0</a></p>\n<p dir=\"auto\">Unless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.</p>\n</article></div>",
     "contributors" : [
       {
         "login" : "cornerman",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1043127?v=4",
         "url" : "https://github.com/cornerman",
-        "contributions" : 293
+        "contributions" : 355
       },
       {
         "login" : "scala-steward",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
         "url" : "https://github.com/scala-steward",
-        "contributions" : 123
+        "contributions" : 203
       },
       {
         "login" : "fdietze",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1186516?v=4",
         "url" : "https://github.com/fdietze",
-        "contributions" : 109
+        "contributions" : 114
       },
       {
         "login" : "mariusmuja",
@@ -55,16 +55,22 @@
         "contributions" : 14
       },
       {
+        "login" : "busti",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3575167?v=4",
+        "url" : "https://github.com/busti",
+        "contributions" : 13
+      },
+      {
         "login" : "PerWiklander",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/391989?v=4",
         "url" : "https://github.com/PerWiklander",
         "contributions" : 12
       },
       {
-        "login" : "busti",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/3575167?v=4",
-        "url" : "https://github.com/busti",
-        "contributions" : 11
+        "login" : "FloWi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/39078?v=4",
+        "url" : "https://github.com/FloWi",
+        "contributions" : 4
       },
       {
         "login" : "armanbilge",
@@ -85,18 +91,6 @@
         "contributions" : 2
       },
       {
-        "login" : "rfuerst87",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/820622?v=4",
-        "url" : "https://github.com/rfuerst87",
-        "contributions" : 2
-      },
-      {
-        "login" : "adrijardi",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/902711?v=4",
-        "url" : "https://github.com/adrijardi",
-        "contributions" : 1
-      },
-      {
         "login" : "asakaev",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/3930435?v=4",
         "url" : "https://github.com/asakaev",
@@ -115,12 +109,6 @@
         "contributions" : 1
       },
       {
-        "login" : "FloWi",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/39078?v=4",
-        "url" : "https://github.com/FloWi",
-        "contributions" : 1
-      },
-      {
         "login" : "JPonte",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/2581298?v=4",
         "url" : "https://github.com/JPonte",
@@ -133,7 +121,7 @@
         "contributions" : 1
       }
     ],
-    "commits" : 640,
+    "commits" : 789,
     "topics" : [
       "functional-programming",
       "scalajs",
@@ -146,27 +134,36 @@
     ],
     "contributingGuide" : null,
     "codeOfConduct" : null,
-    "chatroom" : null,
     "openIssues" : [
       {
-        "number" : 624,
-        "title" : "Owned {} only works for VModifier, not for VNode",
-        "url" : "https://github.com/outwatch/outwatch/issues/624"
+        "number" : 760,
+        "title" : "improving getting started instructions",
+        "url" : "https://github.com/outwatch/outwatch/issues/760"
       },
       {
-        "number" : 623,
-        "title" : "support apply, prepend, append on F[VNode]",
-        "url" : "https://github.com/outwatch/outwatch/issues/623"
+        "number" : 695,
+        "title" : "Fix bench subproject and make sure it builds correctly in CI. ",
+        "url" : "https://github.com/outwatch/outwatch/issues/695"
       },
       {
-        "number" : 622,
-        "title" : "VModifier.apply, append, prepend are misleading",
-        "url" : "https://github.com/outwatch/outwatch/issues/622"
+        "number" : 689,
+        "title" : "value -> valueAttr, name -> nameAttr",
+        "url" : "https://github.com/outwatch/outwatch/issues/689"
       },
       {
-        "number" : 620,
-        "title" : "After 1.0 release: Remove deprecated code",
-        "url" : "https://github.com/outwatch/outwatch/issues/620"
+        "number" : 684,
+        "title" : "svg import breaks html",
+        "url" : "https://github.com/outwatch/outwatch/issues/684"
+      },
+      {
+        "number" : 683,
+        "title" : "Fragment Node",
+        "url" : "https://github.com/outwatch/outwatch/issues/683"
+      },
+      {
+        "number" : 645,
+        "title" : "configure warnings",
+        "url" : "https://github.com/outwatch/outwatch/issues/645"
       },
       {
         "number" : 562,
@@ -182,11 +179,6 @@
         "number" : 453,
         "title" : "Measure inlining of methods",
         "url" : "https://github.com/outwatch/outwatch/issues/453"
-      },
-      {
-        "number" : 451,
-        "title" : "Move AttributeBuilder to outwatch",
-        "url" : "https://github.com/outwatch/outwatch/issues/451"
       },
       {
         "number" : 447,
@@ -274,701 +266,23 @@
         "url" : "https://github.com/outwatch/outwatch/issues/78"
       }
     ],
-    "scalaPercentage" : 97,
+    "scalaPercentage" : 96,
     "license" : "Apache-2.0",
     "commitActivity" : [
-      {
-        "total" : 4,
-        "week" : 1629590400000,
-        "days" : [
-          0,
-          0,
-          0,
-          1,
-          1,
-          2,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1630195200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          1
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1630800000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1631404800000,
-        "days" : [
-          0,
-          0,
-          0,
-          1,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1632009600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1632614400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 4,
-        "week" : 1633219200000,
-        "days" : [
-          0,
-          3,
-          0,
-          0,
-          1,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1633824000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1634428800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 6,
-        "week" : 1635033600000,
-        "days" : [
-          0,
-          0,
-          0,
-          5,
-          0,
-          1,
-          0
-        ]
-      },
-      {
-        "total" : 6,
-        "week" : 1635638400000,
-        "days" : [
-          0,
-          0,
-          6,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1636243200000,
-        "days" : [
-          0,
-          0,
-          1,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 10,
-        "week" : 1636848000000,
-        "days" : [
-          0,
-          0,
-          1,
-          0,
-          7,
-          2,
-          0
-        ]
-      },
-      {
-        "total" : 6,
-        "week" : 1637452800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          5,
-          0,
-          1
-        ]
-      },
-      {
-        "total" : 3,
-        "week" : 1638057600000,
-        "days" : [
-          0,
-          0,
-          1,
-          0,
-          0,
-          2,
-          0
-        ]
-      },
-      {
-        "total" : 5,
-        "week" : 1638662400000,
-        "days" : [
-          0,
-          3,
-          1,
-          0,
-          0,
-          1,
-          0
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1639267200000,
-        "days" : [
-          0,
-          0,
-          0,
-          1,
-          1,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 10,
-        "week" : 1639872000000,
-        "days" : [
-          0,
-          0,
-          1,
-          0,
-          3,
-          6,
-          0
-        ]
-      },
-      {
-        "total" : 3,
-        "week" : 1640476800000,
-        "days" : [
-          0,
-          1,
-          0,
-          1,
-          0,
-          1,
-          0
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1641081600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          2
-        ]
-      },
-      {
-        "total" : 4,
-        "week" : 1641686400000,
-        "days" : [
-          1,
-          1,
-          1,
-          1,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1642291200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          1,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 3,
-        "week" : 1642896000000,
-        "days" : [
-          0,
-          1,
-          0,
-          0,
-          0,
-          2,
-          0
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1643500800000,
-        "days" : [
-          1,
-          0,
-          0,
-          1,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1644105600000,
-        "days" : [
-          0,
-          1,
-          0,
-          0,
-          0,
-          1,
-          0
-        ]
-      },
-      {
-        "total" : 3,
-        "week" : 1644710400000,
-        "days" : [
-          0,
-          3,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 4,
-        "week" : 1645315200000,
-        "days" : [
-          0,
-          1,
-          0,
-          0,
-          3,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1645920000000,
-        "days" : [
-          0,
-          0,
-          1,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1646524800000,
-        "days" : [
-          0,
-          0,
-          1,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1647129600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1647734400000,
-        "days" : [
-          0,
-          1,
-          1,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 42,
-        "week" : 1648339200000,
-        "days" : [
-          2,
-          7,
-          11,
-          7,
-          4,
-          8,
-          3
-        ]
-      },
-      {
-        "total" : 6,
-        "week" : 1648944000000,
-        "days" : [
-          1,
-          4,
-          0,
-          0,
-          0,
-          1,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1649548800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          1,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 12,
-        "week" : 1650153600000,
-        "days" : [
-          0,
-          0,
-          2,
-          1,
-          4,
-          4,
-          1
-        ]
-      },
-      {
-        "total" : 3,
-        "week" : 1650758400000,
-        "days" : [
-          0,
-          3,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1651363200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1651968000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1652572800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1653177600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 4,
-        "week" : 1653782400000,
-        "days" : [
-          0,
-          1,
-          0,
-          3,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1654387200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1654992000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1655596800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 5,
-        "week" : 1656201600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          3,
-          2
-        ]
-      },
-      {
-        "total" : 3,
-        "week" : 1656806400000,
-        "days" : [
-          0,
-          0,
-          0,
-          3,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 3,
-        "week" : 1657411200000,
-        "days" : [
-          0,
-          0,
-          2,
-          0,
-          1,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1658016000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1658620800000,
-        "days" : [
-          0,
-          0,
-          0,
-          1,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1659225600000,
-        "days" : [
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1659830400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          1,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1660435200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      }
     ]
   },
   "settings" : {
     "preferStableVersion" : true,
     "defaultArtifact" : "outwatch",
-    "strictVersions" : false,
     "customScalaDoc" : null,
     "documentationLinks" : [
     ],
-    "deprecated" : false,
     "contributorsWanted" : false,
     "deprecatedArtifacts" : [
     ],
     "cliArtifacts" : [
     ],
     "category" : "web-frontend",
-    "beginnerIssuesLabel" : null
+    "chatroom" : null
   }
 }

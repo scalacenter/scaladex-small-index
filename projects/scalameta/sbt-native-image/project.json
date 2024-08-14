@@ -4,19 +4,19 @@
   "creationDate" : 1598699417000,
   "githubStatus" : {
     "Ok" : {
-      "updateDate" : 1660801358834
+      "updateDate" : 1723548685896
     }
   },
   "githubInfo" : {
     "homepage" : "",
     "description" : "Plugin to generate native-image binaries with sbt",
     "logo" : "https://avatars.githubusercontent.com/u/7526438?v=4",
-    "stars" : 209,
-    "forks" : 18,
+    "stars" : 250,
+    "forks" : 22,
     "watchers" : 6,
-    "issues" : 19,
+    "issues" : 27,
     "creationDate" : 1598695498000,
-    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"readme.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-generate-native-image-binaries-with-sbt\" class=\"anchor\" aria-hidden=\"true\" href=\"#generate-native-image-binaries-with-sbt\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Generate native-image binaries with sbt</h1>\n<p dir=\"auto\">This plugin makes it easy to generate native-image binaries with sbt. Key\nfeatures:</p>\n<ul dir=\"auto\">\n<li>automatic GraalVM native-image installation powered by\n<a href=\"https://get-coursier.io/\" rel=\"nofollow\">Coursier</a>, no need to start sbt with a custom\n<code>$JAVA_HOME</code> or spin up Docker. See\n<a href=\"https://scala-lang.org/2020/06/29/one-click-install.html\" rel=\"nofollow\">One-click install for Scala</a>\nfor more details.</li>\n<li>automatic support for Scala 2.12.12+ and 2.13.3+, no need to deal with issues\nlike <a href=\"https://github.com/scala/bug/issues/11634\" data-hovercard-type=\"issue\" data-hovercard-url=\"/scala/bug/issues/11634/hovercard\">scala/bug#11634</a>.</li>\n<li>works with Scala 3 (Dotty)</li>\n<li>get a notification when the binary is ready to use.</li>\n<li>works on macOS, Windows and Linux.</li>\n<li>works with Java 8 and Java 11.</li>\n</ul>\n<p dir=\"auto\"><strong>Overview:</strong></p>\n<ul dir=\"auto\">\n<li><a href=\"#getting-started\">Getting started</a></li>\n<li><a href=\"#configuration\">Configuration</a></li>\n<li><a href=\"#generate-native-image-from-github-actions\">Generate native-image from GitHub Actions</a></li>\n<li><a href=\"#comparison-with-sbt-native-packager\">Comparison with sbt-native-packager</a></li>\n</ul>\n<h2 dir=\"auto\"><a id=\"user-content-getting-started\" class=\"anchor\" aria-hidden=\"true\" href=\"#getting-started\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Getting started</h2>\n<p dir=\"auto\">First, add the sbt plugin to your build in <code>project/plugins.sbt</code>.</p>\n<p dir=\"auto\"><a href=\"https://github.com/scalameta/sbt-native-image/releases\"><img src=\"https://camo.githubusercontent.com/0fd911b071067639d8408ea09573afd1bd906fb18136da00d323fb9590caff85/68747470733a2f2f696e6465782e7363616c612d6c616e672e6f72672f7363616c616d6574612f7362742d6e61746976652d696d6167652f6c61746573742e7376673f636f6c6f723d626c7565\" alt=\"\" data-canonical-src=\"https://index.scala-lang.org/scalameta/sbt-native-image/latest.svg?color=blue\" style=\"max-width: 100%;\"></a></p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"// project/plugins.sbt\naddSbtPlugin(&quot;org.scalameta&quot; % &quot;sbt-native-image&quot; % &quot;0.3.1&quot;)\"><pre><span class=\"pl-c\"><span class=\"pl-c\">//</span> project/plugins.sbt</span>\naddSbtPlugin(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.scalameta<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sbt-native-image<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.3.1<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<p dir=\"auto\">Next, enable the plugin to your native-image application in <code>build.sbt</code> and\nconfigure the main class.</p>\n<div class=\"highlight highlight-source-diff notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"  // build.sbt\n  lazy val myNativeImageProject = project\n+   .enablePlugins(NativeImagePlugin)\n    .settings(\n      // ...\n+     Compile / mainClass := Some(&quot;com.my.MainClass&quot;)\n    )\"><pre>  // build.sbt\n  lazy val myNativeImageProject = project\n<span class=\"pl-mi1\"><span class=\"pl-mi1\">+</span>   .enablePlugins(NativeImagePlugin)</span>\n    .settings(\n      // ...\n<span class=\"pl-mi1\"><span class=\"pl-mi1\">+</span>     Compile / mainClass := Some(\"com.my.MainClass\")</span>\n    )</pre></div>\n<p dir=\"auto\">Additionally, if your app uses reflection or JNI, you may need to run <code>nativeImageRunAgent</code> command to capture runtime information. For more details, see <a href=\"#nativeimagerunagent\"><code>nativeImageRunAgent</code></a> section.</p>\n<p dir=\"auto\">Finally, run the <code>nativeImage</code> task to generate the binary.</p>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"$ sbt\n&gt; myNativeImageProject/nativeImage\n...\n[info] Native image ready!\n[info] /path/to/your/binary\"><pre>$ sbt\n<span class=\"pl-k\">&gt;</span> myNativeImageProject/nativeImage\n...\n[info] Native image ready<span class=\"pl-k\">!</span>\n[info] /path/to/your/binary</pre></div>\n<p dir=\"auto\">Optionally, use <code>nativeImageRun</code> to execute the generated binary and manually\ntest that it works as expected.</p>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"&gt; myNativeImageProject/nativeImageRun argument1 argument 2\n# output from your native-image binary\"><pre><span class=\"pl-k\">&gt;</span> myNativeImageProject/nativeImageRun argument1 argument 2\n<span class=\"pl-c\"><span class=\"pl-c\">#</span> output from your native-image binary</span></pre></div>\n<h2 dir=\"auto\"><a id=\"user-content-configuration\" class=\"anchor\" aria-hidden=\"true\" href=\"#configuration\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Configuration</h2>\n<p dir=\"auto\">sbt-native-image provides several settings, tasks and input tasks to customize\nnative-image generation and to automate your native-image workflows.</p>\n<ul dir=\"auto\">\n<li><a href=\"#nativeimage\"><code>nativeImage</code></a>: generate a native image</li>\n<li><a href=\"#nativeimageoptions\"><code>nativeImageOptions</code></a>: customize native image generation</li>\n<li><a href=\"#nativeimagerun\"><code>nativeImageRun</code></a>: execute the generated native image</li>\n<li><a href=\"#nativeimagecopy\"><code>nativeImageCopy</code></a>: generate a native image and copy the\nbinary</li>\n<li><a href=\"#nativeimageversion\"><code>nativeImageVersion</code></a>: the GraalVM version to use for\nnative-image</li>\n<li><a href=\"#nativeimagejvm\"><code>nativeImageJvm</code></a>: the GraalVM JVM version to use for\nnative-image</li>\n<li><a href=\"#nativeimagejvmindex\"><code>nativeImageJvmIndex</code></a>: the index to use for resolving\nthe JVM version</li>\n<li><a href=\"#nativeimagecommand\"><code>nativeImageCommand</code></a>: the command to launch\n<code>native-image</code></li>\n<li><a href=\"#nativeimageready\"><code>nativeImageReady</code></a>: callback hook when native-image is\nready</li>\n<li><a href=\"#nativeimagecoursier\"><code>nativeImageCoursier</code></a>: the path to a <code>coursier</code> binary</li>\n<li><a href=\"#nativeimageoutput\"><code>nativeImageOutput</code></a>: the path to the generated\nnative-image binary</li>\n<li><a href=\"#nativeimageinstalled\"><code>nativeImageInstalled</code></a>: whether GraalVM is manually\ninstalled or should be downloaded with coursier</li>\n<li><a href=\"#nativeimagegraalhome\"><code>nativeImageGraalHome</code></a>: path to GraalVM home\ndirectory</li>\n<li><a href=\"#nativeimagerunagent\"><code>nativeImageRunAgent</code></a>: run application, tracking all\nusages of dynamic features of an execution with\n<a href=\"https://www.graalvm.org/reference-manual/native-image/BuildConfiguration/#assisted-configuration-of-native-image-builds\" rel=\"nofollow\"><code>native-image-agent</code></a></li>\n<li><a href=\"#nativeimageagentoutputdir\"><code>nativeImageAgentOutputDir</code></a>: directory where\n<code>native-image-agent</code> should put generated configurations</li>\n<li><a href=\"#nativeimageagentmerge\"><code>nativeImageAgentMerge</code></a>: whether\n<code>native-image-agent</code> should merge generated configurations</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-nativeimage\" class=\"anchor\" aria-hidden=\"true\" href=\"#nativeimage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><code>nativeImage</code></h3>\n<p dir=\"auto\"><strong>Type</strong>: <code>TaskKey[File]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: runs native-image and returns the resulting binary file.</p>\n<p dir=\"auto\"><strong>Example usage</strong>: <code>sbt myProject/nativeImage</code></p>\n<h3 dir=\"auto\"><a id=\"user-content-nativeimageoptions\" class=\"anchor\" aria-hidden=\"true\" href=\"#nativeimageoptions\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><code>nativeImageOptions</code></h3>\n<p dir=\"auto\"><strong>Type</strong>: <code>TaskKey[Seq[String]]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: custom native-image linking options. See <code>native-image --help</code>\nfor available options. Empty by default.</p>\n<p dir=\"auto\"><strong>Example usage</strong>: <code>nativeImageOptions ++= List(\"--initialize-at-build-time\")</code></p>\n<h3 dir=\"auto\"><a id=\"user-content-nativeimagerun\" class=\"anchor\" aria-hidden=\"true\" href=\"#nativeimagerun\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><code>nativeImageRun</code></h3>\n<p dir=\"auto\"><strong>Type</strong>: <code>InputKey[File]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: executes the native-image binary with given arguments. This\ntask can only be used after <code>nativeImage</code> has completed.</p>\n<p dir=\"auto\"><strong>Example usage</strong>:</p>\n<ul dir=\"auto\">\n<li><code>sbt myProject/nativeImage 'myProject/nativeImageRun hello'</code></li>\n<li>Error: <code>sbt clean myProject/nativeImageRun</code>. Crashes because native-image does\nnot exist.</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-nativeimagecopy\" class=\"anchor\" aria-hidden=\"true\" href=\"#nativeimagecopy\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><code>nativeImageCopy</code></h3>\n<p dir=\"auto\"><strong>Type</strong>: <code>InputKey[File]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: identical to <code>nativeImage</code> except the resulting binary is\nadditionally copied to the provided file. This task is helpful when configuring\nCI to generate the binary in a specific place.</p>\n<p dir=\"auto\"><strong>Example usage</strong>:</p>\n<ul dir=\"auto\">\n<li><code>sbt 'myProject/nativeImageCopy mybinary-x86_64-apple-darwin'</code>.</li>\n<li><code>sbt 'myProject/nativeImageCopy mybinary-x86_64-pc-linux'</code>.</li>\n</ul>\n<h3 dir=\"auto\"><a id=\"user-content-nativeimageversion\" class=\"anchor\" aria-hidden=\"true\" href=\"#nativeimageversion\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><code>nativeImageVersion</code></h3>\n<p dir=\"auto\"><strong>Type</strong>: <code>SettingKey[String]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: the GraalVM version to use.</p>\n<p dir=\"auto\"><strong>Default</strong>: 20.2.0</p>\n<p dir=\"auto\"><strong>Example usage</strong>: <code>nativeImageVersion := \"19.3.3\"</code></p>\n<h3 dir=\"auto\"><a id=\"user-content-nativeimagejvm\" class=\"anchor\" aria-hidden=\"true\" href=\"#nativeimagejvm\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><code>nativeImageJvm</code></h3>\n<p dir=\"auto\"><strong>Type</strong>: <code>SettingKey[String]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: the GraalVM JVM version to use.</p>\n<p dir=\"auto\"><strong>Default</strong>: <code>\"graalvm-java11\"</code>. Must be one of the combinations below.</p>\n<p dir=\"auto\"><strong>Example usage</strong>: <code>nativeImageJvm := \"graalvm\"</code></p>\n<table>\n<thead>\n<tr>\n<th>nativeImageJvm</th>\n<th>nativeImageVersion</th>\n<th>nativeImageJvmIndex</th>\n<th>source</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>graalvm, graalvm-java11</td>\n<td>1.0.0-x,19.0.0~21.1.0</td>\n<td>cs</td>\n<td><a href=\"https://github.com/coursier/jvm-index\">https://github.com/coursier/jvm-index</a></td>\n</tr>\n<tr>\n<td>graalvm-ce-java8, graalvm-ce-java11, gaalvm-ce-java16</td>\n<td>19.3~21.1.0</td>\n<td>jabba</td>\n<td><a href=\"https://raw.githubusercontent.com/shyiko/jabba/master/index.json\" rel=\"nofollow\">https://raw.githubusercontent.com/shyiko/jabba/master/index.json</a></td>\n</tr>\n</tbody>\n</table>\n<h3 dir=\"auto\"><a id=\"user-content-nativeimagejvmindex\" class=\"anchor\" aria-hidden=\"true\" href=\"#nativeimagejvmindex\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><code>nativeImageJvmIndex</code></h3>\n<p dir=\"auto\"><strong>Type</strong>: <code>SettingKey[String]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: the index to use for resolving the JVM version. By default,\nuses the <a href=\"https://github.com/coursier/jvm-index\">Cousier JVM index</a>.</p>\n<p dir=\"auto\"><strong>Default</strong>: <code>\"cs\"</code>. Must be one of: <code>\"cs\"</code>, <code>\"jabba\"</code>.</p>\n<p dir=\"auto\"><strong>Example usage</strong>: <code>nativeImageJvmIndex := \"jabba\"</code>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-nativeimagecommand\" class=\"anchor\" aria-hidden=\"true\" href=\"#nativeimagecommand\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><code>nativeImageCommand</code></h3>\n<p dir=\"auto\"><strong>Type</strong>: <code>TaskKey[Seq[String]]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: the base command that is used to launch native-image.</p>\n<p dir=\"auto\"><strong>Default</strong>: resolves the command using <code>nativeImageGraalHome</code> task.</p>\n<p dir=\"auto\"><strong>Example usage</strong>: <code>nativeImageCommand := List(\"/path/to/native-image\")</code></p>\n<h3 dir=\"auto\"><a id=\"user-content-nativeimageready\" class=\"anchor\" aria-hidden=\"true\" href=\"#nativeimageready\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><code>nativeImageReady</code></h3>\n<p dir=\"auto\"><strong>Type</strong>: <code>SettingKey[() =&gt; Unit]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: a side-effecting callback that is called the native image is\nready.</p>\n<p dir=\"auto\"><strong>Default</strong>: alerts the message \"Native image ready!\" via the <code>say</code> command-line\ntool on macOS. Does nothing by default on Linux and Windows.</p>\n<h3 dir=\"auto\"><a id=\"user-content-nativeimagecoursier\" class=\"anchor\" aria-hidden=\"true\" href=\"#nativeimagecoursier\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><code>nativeImageCoursier</code></h3>\n<p dir=\"auto\"><strong>Type</strong>: <code>TaskKey[File]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: the path to a <code>coursier</code> binary.</p>\n<p dir=\"auto\"><strong>Default</strong>: copies a slim bootstrap binary from sbt-native-image resources.\nThis setting is ignored if you customize <code>nativeImageCommand</code> to use something\nelse than Coursier.</p>\n<h3 dir=\"auto\"><a id=\"user-content-nativeimageoutput\" class=\"anchor\" aria-hidden=\"true\" href=\"#nativeimageoutput\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><code>nativeImageOutput</code></h3>\n<p dir=\"auto\"><strong>Type</strong>: <code>SettingKey[File]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: the path to the native-image binary that is generated.</p>\n<p dir=\"auto\"><strong>Default</strong>: <code>target/native-image/NAME</code> where <code>NAME</code> is the name of the sbt\nproject. for available options.</p>\n<p dir=\"auto\"><strong>Example usage</strong>: <code>nativeImageOutput := file(\"target\") / \"my-binary\"</code></p>\n<h3 dir=\"auto\"><a id=\"user-content-nativeimageinstalled\" class=\"anchor\" aria-hidden=\"true\" href=\"#nativeimageinstalled\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><code>nativeImageInstalled</code></h3>\n<p dir=\"auto\"><strong>Type</strong>: <code>SettingKey[Boolean]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: whether GraalVM is manually installed or should be downloaded\nwith coursier.</p>\n<p dir=\"auto\"><strong>Default</strong>: checks if <code>NATIVE_IMAGE_INSTALLED</code> / <code>GRAALVM_INSTALLED</code>\nenvironment variables or <code>native-image-installed</code> / <code>graalvm-installed</code>\nproperties are set to <code>true</code>.</p>\n<h3 dir=\"auto\"><a id=\"user-content-nativeimagegraalhome\" class=\"anchor\" aria-hidden=\"true\" href=\"#nativeimagegraalhome\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><code>nativeImageGraalHome</code></h3>\n<p dir=\"auto\"><strong>Type</strong>: <code>TaskKey[Path]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: path to GraalVM home directory.</p>\n<p dir=\"auto\"><strong>Default</strong>: if <code>nativeImageInstalled</code> is <code>true</code>, then tries to read the path\nfrom environment variables 1) <code>GRAAL_HOME</code>, 2) <code>GRAALVM_HOME</code> or 3) <code>JAVA_HOME</code>\n(in given order). Otherwise, automatically installs GraalVM via\n<a href=\"https://get-coursier.io/\" rel=\"nofollow\">Coursier</a>. Customize this setting if you prefer to\nnot to use environment variables.</p>\n<p dir=\"auto\"><strong>Example usage</strong>:\n<code>nativeImageGraalHome := file(\"/path/to/graalvm/base/directory\").toPath</code></p>\n<h3 dir=\"auto\"><a id=\"user-content-nativeimagerunagent\" class=\"anchor\" aria-hidden=\"true\" href=\"#nativeimagerunagent\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><code>nativeImageRunAgent</code></h3>\n<p dir=\"auto\"><strong>Type</strong>: <code>InputKey[Unit]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: run application, tracking all usages of dynamic features of an\nexecution with\n<a href=\"https://www.graalvm.org/reference-manual/native-image/BuildConfiguration/#assisted-configuration-of-native-image-builds\" rel=\"nofollow\"><code>native-image-agent</code></a>.</p>\n<p dir=\"auto\">You may need to run this command if your app or any dependency uses reflection or JNI.</p>\n<p dir=\"auto\"><strong>Example usage</strong>:</p>\n<p dir=\"auto\">First, add the reflection configuration to the native image options</p>\n<div class=\"highlight highlight-source-diff notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"  // build.sbt\n\nlazy val myNativeProject = project\n  .settings(\n+     nativeImageOptions += s&quot;-H:ReflectionConfigurationFiles=${target.value / &quot;native-image-configs&quot; / &quot;reflect-config.json&quot;}&quot;,\n+     nativeImageOptions += s&quot;-H:ConfigurationFileDirectories=${target.value / &quot;native-image-configs&quot; }&quot;,\n+     nativeImageOptions +=&quot;-H:+JNI&quot;\n  )\n  .enablePlugins(NativeImagePlugin)\"><pre>  // build.sbt\n\nlazy val myNativeProject = project\n  .settings(\n<span class=\"pl-mi1\"><span class=\"pl-mi1\">+</span>     nativeImageOptions += s\"-H:ReflectionConfigurationFiles=${target.value / \"native-image-configs\" / \"reflect-config.json\"}\",</span>\n<span class=\"pl-mi1\"><span class=\"pl-mi1\">+</span>     nativeImageOptions += s\"-H:ConfigurationFileDirectories=${target.value / \"native-image-configs\" }\",</span>\n<span class=\"pl-mi1\"><span class=\"pl-mi1\">+</span>     nativeImageOptions +=\"-H:+JNI\"</span>\n  )\n  .enablePlugins(NativeImagePlugin)</pre></div>\n<p dir=\"auto\">Then, make sure to generate the reflection configuration with\n<code>nativeImageRunAgent</code> before running <code>nativeImage</code>.</p>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"# Step 0: Start sbt shell.\n$ sbt\n# Step 1: Run application on the JVM with native-image agent.\n&gt; myProject/nativeImageRunAgent &quot; arg1 arg2&quot;\n# Step 2: Create native-image binary with assisted configuration.\n&gt; myProject/nativeImage\n# Step 3: Run native-image that was generated with assisted configuration.\n&gt; myProject/nativeImageRun arg1 arg2\"><pre><span class=\"pl-c\"><span class=\"pl-c\">#</span> Step 0: Start sbt shell.</span>\n$ sbt\n<span class=\"pl-c\"><span class=\"pl-c\">#</span> Step 1: Run application on the JVM with native-image agent.</span>\n<span class=\"pl-k\">&gt;</span> myProject/nativeImageRunAgent <span class=\"pl-s\"><span class=\"pl-pds\">\"</span> arg1 arg2<span class=\"pl-pds\">\"</span></span>\n<span class=\"pl-c\"><span class=\"pl-c\">#</span> Step 2: Create native-image binary with assisted configuration.</span>\n<span class=\"pl-k\">&gt;</span> myProject/nativeImage\n<span class=\"pl-c\"><span class=\"pl-c\">#</span> Step 3: Run native-image that was generated with assisted configuration.</span>\n<span class=\"pl-k\">&gt;</span> myProject/nativeImageRun arg1 arg2</pre></div>\n<h3 dir=\"auto\"><a id=\"user-content-nativeimageagentoutputdir\" class=\"anchor\" aria-hidden=\"true\" href=\"#nativeimageagentoutputdir\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><code>nativeImageAgentOutputDir</code></h3>\n<p dir=\"auto\"><strong>Type</strong>: <code>SettingKey[File]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: directory where <code>native-image-agent</code> should put generated\nconfigurations.</p>\n<p dir=\"auto\"><strong>Default</strong>: <code>baseDirectory.value / \"native-image-configs\"</code></p>\n<p dir=\"auto\"><strong>Example usage</strong>:\n<code>nativeImageAgentOutputDir := baseDirectory.value / \"native-image-agent\" / \"out\"</code></p>\n<h3 dir=\"auto\"><a id=\"user-content-nativeimageagentmerge\" class=\"anchor\" aria-hidden=\"true\" href=\"#nativeimageagentmerge\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a><code>nativeImageAgentMerge</code></h3>\n<p dir=\"auto\"><strong>Type</strong>: <code>SettingKey[Boolean]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: whether <code>native-image-agent</code> should merge generated\nconfigurations.</p>\n<p dir=\"auto\"><strong>Default</strong>: <code>false</code></p>\n<p dir=\"auto\"><strong>Example usage</strong>: <code>nativeImageAgentMerge := true</code></p>\n<h2 dir=\"auto\"><a id=\"user-content-generate-native-image-from-github-actions\" class=\"anchor\" aria-hidden=\"true\" href=\"#generate-native-image-from-github-actions\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Generate native-image from GitHub Actions</h2>\n<p dir=\"auto\">The easiest way to distribute native-image binaries for Linux and macOS is to\nbuild the binaries in CI with GitHub Actions.</p>\n<ol dir=\"auto\">\n<li>\n<p dir=\"auto\">Copy the <code>native.yml</code> file from this repo into the <code>.github/workflows/</code>\ndirectory in your project.</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"mkdir -p .github/workflows &amp;&amp; \\\n  curl -L https://raw.githubusercontent.com/scalameta/sbt-native-image/master/.github/workflows/native.yml &gt; .github/workflows/native.yml\"><pre class=\"notranslate\"><code>mkdir -p .github/workflows &amp;&amp; \\\n  curl -L https://raw.githubusercontent.com/scalameta/sbt-native-image/master/.github/workflows/native.yml &gt; .github/workflows/native.yml\n</code></pre></div>\n</li>\n<li>\n<p dir=\"auto\">Edit the file to replace \"example\" with the name of your binary.</p>\n</li>\n<li>\n<p dir=\"auto\">Commit your changes.</p>\n</li>\n<li>\n<p dir=\"auto\">Push your commit to GitHub and see the binary get uploaded as an artifact to\nthe CI job.</p>\n</li>\n<li>\n<p dir=\"auto\">Create a GitHub release and see the binary get uploaded as assets to the\nrelease page.</p>\n</li>\n</ol>\n<h2 dir=\"auto\"><a id=\"user-content-comparison-with-sbt-native-packager\" class=\"anchor\" aria-hidden=\"true\" href=\"#comparison-with-sbt-native-packager\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Comparison with sbt-native-packager</h2>\n<p dir=\"auto\">The sbt-native-packager plugin provides similar support to generate native-image\nbinaries. Check out their documentation at\n<a href=\"https://sbt-native-packager.readthedocs.io/en/stable/formats/graalvm-native-image.html\" rel=\"nofollow\">https://sbt-native-packager.readthedocs.io/en/stable/formats/graalvm-native-image.html</a></p>\n<p dir=\"auto\">The key differences between sbt-native-packager and sbt-native-image are:</p>\n<ul dir=\"auto\">\n<li>sbt-native-image automatically installs GraalVM native-image by default. You\ndon't need to configure a docker image or manually install a correct GraalVM\nJDK before starting sbt.</li>\n<li>sbt-native-image automatically works out-of-the-box with Scala 2.12.12+ and\n2.13.3+. You don't need custom settings to work around issues like like\n<a href=\"https://github.com/scala/bug/issues/11634\" data-hovercard-type=\"issue\" data-hovercard-url=\"/scala/bug/issues/11634/hovercard\">scala/bug#11634</a>.</li>\n<li>sbt-native-image displays live progress output from the <code>native-image</code> while\nit's generating the binary. For some reason, sbt-native-packager only displays\noutput from native-image after the process completes (see issue\n<a href=\"https://github.com/sbt/sbt-native-packager/issues/1345\" data-hovercard-type=\"issue\" data-hovercard-url=\"/sbt/sbt-native-packager/issues/1345/hovercard\">#1345</a>).</li>\n<li>sbt-native-packager has Docker support, which is helpful if you need more\nfine-grained control over the linking environment. There are no plans to add\nDocker support in sbt-native-image.</li>\n</ul>\n</article></div>",
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"readme.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><div class=\"markdown-heading\" dir=\"auto\"><h1 class=\"heading-element\" dir=\"auto\">Generate native-image binaries with sbt</h1><a id=\"user-content-generate-native-image-binaries-with-sbt\" class=\"anchor\" aria-label=\"Permalink: Generate native-image binaries with sbt\" href=\"#generate-native-image-binaries-with-sbt\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">This plugin makes it easy to generate native-image binaries with sbt. Key\nfeatures:</p>\n<ul dir=\"auto\">\n<li>automatic GraalVM native-image installation powered by\n<a href=\"https://get-coursier.io/\" rel=\"nofollow\">Coursier</a>, no need to start sbt with a custom\n<code>$JAVA_HOME</code> or spin up Docker. See\n<a href=\"https://scala-lang.org/2020/06/29/one-click-install.html\" rel=\"nofollow\">One-click install for Scala</a>\nfor more details.</li>\n<li>automatic support for Scala 2.12.12+ and 2.13.3+, no need to deal with issues\nlike <a href=\"https://github.com/scala/bug/issues/11634\" data-hovercard-type=\"issue\" data-hovercard-url=\"/scala/bug/issues/11634/hovercard\">scala/bug#11634</a>.</li>\n<li>works with Scala 3 (Dotty)</li>\n<li>get a notification when the binary is ready to use.</li>\n<li>works on macOS, Windows and Linux.</li>\n<li>works with Java 8 and Java 11.</li>\n</ul>\n<p dir=\"auto\"><strong>Overview:</strong></p>\n<ul dir=\"auto\">\n<li><a href=\"#getting-started\">Getting started</a></li>\n<li><a href=\"#configuration\">Configuration</a></li>\n<li><a href=\"#generate-native-image-from-github-actions\">Generate native-image from GitHub Actions</a></li>\n<li><a href=\"#comparison-with-sbt-native-packager\">Comparison with sbt-native-packager</a></li>\n</ul>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Getting started</h2><a id=\"user-content-getting-started\" class=\"anchor\" aria-label=\"Permalink: Getting started\" href=\"#getting-started\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">First, add the sbt plugin to your build in <code>project/plugins.sbt</code>.</p>\n<p dir=\"auto\"><a href=\"https://github.com/scalameta/sbt-native-image/releases\"><img src=\"https://camo.githubusercontent.com/fc2de833de52f5dda4a84caf02d1fc569225eb70055b81841543071304e595de/68747470733a2f2f696e6465782e7363616c612d6c616e672e6f72672f7363616c616d6574612f7362742d6e61746976652d696d6167652f6c61746573742e7376673f636f6c6f723d626c7565\" alt=\"\" data-canonical-src=\"https://index.scala-lang.org/scalameta/sbt-native-image/latest.svg?color=blue\" style=\"max-width: 100%;\"></a></p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"// project/plugins.sbt\naddSbtPlugin(&quot;org.scalameta&quot; % &quot;sbt-native-image&quot; % &quot;0.3.2&quot;)\"><pre><span class=\"pl-c\"><span class=\"pl-c\">//</span> project/plugins.sbt</span>\naddSbtPlugin(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.scalameta<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sbt-native-image<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.3.2<span class=\"pl-pds\">\"</span></span>)</pre></div>\n<p dir=\"auto\">Next, enable the plugin to your native-image application in <code>build.sbt</code> and\nconfigure the main class.</p>\n<div class=\"highlight highlight-source-diff notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"  // build.sbt\n  lazy val myNativeImageProject = project\n+   .enablePlugins(NativeImagePlugin)\n    .settings(\n      // ...\n+     Compile / mainClass := Some(&quot;com.my.MainClass&quot;)\n    )\"><pre>  // build.sbt\n  lazy val myNativeImageProject = project\n<span class=\"pl-mi1\"><span class=\"pl-mi1\">+</span>   .enablePlugins(NativeImagePlugin)</span>\n    .settings(\n      // ...\n<span class=\"pl-mi1\"><span class=\"pl-mi1\">+</span>     Compile / mainClass := Some(\"com.my.MainClass\")</span>\n    )</pre></div>\n<p dir=\"auto\">Additionally, if your app uses reflection or JNI, you may need to run <code>nativeImageRunAgent</code> command to capture runtime information. For more details, see <a href=\"#nativeimagerunagent\"><code>nativeImageRunAgent</code></a> section.</p>\n<p dir=\"auto\">Finally, run the <code>nativeImage</code> task to generate the binary.</p>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"$ sbt\n&gt; myNativeImageProject/nativeImage\n...\n[info] Native image ready!\n[info] /path/to/your/binary\"><pre>$ sbt\n<span class=\"pl-k\">&gt;</span> myNativeImageProject/nativeImage\n...\n[info] Native image ready<span class=\"pl-k\">!</span>\n[info] /path/to/your/binary</pre></div>\n<p dir=\"auto\">Optionally, use <code>nativeImageRun</code> to execute the generated binary and manually\ntest that it works as expected.</p>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"&gt; myNativeImageProject/nativeImageRun argument1 argument 2\n# output from your native-image binary\"><pre><span class=\"pl-k\">&gt;</span> myNativeImageProject/nativeImageRun argument1 argument 2\n<span class=\"pl-c\"><span class=\"pl-c\">#</span> output from your native-image binary</span></pre></div>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Configuration</h2><a id=\"user-content-configuration\" class=\"anchor\" aria-label=\"Permalink: Configuration\" href=\"#configuration\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">sbt-native-image provides several settings, tasks and input tasks to customize\nnative-image generation and to automate your native-image workflows.</p>\n<ul dir=\"auto\">\n<li><a href=\"#nativeimage\"><code>nativeImage</code></a>: generate a native image</li>\n<li><a href=\"#nativeimageoptions\"><code>nativeImageOptions</code></a>: customize native image generation</li>\n<li><a href=\"#nativeimagerun\"><code>nativeImageRun</code></a>: execute the generated native image</li>\n<li><a href=\"#nativeimagecopy\"><code>nativeImageCopy</code></a>: generate a native image and copy the\nbinary</li>\n<li><a href=\"#nativeimageversion\"><code>nativeImageVersion</code></a>: the GraalVM version to use for\nnative-image</li>\n<li><a href=\"#nativeimagejvm\"><code>nativeImageJvm</code></a>: the GraalVM JVM version to use for\nnative-image</li>\n<li><a href=\"#nativeimagejvmindex\"><code>nativeImageJvmIndex</code></a>: the index to use for resolving\nthe JVM version</li>\n<li><a href=\"#nativeimagecommand\"><code>nativeImageCommand</code></a>: the command to launch\n<code>native-image</code></li>\n<li><a href=\"#nativeimageready\"><code>nativeImageReady</code></a>: callback hook when native-image is\nready</li>\n<li><a href=\"#nativeimagecoursier\"><code>nativeImageCoursier</code></a>: the path to a <code>coursier</code> binary</li>\n<li><a href=\"#nativeimageoutput\"><code>nativeImageOutput</code></a>: the path to the generated\nnative-image binary</li>\n<li><a href=\"#nativeimageinstalled\"><code>nativeImageInstalled</code></a>: whether GraalVM is manually\ninstalled or should be downloaded with coursier</li>\n<li><a href=\"#nativeimagegraalhome\"><code>nativeImageGraalHome</code></a>: path to GraalVM home\ndirectory</li>\n<li><a href=\"#nativeimagerunagent\"><code>nativeImageRunAgent</code></a>: run application, tracking all\nusages of dynamic features of an execution with\n<a href=\"https://www.graalvm.org/reference-manual/native-image/BuildConfiguration/#assisted-configuration-of-native-image-builds\" rel=\"nofollow\"><code>native-image-agent</code></a></li>\n<li><a href=\"#nativeimageagentoutputdir\"><code>nativeImageAgentOutputDir</code></a>: directory where\n<code>native-image-agent</code> should put generated configurations</li>\n<li><a href=\"#nativeimageagentmerge\"><code>nativeImageAgentMerge</code></a>: whether\n<code>native-image-agent</code> should merge generated configurations</li>\n</ul>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\"><code>nativeImage</code></h3><a id=\"user-content-nativeimage\" class=\"anchor\" aria-label=\"Permalink: nativeImage\" href=\"#nativeimage\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><strong>Type</strong>: <code>TaskKey[File]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: runs native-image and returns the resulting binary file.</p>\n<p dir=\"auto\"><strong>Example usage</strong>: <code>sbt myProject/nativeImage</code></p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\"><code>nativeImageOptions</code></h3><a id=\"user-content-nativeimageoptions\" class=\"anchor\" aria-label=\"Permalink: nativeImageOptions\" href=\"#nativeimageoptions\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><strong>Type</strong>: <code>TaskKey[Seq[String]]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: custom native-image linking options. See <code>native-image --help</code>\nfor available options. Empty by default.</p>\n<p dir=\"auto\"><strong>Example usage</strong>: <code>nativeImageOptions ++= List(\"--initialize-at-build-time\")</code></p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\"><code>nativeImageRun</code></h3><a id=\"user-content-nativeimagerun\" class=\"anchor\" aria-label=\"Permalink: nativeImageRun\" href=\"#nativeimagerun\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><strong>Type</strong>: <code>InputKey[File]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: executes the native-image binary with given arguments. This\ntask can only be used after <code>nativeImage</code> has completed.</p>\n<p dir=\"auto\"><strong>Example usage</strong>:</p>\n<ul dir=\"auto\">\n<li><code>sbt myProject/nativeImage 'myProject/nativeImageRun hello'</code></li>\n<li>Error: <code>sbt clean myProject/nativeImageRun</code>. Crashes because native-image does\nnot exist.</li>\n</ul>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\"><code>nativeImageCopy</code></h3><a id=\"user-content-nativeimagecopy\" class=\"anchor\" aria-label=\"Permalink: nativeImageCopy\" href=\"#nativeimagecopy\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><strong>Type</strong>: <code>InputKey[File]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: identical to <code>nativeImage</code> except the resulting binary is\nadditionally copied to the provided file. This task is helpful when configuring\nCI to generate the binary in a specific place.</p>\n<p dir=\"auto\"><strong>Example usage</strong>:</p>\n<ul dir=\"auto\">\n<li><code>sbt 'myProject/nativeImageCopy mybinary-x86_64-apple-darwin'</code>.</li>\n<li><code>sbt 'myProject/nativeImageCopy mybinary-x86_64-pc-linux'</code>.</li>\n</ul>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\"><code>nativeImageVersion</code></h3><a id=\"user-content-nativeimageversion\" class=\"anchor\" aria-label=\"Permalink: nativeImageVersion\" href=\"#nativeimageversion\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><strong>Type</strong>: <code>SettingKey[String]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: the GraalVM version to use.</p>\n<p dir=\"auto\"><strong>Default</strong>: 20.2.0</p>\n<p dir=\"auto\"><strong>Example usage</strong>: <code>nativeImageVersion := \"19.3.3\"</code></p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\"><code>nativeImageJvm</code></h3><a id=\"user-content-nativeimagejvm\" class=\"anchor\" aria-label=\"Permalink: nativeImageJvm\" href=\"#nativeimagejvm\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><strong>Type</strong>: <code>SettingKey[String]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: the GraalVM JVM version to use.</p>\n<p dir=\"auto\"><strong>Default</strong>: <code>\"graalvm-java11\"</code>. Must be one of the combinations below.</p>\n<p dir=\"auto\"><strong>Example usage</strong>: <code>nativeImageJvm := \"graalvm\"</code></p>\n<markdown-accessiblity-table><table>\n<thead>\n<tr>\n<th>nativeImageJvm</th>\n<th>nativeImageVersion</th>\n<th>nativeImageJvmIndex</th>\n<th>source</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>graalvm, graalvm-java11, graalvm-java17</td>\n<td>1.0.0-x,19.0.0~21.1.0</td>\n<td>cs</td>\n<td><a href=\"https://github.com/coursier/jvm-index\">https://github.com/coursier/jvm-index</a></td>\n</tr>\n<tr>\n<td>graalvm-ce-java8, graalvm-ce-java11, graalvm-ce-java16</td>\n<td>19.3~21.1.0</td>\n<td>jabba</td>\n<td><a href=\"https://raw.githubusercontent.com/shyiko/jabba/master/index.json\" rel=\"nofollow\">https://raw.githubusercontent.com/shyiko/jabba/master/index.json</a></td>\n</tr>\n</tbody>\n</table></markdown-accessiblity-table>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\"><code>nativeImageJvmIndex</code></h3><a id=\"user-content-nativeimagejvmindex\" class=\"anchor\" aria-label=\"Permalink: nativeImageJvmIndex\" href=\"#nativeimagejvmindex\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><strong>Type</strong>: <code>SettingKey[String]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: the index to use for resolving the JVM version. By default,\nuses the <a href=\"https://github.com/coursier/jvm-index\">Cousier JVM index</a>.</p>\n<p dir=\"auto\"><strong>Default</strong>: <code>\"cs\"</code>. Must be one of: <code>\"cs\"</code>, <code>\"jabba\"</code>.</p>\n<p dir=\"auto\"><strong>Example usage</strong>: <code>nativeImageJvmIndex := \"jabba\"</code>.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\"><code>nativeImageCommand</code></h3><a id=\"user-content-nativeimagecommand\" class=\"anchor\" aria-label=\"Permalink: nativeImageCommand\" href=\"#nativeimagecommand\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><strong>Type</strong>: <code>TaskKey[Seq[String]]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: the base command that is used to launch native-image.</p>\n<p dir=\"auto\"><strong>Default</strong>: resolves the command using <code>nativeImageGraalHome</code> task.</p>\n<p dir=\"auto\"><strong>Example usage</strong>: <code>nativeImageCommand := List(\"/path/to/native-image\")</code></p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\"><code>nativeImageReady</code></h3><a id=\"user-content-nativeimageready\" class=\"anchor\" aria-label=\"Permalink: nativeImageReady\" href=\"#nativeimageready\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><strong>Type</strong>: <code>SettingKey[() =&gt; Unit]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: a side-effecting callback that is called the native image is\nready.</p>\n<p dir=\"auto\"><strong>Default</strong>: alerts the message \"Native image ready!\" via the <code>say</code> command-line\ntool on macOS. Does nothing by default on Linux and Windows.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\"><code>nativeImageCoursier</code></h3><a id=\"user-content-nativeimagecoursier\" class=\"anchor\" aria-label=\"Permalink: nativeImageCoursier\" href=\"#nativeimagecoursier\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><strong>Type</strong>: <code>TaskKey[File]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: the path to a <code>coursier</code> binary.</p>\n<p dir=\"auto\"><strong>Default</strong>: copies a slim bootstrap binary from sbt-native-image resources.\nThis setting is ignored if you customize <code>nativeImageCommand</code> to use something\nelse than Coursier.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\"><code>nativeImageOutput</code></h3><a id=\"user-content-nativeimageoutput\" class=\"anchor\" aria-label=\"Permalink: nativeImageOutput\" href=\"#nativeimageoutput\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><strong>Type</strong>: <code>SettingKey[File]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: the path to the native-image binary that is generated.</p>\n<p dir=\"auto\"><strong>Default</strong>: <code>target/native-image/NAME</code> where <code>NAME</code> is the name of the sbt\nproject. for available options.</p>\n<p dir=\"auto\"><strong>Example usage</strong>: <code>nativeImageOutput := file(\"target\") / \"my-binary\"</code></p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\"><code>nativeImageInstalled</code></h3><a id=\"user-content-nativeimageinstalled\" class=\"anchor\" aria-label=\"Permalink: nativeImageInstalled\" href=\"#nativeimageinstalled\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><strong>Type</strong>: <code>SettingKey[Boolean]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: whether GraalVM is manually installed or should be downloaded\nwith coursier.</p>\n<p dir=\"auto\"><strong>Default</strong>: checks if <code>NATIVE_IMAGE_INSTALLED</code> / <code>GRAALVM_INSTALLED</code>\nenvironment variables or <code>native-image-installed</code> / <code>graalvm-installed</code>\nproperties are set to <code>true</code>.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\"><code>nativeImageGraalHome</code></h3><a id=\"user-content-nativeimagegraalhome\" class=\"anchor\" aria-label=\"Permalink: nativeImageGraalHome\" href=\"#nativeimagegraalhome\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><strong>Type</strong>: <code>TaskKey[Path]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: path to GraalVM home directory.</p>\n<p dir=\"auto\"><strong>Default</strong>: if <code>nativeImageInstalled</code> is <code>true</code>, then tries to read the path\nfrom environment variables 1) <code>GRAAL_HOME</code>, 2) <code>GRAALVM_HOME</code> or 3) <code>JAVA_HOME</code>\n(in given order). Otherwise, automatically installs GraalVM via\n<a href=\"https://get-coursier.io/\" rel=\"nofollow\">Coursier</a>. Customize this setting if you prefer to\nnot to use environment variables.</p>\n<p dir=\"auto\"><strong>Example usage</strong>:\n<code>nativeImageGraalHome := file(\"/path/to/graalvm/base/directory\").toPath</code></p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\"><code>nativeImageRunAgent</code></h3><a id=\"user-content-nativeimagerunagent\" class=\"anchor\" aria-label=\"Permalink: nativeImageRunAgent\" href=\"#nativeimagerunagent\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><strong>Type</strong>: <code>InputKey[Unit]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: run application, tracking all usages of dynamic features of an\nexecution with\n<a href=\"https://www.graalvm.org/reference-manual/native-image/BuildConfiguration/#assisted-configuration-of-native-image-builds\" rel=\"nofollow\"><code>native-image-agent</code></a>.</p>\n<p dir=\"auto\">You may need to run this command if your app or any dependency uses reflection or JNI.</p>\n<p dir=\"auto\"><strong>Example usage</strong>:</p>\n<p dir=\"auto\">First, add the reflection configuration to the native image options</p>\n<div class=\"highlight highlight-source-diff notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"  // build.sbt\n\nlazy val myNativeProject = project\n  .settings(\n+     nativeImageOptions += s&quot;-H:ReflectionConfigurationFiles=${target.value / &quot;native-image-configs&quot; / &quot;reflect-config.json&quot;}&quot;,\n+     nativeImageOptions += s&quot;-H:ConfigurationFileDirectories=${target.value / &quot;native-image-configs&quot; }&quot;,\n+     nativeImageOptions +=&quot;-H:+JNI&quot;\n  )\n  .enablePlugins(NativeImagePlugin)\"><pre>  // build.sbt\n\nlazy val myNativeProject = project\n  .settings(\n<span class=\"pl-mi1\"><span class=\"pl-mi1\">+</span>     nativeImageOptions += s\"-H:ReflectionConfigurationFiles=${target.value / \"native-image-configs\" / \"reflect-config.json\"}\",</span>\n<span class=\"pl-mi1\"><span class=\"pl-mi1\">+</span>     nativeImageOptions += s\"-H:ConfigurationFileDirectories=${target.value / \"native-image-configs\" }\",</span>\n<span class=\"pl-mi1\"><span class=\"pl-mi1\">+</span>     nativeImageOptions +=\"-H:+JNI\"</span>\n  )\n  .enablePlugins(NativeImagePlugin)</pre></div>\n<p dir=\"auto\">Then, make sure to generate the reflection configuration with\n<code>nativeImageRunAgent</code> before running <code>nativeImage</code>.</p>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"# Step 0: Start sbt shell.\n$ sbt\n# Step 1: Run application on the JVM with native-image agent.\n&gt; myProject/nativeImageRunAgent &quot; arg1 arg2&quot;\n# Step 2: Create native-image binary with assisted configuration.\n&gt; myProject/nativeImage\n# Step 3: Run native-image that was generated with assisted configuration.\n&gt; myProject/nativeImageRun arg1 arg2\"><pre><span class=\"pl-c\"><span class=\"pl-c\">#</span> Step 0: Start sbt shell.</span>\n$ sbt\n<span class=\"pl-c\"><span class=\"pl-c\">#</span> Step 1: Run application on the JVM with native-image agent.</span>\n<span class=\"pl-k\">&gt;</span> myProject/nativeImageRunAgent <span class=\"pl-s\"><span class=\"pl-pds\">\"</span> arg1 arg2<span class=\"pl-pds\">\"</span></span>\n<span class=\"pl-c\"><span class=\"pl-c\">#</span> Step 2: Create native-image binary with assisted configuration.</span>\n<span class=\"pl-k\">&gt;</span> myProject/nativeImage\n<span class=\"pl-c\"><span class=\"pl-c\">#</span> Step 3: Run native-image that was generated with assisted configuration.</span>\n<span class=\"pl-k\">&gt;</span> myProject/nativeImageRun arg1 arg2</pre></div>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\"><code>nativeImageAgentOutputDir</code></h3><a id=\"user-content-nativeimageagentoutputdir\" class=\"anchor\" aria-label=\"Permalink: nativeImageAgentOutputDir\" href=\"#nativeimageagentoutputdir\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><strong>Type</strong>: <code>SettingKey[File]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: directory where <code>native-image-agent</code> should put generated\nconfigurations.</p>\n<p dir=\"auto\"><strong>Default</strong>: <code>baseDirectory.value / \"native-image-configs\"</code></p>\n<p dir=\"auto\"><strong>Example usage</strong>:\n<code>nativeImageAgentOutputDir := baseDirectory.value / \"native-image-agent\" / \"out\"</code></p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\"><code>nativeImageAgentMerge</code></h3><a id=\"user-content-nativeimageagentmerge\" class=\"anchor\" aria-label=\"Permalink: nativeImageAgentMerge\" href=\"#nativeimageagentmerge\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><strong>Type</strong>: <code>SettingKey[Boolean]</code></p>\n<p dir=\"auto\"><strong>Description</strong>: whether <code>native-image-agent</code> should merge generated\nconfigurations.</p>\n<p dir=\"auto\"><strong>Default</strong>: <code>false</code></p>\n<p dir=\"auto\"><strong>Example usage</strong>: <code>nativeImageAgentMerge := true</code></p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Generate native-image from GitHub Actions</h2><a id=\"user-content-generate-native-image-from-github-actions\" class=\"anchor\" aria-label=\"Permalink: Generate native-image from GitHub Actions\" href=\"#generate-native-image-from-github-actions\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">The easiest way to distribute native-image binaries for Linux and macOS is to\nbuild the binaries in CI with GitHub Actions.</p>\n<ol dir=\"auto\">\n<li>\n<p dir=\"auto\">Copy the <code>native.yml</code> file from this repo into the <code>.github/workflows/</code>\ndirectory in your project.</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"mkdir -p .github/workflows &amp;&amp; \\\n  curl -L https://raw.githubusercontent.com/scalameta/sbt-native-image/master/.github/workflows/native.yml &gt; .github/workflows/native.yml\"><pre class=\"notranslate\"><code>mkdir -p .github/workflows &amp;&amp; \\\n  curl -L https://raw.githubusercontent.com/scalameta/sbt-native-image/master/.github/workflows/native.yml &gt; .github/workflows/native.yml\n</code></pre></div>\n</li>\n<li>\n<p dir=\"auto\">Edit the file to replace \"example\" with the name of your binary.</p>\n</li>\n<li>\n<p dir=\"auto\">Commit your changes.</p>\n</li>\n<li>\n<p dir=\"auto\">Push your commit to GitHub and see the binary get uploaded as an artifact to\nthe CI job.</p>\n</li>\n<li>\n<p dir=\"auto\">Create a GitHub release and see the binary get uploaded as assets to the\nrelease page.</p>\n</li>\n</ol>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Comparison with sbt-native-packager</h2><a id=\"user-content-comparison-with-sbt-native-packager\" class=\"anchor\" aria-label=\"Permalink: Comparison with sbt-native-packager\" href=\"#comparison-with-sbt-native-packager\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">The sbt-native-packager plugin provides similar support to generate native-image\nbinaries. Check out their documentation at\n<a href=\"https://sbt-native-packager.readthedocs.io/en/stable/formats/graalvm-native-image.html\" rel=\"nofollow\">https://sbt-native-packager.readthedocs.io/en/stable/formats/graalvm-native-image.html</a></p>\n<p dir=\"auto\">The key differences between sbt-native-packager and sbt-native-image are:</p>\n<ul dir=\"auto\">\n<li>sbt-native-image automatically installs GraalVM native-image by default. You\ndon't need to configure a docker image or manually install a correct GraalVM\nJDK before starting sbt.</li>\n<li>sbt-native-image automatically works out-of-the-box with Scala 2.12.12+ and\n2.13.3+. You don't need custom settings to work around issues like like\n<a href=\"https://github.com/scala/bug/issues/11634\" data-hovercard-type=\"issue\" data-hovercard-url=\"/scala/bug/issues/11634/hovercard\">scala/bug#11634</a>.</li>\n<li>sbt-native-image displays live progress output from the <code>native-image</code> while\nit's generating the binary. For some reason, sbt-native-packager only displays\noutput from native-image after the process completes (see issue\n<a href=\"https://github.com/sbt/sbt-native-packager/issues/1345\" data-hovercard-type=\"issue\" data-hovercard-url=\"/sbt/sbt-native-packager/issues/1345/hovercard\">#1345</a>).</li>\n<li>sbt-native-packager has Docker support, which is helpful if you need more\nfine-grained control over the linking environment. There are no plans to add\nDocker support in sbt-native-image.</li>\n</ul>\n</article></div>",
     "contributors" : [
       {
         "login" : "olafurpg",
@@ -31,6 +31,12 @@
         "contributions" : 11
       },
       {
+        "login" : "ckipp01",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13974112?v=4",
+        "url" : "https://github.com/ckipp01",
+        "contributions" : 10
+      },
+      {
         "login" : "i10416",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/39330037?v=4",
         "url" : "https://github.com/i10416",
@@ -43,6 +49,12 @@
         "contributions" : 3
       },
       {
+        "login" : "eed3si9n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/184683?v=4",
+        "url" : "https://github.com/eed3si9n",
+        "contributions" : 2
+      },
+      {
         "login" : "leifwickland",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/731622?v=4",
         "url" : "https://github.com/leifwickland",
@@ -52,12 +64,6 @@
         "login" : "AlexITC",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/4218436?v=4",
         "url" : "https://github.com/AlexITC",
-        "contributions" : 1
-      },
-      {
-        "login" : "ckipp01",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/13974112?v=4",
-        "url" : "https://github.com/ckipp01",
         "contributions" : 1
       },
       {
@@ -73,13 +79,37 @@
         "contributions" : 1
       },
       {
+        "login" : "JannikArndt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7119122?v=4",
+        "url" : "https://github.com/JannikArndt",
+        "contributions" : 1
+      },
+      {
+        "login" : "guizmaii",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1193670?v=4",
+        "url" : "https://github.com/guizmaii",
+        "contributions" : 1
+      },
+      {
+        "login" : "cobr123",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/82329?v=4",
+        "url" : "https://github.com/cobr123",
+        "contributions" : 1
+      },
+      {
         "login" : "tabdulradi",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/725206?v=4",
         "url" : "https://github.com/tabdulradi",
         "contributions" : 1
+      },
+      {
+        "login" : "exoego",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/127635?v=4",
+        "url" : "https://github.com/exoego",
+        "contributions" : 1
       }
     ],
-    "commits" : 39,
+    "commits" : 54,
     "topics" : [
       "github-actions",
       "graalvm-native-image",
@@ -90,8 +120,27 @@
     ],
     "contributingGuide" : null,
     "codeOfConduct" : null,
-    "chatroom" : null,
     "openIssues" : [
+      {
+        "number" : 73,
+        "title" : "Feature Request: Allow to automatically use https://github.com/oracle/graalvm-reachability-metadata",
+        "url" : "https://github.com/scalameta/sbt-native-image/issues/73"
+      },
+      {
+        "number" : 67,
+        "title" : "No native-image-configs folder when running nativeImageRunAgent for play framework.",
+        "url" : "https://github.com/scalameta/sbt-native-image/issues/67"
+      },
+      {
+        "number" : 65,
+        "title" : "Support of LLVM backend",
+        "url" : "https://github.com/scalameta/sbt-native-image/issues/65"
+      },
+      {
+        "number" : 63,
+        "title" : "FeatureRequest: support for setting up Experimental Agent Options",
+        "url" : "https://github.com/scalameta/sbt-native-image/issues/63"
+      },
       {
         "number" : 59,
         "title" : "Graal 22.x Doesn't Work",
@@ -168,701 +217,23 @@
         "url" : "https://github.com/scalameta/sbt-native-image/issues/16"
       }
     ],
-    "scalaPercentage" : 90,
+    "scalaPercentage" : 93,
     "license" : null,
     "commitActivity" : [
-      {
-        "total" : 0,
-        "week" : 1629590400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1630195200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          1,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1630800000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1631404800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1632009600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1632614400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1633219200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1633824000000,
-        "days" : [
-          0,
-          0,
-          0,
-          2,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1634428800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1635033600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1635638400000,
-        "days" : [
-          0,
-          0,
-          1,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1636243200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1636848000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1637452800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1638057600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1638662400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1639267200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1639872000000,
-        "days" : [
-          0,
-          0,
-          0,
-          1,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1640476800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1641081600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1641686400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1642291200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1642896000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1643500800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1644105600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1644710400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1645315200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1645920000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1646524800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1647129600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1647734400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1648339200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1648944000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1649548800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1650153600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1650758400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1651363200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1651968000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1652572800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1653177600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1653782400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1654387200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1654992000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1655596800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1656201600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1656806400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1657411200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1658016000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1658620800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1659225600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1659830400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1660435200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      }
     ]
   },
   "settings" : {
     "preferStableVersion" : true,
     "defaultArtifact" : null,
-    "strictVersions" : false,
     "customScalaDoc" : null,
     "documentationLinks" : [
     ],
-    "deprecated" : false,
     "contributorsWanted" : false,
     "deprecatedArtifacts" : [
     ],
     "cliArtifacts" : [
     ],
     "category" : "packaging-and-publishing",
-    "beginnerIssuesLabel" : null
+    "chatroom" : null
   }
 }

@@ -4,25 +4,25 @@
   "creationDate" : 1476410229940,
   "githubStatus" : {
     "Ok" : {
-      "updateDate" : 1660815561966
+      "updateDate" : 1723549855842
     }
   },
   "githubInfo" : {
     "homepage" : "",
     "description" : "librarymanagement module for sbt",
     "logo" : "https://avatars.githubusercontent.com/u/1158012?v=4",
-    "stars" : 41,
-    "forks" : 72,
+    "stars" : 46,
+    "forks" : 81,
     "watchers" : 9,
-    "issues" : 8,
+    "issues" : 10,
     "creationDate" : 1439968293000,
-    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><h1 dir=\"auto\"><a id=\"user-content-librarymanagement-module-for-sbt\" class=\"anchor\" aria-hidden=\"true\" href=\"#librarymanagement-module-for-sbt\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>librarymanagement module for sbt</h1>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"scala&gt; import java.io.File\nimport java.io.File\n\nscala&gt; import sbt.librarymanagement._, syntax._\nimport sbt.librarymanagement._\nimport syntax._\n\nscala&gt; val log = sbt.util.LogExchange.logger(&quot;test&quot;)\nlog: sbt.internal.util.ManagedLogger = sbt.internal.util.ManagedLogger@c439b0f\n\nscala&gt; val lm = {\n         import sbt.librarymanagement.ivy._\n         val ivyConfig = InlineIvyConfiguration().withLog(log)\n         IvyDependencyResolution(ivyConfig)\n       }\nlm: sbt.librarymanagement.DependencyResolution = sbt.librarymanagement.DependencyResolution@6a9b40f8\n\nscala&gt; val module = &quot;commons-io&quot; % &quot;commons-io&quot; % &quot;2.5&quot;\nmodule: sbt.librarymanagement.ModuleID = commons-io:commons-io:2.5\n\nscala&gt; lm.retrieve(module, scalaModuleInfo = None, new File(&quot;target&quot;), log)\nres0: Either[sbt.librarymanagement.UnresolvedWarning,Vector[java.io.File]] = Right(Vector(target/jars/commons-io/commons-io/commons-io-2.5.jar, target/jars/commons-io/commons-io/commons-io-2.5.jar, target/jars/commons-io/commons-io/commons-io-2.5.jar))\"><pre>scala<span class=\"pl-k\">&gt;</span> <span class=\"pl-k\">import</span> <span class=\"pl-en\">java</span>.<span class=\"pl-en\">io</span>.<span class=\"pl-en\">File</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">java</span>.<span class=\"pl-en\">io</span>.<span class=\"pl-en\">File</span>\n\nscala<span class=\"pl-k\">&gt;</span> <span class=\"pl-k\">import</span> <span class=\"pl-en\">sbt</span>.<span class=\"pl-en\">librarymanagement</span>.<span class=\"pl-en\">_</span>, <span class=\"pl-en\">syntax</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">sbt</span>.<span class=\"pl-en\">librarymanagement</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">syntax</span>.<span class=\"pl-en\">_</span>\n\nscala<span class=\"pl-k\">&gt;</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">log</span> <span class=\"pl-k\">=</span> sbt.util.<span class=\"pl-en\">LogExchange</span>.logger(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>test<span class=\"pl-pds\">\"</span></span>)\nlog<span class=\"pl-k\">:</span> sbt.internal.util.<span class=\"pl-en\">ManagedLogger</span> <span class=\"pl-k\">=</span> sbt.internal.util.<span class=\"pl-en\">ManagedLogger</span><span class=\"pl-k\">@</span>c439b0f\n\nscala<span class=\"pl-k\">&gt;</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">lm</span> <span class=\"pl-k\">=</span> {\n         <span class=\"pl-k\">import</span> <span class=\"pl-en\">sbt</span>.<span class=\"pl-en\">librarymanagement</span>.<span class=\"pl-en\">ivy</span>.<span class=\"pl-en\">_</span>\n         <span class=\"pl-k\">val</span> <span class=\"pl-smi\">ivyConfig</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">InlineIvyConfiguration</span>().withLog(log)\n         <span class=\"pl-en\">IvyDependencyResolution</span>(ivyConfig)\n       }\nlm<span class=\"pl-k\">:</span> sbt.librarymanagement.<span class=\"pl-en\">DependencyResolution</span> <span class=\"pl-k\">=</span> sbt.librarymanagement.<span class=\"pl-en\">DependencyResolution</span><span class=\"pl-k\">@</span>6a9b40f8\n\nscala<span class=\"pl-k\">&gt;</span> <span class=\"pl-k\">val</span> <span class=\"pl-smi\">module</span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>commons-io<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>commons-io<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>2.5<span class=\"pl-pds\">\"</span></span>\nmodule<span class=\"pl-k\">:</span> sbt.librarymanagement.<span class=\"pl-en\">ModuleID</span> <span class=\"pl-k\">=</span> commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">:</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">:</span><span class=\"pl-c1\">2.5</span>\n\nscala<span class=\"pl-k\">&gt;</span> lm.retrieve(module, scalaModuleInfo <span class=\"pl-k\">=</span> <span class=\"pl-en\">None</span>, <span class=\"pl-k\">new</span> <span class=\"pl-en\">File</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>target<span class=\"pl-pds\">\"</span></span>), log)\nres0<span class=\"pl-k\">:</span> <span class=\"pl-en\">Either</span>[sbt.librarymanagement.<span class=\"pl-en\">UnresolvedWarning</span>,<span class=\"pl-en\">Vector</span>[java.io.<span class=\"pl-en\">File</span>]] <span class=\"pl-k\">=</span> <span class=\"pl-en\">Right</span>(<span class=\"pl-en\">Vector</span>(target<span class=\"pl-k\">/</span>jars<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">-</span><span class=\"pl-c1\">2.5</span>.jar, target<span class=\"pl-k\">/</span>jars<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">-</span><span class=\"pl-c1\">2.5</span>.jar, target<span class=\"pl-k\">/</span>jars<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">-</span><span class=\"pl-c1\">2.5</span>.jar))</pre></div>\n</article></div>",
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><div class=\"markdown-heading\" dir=\"auto\"><h1 class=\"heading-element\" dir=\"auto\">librarymanagement module for sbt</h1><a id=\"user-content-librarymanagement-module-for-sbt\" class=\"anchor\" aria-label=\"Permalink: librarymanagement module for sbt\" href=\"#librarymanagement-module-for-sbt\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"scala&gt; import java.io.File\nimport java.io.File\n\nscala&gt; import sbt.librarymanagement._, syntax._\nimport sbt.librarymanagement._\nimport syntax._\n\nscala&gt; val log = sbt.util.LogExchange.logger(&quot;test&quot;)\nlog: sbt.internal.util.ManagedLogger = sbt.internal.util.ManagedLogger@c439b0f\n\nscala&gt; val lm = {\n         import sbt.librarymanagement.ivy._\n         val ivyConfig = InlineIvyConfiguration().withLog(log)\n         IvyDependencyResolution(ivyConfig)\n       }\nlm: sbt.librarymanagement.DependencyResolution = sbt.librarymanagement.DependencyResolution@6a9b40f8\n\nscala&gt; val module = &quot;commons-io&quot; % &quot;commons-io&quot; % &quot;2.5&quot;\nmodule: sbt.librarymanagement.ModuleID = commons-io:commons-io:2.5\n\nscala&gt; lm.retrieve(module, scalaModuleInfo = None, new File(&quot;target&quot;), log)\nres0: Either[sbt.librarymanagement.UnresolvedWarning,Vector[java.io.File]] = Right(Vector(target/jars/commons-io/commons-io/commons-io-2.5.jar, target/jars/commons-io/commons-io/commons-io-2.5.jar, target/jars/commons-io/commons-io/commons-io-2.5.jar))\"><pre>scala<span class=\"pl-k\">&gt;</span> <span class=\"pl-k\">import</span> <span class=\"pl-en\">java</span>.<span class=\"pl-en\">io</span>.<span class=\"pl-en\">File</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">java</span>.<span class=\"pl-en\">io</span>.<span class=\"pl-en\">File</span>\n\nscala<span class=\"pl-k\">&gt;</span> <span class=\"pl-k\">import</span> <span class=\"pl-en\">sbt</span>.<span class=\"pl-en\">librarymanagement</span>.<span class=\"pl-en\">_</span>, <span class=\"pl-en\">syntax</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">sbt</span>.<span class=\"pl-en\">librarymanagement</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">syntax</span>.<span class=\"pl-en\">_</span>\n\nscala<span class=\"pl-k\">&gt;</span> <span class=\"pl-k\">val</span> <span class=\"pl-v\">log</span> <span class=\"pl-k\">=</span> sbt.util.<span class=\"pl-en\">LogExchange</span>.logger(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>test<span class=\"pl-pds\">\"</span></span>)\nlog<span class=\"pl-k\">:</span> sbt.internal.util.<span class=\"pl-en\">ManagedLogger</span> <span class=\"pl-k\">=</span> sbt.internal.util.<span class=\"pl-en\">ManagedLogger</span><span class=\"pl-k\">@</span>c439b0f\n\nscala<span class=\"pl-k\">&gt;</span> <span class=\"pl-k\">val</span> <span class=\"pl-v\">lm</span> <span class=\"pl-k\">=</span> {\n         <span class=\"pl-k\">import</span> <span class=\"pl-en\">sbt</span>.<span class=\"pl-en\">librarymanagement</span>.<span class=\"pl-en\">ivy</span>.<span class=\"pl-en\">_</span>\n         <span class=\"pl-k\">val</span> <span class=\"pl-v\">ivyConfig</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">InlineIvyConfiguration</span>().withLog(log)\n         <span class=\"pl-en\">IvyDependencyResolution</span>(ivyConfig)\n       }\nlm<span class=\"pl-k\">:</span> sbt.librarymanagement.<span class=\"pl-en\">DependencyResolution</span> <span class=\"pl-k\">=</span> sbt.librarymanagement.<span class=\"pl-en\">DependencyResolution</span><span class=\"pl-k\">@</span>6a9b40f8\n\nscala<span class=\"pl-k\">&gt;</span> <span class=\"pl-k\">val</span> <span class=\"pl-v\">module</span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>commons-io<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>commons-io<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>2.5<span class=\"pl-pds\">\"</span></span>\nmodule<span class=\"pl-k\">:</span> sbt.librarymanagement.<span class=\"pl-en\">ModuleID</span> <span class=\"pl-k\">=</span> commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">:</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">:</span><span class=\"pl-c1\">2.5</span>\n\nscala<span class=\"pl-k\">&gt;</span> lm.retrieve(module, scalaModuleInfo <span class=\"pl-k\">=</span> <span class=\"pl-en\">None</span>, <span class=\"pl-k\">new</span> <span class=\"pl-en\">File</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>target<span class=\"pl-pds\">\"</span></span>), log)\nres0<span class=\"pl-k\">:</span> <span class=\"pl-en\">Either</span>[sbt.librarymanagement.<span class=\"pl-en\">UnresolvedWarning</span>,<span class=\"pl-en\">Vector</span>[java.io.<span class=\"pl-en\">File</span>]] <span class=\"pl-k\">=</span> <span class=\"pl-en\">Right</span>(<span class=\"pl-en\">Vector</span>(target<span class=\"pl-k\">/</span>jars<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">-</span><span class=\"pl-c1\">2.5</span>.jar, target<span class=\"pl-k\">/</span>jars<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">-</span><span class=\"pl-c1\">2.5</span>.jar, target<span class=\"pl-k\">/</span>jars<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">-</span><span class=\"pl-c1\">2.5</span>.jar))</pre></div>\n</article></div>",
     "contributors" : [
       {
         "login" : "eed3si9n",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/184683?v=4",
         "url" : "https://github.com/eed3si9n",
-        "contributions" : 656
+        "contributions" : 697
       },
       {
         "login" : "harrah",
@@ -67,6 +67,12 @@
         "contributions" : 16
       },
       {
+        "login" : "adpi2",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/13123162?v=4",
+        "url" : "https://github.com/adpi2",
+        "contributions" : 12
+      },
+      {
         "login" : "gkossakowski",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/4217?v=4",
         "url" : "https://github.com/gkossakowski",
@@ -79,10 +85,10 @@
         "contributions" : 11
       },
       {
-        "login" : "adpi2",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/13123162?v=4",
-        "url" : "https://github.com/adpi2",
-        "contributions" : 9
+        "login" : "xuwei-k",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/389787?v=4",
+        "url" : "https://github.com/xuwei-k",
+        "contributions" : 10
       },
       {
         "login" : "smarter",
@@ -91,10 +97,10 @@
         "contributions" : 7
       },
       {
-        "login" : "dpratt",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/721499?v=4",
-        "url" : "https://github.com/dpratt",
-        "contributions" : 7
+        "login" : "armanbilge",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3119428?v=4",
+        "url" : "https://github.com/armanbilge",
+        "contributions" : 6
       },
       {
         "login" : "tanishiking",
@@ -103,27 +109,15 @@
         "contributions" : 6
       },
       {
-        "login" : "xuwei-k",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/389787?v=4",
-        "url" : "https://github.com/xuwei-k",
+        "login" : "mdedetrich",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2337269?v=4",
+        "url" : "https://github.com/mdedetrich",
         "contributions" : 6
       },
       {
-        "login" : "armanbilge",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/3119428?v=4",
-        "url" : "https://github.com/armanbilge",
-        "contributions" : 5
-      },
-      {
-        "login" : "briantopping",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/158115?v=4",
-        "url" : "https://github.com/briantopping",
-        "contributions" : 5
-      },
-      {
-        "login" : "havocp",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/218689?v=4",
-        "url" : "https://github.com/havocp",
+        "login" : "pdalpra",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1514127?v=4",
+        "url" : "https://github.com/pdalpra",
         "contributions" : 5
       },
       {
@@ -133,9 +127,15 @@
         "contributions" : 5
       },
       {
-        "login" : "pdalpra",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/1514127?v=4",
-        "url" : "https://github.com/pdalpra",
+        "login" : "havocp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/218689?v=4",
+        "url" : "https://github.com/havocp",
+        "contributions" : 5
+      },
+      {
+        "login" : "briantopping",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/158115?v=4",
+        "url" : "https://github.com/briantopping",
         "contributions" : 5
       },
       {
@@ -151,10 +151,10 @@
         "contributions" : 4
       },
       {
-        "login" : "milessabin",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/131183?v=4",
-        "url" : "https://github.com/milessabin",
-        "contributions" : 3
+        "login" : "rtyley",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/52038?v=4",
+        "url" : "https://github.com/rtyley",
+        "contributions" : 4
       },
       {
         "login" : "willb",
@@ -163,69 +163,33 @@
         "contributions" : 3
       },
       {
-        "login" : "rtyley",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/52038?v=4",
-        "url" : "https://github.com/rtyley",
+        "login" : "milessabin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/131183?v=4",
+        "url" : "https://github.com/milessabin",
         "contributions" : 3
-      },
-      {
-        "login" : "MasseGuillaume",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/921490?v=4",
-        "url" : "https://github.com/MasseGuillaume",
-        "contributions" : 2
-      },
-      {
-        "login" : "jaceklaskowski",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/62313?v=4",
-        "url" : "https://github.com/jaceklaskowski",
-        "contributions" : 2
-      },
-      {
-        "login" : "jroper",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/105833?v=4",
-        "url" : "https://github.com/jroper",
-        "contributions" : 2
-      },
-      {
-        "login" : "retronym",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/65551?v=4",
-        "url" : "https://github.com/retronym",
-        "contributions" : 2
       },
       {
         "login" : "jtjeferreira",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/943051?v=4",
         "url" : "https://github.com/jtjeferreira",
-        "contributions" : 2
+        "contributions" : 3
       },
       {
-        "login" : "leonardehrenfried",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/151346?v=4",
-        "url" : "https://github.com/leonardehrenfried",
-        "contributions" : 2
+        "login" : "dpratt",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/721499?v=4",
+        "url" : "https://github.com/dpratt",
+        "contributions" : 3
       },
       {
-        "login" : "mkurz",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/644927?v=4",
-        "url" : "https://github.com/mkurz",
-        "contributions" : 2
+        "login" : "adriaanm",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/91083?v=4",
+        "url" : "https://github.com/adriaanm",
+        "contributions" : 3
       },
       {
-        "login" : "Blaisorblade",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/289960?v=4",
-        "url" : "https://github.com/Blaisorblade",
-        "contributions" : 2
-      },
-      {
-        "login" : "Philippus",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/1923596?v=4",
-        "url" : "https://github.com/Philippus",
-        "contributions" : 2
-      },
-      {
-        "login" : "ruippeixotog",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/613493?v=4",
-        "url" : "https://github.com/ruippeixotog",
+        "login" : "izharahmd",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1895075?v=4",
+        "url" : "https://github.com/izharahmd",
         "contributions" : 2
       },
       {
@@ -235,21 +199,165 @@
         "contributions" : 2
       },
       {
-        "login" : "exoego",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/127635?v=4",
-        "url" : "https://github.com/exoego",
+        "login" : "ruippeixotog",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/613493?v=4",
+        "url" : "https://github.com/ruippeixotog",
         "contributions" : 2
       },
       {
-        "login" : "izharahmd",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/1895075?v=4",
-        "url" : "https://github.com/izharahmd",
+        "login" : "Philippus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1923596?v=4",
+        "url" : "https://github.com/Philippus",
+        "contributions" : 2
+      },
+      {
+        "login" : "Blaisorblade",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/289960?v=4",
+        "url" : "https://github.com/Blaisorblade",
+        "contributions" : 2
+      },
+      {
+        "login" : "mkurz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/644927?v=4",
+        "url" : "https://github.com/mkurz",
+        "contributions" : 2
+      },
+      {
+        "login" : "leonardehrenfried",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/151346?v=4",
+        "url" : "https://github.com/leonardehrenfried",
+        "contributions" : 2
+      },
+      {
+        "login" : "retronym",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/65551?v=4",
+        "url" : "https://github.com/retronym",
+        "contributions" : 2
+      },
+      {
+        "login" : "jroper",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/105833?v=4",
+        "url" : "https://github.com/jroper",
+        "contributions" : 2
+      },
+      {
+        "login" : "jaceklaskowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/62313?v=4",
+        "url" : "https://github.com/jaceklaskowski",
+        "contributions" : 2
+      },
+      {
+        "login" : "MasseGuillaume",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/921490?v=4",
+        "url" : "https://github.com/MasseGuillaume",
         "contributions" : 2
       },
       {
         "login" : "khvatov",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/95604?v=4",
         "url" : "https://github.com/khvatov",
+        "contributions" : 1
+      },
+      {
+        "login" : "urbas",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/771193?v=4",
+        "url" : "https://github.com/urbas",
+        "contributions" : 1
+      },
+      {
+        "login" : "MaxWorgan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1410832?v=4",
+        "url" : "https://github.com/MaxWorgan",
+        "contributions" : 1
+      },
+      {
+        "login" : "mallman",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/833693?v=4",
+        "url" : "https://github.com/mallman",
+        "contributions" : 1
+      },
+      {
+        "login" : "nrinaudo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/836994?v=4",
+        "url" : "https://github.com/nrinaudo",
+        "contributions" : 1
+      },
+      {
+        "login" : "peterneyens",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6407606?v=4",
+        "url" : "https://github.com/peterneyens",
+        "contributions" : 1
+      },
+      {
+        "login" : "pvlugter",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/59895?v=4",
+        "url" : "https://github.com/pvlugter",
+        "contributions" : 1
+      },
+      {
+        "login" : "ryandbair",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/349575?v=4",
+        "url" : "https://github.com/ryandbair",
+        "contributions" : 1
+      },
+      {
+        "login" : "desbo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1064734?v=4",
+        "url" : "https://github.com/desbo",
+        "contributions" : 1
+      },
+      {
+        "login" : "stephennancekivell",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/727013?v=4",
+        "url" : "https://github.com/stephennancekivell",
+        "contributions" : 1
+      },
+      {
+        "login" : "staale",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/55321?v=4",
+        "url" : "https://github.com/staale",
+        "contributions" : 1
+      },
+      {
+        "login" : "tlockney",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8944?v=4",
+        "url" : "https://github.com/tlockney",
+        "contributions" : 1
+      },
+      {
+        "login" : "tpunder",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/34375?v=4",
+        "url" : "https://github.com/tpunder",
+        "contributions" : 1
+      },
+      {
+        "login" : "p3trur0",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/160072160?v=4",
+        "url" : "https://github.com/p3trur0",
+        "contributions" : 1
+      },
+      {
+        "login" : "mauhiz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1818187?v=4",
+        "url" : "https://github.com/mauhiz",
+        "contributions" : 1
+      },
+      {
+        "login" : "ddworak",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6950688?v=4",
+        "url" : "https://github.com/ddworak",
+        "contributions" : 1
+      },
+      {
+        "login" : "Atry",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/601530?v=4",
+        "url" : "https://github.com/Atry",
+        "contributions" : 1
+      },
+      {
+        "login" : "azolotko",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/110424?v=4",
+        "url" : "https://github.com/azolotko",
         "contributions" : 1
       },
       {
@@ -271,12 +379,6 @@
         "contributions" : 1
       },
       {
-        "login" : "devkat",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/1734637?v=4",
-        "url" : "https://github.com/devkat",
-        "contributions" : 1
-      },
-      {
         "login" : "raboof",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/131856?v=4",
         "url" : "https://github.com/raboof",
@@ -286,12 +388,6 @@
         "login" : "bwmcadams",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/98358?v=4",
         "url" : "https://github.com/bwmcadams",
-        "contributions" : 1
-      },
-      {
-        "login" : "ebowman",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/104774?v=4",
-        "url" : "https://github.com/ebowman",
         "contributions" : 1
       },
       {
@@ -343,108 +439,24 @@
         "contributions" : 1
       },
       {
+        "login" : "HelloKunal",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/52171099?v=4",
+        "url" : "https://github.com/HelloKunal",
+        "contributions" : 1
+      },
+      {
         "login" : "iRevive",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/6395483?v=4",
         "url" : "https://github.com/iRevive",
         "contributions" : 1
-      },
-      {
-        "login" : "urbas",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/771193?v=4",
-        "url" : "https://github.com/urbas",
-        "contributions" : 1
-      },
-      {
-        "login" : "MaxWorgan",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/1410832?v=4",
-        "url" : "https://github.com/MaxWorgan",
-        "contributions" : 1
-      },
-      {
-        "login" : "mallman",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/833693?v=4",
-        "url" : "https://github.com/mallman",
-        "contributions" : 1
-      },
-      {
-        "login" : "peterneyens",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/6407606?v=4",
-        "url" : "https://github.com/peterneyens",
-        "contributions" : 1
-      },
-      {
-        "login" : "pvlugter",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/59895?v=4",
-        "url" : "https://github.com/pvlugter",
-        "contributions" : 1
-      },
-      {
-        "login" : "ryandbair",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/349575?v=4",
-        "url" : "https://github.com/ryandbair",
-        "contributions" : 1
-      },
-      {
-        "login" : "stephennancekivell",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/727013?v=4",
-        "url" : "https://github.com/stephennancekivell",
-        "contributions" : 1
-      },
-      {
-        "login" : "staale",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/55321?v=4",
-        "url" : "https://github.com/staale",
-        "contributions" : 1
-      },
-      {
-        "login" : "tlockney",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/8944?v=4",
-        "url" : "https://github.com/tlockney",
-        "contributions" : 1
-      },
-      {
-        "login" : "tpunder",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/34375?v=4",
-        "url" : "https://github.com/tpunder",
-        "contributions" : 1
-      },
-      {
-        "login" : "P3trur0",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/11474157?v=4",
-        "url" : "https://github.com/P3trur0",
-        "contributions" : 1
-      },
-      {
-        "login" : "mauhiz",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/1818187?v=4",
-        "url" : "https://github.com/mauhiz",
-        "contributions" : 1
-      },
-      {
-        "login" : "ddworak",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/6950688?v=4",
-        "url" : "https://github.com/ddworak",
-        "contributions" : 1
-      },
-      {
-        "login" : "Atry",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/601530?v=4",
-        "url" : "https://github.com/Atry",
-        "contributions" : 1
       }
     ],
-    "commits" : 1462,
+    "commits" : 1518,
     "topics" : [
     ],
     "contributingGuide" : null,
     "codeOfConduct" : null,
-    "chatroom" : null,
     "openIssues" : [
-      {
-        "number" : 283,
-        "title" : "Clarify licensing",
-        "url" : "https://github.com/sbt/librarymanagement/issues/283"
-      },
       {
         "number" : 86,
         "title" : "Update README to match 1.0",
@@ -457,700 +469,22 @@
       }
     ],
     "scalaPercentage" : 99,
-    "license" : null,
+    "license" : "Apache-2.0",
     "commitActivity" : [
-      {
-        "total" : 0,
-        "week" : 1629590400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1630195200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1630800000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1631404800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          1,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1632009600000,
-        "days" : [
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1632614400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1633219200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1633824000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1634428800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1635033600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1635638400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1636243200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1636848000000,
-        "days" : [
-          0,
-          0,
-          0,
-          1,
-          0,
-          0,
-          1
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1637452800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1638057600000,
-        "days" : [
-          0,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1638662400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1639267200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1639872000000,
-        "days" : [
-          0,
-          0,
-          0,
-          1,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1640476800000,
-        "days" : [
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1641081600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1641686400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1642291200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1642896000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1643500800000,
-        "days" : [
-          0,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1644105600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1644710400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1645315200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1645920000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1646524800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1647129600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1647734400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1648339200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1648944000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1649548800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1650153600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1650758400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1651363200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1651968000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1652572800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1653177600000,
-        "days" : [
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1653782400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1654387200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 3,
-        "week" : 1654992000000,
-        "days" : [
-          3,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1655596800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          2
-        ]
-      },
-      {
-        "total" : 1,
-        "week" : 1656201600000,
-        "days" : [
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1656806400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1657411200000,
-        "days" : [
-          2,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1658016000000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 2,
-        "week" : 1658620800000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          1,
-          1
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1659225600000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1659830400000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "total" : 0,
-        "week" : 1660435200000,
-        "days" : [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      }
     ]
   },
   "settings" : {
     "preferStableVersion" : true,
     "defaultArtifact" : null,
-    "strictVersions" : false,
     "customScalaDoc" : null,
     "documentationLinks" : [
     ],
-    "deprecated" : false,
     "contributorsWanted" : false,
     "deprecatedArtifacts" : [
     ],
     "cliArtifacts" : [
     ],
     "category" : "library-dependency-management",
-    "beginnerIssuesLabel" : null
+    "chatroom" : null
   }
 }
