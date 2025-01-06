@@ -4,31 +4,31 @@
   "creationDate" : 1492808431000,
   "githubStatus" : {
     "Ok" : {
-      "updateDate" : 1723550997088
+      "updateDate" : 1730799920878
     }
   },
   "githubInfo" : {
     "homepage" : "https://typelevel.org/cats-effect/",
     "description" : "The pure asynchronous runtime for Scala",
     "logo" : "https://avatars.githubusercontent.com/u/3731824?v=4",
-    "stars" : 2006,
-    "forks" : 513,
+    "stars" : 2028,
+    "forks" : 521,
     "watchers" : 77,
-    "issues" : 202,
+    "issues" : 205,
     "creationDate" : 1491674113000,
-    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><div class=\"markdown-heading\" dir=\"auto\"><h1 class=\"heading-element\" dir=\"auto\">Cats Effect</h1><a id=\"user-content-cats-effect\" class=\"anchor\" aria-label=\"Permalink: Cats Effect\" href=\"#cats-effect\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><a href=\"https://index.scala-lang.org/typelevel/cats-effect/cats-effect\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/ed0edc6becf297fbc0d3be836b1534e29dc4f954ce1d18e7071b83f81a7707d0/68747470733a2f2f696e6465782e7363616c612d6c616e672e6f72672f747970656c6576656c2f636174732d6566666563742f636174732d6566666563742f6c61746573742e7376673f636f6c6f723d6f72616e6765\" alt=\"Latest version\" data-canonical-src=\"https://index.scala-lang.org/typelevel/cats-effect/cats-effect/latest.svg?color=orange\" style=\"max-width: 100%;\"></a>\n<a href=\"https://discord.gg/QNnHKHq5Ts\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/8ad4dc9d1cdf672811603577c477ccc5658699607c2d0b29a4e0ed0368c7f5eb/68747470733a2f2f696d672e736869656c64732e696f2f646973636f72642f3633323237373839363733393934363531372e7376673f6c6162656c3d266c6f676f3d646973636f7264266c6f676f436f6c6f723d66666666666626636f6c6f723d343034323434266c6162656c436f6c6f723d364137454332\" alt=\"Discord\" data-canonical-src=\"https://img.shields.io/discord/632277896739946517.svg?label=&amp;logo=discord&amp;logoColor=ffffff&amp;color=404244&amp;labelColor=6A7EC2\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"images/cats-effect-logo.png\"><img align=\"right\" width=\"256px\" height=\"256px\" src=\"images/cats-effect-logo.png\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Cats Effect is a high-performance, asynchronous, composable framework for building real-world applications in a purely functional style within the Typelevel ecosystem. It provides a concrete tool, known as \"the <code>IO</code> monad\", for capturing and controlling actions, often referred to as \"effects\", that your program wishes to perform within a resource-safe, typed context with seamless support for concurrency and coordination. These effects may be asynchronous (callback-driven) or synchronous (directly returning values); they may return within microseconds or run infinitely.</p>\n<p dir=\"auto\">Even more importantly, Cats Effect defines a set of typeclasses which define what it means to be a purely functional runtime system. These abstractions power a thriving ecosystem consisting of streaming frameworks, JDBC database layers, HTTP servers and clients, asynchronous clients for systems like Redis and MongoDB, and so much more! Additionally, you can leverage these abstractions within your own application to unlock powerful capabilities with little-or-no code changes, for example solving problems such as dependency injection, multiple error channels, shared state across modules, tracing, and more.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Getting Started</h2><a id=\"user-content-getting-started\" class=\"anchor\" aria-label=\"Permalink: Getting Started\" href=\"#getting-started\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<ul dir=\"auto\">\n<li>Wired: <strong>3.5.4</strong></li>\n<li>Tired: <strong>2.5.5</strong> (end of life)</li>\n</ul>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;org.typelevel&quot; %% &quot;cats-effect&quot; % &quot;3.5.4&quot;\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.typelevel<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>cats-effect<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>3.5.4<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">The above represents the core, stable dependency which brings in the entirety of Cats Effect. This is <em>most likely</em> what you want. All current Cats Effect releases are published for Scala 2.12, 2.13, 3.2, and Scala.js 1.13.</p>\n<p dir=\"auto\">Or, if you prefer a less bare-bones starting point, you can try <a href=\"https://github.com/typelevel/ce3.g8\">the Giter8 template</a>:</p>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"$ sbt new typelevel/ce3.g8\"><pre>$ sbt new typelevel/ce3.g8</pre></div>\n<p dir=\"auto\">Depending on your use-case, you may want to consider one of the several other modules which are made available within the Cats Effect release. If you're a datatype implementer (like <a href=\"https://monix.io\" rel=\"nofollow\">Monix</a>), you probably only want to depend on <strong>kernel</strong> (the typeclasses) in your compile scope and <strong>laws</strong> in your test scope:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"libraryDependencies ++= Seq(\n  &quot;org.typelevel&quot; %% &quot;cats-effect-kernel&quot; % &quot;3.5.4&quot;,\n  &quot;org.typelevel&quot; %% &quot;cats-effect-laws&quot;   % &quot;3.5.4&quot; % Test)\"><pre>libraryDependencies <span class=\"pl-k\">++</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Seq</span>(\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.typelevel<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>cats-effect-kernel<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>3.5.4<span class=\"pl-pds\">\"</span></span>,\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.typelevel<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>cats-effect-laws<span class=\"pl-pds\">\"</span></span>   <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>3.5.4<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-en\">Test</span>)</pre></div>\n<p dir=\"auto\">If you're a middleware framework (like <a href=\"https://fs2.io/\" rel=\"nofollow\">Fs2</a>), you probably want to depend on <strong>std</strong>, which gives you access to <code>Queue</code>, <code>Semaphore</code>, and much more without introducing a hard-dependency on <code>IO</code> outside of your tests:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"libraryDependencies ++= Seq(\n  &quot;org.typelevel&quot; %% &quot;cats-effect-std&quot; % &quot;3.5.4&quot;,\n  &quot;org.typelevel&quot; %% &quot;cats-effect&quot;     % &quot;3.5.4&quot; % Test)\"><pre>libraryDependencies <span class=\"pl-k\">++</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Seq</span>(\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.typelevel<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>cats-effect-std<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>3.5.4<span class=\"pl-pds\">\"</span></span>,\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.typelevel<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>cats-effect<span class=\"pl-pds\">\"</span></span>     <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>3.5.4<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-en\">Test</span>)</pre></div>\n<p dir=\"auto\">You may also find some utility in the <strong>testkit</strong> and <strong>kernel-testkit</strong> projects, which contain <code>TestContext</code>, generators for <code>IO</code>, and a few other things:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;org.typelevel&quot; %% &quot;cats-effect-testkit&quot; % &quot;3.5.4&quot; % Test\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.typelevel<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>cats-effect-testkit<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>3.5.4<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-en\">Test</span></pre></div>\n<p dir=\"auto\">Cats Effect provides backward binary compatibility within the 2.x and 3.x version lines, and both forward and backward compatibility within any major/minor line. This is analogous to the versioning scheme used by Cats itself, as well as other major projects such as Scala.js. Thus, any project depending upon Cats Effect 2.2.1 can be used with libraries compiled against Cats Effect 2.0.0 or 2.2.3, but <em>not</em> with libraries compiled against 2.3.0 or higher.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">Updating from Cats Effect 1.x / 2.x</h3><a id=\"user-content-updating-from-cats-effect-1x--2x\" class=\"anchor\" aria-label=\"Permalink: Updating from Cats Effect 1.x / 2.x\" href=\"#updating-from-cats-effect-1x--2x\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">Check out the <a href=\"https://typelevel.org/cats-effect/docs/migration-guide\" rel=\"nofollow\">migration guide</a>!</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Hello, World</h2><a id=\"user-content-hello-world\" class=\"anchor\" aria-label=\"Permalink: Hello, World\" href=\"#hello-world\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"import cats.effect._\n\nobject Main extends IOApp.Simple {\n  val run = IO.println(&quot;Hello, World!&quot;)\n}\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">cats</span>.<span class=\"pl-en\">effect</span>.<span class=\"pl-en\">_</span>\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span> <span class=\"pl-k\">extends</span> <span class=\"pl-en\">IOApp</span>.<span class=\"pl-en\">Simple</span> {\n  <span class=\"pl-k\">val</span> <span class=\"pl-v\">run</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">IO</span>.println(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Hello, World!<span class=\"pl-pds\">\"</span></span>)\n}</pre></div>\n<p dir=\"auto\">Or, if you need the ability to take arguments and return exit codes:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"import cats.effect._\n\nobject Main extends IOApp {\n  def run(args: List[String]): IO[ExitCode] =\n    if (args.headOption.map(_ == &quot;--do-it&quot;).getOrElse(false))\n      IO.println(&quot;I did it!&quot;).as(ExitCode.Success)\n    else\n      IO.println(&quot;Didn't do it&quot;).as(ExitCode(-1))\n}\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">cats</span>.<span class=\"pl-en\">effect</span>.<span class=\"pl-en\">_</span>\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span> <span class=\"pl-k\">extends</span> <span class=\"pl-en\">IOApp</span> {\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">run</span>(<span class=\"pl-v\">args</span>: <span class=\"pl-en\">List</span>[<span class=\"pl-en\">String</span>])<span class=\"pl-k\">:</span> <span class=\"pl-en\">IO</span>[<span class=\"pl-en\">ExitCode</span>] <span class=\"pl-k\">=</span>\n    <span class=\"pl-k\">if</span> (args.headOption.map(_ <span class=\"pl-k\">==</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>--do-it<span class=\"pl-pds\">\"</span></span>).getOrElse(<span class=\"pl-c1\">false</span>))\n      <span class=\"pl-en\">IO</span>.println(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>I did it!<span class=\"pl-pds\">\"</span></span>).as(<span class=\"pl-en\">ExitCode</span>.<span class=\"pl-en\">Success</span>)\n    <span class=\"pl-k\">else</span>\n      <span class=\"pl-en\">IO</span>.println(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Didn't do it<span class=\"pl-pds\">\"</span></span>).as(<span class=\"pl-en\">ExitCode</span>(<span class=\"pl-k\">-</span><span class=\"pl-c1\">1</span>))\n}</pre></div>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Five Simple Rules</h2><a id=\"user-content-five-simple-rules\" class=\"anchor\" aria-label=\"Permalink: Five Simple Rules\" href=\"#five-simple-rules\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">Any program written using Cats Effect provides incredibly strong guarantees and powerful functionality, performance, safety, and composability, provided you follow each of the following rules:</p>\n<ul dir=\"auto\">\n<li><strong>Wrap <em>all</em> side-effects</strong> in <code>delay</code>, <code>async</code>, <code>blocking</code>, or <code>interruptible</code>/<code>interruptibleMany</code>\n<ul dir=\"auto\">\n<li>(pro tip: try to keep the size of your <code>delay</code> blocks small; two <code>delay</code>s with a <code>flatMap</code> is much better than one big <code>delay</code>)</li>\n</ul>\n</li>\n<li><strong>Use <code>bracket</code> or <code>Resource</code></strong> for anything which must be <code>close</code>d</li>\n<li><strong><em>Never</em> hard-block a thread</strong> outside of <code>blocking</code> or <code>interruptible</code>/<code>interruptibleMany</code></li>\n<li><strong>Use <code>IOApp</code></strong> instead of writing your own <code>def main</code></li>\n<li>Never call anything that has <strong>the word <code>unsafe</code> in the name</strong></li>\n</ul>\n<p dir=\"auto\">If you follow these rules, and you use libraries and frameworks which also follow these rules, you will get a truly astonishing array of things essentially for free:</p>\n<ul dir=\"auto\">\n<li>Extremely high performance, elastic, and scalable applications</li>\n<li>Proven backpressure mechanisms under extreme load in real deployments</li>\n<li>Reliable resource safety in all cases</li>\n<li>Aggressive interruption of unnecessary work (e.g. timeouts), automatically, without any extra implementation effort</li>\n<li>Composable and modular application architecture (real, <em>practical</em> functional programming)</li>\n<li>Simple, safe, and incredibly powerful concurrency mechanisms that get <em>faster</em> under high contention</li>\n<li>Highly tuned application runtime with optimized threading and memory management semantics</li>\n<li>Powerful and orthogonal abstractions which enable architectural decomposition that scales to any problem space</li>\n<li>Access to an entire ecosystem of uniquely powerful libraries and tooling</li>\n<li>…and so much more</li>\n</ul>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Performance</h2><a id=\"user-content-performance\" class=\"anchor\" aria-label=\"Permalink: Performance\" href=\"#performance\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"images/contention.png\"><img width=\"461px\" height=\"356px\" align=\"right\" alt=\"a bar chart showing 'Fixed Thread Pool' and 'Cats Effect 3', with the latter being substantially taller than the former\" src=\"images/contention.png\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Most functional and async frameworks will tout their performance on synthetic microbenchmarks, measuring things like how many <code>flatMap</code>s they can evaluate per microsecond and so on. However, most programs aren't just a bunch of <code>flatMap</code>s, and the true performance bottlenecks are usually in things like contention scaling under high load, memory and other resource management, backpressure, page faults, and such. In these areas, Cats Effect is truly unrivaled on the JVM, and in most cases, applications written in a purely functional style using Cats Effect will <em>exceed</em> the performance and elasticity of the same applications written in an imperative style.</p>\n<p dir=\"auto\">The chart to the right shows the results of a synthetic benchmark simulating an extremely high-contention scheduling scenario. The scenario is typical of something like a microservice handling extremely high requests-per-second, with each request representing some sort of scatter/gather semantic in which many complex asynchronous actions must be taken in parallel to produce a timely response.</p>\n<p dir=\"auto\"><a href=\"https://github.com/typelevel/cats-effect/blob/220d0106ca0ff6106746a41504b6ab07d8fc9199/benchmarks/src/main/scala/cats/effect/benchmarks/WorkStealingBenchmark.scala\">The benchmark</a> measures the performance of a typical \"disruptor pattern\" application written using a fixed thread pool (from <code>java.util.concurrent.Executors</code>) compared to the same workflow implemented using Cats Effect (specifically version 3.0). The scores are not a typo: Cats Effect is <em>almost 55x faster</em> than the typical disruptor-style, hand-tuned implementation. Similarly dramatic results are consistently observed when comparing Cats Effect with other popular asynchronous and functional frameworks.</p>\n<p dir=\"auto\">As always, benchmarks are one thing, and your application is its own special snowflake with its own performance profile. Always measure and test <em>your application</em> before assuming that someone else's performance results apply in your use-case. When in doubt, <a href=\"https://discord.gg/QNnHKHq5Ts\" rel=\"nofollow\">come talk with us</a> and we'll give you an honest opinion!</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Abstraction</h2><a id=\"user-content-abstraction\" class=\"anchor\" aria-label=\"Permalink: Abstraction\" href=\"#abstraction\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"images/hierarchy.svg\"><img src=\"images/hierarchy.svg\" alt=\"the cats effect hierarchy of typeclasses as of version 3.0\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Cats Effect isn't just designed to enable high performance applications with out-of-the-box safety and elasticity under load. It was intended first and foremost as a tool for implementing <em>composable</em> and <em>reasonable</em> software that is easy to write, easy to test, and easy to evolve as your team and requirements change over time. To achieve this goal, Cats Effect embraces and enables strong, typeful, purely-functional programming styles that are uniquely tailored for the Scala language.</p>\n<p dir=\"auto\">The typical Cats Effect system is often built in terms of simple, orthogonal, primitive capabilities which come together to represent all the expressive power necessary to encode a modern asynchronous runtime. Much like how the rules of addition, multiplication, and integers come together to define much of what we understand about basic arithmetic, so too do the rules of <code>Functor</code>, <code>Monad</code>, and <code>Concurrent</code> come together to define the nature of a <em>program</em> which has all the capabilities you need.</p>\n<p dir=\"auto\">By learning and leveraging these capabilities directly, it is possible to write functions and classes which clearly state their requirements and capabilities in a <em>statically typed</em> and discoverable fashion, improving documentation, readability, and separation of concerns.</p>\n<p dir=\"auto\">And, just as with arithmetic, even when you don't directly leverage the nature of abstract mathematics in your daily life, those laws are still present shaping the world around you and enabling powerful and surprising things like computers and trains and restaurant menus. The laws and abstractions of Cats Effect support a powerful and unique ecosystem of frameworks, giving you access to rich and advanced functionality unparalleled in any language or ecosystem, battle tested in production environments ranging from some of the largest companies in the world to some of the nimblest startups.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Contributing</h2><a id=\"user-content-contributing\" class=\"anchor\" aria-label=\"Permalink: Contributing\" href=\"#contributing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">Please see <a href=\"CONTRIBUTING.md\"><strong>CONTRIBUTING.md</strong></a> for more details. Lots to do!</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">Website</h3><a id=\"user-content-website\" class=\"anchor\" aria-label=\"Permalink: Website\" href=\"#website\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">To build the documentation site locally, the following dependencies are needed, in addition to <code>sbt</code>.</p>\n<ul dir=\"auto\">\n<li>Node (14.x ideally)</li>\n<li>Yarn (any version should work)</li>\n</ul>\n<p dir=\"auto\">NOTE: <a href=\"https://nixos.org/\" rel=\"nofollow\">Nix</a> users can just run <code>nix-shell</code> at the root directory and follow along the next instructions.</p>\n<p dir=\"auto\">Next, check out the documentation branch along with its submodules.</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"git checkout --track origin/docs\ngit submodule update --init --recursive\"><pre class=\"notranslate\"><code>git checkout --track origin/docs\ngit submodule update --init --recursive\n</code></pre></div>\n<p dir=\"auto\">Finally, build the site.</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"./build.sh host\"><pre class=\"notranslate\"><code>./build.sh host\n</code></pre></div>\n<p dir=\"auto\">If everything goes well, your browser will open at the end of this.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Tool Sponsorship</h2><a id=\"user-content-tool-sponsorship\" class=\"anchor\" aria-label=\"Permalink: Tool Sponsorship\" href=\"#tool-sponsorship\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://camo.githubusercontent.com/2b1fd3407c9b019211acd8990647e37624d48818b6b39e33fe7f5fd46d573970/68747470733a2f2f7777772e796f75726b69742e636f6d2f696d616765732f796b6c6f676f2e706e67\"><img width=\"185px\" height=\"44px\" align=\"right\" src=\"https://camo.githubusercontent.com/2b1fd3407c9b019211acd8990647e37624d48818b6b39e33fe7f5fd46d573970/68747470733a2f2f7777772e796f75726b69742e636f6d2f696d616765732f796b6c6f676f2e706e67\" data-canonical-src=\"https://www.yourkit.com/images/yklogo.png\" style=\"max-width: 100%;\"></a>Development of Cats Effect is generously supported in part by <a href=\"https://www.yourkit.com\" rel=\"nofollow\">YourKit</a> through the use of their excellent Java profiler.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">License</h2><a id=\"user-content-license\" class=\"anchor\" aria-label=\"Permalink: License\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"Copyright 2017-2024 Typelevel\n\nLicensed under the Apache License, Version 2.0 (the &quot;License&quot;);\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n   http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an &quot;AS IS&quot; BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\"><pre class=\"notranslate\"><code>Copyright 2017-2024 Typelevel\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n   http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n</code></pre></div>\n</article></div>",
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><div class=\"markdown-heading\" dir=\"auto\"><h1 class=\"heading-element\" dir=\"auto\">Cats Effect</h1><a id=\"user-content-cats-effect\" class=\"anchor\" aria-label=\"Permalink: Cats Effect\" href=\"#cats-effect\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><a href=\"https://index.scala-lang.org/typelevel/cats-effect/cats-effect\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/81b5a2d49cf08fc3be6ef9706f413becf7e2bbe39ce6d785924af98937292fd6/68747470733a2f2f696e6465782e7363616c612d6c616e672e6f72672f747970656c6576656c2f636174732d6566666563742f636174732d6566666563742f6c61746573742e7376673f636f6c6f723d6f72616e6765\" alt=\"Latest version\" data-canonical-src=\"https://index.scala-lang.org/typelevel/cats-effect/cats-effect/latest.svg?color=orange\" style=\"max-width: 100%;\"></a>\n<a href=\"https://discord.gg/QNnHKHq5Ts\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/210421611fdb4c17fa9fa735058fe8e06c54834df2138d913d62b4faf11020ee/68747470733a2f2f696d672e736869656c64732e696f2f646973636f72642f3633323237373839363733393934363531372e7376673f6c6162656c3d266c6f676f3d646973636f7264266c6f676f436f6c6f723d66666666666626636f6c6f723d343034323434266c6162656c436f6c6f723d364137454332\" alt=\"Discord\" data-canonical-src=\"https://img.shields.io/discord/632277896739946517.svg?label=&amp;logo=discord&amp;logoColor=ffffff&amp;color=404244&amp;labelColor=6A7EC2\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"images/cats-effect-logo.png\"><img align=\"right\" width=\"256px\" height=\"256px\" src=\"images/cats-effect-logo.png\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Cats Effect is a high-performance, asynchronous, composable framework for building real-world applications in a purely functional style within the Typelevel ecosystem. It provides a concrete tool, known as \"the <code>IO</code> monad\", for capturing and controlling actions, often referred to as \"effects\", that your program wishes to perform within a resource-safe, typed context with seamless support for concurrency and coordination. These effects may be asynchronous (callback-driven) or synchronous (directly returning values); they may return within microseconds or run infinitely.</p>\n<p dir=\"auto\">Even more importantly, Cats Effect defines a set of typeclasses which define what it means to be a purely functional runtime system. These abstractions power a thriving ecosystem consisting of streaming frameworks, JDBC database layers, HTTP servers and clients, asynchronous clients for systems like Redis and MongoDB, and so much more! Additionally, you can leverage these abstractions within your own application to unlock powerful capabilities with little-or-no code changes, for example solving problems such as dependency injection, multiple error channels, shared state across modules, tracing, and more.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Getting Started</h2><a id=\"user-content-getting-started\" class=\"anchor\" aria-label=\"Permalink: Getting Started\" href=\"#getting-started\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<ul dir=\"auto\">\n<li>Wired: <strong>3.5.5</strong></li>\n<li>Tired: <strong>2.5.5</strong> (end of life)</li>\n</ul>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;org.typelevel&quot; %% &quot;cats-effect&quot; % &quot;3.5.5&quot;\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.typelevel<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>cats-effect<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>3.5.5<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">The above represents the core, stable dependency which brings in the entirety of Cats Effect. This is <em>most likely</em> what you want. All current Cats Effect releases are published for Scala 2.12, 2.13, 3.2, and Scala.js 1.13.</p>\n<p dir=\"auto\">Or, if you prefer a less bare-bones starting point, you can try <a href=\"https://github.com/typelevel/ce3.g8\">the Giter8 template</a>:</p>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"$ sbt new typelevel/ce3.g8\"><pre>$ sbt new typelevel/ce3.g8</pre></div>\n<p dir=\"auto\">Depending on your use-case, you may want to consider one of the several other modules which are made available within the Cats Effect release. If you're a datatype implementer (like <a href=\"https://monix.io\" rel=\"nofollow\">Monix</a>), you probably only want to depend on <strong>kernel</strong> (the typeclasses) in your compile scope and <strong>laws</strong> in your test scope:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"libraryDependencies ++= Seq(\n  &quot;org.typelevel&quot; %% &quot;cats-effect-kernel&quot; % &quot;3.5.5&quot;,\n  &quot;org.typelevel&quot; %% &quot;cats-effect-laws&quot;   % &quot;3.5.5&quot; % Test)\"><pre>libraryDependencies <span class=\"pl-k\">++</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Seq</span>(\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.typelevel<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>cats-effect-kernel<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>3.5.5<span class=\"pl-pds\">\"</span></span>,\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.typelevel<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>cats-effect-laws<span class=\"pl-pds\">\"</span></span>   <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>3.5.5<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-en\">Test</span>)</pre></div>\n<p dir=\"auto\">If you're a middleware framework (like <a href=\"https://fs2.io/\" rel=\"nofollow\">Fs2</a>), you probably want to depend on <strong>std</strong>, which gives you access to <code>Queue</code>, <code>Semaphore</code>, and much more without introducing a hard-dependency on <code>IO</code> outside of your tests:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"libraryDependencies ++= Seq(\n  &quot;org.typelevel&quot; %% &quot;cats-effect-std&quot; % &quot;3.5.5&quot;,\n  &quot;org.typelevel&quot; %% &quot;cats-effect&quot;     % &quot;3.5.5&quot; % Test)\"><pre>libraryDependencies <span class=\"pl-k\">++</span><span class=\"pl-k\">=</span> <span class=\"pl-en\">Seq</span>(\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.typelevel<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>cats-effect-std<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>3.5.5<span class=\"pl-pds\">\"</span></span>,\n  <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.typelevel<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>cats-effect<span class=\"pl-pds\">\"</span></span>     <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>3.5.5<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-en\">Test</span>)</pre></div>\n<p dir=\"auto\">You may also find some utility in the <strong>testkit</strong> and <strong>kernel-testkit</strong> projects, which contain <code>TestContext</code>, generators for <code>IO</code>, and a few other things:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;org.typelevel&quot; %% &quot;cats-effect-testkit&quot; % &quot;3.5.5&quot; % Test\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>org.typelevel<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>cats-effect-testkit<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>3.5.5<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-en\">Test</span></pre></div>\n<p dir=\"auto\">Cats Effect provides backward binary compatibility within the 2.x and 3.x version lines, and both forward and backward compatibility within any major/minor line. This is analogous to the versioning scheme used by Cats itself, as well as other major projects such as Scala.js. Thus, any project depending upon Cats Effect 2.2.1 can be used with libraries compiled against Cats Effect 2.0.0 or 2.2.3, but <em>not</em> with libraries compiled against 2.3.0 or higher.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">Updating from Cats Effect 1.x / 2.x</h3><a id=\"user-content-updating-from-cats-effect-1x--2x\" class=\"anchor\" aria-label=\"Permalink: Updating from Cats Effect 1.x / 2.x\" href=\"#updating-from-cats-effect-1x--2x\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">Check out the <a href=\"https://typelevel.org/cats-effect/docs/migration-guide\" rel=\"nofollow\">migration guide</a>!</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Hello, World</h2><a id=\"user-content-hello-world\" class=\"anchor\" aria-label=\"Permalink: Hello, World\" href=\"#hello-world\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"import cats.effect._\n\nobject Main extends IOApp.Simple {\n  val run = IO.println(&quot;Hello, World!&quot;)\n}\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">cats</span>.<span class=\"pl-en\">effect</span>.<span class=\"pl-en\">_</span>\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span> <span class=\"pl-k\">extends</span> <span class=\"pl-en\">IOApp</span>.<span class=\"pl-en\">Simple</span> {\n  <span class=\"pl-k\">val</span> <span class=\"pl-v\">run</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">IO</span>.println(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Hello, World!<span class=\"pl-pds\">\"</span></span>)\n}</pre></div>\n<p dir=\"auto\">Or, if you need the ability to take arguments and return exit codes:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"import cats.effect._\n\nobject Main extends IOApp {\n  def run(args: List[String]): IO[ExitCode] =\n    if (args.headOption.map(_ == &quot;--do-it&quot;).getOrElse(false))\n      IO.println(&quot;I did it!&quot;).as(ExitCode.Success)\n    else\n      IO.println(&quot;Didn't do it&quot;).as(ExitCode(-1))\n}\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">cats</span>.<span class=\"pl-en\">effect</span>.<span class=\"pl-en\">_</span>\n\n<span class=\"pl-k\">object</span> <span class=\"pl-en\">Main</span> <span class=\"pl-k\">extends</span> <span class=\"pl-en\">IOApp</span> {\n  <span class=\"pl-k\">def</span> <span class=\"pl-en\">run</span>(<span class=\"pl-v\">args</span>: <span class=\"pl-en\">List</span>[<span class=\"pl-en\">String</span>])<span class=\"pl-k\">:</span> <span class=\"pl-en\">IO</span>[<span class=\"pl-en\">ExitCode</span>] <span class=\"pl-k\">=</span>\n    <span class=\"pl-k\">if</span> (args.headOption.map(_ <span class=\"pl-k\">==</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>--do-it<span class=\"pl-pds\">\"</span></span>).getOrElse(<span class=\"pl-c1\">false</span>))\n      <span class=\"pl-en\">IO</span>.println(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>I did it!<span class=\"pl-pds\">\"</span></span>).as(<span class=\"pl-en\">ExitCode</span>.<span class=\"pl-en\">Success</span>)\n    <span class=\"pl-k\">else</span>\n      <span class=\"pl-en\">IO</span>.println(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Didn't do it<span class=\"pl-pds\">\"</span></span>).as(<span class=\"pl-en\">ExitCode</span>(<span class=\"pl-k\">-</span><span class=\"pl-c1\">1</span>))\n}</pre></div>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Five Simple Rules</h2><a id=\"user-content-five-simple-rules\" class=\"anchor\" aria-label=\"Permalink: Five Simple Rules\" href=\"#five-simple-rules\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">Any program written using Cats Effect provides incredibly strong guarantees and powerful functionality, performance, safety, and composability, provided you follow each of the following rules:</p>\n<ul dir=\"auto\">\n<li><strong>Wrap <em>all</em> side-effects</strong> in <code>delay</code>, <code>async</code>, <code>blocking</code>, or <code>interruptible</code>/<code>interruptibleMany</code>\n<ul dir=\"auto\">\n<li>(pro tip: try to keep the size of your <code>delay</code> blocks small; two <code>delay</code>s with a <code>flatMap</code> is much better than one big <code>delay</code>)</li>\n</ul>\n</li>\n<li><strong>Use <code>bracket</code> or <code>Resource</code></strong> for anything which must be <code>close</code>d</li>\n<li><strong><em>Never</em> hard-block a thread</strong> outside of <code>blocking</code> or <code>interruptible</code>/<code>interruptibleMany</code></li>\n<li><strong>Use <code>IOApp</code></strong> instead of writing your own <code>def main</code></li>\n<li>Never call anything that has <strong>the word <code>unsafe</code> in the name</strong></li>\n</ul>\n<p dir=\"auto\">If you follow these rules, and you use libraries and frameworks which also follow these rules, you will get a truly astonishing array of things essentially for free:</p>\n<ul dir=\"auto\">\n<li>Extremely high performance, elastic, and scalable applications</li>\n<li>Proven backpressure mechanisms under extreme load in real deployments</li>\n<li>Reliable resource safety in all cases</li>\n<li>Aggressive interruption of unnecessary work (e.g. timeouts), automatically, without any extra implementation effort</li>\n<li>Composable and modular application architecture (real, <em>practical</em> functional programming)</li>\n<li>Simple, safe, and incredibly powerful concurrency mechanisms that get <em>faster</em> under high contention</li>\n<li>Highly tuned application runtime with optimized threading and memory management semantics</li>\n<li>Powerful and orthogonal abstractions which enable architectural decomposition that scales to any problem space</li>\n<li>Access to an entire ecosystem of uniquely powerful libraries and tooling</li>\n<li>…and so much more</li>\n</ul>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Performance</h2><a id=\"user-content-performance\" class=\"anchor\" aria-label=\"Permalink: Performance\" href=\"#performance\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"images/contention.png\"><img width=\"461px\" height=\"356px\" align=\"right\" alt=\"a bar chart showing 'Fixed Thread Pool' and 'Cats Effect 3', with the latter being substantially taller than the former\" src=\"images/contention.png\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Most functional and async frameworks will tout their performance on synthetic microbenchmarks, measuring things like how many <code>flatMap</code>s they can evaluate per microsecond and so on. However, most programs aren't just a bunch of <code>flatMap</code>s, and the true performance bottlenecks are usually in things like contention scaling under high load, memory and other resource management, backpressure, page faults, and such. In these areas, Cats Effect is truly unrivaled on the JVM, and in most cases, applications written in a purely functional style using Cats Effect will <em>exceed</em> the performance and elasticity of the same applications written in an imperative style.</p>\n<p dir=\"auto\">The chart to the right shows the results of a synthetic benchmark simulating an extremely high-contention scheduling scenario. The scenario is typical of something like a microservice handling extremely high requests-per-second, with each request representing some sort of scatter/gather semantic in which many complex asynchronous actions must be taken in parallel to produce a timely response.</p>\n<p dir=\"auto\"><a href=\"https://github.com/typelevel/cats-effect/blob/220d0106ca0ff6106746a41504b6ab07d8fc9199/benchmarks/src/main/scala/cats/effect/benchmarks/WorkStealingBenchmark.scala\">The benchmark</a> measures the performance of a typical \"disruptor pattern\" application written using a fixed thread pool (from <code>java.util.concurrent.Executors</code>) compared to the same workflow implemented using Cats Effect (specifically version 3.0). The scores are not a typo: Cats Effect is <em>almost 55x faster</em> than the typical disruptor-style, hand-tuned implementation. Similarly dramatic results are consistently observed when comparing Cats Effect with other popular asynchronous and functional frameworks.</p>\n<p dir=\"auto\">As always, benchmarks are one thing, and your application is its own special snowflake with its own performance profile. Always measure and test <em>your application</em> before assuming that someone else's performance results apply in your use-case. When in doubt, <a href=\"https://discord.gg/QNnHKHq5Ts\" rel=\"nofollow\">come talk with us</a> and we'll give you an honest opinion!</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Abstraction</h2><a id=\"user-content-abstraction\" class=\"anchor\" aria-label=\"Permalink: Abstraction\" href=\"#abstraction\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"images/hierarchy.svg\"><img src=\"images/hierarchy.svg\" alt=\"the cats effect hierarchy of typeclasses as of version 3.0\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">Cats Effect isn't just designed to enable high performance applications with out-of-the-box safety and elasticity under load. It was intended first and foremost as a tool for implementing <em>composable</em> and <em>reasonable</em> software that is easy to write, easy to test, and easy to evolve as your team and requirements change over time. To achieve this goal, Cats Effect embraces and enables strong, typeful, purely-functional programming styles that are uniquely tailored for the Scala language.</p>\n<p dir=\"auto\">The typical Cats Effect system is often built in terms of simple, orthogonal, primitive capabilities which come together to represent all the expressive power necessary to encode a modern asynchronous runtime. Much like how the rules of addition, multiplication, and integers come together to define much of what we understand about basic arithmetic, so too do the rules of <code>Functor</code>, <code>Monad</code>, and <code>Concurrent</code> come together to define the nature of a <em>program</em> which has all the capabilities you need.</p>\n<p dir=\"auto\">By learning and leveraging these capabilities directly, it is possible to write functions and classes which clearly state their requirements and capabilities in a <em>statically typed</em> and discoverable fashion, improving documentation, readability, and separation of concerns.</p>\n<p dir=\"auto\">And, just as with arithmetic, even when you don't directly leverage the nature of abstract mathematics in your daily life, those laws are still present shaping the world around you and enabling powerful and surprising things like computers and trains and restaurant menus. The laws and abstractions of Cats Effect support a powerful and unique ecosystem of frameworks, giving you access to rich and advanced functionality unparalleled in any language or ecosystem, battle tested in production environments ranging from some of the largest companies in the world to some of the nimblest startups.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Contributing</h2><a id=\"user-content-contributing\" class=\"anchor\" aria-label=\"Permalink: Contributing\" href=\"#contributing\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">Please see <a href=\"CONTRIBUTING.md\"><strong>CONTRIBUTING.md</strong></a> for more details. Lots to do!</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h3 class=\"heading-element\" dir=\"auto\">Website</h3><a id=\"user-content-website\" class=\"anchor\" aria-label=\"Permalink: Website\" href=\"#website\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">To build the documentation site locally, the following dependencies are needed, in addition to <code>sbt</code>.</p>\n<ul dir=\"auto\">\n<li>Node (14.x ideally)</li>\n<li>Yarn (any version should work)</li>\n</ul>\n<p dir=\"auto\">NOTE: <a href=\"https://nixos.org/\" rel=\"nofollow\">Nix</a> users can just run <code>nix-shell</code> at the root directory and follow along the next instructions.</p>\n<p dir=\"auto\">Next, check out the documentation branch along with its submodules.</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"git checkout --track origin/docs\ngit submodule update --init --recursive\"><pre class=\"notranslate\"><code>git checkout --track origin/docs\ngit submodule update --init --recursive\n</code></pre></div>\n<p dir=\"auto\">Finally, build the site.</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"./build.sh host\"><pre class=\"notranslate\"><code>./build.sh host\n</code></pre></div>\n<p dir=\"auto\">If everything goes well, your browser will open at the end of this.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Tool Sponsorship</h2><a id=\"user-content-tool-sponsorship\" class=\"anchor\" aria-label=\"Permalink: Tool Sponsorship\" href=\"#tool-sponsorship\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://camo.githubusercontent.com/5ea9673ea42bd7754bdc762e8649bb3d1664481ca3ca678c52e9908e99a9782f/68747470733a2f2f7777772e796f75726b69742e636f6d2f696d616765732f796b6c6f676f2e706e67\"><img width=\"185px\" height=\"44px\" align=\"right\" src=\"https://camo.githubusercontent.com/5ea9673ea42bd7754bdc762e8649bb3d1664481ca3ca678c52e9908e99a9782f/68747470733a2f2f7777772e796f75726b69742e636f6d2f696d616765732f796b6c6f676f2e706e67\" data-canonical-src=\"https://www.yourkit.com/images/yklogo.png\" style=\"max-width: 100%;\"></a>Development of Cats Effect is generously supported in part by <a href=\"https://www.yourkit.com\" rel=\"nofollow\">YourKit</a> through the use of their excellent Java profiler.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">License</h2><a id=\"user-content-license\" class=\"anchor\" aria-label=\"Permalink: License\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"Copyright 2017-2024 Typelevel\n\nLicensed under the Apache License, Version 2.0 (the &quot;License&quot;);\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n   http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an &quot;AS IS&quot; BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\"><pre class=\"notranslate\"><code>Copyright 2017-2024 Typelevel\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n   http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n</code></pre></div>\n</article></div>",
     "contributors" : [
       {
         "login" : "djspiewak",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/752?v=4",
         "url" : "https://github.com/djspiewak",
-        "contributions" : 2099
+        "contributions" : 2118
       },
       {
         "login" : "armanbilge",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/3119428?v=4",
         "url" : "https://github.com/armanbilge",
-        "contributions" : 1349
+        "contributions" : 1386
       },
       {
         "login" : "vasilmkd",
@@ -52,13 +52,13 @@
         "login" : "typelevel-steward[bot]",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/3731824?v=4",
         "url" : "https://github.com/apps/typelevel-steward",
-        "contributions" : 207
+        "contributions" : 222
       },
       {
         "login" : "durban",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1568978?v=4",
         "url" : "https://github.com/durban",
-        "contributions" : 174
+        "contributions" : 187
       },
       {
         "login" : "scala-steward",
@@ -88,7 +88,7 @@
         "login" : "samspills",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/4977741?v=4",
         "url" : "https://github.com/samspills",
-        "contributions" : 48
+        "contributions" : 52
       },
       {
         "login" : "alexandrustana",
@@ -124,7 +124,7 @@
         "login" : "iRevive",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/6395483?v=4",
         "url" : "https://github.com/iRevive",
-        "contributions" : 33
+        "contributions" : 35
       },
       {
         "login" : "Baccata",
@@ -163,15 +163,15 @@
         "contributions" : 17
       },
       {
-        "login" : "manufacturist",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/15235526?v=4",
-        "url" : "https://github.com/manufacturist",
-        "contributions" : 15
-      },
-      {
         "login" : "RafalSumislawski",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/9465998?v=4",
         "url" : "https://github.com/RafalSumislawski",
+        "contributions" : 15
+      },
+      {
+        "login" : "manufacturist",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15235526?v=4",
+        "url" : "https://github.com/manufacturist",
         "contributions" : 15
       },
       {
@@ -199,9 +199,9 @@
         "contributions" : 13
       },
       {
-        "login" : "DomWos",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/53560727?v=4",
-        "url" : "https://github.com/DomWos",
+        "login" : "patseev",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/25015145?v=4",
+        "url" : "https://github.com/patseev",
         "contributions" : 12
       },
       {
@@ -211,9 +211,9 @@
         "contributions" : 12
       },
       {
-        "login" : "patseev",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/25015145?v=4",
-        "url" : "https://github.com/patseev",
+        "login" : "DomWos",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/53560727?v=4",
+        "url" : "https://github.com/DomWos",
         "contributions" : 12
       },
       {
@@ -229,9 +229,9 @@
         "contributions" : 10
       },
       {
-        "login" : "Odomontois",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/247558?v=4",
-        "url" : "https://github.com/Odomontois",
+        "login" : "lenguyenthanh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/437967?v=4",
+        "url" : "https://github.com/lenguyenthanh",
         "contributions" : 10
       },
       {
@@ -241,15 +241,21 @@
         "contributions" : 10
       },
       {
-        "login" : "forkedcancel",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/3587401?v=4",
-        "url" : "https://github.com/forkedcancel",
-        "contributions" : 9
+        "login" : "Odomontois",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/247558?v=4",
+        "url" : "https://github.com/Odomontois",
+        "contributions" : 10
       },
       {
         "login" : "janstenpickle",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1926225?v=4",
         "url" : "https://github.com/janstenpickle",
+        "contributions" : 9
+      },
+      {
+        "login" : "forkedcancel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3587401?v=4",
+        "url" : "https://github.com/forkedcancel",
         "contributions" : 9
       },
       {
@@ -277,6 +283,24 @@
         "contributions" : 8
       },
       {
+        "login" : "Jasper-M",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3708353?v=4",
+        "url" : "https://github.com/Jasper-M",
+        "contributions" : 7
+      },
+      {
+        "login" : "neomaclin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3130942?v=4",
+        "url" : "https://github.com/neomaclin",
+        "contributions" : 7
+      },
+      {
+        "login" : "scott-thomson239",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/110630636?v=4",
+        "url" : "https://github.com/scott-thomson239",
+        "contributions" : 7
+      },
+      {
         "login" : "i10416",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/39330037?v=4",
         "url" : "https://github.com/i10416",
@@ -289,27 +313,15 @@
         "contributions" : 7
       },
       {
-        "login" : "scott-thomson239",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/110630636?v=4",
-        "url" : "https://github.com/scott-thomson239",
+        "login" : "diogocanut",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/14318111?v=4",
+        "url" : "https://github.com/diogocanut",
         "contributions" : 7
       },
       {
         "login" : "mn98",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/61794940?v=4",
         "url" : "https://github.com/mn98",
-        "contributions" : 7
-      },
-      {
-        "login" : "neomaclin",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/3130942?v=4",
-        "url" : "https://github.com/neomaclin",
-        "contributions" : 7
-      },
-      {
-        "login" : "diogocanut",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/14318111?v=4",
-        "url" : "https://github.com/diogocanut",
         "contributions" : 7
       },
       {
@@ -341,6 +353,18 @@
         "avatarUrl" : "https://avatars.githubusercontent.com/u/33580722?v=4",
         "url" : "https://github.com/paualarco",
         "contributions" : 6
+      },
+      {
+        "login" : "mzuehlke",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/204523?v=4",
+        "url" : "https://github.com/mzuehlke",
+        "contributions" : 6
+      },
+      {
+        "login" : "froth",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2845252?v=4",
+        "url" : "https://github.com/froth",
+        "contributions" : 5
       },
       {
         "login" : "gagandeepkalra",
@@ -385,15 +409,15 @@
         "contributions" : 5
       },
       {
-        "login" : "aeons",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/1432894?v=4",
-        "url" : "https://github.com/aeons",
-        "contributions" : 5
-      },
-      {
         "login" : "joroKr21",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/2218841?v=4",
         "url" : "https://github.com/joroKr21",
+        "contributions" : 5
+      },
+      {
+        "login" : "aeons",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1432894?v=4",
+        "url" : "https://github.com/aeons",
         "contributions" : 5
       },
       {
@@ -406,12 +430,6 @@
         "login" : "jyoo980",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/24359440?v=4",
         "url" : "https://github.com/jyoo980",
-        "contributions" : 4
-      },
-      {
-        "login" : "Jasper-M",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/3708353?v=4",
-        "url" : "https://github.com/Jasper-M",
         "contributions" : 4
       },
       {
@@ -517,12 +535,6 @@
         "contributions" : 2
       },
       {
-        "login" : "lenguyenthanh",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/437967?v=4",
-        "url" : "https://github.com/lenguyenthanh",
-        "contributions" : 2
-      },
-      {
         "login" : "tpolecat",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1200131?v=4",
         "url" : "https://github.com/tpolecat",
@@ -601,6 +613,12 @@
         "contributions" : 1
       },
       {
+        "login" : "sshark",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/549740?v=4",
+        "url" : "https://github.com/sshark",
+        "contributions" : 1
+      },
+      {
         "login" : "SethTisue",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
         "url" : "https://github.com/SethTisue",
@@ -634,12 +652,6 @@
         "login" : "m50d",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/1283489?v=4",
         "url" : "https://github.com/m50d",
-        "contributions" : 1
-      },
-      {
-        "login" : "mgibowski",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/617315?v=4",
-        "url" : "https://github.com/mgibowski",
         "contributions" : 1
       },
       {
@@ -727,6 +739,12 @@
         "contributions" : 1
       },
       {
+        "login" : "fredfp",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3804696?v=4",
+        "url" : "https://github.com/fredfp",
+        "contributions" : 1
+      },
+      {
         "login" : "arturaz",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/12931?v=4",
         "url" : "https://github.com/arturaz",
@@ -763,12 +781,6 @@
         "contributions" : 1
       },
       {
-        "login" : "ivanlp10n2",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/9726654?v=4",
-        "url" : "https://github.com/ivanlp10n2",
-        "contributions" : 1
-      },
-      {
         "login" : "ChidiRnweke",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/88949660?v=4",
         "url" : "https://github.com/ChidiRnweke",
@@ -796,12 +808,6 @@
         "login" : "geny200",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/50055047?v=4",
         "url" : "https://github.com/geny200",
-        "contributions" : 1
-      },
-      {
-        "login" : "froth",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/2845252?v=4",
-        "url" : "https://github.com/froth",
         "contributions" : 1
       },
       {
@@ -863,9 +869,15 @@
         "avatarUrl" : "https://avatars.githubusercontent.com/u/11650737?v=4",
         "url" : "https://github.com/mberndt123",
         "contributions" : 1
+      },
+      {
+        "login" : "mgibowski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/617315?v=4",
+        "url" : "https://github.com/mgibowski",
+        "contributions" : 1
       }
     ],
-    "commits" : 6831,
+    "commits" : 6943,
     "topics" : [
       "fp",
       "scala",
@@ -877,9 +889,14 @@
     "codeOfConduct" : "https://github.com/typelevel/.github/blob/main/CODE_OF_CONDUCT.md",
     "openIssues" : [
       {
-        "number" : 4114,
-        "title" : "doesn't work with scala 3 + scala-native",
-        "url" : "https://github.com/typelevel/cats-effect/issues/4114"
+        "number" : 4136,
+        "title" : "Default constructor for `MapRef`",
+        "url" : "https://github.com/typelevel/cats-effect/issues/4136"
+      },
+      {
+        "number" : 4132,
+        "title" : "Update site diagrams to use mermaid",
+        "url" : "https://github.com/typelevel/cats-effect/issues/4132"
       },
       {
         "number" : 4104,
@@ -917,11 +934,6 @@
         "url" : "https://github.com/typelevel/cats-effect/issues/4064"
       },
       {
-        "number" : 4058,
-        "title" : "IO.onError is inconsistent with ApplicativeError",
-        "url" : "https://github.com/typelevel/cats-effect/issues/4058"
-      },
-      {
         "number" : 4056,
         "title" : "Support for V8 JavaScript Engine?",
         "url" : "https://github.com/typelevel/cats-effect/issues/4056"
@@ -942,11 +954,6 @@
         "url" : "https://github.com/typelevel/cats-effect/issues/4014"
       },
       {
-        "number" : 4009,
-        "title" : "Add API to polling system to attempt to get current poller without shifting",
-        "url" : "https://github.com/typelevel/cats-effect/issues/4009"
-      },
-      {
         "number" : 4008,
         "title" : "Add (best-effort) stealing API to polling system",
         "url" : "https://github.com/typelevel/cats-effect/issues/4008"
@@ -955,11 +962,6 @@
         "number" : 3994,
         "title" : "Improve `MonadCancel` scaladoc",
         "url" : "https://github.com/typelevel/cats-effect/issues/3994"
-      },
-      {
-        "number" : 3993,
-        "title" : "Allow overriding how fatal errors are printed",
-        "url" : "https://github.com/typelevel/cats-effect/issues/3993"
       },
       {
         "number" : 3989,
@@ -1295,11 +1297,6 @@
         "number" : 3268,
         "title" : "Failed to register Cats Effect CPU starvation MBean",
         "url" : "https://github.com/typelevel/cats-effect/issues/3268"
-      },
-      {
-        "number" : 3249,
-        "title" : "Update `Standard Library` section",
-        "url" : "https://github.com/typelevel/cats-effect/issues/3249"
       },
       {
         "number" : 3201,
@@ -1738,9 +1735,9 @@
     ]
   },
   "settings" : {
-    "preferStableVersion" : false,
+    "preferStableVersion" : true,
     "defaultArtifact" : "cats-effect",
-    "customScalaDoc" : "",
+    "customScalaDoc" : null,
     "documentationLinks" : [
     ],
     "contributorsWanted" : false,

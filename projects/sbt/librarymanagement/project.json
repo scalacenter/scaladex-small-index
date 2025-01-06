@@ -1,10 +1,10 @@
 {
   "organization" : "sbt",
   "repository" : "librarymanagement",
-  "creationDate" : 1476410229940,
+  "creationDate" : 1694657000,
   "githubStatus" : {
     "Ok" : {
-      "updateDate" : 1723549855842
+      "updateDate" : 1730794684318
     }
   },
   "githubInfo" : {
@@ -13,8 +13,8 @@
     "logo" : "https://avatars.githubusercontent.com/u/1158012?v=4",
     "stars" : 46,
     "forks" : 81,
-    "watchers" : 9,
-    "issues" : 10,
+    "watchers" : 10,
+    "issues" : 9,
     "creationDate" : 1439968293000,
     "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><div class=\"markdown-heading\" dir=\"auto\"><h1 class=\"heading-element\" dir=\"auto\">librarymanagement module for sbt</h1><a id=\"user-content-librarymanagement-module-for-sbt\" class=\"anchor\" aria-label=\"Permalink: librarymanagement module for sbt\" href=\"#librarymanagement-module-for-sbt\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"scala&gt; import java.io.File\nimport java.io.File\n\nscala&gt; import sbt.librarymanagement._, syntax._\nimport sbt.librarymanagement._\nimport syntax._\n\nscala&gt; val log = sbt.util.LogExchange.logger(&quot;test&quot;)\nlog: sbt.internal.util.ManagedLogger = sbt.internal.util.ManagedLogger@c439b0f\n\nscala&gt; val lm = {\n         import sbt.librarymanagement.ivy._\n         val ivyConfig = InlineIvyConfiguration().withLog(log)\n         IvyDependencyResolution(ivyConfig)\n       }\nlm: sbt.librarymanagement.DependencyResolution = sbt.librarymanagement.DependencyResolution@6a9b40f8\n\nscala&gt; val module = &quot;commons-io&quot; % &quot;commons-io&quot; % &quot;2.5&quot;\nmodule: sbt.librarymanagement.ModuleID = commons-io:commons-io:2.5\n\nscala&gt; lm.retrieve(module, scalaModuleInfo = None, new File(&quot;target&quot;), log)\nres0: Either[sbt.librarymanagement.UnresolvedWarning,Vector[java.io.File]] = Right(Vector(target/jars/commons-io/commons-io/commons-io-2.5.jar, target/jars/commons-io/commons-io/commons-io-2.5.jar, target/jars/commons-io/commons-io/commons-io-2.5.jar))\"><pre>scala<span class=\"pl-k\">&gt;</span> <span class=\"pl-k\">import</span> <span class=\"pl-en\">java</span>.<span class=\"pl-en\">io</span>.<span class=\"pl-en\">File</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">java</span>.<span class=\"pl-en\">io</span>.<span class=\"pl-en\">File</span>\n\nscala<span class=\"pl-k\">&gt;</span> <span class=\"pl-k\">import</span> <span class=\"pl-en\">sbt</span>.<span class=\"pl-en\">librarymanagement</span>.<span class=\"pl-en\">_</span>, <span class=\"pl-en\">syntax</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">sbt</span>.<span class=\"pl-en\">librarymanagement</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">syntax</span>.<span class=\"pl-en\">_</span>\n\nscala<span class=\"pl-k\">&gt;</span> <span class=\"pl-k\">val</span> <span class=\"pl-v\">log</span> <span class=\"pl-k\">=</span> sbt.util.<span class=\"pl-en\">LogExchange</span>.logger(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>test<span class=\"pl-pds\">\"</span></span>)\nlog<span class=\"pl-k\">:</span> sbt.internal.util.<span class=\"pl-en\">ManagedLogger</span> <span class=\"pl-k\">=</span> sbt.internal.util.<span class=\"pl-en\">ManagedLogger</span><span class=\"pl-k\">@</span>c439b0f\n\nscala<span class=\"pl-k\">&gt;</span> <span class=\"pl-k\">val</span> <span class=\"pl-v\">lm</span> <span class=\"pl-k\">=</span> {\n         <span class=\"pl-k\">import</span> <span class=\"pl-en\">sbt</span>.<span class=\"pl-en\">librarymanagement</span>.<span class=\"pl-en\">ivy</span>.<span class=\"pl-en\">_</span>\n         <span class=\"pl-k\">val</span> <span class=\"pl-v\">ivyConfig</span> <span class=\"pl-k\">=</span> <span class=\"pl-en\">InlineIvyConfiguration</span>().withLog(log)\n         <span class=\"pl-en\">IvyDependencyResolution</span>(ivyConfig)\n       }\nlm<span class=\"pl-k\">:</span> sbt.librarymanagement.<span class=\"pl-en\">DependencyResolution</span> <span class=\"pl-k\">=</span> sbt.librarymanagement.<span class=\"pl-en\">DependencyResolution</span><span class=\"pl-k\">@</span>6a9b40f8\n\nscala<span class=\"pl-k\">&gt;</span> <span class=\"pl-k\">val</span> <span class=\"pl-v\">module</span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>commons-io<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>commons-io<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>2.5<span class=\"pl-pds\">\"</span></span>\nmodule<span class=\"pl-k\">:</span> sbt.librarymanagement.<span class=\"pl-en\">ModuleID</span> <span class=\"pl-k\">=</span> commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">:</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">:</span><span class=\"pl-c1\">2.5</span>\n\nscala<span class=\"pl-k\">&gt;</span> lm.retrieve(module, scalaModuleInfo <span class=\"pl-k\">=</span> <span class=\"pl-en\">None</span>, <span class=\"pl-k\">new</span> <span class=\"pl-en\">File</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>target<span class=\"pl-pds\">\"</span></span>), log)\nres0<span class=\"pl-k\">:</span> <span class=\"pl-en\">Either</span>[sbt.librarymanagement.<span class=\"pl-en\">UnresolvedWarning</span>,<span class=\"pl-en\">Vector</span>[java.io.<span class=\"pl-en\">File</span>]] <span class=\"pl-k\">=</span> <span class=\"pl-en\">Right</span>(<span class=\"pl-en\">Vector</span>(target<span class=\"pl-k\">/</span>jars<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">-</span><span class=\"pl-c1\">2.5</span>.jar, target<span class=\"pl-k\">/</span>jars<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">-</span><span class=\"pl-c1\">2.5</span>.jar, target<span class=\"pl-k\">/</span>jars<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">/</span>commons<span class=\"pl-k\">-</span>io<span class=\"pl-k\">-</span><span class=\"pl-c1\">2.5</span>.jar))</pre></div>\n</article></div>",
     "contributors" : [
@@ -22,7 +22,7 @@
         "login" : "eed3si9n",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/184683?v=4",
         "url" : "https://github.com/eed3si9n",
-        "contributions" : 697
+        "contributions" : 701
       },
       {
         "login" : "harrah",
@@ -70,7 +70,7 @@
         "login" : "adpi2",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/13123162?v=4",
         "url" : "https://github.com/adpi2",
-        "contributions" : 12
+        "contributions" : 15
       },
       {
         "login" : "gkossakowski",
@@ -91,6 +91,12 @@
         "contributions" : 10
       },
       {
+        "login" : "mdedetrich",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2337269?v=4",
+        "url" : "https://github.com/mdedetrich",
+        "contributions" : 8
+      },
+      {
         "login" : "smarter",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/63430?v=4",
         "url" : "https://github.com/smarter",
@@ -106,12 +112,6 @@
         "login" : "tanishiking",
         "avatarUrl" : "https://avatars.githubusercontent.com/u/9353584?v=4",
         "url" : "https://github.com/tanishiking",
-        "contributions" : 6
-      },
-      {
-        "login" : "mdedetrich",
-        "avatarUrl" : "https://avatars.githubusercontent.com/u/2337269?v=4",
-        "url" : "https://github.com/mdedetrich",
         "contributions" : 6
       },
       {
@@ -451,7 +451,7 @@
         "contributions" : 1
       }
     ],
-    "commits" : 1518,
+    "commits" : 1527,
     "topics" : [
     ],
     "contributingGuide" : null,

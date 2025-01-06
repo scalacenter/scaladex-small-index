@@ -4,22 +4,508 @@
   "creationDate" : 1440879037000,
   "githubStatus" : {
     "Ok" : {
-      "updateDate" : 1723548917025
+      "updateDate" : 1730782319038
     }
   },
   "githubInfo" : {
     "homepage" : "https://pureconfig.github.io",
     "description" : "A boilerplate-free library for loading configuration files",
     "logo" : "https://avatars.githubusercontent.com/u/26658221?v=4",
-    "stars" : 1472,
-    "forks" : 173,
+    "stars" : 1489,
+    "forks" : 176,
     "watchers" : 23,
-    "issues" : 48,
+    "issues" : 45,
     "creationDate" : 1440867950000,
-    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><div class=\"markdown-heading\" dir=\"auto\"><h1 class=\"heading-element\" dir=\"auto\">PureConfig</h1><a id=\"user-content-pureconfig\" class=\"anchor\" aria-label=\"Permalink: PureConfig\" href=\"#pureconfig\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"docs/src/main/resources/microsite/img/pureconfig-logo-1040x1200.png\"><img src=\"docs/src/main/resources/microsite/img/pureconfig-logo-1040x1200.png\" width=\"130px\" height=\"150px\" align=\"right\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\"><a href=\"https://github.com/pureconfig/pureconfig/actions?query=workflow%3ACI+branch%3Amaster\"><img src=\"https://github.com/pureconfig/pureconfig/actions/workflows/ci.yml/badge.svg?branch=master\" alt=\"Build Status\" style=\"max-width: 100%;\"></a>\n<a href=\"https://coveralls.io/github/pureconfig/pureconfig?branch=master\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/346a946399a3d14b29a75ed82341455375e023d9d9230aab60800b9332c28d0e/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6769746875622f70757265636f6e6669672f70757265636f6e6669672f62616467652e7376673f6272616e63683d6d6173746572\" alt=\"Coverage Status\" data-canonical-src=\"https://coveralls.io/repos/github/pureconfig/pureconfig/badge.svg?branch=master\" style=\"max-width: 100%;\"></a>\n<a href=\"https://search.maven.org/artifact/com.github.pureconfig/pureconfig_2.12\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/4cf2774ab79620fef016bc47f955e08e98b873d81b0d33c89b31c723ae29f2e1/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f636f6d2e6769746875622e70757265636f6e6669672f70757265636f6e6669675f322e31322f62616467652e737667\" alt=\"Maven Central\" data-canonical-src=\"https://maven-badges.herokuapp.com/maven-central/com.github.pureconfig/pureconfig_2.12/badge.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://javadoc.io/page/com.github.pureconfig/pureconfig-core_2.12/latest/pureconfig/index.html\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/861e29d20fb1f091e426b656d97ad13ccabf04e263f4539085b3c4579ba5559f/68747470733a2f2f6a617661646f632e696f2f62616467652f636f6d2e6769746875622e70757265636f6e6669672f70757265636f6e6669672d636f72655f322e31322e737667\" alt=\"Scaladoc\" data-canonical-src=\"https://javadoc.io/badge/com.github.pureconfig/pureconfig-core_2.12.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://gitter.im/melrief/pureconfig?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/5f729aad600abd9b97d03e050ad33094cd518cda7c6d1b72008c3e7ab60a795a/68747470733a2f2f6261646765732e6769747465722e696d2f6d656c726965662f70757265636f6e6669672e737667\" alt=\"Join the chat at https://gitter.im/melrief/pureconfig\" data-canonical-src=\"https://badges.gitter.im/melrief/pureconfig.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">PureConfig is a Scala library for loading configuration files. It reads <a href=\"https://github.com/lightbend/config\">Typesafe Config</a> configurations written in <a href=\"https://github.com/lightbend/config/blob/master/HOCON.md#hocon-human-optimized-config-object-notation\">HOCON</a>, Java <code>.properties</code>, or JSON to native Scala classes in a boilerplate-free way. Sealed traits, case classes, collections, optional values, and many other <a href=\"https://pureconfig.github.io/docs/built-in-supported-types.html\" rel=\"nofollow\">types are all supported out-of-the-box</a>. Users also have many ways to <a href=\"https://pureconfig.github.io/docs/supporting-new-types.html\" rel=\"nofollow\">add support for custom types</a> or <a href=\"https://pureconfig.github.io/docs/overriding-behavior-for-types.html\" rel=\"nofollow\">customize existing ones</a>.</p>\n<p dir=\"auto\"><br clear=\"right\"> </p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Why</h2><a id=\"user-content-why\" class=\"anchor\" aria-label=\"Permalink: Why\" href=\"#why\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">Loading configurations has always been a tedious and error-prone procedure. A common way to do it\nconsists in writing code to deserialize each fields of the configuration. The more fields there are,\nthe more code must be written (and tested and maintained...) and this must be replicated for each project.</p>\n<p dir=\"auto\">This kind of code is boilerplate because most of the times the code can be automatically generated by\nthe compiler based on what must be loaded. For instance, if you are going to load an <code>Int</code> for a field\nnamed <code>foo</code>, then probably you want some code that gets the values associated with the key <code>foo</code> in\nthe configuration and assigns it to the proper field after converting it to <code>Int</code>.</p>\n<p dir=\"auto\">The goal of this library is to create at compile-time the boilerplate necessary to load a configuration of a\ncertain type. In other words, you define <strong>what</strong> to load and PureConfig provides <strong>how</strong> to load it.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Quick Start</h2><a id=\"user-content-quick-start\" class=\"anchor\" aria-label=\"Permalink: Quick Start\" href=\"#quick-start\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">To use PureConfig in an existing SBT project with Scala 2.12 or a later version, add the following dependency to your\n<code>build.sbt</code>:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;com.github.pureconfig&quot; %% &quot;pureconfig&quot; % &quot;0.17.7&quot;\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.github.pureconfig<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>pureconfig<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.17.7<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">For Scala 3, add the following dependency to your <code>build.sbt</code>:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;com.github.pureconfig&quot; %% &quot;pureconfig-core&quot; % &quot;0.17.7&quot;\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.github.pureconfig<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>pureconfig-core<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.17.7<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">While a lot of the documentation will also apply to Scala 3, there is a specific guide for Scala 3's derivation that you can <a href=\"scala-3-derivation.html\">find here</a>.</p>\n<p dir=\"auto\">For a full example of <code>build.sbt</code> you can have a look at this <a href=\"https://github.com/pureconfig/pureconfig/blob/master/example/build.sbt\">build.sbt</a>.</p>\n<p dir=\"auto\">Earlier versions of Scala had bugs which can cause subtle compile-time problems in PureConfig.\nAs a result we recommend only using the latest Scala versions within the minor series.</p>\n<p dir=\"auto\">In your code, import <code>pureconfig.generic.auto</code> and define data types and a case class to hold the configuration:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"import pureconfig._\nimport pureconfig.generic.auto._\n\ncase class Port(number: Int) extends AnyVal\n\nsealed trait AuthMethod\ncase class Login(username: String, password: String) extends AuthMethod\ncase class Token(token: String) extends AuthMethod\ncase class PrivateKey(pkFile: java.io.File) extends AuthMethod\n\ncase class ServiceConf(\n  host: String,\n  port: Port,\n  useHttps: Boolean,\n  authMethods: List[AuthMethod]\n)\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">pureconfig</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">pureconfig</span>.<span class=\"pl-en\">generic</span>.<span class=\"pl-en\">auto</span>.<span class=\"pl-en\">_</span>\n\n<span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">Port</span>(<span class=\"pl-v\">number</span>: <span class=\"pl-en\">Int</span>) <span class=\"pl-k\">extends</span> <span class=\"pl-en\">AnyVal</span>\n\n<span class=\"pl-k\">sealed</span> <span class=\"pl-k\">trait</span> <span class=\"pl-en\">AuthMethod</span>\n<span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">Login</span>(<span class=\"pl-v\">username</span>: <span class=\"pl-en\">String</span>, <span class=\"pl-v\">password</span>: <span class=\"pl-en\">String</span>) <span class=\"pl-k\">extends</span> <span class=\"pl-en\">AuthMethod</span>\n<span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">Token</span>(<span class=\"pl-v\">token</span>: <span class=\"pl-en\">String</span>) <span class=\"pl-k\">extends</span> <span class=\"pl-en\">AuthMethod</span>\n<span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">PrivateKey</span>(<span class=\"pl-v\">pkFile</span>: java.io.<span class=\"pl-en\">File</span>) <span class=\"pl-k\">extends</span> <span class=\"pl-en\">AuthMethod</span>\n\n<span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">ServiceConf</span>(\n  <span class=\"pl-v\">host</span>: <span class=\"pl-en\">String</span>,\n  <span class=\"pl-v\">port</span>: <span class=\"pl-en\">Port</span>,\n  <span class=\"pl-v\">useHttps</span>: <span class=\"pl-en\">Boolean</span>,\n  <span class=\"pl-v\">authMethods</span>: <span class=\"pl-en\">List</span>[<span class=\"pl-en\">AuthMethod</span>]\n)</pre></div>\n<p dir=\"auto\">Second, create an <code>application.conf</code> file and add it as a resource of your application (with SBT, they are usually\nplaced in <code>src/main/resources</code>):</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"// src/main/resources/application.conf\nhost = &quot;example.com&quot;\nport = 8080\nuse-https = true\nauth-methods = [\n  { type = &quot;private-key&quot;, pk-file = &quot;/home/user/myauthkey&quot; },\n  { type = &quot;login&quot;, username = &quot;pureconfig&quot;, password = &quot;12345678&quot; }\n]\"><pre class=\"notranslate\"><code>// src/main/resources/application.conf\nhost = \"example.com\"\nport = 8080\nuse-https = true\nauth-methods = [\n  { type = \"private-key\", pk-file = \"/home/user/myauthkey\" },\n  { type = \"login\", username = \"pureconfig\", password = \"12345678\" }\n]\n</code></pre></div>\n<p dir=\"auto\">Finally, load the configuration:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"ConfigSource.default.load[ServiceConf]\n// res4: ConfigReader.Result[ServiceConf] = Right(\n//   ServiceConf(\n//     &quot;example.com&quot;,\n//     Port(8080),\n//     true,\n//     List(PrivateKey(/home/user/myauthkey), Login(&quot;pureconfig&quot;, &quot;12345678&quot;))\n//   )\n// )\"><pre><span class=\"pl-en\">ConfigSource</span>.default.load[<span class=\"pl-en\">ServiceConf</span>]\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> res4: ConfigReader.Result[ServiceConf] = Right(</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span>   ServiceConf(</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span>     \"example.com\",</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span>     Port(8080),</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span>     true,</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span>     List(PrivateKey(/home/user/myauthkey), Login(\"pureconfig\", \"12345678\"))</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span>   )</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> )</span></pre></div>\n<p dir=\"auto\"><code>ConfigReader.Result[ServiceConf]</code> is just an alias for <code>Either[ConfigReaderFailures, ServiceConf]</code>, so you can handle\nit just like you would handle an <code>Either</code> value.</p>\n<p dir=\"auto\">The various <code>loadConfig</code> methods defer to Typesafe Config's\n<a href=\"https://lightbend.github.io/config/latest/api/com/typesafe/config/ConfigFactory.html\" rel=\"nofollow\"><code>ConfigFactory</code></a> to\nselect where to load the config files from. Typesafe Config has <a href=\"https://github.com/lightbend/config#standard-behavior\">well-documented rules for configuration\nloading</a> which we'll not repeat. Please see Typesafe\nConfig's documentation for a full telling of the subtleties.</p>\n<p dir=\"auto\">Alternatively, PureConfig also provides a <code>loadConfigFromFiles</code> method that builds a configuration from\nan explicit list of files. Files earlier in the list have greater precedence than later ones. Each file can\ninclude a partial configuration as long as the whole list produces a complete configuration. For an example,\nsee the test of <code>loadConfigFromFiles</code> in\n<a href=\"https://github.com/pureconfig/pureconfig/blob/master/tests/src/test/scala/pureconfig/ApiSuite.scala\"><code>ApiSuite.scala</code></a>.</p>\n<p dir=\"auto\">Because PureConfig uses Typesafe Config to load configurations, it supports reading files in <a href=\"https://github.com/lightbend/config/blob/master/HOCON.md#hocon-human-optimized-config-object-notation\">HOCON</a>, JSON, and Java <code>.properties</code> formats. HOCON is a superset of both JSON and <code>.properties</code> that is highly recommended. As an added bonus it supports <a href=\"https://github.com/lightbend/config/blob/master/README.md#features-of-hocon\">advanced features</a> like variable substitution and file sourcing.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Documentation</h2><a id=\"user-content-documentation\" class=\"anchor\" aria-label=\"Permalink: Documentation\" href=\"#documentation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">Please see the <a href=\"https://pureconfig.github.io/docs\" rel=\"nofollow\">full PureConfig documentation</a> for more information.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Contribute</h2><a id=\"user-content-contribute\" class=\"anchor\" aria-label=\"Permalink: Contribute\" href=\"#contribute\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">PureConfig is a free library developed by several people around the world.\nContributions are welcomed and encouraged. If you want to contribute, we suggest to have a look at the\n<a href=\"https://github.com/pureconfig/pureconfig/issues\">available issues</a> and to talk with\nus on the <a href=\"https://gitter.im/melrief/pureconfig?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge\" rel=\"nofollow\">PureConfig Gitter channel</a>.</p>\n<p dir=\"auto\">If you'd like to add support for types which are not part of the standard Java or Scala libraries, please consider submitting a pull request to create a <a href=\"https://pureconfig.github.io/docs/library-integrations.html\" rel=\"nofollow\">module</a>. <a href=\"https://github.com/pureconfig/pureconfig/pull/108/files\">Pull Request #108</a> created a very simple module. It should provide a good template for the pieces you'll need to add.</p>\n<p dir=\"auto\">The steps to create a new module, called <em><code>nexttopmod</code></em>, are:</p>\n<ol dir=\"auto\">\n<li>Define a new project in the root <code>build.sbt</code>. There are other examples near the top of the file;</li>\n<li>Create a new  <code>modules/nexttopmod/</code> subdirectory;</li>\n<li>Add a <code>modules/nexttopmod/build.sbt</code> defining the module's name and special dependencies;</li>\n<li>Implement converters. Typically they're in a <code>package object</code> in <code>modules/nexttopmod/src/main/scala/pureconfig/module/nexttopmod/package.scala</code>;</li>\n<li>Test the converters. Usually tests would be in <code>modules/nexttopmod/src/test/scala/pureconfig/module/nexttopmod/NextTopModSuite.scala</code>;</li>\n<li>Optionally explain a little bit about how it works in <code>modules/nexttopmod/README.md</code>.</li>\n</ol>\n<p dir=\"auto\">PureConfig supports the <a href=\"http://typelevel.org\" rel=\"nofollow\">Typelevel</a> <a href=\"http://typelevel.org/conduct.html\" rel=\"nofollow\">code of conduct</a> and wants all of its channels (Gitter, GitHub, etc.) to be\nwelcoming environments for everyone.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">License</h2><a id=\"user-content-license\" class=\"anchor\" aria-label=\"Permalink: License\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><a href=\"LICENSE\">Mozilla Public License, version 2.0</a></p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Special Thanks</h2><a id=\"user-content-special-thanks\" class=\"anchor\" aria-label=\"Permalink: Special Thanks\" href=\"#special-thanks\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">To the <a href=\"https://github.com/milessabin/shapeless\">Shapeless</a> and to the <a href=\"https://github.com/lightbend/config\">Typesafe Config</a>\ndevelopers.</p>\n</article></div>",
+    "readme" : "<div id=\"readme\" class=\"md\" data-path=\"README.md\"><article class=\"markdown-body entry-content container-lg\" itemprop=\"text\"><div class=\"markdown-heading\" dir=\"auto\"><h1 class=\"heading-element\" dir=\"auto\">PureConfig</h1><a id=\"user-content-pureconfig\" class=\"anchor\" aria-label=\"Permalink: PureConfig\" href=\"#pureconfig\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"docs/src/main/resources/microsite/img/pureconfig-logo-1040x1200.png\"><img src=\"docs/src/main/resources/microsite/img/pureconfig-logo-1040x1200.png\" width=\"130px\" height=\"150px\" align=\"right\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\"><a href=\"https://github.com/pureconfig/pureconfig/actions?query=workflow%3ACI+branch%3Amaster\"><img src=\"https://github.com/pureconfig/pureconfig/actions/workflows/ci.yml/badge.svg?branch=master\" alt=\"Build Status\" style=\"max-width: 100%;\"></a>\n<a href=\"https://coveralls.io/github/pureconfig/pureconfig?branch=master\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/6a7452ed4b75ddf99ff8dfc1f2106509084a26f92e098f7b9a1b342b2b2ae084/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6769746875622f70757265636f6e6669672f70757265636f6e6669672f62616467652e7376673f6272616e63683d6d6173746572\" alt=\"Coverage Status\" data-canonical-src=\"https://coveralls.io/repos/github/pureconfig/pureconfig/badge.svg?branch=master\" style=\"max-width: 100%;\"></a>\n<a href=\"https://search.maven.org/artifact/com.github.pureconfig/pureconfig_2.12\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/5f0f53c892a9dd67082a6c05bcaa042abc3a23754033fb459bdc05251c950bde/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f636f6d2e6769746875622e70757265636f6e6669672f70757265636f6e6669675f322e31322f62616467652e737667\" alt=\"Maven Central\" data-canonical-src=\"https://maven-badges.herokuapp.com/maven-central/com.github.pureconfig/pureconfig_2.12/badge.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://javadoc.io/page/com.github.pureconfig/pureconfig-core_2.12/latest/pureconfig/index.html\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/c04e40c0d8354ae6556b725dd333203804e30bcda871ba4dfafc038f74d6d3bb/68747470733a2f2f6a617661646f632e696f2f62616467652f636f6d2e6769746875622e70757265636f6e6669672f70757265636f6e6669672d636f72655f322e31322e737667\" alt=\"Scaladoc\" data-canonical-src=\"https://javadoc.io/badge/com.github.pureconfig/pureconfig-core_2.12.svg\" style=\"max-width: 100%;\"></a>\n<a href=\"https://gitter.im/melrief/pureconfig?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/69603d0951e578b899df03668bf35ab94daee8368d7cbb67bfecd7e8f3a6230d/68747470733a2f2f6261646765732e6769747465722e696d2f6d656c726965662f70757265636f6e6669672e737667\" alt=\"Join the chat at https://gitter.im/melrief/pureconfig\" data-canonical-src=\"https://badges.gitter.im/melrief/pureconfig.svg\" style=\"max-width: 100%;\"></a></p>\n<p dir=\"auto\">PureConfig is a Scala library for loading configuration files. It reads <a href=\"https://github.com/lightbend/config\">Typesafe Config</a> configurations written in <a href=\"https://github.com/lightbend/config/blob/master/HOCON.md#hocon-human-optimized-config-object-notation\">HOCON</a>, Java <code>.properties</code>, or JSON to native Scala classes in a boilerplate-free way. Sealed traits, case classes, collections, optional values, and many other <a href=\"https://pureconfig.github.io/docs/built-in-supported-types.html\" rel=\"nofollow\">types are all supported out-of-the-box</a>. Users also have many ways to <a href=\"https://pureconfig.github.io/docs/supporting-new-types.html\" rel=\"nofollow\">add support for custom types</a> or <a href=\"https://pureconfig.github.io/docs/overriding-behavior-for-types.html\" rel=\"nofollow\">customize existing ones</a>.</p>\n<p dir=\"auto\"><br clear=\"right\"> </p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Why</h2><a id=\"user-content-why\" class=\"anchor\" aria-label=\"Permalink: Why\" href=\"#why\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">Loading configurations has always been a tedious and error-prone procedure. A common way to do it\nconsists in writing code to deserialize each fields of the configuration. The more fields there are,\nthe more code must be written (and tested and maintained...) and this must be replicated for each project.</p>\n<p dir=\"auto\">This kind of code is boilerplate because most of the times the code can be automatically generated by\nthe compiler based on what must be loaded. For instance, if you are going to load an <code>Int</code> for a field\nnamed <code>foo</code>, then probably you want some code that gets the values associated with the key <code>foo</code> in\nthe configuration and assigns it to the proper field after converting it to <code>Int</code>.</p>\n<p dir=\"auto\">The goal of this library is to create at compile-time the boilerplate necessary to load a configuration of a\ncertain type. In other words, you define <strong>what</strong> to load and PureConfig provides <strong>how</strong> to load it.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Quick Start</h2><a id=\"user-content-quick-start\" class=\"anchor\" aria-label=\"Permalink: Quick Start\" href=\"#quick-start\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">To use PureConfig in an existing SBT project with Scala 2.12 or a later version, add the following dependency to your\n<code>build.sbt</code>:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;com.github.pureconfig&quot; %% &quot;pureconfig&quot; % &quot;0.17.7&quot;\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.github.pureconfig<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>pureconfig<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.17.7<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">For Scala 3, add the following dependency to your <code>build.sbt</code>:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"libraryDependencies += &quot;com.github.pureconfig&quot; %% &quot;pureconfig-core&quot; % &quot;0.17.7&quot;\"><pre>libraryDependencies <span class=\"pl-k\">+</span><span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>com.github.pureconfig<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>pureconfig-core<span class=\"pl-pds\">\"</span></span> <span class=\"pl-k\">%</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>0.17.7<span class=\"pl-pds\">\"</span></span></pre></div>\n<p dir=\"auto\">While a lot of the documentation will also apply to Scala 3, there is a specific guide for Scala 3's derivation that you can <a href=\"https://pureconfig.github.io/docs/scala-3-derivation.html\" rel=\"nofollow\">find here</a>.</p>\n<p dir=\"auto\">For a full example of <code>build.sbt</code> you can have a look at this <a href=\"https://github.com/pureconfig/pureconfig/blob/master/example/build.sbt\">build.sbt</a>.</p>\n<p dir=\"auto\">Earlier versions of Scala had bugs which can cause subtle compile-time problems in PureConfig.\nAs a result we recommend only using the latest Scala versions within the minor series.</p>\n<p dir=\"auto\">In your code, import <code>pureconfig.generic.auto</code> and define data types and a case class to hold the configuration:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"import pureconfig._\nimport pureconfig.generic.auto._\n\ncase class Port(number: Int) extends AnyVal\n\nsealed trait AuthMethod\ncase class Login(username: String, password: String) extends AuthMethod\ncase class Token(token: String) extends AuthMethod\ncase class PrivateKey(pkFile: java.io.File) extends AuthMethod\n\ncase class ServiceConf(\n  host: String,\n  port: Port,\n  useHttps: Boolean,\n  authMethods: List[AuthMethod]\n)\"><pre><span class=\"pl-k\">import</span> <span class=\"pl-en\">pureconfig</span>.<span class=\"pl-en\">_</span>\n<span class=\"pl-k\">import</span> <span class=\"pl-en\">pureconfig</span>.<span class=\"pl-en\">generic</span>.<span class=\"pl-en\">auto</span>.<span class=\"pl-en\">_</span>\n\n<span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">Port</span>(<span class=\"pl-v\">number</span>: <span class=\"pl-en\">Int</span>) <span class=\"pl-k\">extends</span> <span class=\"pl-en\">AnyVal</span>\n\n<span class=\"pl-k\">sealed</span> <span class=\"pl-k\">trait</span> <span class=\"pl-en\">AuthMethod</span>\n<span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">Login</span>(<span class=\"pl-v\">username</span>: <span class=\"pl-en\">String</span>, <span class=\"pl-v\">password</span>: <span class=\"pl-en\">String</span>) <span class=\"pl-k\">extends</span> <span class=\"pl-en\">AuthMethod</span>\n<span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">Token</span>(<span class=\"pl-v\">token</span>: <span class=\"pl-en\">String</span>) <span class=\"pl-k\">extends</span> <span class=\"pl-en\">AuthMethod</span>\n<span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">PrivateKey</span>(<span class=\"pl-v\">pkFile</span>: java.io.<span class=\"pl-en\">File</span>) <span class=\"pl-k\">extends</span> <span class=\"pl-en\">AuthMethod</span>\n\n<span class=\"pl-k\">case</span> <span class=\"pl-k\">class</span> <span class=\"pl-en\">ServiceConf</span>(\n  <span class=\"pl-v\">host</span>: <span class=\"pl-en\">String</span>,\n  <span class=\"pl-v\">port</span>: <span class=\"pl-en\">Port</span>,\n  <span class=\"pl-v\">useHttps</span>: <span class=\"pl-en\">Boolean</span>,\n  <span class=\"pl-v\">authMethods</span>: <span class=\"pl-en\">List</span>[<span class=\"pl-en\">AuthMethod</span>]\n)</pre></div>\n<p dir=\"auto\">Second, create an <code>application.conf</code> file and add it as a resource of your application (with SBT, they are usually\nplaced in <code>src/main/resources</code>):</p>\n<div class=\"snippet-clipboard-content notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"// src/main/resources/application.conf\nhost = &quot;example.com&quot;\nport = 8080\nuse-https = true\nauth-methods = [\n  { type = &quot;private-key&quot;, pk-file = &quot;/home/user/myauthkey&quot; },\n  { type = &quot;login&quot;, username = &quot;pureconfig&quot;, password = &quot;12345678&quot; }\n]\"><pre class=\"notranslate\"><code>// src/main/resources/application.conf\nhost = \"example.com\"\nport = 8080\nuse-https = true\nauth-methods = [\n  { type = \"private-key\", pk-file = \"/home/user/myauthkey\" },\n  { type = \"login\", username = \"pureconfig\", password = \"12345678\" }\n]\n</code></pre></div>\n<p dir=\"auto\">Finally, load the configuration:</p>\n<div class=\"highlight highlight-source-scala notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"ConfigSource.default.load[ServiceConf]\n// res4: ConfigReader.Result[ServiceConf] = Right(\n//   ServiceConf(\n//     &quot;example.com&quot;,\n//     Port(8080),\n//     true,\n//     List(PrivateKey(/home/user/myauthkey), Login(&quot;pureconfig&quot;, &quot;12345678&quot;))\n//   )\n// )\"><pre><span class=\"pl-en\">ConfigSource</span>.default.load[<span class=\"pl-en\">ServiceConf</span>]\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> res4: ConfigReader.Result[ServiceConf] = Right(</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span>   ServiceConf(</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span>     \"example.com\",</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span>     Port(8080),</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span>     true,</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span>     List(PrivateKey(/home/user/myauthkey), Login(\"pureconfig\", \"12345678\"))</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span>   )</span>\n<span class=\"pl-c\"><span class=\"pl-c\">//</span> )</span></pre></div>\n<p dir=\"auto\"><code>ConfigReader.Result[ServiceConf]</code> is just an alias for <code>Either[ConfigReaderFailures, ServiceConf]</code>, so you can handle\nit just like you would handle an <code>Either</code> value.</p>\n<p dir=\"auto\">The various <code>loadConfig</code> methods defer to Typesafe Config's\n<a href=\"https://lightbend.github.io/config/latest/api/com/typesafe/config/ConfigFactory.html\" rel=\"nofollow\"><code>ConfigFactory</code></a> to\nselect where to load the config files from. Typesafe Config has <a href=\"https://github.com/lightbend/config#standard-behavior\">well-documented rules for configuration\nloading</a> which we'll not repeat. Please see Typesafe\nConfig's documentation for a full telling of the subtleties.</p>\n<p dir=\"auto\">Alternatively, PureConfig also provides a <code>loadConfigFromFiles</code> method that builds a configuration from\nan explicit list of files. Files earlier in the list have greater precedence than later ones. Each file can\ninclude a partial configuration as long as the whole list produces a complete configuration. For an example,\nsee the test of <code>loadConfigFromFiles</code> in\n<a href=\"https://github.com/pureconfig/pureconfig/blob/master/tests/src/test/scala/pureconfig/ApiSuite.scala\"><code>ApiSuite.scala</code></a>.</p>\n<p dir=\"auto\">Because PureConfig uses Typesafe Config to load configurations, it supports reading files in <a href=\"https://github.com/lightbend/config/blob/master/HOCON.md#hocon-human-optimized-config-object-notation\">HOCON</a>, JSON, and Java <code>.properties</code> formats. HOCON is a superset of both JSON and <code>.properties</code> that is highly recommended. As an added bonus it supports <a href=\"https://github.com/lightbend/config/blob/master/README.md#features-of-hocon\">advanced features</a> like variable substitution and file sourcing.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Documentation</h2><a id=\"user-content-documentation\" class=\"anchor\" aria-label=\"Permalink: Documentation\" href=\"#documentation\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">Please see the <a href=\"https://pureconfig.github.io/docs\" rel=\"nofollow\">full PureConfig documentation</a> for more information.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Contribute</h2><a id=\"user-content-contribute\" class=\"anchor\" aria-label=\"Permalink: Contribute\" href=\"#contribute\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">PureConfig is a free library developed by several people around the world.\nContributions are welcomed and encouraged. If you want to contribute, we suggest to have a look at the\n<a href=\"https://github.com/pureconfig/pureconfig/issues\">available issues</a> and to talk with\nus on the <a href=\"https://gitter.im/melrief/pureconfig?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge\" rel=\"nofollow\">PureConfig Gitter channel</a>.</p>\n<p dir=\"auto\">If you'd like to add support for types which are not part of the standard Java or Scala libraries, please consider submitting a pull request to create a <a href=\"https://pureconfig.github.io/docs/library-integrations.html\" rel=\"nofollow\">module</a>. <a href=\"https://github.com/pureconfig/pureconfig/pull/108/files\">Pull Request #108</a> created a very simple module. It should provide a good template for the pieces you'll need to add.</p>\n<p dir=\"auto\">The steps to create a new module, called <em><code>nexttopmod</code></em>, are:</p>\n<ol dir=\"auto\">\n<li>Define a new project in the root <code>build.sbt</code>. There are other examples near the top of the file;</li>\n<li>Create a new  <code>modules/nexttopmod/</code> subdirectory;</li>\n<li>Add a <code>modules/nexttopmod/build.sbt</code> defining the module's name and special dependencies;</li>\n<li>Implement converters. Typically they're in a <code>package object</code> in <code>modules/nexttopmod/src/main/scala/pureconfig/module/nexttopmod/package.scala</code>;</li>\n<li>Test the converters. Usually tests would be in <code>modules/nexttopmod/src/test/scala/pureconfig/module/nexttopmod/NextTopModSuite.scala</code>;</li>\n<li>Optionally explain a little bit about how it works in <code>modules/nexttopmod/README.md</code>.</li>\n</ol>\n<p dir=\"auto\">PureConfig supports the <a href=\"http://typelevel.org\" rel=\"nofollow\">Typelevel</a> <a href=\"http://typelevel.org/conduct.html\" rel=\"nofollow\">code of conduct</a> and wants all of its channels (Gitter, GitHub, etc.) to be\nwelcoming environments for everyone.</p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">License</h2><a id=\"user-content-license\" class=\"anchor\" aria-label=\"Permalink: License\" href=\"#license\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\"><a href=\"LICENSE\">Mozilla Public License, version 2.0</a></p>\n<div class=\"markdown-heading\" dir=\"auto\"><h2 class=\"heading-element\" dir=\"auto\">Special Thanks</h2><a id=\"user-content-special-thanks\" class=\"anchor\" aria-label=\"Permalink: Special Thanks\" href=\"#special-thanks\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></a></div>\n<p dir=\"auto\">To the <a href=\"https://github.com/milessabin/shapeless\">Shapeless</a> and to the <a href=\"https://github.com/lightbend/config\">Typesafe Config</a>\ndevelopers.</p>\n</article></div>",
     "contributors" : [
+      {
+        "login" : "scala-steward",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/43047562?v=4",
+        "url" : "https://github.com/scala-steward",
+        "contributions" : 870
+      },
+      {
+        "login" : "ruippeixotog",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/613493?v=4",
+        "url" : "https://github.com/ruippeixotog",
+        "contributions" : 623
+      },
+      {
+        "login" : "jcazevedo",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/143188?v=4",
+        "url" : "https://github.com/jcazevedo",
+        "contributions" : 276
+      },
+      {
+        "login" : "melrief",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1481478?v=4",
+        "url" : "https://github.com/melrief",
+        "contributions" : 120
+      },
+      {
+        "login" : "derekmorr",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6717579?v=4",
+        "url" : "https://github.com/derekmorr",
+        "contributions" : 63
+      },
+      {
+        "login" : "leifwickland",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/731622?v=4",
+        "url" : "https://github.com/leifwickland",
+        "contributions" : 57
+      },
+      {
+        "login" : "yangzai",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2064190?v=4",
+        "url" : "https://github.com/yangzai",
+        "contributions" : 12
+      },
+      {
+        "login" : "kubukoz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/894884?v=4",
+        "url" : "https://github.com/kubukoz",
+        "contributions" : 11
+      },
+      {
+        "login" : "beatriz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7109748?v=4",
+        "url" : "https://github.com/beatriz",
+        "contributions" : 11
+      },
+      {
+        "login" : "ChernikovP",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7805206?v=4",
+        "url" : "https://github.com/ChernikovP",
+        "contributions" : 9
+      },
+      {
+        "login" : "keirlawson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/49213?v=4",
+        "url" : "https://github.com/keirlawson",
+        "contributions" : 9
+      },
+      {
+        "login" : "nigredo-tori",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/5962285?v=4",
+        "url" : "https://github.com/nigredo-tori",
+        "contributions" : 8
+      },
+      {
+        "login" : "queimadus",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1107697?v=4",
+        "url" : "https://github.com/queimadus",
+        "contributions" : 7
+      },
+      {
+        "login" : "grzegorz-bielski",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22674545?v=4",
+        "url" : "https://github.com/grzegorz-bielski",
+        "contributions" : 6
+      },
+      {
+        "login" : "YuvalItzchakov",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3448320?v=4",
+        "url" : "https://github.com/YuvalItzchakov",
+        "contributions" : 6
+      },
+      {
+        "login" : "JD557",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1187242?v=4",
+        "url" : "https://github.com/JD557",
+        "contributions" : 5
+      },
+      {
+        "login" : "cranst0n",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1173143?v=4",
+        "url" : "https://github.com/cranst0n",
+        "contributions" : 4
+      },
+      {
+        "login" : "ajaychandran",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4387263?v=4",
+        "url" : "https://github.com/ajaychandran",
+        "contributions" : 4
+      },
+      {
+        "login" : "alonsodomin",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2269440?v=4",
+        "url" : "https://github.com/alonsodomin",
+        "contributions" : 3
+      },
+      {
+        "login" : "anshulbajpai",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/291429?v=4",
+        "url" : "https://github.com/anshulbajpai",
+        "contributions" : 3
+      },
+      {
+        "login" : "stsatlantis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7964844?v=4",
+        "url" : "https://github.com/stsatlantis",
+        "contributions" : 3
+      },
+      {
+        "login" : "bszwej",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7793417?v=4",
+        "url" : "https://github.com/bszwej",
+        "contributions" : 3
+      },
+      {
+        "login" : "bardurdam",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/525830?v=4",
+        "url" : "https://github.com/bardurdam",
+        "contributions" : 3
+      },
+      {
+        "login" : "neko-kai",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/450507?v=4",
+        "url" : "https://github.com/neko-kai",
+        "contributions" : 3
+      },
+      {
+        "login" : "moradology",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1977405?v=4",
+        "url" : "https://github.com/moradology",
+        "contributions" : 3
+      },
+      {
+        "login" : "satorg",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3954178?v=4",
+        "url" : "https://github.com/satorg",
+        "contributions" : 2
+      },
+      {
+        "login" : "SethTisue",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/161079?v=4",
+        "url" : "https://github.com/SethTisue",
+        "contributions" : 2
+      },
+      {
+        "login" : "sh0hei",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/884074?v=4",
+        "url" : "https://github.com/sh0hei",
+        "contributions" : 2
+      },
+      {
+        "login" : "lefou",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1321393?v=4",
+        "url" : "https://github.com/lefou",
+        "contributions" : 2
+      },
+      {
+        "login" : "dvirf",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/19424644?v=4",
+        "url" : "https://github.com/dvirf",
+        "contributions" : 2
+      },
+      {
+        "login" : "miguelpuyol",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3450789?v=4",
+        "url" : "https://github.com/miguelpuyol",
+        "contributions" : 2
+      },
+      {
+        "login" : "n4to4",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/21071230?v=4",
+        "url" : "https://github.com/n4to4",
+        "contributions" : 2
+      },
+      {
+        "login" : "stefanobaghino",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1374489?v=4",
+        "url" : "https://github.com/stefanobaghino",
+        "contributions" : 2
+      },
+      {
+        "login" : "rberenguel",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2410938?v=4",
+        "url" : "https://github.com/rberenguel",
+        "contributions" : 2
+      },
+      {
+        "login" : "d6y",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/102661?v=4",
+        "url" : "https://github.com/d6y",
+        "contributions" : 2
+      },
+      {
+        "login" : "jcranky",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/772886?v=4",
+        "url" : "https://github.com/jcranky",
+        "contributions" : 2
+      },
+      {
+        "login" : "sideeffffect",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9019485?v=4",
+        "url" : "https://github.com/sideeffffect",
+        "contributions" : 2
+      },
+      {
+        "login" : "kiara-riley",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22225188?v=4",
+        "url" : "https://github.com/kiara-riley",
+        "contributions" : 2
+      },
+      {
+        "login" : "froth",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2845252?v=4",
+        "url" : "https://github.com/froth",
+        "contributions" : 2
+      },
+      {
+        "login" : "froesef",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/71638048?v=4",
+        "url" : "https://github.com/froesef",
+        "contributions" : 2
+      },
+      {
+        "login" : "ChristopherDavenport",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10272700?v=4",
+        "url" : "https://github.com/ChristopherDavenport",
+        "contributions" : 2
+      },
+      {
+        "login" : "ChidiRnweke",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/88949660?v=4",
+        "url" : "https://github.com/ChidiRnweke",
+        "contributions" : 2
+      },
+      {
+        "login" : "nsutcliffe",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4528404?v=4",
+        "url" : "https://github.com/nsutcliffe",
+        "contributions" : 1
+      },
+      {
+        "login" : "skeet70",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1424117?v=4",
+        "url" : "https://github.com/skeet70",
+        "contributions" : 1
+      },
+      {
+        "login" : "limansky",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/111185?v=4",
+        "url" : "https://github.com/limansky",
+        "contributions" : 1
+      },
+      {
+        "login" : "mlachkar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7843237?v=4",
+        "url" : "https://github.com/mlachkar",
+        "contributions" : 1
+      },
+      {
+        "login" : "mberndt123",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11650737?v=4",
+        "url" : "https://github.com/mberndt123",
+        "contributions" : 1
+      },
+      {
+        "login" : "mdedetrich",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2337269?v=4",
+        "url" : "https://github.com/mdedetrich",
+        "contributions" : 1
+      },
+      {
+        "login" : "mattkohl",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4329213?v=4",
+        "url" : "https://github.com/mattkohl",
+        "contributions" : 1
+      },
+      {
+        "login" : "sirthias",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/135347?v=4",
+        "url" : "https://github.com/sirthias",
+        "contributions" : 1
+      },
+      {
+        "login" : "BalmungSan",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/11336950?v=4",
+        "url" : "https://github.com/BalmungSan",
+        "contributions" : 1
+      },
+      {
+        "login" : "kthompson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/15068?v=4",
+        "url" : "https://github.com/kthompson",
+        "contributions" : 1
+      },
+      {
+        "login" : "olegbonar",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/25862932?v=4",
+        "url" : "https://github.com/olegbonar",
+        "contributions" : 1
+      },
+      {
+        "login" : "p16i",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1214890?v=4",
+        "url" : "https://github.com/p16i",
+        "contributions" : 1
+      },
+      {
+        "login" : "saraiva132",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9886953?v=4",
+        "url" : "https://github.com/saraiva132",
+        "contributions" : 1
+      },
+      {
+        "login" : "missingfaktor",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1016826?v=4",
+        "url" : "https://github.com/missingfaktor",
+        "contributions" : 1
+      },
+      {
+        "login" : "tabdulradi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/725206?v=4",
+        "url" : "https://github.com/tabdulradi",
+        "contributions" : 1
+      },
+      {
+        "login" : "LMnet",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2826500?v=4",
+        "url" : "https://github.com/LMnet",
+        "contributions" : 1
+      },
+      {
+        "login" : "eyalfa",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1131833?v=4",
+        "url" : "https://github.com/eyalfa",
+        "contributions" : 1
+      },
+      {
+        "login" : "mhodovaniuk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6465044?v=4",
+        "url" : "https://github.com/mhodovaniuk",
+        "contributions" : 1
+      },
+      {
+        "login" : "sebver",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/4509721?v=4",
+        "url" : "https://github.com/sebver",
+        "contributions" : 1
+      },
+      {
+        "login" : "monktastic",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1936858?v=4",
+        "url" : "https://github.com/monktastic",
+        "contributions" : 1
+      },
+      {
+        "login" : "aecc",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/6069300?v=4",
+        "url" : "https://github.com/aecc",
+        "contributions" : 1
+      },
+      {
+        "login" : "chuwy",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/681171?v=4",
+        "url" : "https://github.com/chuwy",
+        "contributions" : 1
+      },
+      {
+        "login" : "armanbilge",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/3119428?v=4",
+        "url" : "https://github.com/armanbilge",
+        "contributions" : 1
+      },
+      {
+        "login" : "arixmkii",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/36887373?v=4",
+        "url" : "https://github.com/arixmkii",
+        "contributions" : 1
+      },
+      {
+        "login" : "bplommer",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/8990749?v=4",
+        "url" : "https://github.com/bplommer",
+        "contributions" : 1
+      },
+      {
+        "login" : "ngbinh",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/211327?v=4",
+        "url" : "https://github.com/ngbinh",
+        "contributions" : 1
+      },
+      {
+        "login" : "aeons",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1432894?v=4",
+        "url" : "https://github.com/aeons",
+        "contributions" : 1
+      },
+      {
+        "login" : "coltfred",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/587319?v=4",
+        "url" : "https://github.com/coltfred",
+        "contributions" : 1
+      },
+      {
+        "login" : "little-inferno",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/9513414?v=4",
+        "url" : "https://github.com/little-inferno",
+        "contributions" : 1
+      },
+      {
+        "login" : "geirolz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/31506564?v=4",
+        "url" : "https://github.com/geirolz",
+        "contributions" : 1
+      },
+      {
+        "login" : "DavidGregory084",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/2992938?v=4",
+        "url" : "https://github.com/DavidGregory084",
+        "contributions" : 1
+      },
+      {
+        "login" : "duartepinto",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/7612420?v=4",
+        "url" : "https://github.com/duartepinto",
+        "contributions" : 1
+      },
+      {
+        "login" : "erikerlandson",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/259898?v=4",
+        "url" : "https://github.com/erikerlandson",
+        "contributions" : 1
+      },
+      {
+        "login" : "gseitz",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/158412?v=4",
+        "url" : "https://github.com/gseitz",
+        "contributions" : 1
+      },
+      {
+        "login" : "heksesang",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1137756?v=4",
+        "url" : "https://github.com/heksesang",
+        "contributions" : 1
+      },
+      {
+        "login" : "himanshu4141",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/1370357?v=4",
+        "url" : "https://github.com/himanshu4141",
+        "contributions" : 1
+      },
+      {
+        "login" : "hugo-vrijswijk",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/10114577?v=4",
+        "url" : "https://github.com/hugo-vrijswijk",
+        "contributions" : 1
+      },
+      {
+        "login" : "Ssstlis",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/22175914?v=4",
+        "url" : "https://github.com/Ssstlis",
+        "contributions" : 1
+      },
+      {
+        "login" : "jbgi",
+        "avatarUrl" : "https://avatars.githubusercontent.com/u/221929?v=4",
+        "url" : "https://github.com/jbgi",
+        "contributions" : 1
+      }
     ],
-    "commits" : 0,
+    "commits" : 2195,
     "topics" : [
       "hacktoberfest",
       "pureconfig",
@@ -31,6 +517,176 @@
     "contributingGuide" : null,
     "codeOfConduct" : null,
     "openIssues" : [
+      {
+        "number" : 1673,
+        "title" : "pureconfig-generic-scala3 derivation of ConfigReader doesn't work with default values",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/1673"
+      },
+      {
+        "number" : 1590,
+        "title" : "deriveReader for Scala 3",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/1590"
+      },
+      {
+        "number" : 1541,
+        "title" : "Cannot find an implicit instance of pureconfig.ConfigReader",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/1541"
+      },
+      {
+        "number" : 1436,
+        "title" : "Allow custom ConfigParseOptions",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/1436"
+      },
+      {
+        "number" : 1353,
+        "title" : "Ignore NULL values when reading maps",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/1353"
+      },
+      {
+        "number" : 1329,
+        "title" : "Case class instance unexpectedly shared across map entries",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/1329"
+      },
+      {
+        "number" : 1316,
+        "title" : "java.lang.NoClassDefFoundError: Could not initialize class io.circe.Decoder$ after Shading ",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/1316"
+      },
+      {
+        "number" : 1313,
+        "title" : "Derivation reports unreachable code warning for scala 3.0.2",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/1313"
+      },
+      {
+        "number" : 1307,
+        "title" : "Support Scala Native and Scala JS",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/1307"
+      },
+      {
+        "number" : 1258,
+        "title" : "ConfigSource.loadOrThrow triggers cat=lint-byname-implicit",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/1258"
+      },
+      {
+        "number" : 1204,
+        "title" : "Reasonable derivation defaults for scala 3",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/1204"
+      },
+      {
+        "number" : 1165,
+        "title" : "Documentation does not tell me how to use loaded configuration",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/1165"
+      },
+      {
+        "number" : 1142,
+        "title" : "pureconfig-core_2.12-0.14.1.jar might have zip issue",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/1142"
+      },
+      {
+        "number" : 1085,
+        "title" : "Feature request: mechanism for docs/info about options",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/1085"
+      },
+      {
+        "number" : 1082,
+        "title" : "SBT project structure and Scala 3",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/1082"
+      },
+      {
+        "number" : 970,
+        "title" : "Add support for generic derivation of `ConfigReader` and `ConfigWriter` instances in Scala 3",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/970"
+      },
+      {
+        "number" : 954,
+        "title" : "Support Lightbend Config-style durations",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/954"
+      },
+      {
+        "number" : 939,
+        "title" : "How to avoid false \"unused import\"-warnings in Intelli?",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/939"
+      },
+      {
+        "number" : 925,
+        "title" : "Move implicits definitions from package objects to traits ",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/925"
+      },
+      {
+        "number" : 908,
+        "title" : "Unable to compose ConfigReaders",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/908"
+      },
+      {
+        "number" : 904,
+        "title" : "ConfigReader.map is broken for readers with ReadsMissingKeys",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/904"
+      },
+      {
+        "number" : 874,
+        "title" : "JSON encoder for FailureReasons/FailureReason (for structural logging purposes)",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/874"
+      },
+      {
+        "number" : 836,
+        "title" : "Complex validation approach",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/836"
+      },
+      {
+        "number" : 835,
+        "title" : "Reader/Writer for K in genericMapReader/Writer",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/835"
+      },
+      {
+        "number" : 820,
+        "title" : "Read All config from a resource folder",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/820"
+      },
+      {
+        "number" : 708,
+        "title" : "http4s Link support",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/708"
+      },
+      {
+        "number" : 595,
+        "title" : "Improve SBT project structure",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/595"
+      },
+      {
+        "number" : 486,
+        "title" : "Support getting List[PathSegment] from ConfigCursor",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/486"
+      },
+      {
+        "number" : 485,
+        "title" : "Support a simpler form of manual derivation",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/485"
+      },
+      {
+        "number" : 334,
+        "title" : "Provide a feature for auto-binding from JVM and env variables",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/334"
+      },
+      {
+        "number" : 325,
+        "title" : "Add support for more java.net.* classes",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/325"
+      },
+      {
+        "number" : 301,
+        "title" : "Scalaz tagged types problems when used in products",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/301"
+      },
+      {
+        "number" : 240,
+        "title" : "Document the project's rules",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/240"
+      },
+      {
+        "number" : 87,
+        "title" : "Abstract from the typesafe config backend",
+        "url" : "https://github.com/pureconfig/pureconfig/issues/87"
+      }
     ],
     "scalaPercentage" : 99,
     "license" : "MPL-2.0",
